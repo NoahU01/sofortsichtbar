@@ -11,7 +11,7 @@ stimmen Position und Größe aller Sektionen sowie die Gesamthöhe der Seite exa
 
 ```bash
 npm install
-npm run dev     # Dev-Server auf http://localhost:8080 (mit Live-Reload)
+npm run dev     # Dev-Server auf http://localhost:8181 (mit Live-Reload)
 npm run build   # Produktions-Build nach dist/
 npm run clean   # dist/ löschen
 ```

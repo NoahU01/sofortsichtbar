@@ -5,7 +5,7 @@
   "description": "sofort sichtbar – Website",
   "type": "module",
   "scripts": {
-    "dev": "eleventy --serve --port=8080",
+    "dev": "eleventy --serve --port=8181",
     "build": "eleventy",
     "clean": "rm -rf dist"
   },
