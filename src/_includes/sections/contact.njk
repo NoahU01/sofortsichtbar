@@ -1,0 +1,43 @@
+{% set c = home.contact %}
+<section class="contact" id="kontakt">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="contact__container padding-large">
+
+          <div class="glow contact__glow-1 reveal"></div>
+          <div class="glow contact__glow-2 reveal"></div>
+          <div class="contact__scrim-2"></div>
+          <div class="contact__scrim"></div>
+
+          <div class="contact__content">
+            <div class="contact__text">
+              <h2 class="heading-h2 text-white">{{ c.headline }}</h2>
+              <div class="bullet-list">
+                {% for b in c.bullets %}
+                  <div class="bullet-item">
+                    <img class="icon-md" src="/assets/img/icons/{{ b.icon }}.svg" alt="" aria-hidden="true" loading="lazy">
+                    <div class="text-white">{{ b.label }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <a class="btn btn--primary" href="{{ c.cta.href }}">{{ c.cta.label }}</a>
+          </div>
+
+          <div class="contact__person">
+            <div class="contact__quote">
+              <p class="contact__quote-text">{{ c.quote }}</p>
+              <p class="contact__quote-text contact__quote-author">{{ c.quoteAuthor }}</p>
+            </div>
+            <img class="contact__image" src="/assets/img/team.png"
+                 srcset="/assets/img/team-500.png 500w, /assets/img/team.png 604w"
+                 sizes="100vw" alt="Das Team von sofort sichtbar: Kerstin, Daniel und Noah"
+                 loading="lazy" decoding="async">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

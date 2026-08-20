@@ -1,0 +1,45 @@
+/* =========================================================
+   Layout-Primitive
+   ========================================================= */
+.page-wrapper { background-color: var(--color-background); }
+.page-wrapper.is-locked { overflow: hidden; height: 100vh; }
+.main-wrapper { overflow: hidden; }
+
+.padding-global {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-padding        { padding-top: 8rem; padding-bottom: 8rem; }
+.section-padding--md    { padding-top: 5rem; padding-bottom: 5rem; }
+.section-padding.section-padding--top-6 { padding-top: 6rem; }
+.section-padding.section-padding--top-4 { padding-top: 4rem; }
+.section-padding.section-padding--top-7 { padding-top: 7rem; }
+
+.padding-medium { padding: 2rem; }
+.padding-large  { padding: 3rem; }
+
+@media (max-width: 991px) {
+  .section-padding     { padding-top: 6rem; padding-bottom: 6rem; }
+  .section-padding--md { padding-top: 4rem; padding-bottom: 4rem; }
+  .padding-medium { padding: 1.5rem; }
+  .padding-large  { padding: 2.5rem; }
+}
+@media (max-width: 767px) {
+  :root { --gutter: 1.25rem; }
+  .section-padding     { padding-top: 4rem; padding-bottom: 4rem; }
+  .section-padding--md { padding-top: 3rem; padding-bottom: 3rem; }
+  .padding-medium { padding: 1.25rem; }
+  .padding-large  { padding: 2rem; }
+}
+@media (max-width: 479px) {
+  .section-padding.section-padding--top-7 { padding-top: 2rem; }
+  .page-wrapper { overflow: hidden; }
+}

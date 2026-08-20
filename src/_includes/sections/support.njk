@@ -1,0 +1,45 @@
+{% set s = home.support %}
+<section class="support" id="support">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="support__container">
+
+          <div class="glow support__glow"></div>
+
+          <div class="support__content">
+            <div class="support__text">
+              <h2 class="text-white heading-h3">{{ s.headline }}</h2>
+              <p class="text-regular text-white">{{ s.text }}</p>
+            </div>
+
+            <div class="bullet-list">
+              <a class="bullet-item bullet-item--link" href="mailto:{{ site.email }}">
+                <img class="icon-md" src="/assets/img/icons/mail.svg" alt="" aria-hidden="true" loading="lazy">
+                <div class="text-white">{{ site.email }}</div>
+              </a>
+              <a class="bullet-item bullet-item--link" href="tel:{{ site.phoneHref }}">
+                <img class="icon-md" src="/assets/img/icons/phone.svg" alt="" aria-hidden="true" loading="lazy">
+                <div class="text-white">{{ site.phone }}</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="support__call">
+            <div class="support__call-content">
+              <div class="support__call-header">
+                <div class="support__call-icon">
+                  <img class="icon-lg" src="/assets/img/icons/meeting-camera.svg" alt="" aria-hidden="true" loading="lazy">
+                </div>
+                <h3 class="text-white heading-h4">{{ s.call.headline }}</h3>
+              </div>
+              <p class="text-white">{{ s.call.text }}</p>
+            </div>
+            <a class="btn btn--primary" href="{{ s.call.cta.href }}">{{ s.call.cta.label }}</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

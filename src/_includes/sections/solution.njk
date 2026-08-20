@@ -1,0 +1,78 @@
+{% set s = home.solution %}
+<section class="solution" id="solution">
+  <div class="padding-global">
+    <div class="section-padding section-padding--top-6">
+      <div class="container">
+        <div class="solution__container">
+
+          <div class="glow solution__glow-1 reveal"></div>
+          <div class="glow solution__glow-2 reveal"></div>
+
+          <img class="solution__vertrieb-image" src="/assets/img/vertrieb-image.png"
+               alt="Beratungsgespräch am Tisch" loading="lazy" decoding="async">
+
+          <div class="solution__wrapper">
+            <div class="solution__header">
+              <div class="eyebrow"><div class="eyebrow__text">{{ s.eyebrow }}</div></div>
+              <div class="solution__header-text">
+                <h2 class="heading-h2 text-white text-center">{{ s.headline }}</h2>
+                <p class="text-secondary text-center">{{ s.text }}</p>
+              </div>
+            </div>
+
+            <div class="solution__items">
+              {% for item in s.items %}
+                <article class="solution__item{% if item.wide %} solution__item--wide{% endif %}">
+                  <div class="solution__item-content">
+                    <div class="solution__item-header">
+                      <img class="icon-md" src="/assets/img/icons/check.svg" alt="" aria-hidden="true" loading="lazy">
+                      <h3 class="text-white heading-h4">{{ item.title }}</h3>
+                    </div>
+                    <p class="text-secondary">{{ item.text }}</p>
+                  </div>
+
+                  {% if item.features %}
+                    <div class="bullet-list">
+                      {% for f in item.features %}
+                        <div class="bullet-item">
+                          <img class="icon-md" src="/assets/img/icons/{{ f.icon }}.svg" alt="" aria-hidden="true" loading="lazy">
+                          <div class="text-white">{{ f.label }}</div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+
+                  {% if item.wide %}
+                    <img class="solution__preview solution__preview--wide"
+                         src="/assets/img/{{ item.image }}.png"
+                         srcset="/assets/img/{{ item.image }}-500.png 500w, /assets/img/{{ item.image }}-800.png 800w, /assets/img/{{ item.image }}.png 900w"
+                         sizes="(max-width: 900px) 100vw, 900px"
+                         alt="{{ item.imageAlt }}" loading="lazy" decoding="async">
+                    <img class="solution__preview solution__preview--wide solution__preview--mobile"
+                         src="/assets/img/{{ item.image }}-mobile.png"
+                         srcset="/assets/img/{{ item.image }}-mobile-500.png 500w, /assets/img/{{ item.image }}-mobile.png 687w"
+                         sizes="100vw" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  {% else %}
+                    <img class="solution__preview" src="/assets/img/{{ item.image }}.png"
+                         srcset="/assets/img/{{ item.image }}-500.png 500w, /assets/img/{{ item.image }}.png {{ item.imageWidth }}w"
+                         sizes="(max-width: 746px) 100vw, 746px"
+                         alt="{{ item.imageAlt }}" loading="lazy" decoding="async">
+                  {% endif %}
+
+                  <div class="solution__preview-gradient"></div>
+                </article>
+              {% endfor %}
+            </div>
+
+            <div class="solution__result">
+              <img class="solution__arrow" src="/assets/img/icons/arrow-handdrawn.svg" alt="" aria-hidden="true" loading="lazy">
+              <h3 class="solution__result-headline">{{ s.result.headline }}</h3>
+              <p class="text-secondary">{{ s.result.text }}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

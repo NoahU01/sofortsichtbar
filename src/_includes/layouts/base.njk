@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title or site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/logos/webclip.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  {# Tracking-Snippets (GTM, Consent o. ä.) kommen hier hinein #}
+  {% include "partials/head-scripts.njk" %}
+</head>
+<body>
+  {% include "partials/body-scripts.njk" %}
+
+  <a class="visually-hidden" href="#main">Zum Inhalt springen</a>
+
+  <div class="page-wrapper">
+    <div class="main-wrapper">
+      {% include "partials/nav.njk" %}
+
+      <main id="main">
+        {{ content | safe }}
+      </main>
+
+      {% include "partials/footer.njk" %}
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

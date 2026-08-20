@@ -1,0 +1,43 @@
+<footer class="footer">
+  <div class="padding-global">
+    <div class="section-padding--md">
+      <div class="container">
+        <div class="footer__wrapper">
+
+          <div class="footer__content">
+            <img class="footer__logo" src="/assets/img/logos/logo-white.svg" alt="{{ site.name }}" loading="lazy">
+
+            <div class="footer__nav-wrapper">
+              <div class="footer__nav">
+                <div class="footer__nav-title">Navigation</div>
+                {% for item in site.footer.navigation %}
+                  <a class="footer__link" href="{{ item.href }}">{{ item.label }}</a>
+                {% endfor %}
+              </div>
+
+              <div class="footer__nav">
+                <div class="footer__nav-title">Social Media</div>
+                {% for s in site.social %}
+                  <a class="footer__link" href="{{ s.href }}"
+                     {% if "http" in s.href %}target="_blank" rel="noopener"{% endif %}>{{ s.label }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="footer__separator"></div>
+
+          <div class="footer__bottom">
+            <div class="footer__copyright">{{ site.copyright }}</div>
+            <div class="footer__legal">
+              {% for item in site.footer.legal %}
+                <a class="footer__link footer__link--small" href="{{ item.href }}">{{ item.label }}</a>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

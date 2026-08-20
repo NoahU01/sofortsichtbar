@@ -1,0 +1,34 @@
+/* =========================================================
+   Typografie-Utilities
+   ========================================================= */
+.heading-h1 { font-size: 3.5rem; font-weight: 500; line-height: 1.1; }
+.heading-h2 { font-size: 3rem;   font-weight: 600; line-height: 1.2; }
+.heading-h3 { font-size: 2rem;   font-weight: 600; line-height: 1.2; }
+.heading-h4 { font-size: 1.5rem; font-weight: 700; line-height: 1.4; }
+
+.text-regular { font-size: 1rem; line-height: 145%; }
+.text-small   { font-size: 0.875rem; }
+.text-semibold { font-weight: 600; }
+.text-center  { text-align: center; }
+
+.text-white     { color: var(--color-white); }
+.text-secondary { color: var(--color-grey-100); }
+.text-grey      { color: gray; }
+
+/* Sekundärtext in Fließtextgröße läuft eine Spur kleiner (wie im Original) */
+.text-secondary.text-regular { font-size: 0.9rem; }
+
+@media (max-width: 991px) {
+  .heading-h2 { font-size: 2.5rem; }
+}
+@media (max-width: 767px) {
+  .heading-h1 { font-size: 2rem; }
+  .heading-h2 { font-size: 2rem; }
+  .heading-h3 { font-size: 1.5rem; }
+  .heading-h4 { font-size: 1rem; }
+}
+@media (max-width: 479px) {
+  .heading-h2 { font-size: 1.5rem; }
+  .text-regular { font-size: 0.85rem; }
+  .text-white.heading-h4 { line-height: 1.2; }
+}

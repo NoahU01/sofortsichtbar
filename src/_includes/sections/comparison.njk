@@ -1,0 +1,63 @@
+{% set c = home.comparison %}
+<section class="comparison" id="vergleich">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="comparison__wrapper">
+
+          <div class="comparison__header">
+            <div class="eyebrow"><div class="eyebrow__text">{{ c.eyebrow }}</div></div>
+            <div class="comparison__text">
+              <h2 class="text-white heading-h2 text-center">{{ c.headline }}</h2>
+              <p class="text-secondary text-center">{{ c.text }}</p>
+            </div>
+          </div>
+
+          <div class="comparison__container padding-medium">
+
+            <div class="comparison__row">
+              <div class="comparison__label">
+                <p class="text-white text-center">{{ c.agency.label }}</p>
+              </div>
+              <div class="comparison__timeline">
+                {% for step in c.agency.steps %}
+                  <div class="comparison__step"><div class="comparison__step-text">{{ step }}</div></div>
+                {% endfor %}
+                <div class="comparison__launch">
+                  <img class="icon-lg" src="/assets/img/icons/rocket.svg" alt="" aria-hidden="true" loading="lazy">
+                </div>
+                <div class="comparison__lines">
+                  {% for i in range(0, 16) %}<div class="comparison__line"></div>{% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison__row">
+              <div class="comparison__label">
+                <img class="comparison__logo" src="/assets/img/logos/logo-white.svg" alt="{{ site.name }}" loading="lazy">
+              </div>
+              <div class="comparison__timeline comparison__timeline--outline">
+                {% for step in c.ours.steps %}
+                  <div class="comparison__step comparison__step--ours"><div class="comparison__step-text">{{ step }}</div></div>
+                {% endfor %}
+                <div class="comparison__launch">
+                  <img class="icon-lg" src="/assets/img/icons/rocket.svg" alt="" aria-hidden="true" loading="lazy">
+                </div>
+                <div class="comparison__bonus">
+                  <img class="icon-md" src="/assets/img/icons/clock.svg" alt="" aria-hidden="true" loading="lazy">
+                  <div class="comparison__step-text">{{ c.ours.bonus }}</div>
+                </div>
+                <div class="comparison__lines">
+                  {% for i in range(0, 16) %}<div class="comparison__line"></div>{% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <div class="glow comparison__glow reveal"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

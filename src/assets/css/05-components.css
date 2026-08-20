@@ -1,0 +1,140 @@
+/* =========================================================
+   Wiederverwendbare Komponenten
+   ========================================================= */
+
+/* --- Buttons --------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+.btn--primary { background-color: var(--color-white); color: var(--color-black); }
+.btn--primary:hover { background-color: var(--color-grey-100); }
+.btn--primary:active { transform: scale(0.95); }
+
+.btn--secondary { border: 1px solid var(--color-white); color: var(--color-white); }
+.btn--secondary:hover { background-color: var(--color-white); color: var(--color-black); }
+.btn--secondary:active { transform: scale(0.95); }
+
+.btn--full { width: 100%; max-width: none; }
+
+@media (max-width: 991px) {
+  /* Auf Touch-Geräten kein Hover-Zustand, nur Active-Feedback */
+  .btn--primary:hover { background-color: var(--color-white); }
+  .btn--primary:active { background-color: var(--color-grey-100); }
+  .btn--secondary:hover { background-color: transparent; color: var(--color-white); }
+  .btn--secondary:active { background-color: var(--color-white); color: var(--color-black); }
+}
+@media (max-width: 479px) {
+  .btn { width: 100%; }
+}
+
+/* --- Icons ----------------------------------------------------------- */
+.icon-sm { flex: none; width: 1rem; height: 1rem; }
+.icon-md { width: 1.5rem; height: 1.5rem; }
+.icon-lg { width: 2rem; height: 2rem; }
+
+@media (max-width: 479px) {
+  .icon-md { width: 1.25rem; height: 1.25rem; }
+}
+
+/* --- Eyebrow / Pre-Headline ------------------------------------------ */
+.eyebrow {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-grey-600);
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 64px #4d3c64;
+}
+.eyebrow__text { color: var(--color-white); font-size: 0.8rem; }
+
+@media (max-width: 479px) {
+  .eyebrow { padding: 0.5rem 1rem; }
+}
+
+/* --- Pills ----------------------------------------------------------- */
+.pill {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.8rem;
+}
+.pill--round { border-radius: var(--radius-pill); }
+.pill__text { display: block; color: var(--color-white); font-size: 0.75rem; font-weight: 500; }
+
+/* --- Bullet-Listen --------------------------------------------------- */
+.bullet-list {
+  z-index: 3;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+.bullet-item {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+}
+.bullet-item--link { transition: all var(--transition); }
+.bullet-item--link:hover { opacity: 0.5; }
+
+/* Aufzählung mit Punkt (Problem-Sektion) */
+.dot-list { display: flex; flex-flow: column; gap: 1rem; }
+.dot-item { display: flex; flex: none; gap: 0.75rem; }
+.dot-item::before {
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  margin-top: 0.4rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-grey-100);
+}
+
+/* --- Floating Badge (Hero / Problem) --------------------------------- */
+.badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background-color: #0e0d0fdb;
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+}
+.badge__text { color: var(--color-white); }
+
+@media (max-width: 479px) {
+  .badge { gap: 0.75rem; border-radius: var(--radius-sm); padding: 0.5rem 1rem; }
+  .badge__text { font-size: 0.7rem; }
+}
+
+/* --- Farbnebel ------------------------------------------------------- */
+.glow {
+  position: absolute;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+/* --- Scroll-Reveal --------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}

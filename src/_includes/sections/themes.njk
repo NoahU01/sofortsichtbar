@@ -1,0 +1,42 @@
+{% set t = home.themes %}
+<section class="themes" id="themen">
+  <div class="padding-global">
+    <div class="section-padding section-padding--top-4">
+      <div class="container">
+        <div class="themes__container">
+
+          <div class="themes__content">
+            <div class="themes__text">
+              <h2 class="text-white heading-h2 text-center">{{ t.headline }}</h2>
+              <div class="themes__bullets">
+                {% for b in t.bullets %}
+                  <div class="themes__bullet">
+                    <img src="/assets/img/icons/check-alt.svg" alt="" aria-hidden="true" loading="lazy" width="16" height="16">
+                    <p class="text-secondary">{{ b }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <a class="btn btn--primary" href="{{ t.cta.href }}">{{ t.cta.label }}</a>
+          </div>
+
+          <div class="themes__slider-wrapper" data-marquee aria-hidden="true">
+            <div class="themes__slider" data-marquee-track data-speed="0.6">
+              {% for img in t.sliderTop %}
+                <img class="themes__slide" src="/assets/img/themes/{{ img }}" alt="" loading="lazy" decoding="async">
+              {% endfor %}
+            </div>
+            <div class="themes__slider" data-marquee-track data-speed="0.35">
+              {% for img in t.sliderBottom %}
+                <img class="themes__slide themes__slide--small" src="/assets/img/themes/{{ img }}" alt="" loading="lazy" decoding="async">
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="glow themes__glow reveal"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

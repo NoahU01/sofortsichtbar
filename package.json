@@ -1,0 +1,15 @@
+{
+  "name": "sofortsichtbar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "sofort sichtbar – Website",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

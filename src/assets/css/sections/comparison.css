@@ -1,0 +1,151 @@
+/* =========================================================
+   Vergleich Agentur vs. sofort sichtbar
+   ========================================================= */
+.comparison__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.comparison__header {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 42rem;
+}
+.comparison__text { display: flex; flex-flow: column; gap: 0.5rem; }
+
+.comparison__container {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  width: 100%;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.comparison__row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comparison__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+}
+.comparison__logo { width: 4rem; }
+
+.comparison__timeline {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  height: 6rem;
+  padding: 1rem;
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+}
+.comparison__timeline--outline { border: 1px solid var(--color-grey-600); }
+
+.comparison__step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--color-grey-800);
+  border-radius: var(--radius-md);
+}
+.comparison__step--ours { max-width: 12rem; }
+
+.comparison__step-text { color: var(--color-white); }
+
+.comparison__launch {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  min-width: 5.25rem;
+  height: 100%;
+  background-color: var(--color-launch-to);
+  background-image: linear-gradient(172deg, var(--color-launch-from), var(--color-launch-to));
+  border: 1.5px solid var(--color-launch-border);
+  border-radius: var(--radius-md);
+}
+
+.comparison__bonus {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Vertikale Rasterlinien im Hintergrund der Timeline */
+.comparison__lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.125rem 2rem;
+}
+.comparison__line {
+  width: 1.5px;
+  height: 100%;
+  background-image: linear-gradient(#45475600, #1c1c20 32% 71%, #45475600);
+}
+
+.comparison__glow {
+  z-index: 0;
+  inset: 0 auto 0 -4rem;
+  width: 22rem;
+  height: 100%;
+  background-color: var(--glow-purple);
+  filter: blur(8rem);
+}
+
+@media (max-width: 479px) {
+  .comparison__container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0.75rem;
+    border-radius: var(--radius-xl);
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+  .comparison__row { flex-flow: column; justify-content: space-between; align-items: center; }
+  .comparison__timeline { flex-flow: column; height: 16rem; padding: 0.5rem; }
+  .comparison__step { border-radius: var(--radius-sm); height: 100%; max-height: 2.5rem; }
+  .comparison__step--ours { max-width: none; max-height: 2rem; }
+  .comparison__step-text { text-align: center; font-size: 0.6rem; line-height: 1.1; }
+  .comparison__launch { border-radius: var(--radius-sm); width: 100%; min-width: 100%; max-height: 3rem; }
+  .comparison__launch .icon-lg { width: 1.25rem; height: 1.25rem; }
+  .comparison__bonus { flex-flow: column; height: 100%; }
+  .comparison__lines { display: none; }
+  .comparison__glow { filter: blur(8rem); width: 100%; inset: auto 0 0; }
+}

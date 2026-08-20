@@ -1,0 +1,50 @@
+{% set p = home.problem %}
+<section class="problem" id="problem">
+  <div class="padding-global">
+    <div class="section-padding section-padding--top-7">
+      <div class="container">
+        <div class="problem__grid">
+
+          <div class="problem__visual">
+            <div class="problem__glow reveal"></div>
+
+            <img class="problem__image" src="/assets/img/problem-image.jpg"
+                 srcset="/assets/img/problem-image-500.jpg 500w, /assets/img/problem-image.jpg 565w"
+                 sizes="(max-width: 565px) 100vw, 565px"
+                 alt="Berater hält sich erschöpft die Hände vors Gesicht" loading="lazy" decoding="async">
+
+            <div class="badge problem__badge--mail">
+              <div class="problem__notification">
+                <div class="problem__notification-text">{{ p.notificationCount }}</div>
+              </div>
+              <img class="problem__gmail-icon" src="/assets/img/icons/gmail.svg" alt="" aria-hidden="true" loading="lazy">
+            </div>
+
+            <div class="badge problem__badge--delivered">
+              <img class="icon-sm" src="/assets/img/icons/zugestellt.svg" alt="" aria-hidden="true" loading="lazy">
+              <div class="text-white problem__delivered-text">{{ p.delivered }}</div>
+            </div>
+
+            <div class="badge problem__badge--call">
+              <img class="problem__missed-call-icon" src="/assets/img/icons/missed-call.svg" alt="" aria-hidden="true" loading="lazy">
+              <div class="problem__missed-call-text">
+                <div class="problem__bullet text-semibold">{{ p.missedCall.name }}</div>
+                <div class="problem__bullet">{{ p.missedCall.label }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="problem__content">
+            <h2 class="heading-h2 text-white">{{ p.headline }}</h2>
+            <div class="dot-list">
+              {% for b in p.bullets %}
+                <div class="dot-item"><p class="text-secondary text-regular">{{ b }}</p></div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

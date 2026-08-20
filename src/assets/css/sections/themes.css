@@ -1,0 +1,106 @@
+/* =========================================================
+   Themen / Pakete
+   ========================================================= */
+.themes__container {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  padding: 4rem 4rem 32rem;
+  border: 1px solid var(--color-grey-600);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.themes__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  max-width: 46rem;
+}
+
+.themes__text {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 42rem;
+}
+
+.themes__bullets {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.themes__bullet { display: flex; flex: none; gap: 0.75rem; align-items: center; }
+
+.themes__glow {
+  z-index: 0;
+  bottom: -4rem;
+  left: auto;
+  right: auto;
+  width: 56rem;
+  height: 18rem;
+  background-color: var(--glow-navy);
+  filter: blur(12rem);
+}
+
+/* --- Marquee --------------------------------------------------------- */
+.themes__slider-wrapper {
+  position: absolute;
+  inset: auto 0 8rem;
+  z-index: 3;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.themes__slider {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  will-change: transform;
+}
+
+.themes__slide {
+  width: 18rem;
+  min-width: 18rem;
+  height: 10rem;
+  background-color: var(--color-grey-100);
+  border-radius: 0.25rem;
+  object-fit: cover;
+}
+.themes__slide--small { width: 15rem; min-width: 15rem; height: 8.5rem; }
+
+@media (max-width: 991px) {
+  .themes__bullets {
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .themes__container { border-radius: var(--radius-xl); padding: 2rem 2rem 23.6rem; }
+  .themes__bullets { gap: 1.5rem; }
+  .themes__glow { filter: blur(8rem); width: 24rem; height: 28rem; }
+  .themes__slider-wrapper { bottom: 4rem; }
+  .themes__slide { width: 14rem; min-width: 14rem; height: 8rem; }
+  .themes__slide--small { width: 11rem; min-width: 11rem; height: 6rem; }
+}

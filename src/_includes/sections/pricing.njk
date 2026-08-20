@@ -1,0 +1,92 @@
+{% set pr = home.pricing %}
+<section class="pricing" id="pricing">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="pricing__grid">
+
+          <div class="pricing__hero">
+            <h2 class="heading-h2 text-white text-center" style="position:relative;z-index:2">{{ pr.headline }}</h2>
+            <div class="glow pricing__glow-1"></div>
+            <div class="glow pricing__glow-2"></div>
+          </div>
+
+          <div class="pricing__tabs" data-tabs>
+            <div class="pricing__switch" role="tablist" aria-label="Zahlungsintervall">
+              {% for tab in pr.tabs %}
+                <button class="pricing__switch-button{% if tab.badge %} pricing__switch-button--sale{% endif %}"
+                        type="button" role="tab"
+                        id="tab-{{ tab.id }}"
+                        aria-controls="panel-{{ tab.id }}"
+                        aria-selected="{{ 'true' if tab.id == pr.activeTab else 'false' }}"
+                        tabindex="{{ '0' if tab.id == pr.activeTab else '-1' }}">
+                  <span class="pricing__switch-text">{{ tab.label }}</span>
+                  {% if tab.badge %}
+                    <span class="pill pill--round"><span class="pill__text">{{ tab.badge }}</span></span>
+                  {% endif %}
+                </button>
+              {% endfor %}
+            </div>
+
+            <div class="pricing__panels">
+              {% for tab in pr.tabs %}
+                <div class="pricing__panel" role="tabpanel"
+                     id="panel-{{ tab.id }}" aria-labelledby="tab-{{ tab.id }}"
+                     {% if tab.id != pr.activeTab %}hidden{% endif %}>
+                  <div class="pricing__cards">
+                    {% for tier in pr.tiers %}
+                      <div class="{{ 'pricing__tier pricing__tier--featured' if tier.featured else 'pricing__tier' }}">
+                        <div class="pricing__card">
+                          <div class="pricing__option">
+                            <div class="pricing__option-inner">
+                              <div class="pricing__content">
+                                <div class="pricing__header-box">
+                                  <div class="pricing__header">
+                                    <h3 class="pricing__name">{{ tier.name }}</h3>
+                                    {% if tier.badge %}
+                                      <span class="pill"><span class="pill__text">{{ tier.badge }}</span></span>
+                                    {% endif %}
+                                  </div>
+                                  <p class="text-small text-grey">{{ tier.text }}</p>
+                                </div>
+
+                                <div class="pricing__price-wrapper">
+                                  {% if tab.id == 'yearly' %}
+                                    <p class="pricing__price pricing__price--original">{{ tier.yearlyOriginal }}</p>
+                                    <p class="pricing__price">{{ tier.yearly }}</p>
+                                  {% else %}
+                                    <p class="pricing__price">{{ tier.monthly }}</p>
+                                  {% endif %}
+                                  <p class="pricing__price-unit">/Monat</p>
+                                </div>
+
+                                <div class="pricing__separator"></div>
+
+                                <div class="pricing__benefits">
+                                  {% for benefit in tier.benefits %}
+                                    <div class="pricing__benefit">
+                                      {% include "partials/icon-check.njk" %}
+                                      <p class="text-small text-white">{{ benefit }}</p>
+                                    </div>
+                                  {% endfor %}
+                                </div>
+                              </div>
+
+                              <a class="btn {{ 'btn--primary' if tier.featured else 'btn--secondary' }} btn--full"
+                                 href="{{ pr.cta.href }}">{{ pr.cta.label }}</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

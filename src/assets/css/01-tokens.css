@@ -1,0 +1,51 @@
+/* =========================================================
+   Design Tokens
+   ========================================================= */
+:root {
+  /* Farben */
+  --color-background: #0e0d0f;
+  --color-surface: #211d24;
+  --color-element: #332b38;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-grey-100: #c3c2c3;
+  --color-grey-400: #7e7f88;
+  --color-grey-600: #454756;
+  --color-grey-800: #161418;
+
+  /* Akzente */
+  --color-accent: #a167e4;
+  --color-launch-from: #8324b9;
+  --color-launch-to: #a23edb;
+  --color-launch-border: #b47ed3;
+  --color-danger: red;
+
+  /* Farbnebel (blurred gradient blobs) */
+  --glow-magenta: #693069;
+  --glow-blue: #183567;
+  --glow-violet: #251a4b;
+  --glow-plum: #532153;
+  --glow-navy: #082453;
+  --glow-purple: #310e44;
+  --glow-indigo: #001c4d;
+  --glow-deep-blue: #061b3f;
+  --glow-mauve: #422342;
+
+  /* Typografie */
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Radien */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-pill: 99rem;
+
+  /* Layout */
+  --container-max: 80rem;
+  --gutter: 2.5rem;
+
+  /* Motion */
+  --transition: 0.2s;
+}

@@ -1,0 +1,103 @@
+/* =========================================================
+   Häufige Fragen
+   ========================================================= */
+.faq__wrapper {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
+  place-items: start stretch;
+  gap: 8rem;
+}
+
+.faq__header {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.faq__items {
+  grid-column: span 2;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.faq__item {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  border: 1px solid var(--color-grey-600);
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition);
+}
+.faq__item:hover { background-color: var(--color-element); }
+
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  text-align: left;
+  color: var(--color-white);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq__icon-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-pill);
+}
+.faq__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-white);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+.faq__question[aria-expanded="true"] .faq__icon { transform: rotate(0deg); }
+
+/* Auf-/Zuklappen ohne feste Höhen */
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  max-width: 36rem;
+  transition: grid-template-rows 0.35s ease;
+}
+.faq__question[aria-expanded="true"] + .faq__answer { grid-template-rows: 1fr; }
+.faq__answer-inner { overflow: hidden; min-height: 0; }
+/* Abstand zur Frage sitzt im geclippten Inhalt – eingeklappt verschwindet er mit */
+.faq__answer-inner > :first-child { margin-top: 1rem; }
+
+.faq__answer-inner p {
+  color: var(--color-white);
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+.faq__answer-inner strong { font-weight: 600; }
+
+@media (max-width: 991px) {
+  .faq__wrapper { display: flex; flex-flow: column; gap: 2rem; }
+  .faq__items { grid-column: auto; }
+}
+
+@media (max-width: 479px) {
+  .faq__item { padding: 1.5rem; }
+  .faq__question { gap: 1rem; }
+}

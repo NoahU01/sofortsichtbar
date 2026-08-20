@@ -1,0 +1,38 @@
+{
+  "name": "sofort sichtbar",
+  "title": "sofort sichtbar",
+  "description": "Werde sofort sichtbar für genau die Zielgruppen, die du erreichen willst. Komplette digitale Vertriebsstrecken für Versicherungsprofis – ohne monatelange Vorbereitung.",
+  "url": "https://www.sofortsichtbar.de",
+  "lang": "de",
+  "email": "kontakt@sofortsichtbar.de",
+  "phone": "+49 176 3134 7217",
+  "phoneHref": "+4917631347217",
+  "copyright": "© sofort sichtbar 2026",
+  "nav": [
+    { "label": "Unsere Lösung", "href": "/#solution" },
+    { "label": "Vertriebsstrecken", "href": "/vertriebsstrecken" },
+    { "label": "Pricing", "href": "/pricing" },
+    { "label": "Für Vertriebsleiter", "href": "/vetriebsleiter" }
+  ],
+  "navCta": { "label": "Kontakt aufnehmen", "href": "/kontakt" },
+  "social": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/sofort-sichtbar/", "icon": "linkedin" },
+    { "label": "Instagram", "href": "https://www.instagram.com/sofort_sichtbar/", "icon": "instagram" },
+    { "label": "Facebook", "href": "#", "icon": "facebook" }
+  ],
+  "socialNavOrder": ["instagram", "linkedin", "facebook"],
+  "footer": {
+    "navigation": [
+      { "label": "Startseite", "href": "/" },
+      { "label": "Unsere Lösung", "href": "/#solution" },
+      { "label": "Vertriebsstrecken", "href": "/vertriebsstrecken" },
+      { "label": "Pricing", "href": "/pricing" },
+      { "label": "Für Vetriebsleiter", "href": "/vetriebsleiter" },
+      { "label": "Kontakt", "href": "/kontakt" }
+    ],
+    "legal": [
+      { "label": "Datenschutzerklärung", "href": "/datenschutzerklarung" },
+      { "label": "Impressum", "href": "/impressum" }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{% set f = home.faq %}
+<section class="faq" id="faq">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="faq__wrapper">
+
+          <div class="faq__header">
+            <h2 class="text-white heading-h3">{{ f.headline }}</h2>
+            <p class="text-regular text-grey">{{ f.text }}</p>
+          </div>
+
+          <div class="faq__items">
+            {% for item in f.items %}
+              <div class="faq__item">
+                <button class="faq__question text-regular" type="button"
+                        id="faq-q-{{ loop.index }}"
+                        aria-expanded="false" aria-controls="faq-a-{{ loop.index }}">
+                  <span>{{ item.question }}</span>
+                  <span class="faq__icon-wrapper" aria-hidden="true">
+                    <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false">
+                      <path fill="currentColor" d="m292.2 256 109.9-109.9c10-10 10-26.2 0-36.2s-26.2-10-36.2 0l-109.9 109.9-109.9-109.9c-10-10-26.2-10-36.2 0s-10 26.2 0 36.2l109.9 109.9-109.9 109.9c-10 10-10 26.2 0 36.2 5 5 11.55 7.5 18.1 7.5s13.1-2.5 18.1-7.5l109.9-109.9 109.9 109.9c5 5 11.55 7.5 18.1 7.5s13.1-2.5 18.1-7.5c10-10 10-26.2 0-36.2z"></path>
+                    </svg>
+                  </span>
+                </button>
+
+                <div class="faq__answer" id="faq-a-{{ loop.index }}" role="region" aria-labelledby="faq-q-{{ loop.index }}">
+                  <div class="faq__answer-inner">{{ item.answer | safe }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
