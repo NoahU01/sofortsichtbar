@@ -1,0 +1,31 @@
+{% set s = zielgruppenShared %}
+<section class="zg-hero">
+  <div class="padding-global">
+    <div class="zg-hero__content">
+      <div class="text-white">{{ s.eyebrow }}</div>
+      <h1 class="heading-h1 text-white text-center zg-hero__title">{{ zg.name }}</h1>
+      <div class="text-white text-center rich-text">{{ zg.intro | safe }}</div>
+    </div>
+  </div>
+
+  <div class="glow themes-hero__glow-1"></div>
+  <div class="glow themes-hero__glow-2"></div>
+
+  <div class="themes-hero__preview">
+    {% for b in s.heroBadges %}
+      <div class="themes-hero__badge-{{ loop.index }}">
+        <div class="badge">
+          <img class="icon-sm" src="/assets/img/{{ b.icon }}" alt="" aria-hidden="true" loading="lazy">
+          <div class="badge__text">{{ b.label }}</div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <img class="themes-hero__image" src="/assets/img/{{ zg.heroImage }}"
+         srcset="/assets/img/{{ zg.heroImage | replace('.webp','-800.webp') }} 800w, /assets/img/{{ zg.heroImage }} 1664w"
+         sizes="(max-width: 991px) 90vw, 1052px"
+         alt="Vorschau der Vertriebsstrecke für {{ zg.name }}" decoding="async">
+    <img class="themes-hero__image themes-hero__image--mobile" src="/assets/img/{{ s.heroImageMobile }}"
+         alt="" aria-hidden="true" decoding="async">
+  </div>
+</section>

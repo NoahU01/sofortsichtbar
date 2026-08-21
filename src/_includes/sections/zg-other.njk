@@ -1,0 +1,28 @@
+{% set s = zielgruppenShared %}
+<section class="zg-other" id="andere-themen">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="zg-other__container">
+
+          <div class="glow zg-other__glow"></div>
+
+          {% for b in s.otherBadges %}
+            <div class="zg-other__badge zg-other__badge-{{ loop.index }}">
+              <div class="badge">
+                <img class="icon-sm" src="/assets/img/{{ b.icon }}" alt="" aria-hidden="true" loading="lazy">
+                <div class="badge__text">{{ b.label }}</div>
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="zg-other__content">
+            <h2 class="text-white heading-h3 text-center">{{ s.otherHeadline }}</h2>
+            <a class="btn btn--primary" href="{{ s.otherCta.href }}">{{ s.otherCta.label }}</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

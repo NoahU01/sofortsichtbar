@@ -1,0 +1,31 @@
+{% set s = zielgruppenShared %}
+<section class="zg-styles" id="styles">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="zg-styles__container">
+
+          <div class="zg-styles__header">
+            <h2 class="text-white heading-h3">{{ s.styleHeadline }}</h2>
+            <p class="text-white text-center">{{ s.styleText }}</p>
+            <div class="zg-styles__color">
+              <img src="/assets/img/icons/pipette.svg" alt="" aria-hidden="true" loading="lazy" width="20" height="20">
+              <p class="text-white">{{ s.colorNote }}</p>
+            </div>
+          </div>
+
+          <div class="zg-styles__grid">
+            {% for style in zg.styles %}
+              <div class="zg-style">
+                <h3 class="text-white heading-h5">{{ style.name }}</h3>
+                <img class="zg-style__image" src="/assets/img/{{ style.image }}"
+                     alt="Style {{ style.name }} für {{ zg.name }}" loading="lazy" decoding="async">
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

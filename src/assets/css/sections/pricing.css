@@ -7,6 +7,8 @@
   width: 100%;
 }
 
+.pricing__headline { position: relative; z-index: 2; }
+
 .pricing__hero {
   position: relative;
   display: flex;
@@ -173,7 +175,9 @@
 .pricing__check { flex: none; width: 1rem; height: 1rem; color: var(--color-white); }
 
 @media (max-width: 991px) {
-  .pricing__hero { padding-left: 6rem; padding-right: 6rem; }
+  .pricing__headline { position: relative; z-index: 2; }
+
+.pricing__hero { padding-left: 6rem; padding-right: 6rem; }
   .pricing__cards { grid-template-columns: 1fr; height: auto; }
   .pricing__tier { padding-top: 0; padding-bottom: 0; }
   .pricing__option-inner { gap: 2rem; max-height: none; }
@@ -184,7 +188,9 @@
 }
 
 @media (max-width: 479px) {
-  .pricing__hero { border-radius: var(--radius-xl); padding: 2rem 2rem 12rem; }
+  .pricing__headline { position: relative; z-index: 2; }
+
+.pricing__hero { border-radius: var(--radius-xl); padding: 2rem 2rem 12rem; }
   .pricing__tabs { margin-top: -11rem; padding: 1rem; }
   .pricing__option { padding: 1.5rem; }
   .pricing__glow-1 { filter: blur(8rem); width: 14rem; }

@@ -1,5 +1,6 @@
 {% set pr = pricing %}
 {% set pricingPadding = pricingPadding or "section-padding" %}
+{% set pricingTag = pricingTag or "h2" %}
 <section class="pricing" id="pricing">
   <div class="padding-global">
     <div class="{{ pricingPadding }}">
@@ -7,7 +8,7 @@
         <div class="pricing__grid">
 
           <div class="pricing__hero">
-            <h2 class="heading-h2 text-white text-center" style="position:relative;z-index:2">{{ pr.headline }}</h2>
+            <{{ pricingTag }} class="heading-h2 text-white text-center pricing__headline">{{ pr.headline }}</{{ pricingTag }}>
             <div class="glow pricing__glow-1"></div>
             <div class="glow pricing__glow-2"></div>
           </div>

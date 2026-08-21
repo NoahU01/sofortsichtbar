@@ -1,0 +1,20 @@
+---
+pagination:
+  data: zielgruppen
+  size: 1
+  alias: zg
+permalink: "/zielgruppen/{{ zg.slug }}/index.html"
+layout: layouts/base.njk
+eleventyComputed:
+  title: "{{ zg.name }} – Vertriebsstrecke | sofort sichtbar"
+  description: "Fertige digitale Vertriebsstrecke für die Zielgruppe {{ zg.name }}: Social-Media-Postings, Landingpage und E-Mail-Funnel."
+eleventyExcludeFromCollections: true
+faqContainer: container-medium
+---
+{% include "sections/zg-hero.njk" %}
+{% include "sections/zg-styles.njk" %}
+{% include "sections/zg-about.njk" %}
+{% set faqData = { headline: zielgruppenShared.faqHeadline, text: "", items: zg.faq } %}
+{% include "sections/faq.njk" %}
+{% include "sections/support.njk" %}
+{% include "sections/zg-other.njk" %}

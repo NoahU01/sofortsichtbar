@@ -1,0 +1,70 @@
+{
+  "eyebrow": "Zielgruppe",
+  "styleHeadline": "Wähle deinen Style",
+  "styleText": "Für einen Unternehmensauftritt, der zu deinem Corporate Design passt.",
+  "colorNote": "Mit deinen Farben",
+  "aboutHeadline": "Über die Zielgruppe",
+  "faqHeadline": "Fragen, die im Vertrieb zählen",
+  "otherHeadline": "Finde andere Themen, die zu dir passen.",
+  "otherCta": {
+    "label": "Andere ansehen",
+    "href": "/vertriebsstrecken"
+  },
+  "otherBadges": [
+    {
+      "label": "Angestellte",
+      "icon": "icons/office-employee-2.svg"
+    },
+    {
+      "label": "Ärzte",
+      "icon": "icons/medical-instrument-stethoscope-2.svg"
+    },
+    {
+      "label": "Landwirte",
+      "icon": "icons/professions-man-farmer-2.svg"
+    },
+    {
+      "label": "Gründer & Freelancer",
+      "icon": "icons/worker-needed-computer-2.svg"
+    },
+    {
+      "label": "Immobilienmakler",
+      "icon": "icons/real-estate-action-house-key-2.svg"
+    },
+    {
+      "label": "Bauherren",
+      "icon": "icons/construction-house-2.svg"
+    },
+    {
+      "label": "Vereine",
+      "icon": "icons/club-flag-1-2.svg"
+    },
+    {
+      "label": "Werdende Eltern",
+      "icon": "icons/family-child-2.svg"
+    },
+    {
+      "label": "Kanzleiinhaber",
+      "icon": "icons/avatar-judge-man-2.svg"
+    },
+    {
+      "label": "Berufseinsteiger",
+      "icon": "icons/tool-box-2.svg"
+    }
+  ],
+  "heroBadges": [
+    {
+      "label": "Social Media",
+      "icon": "icons/frame-80.svg"
+    },
+    {
+      "label": "Landingpage",
+      "icon": "icons/laptop-1.svg"
+    },
+    {
+      "label": "E-Mail-Funnel",
+      "icon": "icons/email-action-send-1.svg"
+    }
+  ],
+  "heroImageMobile": "pages/details-header-mobile.webp"
+}

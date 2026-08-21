@@ -1,0 +1,1182 @@
+[
+  {
+    "slug": "anwalte-und-kanzleiinhaber",
+    "name": "Kanzleiinhaber",
+    "intro": "<p>Selbstständige Kanzleiinhaber mit Verantwortung, wenig Zeit und latentem Absicherungsdruck.</p><p>‍</p>",
+    "heroImage": "pages/kanzleiinhaber.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/kanzleiinhaber-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/kanzleiinhaber-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/kanzleiinhaber-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Selbstständig, haftungsrelevant</li><li>Hohe Verantwortung</li><li>Zeitknapp, strukturiert</li><li>Bestehender Versicherungsbestand</li><li>Kritisch, entscheidungsstark</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Kanzlei wächst, Risiken verändern sich schleichend</li><li>Schadenfälle im Umfeld erhöhen persönliches Risikobewusstsein</li><li>Versicherungen bestehen, wurden lange nicht geprüft</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst Überblick schaffen, dann bewusst entscheiden</li><li>Misstrauen gegenüber Verkaufsdruck dominiert</li><li>Sicherheit und Kontrolle wichtiger als Preis</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung:</strong></p><p>Hoher Gesprächsbedarf bei gleichzeitig hoher Abschlussqualität, wenn Vertrauen hergestellt ist.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Pflichtversicherungen erzeugen trügerische Sicherheit</li><li>Kanzleiwachstum schafft neue Risiken</li><li>Trennung privat/beruflich oft unscharf</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Hoher Durchschnittsbeitrag pro Kunde</li><li>Mehrere Sparten pro Mandat möglich</li><li>Langfristige Betreuung statt Einmalabschluss</li><li>Gute Cross-Selling-Basis über Lebensphasen</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>In jeder Stadt vorhanden</li><li>Geringe Wechselbereitschaft, aber hohe Loyalität</li><li>Bestände oft historisch gewachsen und ungeprüft</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Diese Aussagen funktionieren im Gespräch als rote Linie:</p><ul role=\"list\"><li>„Es geht nicht um mehr Versicherung, sondern um Überblick.“</li><li>„Viele Kanzleien sind versorgt, aber nicht eingeordnet.“</li><li>„Nebenbei geregelt ist das eigentliche Risiko.“</li><li>„Ein externer Blick spart Zeit und schafft Ruhe.“</li><li>„Klarheit ist auch dann wertvoll, wenn nichts geändert wird.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Ich habe doch schon Versicherungen.“</li><li>„Wie aufwendig ist das für mich?“</li><li>„Geht es hier um Verkauf?“</li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Haben sich Ihre Mandatsarten verändert?“</li><li>„Wissen Sie, wo die Grenzen Ihrer Absicherung liegen?“</li><li>„Sind private und berufliche Risiken klar getrennt?“</li></ul><p>‍</p><p>Diese Fragen öffnen Gespräche, ohne Widerstand auszulösen.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Büros mit bestehendem Kanzlei-Bestand</li><li>Agenturen mit Beratungsanspruch</li><li>Teams mit strukturiertem Erstgespräch</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Bestandsdurchsicht</li><li>Empfehlungen über Steuerberater oder Anwälte</li><li>Anlässen wie Wachstum oder Personalwechsel</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss</li><li>Nicht geeignet für reine Preisgespräche</li><li>Vertrauen zwingend notwendig</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "arzte",
+    "name": "Ärzte und Zahnärzte",
+    "intro": "<p>Für Ärzte und Zahnärzte mit hoher Verantwortung, wenig Zeit und latentem Absicherungsbedarf.</p><p>‍</p>",
+    "heroImage": "pages/arzte.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/arzte-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/arzte-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/arzte-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Hohe Verantwortung</li><li>Zeitlich stark belastet</li><li>Gutes Einkommen</li><li>Sicherheitsorientiert</li><li>Skeptisch gegenüber Verkauf</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Beruflicher Alltag lässt Absicherung dauerhaft liegen</li><li>Veränderungen passieren schneller als bewusste Entscheidungen</li><li>Bestehende Lösungen werden lange nicht hinterfragt</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst verstehen, dann bewerten, zuletzt entscheiden</li><li>Vertrauen schlägt Tempo und Verkaufsdruck</li><li>Aufwand muss klar begrenzt bleiben</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung</strong></p><p>Hoher Bedarf, hohe Werte, aber hohe Einstiegshürden. Ideal für strukturierte Beratungsansätze.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Komplexe Lebens- und Berufssituationen</li><li>Viele Einzelverträge ohne Gesamtüberblick</li><li>Häufige Veränderungen durch Karriere, Familie, Praxis</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Überdurchschnittliche Prämienvolumina</li><li>Sehr gute Cross-Selling-Potenziale</li><li>Langfristige Kundenbindung bei sauberem Einstieg</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Große, stabile Zielgruppe in jeder Stadt</li><li>Viele Bestände historisch „ungeordnet“</li><li>Hoher Wiederholbedarf durch Lebensphasen</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage liefert keinen Produktpitch, sondern Gesprächsgrundlagen:</p><ul role=\"list\"><li>„Es geht nicht um mehr, sondern um passend.“</li><li>„Überblick reduziert Stress und Fehlentscheidungen.“</li><li>„Sie entscheiden erst, wenn Sie Klarheit haben.“</li><li>„Zeitaufwand bleibt überschaubar und planbar.“</li></ul><p>‍</p><p>Diese Aussagen lassen sich direkt im Erstgespräch nutzen.</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Geht es hier darum, mir etwas zu verkaufen?“</li><li>„Ich habe wenig Zeit. Wie aufwendig ist das?“</li><li>„Lohnt sich das auch bei gutem Einkommen?“</li></ul><p>‍</p><p>→ Ideal, um Abschlussangst und Skepsis früh zu entschärfen.</p><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Wie lange wäre Ihr Einkommen bei Ausfall gesichert?“</li><li>„Was hängt in Ihrer Praxis konkret an Ihnen?“</li><li>„Wann haben Sie zuletzt alles im Zusammenhang betrachtet?“</li></ul><p>‍</p><p>→ Öffnen Gespräche ohne Produktdiskussion.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit bestehendem Ärztebestand</li><li>Teams mit Beratungsfokus statt Produktverkauf</li><li>Agenturen mit wenig Zeit für lange Akquise</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Reaktivierung ruhender Bestände</li><li>Einstiegsgesprächen ohne akuten Anlass</li><li>Strukturierung komplexer Arztkunden</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss</li><li>Wenig geeignet für aggressive Abschlusslogik</li><li>Wirkung entfaltet sich über Gesprächsqualität, nicht Masse</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "bauherren",
+    "name": "Private Bauherren",
+    "intro": "<p>Landingpage für Menschen vor Hausbau oder Kauf mit hohem Entscheidungsdruck und klarem Absicherungsbedarf.</p><p>‍</p>",
+    "heroImage": "pages/bauherren.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/bauherren-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/bauherren-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/bauherren-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Erstmaliger Hausbau oder Kauf</li><li>Hohe finanzielle Bindung</li><li>Familiäre Verantwortung</li><li>Geringe Versicherungserfahrung</li><li>Starkes Sicherheitsbedürfnis</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Finanzierung steht, Absicherung jedoch noch nicht geklärt</li><li>Bauphase startet, Verantwortung wächst schneller als erwartet</li><li>Familienplanung läuft parallel zum Hausbau aktiv</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Sicherheit zählt mehr als niedrigster Preis</li><li>Vertrauen wichtiger als Produktdetails und Tarife</li><li>Klarheit vor Abschluss und langfristiger Bindung</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Absicherungs- und Beratungsbedarf</strong></p><p>Diese Zielgruppe hat objektiv viele neue Risiken, erkennt sie aber nicht vollständig. Genau daraus entsteht echtes Gesprächspotenzial, nicht über Produkte, sondern über Orientierung, Haftung, Einkommen, Familie und Verantwortung.</p><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><p>Hoher Einmalumsatz durch gebündelte Absicherungsthemen. Sehr gute Cross-Selling-Möglichkeiten rund um Einkommen, Familie, Immobilie. Hohe Abschlusswahrscheinlichkeit, weil Entscheidungen zeitkritisch sind.</p><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><p>Stetiger Nachschub durch Neubau, Kauf, Familiengründung. Ideal auch für Reaktivierung von Bestandskunden bei Kauf oder Bau. Langfristig wertvoller Bestand durch hohe Bindung und Kontaktintensität.</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Diese Aussagen lassen sich 1:1 im Gespräch nutzen:</p><ul role=\"list\"><li>„Sie müssen heute entscheiden, ohne alles zu überblicken.“</li><li>„Viele Risiken sieht man erst, wenn es zu spät ist.“</li><li>„Es geht nicht um mehr Versicherungen, sondern um Klarheit.“</li><li>„Ein strukturierter Überblick nimmt Druck aus Entscheidungen.“</li><li>„Sie behalten die Kontrolle, ohne sich einarbeiten zu müssen.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Ich habe schon Versicherungen, reicht das nicht?“</li><li>„Muss ich mit hohen zusätzlichen Kosten rechnen?“</li><li>„Was passiert, nachdem ich Kontakt aufnehme?“</li></ul><p>‍</p><p><strong>Stärkste Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Einkommen und Existenz bei Ausfall</li><li>Verantwortung während der Bauphase</li><li>Entscheidungen ohne vollständigen Überblick</li></ul><p>‍</p><p>Diese Punkte funktionieren besonders gut als Einstieg:</p><p>„Darf ich Ihnen dazu zwei Fragen aus einer Bauherren-Checkliste stellen?“</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Bauherren im Bestand</li><li>Agenturen mit Bank- oder Baukontakten</li><li>Teams, die beratungsstark sind</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Bei Neubaufinanzierungen</li><li>Vor Baubeginn oder Kaufabschluss</li><li>Bei jungen Familien im Bestand</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein schneller Online-Abschluss</li><li>Erfordert Beratungskompetenz</li><li>Weniger geeignet für Preisjäger</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "berufseinsteiger-im-ersten-job",
+    "name": "Berufseinsteiger",
+    "intro": "<p>Berufseinsteiger, die Orientierung suchen, Entscheidungen aufschieben und einfache, persönliche Klarheit wollen.</p><p>‍</p>",
+    "heroImage": "pages/berufseinsteiger.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/berufseinsteiger-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/berufseinsteiger-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/berufseinsteiger-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Erster Job nach Ausbildung</li><li>Steigendes Nettoeinkommen</li><li>Geringe Finanzroutine</li><li>Hohe Veränderungsdynamik</li><li>Entscheidungsunsicherheit</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Erste Gehaltsabrechnung wirft mehr Fragen als Antworten auf</li><li>Jobwechsel oder Umzug verändern finanzielle Rahmenbedingungen</li><li>Schaden im Umfeld macht Risiken erstmals konkret</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Themen werden erkannt, aber aktiv auf später verschoben</li><li>Angst vor Fehlern blockiert klare Entscheidungen</li><li>Handeln erst bei konkretem Anlass oder Druck</li></ul><p>‍</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung</strong></p><p>Diese Zielgruppe ist kein Sofort-Abschlussbringer, aber ein stabiler Bestands- und Entwicklungstreiber.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Viele unerkannte Lücken in Haftung, Einkommen, Grundabsicherung</li><li>Hoher Orientierungsbedarf statt Produktinteresse</li><li>Idealer Einstieg über Systemverständnis statt Tarifgespräch</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Einstieg über niedrigschwellige Gespräche</li><li>Schrittweises Cross-Selling über Lebensphasen</li><li>Hohe Bindung bei frühem Vertrauensaufbau</li><li>Wiederkehrender Beratungsbedarf alle 3–5 Jahre</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Kontinuierlicher Nachwuchs im lokalen Markt</li><li>Hohe Relevanz für Bestandsverjüngung</li><li>Früh gewonnene Kunden bleiben überdurchschnittlich lange</li></ul><p>‍</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage liefert keine Argumente, sondern Gesprächserleichterung.</p><ul role=\"list\"><li>„Sie müssen nichts entscheiden, bevor Sie es verstanden haben.“</li><li>„Wir sortieren Ihre Situation, nicht Ihre Produkte.“</li><li>„Nicht alles ist jetzt wichtig, aber manches sollten Sie kennen.“</li><li>„Orientierung spart später Zeit, Geld und Nerven.“</li></ul><p>‍</p><p>Diese Aussagen funktionieren direkt im Erstkontakt oder Terminauftakt.</p><p>‍</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Wird mir hier etwas verkauft, das ich nicht brauche?“</li><li>„Ich verdiene noch nicht viel. Ist das jetzt relevant?“</li><li>„Ich habe kaum Zeit. Wie aufwendig ist das?“</li></ul><p>‍</p><p>→ Ideal, um Misstrauen, Kosten- und Zeit-Einwände früh zu entschärfen.</p><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Haben Sie Ihre erste Gehaltsabrechnung wirklich verstanden?“</li><li>„Wissen Sie, wo gesetzliche Absicherung endet?“</li><li>„Was würde sich bei Jobwechsel oder Umzug ändern?“</li></ul><p>‍</p><p>→ Führt automatisch vom Alltag ins Beratungsgespräch.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Fokus auf Bestandsaufbau</li><li>Teams mit jüngeren Beratern</li><li>Regionen mit Ausbildungsbetrieben, Hochschulen, Mittelstand</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Online-Terminvereinbarung</li><li>Empfehlungen durch Bestandskunden</li><li>Nachfassaktionen bei jungen Beständen</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein schneller Umsatztreiber</li><li>Geduld und Prozessdisziplin nötig</li><li>Abschluss oft zeitversetzt, nicht im Erstgespräch</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "cyber-firmen",
+    "name": "IT-lastige Firmen",
+    "intro": "<p>Inhaber- und Geschäftsführer-geführte KMU, die digitale Risiken spüren, aber keine klare Gesamtübersicht haben.</p><p>‍</p>",
+    "heroImage": "pages/cyber-firmen.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/cyber-firmen-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/bauherren-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/bauherren-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Unternehmerisch verantwortlich</li><li>Stark im Tagesgeschäft</li><li>IT abhängig, nicht IT geführt</li><li>Risikoavers, sicherheitsorientiert</li><li>Beratungsaffin, aber zeitsensibel</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Digitalisierung wächst, Überblick über Risiken fehlt</li><li>IT läuft nebenbei, Verantwortung bleibt ungeklärt</li><li>Externe Hinweise erzeugen Handlungsdruck ohne Klarheit</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst Verständnis schaffen, dann Entscheidung treffen</li><li>Aufwand und Risiko werden pragmatisch abgewogen</li><li>Vertrauen zählt mehr als schnelle Lösungen</li></ul><p>‍</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Einordnung:</strong></p><p>Diese Zielgruppe ist kein Schnellabschluss-Segment, aber hoch relevant für strukturierte Beratung mit Folgewirkung.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Cyber als Querschnittsrisiko für Betrieb, Haftung, Ausfall</li><li>Hohe Unsicherheit, ob bestehende Maßnahmen ausreichen</li><li>Starker Bedarf an Einordnung statt Technikberatung</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Gute Ertragsbasis pro Kunde</li><li>Hohe Cross-Selling-Anknüpfung: Betriebshaftung, Recht, D&amp;O</li><li>Langfristige Kundenbindung durch regelmäßige Überprüfung</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Hoher Anteil im regionalen Bestand</li><li>Viele aktuell unversorgt oder nur teilabgedeckt</li><li>Steigende Relevanz durch Digitalisierung und Regulierung</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage liefert keine Produktargumente, sondern Gesprächsöffner:</p><ul role=\"list\"><li>„Sie müssen kein IT-Experte sein, um Risiken einzuordnen.“</li><li>„Unklarheit ist das eigentliche Risiko, nicht der Angriff selbst.“</li><li>„Ein strukturierter Überblick schafft Entscheidungsruhe.“</li><li>„Vorsorge beginnt mit Verständnis, nicht mit Abschluss.“</li></ul><p>‍</p><p>Diese Aussagen lassen sich direkt im Erstgespräch nutzen, ohne Verkaufsdruck.</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Wir haben doch schon IT-Sicherheit.“ → ordnet Technik vs. Gesamtbild</li><li>„Wie aufwendig ist das für mich?“ → nimmt Zeit-Einwand</li><li>„Entstehen Kosten oder Verpflichtungen?“ → senkt Abschlusshemmung</li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Verantwortlichkeiten im Ernstfall klar geregelt?</li><li>Welche Prozesse stehen bei IT-Ausfall sofort still?</li><li>Wissen Sie, wo Unsicherheit besteht?</li></ul><p>‍</p><p>Diese Fragen funktionieren als Diagnose, nicht als Verkauf.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit KMU-Bestand</li><li>Teams mit beratungsorientiertem Ansatz</li><li>Agenturen mit Wunsch nach strukturiertem Einstieg</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Bestandskunden ohne aktuellen Cyber-Bezug</li><li>Anlassgesprächen zu Digitalisierung oder IT</li><li>Wiedervorlage-Terminen und Jahresgesprächen</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss-Hebel</li><li>Erfordert Gesprächsdisziplin statt Produktpitch</li><li>Wirksamkeit hängt von konsequenter Nutzung ab</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "digital-aktive-privatpersonen",
+    "name": "Digital aktive Personen",
+    "intro": "<p>Privatkunden mit digitalem Alltag, hohem Online-Nutzungsgrad und latentem Sicherheitsbedürfnis.</p><p>‍</p>",
+    "heroImage": "pages/digital-aktive.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/digital-aktive-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/digital-aktive-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/digital-aktive-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Junge bis mittlere Erwachsene</li><li>Online-Shopping &amp; Mobile Banking</li><li>Mehrere digitale Geräte</li><li>Technikaffin, komfortorientiert</li><li>Sicherheitsbewusst, aber bequem</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Kaufen regelmäßig online über Smartphone oder Apps ein</li><li>Nutzen parallel Banking, Social Media und Cloud-Dienste</li><li>Reagieren sensibel auf Betrugsfälle im Bekanntenkreis</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Treffen Entscheidungen schnell bei konkretem Risikoanlass</li><li>Bevorzugen einfache Lösungen ohne technischen Aufwand</li><li>Vertrauen entsteht durch klare und verständliche Beratung</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p>Diese Zielgruppe besitzt hohen Alltagskontakt zu Risiken, reagiert emotional auf reale Schadenfälle und ist offen für digitale Beratungseinstiege.  </p><p>‍</p><p>• <strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Ständiger Kontakt zu digitalen Betrugsrisiken</li><li>Sicherheitsbewusstsein vorhanden, aber Handlungslücke</li><li>Unsicherheit, was im Schadenfall konkret zu tun ist</li><li>Hoher Bedarf an Orientierung statt Produktwissen</li></ul><p>‍</p><p>• <strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Sehr guter Einstieg über niedrigschwellige Themen</li><li>Starkes Cross-Selling-Potenzial (Hausrat, Rechtsschutz, Geräte, Haftpflicht, Familie)</li><li>Hohe Gesprächsquote, da Risiko emotional verständlich</li><li>Gute Abschlussquote bei anlassbezogenen Gesprächen</li></ul><p>‍</p><p>• <strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Wachsende Zielgruppe durch Digitalisierung</li><li>Fast vollständige Marktdurchdringung beim Online-Shopping</li><li>Besonders relevant für junge Bestandskundenbindung</li><li>Sehr guter Türöffner bei Neukunden</li></ul><p>‍</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage positioniert Cyberrisiken als alltägliches, persönliches Sicherheitsproblem mit einfacher Orientierungslösung.  </p><p>‍</p><p>• Digitale Risiken entstehen unbemerkt im Alltag</p><p>• Sicherheit bedeutet Orientierung, nicht Technik</p><p>• Kunden wollen einfache, verständliche Risikoeinschätzung</p><p>• Zielgruppe möchte Schutz ohne Komfortverlust</p><p>• Beratung wird als Hilfe zur Entscheidungsübersicht verstanden</p><p>‍</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p>• <strong>3 stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Reicht Sicherheitssoftware nicht aus?“</li></ul><p>→ öffnet Beratungsbedarf jenseits Technik</p><ul role=\"list\"><li>„Wie aufwendig ist ein Cyber-Check?“</li></ul><p>→ reduziert Termin- und Zeit-Einwand</p><ul role=\"list\"><li>„Was bringt mir das konkret im Alltag?“</li></ul><p>→ aktiviert emotionalen Nutzenfokus</p><p>‍</p><p>• <strong>3 Gesprächsöffner aus der Checkliste</strong></p><ul role=\"list\"><li>„Haben Sie Überblick über alle Online-Zahlungen?“</li></ul><p>→ Einstieg über Finanzkontrolle</p><ul role=\"list\"><li>„Nutzen Sie überall unterschiedliche Passwörter?“</li></ul><p>→ erzeugt Selbstreflexion</p><ul role=\"list\"><li>„Nutzen Sie öffentliches WLAN für Banking?“</li></ul><p>→ schafft sofortige Risikowahrnehmung</p><p>‍</p><p>Diese Themen spiegeln reale Alltagssituationen und lösen Beratungsbedarf aus.  </p><p>‍</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p>• <strong>Für welche Büros besonders geeignet</strong></p><ul role=\"list\"><li>Büros mit hohem Privatkundenanteil</li><li>Agenturen mit jungem oder digitalem Kundenbestand</li><li>Teams mit Beratungs- und Cross-Selling-Fokus</li></ul><p>‍</p><p>• <strong>In welchen Situationen besonders wirksam</strong></p><ul role=\"list\"><li>Jahresgespräche und Vertragsüberprüfungen</li><li>Schaden- oder Betrugserlebnisse im Umfeld</li><li>Neukunden- oder Empfehlungsansprache</li><li>Einstiegsgespräch bei jungen Haushalten</li></ul><p>‍</p><p>• <strong>Wo realistische Grenzen liegen</strong></p><ul role=\"list\"><li>Geringe Wirkung bei rein preisorientierten Kunden</li><li>Erklärungsbedarf bei technisch sehr skeptischen Zielgruppen</li><li>Abschluss erfolgt selten ohne konkreten Anlass oder Gespräch</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "ferienwohnungen",
+    "name": "Vermietung von Ferienwohnungen",
+    "intro": "<p>Private Eigentümer mit Nebeneinkünften aus Kurzzeitvermietung, die Unsicherheit zu Risiken haben.</p>",
+    "heroImage": "pages/ferienwohnung.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/ferienwohnungen-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/ferienwohnungen-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/ferienwohnungen-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Eigentümer mit Zweitimmobilie</li><li>Nebenbei-Vermieter</li><li>Digital über Plattformen</li><li>Sicherheitsorientiert</li><li>Entscheidung pragmatisch</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Start der Vermietung ohne klare Absicherung</li><li>Schadenfall löst erstmals Versicherungsfragen aus</li><li>Plattformregeln sorgen für Verunsicherung</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst Klarheit schaffen, dann handeln</li><li>Risiken emotional höher bewertet als Kosten</li><li>Persönliche Beratung wichtiger als Online-Infos</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung:</strong></p><p>Hohe Relevanz, weil Risiko oft unbewusst vorhanden ist und Gesprächsanlass leicht herstellbar.</p><h6><strong>Absicherungs- und Beratungsbedarf</strong></h6><ul role=\"list\"><li>Kurzzeitvermietung verändert Haftungslage</li><li>Bestehende Policen meist ungeprüft</li><li>Hoher Aufklärungsbedarf ohne Produktdruck</li></ul><h6><strong>Wirtschaftliche Attraktivität</strong></h6><ul role=\"list\"><li>Mehrere Sparten anschlussfähig</li><li>Gute Cross-Selling-Chancen</li><li>Hohe Abschlussquote nach Erstgespräch</li><li>Wiederkehrende Beratung bei Änderungen</li></ul><h6><strong>Markt- und Bestandsperspektive</strong></h6><ul role=\"list\"><li>In fast jedem Bestand vorhanden</li><li>Stark wachsendes Segment</li><li>Oft noch unerschlossen</li><li>Regional gut ansprechbar</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage liefert Argumente, die im Gespräch sofort funktionieren:</p><ul role=\"list\"><li>„Kurzzeitvermietung ist keine normale Eigennutzung.“</li><li>„Plattform-Schutz ersetzt keine eigene Klarheit.“</li><li>„Nicht Absicherung verkaufen, sondern Überblick schaffen.“</li><li>„Erst prüfen, dann entscheiden.“</li><li>„Sicherheit bedeutet ruhig schlafen, nicht mehr Verträge.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<h6><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></h6><ul role=\"list\"><li>„Reicht Airbnb-Schutz nicht aus?“</li><li>„Brauche ich wirklich etwas Zusätzliches?“</li><li>„Ist das nicht viel Aufwand?“</li></ul><p>→ Ideal, um Abwehr früh aufzulösen, ohne zu argumentieren.</p><p>‍</p><h6><strong>Checklisten-Punkte als Gesprächsöffner</strong></h6><ul role=\"list\"><li>„Haben Sie Ihre Vermietung jemals gemeldet?“</li><li>„Wissen Sie, was bei Gäste-Unfällen gilt?“</li><li>„Verlassen Sie sich aktuell auf Plattformzusagen?“</li></ul><p>→ Öffnet Gespräche sachlich, ohne Verkaufsdruck.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<h6><strong>Besonders geeignet für</strong></h6><ul role=\"list\"><li>Stadt- und Tourismusregionen</li><li>Büros mit Privatkundenfokus</li><li>Teams mit Beratungsansatz</li></ul><h6><strong>Besonders wirksam bei</strong></h6><ul role=\"list\"><li>Bestandsaktivierung</li><li>Empfehlungsmarketing</li><li>Online-Leads mit Beratungsbedarf</li></ul><h6><strong>Realistische Grenzen</strong></h6><ul role=\"list\"><li>Kein Massenabschluss</li><li>Erfordert echtes Gespräch</li><li>Weniger geeignet für rein digitalen Vertrieb</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "freelancer-und-grunder",
+    "name": "Gründer & Freelancer",
+    "intro": "<p>Für selbstständige Gründer, die Absicherung klären wollen, ohne Zeit zu verlieren.</p>",
+    "heroImage": "pages/grunder-und-freelancer.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/grunder-und-freelancer-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/grunder-und-freelancer-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/grunder-und-freelancer-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>frisch selbstständig</li><li>haftungsnah tätig</li><li>zeitlich überlastet</li><li>fachlich spezialisiert</li><li>absicherungsunsicher</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Gerade gegründet und viele Pflichtthemen gleichzeitig offen</li><li>Kunde oder Bank verlangt kurzfristig Versicherungsnachweise</li><li>Krankheit oder Haftungsfall wird erstmals realistisch vorstellbar</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst Überblick schaffen, dann gezielt entscheiden</li><li>Risiken priorisieren statt alles gleichzeitig absichern</li><li>Kosten gegen mögliche Existenzfolgen nüchtern abwägen</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurz gesagt:</strong></p><p>Hoher Gesprächsbedarf trifft auf echte Entscheidungsbereitschaft.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Wegfall der Arbeitgeberabsicherung</li><li>Hohe persönliche Haftung</li><li>Keine eigene Entscheidungslogik für Risiken</li><li>Externe Trigger zwingen zum Handeln</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrere relevante Sparten gleichzeitig</li><li>Gute Basis für Cross-Selling</li><li>Hohe Abschlussquote bei Klarheitsgesprächen</li><li>Wiederkehrender Anpassungsbedarf</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Stetiger Gründerstrom in jeder Stadt</li><li>Hoher Empfehlungshebel unter Selbstständigen</li><li>Bestand wächst mit dem Unternehmen</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Im Gespräch nutzbare Essenz:</p><ul role=\"list\"><li>Sie müssen nicht alles absichern, nur das Richtige.</li><li>Klarheit nimmt Druck und verhindert Fehlentscheidungen.</li><li>Struktur ersetzt Bauchgefühl.</li><li>Absicherung schafft Fokus fürs Geschäft.</li><li>Ordnung ist wichtiger als Produkte.</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>Welche Versicherungen brauche ich wirklich?</li><li>Ist Beratung für Gründer teuer?</li><li>Woher weiß ich, dass mir nichts verkauft wird?</li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Was passiert finanziell, wenn Sie ausfallen?</li><li>Wofür haften Sie konkret gegenüber Kunden?</li><li>Welche externen Anforderungen könnten kurzfristig kommen?</li></ul>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Gründeranteil</li><li>Agenturen mit wenig Firmenstruktur</li><li>Teams mit beratungsstarkem Innendienst</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Erstkontakt mit neuen Selbstständigen</li><li>Reaktivem Bedarf durch Kunden oder Banken</li><li>Terminvereinbarung ohne Verkaufsdruck</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss ohne Gespräch</li><li>Weniger geeignet für reine Preisjäger</li><li>Wirkung lebt von sauberer Gesprächsführung</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "getrennte-personen",
+    "name": "Getrennte Paare",
+    "intro": "<p>Privatkunden in emotionaler Umbruchphase mit akutem Beratungs- und Absicherungsbedarf nach Partnerschaftsende.</p>",
+    "heroImage": "pages/getrennte-paare.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/getrennte-paare-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/getrennte-paare-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/getrennte-paare-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<p>• Neuorganisation privater Lebensstruktur</p><p>• Haushalt plötzlich alleine führen</p><p>• Kinder weiterhin absichern müssen</p><p>• Einkommenssituation oft verschlechtert</p><p>• Hoher emotionaler Entscheidungsdruck</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<p>• Umzug und Neuorganisation des eigenen Haushalts</p><p>• Wechsel von gemeinsamer zu eigener Absicherung</p><p>• Scheidungsformalitäten mit Fristen und finanziellen Entscheidungen</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<p>• Informiert sich zuerst online, sucht danach persönliche Beratung</p><p>• Entscheidet emotional, prüft Entscheidung anschließend rational</p><p>• Handelt meist bei Fristen oder konkretem Anlassdruck</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p>Personen in Trennung haben selten stabile Versicherungssituationen. Viele Verträge sind funktional überholt oder organisatorisch ungeklärt. Dadurch entsteht ein außergewöhnlich hoher Gesprächsanlass.</p><p>‍</p><h5><strong>Absicherungs- und Beratungsbedarf</strong></h5><p>• Mehrere Policen verlieren automatisch Gültigkeit oder Struktur</p><p>• Lebensumbruch erzeugt Gesprächsöffnung ohne Akquise-Druck</p><p>• Kunden suchen Orientierung, nicht nur Tarifvergleich</p><p>• Hohe Bereitschaft für ganzheitliche Beratung</p><p>‍</p><h5><strong>Wirtschaftliche Attraktivität</strong></h5><p>• Mehrfachabschluss typisch durch komplette Neuordnung</p><p>• Hoher Cross-Selling-Hebel (Biometrie, Vorsorge, Kinderabsicherung)</p><p>• Gute Grundlage für langfristige Kundenbindung</p><p>• Starke Empfehlungsquote innerhalb ähnlicher Lebenslagen</p><p>‍</p><h5><strong>Markt- und Bestandsperspektive</strong></h5><p>• Trennung/Scheidung betrifft konstant große Bevölkerungsgruppe</p><p>• In fast jedem Bestand regelmäßig vorkommender Lebensanlass</p><p>• Oft bisher ungenutztes Beratungsfeld</p><p>• Wettbewerbsdichte aktuell gering, da wenige Makler aktiv positioniert sind</p><p>‍</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage positioniert Beratung nicht als Produktverkauf, sondern als Strukturhilfe in einer Krisensituation.</p><p>‍</p><p>• Nach Trennung stimmen Versicherungen fast nie vollständig</p><p>• Kunden haben Angst vor finanziellen Fehlern</p><p>• Struktur schafft emotional spürbare Entlastung</p><p>• Frühe Klärung verhindert spätere Kosten und Konflikte</p><p>• Kunden wollen Sicherheit für Kinder und Zukunft</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<h5><strong>3 stärkste FAQ als Einwandvorwegnahme</strong></h5><p>‍</p><p><strong>„Was passiert mit bestehenden Versicherungen nach einer Scheidung?“</strong></p><p>→ Hebel gegen „Ich bin doch noch versichert“</p><p>‍</p><p><strong>„Wie aufwendig ist eine Überprüfung meiner Versicherungen?“</strong></p><p>→ Hebel gegen Zeit-Einwand und Überforderung</p><p>‍</p><p><strong>„Welche Risiken entstehen ohne Anpassung?“</strong></p><p>→ Hebel gegen Aufschieben und Entscheidungsblockade</p><p>‍</p><h4><strong>3 stärkste Checklistenpunkte als Gesprächsöffner</strong></h4><p>‍</p><p><strong>Krankenversicherung nach Trennung geregelt?</strong></p><p>→ Emotionaler Einstieg mit hoher Relevanz und Fristenbezug</p><p>‍</p><p><strong>Bezugsrechte und Altersvorsorge überprüft?</strong></p><p>→ Einstieg in hochwertige Vorsorgethemen</p><p>‍</p><p><strong>Alle Verträge zentral gesammelt?</strong></p><p>→ Strukturgespräch mit natürlichem Übergang zur Gesamtanalyse</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<h5><strong>Für welche Büros besonders geeignet</strong></h5><p>• Büros mit starkem Privatkundengeschäft</p><p>• Teams mit beratungsorientierter Arbeitsweise</p><p>• Agenturen mit regionalem Empfehlungsnetzwerk</p><p>‍</p><h5><strong>In welchen Situationen besonders wirksam</strong></h5><p>• Anlassbezogene Bestandsansprache</p><p>• Kooperationen mit Anwälten oder Steuerberatern</p><p>• Online-Leadgewinnung mit persönlicher Terminberatung</p><p>• Familien- und Vorsorgefokus im Bestand</p><p>‍</p><h5><strong>Wo realistische Grenzen liegen</strong></h5><p>• Abschlussquote stark von Empathie und Gesprächsqualität abhängig</p><p>• Budgetsensibilität bei Alleinerziehenden möglich</p><p>• Entscheidungsprozesse emotional schwankend</p><p>• Kein schneller Einmalabschluss, sondern strukturierter Beratungsprozess</p>"
+      }
+    ]
+  },
+  {
+    "slug": "gewerbekunden",
+    "name": "Inhabergeführte Firmen",
+    "intro": "<p>Für lokale Agenturen, die pragmatische KMU planbar zu Gesprächen führen wollen.</p>",
+    "heroImage": "pages/kmu.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/kmu-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/kmu-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/kmu-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Inhaber entscheidet alles</li><li>Betrieb historisch gewachsen</li><li>Zeit chronisch knapp</li><li>Risikoaversion hoch</li><li>Vertrauen entscheidend</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Tagesgeschäft verdrängt systematische Risikoüberprüfung</li><li>Externe Anforderungen lösen kurzfristigen Handlungsdruck aus</li><li>Schadenfälle im Umfeld erzeugen plötzliches Problembewusstsein</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Reagiert auf Anlass, nicht auf langfristige Planung</li><li>Vertraut Menschen mehr als Konzepten oder Unterlagen</li><li>Entscheidet, wenn Nutzen klar und Aufwand gering ist</li></ul><p>‍</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Einordnung:</strong></p><p>Hohe Relevanz bei moderatem Aufwand. Gespräche entstehen aus realen Anlässen, nicht aus Bedarfserfindung.</p><p>‍</p><p><strong>• Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Chef als Engpass und Risiko</li><li>Haftung und Stillstand unterschätzt</li><li>Cyber neu, aber präsent</li><li>Regelmäßige Veränderungen erzeugen Prüfbedarf</li></ul><p>‍</p><p><strong>• Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Solide Prämienbasis</li><li>Mehrspartenfähig</li><li>Regelmäßige Anpassungsanlässe</li><li>Hohe Bindung bei Vertrauen</li></ul><p>‍</p><p><strong>• Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Hoher KMU-Anteil lokal</li><li>Bestände oft unterbetreut</li><li>Wiederkehrende Gesprächsanlässe</li><li>Langfristige Kundenbeziehungen</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage liefert keine Produkte, sondern Gesprächslogik:</p><ul role=\"list\"><li>„Sie brauchen keine Details, sondern Übersicht.“</li><li>„Risiken bleiben unsichtbar, bis etwas passiert.“</li><li>„Struktur entlastet den Inhaber spürbar.“</li><li>„Klarheit schafft Handlungsfähigkeit im Ernstfall.“</li><li>„Ein fester Ansprechpartner ersetzt Unsicherheit.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ als Einwandvorwegnahme</strong></p><ul role=\"list\"><li>Zeitaufwand ist minimal und klar begrenzt</li><li>Kein Abschlussdruck oder Verpflichtung</li><li>Klärung hilft auch ohne Schaden</li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Was passiert, wenn Sie kurzfristig ausfallen?“</li><li>„Wie lange hält Ihr Betrieb einen Stillstand aus?“</li><li>„Wissen Sie, wofür Sie aktuell haften?“</li></ul>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit KMU-Bestand</li><li>Kleine Teams ohne Marketingabteilung</li><li>Berater mit Beziehungskompetenz</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Bestandsreaktivierung</li><li>Nach Schadenmeldungen</li><li>Jahres- oder Vertragsgesprächen</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss-Tool</li><li>Funktioniert nicht bei preissensiblen Schnäppchenjägern</li><li>Braucht Gesprächsdisziplin statt Produktpitch</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "hausverwalter",
+    "name": "Hausverwaltungen",
+    "intro": "<p>Zielgruppenpaket für Verwaltungen mit mehreren Objekten, hohem Entscheidungs- und Rechtfertigungsdruck.</p>",
+    "heroImage": "pages/hausverwaltung.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/hausverwaltung-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/hausverwaltung-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/hausverwaltung-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Mehrere Objekte parallel</li><li>Hoher Abstimmungsbedarf</li><li>Entscheidungs- und Haftungsdruck</li><li>Struktur- und prozessorientiert</li><li>Zeitlich stark ausgelastet</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Schadenfall erzeugt sofortigen Rechtfertigungsdruck</li><li>Eigentümerversammlung verlangt klare Basis für Entscheidungen</li><li>Änderungen am Bestand laufen „nebenher“</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Entscheidungen müssen gegenüber Eigentümern sachlich begründbar sein</li><li>Sicherheit und Haftungsvermeidung schlagen kurzfristige Kostenargumente</li><li>Vergleich, Struktur und Nachvollziehbarkeit bestimmen die Entscheidung</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Einordnung:</strong></p><p>Hausverwaltungen sind keine schnellen Abschlüsse – aber <strong>planbare, stabile Ertragskunden</strong>, wenn man richtig einsteigt.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Regelmäßige Überprüfungspflichten (Bestand, Änderungen, Schäden)</li><li>Hoher Gesprächsbedarf rund um Risiko, Haftung, Ordnung</li><li>Dauerhafte Begleitung statt Einmalabschluss</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrere Objekte = Bündelpotenzial</li><li>Cross-Selling über Zeit (Bestand, Haftung, Ergänzungen)</li><li>Hohe Wechselträgheit → lange Kundenbindung</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Sehr viele kleine bis mittlere Verwaltungen lokal</li><li>Häufig unterbetreut oder historisch „mitgelaufen“</li><li>Ideal für systematischen Bestandsaufbau im Einzugsgebiet</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Im Gespräch nutzbare Essenz, keine Marketingformeln:</p><ul role=\"list\"><li>„Viele Risiken entstehen nicht neu, sondern bleiben unklar.“</li><li>„Entscheidungsprobleme sind meist Strukturprobleme.“</li><li>„Klarheit reduziert Diskussionen, nicht erst der Schadenfall.“</li><li>„Vorbereitung ist der eigentliche Entlastungsfaktor.“</li><li>„Überblick schafft Argumentationssicherheit gegenüber Eigentümern.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQs zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li><em>„Muss ich dafür viel Zeit einplanen?“</em> → nimmt Aufwandseinwand</li><li><em>„Was unterscheidet das von einer Bestandsaufnahme?“</em> → Differenzierung</li><li><em>„Was passiert nach der Übersicht?“</em> → nimmt Verkaufsangst</li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Haben Sie einen zentralen Überblick über alle Objekte?“</li><li>„Sind bauliche Änderungen systematisch erfasst?“</li><li>„Können Entscheidungen einheitlich erklärt werden?“</li></ul><p>‍</p><p>→ ideal als ruhige Diagnosefragen, kein Pitch nötig.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Bestandspflege-Fokus</li><li>Teams mit wiederkehrenden Firmen-/Gewerbekunden</li><li>Berater, die strukturierte Gespräche führen können</li></ul><p>‍</p><p><strong>Besonders wirksam, wenn</strong></p><ul role=\"list\"><li>bereits einzelne Verwaltungen im Bestand sind</li><li>Schadenfälle oder Diskussionen aktuell Thema sind</li><li>ein neutraler Gesprächseinstieg gebraucht wird</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss-Produkt</li><li>Wenig geeignet für rein transaktionalen Vertrieb</li><li>Wirkung entfaltet sich über Gespräche, nicht über Klicks</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "immobilienmakler",
+    "name": "Immobilienmakler",
+    "intro": "<p>Landingpage für selbständige Immobilienmakler mit Verantwortung, Zeitdruck und realem Haftungsrisiko.</p>",
+    "heroImage": "pages/immobilienmakler.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/immobilienmakler-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/immobilienmakler-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/immobilienmakler-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Selbständig oder kleines Team</li><li>Provisionsabhängig</li><li>Hohe Eigenverantwortung</li><li>Haftungsnahes Tagesgeschäft</li><li>Stark zeitgetrieben</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Viele Mandate parallel, kaum Zeit für Risikoüberblick</li><li>Haftungsfragen tauchen meist erst im Nachhinein auf</li><li>Dokumentation entsteht nebenbei, nicht systematisch</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Entscheidung nur bei klarem, sofort erkennbarem Nutzen</li><li>Aufwand muss geringer wirken als mögliches Risiko</li><li>Vertrauen entsteht durch Klarheit, nicht durch Verkaufsdruck</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurz:</strong></p><p>Hoher Beratungsbedarf, regelmäßige Anlässe, gute Abschlusswahrscheinlichkeit bei richtigem Einstieg.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Haftung ist berufsimmanent</li><li>Fehler entstehen im Alltag</li><li>Unsicherheit bei Dokumentation</li><li>Gesetzliche Änderungen wirken direkt</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrere relevante Absicherungsfelder</li><li>Gute Cross-Selling-Fähigkeit im Bestand</li><li>Wiederkehrende Prüf- und Anpassungsanlässe</li><li>Entscheidungsbefugnis liegt meist direkt beim Kunden</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Hohe Dichte in Städten</li><li>Bestand oft historisch gewachsen</li><li>Regelmäßige Marktveränderungen</li><li>Dauerhafte Relevanz im Gewerbestand</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": ""
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Im Gespräch nutzbare Essenz:</p><ul role=\"list\"><li>„Die meisten Risiken entstehen nicht bewusst, sondern im Tagesgeschäft.“</li><li>„Haftung trifft oft dort, wo Übersicht fehlt.“</li><li>„Klarheit spart Zeit und Nerven.“</li><li>„Nicht alles ist kritisch, aber manches schon.“</li><li>„Struktur entlastet im Alltag.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li><em>Wie aufwendig ist ein Versicherungscheck im Makleralltag?</em></li><li><em>Was bringt mir ein Versicherungscheck konkret?</em></li><li><em>Welche Risiken betreffen Immobilienmakler am häufigsten?</em></li></ul><p>‍</p><p><strong>Geeignete Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Dokumentation von Aussagen</li><li>Aktualität von Exposés</li><li>Klare Zuständigkeit bei Besichtigungen</li></ul>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Stadtbüros mit Gewerbekunden</li><li>Bestände mit selbständigen Maklern</li><li>Teams mit wenig Spezialisierung</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Bei Bestandsansprache</li><li>Nach Schadenfällen</li><li>Bei rechtlichen Änderungen</li><li>Als Terminöffner statt Produktansprache</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Wenig geeignet für reine Angestelltenmakler</li><li>Kein Sofortabschluss ohne Vertrauensbasis</li><li>Erfordert saubere Gesprächsführung statt Pitch</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "junge-ehepaare",
+    "name": "Junge Ehepaare",
+    "intro": "<p>Landingpage für Paare beim Zusammenziehen, Heiraten oder Familienplanung mit wachsendem Absicherungsbedarf.</p>",
+    "heroImage": "pages/junge-ehepaare.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/junge-ehepaare-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/junge-ehepaare-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/junge-ehepaare-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Doppelverdiener ohne Kinder</li><li>Aufbau gemeinsamer Haushalt</li><li>Erste Vermögensplanung</li><li>Hohe Digitalaffinität</li><li>Beratungsbedürftig, aber skeptisch</li></ul><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<p>• Umzug erzeugt viele parallele organisatorische Verpflichtungen</p><p>• Neue Wohnsituation verändert Absicherungsbedarf spürbar</p><p>• Vertragsübersicht geht während Umzugsphase häufig verloren</p><p>‍</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<p>• Entlastung und Zeitersparnis treiben schnelle Entscheidungen</p><p>• Konkreter Anlass erhöht Gesprächs- und Abschlussbereitschaft</p><p>• Vertrauen entsteht über strukturierte und verständliche Prozesse</p><p>‍</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p>Diese Zielgruppe befindet sich am Beginn eines langen Kundenlebenszyklus mit hoher Produktdichte und Folgegeschäft.</p><p>‍</p><h5><strong>Absicherungs- und Beratungsbedarf</strong></h5><ul role=\"list\"><li>Viele Verträge entstehen einzeln und ungeordnet</li><li>Hohe Unsicherheit bei Kombinieren und Anpassen</li><li>Lebensereignisse erzeugen natürlichen Beratungsbedarf</li><li>Wunsch nach Struktur statt Produktauswahl</li><li>Hohe Gesprächsbereitschaft bei konkreten Anlässen</li></ul><p>‍</p><h5><strong>Wirtschaftliche Attraktivität</strong></h5><ul role=\"list\"><li>Einstieg über einfache Strukturberatung</li><li>Hohe Cross-Selling-Potenziale (Haftpflicht, Hausrat, BU, Risiko, KV, Altersvorsorge)</li><li>Stark steigende Absicherungsquote bei Familiengründung</li><li>Sehr hohe Bindungswahrscheinlichkeit bei Erstberatung</li><li>Gute Empfehlungsquote innerhalb Freundeskreis</li></ul><p>‍</p><h5><strong>Markt- und Bestandsperspektive</strong></h5><ul role=\"list\"><li>Kontinuierlicher Nachschub durch Lebensphasen</li><li>Sehr große Zielgruppe im lokalen Markt</li><li>Hohe Bestandsentwicklung über Jahrzehnte</li><li>Frühe Bindung führt zu lebenslangem Kundenwert</li></ul><p>‍</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage arbeitet weniger produktgetrieben, sondern nutzt Strukturberatung als Einstieg ins Beratungsgespräch.</p><ul role=\"list\"><li>Viele Paare haben Absicherung, aber keine gemeinsame Struktur</li><li>Der größte Mehrwert ist Überblick, nicht Produktverkauf</li><li>Doppelverträge und Lücken sind häufige Gesprächsöffner</li><li>Strukturberatung reduziert Überforderung und senkt Einwände</li><li>Beratung wird als Organisationshilfe wahrgenommen, nicht als Verkauf</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<h5><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></h5><p>‍</p><p><strong>1. Können bestehende Versicherungen weiterhin genutzt werden?</strong></p><p>→ Nimmt Verkaufsdruck und Abschlussangst sofort raus</p><p>‍</p><p><strong>2. Wie aufwendig ist ein gemeinsamer Versicherungscheck?</strong></p><p>→ Senkt Termin- und Zeitbarriere</p><p>‍</p><p><strong>3. Wann ist der richtige Zeitpunkt zur Prüfung?</strong></p><p>→ Erzeugt Anlasslogik für Terminvereinbarung</p><p>‍</p><h5><strong>Stärkste Checklistenpunkte als Gesprächsöffner</strong></h5><p>‍</p><p><strong>1. „Welche Versicherungen bringen Sie jeweils mit?“</strong></p><p>→ Perfekt für strukturierte Bedarfsermittlung</p><p>‍</p><p><strong>2. „Wissen Sie, welche Verträge doppelt bestehen?“</strong></p><p>→ Sofortiger Kosten- und Nutzenanker</p><p>‍</p><p><strong>3. „Was passiert finanziell im Ernstfall?“</strong></p><p>→ Emotionaler Trigger für BU, Risiko, Vorsorge</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<h5><strong>Besonders geeignet für</strong></h5><ul role=\"list\"><li>Büros mit starkem Privatkundengeschäft</li><li>Teams mit Terminvertrieb statt Spontanberatung</li><li>Agenturen mit digitaler Kontaktaufnahme</li></ul><h5><strong>Besonders wirksam in</strong></h5><ul role=\"list\"><li>Bestandskunden mit Hochzeit/Zusammenzug</li><li>Empfehlungsmarketing über junge Familien</li><li>Social-Media oder Online-Leadanfragen</li><li>Jahresgespräche und Bestandsoptimierung</li></ul><h5><strong>Realistische Grenzen</strong></h5><ul role=\"list\"><li>Geringe Abschlussquote ohne Lebensereignis</li><li>Preisvergleichsorientierte Kunden schwer bindbar</li><li>Hoher Beratungsanteil in Erstterminen</li><li>Reiner Produktvertrieb funktioniert hier schlechter</li></ul><p>‍</p>"
+      }
+    ]
+  },
+  {
+    "slug": "kommunale-angestellte",
+    "name": "Kommunale Angestellte",
+    "intro": "<p>Landingpage für kommunale Angestellte mit Klärungsbedarf zur Altersvorsorge.</p>",
+    "heroImage": "pages/angestellte.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/angestellte-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/angestellte-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/angestellte-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>tariflich angestellt</li><li>sicherheitsorientiert</li><li>regional verwurzelt</li><li>informationsunsicher</li><li>beratungsbereit</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Renteninformation wirft erstmals ernsthafte Zukunftsfragen auf</li><li>Kollegengespräch löst Unsicherheit über eigene Vorsorge aus</li><li>Lebensereignis erhöht Bedarf nach finanzieller Planung</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Will Sicherheit ohne komplizierte Entscheidungen</li><li>Prüft zuerst Aufwand und Seriosität</li><li>Trifft Entscheidung erst nach klarer Einordnung</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung</strong></p><p>Stabile Zielgruppe mit echtem Beratungsbedarf und geringer Abschluss-Hektik.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Rente und Zusatzversorgung werden hinterfragt</li><li>Fehlende Aufklärung durch Arbeitgeber</li><li>Hoher Wunsch nach Einordnung und Klarheit</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Hohe Abschlusswahrscheinlichkeit bei erklärtem Bedarf</li><li>Gute Basis für Folgegespräche</li><li>Langfristige Kundenbindung möglich</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Große, konstante Zielgruppe vor Ort</li><li>Regelmäßige Berührungspunkte im Bestand</li><li>Gut reaktivierbar bei Tarif- oder Lebensänderungen</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Seite übernimmt Vorarbeit und sortiert den Kopf des Kunden.</p><p>Im Gespräch lassen sich diese Aussagen direkt nutzen:</p><ul role=\"list\"><li>„Viele verlassen sich auf Annahmen, die heute nicht mehr tragen.“</li><li>„Es geht zuerst um Überblick, nicht um Entscheidungen.“</li><li>„Der Aufwand für Sie bleibt gering.“</li><li>„Die Kommune wird nicht belastet.“</li><li>„Sie bekommen einen klaren Ablauf statt Einzelinfos.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Ist das kompliziert für mich oder die Kommune?“</li><li>„Reichen Rente und Zusatzversorgung nicht aus?“</li><li>„Entstehen mir oder der Gemeinde Kosten?“</li></ul><p>‍</p><p><strong>Checkliste als Gesprächsöffner</strong></p><ul role=\"list\"><li>Überblick über gesetzliche Rente</li><li>Kenntnis möglicher Zuschüsse</li><li>Klarheit über eigenen Spielraum</li></ul>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>lokale Büros mit kommunalem Bestand</li><li>Teams mit begrenzter Marketingzeit</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Bestandskunden aus Kommunen</li><li>Empfehlungen aus dem Umfeld</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein schnelles Massengeschäft</li><li>Erfordert saubere Gesprächsführung</li><li>Wirkung steigt mit regionaler Präsenz</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "landwirte",
+    "name": "Landwirte",
+    "intro": "<p>Für landwirtschaftliche Unternehmer, die ihre Risiko- und Absicherungssituation transparent strukturieren und professionell begleitet werden möchten.</p>",
+    "heroImage": "pages/landwirte.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/landwirte-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/landwirte-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/landwirte-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Unternehmerischer Familienbetrieb</li><li>Hohe Sachwerte</li><li>Persönliche Haftung</li><li>Langfristig orientiert</li><li>Regional verwurzelt</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Investitionen verändern Werte und bestehende Absicherungen</li><li>Schadenfälle im Umfeld erhöhen die Sensibilität</li><li>Jahresabschluss oder Hofübergabe macht Lücken sichtbar</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Sicherheit für Betrieb und Familie hat Vorrang</li><li>Überblick und Kontrolle wichtiger als Produktdetails</li><li>Vertrauen und Erfahrung zählen mehr als Preis</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurz:</strong> Hoher Bedarf, hohe Werte, langfristige Kundenbeziehung.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Komplexe Betriebe mit vielen Risikobereichen</li><li>Absicherungen historisch gewachsen</li><li>Regelmäßige Veränderung durch Investitionen</li><li>Familie und Betrieb untrennbar verbunden</li></ul><p>→ Gesprächspotenzial fast immer vorhanden</p><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Überdurchschnittliche Beitragssummen</li><li>Starke Cross-Selling-Hebel (Betrieb + Familie)</li><li>Wiederkehrende Jahresgespräche möglich</li><li>Hohe Abschlussqualität bei Vertrauen</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Regional begrenzte, gut identifizierbare Zielgruppe</li><li>Häufig bereits im Bestand, aber unstrukturiert betreut</li><li>Hohe Bindung bei guter Beratung</li><li>Empfehlungspotenzial im lokalen Netzwerk</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage verkauft keine Produkte, sondern Gesprächsberechtigung.</p><ul role=\"list\"><li>„Sie müssen nicht mehr machen, sondern besser ordnen.“</li><li>„Ihr Betrieb ist zu komplex für Einzelentscheidungen.“</li><li>„Wir schaffen Überblick, bevor etwas passiert.“</li><li>„Kein Verkaufsdruck, sondern Struktur.“</li><li>„Sie behalten jederzeit die Kontrolle.“</li></ul><p>‍</p><p>Diese Aussagen funktionieren 1:1 im Erstgespräch.</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQs zur Einwandvorwegnahme</strong></p><ol role=\"list\"><li><em>„Ich bin doch schon versichert.“</em></li></ol><p>→ Übergang zu Struktur statt Mehrverkauf</p><ol start=\"2\" role=\"list\"><li><em>„Geht es um einen Abschluss?“</em></li></ol><p>→ Druck rausnehmen, Vertrauen aufbauen</p><ol start=\"3\" role=\"list\"><li><em>„Wie hoch ist der Aufwand?“</em></li></ol><p>→ Effizienzargument, Alltagstauglichkeit</p><p>‍</p><p><strong>Beste Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Eigene Arbeitskraft geregelt?</li><li>Familie und mitarbeitende Partner berücksichtigt?</li><li>Investitionen und Wertveränderungen aktuell erfasst?</li></ul><p>‍</p><p>Diese Punkte führen fast immer zu Gesprächstiefe.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Regionale Büros mit landwirtschaftlichem Bestand</li><li>Teams mit wenig Zeit, aber Beratungsanspruch</li><li>Agenturen mit Fokus auf Bestandsentwicklung</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Jahresgespräche</li><li>Reaktivierung stiller Bestände</li><li>Empfehlungen im lokalen Netzwerk</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss</li><li>Weniger geeignet für reine Online-Abschlüsse</li><li>Wirkung steigt mit persönlicher Präsenz</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "physio-und-pflege",
+    "name": "Gesundheitsnahe Heilberufe",
+    "intro": "<p>Für Vermittler, die Heilberufler strukturiert, effizient und wiederholbar beraten wollen.</p>",
+    "heroImage": "pages/physio.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/physio-pfleger-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/physio-pfleger-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/physio-pfleger-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Hohe Verantwortung</li><li>Zeitknapper Arbeitsalltag</li><li>Sicherheitsorientiert</li><li>Beratungsaffin</li><li>Langfristige Kundenbeziehung</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Praxisstart, Wechsel oder Erweiterung der beruflichen Tätigkeit</li><li>Konkreter Vorfall macht Risiken plötzlich greifbar</li><li>Private Veränderung erhöht Absicherungsbedarf spürbar</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst Klarheit schaffen, dann ruhig entscheiden</li><li>Sicherheit wichtiger als günstigster Preis</li><li>Vertrauen entsteht durch Verständnis des Berufsalltags</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurz:</strong></p><p>Hoher Gesprächsbedarf, stabile Kunden, sehr guter Hebel über Struktur statt Produktdruck.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Haftung &amp; Arbeitsausfall latent präsent</li><li>Bestehende Absicherung oft historisch gewachsen</li><li>Hoher Wunsch nach Ordnung &amp; Klarheit</li></ul><p>→ Gesprächsanlass fast immer vorhanden</p><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrere Themen je Kunde (Beruf + Privat)</li><li>Gute Cross-Selling-Fähigkeit (Familie, Vorsorge, Praxis)</li><li>Lange Kundenlaufzeiten</li><li>Hohe Abschlussqualität bei Vertrauen</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Häufig im Bestand vorhanden</li><li>Stabile Berufe, geringe Wechselquote</li><li>Regelmäßige Anlässe (Praxis, Familie, Gesundheit)</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Im Gespräch nutzbar als Grundlogik, nicht als Werbetext:</p><ul role=\"list\"><li>„Sie tragen Verantwortung – Ordnung gibt Ihnen Ruhe.“</li><li>„Es geht nicht um mehr Verträge, sondern um Überblick.“</li><li>„Viele Probleme entstehen nicht plötzlich, sondern schleichend.“</li><li>„Ein klarer Check spart Zeit und Nerven.“</li><li>„Sie entscheiden – nicht heute, nicht unter Druck.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li><em>„Ich habe schon Versicherungen – lohnt sich das?“</em></li></ul><p>→ öffnet Bestandsanalyse ohne Abwehr</p><ul role=\"list\"><li><em>„Was kostet das / ist das unverbindlich?“</em></li></ul><p>→ senkt Abschlussangst früh</p><ul role=\"list\"><li><em>„Wie viel Zeit kostet mich das?“</em></li></ul><p>→ nimmt Hauptkiller „Zeitmangel“ raus</p><p>‍</p><p><strong>Stärkste Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Berufliche Haftung: „Wofür haften Sie persönlich?“</li><li>Arbeitsausfall: „Ab wann wird es finanziell eng?“</li><li>Überblick &amp; Ordnung: „Haben Sie gerade Klarheit – oder Bauchgefühl?“</li></ul><p>‍</p><p>→ Funktioniert als Diagnose, nicht als Verkauf.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Bestandskunden</li><li>Teams mit Beratungsfokus</li><li>Regionen mit vielen Praxen/Kliniken</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Erstkontakt ohne Produktpitch</li><li>Reaktivierung ruhender Bestände</li><li>Strukturierte Jahresgespräche</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss-Geschäft</li><li>Weniger geeignet für rein online-orientierte Abschlüsse</li><li>Erfordert saubere Gesprächsführung statt Tarifargumente</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "private-tierhalter-im-lokalen-umfeld",
+    "name": "Private Tierhalter",
+    "intro": "<p>Für verantwortungsbewusste Tierhalter, die Klarheit wollen, bevor Kosten, Haftung oder Stress entstehen.</p>",
+    "heroImage": "pages/tierhalter.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/tierhalter-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/tierhalter-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/tierhalter-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Tier als Familienmitglied</li><li>Private Haltung</li><li>Kosten- und haftungssensibel</li><li>Informationsbereit</li><li>Beratungsaffin vor Ort</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Neues Tier oder veränderte Haltungssituation</li><li>Tierarztbesuch macht mögliche Kosten erstmals konkret</li><li>Gesetzliche Vorgaben oder Hinweise aus dem Umfeld</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Erst verstehen, dann bewusst entscheiden</li><li>Emotionale Sorge trifft auf rationales Kostenabwägen</li><li>Vertrauen und Klarheit vor Abschlussbereitschaft</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurz:</strong> Häufig, beratungsbedürftig, gut abschließbar, hoher Bestandshebel.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Hohe Unsicherheit bei Haftung und Tierarztkosten</li><li>Fehlendes Wissen über gesetzliche Pflichten</li><li>Angst vor Fehlentscheidungen im Ernstfall</li></ul><p>→ Klare Gesprächsanlässe ohne Produktdruck</p><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Solide Einzelabschlüsse</li><li>Gute Cross-Selling-Anknüpfung: Privathaftpflicht, Rechtsschutz, Hausrat</li><li>Hohe Bindung durch emotionale Relevanz</li><li>Wiederholkontakte bei Tierwechsel, Umzug, Lebensphasen</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Sehr große Zielgruppe im lokalen Bestand</li><li>Regelmäßige Trigger im Lebensverlauf</li><li>Gute Reaktivierung von Bestandskunden</li><li>Empfehlungsstark über Tierärzte und Umfeld</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Im Gespräch nutzbar als Leitgedanken:</p><ul role=\"list\"><li>„Sie müssen heute nichts entscheiden, nur Klarheit gewinnen.“</li><li>„Die meisten Probleme entstehen nicht durch fehlenden Schutz, sondern durch Unsicherheit.“</li><li>„Wer vorbereitet ist, trifft im Ernstfall ruhigere Entscheidungen.“</li><li>„Es geht nicht um Produkte, sondern um Ihre persönliche Situation.“</li></ul><p>‍</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li>„Lohnt sich Vorsorge auch bei jungen, gesunden Tieren?“</li><li>„Ist das nicht kompliziert und zeitaufwendig?“</li><li>„Warum reicht Rücklagen bilden nicht aus?“</li></ul><p>‍</p><p>→ Ideal zur Entschärfung von Kosten- und Aufwandsbedenken.</p><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>„Haben sich Tierart oder Anzahl kürzlich geändert?“</li><li>„Wissen Sie, ob regionale Haftungsregeln greifen?“</li><li>„Könnten Sie hohe Tierarztkosten kurzfristig tragen?“</li></ul><p>‍</p><p>→ Führt schnell zu persönlicher Relevanz ohne Verkaufsdruck.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Privatkundenfokus</li><li>Bestandsorientierte Teams</li><li>Regionen mit hoher Tierhalterquote</li></ul><p>‍</p><p><strong>Besonders wirksam bei</strong></p><ul role=\"list\"><li>Erstkontakten über Landingpage</li><li>Reaktivierung bestehender Kunden</li><li>Beratung nach Tieranschaffung oder Ereignis</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschlussprodukt</li><li>Wirkung entsteht über Beratung, nicht Masse</li><li>Benötigt disziplinierte Gesprächsführung statt Produktpitch</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "umzug",
+    "name": "Umzug",
+    "intro": "<p>Menschen im Umbruch durch Umzug, die Absicherung neu ordnen müssen und offen für Beratung sind.</p>",
+    "heroImage": "pages/umzug.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/umzug-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/umzug-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/umzug-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<p>• Aktuell umziehend oder frisch umgezogen</p><p>• Neuorganisation privater Lebensstruktur</p><p>• Meist berufstätig, mittleres Einkommen</p><p>• Hoher Organisations- und Entscheidungsdruck</p><p>• Sicherheits- und Ordnungsorientiert</p><p>‍</p>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<p>• Umzug führt zu vielen parallelen Organisationsaufgaben</p><p>• Neue Wohnsituation verändert Absicherungsbedarf sichtbar</p><p>• Verträge und Adressmeldungen geraten schnell durcheinander</p><p>‍</p>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<p>• Reagieren stark auf Entlastung und Übersicht</p><p>• Treffen Entscheidungen bei konkretem Anlass schneller</p><p>• Vertrauen wächst über Prozessklarheit und Alltagshilfe</p>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p>Der Umzug ist ein natürlicher Kontaktanlass mit hoher Abschlussbereitschaft, da bestehende Strukturen aktiv hinterfragt werden.</p><p>‍</p><h6><strong>Absicherungs- und Beratungsbedarf</strong></h6><p>• Umzug verändert reale Risikosituation nachweisbar</p><p>• Kunden prüfen Verträge ohnehin neu</p><p>• Hohe Offenheit für Gesamtüberprüfung statt Einzelprodukt</p><p>• Emotionaler Wunsch nach Sicherheit und Kontrolle</p><p>• Beratung wird als Hilfe statt Verkauf wahrgenommen</p><p>‍</p><h6><strong>Wirtschaftliche Attraktivität</strong></h6><p>• Sehr gute Cross-Selling-Quote möglich</p><p>• Häufig Bündelberatung in einem Termin</p><p>• Starkes Fundament für langfristige Kundenbindung</p><p>• Erhöhte Wechselbereitschaft gegenüber Vorberater</p><p>• Zusatzpotenzial durch Familien- oder Partnerintegration</p><p>‍</p><h6><strong>Markt- und Bestandsperspektive</strong></h6><p>• Rund 10 Prozent Bevölkerung ziehen jährlich um</p><p>• Wiederkehrende Zielgruppe mit konstantem Leadfluss</p><p>• Sehr gut für Bestandsreaktivierung geeignet</p><p>• Besonders stark in urbanen Regionen</p><p>• Häufig Multiplikator über Familiennetzwerke</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage funktioniert als Gesprächseinstieg über Entlastung statt Produktverkauf.</p><p>‍</p><p>• Ein Umzug ist der beste Zeitpunkt für strukturierte Gesamtprüfung</p><p>• Ziel ist Ordnung schaffen, nicht Versicherungen verkaufen</p><p>• Kunden gewinnen Sicherheit, Überblick und mentale Entlastung</p><p>• Kleine Veränderungen können große Absicherungslücken erzeugen</p><p>• Ein klarer Prüfprozess reduziert Stress und Entscheidungsdruck</p>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<h6><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></h6><p>Wie aufwendig ist ein Versicherungscheck während eines Umzugs?</p><p>→ Nimmt Zeit- und Stressargumente vorweg</p><p>‍</p><p>Was bringt mir ein Versicherungscheck beim Wohnortwechsel konkret?</p><p>→ Liefert Nutzenargument und Gesprächsstruktur</p><p>‍</p><p>Welche Unterlagen werden für einen Versicherungscheck benötigt?</p><p>→ Senkt Einstiegshürde und Terminschwelle</p><p>‍</p><h6><strong>Stärkste Checklisten-Punkte als Gesprächsöffner</strong></h6><p>Adress- und Kontaktdaten vollständig aktualisiert?</p><p>→ Führt direkt zu Vertragsübersichtsgespräch</p><p>‍</p><p>Hat sich Wohnfläche oder Nutzung verändert?</p><p>→ Öffnet Hausrat- und Wohnrisikoanalyse</p><p>‍</p><p>Haben sich Lebens- oder Familienverhältnisse verändert?</p><p>→ Einstieg in existenzielle Absicherung und Vorsorge</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<h6><strong>Besonders geeignet für</strong></h6><p>• Büros mit starkem Privatkundengeschäft</p><p>• Regionen mit hoher Umzugsquote oder Zuzug</p><p>• Teams mit Beratungs- statt Produktfokus</p><p>• Büros mit Ausbauziel im Bestandsgeschäft</p><p>‍</p><h6><strong>Besonders wirksam in Situationen</strong></h6><p>• Neukundengewinnung über Online-Leads</p><p>• Bestandsreaktivierung bei Adressänderungen</p><p>• Nachfasslogik bei Immobilien- oder Mietwechsel</p><p>• Kooperation mit Maklern, Banken, Umzugsfirmen</p><p>‍</p><h6><strong>Realistische Grenzen</strong></h6><p>• Weniger geeignet für reine Preisvergleichsberatung</p><p>• Niedriger Hebel bei Kunden mit minimalem Versicherungsumfang</p><p>• Terminaufwand höher als bei Einzelabschluss</p><p>• Erfolgsquote abhängig von strukturierter Gesprächsführung</p>"
+      }
+    ]
+  },
+  {
+    "slug": "vereine",
+    "name": "Vereine",
+    "intro": "<p>Für verantwortliche Vorstandsmitglieder und Entscheidungsträger in Vereinen, die Haftung, Verantwortung und Absicherung strukturiert klären wollen.</p>",
+    "heroImage": "pages/verein.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/verein-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/verein-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/vereine-style-1.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Ehrenamtliche Vereinsvorstände</li><li>Tragen persönliche Verantwortung</li><li>geringe Lust auf „Versicherungsarbeit“</li><li>wenig Zeit, lokal vernetzt</li><li>Bestehende Verträge, Überblick fehlt</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Vorstandswechsel / neue Funktion → niemand weiß, was wirklich geregelt ist</li><li>Veranstaltung, Umbau oder Schaden → Haftungsfrage wird akut</li><li>Gefühl: „Wir sind wahrscheinlich versichert – aber sicher sind wir nicht“ </li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Anlassbezogen (Schaden, Nachfrage, Unsicherheit)</li><li>Sachlich, im Gremium, ohne Zeit für Detaildiskussionen</li><li>Vertrauen &gt; Preis &gt; Produktdetails</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Haftung des Vorstands (persönlich, nicht abstrakt)</li><li>Lücken zwischen Gebäude, Inventar, Veranstaltungen, Ehrenamt</li><li>Fehlende Dokumentation und klare Zuständigkeiten    </li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrspartenfähig (Haftpflicht, Inventar, Gebäude, D&amp;O, Rechtsschutz)</li><li>Hohe Abschlussqualität bei sauberer Beratung</li><li>Langfristige Verträge, geringe Wechselneigung</li><li>Cross-Selling durch Vereinsentwicklung (Umbau, Wachstum, neue Formate)</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Viele Vereine, wenig aktive Betreuung</li><li>Kaum Preisvergleichsmentalität</li><li>Empfehlungsstark im lokalen Netzwerk</li><li>Gut als wiederkehrender Bestandshebel nutzbar</li></ul><p>‍</p><p><strong>Abschlusshebel</strong></p><p>Abschlüsse entstehen, weil der Prozess <strong>Ordnung und Entlastung</strong> verspricht – nicht „bessere Tarife“. Wer Klarheit schafft, wird akzeptiert; wer verkauft, wird geblockt.</p>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Landingpage ist kein Verkaufsargument, sondern ein <strong>Gesprächsanlass</strong>.  </p><ul role=\"list\"><li>„Die meisten Vereine sind nicht falsch, sondern unvollständig abgesichert.“</li><li>„Haftung entsteht oft durch Kleinigkeiten, nicht durch Großschäden.“</li><li>„Ein strukturierter Überblick verhindert Überraschungen – mit wenig Aufwand.“</li><li>„Verantwortung heißt Klarheit über Zuständigkeiten.“</li><li>„Ziel ist Entlastung des Vorstands, nicht mehr Bürokratie.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ als Einwandvorwegnahme (3)</strong></p><ol role=\"list\"><li>„Wir sind doch über den Verband versichert.“ → <em>Erfahrung: genau dort fehlen Bausteine.</em>  </li><li>„Wir sind zu klein, lohnt sich das?“ → <em>Gerade kleine Vereine haften persönlich.</em>  </li><li>„Das klingt nach viel Aufwand.“ → <em>Check ist bewusst einfach, kein Formularwust.</em>  </li></ol><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner (3)</strong></p><ul role=\"list\"><li>„Gibt es eine aktuelle Inventarliste mit Wiederbeschaffungswert?“</li><li>„Ist vor Veranstaltungen klar geregelt, wer haftet?“</li><li>„Gibt es eine schriftliche Übergabe bei Vorstandswechsel?“  </li></ul><p>‍</p><p>→ Diese Fragen erzeugen sofort Gesprächstiefe ohne Verkaufsdruck.</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Agenturen mit Beratungsansatz</li><li>Büros mit Vereins-, Kommunal- oder Ehrenamtskontakten</li><li>Teams, die Bestände entwickeln statt Einmalabschlüsse jagen</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Bestandsaktivierung („Vereins-Check“ als Anlass)</li><li>Erstgespräche ohne Preisvergleich</li><li>Empfehlungsgeschäft im lokalen Umfeld</li></ul><p>‍</p><p><strong>Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschluss- oder Online-Lead-Produkt</li><li>Funktioniert nur mit echter Gesprächsbereitschaft</li><li>Erfordert saubere Nachbearbeitung (Auswertung → Empfehlung)</li></ul>"
+      }
+    ]
+  },
+  {
+    "slug": "werdende-eltern",
+    "name": "Junge Familien",
+    "intro": "<p>Für Büros, die junge Familien systematisch gewinnen, binden und langfristig entwickeln wollen.</p><p>‍</p>",
+    "heroImage": "pages/junge-ehepaare.webp",
+    "styles": [
+      {
+        "name": "Klassisch",
+        "image": "zielgruppen/werdende-eltern-style-1.webp"
+      },
+      {
+        "name": "Modern",
+        "image": "zielgruppen/werdende-eltern-style-2.webp"
+      },
+      {
+        "name": "Elegant",
+        "image": "zielgruppen/werdende-eltern-style-3.webp"
+      }
+    ],
+    "infoItems": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Zielgruppen-Profil",
+        "html": "<ul role=\"list\"><li>Erstes oder weiteres Kind</li><li>Hohe Verantwortung, wenig Routine</li><li>Zeitlich stark eingeschränkt</li><li>Sicherheitsorientiert</li><li>Beratungsbedürftig</li></ul>"
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Typische Situationen",
+        "html": "<ul role=\"list\"><li>Geburt verändert Alltag, Verantwortung und finanzielle Planung</li><li>Elternzeit senkt Einkommen und erhöht Entscheidungsdruck</li><li>Austausch mit anderen Eltern löst Absicherungsfragen aus</li></ul>"
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Entscheidungslogik",
+        "html": "<ul role=\"list\"><li>Emotion erzeugt Handlungsimpuls nach Sicherheit</li><li>Rationales Abwägen von Aufwand und Nutzen</li><li>Vertrauen entscheidet über Termin und Abschluss</li></ul>"
+      }
+    ],
+    "faq": [
+      {
+        "question": "Warum ist diese Zielgruppe aus Vertriebssicht interessant?",
+        "answer": "<p><strong>Kurze Einordnung</strong></p><p>Eine der wenigen Zielgruppen mit hohem Bedarf, hoher Abschlussnähe und langfristigem Wert.</p><p>‍</p><p><strong>Absicherungs- und Beratungsbedarf</strong></p><ul role=\"list\"><li>Lebensphase erzeugt echten Gesprächsanlass</li><li>Mehrere Themen gleichzeitig offen</li><li>Hoher Wunsch nach Orientierung statt Produkt</li></ul><p>‍</p><p><strong>Wirtschaftliche Attraktivität</strong></p><ul role=\"list\"><li>Mehrspartenfähig von Beginn an</li><li>Hoher Lifetime-Value</li><li>Wiederkehrende Anlässe über Jahre</li><li>Gute Basis für spätere Erweiterungen</li></ul><p>‍</p><p><strong>Markt- und Bestandsperspektive</strong></p><ul role=\"list\"><li>Kontinuierlicher Nachwuchs im Markt</li><li>Viele Bestandskunden wechseln in diese Phase</li><li>Empfehlungsstark innerhalb lokaler Netzwerke</li></ul>"
+      },
+      {
+        "question": "Wie spreche ich die Zielgruppe regelmäßig an?",
+        "answer": "<p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><ul role=\"list\"><li><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. <br><br>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.<br><br></li><li><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als professionellen Partner wahrnehmen – nicht nur in den seltenen Schadenfällen.<br><br>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf zielgruppenspezifische Landingpages.<br><br></li><li><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.<br><br>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br><br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?<br><br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</li></ul>"
+      },
+      {
+        "question": "Welche Kernaussagen trifft die Landingpage?",
+        "answer": "<p>Die Seite liefert keine Angebote, sondern Legitimation fürs Gespräch.</p><ul role=\"list\"><li>„Sie müssen nichts entscheiden, nur einordnen.“</li><li>„Viele haben etwas geregelt, aber nicht passend.“</li><li>„Überblick entlastet, bevor etwas passiert.“</li><li>„Nicht alles ist jetzt wichtig.“</li></ul>"
+      },
+      {
+        "question": "Wie nutze ich die FAQ und Checkliste gezielt im Gespräch?",
+        "answer": "<p><strong>Stärkste FAQ zur Einwandvorwegnahme</strong></p><ul role=\"list\"><li><em>Was kostet mich eine Beratung oder ein Familien Check?</em></li><li><em>Ich habe bereits Versicherungen. Reicht das nicht aus?</em></li><li><em>Wie aufwendig ist das Ganze im stressigen Familienalltag?</em></li></ul><p>‍</p><p><strong>Checklisten-Punkte als Gesprächsöffner</strong></p><ul role=\"list\"><li>Einkommen und finanzielle Übersicht</li><li>Absicherung der Familie grundsätzlich</li><li>Entscheidungen und Prioritäten</li></ul><p>‍</p><p>Typische Einstiegsfrage:</p><p>„Wollen wir kurz schauen, wo Sie gerade stehen – ohne etwas zu entscheiden?“</p>"
+      },
+      {
+        "question": "Für wen ist diese Vertriebsstrecke geeignet?",
+        "answer": "<p><strong>Besonders geeignet für</strong></p><ul role=\"list\"><li>Lokale Büros mit Familien im Bestand</li><li>Teams mit strukturierter Beratung</li><li>Regionen mit Neubaugebieten oder Zuzug</li></ul><p>‍</p><p><strong>Besonders wirksam</strong></p><ul role=\"list\"><li>Online-Leads mit klarem Terminziel</li><li>Bestandsansprache bei Geburt eines Kindes</li><li>Empfehlungen aus dem Umfeld</li></ul><p>‍</p><p><strong>Realistische Grenzen</strong></p><ul role=\"list\"><li>Kein Schnellabschlussprodukt</li><li>Benötigt Gesprächskompetenz</li><li>Wirkt nur bei echter Orientierungshaltung</li></ul>"
+      }
+    ]
+  }
+]

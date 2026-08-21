@@ -1,0 +1,32 @@
+{% set s = zielgruppenShared %}
+<section class="vl-info" id="zielgruppe">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="vl-info__container">
+
+          <div class="vl-info__content">
+            <h2 class="text-white heading-h3 text-center">{{ s.aboutHeadline }}</h2>
+          </div>
+
+          <div class="vl-info__grid">
+            {% for item in zg.infoItems %}
+              <div class="vl-info__item">
+                <div class="vl-info__icon">
+                  <img class="icon-md" src="/assets/img/{{ item.icon }}" alt="" aria-hidden="true" loading="lazy">
+                </div>
+                <div class="vl-info__item-content">
+                  <h3 class="text-white heading-h5">{{ item.title }}</h3>
+                  <div class="zg-info__list">{{ item.html | safe }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="glow vl-info__glow-1"></div>
+          <div class="glow vl-info__glow-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

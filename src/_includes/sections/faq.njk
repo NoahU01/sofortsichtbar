@@ -8,7 +8,7 @@
 
           <div class="faq__header">
             <h2 class="text-white heading-h3">{{ f.headline }}</h2>
-            <p class="text-regular text-grey">{{ f.text }}</p>
+            {% if f.text %}<p class="text-regular text-grey">{{ f.text }}</p>{% endif %}
           </div>
 
           <div class="faq__items">

@@ -1,0 +1,148 @@
+---
+layout: layouts/base.njk
+title: Styleguide – sofort sichtbar
+description: Farben, Typografie und Komponenten dieser Website.
+permalink: /styleguide/index.html
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{% set colors = [
+  { name: "background", value: "#0e0d0f", note: "Seitenhintergrund" },
+  { name: "surface", value: "#211d24", note: "Karten und Container" },
+  { name: "element", value: "#332b38", note: "Hervorgehobene Flächen" },
+  { name: "grey-800", value: "#161418", note: "Timeline-Segmente" },
+  { name: "grey-600", value: "#454756", note: "Rahmen" },
+  { name: "grey-400", value: "#7e7f88", note: "Footer-Links" },
+  { name: "grey-100", value: "#c3c2c3", note: "Sekundärtext" },
+  { name: "white", value: "#ffffff", note: "Text und Primärbutton" },
+  { name: "accent", value: "#a167e4", note: "Pills und Badges" },
+  { name: "launch-to", value: "#a23edb", note: "Raketen-Kachel" }
+] %}
+{% set glows = [
+  { name: "glow-magenta", value: "#693069" },
+  { name: "glow-blue", value: "#183567" },
+  { name: "glow-violet", value: "#251a4b" },
+  { name: "glow-plum", value: "#532153" },
+  { name: "glow-navy", value: "#082453" },
+  { name: "glow-purple", value: "#310e44" },
+  { name: "glow-indigo", value: "#001c4d" },
+  { name: "glow-deep-blue", value: "#061b3f" },
+  { name: "glow-mauve", value: "#422342" }
+] %}
+
+<section class="sg">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+
+        <header class="sg__header">
+          <div class="eyebrow"><div class="eyebrow__text">Interne Referenz</div></div>
+          <h1 class="heading-h2 text-white">Styleguide</h1>
+          <p class="text-regular text-secondary">
+            Alle Bausteine dieser Website an einer Stelle. Die Werte stammen aus
+            <code>src/assets/css/01-tokens.css</code>; Änderungen dort wirken überall.
+          </p>
+        </header>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Farben</h2>
+          <div class="sg__swatches">
+            {% for c in colors %}
+              <div class="sg__swatch">
+                <div class="sg__chip" style="background:{{ c.value }}"></div>
+                <div class="text-white text-semibold">--color-{{ c.name }}</div>
+                <div class="text-small text-grey">{{ c.value }} · {{ c.note }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Farbnebel</h2>
+          <p class="text-secondary">Großflächig und stark weichgezeichnet hinter den Sektionen.</p>
+          <div class="sg__swatches">
+            {% for c in glows %}
+              <div class="sg__swatch">
+                <div class="sg__chip" style="background:{{ c.value }}"></div>
+                <div class="text-white text-semibold">--{{ c.name }}</div>
+                <div class="text-small text-grey">{{ c.value }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Typografie</h2>
+          <div class="sg__stack">
+            <div class="heading-h1 text-white">Überschrift H1 · 3,5rem / 500</div>
+            <div class="heading-h2 text-white">Überschrift H2 · 3rem / 600</div>
+            <div class="heading-h3 text-white">Überschrift H3 · 2rem / 600</div>
+            <div class="heading-h4 text-white">Überschrift H4 · 1,5rem / 700</div>
+            <div class="heading-h5 text-white">Überschrift H5 · 1,25rem / 600</div>
+            <div class="heading-h6 text-white">Überschrift H6 · 1rem / 600</div>
+            <p class="text-regular text-white">Fließtext · 1rem, Zeilenhöhe 145 %</p>
+            <p class="text-regular text-secondary">Sekundärer Fließtext · 0,9rem</p>
+            <p class="text-small text-white">Kleiner Text · 0,875rem</p>
+            <p class="text-small text-grey">Gedämpfter Text für Hinweise</p>
+          </div>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Buttons</h2>
+          <div class="sg__row">
+            <a class="btn btn--primary" href="#">Primär</a>
+            <a class="btn btn--secondary" href="#">Sekundär</a>
+          </div>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Kleinteile</h2>
+          <div class="sg__row">
+            <div class="eyebrow"><div class="eyebrow__text">Eyebrow</div></div>
+            <span class="pill"><span class="pill__text">Beliebt</span></span>
+            <span class="pill pill--round"><span class="pill__text">-20%</span></span>
+            <div class="badge">
+              <img class="icon-sm" src="/assets/img/icons/eye.svg" alt="" aria-hidden="true">
+              <div class="badge__text">Badge mit Icon</div>
+            </div>
+          </div>
+          <div class="sg__row sg__row--top">
+            <div class="dot-list">
+              <div class="dot-item"><p class="text-secondary text-regular">Aufzählung mit Punkt</p></div>
+              <div class="dot-item"><p class="text-secondary text-regular">Zweiter Punkt</p></div>
+            </div>
+            <div class="bullet-list">
+              <div class="bullet-item">
+                <img class="icon-md" src="/assets/img/icons/check.svg" alt="" aria-hidden="true">
+                <div class="text-white">Aufzählung mit Icon</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Layout</h2>
+          <div class="sg__stack">
+            <div class="sg__bar"><span>.container</span> max-width 80rem</div>
+            <div class="sg__bar sg__bar--medium"><span>.container-medium</span> max-width 64rem</div>
+            <div class="sg__bar sg__bar--small"><span>.container-small</span> max-width 48rem</div>
+          </div>
+          <p class="text-small text-grey">
+            Seitenrand <code>.padding-global</code>: 2,5rem, ab 767px 1,25rem ·
+            Sektionsabstand <code>.section-padding</code>: 8rem, ab 991px 6rem, ab 767px 4rem
+          </p>
+        </section>
+
+        <section class="sg__block">
+          <h2 class="heading-h3 text-white">Umbruchpunkte</h2>
+          <ul class="sg__list text-secondary">
+            <li><strong class="text-white">991px</strong> – Desktop-Raster wird gestapelt, Mobile-Menü erscheint</li>
+            <li><strong class="text-white">767px</strong> – Überschriften und Seitenrand verkleinern sich</li>
+            <li><strong class="text-white">479px</strong> – Buttons volle Breite, Sonderfälle fürs Telefon</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>

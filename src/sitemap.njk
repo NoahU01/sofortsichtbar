@@ -1,0 +1,14 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- set staticPaths = ["/", "/vertriebsstrecken", "/pricing", "/vetriebsleiter", "/kontakt", "/impressum", "/datenschutzerklarung"] %}
+{%- for path in staticPaths %}
+  <url><loc>{{ site.url }}{{ path }}</loc></url>
+{%- endfor %}
+{%- for zg in zielgruppen %}
+  <url><loc>{{ site.url }}/zielgruppen/{{ zg.slug }}</loc></url>
+{%- endfor %}
+</urlset>
