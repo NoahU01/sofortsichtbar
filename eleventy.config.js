@@ -31,6 +31,12 @@ function normalizePath(value) {
 }
 
 export default function (eleventyConfig) {
+  // Absolute URL ohne Schrägstrich am Ende – gleiche Form in Canonical, og:url und Sitemap
+  eleventyConfig.addFilter("absoluteUrl", (pageUrl, base) => {
+    const path = normalizePath(pageUrl);
+    return path ? `${base}/${path}` : `${base}/`;
+  });
+
   // Markiert den aktiven Navigationspunkt (aria-current)
   eleventyConfig.addFilter("isCurrentPath", (href, pageUrl) => {
     const target = normalizePath(href);

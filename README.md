@@ -17,6 +17,19 @@ npm run build   # Produktions-Build nach dist/
 npm run clean   # dist/ löschen
 ```
 
+## Deployment
+
+Läuft auf Vercel. Die Einstellungen stehen in `vercel.json`, damit nichts im
+Dashboard nachgeklickt werden muss:
+
+- `outputDirectory: "dist"` – Eleventy schreibt nicht in den Vercel-Standard `_site`
+- `cleanUrls` und `trailingSlash: false` – URLs ohne `.html` und ohne Schrägstrich
+  am Ende, gleiche Form wie in Canonical-Tag und Sitemap
+- Cache-Regeln: Bilder eine Woche, CSS und JS mit Revalidierung
+  (die Dateinamen tragen keinen Hash, sonst würden Änderungen hängenbleiben)
+
+`dist/404.html` wird von Vercel automatisch als Fehlerseite ausgeliefert.
+
 ## Seiten
 
 | Pfad | Inhalt |
