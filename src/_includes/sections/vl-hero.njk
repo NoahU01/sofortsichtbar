@@ -13,12 +13,14 @@
 
             <h1 class="hero__headline">
               {% for word in h.words %}
-                {% if word == "__ICON__" %}
+                {% if word.icon %}
                   <span class="hero__icon-wrapper" aria-hidden="true">
                     <img class="hero__icon" src="/assets/img/logos/logo-icon.svg" alt="">
                   </span>
+                {% elif word.bold %}
+                  <strong>{{ word.text }}</strong>
                 {% else %}
-                  <span>{{ word }}</span>
+                  <span>{{ word.text }}</span>
                 {% endif %}
               {% endfor %}
             </h1>

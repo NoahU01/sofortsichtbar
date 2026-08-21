@@ -25,7 +25,18 @@ function buildCss() {
   return { files: base.length + sections.length, bytes: css.length };
 }
 
+/** Pfad auf einen Vergleichs-Schlüssel bringen: "/pricing/" und "/pricing" werden gleich. */
+function normalizePath(value) {
+  return String(value || "").replace(/index\.html$/, "").replace(/^\/+|\/+$/g, "");
+}
+
 export default function (eleventyConfig) {
+  // Markiert den aktiven Navigationspunkt (aria-current)
+  eleventyConfig.addFilter("isCurrentPath", (href, pageUrl) => {
+    const target = normalizePath(href);
+    return target !== "" && target === normalizePath(pageUrl);
+  });
+
   // Statische Assets 1:1 nach dist kopieren (CSS wird gebündelt, siehe unten)
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });

@@ -11,7 +11,8 @@
               <div class="footer__nav">
                 <div class="footer__nav-title">Navigation</div>
                 {% for item in site.footer.navigation %}
-                  <a class="footer__link" href="{{ item.href }}">{{ item.label }}</a>
+                  <a class="footer__link" href="{{ item.href }}"
+                     {% if item.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ item.label }}</a>
                 {% endfor %}
               </div>
 

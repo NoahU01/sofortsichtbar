@@ -2,13 +2,29 @@
   "hero": {
     "eyebrow": "Für Führungskräfte im Versicherungsvertrieb",
     "words": [
-      "Sofort",
-      "__ICON__",
-      "mehr",
-      "Vertriebskraft",
-      "für",
-      "deine",
-      "Region"
+      {
+        "text": "Sofort"
+      },
+      {
+        "icon": true
+      },
+      {
+        "text": "mehr",
+        "bold": true
+      },
+      {
+        "text": "Vertriebskraft",
+        "bold": true
+      },
+      {
+        "text": "für"
+      },
+      {
+        "text": "deine"
+      },
+      {
+        "text": "Region"
+      }
     ],
     "text": "Du musst Vertriebsergebnisse steigern, hast aber keine schnell einsetzbaren Hebel — wir liefern eine sofort aktivierbare Vertriebsinfrastruktur, die deine Vertriebseinheiten direkt produktiver macht.",
     "cta": {

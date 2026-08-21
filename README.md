@@ -87,6 +87,14 @@ Alle Sektionen haben IDs als Tracking-Anker und Sprungziele. Der Cal.com-Embed i
 `partials/cal-embed.njk` lädt ein Drittanbieter-Script und gehört beim Tracking-Setup
 hinter die Consent-Abfrage.
 
+## Details, die leicht kippen
+
+- **`-webkit-font-smoothing` bleibt auf `auto`.** Auf `antialiased` gesetzt rendert
+  macOS die Schrift sichtbar dünner als das Original (rund 8 % weniger Deckung).
+  Headless-Screenshots zeigen den Unterschied nicht – nur echtes Chrome.
+- **Kein `scroll-margin-top` auf Ankerzielen.** Die Navigation ist nicht fixiert;
+  ein Versatz würde die Sprungziele gegenüber dem Original verschieben.
+
 ## Bewusste Abweichungen zum Original
 
 - **Burger-Icon** als CSS statt Lottie – gleiche Maße, ~30 kB weniger.
@@ -100,5 +108,8 @@ hinter die Consent-Abfrage.
 - **`/styleguide`**: im Original die unveränderte Client-First-Demo von Webflow, die
   nirgends verlinkt ist. Hier stattdessen eine Referenz der tatsächlich genutzten
   Tokens und Komponenten.
+- **Aktiver Filter auf `/vertriebsstrecken`** ist immer fett *und* unterstrichen.
+  Im Original verliert er beim Umschalten das Fett (die Klasse landet dort nur auf
+  dem äußeren Element) – hier bleibt es konsistent.
 - **Lightbox auf den Zielgruppen-Seiten**: im Original vorhanden, aber dauerhaft
   `display:none` und ohne Klick-Handler – also nicht übernommen.

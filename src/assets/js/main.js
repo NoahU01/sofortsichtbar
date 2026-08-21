@@ -195,6 +195,35 @@
     apply("all");
   }
 
+  /* --- Anker-Links weich scrollen ------------------------------------- */
+  function initAnchors() {
+    function samePage(link) {
+      return link.pathname === location.pathname && link.hash && link.hash.length > 1;
+    }
+
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest('a[href*="#"]');
+      if (!link || link.target === "_blank" || !samePage(link)) return;
+
+      var target = document.querySelector(link.hash);
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      history.pushState(null, "", link.hash);
+    });
+
+    // Aufruf mit Hash von einer anderen Seite: erst nach dem Layout scrollen
+    if (location.hash.length > 1) {
+      var target = document.querySelector(location.hash);
+      if (target) {
+        window.addEventListener("load", function () {
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+        });
+      }
+    }
+  }
+
   /* --- Scroll-Reveal --------------------------------------------------- */
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -222,6 +251,7 @@
     initAccordion();
     initMarquee();
     initThemeFilter();
+    initAnchors();
     initReveal();
   }
 

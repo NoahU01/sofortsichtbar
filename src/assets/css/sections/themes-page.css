@@ -93,7 +93,19 @@
 }
 .themes-selection__filter-text { font-weight: 400; }
 .themes-selection__filter.is-active .themes-selection__filter-text { font-weight: 600; }
-.themes-selection__filter-line { position: absolute; inset: auto 0 0; }
+
+/* Unterstreichung des aktiven Filters */
+.themes-selection__filter-line {
+  position: absolute;
+  inset: auto 0 0;
+  height: 0;
+  background-color: transparent;
+  transition: height var(--transition), background-color var(--transition);
+}
+.themes-selection__filter.is-active .themes-selection__filter-line {
+  height: 3px;
+  background-color: var(--color-white);
+}
 
 .themes-selection__separator { height: 1px; background-color: var(--color-grey-600); }
 
