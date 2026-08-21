@@ -1,0 +1,310 @@
+{
+  "headline": {
+    "text": "Sichtbarkeit für jeden ",
+    "accent": "Schwerpunkt"
+  },
+  "heroBadges": [
+    {
+      "icon": "icons/frame-80.svg",
+      "label": "Social Media",
+      "pos": 1
+    },
+    {
+      "icon": "icons/laptop-1.svg",
+      "label": "Landingpage",
+      "pos": 2
+    },
+    {
+      "icon": "icons/email-action-send-1.svg",
+      "label": "E-Mail-Funnel",
+      "pos": 3
+    }
+  ],
+  "filters": [
+    {
+      "id": "all",
+      "label": "Alle",
+      "reset": true
+    },
+    {
+      "id": "privat",
+      "label": "Privat"
+    },
+    {
+      "id": "gewerbe",
+      "label": "Gewerbe"
+    },
+    {
+      "id": "anspracheanlaesse",
+      "label": "Anspracheanlässe"
+    }
+  ],
+  "zielgruppen": [
+    {
+      "label": "Berufseinsteiger",
+      "href": "/zielgruppen/berufseinsteiger-im-ersten-job",
+      "filter": "privat",
+      "icon": "icons/tool-box.svg"
+    },
+    {
+      "label": "Inhabergeführte Firmen",
+      "href": "/zielgruppen/gewerbekunden",
+      "filter": "gewerbe",
+      "icon": "icons/building-1.svg"
+    },
+    {
+      "label": "Junge Familien",
+      "href": "/zielgruppen/werdende-eltern",
+      "filter": "privat",
+      "icon": "icons/family-child.svg"
+    },
+    {
+      "label": "Gründer & Freelancer",
+      "href": "/zielgruppen/freelancer-und-grunder",
+      "filter": "gewerbe",
+      "icon": "icons/worker-needed-computer.svg"
+    },
+    {
+      "label": "Private Tierhalter",
+      "href": "/zielgruppen/private-tierhalter-im-lokalen-umfeld",
+      "filter": "privat",
+      "icon": "icons/dog-leash.svg"
+    },
+    {
+      "label": "IT-lastige Firmen",
+      "href": "/zielgruppen/cyber-firmen",
+      "filter": "gewerbe",
+      "icon": "icons/network-user.svg"
+    },
+    {
+      "label": "Private Bauherren",
+      "href": "/zielgruppen/bauherren",
+      "filter": "privat",
+      "icon": "icons/construction-house.svg"
+    },
+    {
+      "label": "Vereine",
+      "href": "/zielgruppen/vereine",
+      "filter": "gewerbe",
+      "icon": "icons/club-flag-1.svg"
+    },
+    {
+      "label": "Vermietung von Ferienwohnungen",
+      "href": "/zielgruppen/ferienwohnungen",
+      "filter": "privat",
+      "icon": "icons/sunbathe.svg"
+    },
+    {
+      "label": "Landwirte",
+      "href": "/zielgruppen/landwirte",
+      "filter": "gewerbe",
+      "icon": "icons/professions-man-farmer.svg"
+    },
+    {
+      "label": "Kommunale Angestellte",
+      "href": "/zielgruppen/kommunale-angestellte",
+      "filter": "privat",
+      "icon": "icons/office-employee.svg"
+    },
+    {
+      "label": "Ärzte und Zahnärzte",
+      "href": "/zielgruppen/arzte",
+      "filter": "gewerbe",
+      "icon": "icons/medical-instrument-stethoscope.svg"
+    },
+    {
+      "label": "Digital aktive Personen",
+      "href": "/zielgruppen/digital-aktive-privatpersonen",
+      "filter": "privat",
+      "icon": "icons/single-neutral-actions-laptop.svg"
+    },
+    {
+      "label": "Gesundheitsnahe Heilberufe",
+      "href": "/zielgruppen/physio-und-pflege",
+      "filter": "gewerbe",
+      "icon": "icons/medical-specialty-rehabilitation.svg"
+    },
+    {
+      "label": "Umzug",
+      "href": "/zielgruppen/umzug",
+      "filter": "privat",
+      "icon": "icons/shipment-upload.svg"
+    },
+    {
+      "label": "Kanzleiinhaber",
+      "href": "/zielgruppen/anwalte-und-kanzleiinhaber",
+      "filter": "gewerbe",
+      "icon": "icons/avatar-judge-man.svg"
+    },
+    {
+      "label": "Junge Ehepaare",
+      "href": "/zielgruppen/junge-ehepaare",
+      "filter": "privat",
+      "icon": "icons/rings-double.svg"
+    },
+    {
+      "label": "Hausverwaltungen",
+      "href": "/zielgruppen/hausverwalter",
+      "filter": "gewerbe",
+      "icon": "icons/house-4.svg"
+    },
+    {
+      "label": "Getrennte Paare",
+      "href": "/zielgruppen/getrennte-personen",
+      "filter": "privat",
+      "icon": "icons/love-it-break.svg"
+    },
+    {
+      "label": "Immobilienmakler",
+      "href": "/zielgruppen/immobilienmakler",
+      "filter": "gewerbe",
+      "icon": "icons/real-estate-action-house-key.svg"
+    }
+  ],
+  "anlaesse": [
+    {
+      "label": "Trennung",
+      "href": "/zielgruppen/getrennte-personen",
+      "filter": null,
+      "icon": "icons/love-it-break.svg"
+    },
+    {
+      "label": "Eheschließung",
+      "href": "/zielgruppen/junge-ehepaare",
+      "filter": null,
+      "icon": "icons/rings-double.svg"
+    },
+    {
+      "label": "Ummeldung des Wohnsitzes",
+      "href": "/zielgruppen/umzug",
+      "filter": null,
+      "icon": "icons/shipment-upload.svg"
+    },
+    {
+      "label": "Beginn eines neuen Arbeitsverhältnisses im öffentlichen Dienst",
+      "href": "/zielgruppen/kommunale-angestellte",
+      "filter": null,
+      "icon": "icons/tool-box.svg"
+    },
+    {
+      "label": "Veröffentlichung des Inserats",
+      "href": "/zielgruppen/ferienwohnungen",
+      "filter": null,
+      "icon": "icons/sunbathe.svg"
+    },
+    {
+      "label": "Erstmalige Vermietung",
+      "href": "/zielgruppen/ferienwohnungen",
+      "filter": null,
+      "icon": "icons/sunbathe.svg"
+    },
+    {
+      "label": "Finanzierungszusage durch die Bank",
+      "href": "/zielgruppen/bauherren",
+      "filter": null,
+      "icon": "icons/construction-house.svg"
+    },
+    {
+      "label": "Notartermin zum Kauf einer Immobilie",
+      "href": "/zielgruppen/bauherren",
+      "filter": null,
+      "icon": "icons/construction-house.svg"
+    },
+    {
+      "label": "Anschaffung eines Haustiers",
+      "href": "/zielgruppen/private-tierhalter-im-lokalen-umfeld",
+      "filter": null,
+      "icon": "icons/dog-leash.svg"
+    },
+    {
+      "label": "Geburt eines Kindes",
+      "href": "/zielgruppen/werdende-eltern",
+      "filter": null,
+      "icon": "icons/family-child.svg"
+    },
+    {
+      "label": "Start ins erste sozialversicherungspflichtige Arbeitsverhältnis",
+      "href": "/zielgruppen/berufseinsteiger-im-ersten-job",
+      "filter": null,
+      "icon": "icons/tool-box.svg"
+    },
+    {
+      "label": "Start der selbständigen Tätigkeit",
+      "href": "/zielgruppen/immobilienmakler",
+      "filter": null,
+      "icon": "icons/real-estate-action-house-key.svg"
+    },
+    {
+      "label": "Gewerbeanmeldung als Immobilienmakler",
+      "href": "/zielgruppen/immobilienmakler",
+      "filter": null,
+      "icon": "icons/real-estate-action-house-key.svg"
+    },
+    {
+      "label": "Einstellung von Mitarbeitern",
+      "href": "/zielgruppen/gewerbekunden",
+      "filter": null,
+      "icon": "icons/building-1.svg"
+    },
+    {
+      "label": "Gründung Unternehmen oder Niederlassung",
+      "href": "/zielgruppen/gewerbekunden",
+      "filter": null,
+      "icon": "icons/building-1.svg"
+    },
+    {
+      "label": "Investition in neue Maschinen oder Stallanlagen",
+      "href": "/zielgruppen/landwirte",
+      "filter": null,
+      "icon": "icons/professions-man-farmer.svg"
+    },
+    {
+      "label": "Hofübernahme / Generationenwechsel",
+      "href": "/zielgruppen/landwirte",
+      "filter": null,
+      "icon": "icons/professions-man-farmer.svg"
+    },
+    {
+      "label": "Wahl eines neuen Vereinsvorstands",
+      "href": "/zielgruppen/vereine",
+      "filter": null,
+      "icon": "icons/club-flag-1.svg"
+    },
+    {
+      "label": "Übernahme einer neuen Liegenschaft in die Verwaltung",
+      "href": "/zielgruppen/hausverwalter",
+      "filter": null,
+      "icon": "icons/house-4.svg"
+    },
+    {
+      "label": "Kanzleigründung oder Aufnahme der selbständigen Tätigkeit",
+      "href": "/zielgruppen/anwalte-und-kanzleiinhaber",
+      "filter": null,
+      "icon": "icons/avatar-judge-man.svg"
+    },
+    {
+      "label": "Zulassung und Eröffnung einer eigenen Praxis oder Tätigkeit",
+      "href": "/zielgruppen/physio-und-pflege",
+      "filter": null,
+      "icon": "icons/medical-specialty-rehabilitation.svg"
+    },
+    {
+      "label": "Gründung oder Übernahme einer Arztpraxis",
+      "href": "/zielgruppen/arzte",
+      "filter": null,
+      "icon": "icons/medical-instrument-stethoscope.svg"
+    },
+    {
+      "label": "Offizielle Gewerbeanmeldung oder Aufnahme der freiberuflichen Tätigkeit",
+      "href": "/zielgruppen/freelancer-und-grunder",
+      "filter": null,
+      "icon": "icons/office-employee-3.svg"
+    },
+    {
+      "label": "Auszug eines Partners aus der gemeinsamen Wohnung",
+      "href": "/zielgruppen/getrennte-personen",
+      "filter": null,
+      "icon": "icons/love-it-break.svg"
+    }
+  ]
+}

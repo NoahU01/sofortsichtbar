@@ -1,13 +1,13 @@
-{% set c = home.contact %}
+{% set c = contactData or home.contact %}
 <section class="contact" id="kontakt">
   <div class="padding-global">
     <div class="section-padding">
       <div class="container">
-        <div class="contact__container padding-large">
+        <div class="contact__container {{ c.padding }}">
 
           <div class="glow contact__glow-1 reveal"></div>
           <div class="glow contact__glow-2 reveal"></div>
-          <div class="contact__scrim-2"></div>
+          {% if c.variant == "team" %}<div class="contact__scrim-2"></div>{% endif %}
           <div class="contact__scrim"></div>
 
           <div class="contact__content">
@@ -30,10 +30,14 @@
               <p class="contact__quote-text">{{ c.quote }}</p>
               <p class="contact__quote-text contact__quote-author">{{ c.quoteAuthor }}</p>
             </div>
-            <img class="contact__image" src="/assets/img/team.png"
-                 srcset="/assets/img/team-500.png 500w, /assets/img/team.png 604w"
-                 sizes="100vw" alt="Das Team von sofort sichtbar: Kerstin, Daniel und Noah"
-                 loading="lazy" decoding="async">
+            {% if c.variant == "team" %}
+              <img class="contact__image contact__image--team" src="/assets/img/team.png"
+                   srcset="/assets/img/team-500.png 500w, /assets/img/team.png 604w"
+                   sizes="100vw" alt="{{ c.imageAlt }}" loading="lazy" decoding="async">
+            {% else %}
+              <img class="contact__image contact__image--person" src="/assets/img/{{ c.image }}"
+                   alt="{{ c.imageAlt }}" loading="lazy" decoding="async">
+            {% endif %}
           </div>
 
         </div>

@@ -1,0 +1,51 @@
+{% set ov = pricingOverview %}
+<section class="overview" id="vergleich">
+  <div class="overview__padding">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="overview__inner">
+          <h2 class="text-white heading-h4">{{ ov.headline }}</h2>
+
+          <div class="overview__groups">
+            {% for group in ov.groups %}
+              <div class="overview__group">
+                <div class="overview__row">
+                  <div class="text-white overview__label">{{ group.title }}</div>
+                  <div class="overview__cells">
+                    {% for tier in group.tiers %}
+                      <div class="overview__cell">
+                        <div class="text-white text-center overview__value">{{ tier }}</div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                <div class="overview__separator"></div>
+
+                {% for row in group.rows %}
+                  <div class="overview__row">
+                    <div class="text-white overview__label">{{ row.label }}</div>
+                    <div class="overview__cells">
+                      {% for cell in row.cells %}
+                        <div class="overview__cell">
+                          {% if cell == "yes" %}
+                            {% include "partials/icon-check-green.njk" %}
+                          {% elif cell == "no" %}
+                            {% include "partials/icon-close-red.njk" %}
+                          {% else %}
+                            <div class="text-white text-center overview__value">{{ cell }}</div>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

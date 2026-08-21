@@ -1,0 +1,25 @@
+{% set p = vertriebsleiter.problem %}
+<section class="problem" id="problem">
+  <div class="padding-global">
+    <div class="section-padding section-padding--top-7">
+      <div class="container">
+        <div class="problem__grid">
+
+          <div class="problem__visual">
+            <div class="problem__glow reveal"></div>
+            <img class="problem__image" src="/assets/img/{{ p.image }}"
+                 alt="Beratungsgespräch im Vertrieb" loading="lazy" decoding="async">
+          </div>
+
+          <div class="problem__content">
+            <h2 class="heading-h2 text-white">{{ p.headline }}</h2>
+            <p class="text-white">
+              {%- for para in p.paragraphs %}{{ para | safe }}{% if not loop.last %}<br><br>{% endif %}{% endfor -%}
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

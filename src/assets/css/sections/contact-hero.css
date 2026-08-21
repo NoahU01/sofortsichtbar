@@ -1,0 +1,74 @@
+/* =========================================================
+   Kontakt-Hero (Seite /kontakt)
+   ========================================================= */
+.contact-hero {
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.container-medium {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-hero__box {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.contact-hero__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-hero__portrait {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 22rem;
+  height: 14rem;
+  background-color: var(--color-element);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.contact-hero__image { position: relative; bottom: 0; }
+
+.contact-hero__content { display: flex; flex-flow: column; gap: 2rem; }
+.contact-hero__text { display: flex; flex-flow: column; gap: 0.5rem; max-width: 22rem; }
+
+.contact-hero__links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-hero__glow {
+  inset: -2rem -4rem auto auto;
+  width: 42rem;
+  height: 18rem;
+  background-color: #461f46;
+  filter: blur(10rem);
+}
+
+.cal-embed { position: relative; z-index: 1; width: 100%; }
+
+@media (max-width: 479px) {
+  .contact-hero__box { border-radius: var(--radius-xl); }
+  .contact-hero__header,
+  .contact-hero__links { flex-flow: column; justify-content: flex-start; align-items: flex-start; }
+  .contact-hero__portrait { width: 100%; height: auto; }
+  .contact-hero__image { width: 100%; max-width: none; }
+  .contact-hero__glow { z-index: 0; }
+}

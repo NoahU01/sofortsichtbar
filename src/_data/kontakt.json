@@ -1,0 +1,11 @@
+{
+  "headline": "Wir sind für Dich da!",
+  "text": "Wir helfen dir bei Deiner Entscheidung oder Fragen, die Du klären möchtest.",
+  "emailLabel": "kontakt@sofort-sichtbar.de",
+  "cal": {
+    "namespace": "beratungstermin",
+    "link": "sofortsichtbar/beratungstermin",
+    "origin": "https://app.cal.eu",
+    "brand": "#d51c8d"
+  }
+}

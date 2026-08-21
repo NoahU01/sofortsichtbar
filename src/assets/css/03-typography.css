@@ -2,9 +2,12 @@
    Typografie-Utilities
    ========================================================= */
 .heading-h1 { font-size: 3.5rem; font-weight: 500; line-height: 1.1; }
+/* Variante mit eigener Verkleinerungs-Kurve (Vertriebsstrecken-Hero) */
 .heading-h2 { font-size: 3rem;   font-weight: 600; line-height: 1.2; }
 .heading-h3 { font-size: 2rem;   font-weight: 600; line-height: 1.2; }
 .heading-h4 { font-size: 1.5rem; font-weight: 700; line-height: 1.4; }
+.heading-h5 { font-size: 1.25rem; font-weight: 600; line-height: 1.5; }
+.heading-h6 { font-size: 1rem;    font-weight: 600; line-height: 1.5; }
 
 .text-regular { font-size: 1rem; line-height: 145%; }
 .text-small   { font-size: 0.875rem; }
@@ -26,9 +29,12 @@
   .heading-h2 { font-size: 2rem; }
   .heading-h3 { font-size: 1.5rem; }
   .heading-h4 { font-size: 1rem; }
+  .heading-h5 { font-size: 0.875rem; }
+  .heading-h6 { font-size: 0.75rem; }
 }
 @media (max-width: 479px) {
   .heading-h2 { font-size: 1.5rem; }
+  .heading-h6 { color: var(--color-white); font-size: 1rem; font-weight: 600; }
   .text-regular { font-size: 0.85rem; }
   .text-white.heading-h4 { line-height: 1.2; }
 }

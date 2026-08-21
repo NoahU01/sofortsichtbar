@@ -1,7 +1,8 @@
-{% set pr = home.pricing %}
+{% set pr = pricing %}
+{% set pricingPadding = pricingPadding or "section-padding" %}
 <section class="pricing" id="pricing">
   <div class="padding-global">
-    <div class="section-padding">
+    <div class="{{ pricingPadding }}">
       <div class="container">
         <div class="pricing__grid">
 

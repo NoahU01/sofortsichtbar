@@ -1,0 +1,25 @@
+{% set v = vertriebsstrecken %}
+<section class="themes-hero">
+  <div class="themes-hero__content">
+    <h1 class="text-white heading-h1 heading-h1--small text-center">{{ v.headline.text }}<strong>{{ v.headline.accent }}</strong></h1>
+  </div>
+
+  <div class="glow themes-hero__glow-1"></div>
+  <div class="glow themes-hero__glow-2"></div>
+
+  <div class="themes-hero__preview">
+    {% for b in v.heroBadges %}
+      <div class="themes-hero__badge-{{ b.pos }}">
+        <div class="badge">
+          <img class="icon-sm" src="/assets/img/{{ b.icon }}" alt="" aria-hidden="true" loading="lazy">
+          <div class="badge__text">{{ b.label }}</div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <img class="themes-hero__image" src="/assets/img/pages/vertriebsstrecken-hero-2.webp"
+         alt="Vorschau: Social-Media-Posting, Landingpage und E-Mail-Funnel" decoding="async">
+    <img class="themes-hero__image themes-hero__image--mobile" src="/assets/img/pages/vertriebsstrecken-hero-mobile.webp"
+         alt="" aria-hidden="true" decoding="async">
+  </div>
+</section>

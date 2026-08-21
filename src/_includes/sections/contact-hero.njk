@@ -1,0 +1,41 @@
+{% set k = kontakt %}
+<section class="contact-hero">
+  <div class="section-padding">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="contact-hero__box padding-large">
+
+          <div class="contact-hero__header">
+            <div class="contact-hero__portrait">
+              <img class="contact-hero__image" src="/assets/img/pages/team-2.webp"
+                   width="689" height="411"
+                   alt="Das Team von sofort sichtbar" loading="lazy" decoding="async">
+            </div>
+
+            <div class="contact-hero__content">
+              <div class="contact-hero__text">
+                <h1 class="text-white heading-h3">{{ k.headline }}</h1>
+                <p class="text-white">{{ k.text }}</p>
+              </div>
+
+              <div class="contact-hero__links">
+                <a class="bullet-item bullet-item--link" href="mailto:{{ site.email }}">
+                  <img class="icon-md" src="/assets/img/icons/mail.svg" alt="" aria-hidden="true" loading="lazy">
+                  <div class="text-white">{{ k.emailLabel }}</div>
+                </a>
+                <a class="bullet-item bullet-item--link" href="tel:{{ site.phoneHref }}">
+                  <img class="icon-md" src="/assets/img/icons/phone.svg" alt="" aria-hidden="true" loading="lazy">
+                  <div class="text-white">{{ site.phone }}</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {% include "partials/cal-embed.njk" %}
+
+          <div class="glow contact-hero__glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

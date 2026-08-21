@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "eyebrow": "Für Führungskräfte im Versicherungsvertrieb",
+    "words": [
+      "Sofort",
+      "__ICON__",
+      "mehr",
+      "Vertriebskraft",
+      "für",
+      "deine",
+      "Region"
+    ],
+    "text": "Du musst Vertriebsergebnisse steigern, hast aber keine schnell einsetzbaren Hebel — wir liefern eine sofort aktivierbare Vertriebsinfrastruktur, die deine Vertriebseinheiten direkt produktiver macht.",
+    "cta": {
+      "label": "Jetzt Überblick verschaffen",
+      "href": "#problem"
+    },
+    "badges": [
+      {
+        "label": "Einführung & Begleitung",
+        "pos": 1,
+        "wide": true
+      },
+      {
+        "label": "Anwendbarkeit statt Konzept",
+        "pos": 2,
+        "wide": false
+      },
+      {
+        "label": "Sofort nutzbar",
+        "pos": 3,
+        "wide": false
+      }
+    ],
+    "image": "pages/vertriebsleiter-hero-upscale-2.webp",
+    "imageMobile": "pages/hf-20260228-222228-c7b6c340-73b9-4cc9-9406-f4ed26fcd044.webp"
+  },
+  "problem": {
+    "headline": "Ideen gibt es genug. Was fehlt, ist die Anwendbarkeit.",
+    "image": "pages/vertrieb-2.webp",
+    "paragraphs": [
+      "Du bist verantwortlich für den Vertriebserfolg deiner Region. Doch dein Ergebnis hängt davon ab, dass deine Vertriebseinheiten aktiv sind, neue Gesprächsanlässe schaffen und Neugeschäft generieren.",
+      "Was oft fehlt, sind sofort nutzbare Lösungen, die dein Vertrieb direkt einsetzen kann – ohne interne Projekte oder lange Umsetzungsphasen."
+    ]
+  },
+  "solution": {
+    "eyebrow": "Unsere Lösung",
+    "headline": "Fertig entwickelt. Sofort nutzbar.",
+    "text": "Mit sofort sichtbar gibst du deinen Vertriebseinheiten vollständig vorbereitete digitale Vertriebsstrecken an die Hand – sofort einsetzbar und ohne eigenen Aufwand.",
+    "items": [
+      {
+        "title": "Social Media Postings",
+        "text": "Werde sofort sichtbar mit fertigen Postings, die deine Zielgruppe perfekt ansprechen.",
+        "image": "preview-postings.png",
+        "wide": false
+      },
+      {
+        "title": "E-Mail-Funnel",
+        "text": "Du aktivierst deine Bestandskunden und leitest sie auf eine zielgruppenspezifische Landingpage.",
+        "image": "preview-funnel.png",
+        "wide": false
+      },
+      {
+        "title": "Passende Landingpages",
+        "text": "Erhalte fertige Landingpages für alle Zielgruppen & Anlässe – ausgerichtet auf messbaren Vertriebserfolg.",
+        "image": "preview-landingpages-mobile.png",
+        "wide": false
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Kontakt aufnehmen",
+        "href": "/kontakt"
+      },
+      {
+        "label": "Themen jetzt ansehen",
+        "href": "/vertriebsstrecken"
+      }
+    ]
+  },
+  "info": {
+    "headline": "Komplett fertige Lösung statt Konzeptphase",
+    "text": "Du bekommst kein Konzept, das erst noch weiterentwickelt werden muss. Alles ist fertig vorbereitet. Wir klären letzte Details und starten direkt mit der Umsetzung in deiner Region.",
+    "items": [
+      {
+        "icon": "icons/multiple-users-2.svg",
+        "title": "Einführung mit sofortiger Umsetzung",
+        "bullets": [
+          "Einführung z. B. im Rahmen einer fokussierten Regionaltagungen.",
+          "Keine reinen Impulse, sondern direkte Anwendung.",
+          "Deine Vertriebseinheiten arbeiten sofort mit den Lösungen.",
+          "Verbindliche erste Schritte – strukturiert und begleitet."
+        ],
+        "bulletsOutside": false
+      },
+      {
+        "icon": "icons/group-81.svg",
+        "title": "Fertige Lösungen für jede Vertriebseinheit",
+        "bullets": [
+          "Individuell zugeschnittene, fertige Lösungen für jede Einheit.",
+          "Keine Anpassungen und keine Projektphase danach.",
+          "Keine zusätzliche Vorbereitung erforderlich.",
+          "Sofort einsetzbar im Vertriebsalltag."
+        ],
+        "bulletsOutside": true
+      },
+      {
+        "icon": "icons/strategy-split.svg",
+        "title": "Begleitung bis es läuft",
+        "bullets": [
+          "Begleitung deiner Vertriebseinheiten auch nach der Einführung.",
+          "Regelmäßige Calls und Austausch in Anwendergruppen.",
+          "Schnelle Klärung von Fragen und Unsicherheiten.",
+          "Bewährte Ansätze werden sichtbar und übernommen."
+        ],
+        "bulletsOutside": true
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Lass uns darüber sprechen,",
+    "bullets": [
+      {
+        "icon": "users",
+        "label": "welche Zielgruppen bei dir wirklich Umsatz bewegen"
+      },
+      {
+        "icon": "chess-knight",
+        "label": "welche Inhalte für dich am meisten bringen"
+      },
+      {
+        "icon": "rocket",
+        "label": "wie dein System in wenigen Tagen startklar ist"
+      }
+    ],
+    "cta": {
+      "label": "Kontakt aufnehmen",
+      "href": "/kontakt"
+    },
+    "quote": "Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder einzelnen Vertriebsstrecke von sofort sichtbar.",
+    "quoteAuthor": "Daniel Ströbel · Gründer von sofort sichtbar",
+    "image": "pages/daniel-image-bw.webp",
+    "imageAlt": "Daniel Ströbel, Gründer von sofort sichtbar",
+    "variant": "person",
+    "padding": "contact__container--person"
+  }
+}

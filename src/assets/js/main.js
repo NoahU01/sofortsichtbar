@@ -158,6 +158,43 @@
     });
   }
 
+  /* --- Themen-Filter (/vertriebsstrecken) ----------------------------- */
+  function initThemeFilter() {
+    var buttons = document.querySelectorAll("[data-theme-filter]");
+    if (!buttons.length) return;
+
+    var lists = {};
+    document.querySelectorAll("[data-theme-list]").forEach(function (el) {
+      lists[el.dataset.themeList] = el;
+    });
+
+    function apply(value) {
+      // "all" zeigt beide Listen, "anspracheanlaesse" nur die Anlässe,
+      // alles andere nur die Zielgruppen – gefiltert nach ihrem Wert.
+      var onlyAnlaesse = value === "anspracheanlaesse";
+      var showAll = value === "all";
+
+      if (lists.zielgruppen) lists.zielgruppen.hidden = onlyAnlaesse;
+      if (lists.anlaesse) lists.anlaesse.hidden = !(showAll || onlyAnlaesse);
+
+      document.querySelectorAll(".theme-card[data-theme-value]").forEach(function (card) {
+        card.hidden = !(showAll || onlyAnlaesse || card.dataset.themeValue === value);
+      });
+
+      buttons.forEach(function (b) {
+        var active = b.dataset.themeFilter === value;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () { apply(b.dataset.themeFilter); });
+    });
+
+    apply("all");
+  }
+
   /* --- Scroll-Reveal --------------------------------------------------- */
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -184,6 +221,7 @@
     initTabs();
     initAccordion();
     initMarquee();
+    initThemeFilter();
     initReveal();
   }
 

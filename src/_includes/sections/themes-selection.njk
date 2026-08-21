@@ -1,0 +1,61 @@
+{% set v = vertriebsstrecken %}
+<section class="themes-selection" id="themen">
+  <div class="themes-selection__padding">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="themes-selection__inner">
+
+          <div class="themes-selection__nav">
+            <div class="themes-selection__filters" role="tablist" aria-label="Themen filtern">
+              {% for f in v.filters %}
+                <button class="themes-selection__filter{% if loop.first %} is-active{% endif %}"
+                        type="button" role="tab"
+                        data-theme-filter="{{ f.id }}"
+                        aria-selected="{{ 'true' if loop.first else 'false' }}">
+                  <span class="themes-selection__filter-text">{{ f.label }}</span>
+                  <span class="themes-selection__filter-line"></span>
+                </button>
+              {% endfor %}
+            </div>
+            <div class="themes-selection__separator"></div>
+          </div>
+
+          <div class="themes-selection__lists">
+            <div class="themes-selection__list" data-theme-list="zielgruppen">
+              <div class="themes-selection__grid">
+                {% for item in v.zielgruppen %}
+                  <a class="theme-card" href="{{ item.href }}" data-theme-value="{{ item.filter }}">
+                    <span class="theme-card__icon">
+                      <img class="icon-md" src="/assets/img/{{ item.icon }}" alt="" aria-hidden="true" loading="lazy">
+                    </span>
+                    <span class="theme-card__bottom">
+                      <span class="theme-card__label heading-h6">{{ item.label }}</span>
+                      <img src="/assets/img/icons/chevron.svg" alt="" aria-hidden="true" loading="lazy" width="16" height="16">
+                    </span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="themes-selection__list" data-theme-list="anlaesse">
+              <div class="themes-selection__grid">
+                {% for item in v.anlaesse %}
+                  <a class="theme-card" href="{{ item.href }}">
+                    <span class="theme-card__icon">
+                      <img class="icon-md" src="/assets/img/{{ item.icon }}" alt="" aria-hidden="true" loading="lazy">
+                    </span>
+                    <span class="theme-card__bottom">
+                      <span class="theme-card__label heading-h6">{{ item.label }}</span>
+                      <img src="/assets/img/icons/chevron.svg" alt="" aria-hidden="true" loading="lazy" width="16" height="16">
+                    </span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -152,67 +152,6 @@
       "bonus": "Mehr Zeit für Kundengespräche"
     }
   },
-  "pricing": {
-    "headline": "Flexibel mieten statt teuer kaufen",
-    "tabs": [
-      {
-        "id": "monthly",
-        "label": "Monatlich"
-      },
-      {
-        "id": "yearly",
-        "label": "Jährlich",
-        "badge": "-20%"
-      }
-    ],
-    "activeTab": "yearly",
-    "cta": {
-      "label": "Werde sofort sichtbar",
-      "href": "/kontakt"
-    },
-    "tiers": [
-      {
-        "name": "Fokus",
-        "featured": false,
-        "text": "Erreiche eine klar definierte Zielgruppe ganzjährig – mit fertigen Postings, Mailings und Landingpage.",
-        "monthly": "435€",
-        "yearly": "349€",
-        "yearlyOriginal": "435€",
-        "benefits": [
-          "1 digitale Vertriebsstrecke",
-          "Individualisierungspaket",
-          "Contentplan für Social Media"
-        ]
-      },
-      {
-        "name": "Reichweite",
-        "featured": true,
-        "badge": "Beliebt",
-        "text": "Gewinne Kontakte aus mehreren Zielgruppen, ohne eigenen Aufwand für Content oder Kampagnen.",
-        "monthly": "625€",
-        "yearly": "499€",
-        "yearlyOriginal": "625€",
-        "benefits": [
-          "3 digitale Vertriebsstrecken",
-          "+ erweiterte Individualisierung",
-          "+ Performance-Reporting"
-        ]
-      },
-      {
-        "name": "Marktposition",
-        "featured": false,
-        "text": "Positioniere deine Berater gezielt, mache Stärken sichtbar und sorge für planbare Neukontakte.",
-        "monthly": "1250€",
-        "yearly": "999€",
-        "yearlyOriginal": "1250€",
-        "benefits": [
-          "10 digitale Vertriebsstrecken",
-          "+ Automatisierung der Postings",
-          "+ regelmäßige 1:1 Beratung"
-        ]
-      }
-    ]
-  },
   "support": {
     "headline": "Wir helfen bei der Entscheidung!",
     "text": "Wir helfen dir bei Deiner Entscheidung oder Fragen, die Du klären möchtest.",
@@ -224,36 +163,6 @@
         "href": "/kontakt"
       }
     }
-  },
-  "faq": {
-    "headline": "Häufige Fragen",
-    "text": "Wenn Du weitere Fragen hast kannst Du einfach einen Termin mit uns vereinbaren und wir klären alle Ungewissheiten.",
-    "items": [
-      {
-        "question": "Kann ich mehrere Zielgruppenpakete gleichzeitig buchen?",
-        "answer": "<p>Ja, das ist problemlos möglich.<br>Wir bieten verschiedene Pakete an, die eine unterschiedliche Anzahl an Vertriebsstrecken enthalten passend zu deinen Vertriebsschwerpunkten und Spezialisten im Team.</p><p>‍<br>Außerdem kannst Du eine einzelne Lizenz im Jahresverlauf für verschiedene Themen einsetzen. </p><p>Aktiviere immer diejenigen Zielgruppen, die für Dich gerade im Vertriebsfokus stehen.</p>"
-      },
-      {
-        "question": "Wofür kann ich die Vertriebsstrecken einsetzen?",
-        "answer": "<p>sofort sichtbar wurde bewusst so aufgebaut, dass es für alle Teamgrößen im Versicherungsvertrieb funktioniert.</p><p>‍</p><p>Egal ob großes oder kleines Team, ein oder mehrere Standorte, mit oder ohne einem Social-Media-Verantwortlichen.</p><p>‍</p><p>Du hast 3 Einsatzmöglichkeiten im Vertriebsalltag.</p><p>‍</p><p><strong>Neukundengewinnung</strong> <br>Durch unsere Social-Media-Postings bist Du permanent bei Deiner Zielgruppe sichtbar. Zur Verstärkung erhalten deine Interessenten zielgruppenspezifische Informationen auf der zugehörigen Landingpage. </p><p>Beide Bausteine sind auf die Gewinnung von Kontaktdaten für Deinen Vertrieb optimiert.</p><p>‍</p><p><strong>Bestandskundenaktivierung</strong> <br>Mit unseren Postings sorgst Du dafür, dass Dich Deine Kunden regelmäßig als<br>professionellen Partner wahrnehmen, nicht nur in den seltenen Schadenfällen.</p><p>Mithilfe der Bestandskundenmailings leitest du deine Kunden zusätzlich auf<br>zielgruppenspezifische Landingpages.</p><p>‍</p><p><strong>Beratungsalltag</strong><br>Du kannst die Landingpages auch im Beratungsalltag mit Deinen Kunden sensationell nutzen.</p><p>‍</p><p>Einen Tag vor dem Termin:<br>Kurze E-Mail mit Link zur passenden Landingpage. Du wirkst top professionell, Deine Kunden haben eine Terminerinnerung und sind thematisch bereits abgeholt.<br>Meist wird in dem Beratungsgespräch mindestens ein weiteres Thema kurz angesprochen. Richtig?</p><p>‍<br>Einen Tag nach dem Termin:<br>Kurze E-Mail mit dem Link zur Landingpage des neu angesprochenen Themas. Ganz kompakt, nur die wichtigsten Infos, mit Checkliste und erklärendem Podcast.</p>"
-      },
-      {
-        "question": "Wie kommen die Kundenanfragen DSGVO-konform bei mir an?",
-        "answer": "<p>Direkt bei dir. Deine Interessenten<br>· können dich direkt anrufen<br>· dir eine E-Mail schreiben<br>· oder hinterlassen ihre Daten beim Download der Checkliste<br>‍</p><p>Formularanfragen werden automatisch an deine E-Mail-Adresse weitergeleitet.<br>Es gibt keinen Umweg über uns.</p><p>‍</p><p>Wir verwenden DSGVO-konforme Cookies und Datenschutzerklärungen.Die Landingpages werden auf Servern innerhalb der EU gehostet.Damit ist die Nutzung von sofort sichtbar grundsätzlich DSGVO-konform umsetzbar.</p><p>‍<br><strong>Wichtiger Hinweis:</strong><br>Oft entstehen bereits Ansatzpunkte über Social Media. Nutze Reaktionen auf deine Postings (Likes, Kommentare etc.), um direkt mit Interessenten ins Gespräch zu kommen.</p>"
-      },
-      {
-        "question": "Wie stark kann ich meine Landingpages individualisieren?",
-        "answer": "<p>Deine Landingpages werden auf dein Büro angepasst.<br>‍</p><p>Du kannst festlegen:<br> · Logo<br> · Bilder<br> · Kontaktdaten<br> · Farbwelt</p><p>‍</p><p>Die Struktur und Inhalte bleiben bewusst standardisiert, damit du schnell und ohne Aufwand online bist.<br><br>Wenn du darüber hinaus eine komplett individualisierte Lösung möchtest, bieten wir diese als separate Agenturlösung an unabhängig von sofort sichtbar. Auch hierfür kannst du uns jederzeit unkompliziert kontaktieren.</p>"
-      },
-      {
-        "question": "Gibt es eine Mindestlaufzeit?",
-        "answer": "<p>Ja.<br>Jede Vertriebsstrecke hat eine Mindestlaufzeit von drei Monaten.<br>Der Hintergrund: Landingpage, Inhalte und Sichtbarkeit brauchen Zeit, um Wirkung zu entfalten.</p><p>‍<br>Nach drei Monaten kannst du:</p><p> · die Vertriebsstrecke unverändert weiterlaufen lassen<br> · auf eine andere Zielgruppe wechseln<br> · gemäß deines Zahlungsplans monatlich oder jährlich kündigen (eine kurze Nachricht an den Support reicht)</p><p>‍<br>Aktiviere immer diejenigen Zielgruppen, die für Dich gerade im Vertriebsfokus stehen. Du kannst eine Lizenz im Jahresverlauf somit für verschiedene Themen einsetzen.</p>"
-      },
-      {
-        "question": "Wie hoch ist mein monatlicher Zeitaufwand mit sofort sichtbar?",
-        "answer": "<p>Sehr gering.<br>Nach der einmaligen Einrichtung hast du keinen laufenden technischen Aufwand.</p><p>‍</p><p>Deine Zeit investierst du lediglich in:</p><p>‍</p><p>1. Das Posten der bereitgestellten Inhalte (in deinem eigenen Tempo)</p><p>2. Deinen eigentlichen Job: Kundenkontakt und -beratung.D. h. aktive Kontaktaufnahme und Bearbeitung von Anfragen inkl. Terminvereinbarung</p><p>‍</p><p>Wir übernehmen den kompletten technischen Part:<br> · Hosting<br> · Domain<br> · Einrichtung der Landingpage<br> · technische Anbindung</p><p>Du musst weder etwas bauen noch konfigurieren.<br>Deine Aufgabe besteht nur darin, die Inhalte zu nutzen.</p><p>‍</p>"
-      }
-    ]
   },
   "contact": {
     "headline": "Lass uns darüber sprechen,",
@@ -276,6 +185,10 @@
       "href": "/kontakt"
     },
     "quote": "\"Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder einzelnen Vertriebsstrecke von sofort sichtbar.\"",
-    "quoteAuthor": "Kerstin   |   Daniel   |   Noah"
+    "quoteAuthor": "Kerstin   |   Daniel   |   Noah",
+    "image": "team.png",
+    "imageAlt": "Das Team von sofort sichtbar: Kerstin, Daniel und Noah",
+    "variant": "team",
+    "padding": "padding-large"
   }
 }

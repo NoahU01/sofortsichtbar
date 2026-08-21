@@ -1,0 +1,48 @@
+{% set i = vertriebsleiter.info %}
+<section class="vl-info" id="ablauf">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+        <div class="vl-info__container">
+
+          <div class="vl-info__content">
+            <div class="vl-info__header">
+              <h2 class="text-white heading-h2 text-center">{{ i.headline }}</h2>
+              <p class="text-white text-center">{{ i.text }}</p>
+            </div>
+          </div>
+
+          <div class="vl-info__grid">
+            {% for item in i.items %}
+              <div class="vl-info__item">
+                <div class="vl-info__icon">
+                  <img class="icon-md" src="/assets/img/{{ item.icon }}" alt="" aria-hidden="true" loading="lazy">
+                </div>
+                {# Im Original stehen die Punkte bei Karte 2 und 3 außerhalb des
+                   Textblocks und bekommen dadurch den größeren Karten-Abstand. #}
+                {% if item.bulletsOutside %}
+                  <div class="vl-info__item-content">
+                    <h3 class="text-white heading-h5">{{ item.title }}</h3>
+                  </div>
+                  {% for b in item.bullets %}
+                    <div class="dot-item"><p class="text-secondary text-regular">{{ b }}</p></div>
+                  {% endfor %}
+                {% else %}
+                  <div class="vl-info__item-content">
+                    <h3 class="text-white heading-h5">{{ item.title }}</h3>
+                    {% for b in item.bullets %}
+                      <div class="dot-item"><p class="text-secondary text-regular">{{ b }}</p></div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="glow vl-info__glow-1"></div>
+          <div class="glow vl-info__glow-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

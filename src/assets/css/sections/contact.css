@@ -63,6 +63,9 @@
 }
 .contact__text { display: flex; flex-flow: column; gap: 2rem; }
 
+.contact__container--person { padding: 4rem; }
+@media (max-width: 479px) { .contact__container--person { padding: 2rem; } }
+
 .contact__person {
   display: flex;
   flex-flow: column;
@@ -88,33 +91,30 @@
 
 .contact__image {
   position: absolute;
-  inset: auto 0.1rem -2.6rem auto;
+  inset: auto 10rem -2.6rem auto;
   max-width: 120%;
   height: 100%;
   width: auto;
 }
+.contact__image--team { right: 0.1rem; }
 
 @media (max-width: 991px) {
   .contact__container { grid-template-rows: auto auto; grid-template-columns: 1fr; height: auto; }
   .contact__content { grid-column: auto; }
   .contact__person { justify-self: end; width: 90%; height: 28rem; }
-  .contact__image {
-    width: 100%;
-    max-width: 48rem;
-    height: auto;
-    left: auto;
-    right: auto;
-  }
+  .contact__image { width: 70%; max-width: 80%; height: auto; left: auto; right: 2rem; }
+  .contact__image--team { width: 100%; max-width: 48rem; height: auto; left: auto; right: auto; }
   .contact__scrim, .contact__scrim-2 { height: 50%; }
 }
 
 @media (max-width: 767px) {
-  .contact__image { max-width: 100%; height: auto; bottom: 4rem; left: 0; right: 0; }
+  .contact__image--team { max-width: 100%; height: auto; bottom: 4rem; left: 0; right: 0; }
 }
 
 @media (max-width: 479px) {
   .contact__person { width: 100%; height: 26rem; }
-  .contact__image { max-width: 100%; height: auto; bottom: 8rem; right: 0; }
+  .contact__image { width: 100%; max-width: 100%; right: 0; }
+  .contact__image--team { max-width: 100%; height: auto; bottom: 8rem; right: 0; }
   .contact__scrim { height: 35%; }
   .contact__quote { width: 100%; }
   .contact__quote-text { text-align: left; }

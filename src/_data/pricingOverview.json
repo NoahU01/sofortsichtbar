@@ -1,0 +1,173 @@
+{
+  "headline": "Technischer Vergleich",
+  "groups": [
+    {
+      "title": "Nutzung",
+      "tiers": [
+        "Fokus",
+        "Reichweite",
+        "Marktposition"
+      ],
+      "rows": [
+        {
+          "label": "Anzahl der Landingpages",
+          "cells": [
+            "1",
+            "3",
+            "10"
+          ]
+        },
+        {
+          "label": "Individualisierung",
+          "cells": [
+            "Logo, Kontaktdaten & -bild, Auswahl vordefinierter Farbschemas",
+            "Logo, Kontaktdaten & -bild, Nutzung Deines genauen Farbcodes",
+            "Logo, Kontaktdaten & -bild, Nutzung Deines genauen Farbcodes"
+          ]
+        },
+        {
+          "label": "Social Media Postings",
+          "cells": [
+            "25",
+            "75",
+            "250"
+          ]
+        },
+        {
+          "label": "Custom Domain",
+          "cells": [
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "Favicon",
+          "cells": [
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "Automatisierung Postings",
+          "cells": [
+            "no",
+            "no",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Leadgenerierung",
+      "tiers": [
+        "Fokus",
+        "Reichweite",
+        "Marktposition"
+      ],
+      "rows": [
+        {
+          "label": "DSGVO-konforme Leadgewinnung",
+          "cells": [
+            "yes",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "Leadmagnet",
+          "cells": [
+            "yes",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "E-Mail Funnel",
+          "cells": [
+            "Basic",
+            "Basic",
+            "Advanced"
+          ]
+        },
+        {
+          "label": "Podcast-Folge",
+          "cells": [
+            "yes",
+            "yes",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Support & Beratung",
+      "tiers": [
+        "Fokus",
+        "Reichweite",
+        "Marktposition"
+      ],
+      "rows": [
+        {
+          "label": "Hosting",
+          "cells": [
+            "yes",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "SSL-Zertifikat",
+          "cells": [
+            "yes",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "Monatliche 1:1 Beratung",
+          "cells": [
+            "no",
+            "no",
+            "yes"
+          ]
+        },
+        {
+          "label": "VIP-Support",
+          "cells": [
+            "no",
+            "no",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Analytics & Reporting",
+      "tiers": [
+        "Fokus",
+        "Reichweite",
+        "Marktposition"
+      ],
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "cells": [
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "label": "Reporting",
+          "cells": [
+            "no",
+            "Monatlich",
+            "Echtzeit-Reporting"
+          ]
+        }
+      ]
+    }
+  ]
+}

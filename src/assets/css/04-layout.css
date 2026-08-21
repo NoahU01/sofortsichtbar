@@ -22,12 +22,14 @@
 .section-padding.section-padding--top-6 { padding-top: 6rem; }
 .section-padding.section-padding--top-4 { padding-top: 4rem; }
 .section-padding.section-padding--top-7 { padding-top: 7rem; }
+.section-padding.section-padding--pricing { padding-top: 8rem; }
 
 .padding-medium { padding: 2rem; }
 .padding-large  { padding: 3rem; }
 
 @media (max-width: 991px) {
   .section-padding     { padding-top: 6rem; padding-bottom: 6rem; }
+  .section-padding.section-padding--pricing { padding-top: 4rem; }
   .section-padding--md { padding-top: 4rem; padding-bottom: 4rem; }
   .padding-medium { padding: 1.5rem; }
   .padding-large  { padding: 2.5rem; }
@@ -40,6 +42,7 @@
   .padding-large  { padding: 2rem; }
 }
 @media (max-width: 479px) {
-  .section-padding.section-padding--top-7 { padding-top: 2rem; }
+  .section-padding.section-padding--top-7,
+  .section-padding.section-padding--pricing { padding-top: 2rem; }
   .page-wrapper { overflow: hidden; }
 }

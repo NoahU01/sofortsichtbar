@@ -1,0 +1,25 @@
+/* =========================================================
+   Rechtstexte (Impressum, Datenschutz)
+   Bildet die Standard-Typografie des Original-Rich-Texts nach.
+   ========================================================= */
+.container-small {
+  width: 100%;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rich-text { color: var(--color-white); }
+
+.rich-text h1 { margin: 0; font-size: 38px; line-height: 44px; }
+.rich-text h2 { margin: 0; font-size: 32px; line-height: 36px; }
+.rich-text h3 { margin: 0; font-size: 24px; line-height: 30px; }
+.rich-text h4 { margin: 10px 0; font-size: 18px; line-height: 24px; }
+.rich-text h5 { margin: 10px 0; font-size: 14px; line-height: 20px; }
+.rich-text h6 { margin: 10px 0; font-size: 12px; line-height: 18px; }
+
+.rich-text p { margin: 0; }
+.rich-text ul,
+.rich-text ol { margin: 0 0 10px; padding-left: 40px; overflow: hidden; }
+.rich-text a { color: var(--color-white); }
+.rich-text strong { font-weight: 700; }

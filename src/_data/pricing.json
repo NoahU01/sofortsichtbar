@@ -1,0 +1,61 @@
+{
+  "headline": "Flexibel mieten statt teuer kaufen",
+  "tabs": [
+    {
+      "id": "monthly",
+      "label": "Monatlich"
+    },
+    {
+      "id": "yearly",
+      "label": "Jährlich",
+      "badge": "-20%"
+    }
+  ],
+  "activeTab": "yearly",
+  "cta": {
+    "label": "Werde sofort sichtbar",
+    "href": "/kontakt"
+  },
+  "tiers": [
+    {
+      "name": "Fokus",
+      "featured": false,
+      "text": "Erreiche eine klar definierte Zielgruppe ganzjährig – mit fertigen Postings, Mailings und Landingpage.",
+      "monthly": "435€",
+      "yearly": "349€",
+      "yearlyOriginal": "435€",
+      "benefits": [
+        "1 digitale Vertriebsstrecke",
+        "Individualisierungspaket",
+        "Contentplan für Social Media"
+      ]
+    },
+    {
+      "name": "Reichweite",
+      "featured": true,
+      "badge": "Beliebt",
+      "text": "Gewinne Kontakte aus mehreren Zielgruppen, ohne eigenen Aufwand für Content oder Kampagnen.",
+      "monthly": "625€",
+      "yearly": "499€",
+      "yearlyOriginal": "625€",
+      "benefits": [
+        "3 digitale Vertriebsstrecken",
+        "+ erweiterte Individualisierung",
+        "+ Performance-Reporting"
+      ]
+    },
+    {
+      "name": "Marktposition",
+      "featured": false,
+      "text": "Positioniere deine Berater gezielt, mache Stärken sichtbar und sorge für planbare Neukontakte.",
+      "monthly": "1250€",
+      "yearly": "999€",
+      "yearlyOriginal": "1250€",
+      "benefits": [
+        "10 digitale Vertriebsstrecken",
+        "+ Automatisierung der Postings",
+        "+ regelmäßige 1:1 Beratung"
+      ]
+    }
+  ]
+}

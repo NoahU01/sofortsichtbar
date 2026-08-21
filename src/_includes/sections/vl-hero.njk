@@ -1,0 +1,57 @@
+{% set h = vertriebsleiter.hero %}
+<section class="hero">
+  <div class="padding-global">
+    <div class="container">
+      <div class="hero__grid">
+
+        <div class="glow hero__glow-1 reveal"></div>
+        <div class="glow hero__glow-2 reveal"></div>
+
+        <div class="hero__content reveal">
+          <div class="hero__header">
+            <div class="text-white">{{ h.eyebrow }}</div>
+
+            <h1 class="hero__headline">
+              {% for word in h.words %}
+                {% if word == "__ICON__" %}
+                  <span class="hero__icon-wrapper" aria-hidden="true">
+                    <img class="hero__icon" src="/assets/img/logos/logo-icon.svg" alt="">
+                  </span>
+                {% else %}
+                  <span>{{ word }}</span>
+                {% endif %}
+              {% endfor %}
+            </h1>
+
+            <p class="text-regular text-white">{{ h.text }}</p>
+          </div>
+
+          <div class="hero__cta-desktop">
+            <a class="btn btn--primary" href="{{ h.cta.href }}">{{ h.cta.label }}</a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          {% for b in h.badges %}
+            <div class="hero__badge-{{ b.pos }}{% if b.wide %} hero__badge--wide{% endif %}">
+              <div class="badge"><div class="badge__text">{{ b.label }}</div></div>
+            </div>
+          {% endfor %}
+
+          <div class="hero__image-mobile">
+            <img class="hero__couple" src="/assets/img/{{ h.imageMobile }}"
+                 alt="Vertriebsleiter im Gespräch" fetchpriority="high" decoding="async">
+          </div>
+
+          <img class="hero__image" src="/assets/img/{{ h.image }}"
+               alt="Vertriebsleiter im Gespräch" fetchpriority="high" decoding="async">
+
+          <div class="hero__cta-mobile">
+            <a class="btn btn--primary" href="{{ h.cta.href }}">{{ h.cta.label }}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

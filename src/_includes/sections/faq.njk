@@ -1,8 +1,9 @@
-{% set f = home.faq %}
+{% set f = faqData or faq %}
+{% set faqContainer = faqContainer or "container" %}
 <section class="faq" id="faq">
   <div class="padding-global">
     <div class="section-padding">
-      <div class="container">
+      <div class="{{ faqContainer }}">
         <div class="faq__wrapper">
 
           <div class="faq__header">
