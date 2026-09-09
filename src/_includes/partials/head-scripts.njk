@@ -83,8 +83,29 @@
   })();
 </script>
 
-{# Google Tag Manager kommt hierhin – erst nach Cookiebot.
-   ID in src/_data/site.json unter tracking.gtmId eintragen. #}
+{# Google Analytics 4 – erst nach Consent-Default und Cookiebot.
+
+   data-cookieconsent="ignore" ist hier richtig: Das Tag soll laden dürfen,
+   die Steuerung übernimmt Consent Mode. Ohne Einwilligung setzt es keine
+   Cookies, sondern sendet höchstens cookielose Signale. Würde man das Script
+   stattdessen blockieren, käme Consent Mode gar nicht zum Zug.
+
+   ID in src/_data/site.json unter tracking.ga4Id. #}
+{% if site.tracking.ga4Id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.tracking.ga4Id }}"
+        data-cookieconsent="ignore"></script>
+<script data-cookieconsent="ignore">
+  // dataLayer und gtag stammen aus dem Consent-Block oben und werden bewusst
+  // nicht neu angelegt – sonst wäre der gesetzte Standard wieder weg.
+  gtag("js", new Date());
+  gtag("config", "{{ site.tracking.ga4Id }}");
+</script>
+{% endif %}
+
+{# Google Tag Manager ist bewusst nicht mehr eingebunden. Der alte Container
+   GTM-KLVD3FCX enthielt ausschließlich GA4; gemessen kamen darüber keine
+   weiteren Dienste. Soll später Ads oder Meta dazu, kann hier wieder ein
+   Container stehen – dann aber weiterhin erst nach Cookiebot. #}
 {% if site.tracking.gtmId %}
 <script data-cookieconsent="ignore">
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
