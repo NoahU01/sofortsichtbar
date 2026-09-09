@@ -46,6 +46,7 @@ export default function (eleventyConfig) {
   // Statische Assets 1:1 nach dist kopieren (CSS wird gebündelt, siehe unten)
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "src/static": "." });
 
   eleventyConfig.addWatchTarget("src/assets/css/");

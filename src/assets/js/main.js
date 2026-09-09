@@ -224,6 +224,15 @@
     }
   }
 
+  /* --- Cookie-Einstellungen erneut öffnen ------------------------------ */
+  function initConsentRenew() {
+    document.querySelectorAll("[data-consent-renew]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        if (window.Cookiebot) window.Cookiebot.renew();
+      });
+    });
+  }
+
   /* --- Scroll-Reveal --------------------------------------------------- */
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -252,6 +261,7 @@
     initMarquee();
     initThemeFilter();
     initAnchors();
+    initConsentRenew();
     initReveal();
   }
 

@@ -47,7 +47,17 @@
   font-size: 12px;
 }
 
-.footer__legal { display: flex; gap: 1rem; }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+
+/* Sieht aus wie die Nachbarlinks, ist aber ein Knopf */
+.footer__consent {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
 
 @media (max-width: 991px) {
   .footer__link:hover { color: var(--color-grey-600); }

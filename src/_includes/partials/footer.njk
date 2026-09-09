@@ -34,6 +34,10 @@
               {% for item in site.footer.legal %}
                 <a class="footer__link footer__link--small" href="{{ item.href }}">{{ item.label }}</a>
               {% endfor %}
+              {# Widerruf der Einwilligung muss jederzeit erreichbar sein #}
+              <button class="footer__link footer__link--small footer__consent" type="button" data-consent-renew>
+                Cookie-Einstellungen
+              </button>
             </div>
           </div>
 
