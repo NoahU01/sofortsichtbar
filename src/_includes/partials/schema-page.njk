@@ -1,0 +1,72 @@
+{# Strukturierte Daten pro Seite.
+
+   FAQPage: Google zeigt daraus seit August 2023 kaum noch Rich Results
+   (im Wesentlichen nur für Behörden- und Gesundheitsseiten). Der Nutzen
+   liegt heute bei KI-Crawlern, die Frage und Antwort so eindeutig
+   zuordnen können.
+
+   BreadcrumbList: erscheint in den Suchergebnissen weiterhin als Pfad
+   statt der nackten URL – das wirkt direkt auf die Klickrate.
+
+   Beides wird hier aus den Seitendaten gebaut, nicht im Front Matter:
+   verschachtelte Werte in eleventyComputed frieren bei Pagination auf
+   dem ersten Eintrag ein. #}
+
+{%- set faqListe = false -%}
+{%- if zg and zg.faq -%}{%- set faqListe = zg.faq -%}{%- endif -%}
+{%- if faqOnPage -%}{%- set faqListe = faq.items -%}{%- endif -%}
+
+{# Fragen ohne Antwort raus – leere Antworten sind für Schema unbrauchbar.
+   Betrifft aktuell eine Frage auf /zielgruppen/immobilienmakler, die schon
+   im Original leer war. #}
+{%- set faqGefiltert = [] -%}
+{%- if faqListe -%}
+  {%- for item in faqListe -%}
+    {%- if item.answer | striptags | replace("‍", "") | trim -%}
+      {%- set faqGefiltert = (faqGefiltert.push(item), faqGefiltert) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if faqGefiltert.length -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faqGefiltert %}
+    {
+      "@type": "Question",
+      "name": {{ item.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        {# Blockenden zu Satzgrenzen machen, sonst kleben Listenpunkte aneinander #}
+        "text": {{ item.answer
+                   | replace("</li>", ". ") | replace("</p>", " ") | replace("</ul>", " ")
+                   | replace("<br>", " ") | replace("<br/>", " ")
+                   | striptags | replace("‍", "") | replace("  ", " ") | trim
+                   | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- if zg -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite",
+      "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Vertriebsstrecken",
+      "item": "{{ site.url }}/vertriebsstrecken" },
+    { "@type": "ListItem", "position": 3, "name": {{ zg.name | dump | safe }},
+      "item": "{{ site.url }}/zielgruppen/{{ zg.slug }}" }
+  ]
+}
+</script>
+{%- endif -%}
