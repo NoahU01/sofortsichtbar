@@ -43,13 +43,25 @@
 
 <script data-cookieconsent="ignore">
   // Übersetzt die vier Cookiebot-Kategorien in die sieben Consent-Mode-Signale.
-  // Cookiebot kann das auch selbst, sobald "Google Consent Mode" im Dashboard
-  // aktiv ist – dann werden dieselben Werte doppelt gesetzt, was nichts schadet.
-  // So funktioniert es unabhängig von dieser Einstellung.
+  // Ist "Google Consent Mode" im Cookiebot-Dashboard aktiv, macht Cookiebot das
+  // selbst – dann greift die Prüfung unten und es wird nichts doppelt gesendet.
+  // Ist es dort abgeschaltet, springt diese Brücke ein.
   (function () {
+    function schonGesendet(next) {
+      var dl = window.dataLayer || [];
+      for (var i = dl.length - 1; i >= 0; i--) {
+        var e = dl[i];
+        if (e && e[0] === "consent" && e[1] === "update") {
+          var prev = e[2] || {};
+          return Object.keys(next).every(function (k) { return prev[k] === next[k]; });
+        }
+      }
+      return false;
+    }
+
     function update() {
       var c = (window.Cookiebot && window.Cookiebot.consent) || {};
-      gtag("consent", "update", {
+      var next = {
         ad_storage: c.marketing ? "granted" : "denied",
         ad_user_data: c.marketing ? "granted" : "denied",
         ad_personalization: c.marketing ? "granted" : "denied",
@@ -57,7 +69,8 @@
         functionality_storage: c.preferences ? "granted" : "denied",
         personalization_storage: c.preferences ? "granted" : "denied",
         security_storage: "granted"
-      });
+      };
+      if (!schonGesendet(next)) gtag("consent", "update", next);
     }
 
     window.addEventListener("CookiebotOnAccept", update);
