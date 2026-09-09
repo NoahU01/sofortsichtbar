@@ -23,3 +23,7 @@
 .rich-text ol { margin: 0 0 10px; padding-left: 40px; overflow: hidden; }
 .rich-text a { color: var(--color-white); }
 .rich-text strong { font-weight: 700; }
+
+/* Von Cookiebot erzeugte Cookie-Tabelle in die Seitenfarben bringen */
+.cookie-declaration { margin-top: 2rem; color: var(--color-white); }
+.cookie-declaration a { color: var(--color-white); }

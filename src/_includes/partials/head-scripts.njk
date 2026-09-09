@@ -1,5 +1,82 @@
-{# ------------------------------------------------------------------
-   Platzhalter für Tracking im <head>
-   (Consent-Banner, Google Tag Manager, Meta Pixel …)
-   Wird bewusst leer gehalten, bis das Tracking-Setup ansteht.
-   ------------------------------------------------------------------ #}
+{# ==================================================================
+   Consent und Tracking – Reihenfolge ist hier entscheidend:
+
+   1. Consent Mode v2 mit Standard "abgelehnt"
+   2. Cookiebot (setzt den Zustand nach der Auswahl auf "granted")
+   3. Google Tag Manager
+
+   Läuft GTM vor Schritt 1, feuern Tags ohne gültigen Consent-Zustand.
+   Genau das passiert, wenn man Cookiebot über GTM nachlädt – im alten
+   Webflow-Auftritt war das so.
+
+   Die eigenen Snippets tragen data-cookieconsent="ignore", damit
+   Cookiebots automatische Blockade sie nicht selbst blockiert.
+   ================================================================== #}
+
+<script data-cookieconsent="ignore">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  // Vor jeder Auswahl gilt: nichts erlaubt außer dem technisch Nötigen.
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+    wait_for_update: 500
+  });
+
+  // Ohne Marketing-Consent keine Nutzerkennungen an Google, dafür
+  // Weitergabe der Klick-ID über die URL statt über Cookies.
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", true);
+</script>
+
+<script id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="{{ site.tracking.cookiebotId }}"
+        data-blockingmode="auto"
+        type="text/javascript"></script>
+
+<script data-cookieconsent="ignore">
+  // Übersetzt die vier Cookiebot-Kategorien in die sieben Consent-Mode-Signale.
+  // Cookiebot kann das auch selbst, sobald "Google Consent Mode" im Dashboard
+  // aktiv ist – dann werden dieselben Werte doppelt gesetzt, was nichts schadet.
+  // So funktioniert es unabhängig von dieser Einstellung.
+  (function () {
+    function update() {
+      var c = (window.Cookiebot && window.Cookiebot.consent) || {};
+      gtag("consent", "update", {
+        ad_storage: c.marketing ? "granted" : "denied",
+        ad_user_data: c.marketing ? "granted" : "denied",
+        ad_personalization: c.marketing ? "granted" : "denied",
+        analytics_storage: c.statistics ? "granted" : "denied",
+        functionality_storage: c.preferences ? "granted" : "denied",
+        personalization_storage: c.preferences ? "granted" : "denied",
+        security_storage: "granted"
+      });
+    }
+
+    window.addEventListener("CookiebotOnAccept", update);
+    window.addEventListener("CookiebotOnDecline", update);
+
+    // Wiederkehrende Besucher: die Entscheidung steht schon beim Laden.
+    window.addEventListener("CookiebotOnLoad", function () {
+      if (window.Cookiebot && window.Cookiebot.hasResponse) update();
+    });
+  })();
+</script>
+
+{# Google Tag Manager kommt hierhin – erst nach Cookiebot.
+   ID in src/_data/site.json unter tracking.gtmId eintragen. #}
+{% if site.tracking.gtmId %}
+<script data-cookieconsent="ignore">
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.tracking.gtmId }}');
+</script>
+{% endif %}
