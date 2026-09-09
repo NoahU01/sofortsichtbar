@@ -4,10 +4,14 @@ layout: layouts/base.njk
 <section class="legal">
   <div class="padding-global">
     <div class="section-padding">
-      <div class="container-small">
-        <div class="rich-text">
-          <h1>{{ heading }}</h1>
-          {% include legalFile %}
+      <div class="container">
+        {# container-small begrenzt die Zeilenlänge, sitzt aber linksbündig
+           am selben Raster wie Logo und Navigation. #}
+        <div class="container-small container-small--left">
+          <div class="rich-text">
+            <h1>{{ heading }}</h1>
+            {% include legalFile %}
+          </div>
         </div>
       </div>
     </div>

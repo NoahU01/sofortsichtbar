@@ -64,6 +64,25 @@
 
 .cal-embed { position: relative; z-index: 1; width: 100%; }
 
+/* Hinweis, solange die Einwilligung für den Kalender fehlt */
+.cal-notice {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--color-grey-600);
+  background-color: var(--color-background);
+  border-radius: var(--radius-xl);
+}
+.cal-notice[hidden] { display: none; }
+.cal-notice p { max-width: 34rem; }
+.cal-notice__link { color: var(--color-white); }
+
+@media (max-width: 479px) {
+  .cal-notice { padding: 1.5rem; }
+}
+
 @media (max-width: 479px) {
   .contact-hero__box { border-radius: var(--radius-xl); }
   .contact-hero__header,

@@ -92,6 +92,7 @@
   },
   "tracking": {
     "cookiebotId": "891b60f2-b03a-4370-b3d1-b6b710f187a7",
-    "gtmId": ""
+    "gtmId": "GTM-KLVD3FCX",
+    "calConsentCategory": "marketing"
   }
 }

@@ -8,6 +8,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+/* Linksbündig am Raster von Logo und Navigation statt mittig */
+.container-small--left { margin-left: 0; margin-right: 0; }
 
 .rich-text { color: var(--color-white); }
 
