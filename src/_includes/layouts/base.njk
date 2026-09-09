@@ -7,7 +7,9 @@
   <title>{{ title or site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
 
-  {% if noindex %}<meta name="robots" content="noindex,nofollow">{% endif %}
+  {# Vorschau-Deployments nie indexieren – sonst konkurrieren sie als
+     Dubletten mit der Live-Seite. #}
+  {% if noindex or not env.isProduction %}<meta name="robots" content="noindex,nofollow">{% endif %}
   <link rel="canonical" href="{{ page.url | absoluteUrl(site.url) }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
@@ -83,7 +85,7 @@
   </div>
 
   <script src="/assets/js/main.js" defer></script>
-  {% if site.tracking.ga4Id or site.tracking.gtmId %}
+  {% if env.isProduction and (site.tracking.ga4Id or site.tracking.gtmId) %}
   <script src="/assets/js/tracking.js" defer></script>
   {% endif %}
 </body>

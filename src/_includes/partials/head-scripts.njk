@@ -1,5 +1,13 @@
 {# ==================================================================
-   Consent und Tracking – Reihenfolge ist hier entscheidend:
+   Consent und Tracking.
+
+   Läuft NUR in der Produktion. Auf Vorschau-Umgebungen (Branch-Deployments)
+   und lokal bleibt alles aus – sonst landen Testklicks in derselben
+   GA4-Property wie echte Besucher, und das Cookie-Banner würde dort ohnehin
+   nicht erscheinen, weil die Vorschau-Domain nicht in der Cookiebot-
+   Domaingruppe steht.
+
+   Reihenfolge ist hier entscheidend:
 
    1. Consent Mode v2 mit Standard "abgelehnt"
    2. Cookiebot (setzt den Zustand nach der Auswahl auf "granted")
@@ -13,6 +21,7 @@
    Cookiebots automatische Blockade sie nicht selbst blockiert.
    ================================================================== #}
 
+{% if env.isProduction %}
 <script data-cookieconsent="ignore">
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
@@ -114,4 +123,5 @@
   j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
   f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.tracking.gtmId }}');
 </script>
+{% endif %}
 {% endif %}

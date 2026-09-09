@@ -30,6 +30,48 @@ Dashboard nachgeklickt werden muss:
 
 `dist/404.html` wird von Vercel automatisch als Fehlerseite ausgeliefert.
 
+## Arbeiten mit Branches
+
+`main` ist die Produktion — was dort landet, geht auf www.sofortsichtbar.de.
+`daniel` ist die Entwicklungsumgebung: Vercel baut daraus automatisch eine
+Vorschau unter einer eigenen Adresse, ohne die Live-Seite anzufassen.
+
+```
+Änderung  →  Branch daniel  →  Vorschau ansehen  →  merge nach main  →  live
+```
+
+```bash
+git switch daniel
+git merge main            # erst den aktuellen Stand holen
+# … arbeiten, committen, pushen …
+git push origin daniel    # Vercel baut die Vorschau
+
+# passt es?
+git switch main && git merge daniel && git push origin main
+```
+
+**Die Vorschau verhält sich bewusst nicht in allen Punkten wie die Produktion:**
+
+| | Produktion | Vorschau und lokal |
+|---|---|---|
+| Google Analytics | an | **aus** |
+| Cookie-Banner | an | **aus** |
+| Terminkalender | erst nach Einwilligung | lädt direkt |
+| Indexierung | erlaubt | `noindex, nofollow` |
+
+Das Tracking bleibt aus, damit Testklicks nicht in derselben GA4-Property
+landen wie echte Besucher. `noindex` verhindert, dass die Vorschau als Dublette
+neben der Live-Seite in der Suche auftaucht. Und weil ohne Cookie-Banner
+niemand einwilligen könnte, lädt der Kalender dort direkt — sonst wäre er auf
+der Vorschau nie zu sehen.
+
+Gesteuert wird das über `VERCEL_ENV`, ausgewertet in `src/_data/env.js`.
+Wer die Produktion lokal nachstellen will:
+
+```bash
+VERCEL_ENV=production npm run build
+```
+
 ## Seiten
 
 | Pfad | Inhalt |
