@@ -1,0 +1,44 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# sofort sichtbar
+
+> {{ site.description }}
+
+sofort sichtbar liefert Versicherungsvermittlern und Vertriebsteams fertige
+digitale Vertriebsstrecken: Social-Media-Postings, eine zielgruppenspezifische
+Landingpage und einen E-Mail-Funnel – pro Zielgruppe als Paket, sofort
+einsetzbar und ohne eigenen Aufwand für Content oder Technik.
+
+Betreiber: empiria GmbH, Kapellengasse 6, 74564 Crailsheim, Deutschland.
+Kontakt: {{ site.email }} · {{ site.phone }}
+
+## Kernseiten
+
+- [Startseite]({{ site.url }}/): Angebot im Überblick – Problem, Lösung, Pakete, Preise, häufige Fragen
+- [Vertriebsstrecken]({{ site.url }}/vertriebsstrecken): alle Zielgruppen und Anspracheanlässe im Überblick
+- [Pricing]({{ site.url }}/pricing): drei Pakete (Fokus, Reichweite, Marktposition) mit technischem Vergleich
+- [Für Vertriebsleiter]({{ site.url }}/vetriebsleiter): Sicht für Führungskräfte mit mehreren Vertriebseinheiten
+- [Kontakt]({{ site.url }}/kontakt): Terminbuchung und Kontaktwege
+
+## Zielgruppen-Seiten
+
+Je Zielgruppe eine Seite mit Profil, Beratungsanlässen, Vertriebsargumenten
+und drei Gestaltungsvarianten der Landingpage.
+{% for zg in zielgruppen %}
+- [{{ zg.name }}]({{ site.url }}/zielgruppen/{{ zg.slug }}): {{ zg.intro | striptags | replace("‍", "") | trim | truncate(150, true) }}
+{%- endfor %}
+
+## Rechtliches
+
+- [Impressum]({{ site.url }}/impressum)
+- [Datenschutzerklärung]({{ site.url }}/datenschutzerklarung)
+
+## Hinweise
+
+- Alle Seiten sind statisches HTML; der vollständige Inhalt steht ohne
+  JavaScript im Quelltext.
+- Strukturierte Daten: Organization auf der Startseite, FAQPage auf allen
+  Seiten mit Fragen, BreadcrumbList auf den Zielgruppen-Seiten.
+- Sitemap: {{ site.url }}/sitemap.xml
