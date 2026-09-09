@@ -121,6 +121,10 @@ hinter die Consent-Abfrage.
 - **`/styleguide`**: im Original die unveränderte Client-First-Demo von Webflow, die
   nirgends verlinkt ist. Hier stattdessen eine Referenz der tatsächlich genutzten
   Tokens und Komponenten.
+- **Hover im Lösungsmodul** ist als CSS-Transition gebaut (im Original eine
+  Webflow-Interaktion). Weg und Dauer sind am Live-Stand nachgemessen: 16px
+  nach oben, 200ms linear. Zusätzlich in `@media (hover: hover)` gekapselt,
+  damit der Zustand auf Touch-Geräten nicht hängenbleibt.
 - **Aktiver Filter auf `/vertriebsstrecken`** ist immer fett *und* unterstrichen.
   Im Original verliert er beim Umschalten das Fett (die Klasse landet dort nur auf
   dem äußeren Element) – hier bleibt es konsistent.

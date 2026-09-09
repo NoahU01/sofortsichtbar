@@ -86,11 +86,14 @@
 .themes-selection__filter {
   position: relative;
   padding: 0 1rem 0.5rem;
-  color: var(--color-white);
+  /* nicht gewählt: gedämpft, wie im Original */
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   background: none;
   border: 0;
+  transition: color var(--transition);
 }
+.themes-selection__filter.is-active { color: var(--color-white); }
 .themes-selection__filter-text { font-weight: 400; }
 .themes-selection__filter.is-active .themes-selection__filter-text { font-weight: 600; }
 

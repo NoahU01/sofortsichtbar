@@ -119,6 +119,13 @@
   max-height: 15rem;
 }
 
+/* Hover: nur das Vorschaubild bewegt sich, die Karte bleibt stehen.
+   Im Original 16px in rund 200ms – am Live-Stand nachgemessen. */
+@media (hover: hover) {
+  .solution__preview { transition: transform 200ms linear; }
+  .solution__item:hover .solution__preview { transform: translate3d(0, -1rem, 0); }
+}
+
 .solution__preview--wide {
   width: 42rem;
   min-width: auto;
