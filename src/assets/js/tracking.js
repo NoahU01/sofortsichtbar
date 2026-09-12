@@ -88,31 +88,125 @@
     }, 500);
   }
 
-  /* --- Modul-Tracking (Phase 10) --------------------------------------- */
+  /* --- Modul-Tracking --------------------------------------------------
+     Misst pro Sektion zwei Dinge, gleiche Logik wie bei AdMemory:
+
+     1. section_view_<id> — einmal pro Seitenaufruf, sobald die Sektion im
+        sichtbaren Bereich war. Das ist die Reichweite: bis wohin wird gescrollt.
+     2. section_time_<id> — die dort verbrachte Zeit in Sekunden, als `value`.
+        GA4 summiert das zur Metrik "Ereigniswert"; Durchschnitt ergibt sich aus
+        Ereigniswert geteilt durch die Anzahl der section_view-Events.
+        `value` ist ein Standardfeld – dafür braucht es keine Custom Dimension.
+
+     Zwei Dinge, die bei AdMemory Zahlen verfälscht hatten:
+     - page_location muss an JEDEM Event hängen, sonst ordnet GA4 Events der
+       falschen Seite zu (geteilte Sektionen liegen auf mehreren Seiten).
+     - Der Observer hängt sich sofort an und danach nochmal, statt erst nach
+       einer Verzögerung – sonst fehlen alle, die sofort weiterscrollen.
+     --------------------------------------------------------------------- */
+  var SICHTBAR_ANTEIL = 0.15;
+  /** Sehr hohe Sektionen erreichen den Anteil nie, füllen aber das Fenster. */
+  var FENSTER_ANTEIL = 0.3;
+  /** Deckel gegen Tabs, die stundenlang offen liegen. */
+  var MAX_SEKUNDEN = 600;
+  /** Unter einer Sekunde ist Durchscrollen, keine Aufmerksamkeit. */
+  var MIN_SEKUNDEN = 1;
+
   function initSektionen() {
     var sektionen = document.querySelectorAll("section[id]");
     if (!sektionen.length || !("IntersectionObserver" in window)) return;
 
-    var gesehen = {};
+    var pfad = location.pathname;
+    var seitenUrl = location.href;
+    var gesehen = {};     // schon als view gemeldet
+    var sichtbar = {};    // gerade im Bild
+    var seit = {};        // laufender Timer je Sektion
+    var summe = {};       // aufgelaufene Millisekunden
+
+    function jetzt() { return performance.now(); }
+
+    /** Laufende Timer stoppen und aufaddieren (Tabwechsel, Seitenwechsel). */
+    function alleAnhalten() {
+      for (var id in seit) {
+        if (!seit.hasOwnProperty(id)) continue;
+        summe[id] = (summe[id] || 0) + (jetzt() - seit[id]);
+      }
+      seit = {};
+    }
+
+    /** Timer für alles wieder starten, was gerade sichtbar ist.
+        Nur im Vordergrund – sonst läuft die Uhr im Hintergrund-Tab weiter.
+        (Diese Prüfung fehlt in der AdMemory-Vorlage: dort wird nach dem
+        Senden bedingungslos fortgesetzt, wodurch Hintergrundzeit in die
+        nächste Meldung einfließt.) */
+    function alleFortsetzen() {
+      if (document.visibilityState !== "visible") return;
+      for (var id in sichtbar) {
+        if (sichtbar.hasOwnProperty(id) && !seit.hasOwnProperty(id)) seit[id] = jetzt();
+      }
+    }
+
+    function senden() {
+      alleAnhalten();
+      for (var id in summe) {
+        if (!summe.hasOwnProperty(id)) continue;
+        // Erst gegen die Rohzeit prüfen: Math.round würde aus 0,6s eine 1s
+        // machen und Durchscrollen als Verweildauer durchgehen lassen.
+        if (summe[id] < MIN_SEKUNDEN * 1000) continue;
+        var sekunden = Math.round(summe[id] / 1000);
+        track("section_time_" + id.replace(/-/g, "_"), {
+          value: Math.min(sekunden, MAX_SEKUNDEN),
+          page: pfad,
+          page_location: seitenUrl,
+          // beacon überlebt das Verlassen der Seite
+          transport_type: "beacon"
+        });
+      }
+      summe = {};
+      // Sichtbares läuft weiter, falls die Person zurückkommt.
+      alleFortsetzen();
+    }
+
     var beobachter = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         var id = e.target.id;
-        if (gesehen[id] || !e.isIntersecting) return;
+        if (!id) return;
 
-        // Zwei Wege, damit auch sehr hohe Sektionen zählen: entweder 15 %
-        // der Sektion sind sichtbar, oder sie füllt über 30 % des Fensters.
-        var anteilSektion = e.intersectionRatio;
-        var anteilFenster = e.intersectionRect.height / window.innerHeight;
-        if (anteilSektion < 0.15 && anteilFenster <= 0.30) return;
+        var istSichtbar = e.isIntersecting &&
+          (e.intersectionRatio >= SICHTBAR_ANTEIL ||
+           e.intersectionRect.height > window.innerHeight * FENSTER_ANTEIL);
 
-        gesehen[id] = true;
-        beobachter.unobserve(e.target);
-        // Sektion steckt im Namen – erspart eine Custom Dimension in GA4.
-        track("section_view_" + id.replace(/-/g, "_"), {});
+        if (istSichtbar) {
+          if (!gesehen[id]) {
+            gesehen[id] = true;
+            track("section_view_" + id.replace(/-/g, "_"), { page: pfad, page_location: seitenUrl });
+          }
+          sichtbar[id] = true;
+          if (document.visibilityState === "visible" && !seit.hasOwnProperty(id)) seit[id] = jetzt();
+        } else {
+          delete sichtbar[id];
+          if (seit.hasOwnProperty(id)) {
+            summe[id] = (summe[id] || 0) + (jetzt() - seit[id]);
+            delete seit[id];
+          }
+        }
       });
-    }, { threshold: [0, 0.15, 0.3, 0.5, 0.75, 1] });
+    }, { threshold: [0, SICHTBAR_ANTEIL, 0.5] });
 
-    sektionen.forEach(function (s) { beobachter.observe(s); });
+    // Sofort anhängen, dann nochmal für spät gerenderte Sektionen.
+    // observe() auf ein bereits beobachtetes Element ist folgenlos.
+    function anhaengen() {
+      document.querySelectorAll("section[id]").forEach(function (s) { beobachter.observe(s); });
+    }
+    anhaengen();
+    setTimeout(anhaengen, 400);
+    setTimeout(anhaengen, 1200);
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") senden();
+      else alleFortsetzen();
+    });
+    window.addEventListener("pagehide", senden);
   }
 
   function init() {
