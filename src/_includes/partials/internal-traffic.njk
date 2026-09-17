@@ -1,0 +1,56 @@
+{# ==================================================================
+   Interner Traffic am BROWSER markieren statt an der IP
+   Baustein aus dem Tracking-Skill, erprobt auf admemory.de
+
+   IP-Regeln in GA4 halten nur bei fester IP an genau einem Standort.
+   Wechselnde Netze (Homeoffice, unterwegs, Kundenbüro) oder eine
+   wechselnde Anschluss-Adresse machen die Regel still blind.
+
+   Stattdessen: Seite einmal je Browser und Gerät mit ?internal=1
+   aufrufen. Die Markierung bleibt dauerhaft, ?internal=0 hebt sie auf.
+   Der Filter "Internal Traffic" in GA4 muss auf "Aktiv" stehen.
+
+   Muss VOR dem ersten Ereignis laufen, deshalb vor dem GA4-Tag.
+   gtag('set') gilt für ALLE folgenden Ereignisse – auch die eigenen
+   wie section_view und section_time – ohne den Tag anzufassen.
+
+   Grenzen: gilt je Browser und Gerät; Website-Daten löschen hebt die
+   Markierung auf; im privaten Fenster wirkt sie nie.
+   ================================================================== #}
+<script data-cookieconsent="ignore">
+  (function () {
+    // dataLayer und gtag existieren aus dem Consent-Block – nicht neu anlegen.
+    var schalter = null;
+    try {
+      var wert = new URLSearchParams(location.search).get("internal");
+      if (wert === "1") { localStorage.setItem("ss_internal", "1"); schalter = "an"; }
+      if (wert === "0") { localStorage.removeItem("ss_internal"); schalter = "aus"; }
+    } catch (e) { /* Speicher gesperrt: dann eben ohne Markierung */ }
+
+    var intern = false;
+    try { intern = localStorage.getItem("ss_internal") === "1"; } catch (e) {}
+
+    if (intern) gtag("set", { traffic_type: "internal" });
+
+    // Bestätigung nur beim Umschalten – ein dauerhaftes Abzeichen wäre
+    // Ballast, ohne jede Rückmeldung wüsste aber niemand, ob es geklappt hat.
+    if (schalter) {
+      var zeigen = function () {
+        var el = document.createElement("div");
+        el.textContent = schalter === "an"
+          ? "Dieses Gerät zählt ab jetzt als interner Traffic"
+          : "Markierung entfernt – dieses Gerät zählt wieder mit";
+        el.setAttribute("role", "status");
+        el.style.cssText = "position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9999;"
+          + "background:#211d24;color:#fff;border:1px solid #454756;border-radius:14px;padding:10px 18px;"
+          + "font:13px/1.35 Poppins,system-ui,sans-serif;max-width:90vw;text-align:center;"
+          + "box-shadow:0 6px 24px rgba(0,0,0,.35)";
+        document.body.appendChild(el);
+        setTimeout(function () { el.style.transition = "opacity .4s"; el.style.opacity = "0"; }, 4000);
+        setTimeout(function () { el.remove(); }, 4600);
+      };
+      if (document.body) zeigen();
+      else document.addEventListener("DOMContentLoaded", zeigen);
+    }
+  })();
+</script>

@@ -101,6 +101,8 @@
    stattdessen blockieren, käme Consent Mode gar nicht zum Zug.
 
    ID in src/_data/site.json unter tracking.ga4Id. #}
+{% include "partials/internal-traffic.njk" %}
+
 {% if site.tracking.ga4Id %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.tracking.ga4Id }}"
         data-cookieconsent="ignore"></script>
