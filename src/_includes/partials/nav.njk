@@ -6,7 +6,15 @@
       <a class="nav__brand" href="/" aria-label="{{ site.name }} – zur Startseite">
         <img class="nav__logo" src="/assets/img/logos/logo-white.svg" alt="{{ site.name }}" width="78" height="40">
       </a>
-      <span class="nav__umgebung">Entwicklung</span>
+      <div class="nav__schlank-menue">
+        {% for item in site.nav %}
+          {% if item.devOnly and item.children and not env.isProduction %}
+            {% set ddItem = item %}
+            {% set ddPanelId = "nav-submenu-schlank" %}
+            {% include "partials/nav-dropdown.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </header>
@@ -27,27 +35,9 @@
                 {# devOnly-Punkte sind Arbeitsstände und dürfen nie live erscheinen #}
                 {% if not (item.devOnly and env.isProduction) %}
                   {% if item.children %}
-                    {% set panelId = "nav-submenu-" + loop.index %}
-                    <div class="nav__dropdown" data-dropdown>
-                      <button class="nav__link nav__dropdown-toggle" type="button"
-                              aria-expanded="false" aria-controls="{{ panelId }}"
-                              {% if item.children | hasCurrentChild(page.url) %}data-current="true"{% endif %}>
-                        <span>{{ item.label }}</span>
-                        <span class="nav__dropdown-caret" aria-hidden="true"></span>
-                      </button>
-                      <div class="nav__dropdown-panel" id="{{ panelId }}" hidden>
-                        {% for child in item.children %}
-                          {% if child.typ == "hinweis" %}
-                            <p class="nav__dropdown-hinweis">{{ child.text }}</p>
-                          {% elif child.typ == "gruppe" %}
-                            <span class="nav__dropdown-gruppe">{{ child.label }}</span>
-                          {% else %}
-                            <a class="nav__dropdown-link" href="{{ child.href }}"
-                               {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>
-                          {% endif %}
-                        {% endfor %}
-                      </div>
-                    </div>
+                    {% set ddItem = item %}
+                    {% set ddPanelId = "nav-submenu-" + loop.index %}
+                    {% include "partials/nav-dropdown.njk" %}
                   {% else %}
                     <a class="nav__link" href="{{ item.href }}"
                        {% if item.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ item.label }}</a>

@@ -1,0 +1,23 @@
+{#- Ein Aufklappmenü der Hauptnavigation.
+    Erwartet ddItem (Eintrag aus site.nav) und ddPanelId.
+    Wird von der normalen und der schlanken Kopfzeile genutzt. -#}
+<div class="nav__dropdown" data-dropdown>
+  <button class="nav__link nav__dropdown-toggle" type="button"
+          aria-expanded="false" aria-controls="{{ ddPanelId }}"
+          {% if ddItem.children | hasCurrentChild(page.url) %}data-current="true"{% endif %}>
+    <span>{{ ddItem.label }}</span>
+    <span class="nav__dropdown-caret" aria-hidden="true"></span>
+  </button>
+  <div class="nav__dropdown-panel" id="{{ ddPanelId }}" hidden>
+    {% for child in ddItem.children %}
+      {% if child.typ == "hinweis" %}
+        <p class="nav__dropdown-hinweis">{{ child.text }}</p>
+      {% elif child.typ == "gruppe" %}
+        <span class="nav__dropdown-gruppe">{{ child.label }}</span>
+      {% else %}
+        <a class="nav__dropdown-link" href="{{ child.href }}"
+           {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
