@@ -13,6 +13,10 @@
   gap: 2.5rem;
 }
 
+/* Die Panels setzen display, das schlaegt die Browser-Regel fuer [hidden].
+   Ohne diese Zeile bleibt eine versteckte Variante sichtbar. */
+[data-panel][hidden] { display: none; }
+
 .dot {
   display: inline-block;
   width: 0.5rem;
