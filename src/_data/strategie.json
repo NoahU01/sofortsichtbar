@@ -1,207 +1,461 @@
 {
   "hinweis": "Erster Entwurf. Die Schritte sind ein gerichteter Graph: beliebig viele pro Strang, mit echten Abhängigkeiten quer über die Stränge. Meilensteine sind Ergebnisstufen, keine Zeilen – ein Meilenstein ist erreicht, wenn alle seine Schritte stehen.",
-
   "zielbild": {
     "kurz": "In Tagen sichtbar statt in Monaten.",
     "text": "sofort sichtbar ist der Standardweg, auf dem Versicherungsprofis in Tagen sichtbar werden: definierte Zielgruppen, fertige Vertriebsstrecken, messbare Termine – wiederholbar für jeden neuen Kunden."
   },
-
   "status": {
-    "erreicht": { "label": "Erledigt" },
-    "aktiv": { "label": "Läuft" },
-    "offen": { "label": "Offen" }
+    "erreicht": {
+      "label": "Erledigt"
+    },
+    "aktiv": {
+      "label": "Läuft"
+    },
+    "offen": {
+      "label": "Offen"
+    }
   },
-
   "straenge": [
-    { "id": "crm",     "kurz": "CRM",    "label": "CRM & Zielkunden",       "frage": "Wen sprechen wir an?",     "farbe": "#8B7CFF" },
-    { "id": "web",     "kurz": "Web",    "label": "Webseite & Landingpages","frage": "Worauf landen sie?",       "farbe": "#2DD4BF" },
-    { "id": "kanaele", "kurz": "Kanäle", "label": "Marketing & Vertrieb",   "frage": "Wie kommen sie dorthin?",  "farbe": "#FB923C" }
+    {
+      "id": "crm",
+      "kurz": "CRM",
+      "label": "CRM & Zielkunden",
+      "frage": "Wen sprechen wir an?",
+      "farbe": "#8B7CFF"
+    },
+    {
+      "id": "web",
+      "kurz": "Web",
+      "label": "Webseite & Landingpages",
+      "frage": "Worauf landen sie?",
+      "farbe": "#2DD4BF"
+    },
+    {
+      "id": "kanaele",
+      "kurz": "Kanäle",
+      "label": "Marketing & Vertrieb",
+      "frage": "Wie kommen sie dorthin?",
+      "farbe": "#FB923C"
+    }
   ],
-
   "meilensteine": [
-    { "id": "m1", "nr": 1, "titel": "Klarheit",   "ergebnis": "Wir wissen, wen wir ansprechen und was wir verkaufen." },
-    { "id": "m2", "nr": 2, "titel": "Maschine",   "ergebnis": "Die Systeme stehen und sind befüllt." },
-    { "id": "m3", "nr": 3, "titel": "Ansprache",  "ergebnis": "Wir sprechen systematisch an und messen, was ankommt." },
-    { "id": "m4", "nr": 4, "titel": "Skalierung", "ergebnis": "Wiederholbar für jede neue Zielgruppe, ohne Mehraufwand." }
+    {
+      "id": "m1",
+      "nr": 1,
+      "titel": "Klarheit",
+      "ergebnis": "Wir wissen, wen wir ansprechen und was wir verkaufen."
+    },
+    {
+      "id": "m2",
+      "nr": 2,
+      "titel": "Maschine",
+      "ergebnis": "Die Systeme stehen und sind befüllt."
+    },
+    {
+      "id": "m3",
+      "nr": 3,
+      "titel": "Ansprache",
+      "ergebnis": "Wir sprechen systematisch an und messen, was ankommt."
+    },
+    {
+      "id": "m4",
+      "nr": 4,
+      "titel": "Skalierung",
+      "ergebnis": "Wiederholbar für jede neue Zielgruppe, ohne Mehraufwand."
+    }
   ],
-
   "schritte": [
     {
-      "id": "crm-segmente", "strang": "crm", "meilenstein": "m1", "aufwand": "M",
+      "id": "crm-segmente",
+      "strang": "crm",
+      "meilenstein": "m1",
+      "aufwand": "M",
       "titel": "Segmente definieren",
       "ergebnis": "Die Zielgruppensegmente stehen schriftlich.",
-      "status": "aktiv", "braucht": [],
-      "details": ["Segmente aus den 20 Zielgruppenseiten ableiten", "Je Segment Größe und Erreichbarkeit schätzen"],
-      "offen": ["Alle Segmente oder ein Kern von drei?"]
+      "status": "aktiv",
+      "braucht": [],
+      "details": [
+        "Segmente aus den 20 Zielgruppenseiten ableiten",
+        "Je Segment Größe und Erreichbarkeit schätzen"
+      ],
+      "offen": [
+        "Alle Segmente oder ein Kern von drei?"
+      ]
     },
     {
-      "id": "crm-kriterien", "strang": "crm", "meilenstein": "m1", "aufwand": "S",
+      "id": "crm-kriterien",
+      "strang": "crm",
+      "meilenstein": "m1",
+      "aufwand": "S",
       "titel": "Kriterien schärfen",
       "ergebnis": "Je Segment ist klar, wer dazugehört und wer nicht.",
-      "status": "offen", "braucht": ["crm-segmente"],
-      "details": ["Einschlusskriterien je Segment", "Ausschlusskriterien festhalten"],
+      "status": "offen",
+      "braucht": [
+        "crm-segmente"
+      ],
+      "details": [
+        "Einschlusskriterien je Segment",
+        "Ausschlusskriterien festhalten"
+      ],
       "offen": []
     },
     {
-      "id": "crm-quellen", "strang": "crm", "meilenstein": "m1", "aufwand": "M",
+      "id": "crm-quellen",
+      "strang": "crm",
+      "meilenstein": "m1",
+      "aufwand": "M",
       "titel": "Datenquellen klären",
-      "ergebnis": "Wir wissen, woher die Kontaktdaten je Segment kommen.",
-      "status": "offen", "braucht": ["crm-segmente"],
-      "details": ["Quellen sammeln und bewerten", "Rechtsgrundlage je Quelle prüfen"],
-      "offen": ["Kaufen, recherchieren oder aus Bestand?"]
+      "ergebnis": "Wir wissen, woher die Kontaktdaten kommen.",
+      "status": "offen",
+      "braucht": [
+        "crm-segmente"
+      ],
+      "details": [
+        "Quellen sammeln und bewerten",
+        "Rechtsgrundlage je Quelle prüfen"
+      ],
+      "offen": [
+        "Kaufen, recherchieren oder aus Bestand?"
+      ]
     },
     {
-      "id": "crm-auswahl", "strang": "crm", "meilenstein": "m2", "aufwand": "M",
+      "id": "crm-auswahl",
+      "strang": "crm",
+      "meilenstein": "m2",
+      "aufwand": "M",
       "titel": "CRM auswählen",
       "ergebnis": "Ein Anbieter ist entschieden.",
-      "status": "offen", "braucht": ["crm-kriterien"],
-      "details": ["Kosten, DSGVO und Schnittstellen vergleichen", "Zwei Kandidaten testen"],
-      "offen": ["Anbieter offen"]
+      "status": "offen",
+      "braucht": [
+        "crm-kriterien"
+      ],
+      "details": [
+        "Kosten, DSGVO und Schnittstellen vergleichen",
+        "Zwei Kandidaten testen"
+      ],
+      "offen": [
+        "Anbieter offen"
+      ]
     },
     {
-      "id": "crm-setup", "strang": "crm", "meilenstein": "m2", "aufwand": "M",
+      "id": "crm-setup",
+      "strang": "crm",
+      "meilenstein": "m2",
+      "aufwand": "M",
       "titel": "Pipeline & Felder",
       "ergebnis": "Das CRM bildet unsere Vertriebsstufen ab.",
-      "status": "offen", "braucht": ["crm-auswahl"],
-      "details": ["Pipeline-Stufen definieren", "Pflichtfelder je Segment"],
+      "status": "offen",
+      "braucht": [
+        "crm-auswahl"
+      ],
+      "details": [
+        "Pipeline-Stufen definieren",
+        "Pflichtfelder je Segment"
+      ],
       "offen": []
     },
     {
-      "id": "crm-import", "strang": "crm", "meilenstein": "m2", "aufwand": "L",
+      "id": "crm-import",
+      "strang": "crm",
+      "meilenstein": "m2",
+      "aufwand": "L",
       "titel": "Zielkunden importieren",
-      "ergebnis": "Die Kontakte liegen dublettenfrei und rechtssicher im CRM.",
-      "status": "offen", "braucht": ["crm-setup", "crm-quellen"],
-      "details": ["Import inklusive Dublettenabgleich", "Rechtsgrundlage dokumentieren"],
-      "offen": ["Wer pflegt die Daten dauerhaft?"]
+      "ergebnis": "Kontakte liegen sauber und rechtssicher im CRM.",
+      "status": "offen",
+      "braucht": [
+        "crm-setup",
+        "crm-quellen"
+      ],
+      "details": [
+        "Import inklusive Dublettenabgleich",
+        "Rechtsgrundlage dokumentieren"
+      ],
+      "offen": [
+        "Wer pflegt die Daten dauerhaft?"
+      ]
     },
     {
-      "id": "crm-selektion", "strang": "crm", "meilenstein": "m3", "aufwand": "S",
+      "id": "crm-selektion",
+      "strang": "crm",
+      "meilenstein": "m3",
+      "aufwand": "S",
       "titel": "Selektion auf Knopfdruck",
       "ergebnis": "Empfängerlisten entstehen ohne Handarbeit.",
-      "status": "offen", "braucht": ["crm-import"],
-      "details": ["Gespeicherte Selektionen je Segment", "Übergabe an den Versand"],
+      "status": "offen",
+      "braucht": [
+        "crm-import"
+      ],
+      "details": [
+        "Gespeicherte Selektionen je Segment",
+        "Übergabe an den Versand"
+      ],
       "offen": []
     },
     {
-      "id": "crm-vorlagen", "strang": "crm", "meilenstein": "m4", "aufwand": "M",
+      "id": "crm-vorlagen",
+      "strang": "crm",
+      "meilenstein": "m4",
+      "aufwand": "M",
       "titel": "Segment-Vorlagen",
-      "ergebnis": "Ein neues Kundenprojekt startet auf bestehenden Segmenten.",
-      "status": "offen", "braucht": ["crm-selektion"],
-      "details": ["Vorlagen je Branche", "Mandantentrennung im CRM"],
+      "ergebnis": "Neue Projekte starten auf fertigen Segmenten.",
+      "status": "offen",
+      "braucht": [
+        "crm-selektion"
+      ],
+      "details": [
+        "Vorlagen je Branche",
+        "Mandantentrennung im CRM"
+      ],
       "offen": []
     },
-
     {
-      "id": "web-live", "strang": "web", "meilenstein": "m1", "aufwand": "L",
+      "id": "web-live",
+      "strang": "web",
+      "meilenstein": "m1",
+      "aufwand": "L",
       "titel": "Website live",
       "ergebnis": "sofortsichtbar.de läuft samt Tracking und Consent.",
-      "status": "erreicht", "braucht": [],
-      "details": ["Alle Seiten live, 20 Zielgruppenseiten", "GA4 mit Consent Mode v2"],
+      "status": "erreicht",
+      "braucht": [],
+      "details": [
+        "Alle Seiten live, 20 Zielgruppenseiten",
+        "GA4 mit Consent Mode v2"
+      ],
       "offen": []
     },
     {
-      "id": "web-angebot", "strang": "web", "meilenstein": "m1", "aufwand": "M",
+      "id": "web-angebot",
+      "strang": "web",
+      "meilenstein": "m1",
+      "aufwand": "M",
       "titel": "Angebot eindeutig",
-      "ergebnis": "Pakete und Preise sind ohne Rückfrage verständlich.",
-      "status": "aktiv", "braucht": ["web-live"],
-      "details": ["Paketlogik schärfen", "Miete gegen Kauf abgrenzen"],
-      "offen": ["Preise öffentlich oder erst im Gespräch?"]
+      "ergebnis": "Pakete und Preise sind sofort verständlich.",
+      "status": "aktiv",
+      "braucht": [
+        "web-live"
+      ],
+      "details": [
+        "Paketlogik schärfen",
+        "Miete gegen Kauf abgrenzen"
+      ],
+      "offen": [
+        "Preise öffentlich oder erst im Gespräch?"
+      ]
     },
     {
-      "id": "web-bausteine", "strang": "web", "meilenstein": "m2", "aufwand": "L",
+      "id": "web-bausteine",
+      "strang": "web",
+      "meilenstein": "m2",
+      "aufwand": "L",
       "titel": "Bausteine herauslösen",
-      "ergebnis": "Die Seitenteile sind wiederverwendbar statt fest verdrahtet.",
-      "status": "offen", "braucht": ["web-angebot", "crm-segmente"],
-      "details": ["Sektionen zu Bausteinen machen", "Inhalte datengetrieben pflegen"],
+      "ergebnis": "Seitenteile sind wiederverwendbar.",
+      "status": "offen",
+      "braucht": [
+        "web-angebot",
+        "crm-segmente"
+      ],
+      "details": [
+        "Sektionen zu Bausteinen machen",
+        "Inhalte datengetrieben pflegen"
+      ],
       "offen": []
     },
     {
-      "id": "web-baukasten", "strang": "web", "meilenstein": "m2", "aufwand": "M",
+      "id": "web-baukasten",
+      "strang": "web",
+      "meilenstein": "m2",
+      "aufwand": "M",
       "titel": "Landingpage-Baukasten",
       "ergebnis": "Eine neue Zielgruppenseite entsteht aus Bausteinen.",
-      "status": "offen", "braucht": ["web-bausteine"],
-      "details": ["Vorlage und Checkliste", "Freigabeprozess"],
-      "offen": ["Wie viel darf der Kunde selbst anpassen?"]
+      "status": "offen",
+      "braucht": [
+        "web-bausteine"
+      ],
+      "details": [
+        "Vorlage und Checkliste",
+        "Freigabeprozess"
+      ],
+      "offen": [
+        "Wie viel darf der Kunde selbst anpassen?"
+      ]
     },
     {
-      "id": "web-events", "strang": "web", "meilenstein": "m3", "aufwand": "S",
+      "id": "web-events",
+      "strang": "web",
+      "meilenstein": "m3",
+      "aufwand": "S",
       "titel": "Funnel-Events",
       "ergebnis": "Jede Stufe der Strecke feuert ein sauberes Event.",
-      "status": "offen", "braucht": ["web-baukasten"],
-      "details": ["Events definieren", "Terminbuchung als Conversion"],
+      "status": "offen",
+      "braucht": [
+        "web-baukasten"
+      ],
+      "details": [
+        "Events definieren",
+        "Terminbuchung als Conversion"
+      ],
       "offen": []
     },
     {
-      "id": "web-messung", "strang": "web", "meilenstein": "m3", "aufwand": "M",
+      "id": "web-messung",
+      "strang": "web",
+      "meilenstein": "m3",
+      "aufwand": "M",
       "titel": "Conversion je Zielgruppe",
-      "ergebnis": "Wir kennen die Rate von Aufruf bis Termin je Zielgruppe.",
-      "status": "offen", "braucht": ["web-events", "kanal-erster"],
-      "details": ["Auswertung je Quelle", "Schwellwerte festlegen"],
+      "ergebnis": "Wir kennen die Rate je Zielgruppe.",
+      "status": "offen",
+      "braucht": [
+        "web-events",
+        "kanal-erster"
+      ],
+      "details": [
+        "Auswertung je Quelle",
+        "Schwellwerte festlegen"
+      ],
       "offen": []
     },
     {
-      "id": "web-serie", "strang": "web", "meilenstein": "m4", "aufwand": "M",
+      "id": "web-serie",
+      "strang": "web",
+      "meilenstein": "m4",
+      "aufwand": "M",
       "titel": "Zielgruppe an einem Tag",
-      "ergebnis": "Von Entscheidung bis Livegang vergeht weniger als ein Tag.",
-      "status": "offen", "braucht": ["web-baukasten", "web-messung"],
-      "details": ["Serienbetrieb", "Qualitätscheck automatisieren"],
+      "ergebnis": "Neue Zielgruppe in unter einem Tag live.",
+      "status": "offen",
+      "braucht": [
+        "web-baukasten",
+        "web-messung"
+      ],
+      "details": [
+        "Serienbetrieb",
+        "Qualitätscheck automatisieren"
+      ],
       "offen": []
     },
-
     {
-      "id": "kanal-landkarte", "strang": "kanaele", "meilenstein": "m1", "aufwand": "S",
+      "id": "kanal-landkarte",
+      "strang": "kanaele",
+      "meilenstein": "m1",
+      "aufwand": "S",
       "titel": "Kanal-Landkarte",
-      "ergebnis": "Alle Kanäle sind nach Aufwand und Wirkung bewertet.",
-      "status": "aktiv", "braucht": [],
-      "details": ["LinkedIn, Mailing, Empfehlung, Events, Ads", "Aufwand und Wirkung schätzen"],
+      "ergebnis": "Alle Kanäle sind bewertet und priorisiert.",
+      "status": "aktiv",
+      "braucht": [],
+      "details": [
+        "LinkedIn, Mailing, Empfehlung, Events, Ads",
+        "Aufwand und Wirkung schätzen"
+      ],
       "offen": []
     },
     {
-      "id": "kanal-wahl", "strang": "kanaele", "meilenstein": "m1", "aufwand": "S",
+      "id": "kanal-wahl",
+      "strang": "kanaele",
+      "meilenstein": "m1",
+      "aufwand": "S",
       "titel": "Ersten Kanal wählen",
       "ergebnis": "Die Entscheidung für den Startkanal ist getroffen.",
-      "status": "offen", "braucht": ["kanal-landkarte", "crm-segmente"],
-      "details": ["Kanal zur Zielgruppe passend wählen", "Rhythmus festlegen"],
-      "offen": ["Welcher wird es?"]
+      "status": "offen",
+      "braucht": [
+        "kanal-landkarte",
+        "crm-segmente"
+      ],
+      "details": [
+        "Kanal zur Zielgruppe passend wählen",
+        "Rhythmus festlegen"
+      ],
+      "offen": [
+        "Welcher wird es?"
+      ]
     },
     {
-      "id": "kanal-erster", "strang": "kanaele", "meilenstein": "m2", "aufwand": "L",
+      "id": "kanal-erster",
+      "strang": "kanaele",
+      "meilenstein": "m2",
+      "aufwand": "L",
       "titel": "Erster Kanal liefert",
       "ergebnis": "Ein Kanal erzeugt über Wochen planbar Anfragen.",
-      "status": "offen", "braucht": ["kanal-wahl", "web-angebot"],
-      "details": ["Inhalte vorproduzieren", "Anfragen zählen und Quelle erfassen"],
+      "status": "offen",
+      "braucht": [
+        "kanal-wahl",
+        "web-angebot"
+      ],
+      "details": [
+        "Inhalte vorproduzieren",
+        "Anfragen zählen und Quelle erfassen"
+      ],
       "offen": []
     },
     {
-      "id": "kanal-versand", "strang": "kanaele", "meilenstein": "m3", "aufwand": "M",
+      "id": "kanal-versand",
+      "strang": "kanaele",
+      "meilenstein": "m3",
+      "aufwand": "M",
       "titel": "Versandsystem anbinden",
       "ergebnis": "Mails gehen technisch sauber und messbar raus.",
-      "status": "offen", "braucht": ["crm-setup"],
-      "details": ["System wählen und ans CRM koppeln", "Zustellbarkeit einrichten"],
-      "offen": ["Welches System?"]
+      "status": "offen",
+      "braucht": [
+        "crm-setup"
+      ],
+      "details": [
+        "System wählen und ans CRM koppeln",
+        "Zustellbarkeit einrichten"
+      ],
+      "offen": [
+        "Welches System?"
+      ]
     },
     {
-      "id": "kanal-mailing", "strang": "kanaele", "meilenstein": "m3", "aufwand": "M",
+      "id": "kanal-mailing",
+      "strang": "kanaele",
+      "meilenstein": "m3",
+      "aufwand": "M",
       "titel": "Mailings laufen",
-      "ergebnis": "Eine Strecke geht an definierte Segmente, Reaktion ist messbar.",
-      "status": "offen", "braucht": ["kanal-versand", "crm-import"],
-      "details": ["Strecke je Segment texten", "Abmeldung und Impressum sauber"],
+      "ergebnis": "Mailings gehen raus, Reaktion ist messbar.",
+      "status": "offen",
+      "braucht": [
+        "kanal-versand",
+        "crm-import"
+      ],
+      "details": [
+        "Strecke je Segment texten",
+        "Abmeldung und Impressum sauber"
+      ],
       "offen": []
     },
     {
-      "id": "kanal-utm", "strang": "kanaele", "meilenstein": "m3", "aufwand": "S",
+      "id": "kanal-utm",
+      "strang": "kanaele",
+      "meilenstein": "m3",
+      "aufwand": "S",
       "titel": "UTM-Konvention",
-      "ergebnis": "Jeder Link trägt eine einheitliche Quellenkennung.",
-      "status": "offen", "braucht": ["kanal-erster"],
-      "details": ["Namensschema festlegen", "Im Team verbindlich machen"],
+      "ergebnis": "Jeder Link trägt eine Quellenkennung.",
+      "status": "offen",
+      "braucht": [
+        "kanal-erster"
+      ],
+      "details": [
+        "Namensschema festlegen",
+        "Im Team verbindlich machen"
+      ],
       "offen": []
     },
     {
-      "id": "kanal-mix", "strang": "kanaele", "meilenstein": "m4", "aufwand": "L",
+      "id": "kanal-mix",
+      "strang": "kanaele",
+      "meilenstein": "m4",
+      "aufwand": "L",
       "titel": "Kanal-Mix mit Attribution",
-      "ergebnis": "Mehrere Kanäle laufen, jede Anfrage kennt ihre Quelle.",
-      "status": "offen", "braucht": ["kanal-mailing", "kanal-utm", "web-messung"],
-      "details": ["Zweiten und dritten Kanal starten", "Monatliches Reporting"],
+      "ergebnis": "Mehrere Kanäle laufen, Quelle ist messbar.",
+      "status": "offen",
+      "braucht": [
+        "kanal-mailing",
+        "kanal-utm",
+        "web-messung"
+      ],
+      "details": [
+        "Zweiten und dritten Kanal starten",
+        "Monatliches Reporting"
+      ],
       "offen": []
     }
   ]
