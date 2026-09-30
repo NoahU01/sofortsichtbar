@@ -1,0 +1,197 @@
+---
+layout: layouts/base.njk
+title: Prozessbild – sofort sichtbar
+description: Interne Arbeitsgrundlage.
+permalink: /prozess/index.html
+noindex: true
+prozessSeite: true
+eleventyExcludeFromCollections: true
+---
+{% set p = prozess %}
+
+<section class="pz-hero">
+  <div class="padding-global">
+    <div class="section-padding section-padding--top-6">
+      <div class="container">
+        <div class="pz-hero__inner">
+          <div class="eyebrow"><div class="eyebrow__text">{{ p.hinweis }}</div></div>
+          <h1 class="heading-h2 text-white">{{ p.titel }}</h1>
+          <p class="text-regular text-secondary">{{ p.untertitel }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- Der eine Kreislauf ------------------------------------------------ #}
+<section class="pz-loop" id="kreislauf">
+  <div class="padding-global">
+    <div class="section-padding--top-4">
+      <div class="container">
+        <div class="pz-loop__head">
+          <h2 class="heading-h3 text-white">{{ p.kreislauf.titel }}</h2>
+          <p class="text-secondary">{{ p.kreislauf.text }}</p>
+        </div>
+        <ol class="pz-loop__steps">
+          {% for s in p.kreislauf.schritte %}
+            <li class="pz-loop__step">
+              <span class="pz-loop__nr">{{ s.nr }}</span>
+              <span class="pz-loop__name">{{ s.name }}</span>
+              <span class="pz-loop__text">{{ s.text }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- Überblick: Nabe und Kanäle ---------------------------------------- #}
+<section class="pz-map" id="ueberblick">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container">
+
+        <div class="pz-map__head">
+          <h2 class="heading-h3 text-white">Überblick</h2>
+          <p class="text-secondary">
+            Alles läuft über die Datenbank. Nach außen gehen unsere Aktionen,
+            zurück kommen Signale. Kanal antippen für die Details.
+          </p>
+        </div>
+
+        <div class="pz-richtung">
+          <span class="pz-richtung__item">
+            <span class="pz-richtung__strich pz-richtung__strich--raus"></span>
+            nach außen: unsere Aktion
+          </span>
+          <span class="pz-richtung__item">
+            <span class="pz-richtung__strich pz-richtung__strich--rein"></span>
+            zurück: Signal in die Datenbank
+          </span>
+        </div>
+
+        <div class="pz-map__stage" data-map>
+          <svg class="pz-map__lines" data-map-lines aria-hidden="true"></svg>
+
+          <button class="pz-node pz-node--hub" type="button" data-node="hub" aria-controls="pz-detail">
+            <span class="pz-node__status" data-status="{{ p.nabe.status }}"></span>
+            <span class="pz-node__name">{{ p.nabe.name }}</span>
+            <span class="pz-node__kurz">{{ p.nabe.kurz }}</span>
+          </button>
+
+          {% for k in p.kanaele %}
+            <button class="pz-node pz-node--kanal" type="button"
+                    data-node="{{ k.id }}" data-index="{{ loop.index0 }}" aria-controls="pz-detail">
+              <span class="pz-node__status" data-status="{{ k.status }}"></span>
+              <img class="pz-node__icon" src="/assets/img/icons/{{ k.icon }}.svg" alt="" aria-hidden="true">
+              <span class="pz-node__name">{{ k.name }}</span>
+              <span class="pz-node__kurz">{{ k.kurz }}</span>
+            </button>
+          {% endfor %}
+        </div>
+
+        <div class="pz-legende">
+          {% for s in p.statusLegende %}
+            <span class="pz-legende__item">
+              <span class="pz-node__status" data-status="{{ s.id }}"></span>
+              <strong class="text-white">{{ s.name }}</strong>
+              <span class="text-small text-grey">{{ s.text }}</span>
+            </span>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- Detailbereich ----------------------------------------------------- #}
+<section class="pz-detail" id="pz-detail" aria-live="polite">
+  <div class="padding-global">
+    <div class="section-padding--top-4">
+      <div class="container">
+
+        {# Nabe #}
+        <article class="pz-panel" data-panel="hub">
+          <header class="pz-panel__head">
+            <h2 class="heading-h3 text-white">{{ p.nabe.name }}</h2>
+            <p class="text-secondary">{{ p.nabe.beschreibung }}</p>
+          </header>
+          <div class="pz-panel__grid">
+            <div class="pz-card">
+              <h3 class="heading-h5 text-white">Was drinsteht</h3>
+              <ul class="pz-list">{% for i in p.nabe.inhalt %}<li>{{ i }}</li>{% endfor %}</ul>
+            </div>
+            <div class="pz-card">
+              <h3 class="heading-h5 text-white">Signale, Beispiele</h3>
+              <ul class="pz-list pz-list--tags">{% for s in p.nabe.signalBeispiele %}<li>{{ s }}</li>{% endfor %}</ul>
+            </div>
+            <div class="pz-card pz-card--ziel">
+              <span class="pz-node__status" data-status="{{ p.agent.status }}"></span>
+              <h3 class="heading-h5 text-white">{{ p.agent.name }} — {{ p.agent.kurz }}</h3>
+              <ul class="pz-list">{% for a in p.agent.aufgaben %}<li>{{ a }}</li>{% endfor %}</ul>
+            </div>
+          </div>
+        </article>
+
+        {# Kanäle #}
+        {% for k in p.kanaele %}
+          <article class="pz-panel" data-panel="{{ k.id }}" hidden>
+            <header class="pz-panel__head">
+              <div class="pz-panel__titel">
+                <img class="icon-md" src="/assets/img/icons/{{ k.icon }}.svg" alt="" aria-hidden="true">
+                <h2 class="heading-h3 text-white">{{ k.name }}</h2>
+                <span class="pz-takt">{{ k.rhythmus.takt }}</span>
+              </div>
+              {% if k.accounts %}
+                <p class="text-small text-grey">Accounts: {{ k.accounts | join(" · ") }}</p>
+              {% endif %}
+              {% if k.annahme %}
+                <p class="pz-annahme">{{ k.annahme }}</p>
+              {% endif %}
+            </header>
+
+            <div class="pz-panel__grid">
+              <div class="pz-card pz-card--raus">
+                <span class="pz-node__status" data-status="{{ k.raus.status }}"></span>
+                <h3 class="heading-h5 text-white">{{ k.raus.titel }}</h3>
+                <ul class="pz-list">{% for x in k.raus.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+              </div>
+              <div class="pz-card pz-card--rein">
+                <span class="pz-node__status" data-status="{{ k.rein.status }}"></span>
+                <h3 class="heading-h5 text-white">{{ k.rein.titel }}</h3>
+                <ul class="pz-list">{% for x in k.rein.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+              </div>
+              <div class="pz-card">
+                <h3 class="heading-h5 text-white">Rhythmus</h3>
+                <ol class="pz-list pz-list--nummeriert">{% for x in k.rhythmus.schritte %}<li>{{ x }}</li>{% endfor %}</ol>
+              </div>
+            </div>
+
+            {% if k.grenze %}
+              <p class="pz-grenze"><strong class="text-white">Grenze:</strong> {{ k.grenze }}</p>
+            {% endif %}
+
+            <div class="pz-aufgaben">
+              <h3 class="heading-h5 text-white">Wer macht was</h3>
+              <table class="pz-tabelle">
+                <thead><tr><th>Wer</th><th>Was</th><th>Takt</th></tr></thead>
+                <tbody>
+                  {% for a in k.aufgaben %}
+                    <tr{% if a.status %} data-geplant="1"{% endif %}>
+                      <td>{{ a.wer }}</td>
+                      <td>{{ a.was }}{% if a.status %} <span class="pz-tag">{{ a.status }}</span>{% endif %}</td>
+                      <td>{{ a.takt }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
