@@ -14,6 +14,11 @@ konzept: "stufen"
       Jede Stufe sammelt Schritte aus allen drei Strängen. Erst wenn <strong>alle</strong> erledigt sind,
       öffnet sich das Tor und die nächste Stufe wird spielbar.
     </p>
+    <div class="st__legende">
+      <span class="st__leg"><i class="st__muster st__muster--fertig">&#10003;</i>erledigt</span>
+      <span class="st__leg"><i class="st__muster st__muster--jetzt">&#9679;</i>jetzt machbar</span>
+      <span class="st__leg"><i class="st__muster st__muster--wartet">&#9679;</i>wartet auf einen Schritt davor</span>
+    </div>
   </div>
 
   {% for m in g.meilensteine %}

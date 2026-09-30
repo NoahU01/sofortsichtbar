@@ -13,6 +13,28 @@
 .st__lies { margin-top: 0.6rem; color: #a6a3b1; font-size: 0.98rem; line-height: 1.55; }
 .st__lies strong { color: #fff; }
 
+.st__legende {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.st__leg { display: inline-flex; align-items: center; gap: 0.5rem; color: #8d8a99; font-size: 0.76rem; }
+.st__muster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 99rem;
+  font-size: 0.6rem;
+  font-style: normal;
+}
+.st__muster--fertig { background-color: #14231c; border: 2px solid #2c5a45; color: #7fd6ab; font-size: 0.75rem; }
+.st__muster--jetzt { background-color: #1b1b24; border: 2px solid #35c08a; color: #35c08a; box-shadow: 0 0 0 3px rgb(53 192 138 / 0.16); }
+.st__muster--wartet { background-color: #1b1b24; border: 2px solid #34313f; color: #4c4858; }
+
 /* --- Eine Stufe -------------------------------------------------------- */
 .st__stufe {
   position: relative;
