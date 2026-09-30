@@ -2,8 +2,10 @@
     Farben kommen aus CSS-Variablen, die Struktur ist identisch. -#}
 {%- set g = strategieGraph -%}
 {%- set G = g.graph2 -%}
+{%- set varListe = g2Varianten or ["a", "b", "c"] -%}
+{%- set varNamen = { "a": "A Grauwert", "b": "B Invertiert", "c": "C Spotlight" } -%}
 
-<div class="g2 g2--a" data-g2>
+<div class="g2 g2--{{ varListe[0] }}" data-g2>
 
   <header class="g2__kopf">
     <div class="g2__kopf-text">
@@ -26,12 +28,16 @@
     <span class="g2__leg"><i class="g2__zeichen g2__zeichen--wartet"></i>kommt später</span>
     <span class="g2__leg g2__leg--pfeil">muss vorher fertig sein</span>
     <span class="g2__leg g2__leg--quer">Bahn wartet auf andere Bahn</span>
-    <span class="g2__varianten" role="group" aria-label="Hervorhebung">
-      <span class="g2__varianten-titel">Hervorhebung</span>
-      <button class="g2__vbtn is-an" type="button" data-variante="a">A Grauwert</button>
-      <button class="g2__vbtn" type="button" data-variante="b">B Invertiert</button>
-      <button class="g2__vbtn" type="button" data-variante="c">C Spotlight</button>
-    </span>
+    {% if varListe.length > 1 %}
+      <span class="g2__varianten" role="group" aria-label="Hervorhebung">
+        <span class="g2__varianten-titel">Hervorhebung</span>
+        {% for v in varListe %}
+          <button class="g2__vbtn{% if loop.first %} is-an{% endif %}" type="button" data-variante="{{ v }}">{{ varNamen[v] }}</button>
+        {% endfor %}
+      </span>
+    {% else %}
+      <span class="g2__leg-hinweis">Karte anklicken für Details · seitlich scrollbar</span>
+    {% endif %}
   </div>
 
   <div class="g2__buehne">

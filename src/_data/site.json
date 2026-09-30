@@ -49,6 +49,11 @@
           "sub": true
         },
         {
+          "label": "Liniennetz V2",
+          "href": "/entwicklung/strategie/metro-v2",
+          "sub": true
+        },
+        {
           "label": "Graph",
           "href": "/entwicklung/strategie/graph",
           "sub": true

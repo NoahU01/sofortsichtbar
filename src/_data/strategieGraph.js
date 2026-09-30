@@ -246,6 +246,14 @@ const metroLinien = straenge.map((strang, spur) => {
     .map((s) => metroPos.get(s.id))
     .filter(Boolean)
     .sort((a, b) => a.x - b.x);
+  // Bis hierher sind wir gekommen: letzter Halt, der erledigt oder frei ist.
+  // Links davon zeichnen wir die Linie dick, rechts davon dünn.
+  const erreicht = strang.schritte
+    .filter((s) => s.status === "erreicht" || s.machbar)
+    .map((s) => metroPos.get(s.id))
+    .filter(Boolean);
+  const grenzeX = erreicht.length ? Math.max(...erreicht.map((p) => p.x)) : M.links / 2;
+
   return {
     id: strang.id,
     label: strang.label,
@@ -254,6 +262,9 @@ const metroLinien = straenge.map((strang, spur) => {
     y,
     fortschritt: strang.fortschritt,
     pfad: `M ${M.links / 2} ${y} L ${metroBreite - M.rechts / 2} ${y}`,
+    grenzeX,
+    pfadGegangen: `M ${M.links / 2} ${y} L ${grenzeX} ${y}`,
+    pfadOffen: `M ${grenzeX} ${y} L ${metroBreite - M.rechts / 2} ${y}`,
     halte: punkte,
   };
 });

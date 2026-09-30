@@ -30,6 +30,16 @@
     "schwaeche": "Braucht viel Breite, und es sind nur die strangübergreifenden Abhängigkeiten eingezeichnet."
   },
   {
+    "id": "metro2",
+    "name": "Liniennetz V2",
+    "href": "/entwicklung/strategie/metro-v2",
+    "claim": "Die Linie selbst zeigt den Fortschritt",
+    "frage": "Wie weit ist jede Bahn gekommen?",
+    "idee": "Wie das Liniennetz, aber die Linie ist dick, solange der Weg hinter uns liegt, und wird genau am aktuellen Halt dünn. Damit ist der Fortschrittsbalken die Linie selbst – das Abzeichen „jetzt machbar“ entfällt, der Wechsel der Strichstärke markiert die Stelle.",
+    "gutFuer": "Den Stand auf einen Blick, ohne Legende lesen zu müssen.",
+    "schwaeche": "Funktioniert nur sauber, solange je Bahn ein Schritt gleichzeitig frei ist."
+  },
+  {
     "id": "graph",
     "name": "Graph",
     "href": "/entwicklung/strategie/graph",

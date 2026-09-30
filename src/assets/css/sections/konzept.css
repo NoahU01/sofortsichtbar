@@ -128,16 +128,6 @@
 .k-detail__block ul { margin: 0.5rem 0 0; padding-left: 1.1rem; display: flex; flex-flow: column; gap: 0.35rem; }
 .k-detail__block li { color: #b6b2bd; font-size: 0.88rem; line-height: 1.5; }
 
-/* Das Ergebnis ist der Zweck des Schritts - abgesetzt hervorheben */
-.k-detail__block--ziel {
-  margin-top: 1.25rem;
-  padding: 0.85rem 0.95rem;
-  background-color: #1b1822;
-  border-left: 3px solid #a167e4;
-  border-radius: 0.4rem;
-}
-.k-detail__block--ziel p { color: #fff; }
-
 .k-detail__offen { list-style: none; padding-left: 0; }
 .k-detail__offen li { position: relative; padding-left: 1.2rem; }
 .k-detail__offen li::before { content: "?"; position: absolute; left: 0; color: #a167e4; font-weight: 700; }
@@ -202,6 +192,11 @@
 .hub__karte--metro .hub__vorschau i:nth-child(1) { background-color: #8B7CFF; }
 .hub__karte--metro .hub__vorschau i:nth-child(2) { background-color: #2DD4BF; width: 70%; }
 .hub__karte--metro .hub__vorschau i:nth-child(3) { background-color: #FB923C; width: 85%; }
+.hub__karte--metro2 .hub__vorschau { flex-flow: column; justify-content: center; gap: 6px; }
+.hub__karte--metro2 .hub__vorschau i { width: 100%; border-radius: 99rem; }
+.hub__karte--metro2 .hub__vorschau i:nth-child(1) { height: 7px; background: linear-gradient(90deg, #8B7CFF 0 30%, rgb(139 124 255 / 0.4) 30%); }
+.hub__karte--metro2 .hub__vorschau i:nth-child(2) { height: 7px; background: linear-gradient(90deg, #2DD4BF 0 55%, rgb(45 212 191 / 0.4) 55%); }
+.hub__karte--metro2 .hub__vorschau i:nth-child(3) { height: 7px; background: linear-gradient(90deg, #FB923C 0 20%, rgb(251 146 60 / 0.4) 20%); }
 
 .hub__name { color: #fff; font-size: 1.35rem; font-weight: 600; }
 .hub__claim { color: #a167e4; font-size: 0.85rem; font-weight: 500; }
