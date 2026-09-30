@@ -194,6 +194,44 @@
     metroMarkieren(id);
   }
 
+  /* --- Popover verschieben ---------------------------------------------
+     Die Position gilt nur für das geöffnete Fenster. Beim nächsten Öffnen
+     setzt platziere() es wieder neben den Auslöser. */
+  if (pop) {
+    var zieht = false;
+    var versatzX = 0;
+    var versatzY = 0;
+
+    pop.addEventListener("pointerdown", function (e) {
+      // Nur an ruhigen Stellen greifen, nicht auf Knöpfen oder Text zum Markieren
+      if (e.target.closest("button") || e.target.closest("a")) return;
+      if (!e.target.closest(".k-detail__kopf") && e.target !== pop) return;
+
+      var r = pop.getBoundingClientRect();
+      versatzX = e.clientX - r.left;
+      versatzY = e.clientY - r.top;
+      zieht = true;
+      pop.classList.add("wird-gezogen");
+      pop.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+
+    pop.addEventListener("pointermove", function (e) {
+      if (!zieht) return;
+      var links = Math.min(Math.max(4, e.clientX - versatzX), window.innerWidth - pop.offsetWidth - 4);
+      var oben = Math.min(Math.max(4, e.clientY - versatzY), window.innerHeight - pop.offsetHeight - 4);
+      pop.style.left = Math.round(links) + "px";
+      pop.style.top = Math.round(oben) + "px";
+    });
+
+    ["pointerup", "pointercancel"].forEach(function (ev) {
+      pop.addEventListener(ev, function () {
+        zieht = false;
+        pop.classList.remove("wird-gezogen");
+      });
+    });
+  }
+
   wurzel.addEventListener("click", function (e) {
     if (e.target.closest("[data-pop-zu]")) { schliesse(); return; }
     if (e.target.closest("[data-metro-reset]")) { metroZuruecksetzen(); schliesse(); return; }

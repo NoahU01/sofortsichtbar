@@ -1,0 +1,181 @@
+/* =========================================================
+   Gemeinsamer Kopf der Meilenstein-Ansichten
+   Hell ist die Grundeinstellung, die dunkle Ansicht überschreibt.
+   ========================================================= */
+.mk {
+  --mk-text: #15141a;
+  --mk-leise: #5d5866;
+  --mk-sehr-leise: #8b8794;
+  --mk-rand: #e2e0dc;
+  --mk-flaeche: #ffffff;
+  --mk-schatten: 0 1px 2px rgb(21 20 26 / 0.05);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 0 2rem 1.5rem;
+}
+
+.k--dunkel .mk {
+  --mk-text: #ffffff;
+  --mk-leise: #a8a3b2;
+  --mk-sehr-leise: #6c6875;
+  --mk-rand: #2d2834;
+  --mk-flaeche: #17151b;
+  --mk-schatten: none;
+}
+
+.mk__text { flex: 1 1 26rem; }
+.mk__titel {
+  color: var(--mk-text);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.mk__lead {
+  max-width: 38rem;
+  margin-top: 0.6rem;
+  color: var(--mk-leise);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* --- Legendenkasten ---------------------------------------------------- */
+.mk__legende {
+  flex: 0 1 auto;
+  min-width: 15rem;
+  max-width: 24rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--mk-flaeche);
+  border: 1px solid var(--mk-rand);
+  border-radius: 0.7rem;
+  box-shadow: var(--mk-schatten);
+}
+.mk__legende-kopf {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--mk-rand);
+}
+.mk__legende-titel {
+  color: var(--mk-sehr-leise);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mk__eintraege {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1rem;
+}
+.mk__eintrag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--mk-leise);
+  font-size: 0.73rem;
+  line-height: 1.3;
+}
+.mk__eintrag--pfeil::before,
+.mk__eintrag--quer::before {
+  content: "";
+  flex: none;
+  width: 1.5rem;
+  height: 0;
+}
+.mk__eintrag--pfeil::before { border-top: 2px solid var(--mk-sehr-leise); }
+.mk__eintrag--quer::before { border-top: 2px dashed var(--mk-sehr-leise); }
+
+/* Muster für die Liniennetz-Legende */
+.me__muster { display: inline-block; flex: none; }
+.me__muster--fertig {
+  width: 1.05rem; height: 1.05rem;
+  background-color: #6b6b6b;
+  border: 4px solid #6b6b6b;
+  border-radius: 99rem;
+}
+.me__muster--jetzt {
+  width: 1.05rem; height: 1.05rem;
+  background-color: #fff;
+  border: 4px solid #6b6b6b;
+  border-radius: 99rem;
+  box-shadow: 0 0 0 3px rgb(107 107 107 / 0.22);
+}
+.me__muster--wartet {
+  width: 1.05rem; height: 1.05rem;
+  background-color: #fff;
+  border: 3px solid #c9c4cf;
+  border-radius: 99rem;
+}
+.me__muster--dick { width: 1.5rem; height: 9px; background-color: #6b6b6b; border-radius: 99rem; }
+.me__muster--duenn { width: 1.5rem; height: 3px; background-color: #6b6b6b; border-radius: 99rem; opacity: 0.55; }
+.me__muster--bogen { width: 1.5rem; height: 0; border-top: 2px dashed #b5b1bd; }
+
+/* --- Info-Knopf: nativ über <details>, kein JavaScript nötig ---------- */
+.mk__info { position: relative; margin-left: auto; }
+.mk__info summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid var(--mk-sehr-leise);
+  border-radius: 99rem;
+  color: var(--mk-sehr-leise);
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-style: italic;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.mk__info summary::-webkit-details-marker { display: none; }
+.mk__info summary:hover,
+.mk__info[open] summary {
+  background-color: var(--mk-text);
+  border-color: var(--mk-text);
+  color: var(--mk-flaeche);
+}
+
+.mk__info-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 40;
+  width: 22rem;
+  max-width: 78vw;
+  padding: 1.1rem 1.2rem;
+  background-color: var(--mk-flaeche);
+  border: 1px solid var(--mk-rand);
+  border-radius: 0.7rem;
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 0.28);
+}
+.mk__info-panel h2 {
+  color: var(--mk-text);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mk__info-panel p {
+  margin-top: 0.6rem;
+  color: var(--mk-leise);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.mk__info-panel b { color: var(--mk-text); font-weight: 650; }
+
+@media (max-width: 991px) {
+  .mk { padding-left: 1rem; padding-right: 1rem; gap: 1.5rem; }
+  .mk__legende { max-width: none; width: 100%; }
+}
+@media (max-width: 479px) {
+  .mk__eintraege { grid-template-columns: 1fr; }
+}

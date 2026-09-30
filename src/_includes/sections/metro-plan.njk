@@ -4,95 +4,87 @@
 
 <div class="me me--v2">
 
-  <div class="me__kopf">
-    <h1>{{ metroTitel }}</h1>
-    <p class="me__lies">
-      Drei Linien laufen nebeneinander nach rechts. Jeder Halt ist ein Schritt.
-      Die <strong>nummerierten Stationen</strong> sind Ergebnisstufen — dort muss jede Linie
-      angekommen sein, bevor es weitergeht.
-      Ein Abschnitt ist <strong>dick, wenn der Halt an seinem Ende erledigt ist oder gerade
-        ansteht</strong> — sonst dünn. Auf einen späteren Halt klicken zeigt die Route dorthin.
-    </p>
-  </div>
+  {% include "sections/meilenstein-kopf.njk" %}
 
-  <div class="me__legende">
-    <div class="me__leg-gruppe">
-      <span class="me__leg-titel">Linien</span>
+  <div class="me__buehne">
+
+    <aside class="me__rail" style="height: {{ g.metro.hoehe }}px" aria-hidden="true">
       {% for l in g.metro.linien %}
-        <span class="me__leg-linie" style="--f: {{ l.farbe }}">{{ l.label }} <i>{{ l.fortschritt }}%</i></span>
-      {% endfor %}
-    </div>
-    <div class="me__leg-gruppe">
-      <span class="me__leg-titel">Halte</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--fertig"></i>erledigt</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--jetzt"></i>jetzt machbar</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--wartet"></i>wartet noch</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--dick"></i>Abschnitt erledigt oder dran</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--duenn"></i>noch offen</span>
-      <span class="me__leg-halt"><i class="me__muster me__muster--bogen"></i>Umstieg auf andere Linie</span>
-    </div>
-  </div>
-
-  <div class="me__route" data-route-leiste hidden>
-      <span class="me__route-text" data-route-text></span>
-      <button class="me__route-zu" type="button" data-metro-reset>Ganzes Netz zeigen</button>
-  </div>
-
-  <div class="me__scroll">
-    <div class="me__plan" style="width: {{ g.metro.breite }}px; height: {{ g.metro.hoehe }}px">
-
-      <svg class="me__svg" width="{{ g.metro.breite }}" height="{{ g.metro.hoehe }}" aria-hidden="true">
-        <defs>
-          <marker id="mpfeil" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 8 4 L 0 8 z" fill="#8d8797" />
-          </marker>
-        </defs>
-
-        {% for s in g.metro.stationen %}
-          <line class="me__stationslinie" x1="{{ s.x }}" y1="96" x2="{{ s.x }}" y2="{{ g.metro.hoehe - 30 }}" />
-        {% endfor %}
-
-        {% for l in g.metro.linien %}
-          {% for a in l.abschnitte %}
-            <path class="me__linie {{ "me__linie--gegangen" if a.dick else "me__linie--offen" }}"
-                  {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
-                  d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
-          {% endfor %}
-        {% endfor %}
-
-        {% for q in g.metro.quer %}
-          <path class="me__quer" data-von="{{ q.von }}" data-nach="{{ q.nach }}" d="{{ q.pfad }}"
-                marker-end="url(#mpfeil)"><title>{{ q.text }}</title></path>
-        {% endfor %}
-      </svg>
-
-      {% for l in g.metro.linien %}
-        <span class="me__linienname" style="top: {{ l.y }}px; --f: {{ l.farbe }}">{{ l.kurz }}</span>
-      {% endfor %}
-
-      {% for s in g.metro.stationen %}
-        <div class="me__station{% if s.erreicht %} is-erreicht{% endif %}" style="left: {{ s.x }}px">
-          <span class="me__station-nr">{{ s.nr }}</span>
-          <span class="me__station-titel">{{ s.titel }}</span>
-          <span class="me__station-text">{{ s.ergebnis }}</span>
-          <span class="me__station-balken"><i style="width: {{ s.fortschritt }}%"></i></span>
+        <div class="me__rail-bahn" style="top: {{ l.y }}px; --f: {{ l.farbe }}">
+          <b>{{ l.label }}</b>
+          <span>{{ l.frage }}</span>
+          <i>{{ l.fortschritt }}%</i>
         </div>
       {% endfor %}
+    </aside>
 
-      {% for s in g.schritte %}
-        <button class="me__halt me__halt--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
-                type="button" data-schritt="{{ s.id }}" data-halt="{{ s.id }}"
-                data-knoten="{{ s.id }}"
-                data-braucht="{{ s.braucht | join(" ") }}"
-                data-nachfolger="{{ s.nachfolger | join(" ") }}"
-                data-vorher="{{ s.metroVorher | join(" ") }}"
-                style="left: {{ s.mx }}px; top: {{ s.my }}px; --f: {{ s.farbe }}">
-          <span class="me__halt-punkt"></span>
-          <span class="me__halt-label">{{ s.titel }}</span>
-          {% if s.wer %}<span class="me__halt-wer">{{ s.wer }}</span>{% endif %}
-                  </button>
-      {% endfor %}
+    <div class="me__scroll">
+      <div class="me__plan" style="width: {{ g.metro.breite }}px; height: {{ g.metro.hoehe }}px">
 
+        <svg class="me__svg" width="{{ g.metro.breite }}" height="{{ g.metro.hoehe }}" aria-hidden="true">
+          <defs>
+            <marker id="mpfeil" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 8 4 L 0 8 z" class="me__quer-spitze" />
+            </marker>
+          </defs>
+
+          {% for s in g.metro.stationen %}
+            <line class="me__stationslinie" x1="{{ s.x }}" y1="96" x2="{{ s.x }}" y2="{{ g.metro.hoehe - 30 }}" />
+          {% endfor %}
+
+          {# Umstiege zuerst – sie liegen unter den Linien #}
+          {% for q in g.metro.quer %}
+            <path class="me__quer" data-von="{{ q.von }}" data-nach="{{ q.nach }}" d="{{ q.pfad }}"
+                  marker-end="url(#mpfeil)"><title>{{ q.text }}</title></path>
+          {% endfor %}
+
+          {# Jede Linie zieht einen Saum in Hintergrundfarbe mit: dadurch bekommen
+             kreuzende Umstiege einen sauberen Abstand statt sich zu berühren. #}
+          {% for l in g.metro.linien %}
+            {% for a in l.abschnitte %}
+              <path class="me__saum {{ "me__saum--dick" if a.dick else "me__saum--duenn" }}" d="{{ a.pfad }}" />
+            {% endfor %}
+          {% endfor %}
+
+          {% for l in g.metro.linien %}
+            {% for a in l.abschnitte %}
+              <path class="me__linie {{ "me__linie--gegangen" if a.dick else "me__linie--offen" }}"
+                    {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
+                    d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
+            {% endfor %}
+          {% endfor %}
+        </svg>
+
+        {% for s in g.metro.stationen %}
+          <div class="me__station{% if s.erreicht %} is-erreicht{% endif %}" style="left: {{ s.x }}px">
+            <span class="me__station-nr">{{ s.nr }}</span>
+            <span class="me__station-titel">{{ s.titel }}</span>
+            <span class="me__station-text">{{ s.ergebnis }}</span>
+            <span class="me__station-balken"><i style="width: {{ s.fortschritt }}%"></i></span>
+          </div>
+        {% endfor %}
+
+        {% for s in g.schritte %}
+          <button class="me__halt me__halt--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
+                  type="button" data-schritt="{{ s.id }}" data-halt="{{ s.id }}"
+                  data-knoten="{{ s.id }}"
+                  data-braucht="{{ s.braucht | join(" ") }}"
+                  data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                  data-vorher="{{ s.metroVorher | join(" ") }}"
+                  style="left: {{ s.mx }}px; top: {{ s.my }}px; --f: {{ s.farbe }}">
+            <span class="me__halt-punkt"></span>
+            <span class="me__halt-label">{{ s.titel }}</span>
+            {% if s.wer %}<span class="me__halt-wer">{{ s.wer }}</span>{% endif %}
+          </button>
+        {% endfor %}
+
+      </div>
     </div>
+  </div>
+
+  {# Unter dem Plan, damit beim Einblenden nichts verrutscht #}
+  <div class="me__route" data-route-leiste hidden>
+    <span class="me__route-text" data-route-text></span>
+    <button class="me__route-zu" type="button" data-metro-reset>Ganzes Netz zeigen</button>
   </div>
 </div>

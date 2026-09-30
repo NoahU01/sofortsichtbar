@@ -47,47 +47,6 @@
   color: var(--text);
 }
 
-/* --- Kopf -------------------------------------------------------------- */
-.g2__kopf {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 0 2rem;
-}
-.g2__kopf h1 { font-size: 1.75rem; font-weight: 650; letter-spacing: -0.025em; color: var(--text); }
-.g2__kopf-text p {
-  max-width: 54rem;
-  margin-top: 0.5rem;
-  color: var(--leise);
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-.g2__kopf-text strong { color: var(--text); font-weight: 650; }
-.g2__kopf-stand { text-align: right; }
-.g2__stand-zahl { display: block; color: var(--text); font-size: 2rem; font-weight: 700; line-height: 1; }
-.g2__stand-text { display: block; margin-top: 0.2rem; color: var(--sehr-leise); font-size: 0.75rem; }
-
-/* --- Legende und Variantenumschalter ---------------------------------- */
-.g2__legende {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  margin: 1.25rem 2rem 0;
-  padding: 0.7rem 1rem;
-  background-color: var(--karte);
-  border: 1px solid var(--rand);
-  border-radius: 0.7rem;
-}
-.g2__leg { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--leise); font-size: 0.76rem; }
-.g2__leg--pfeil::before,
-.g2__leg--quer::before { content: ""; flex: none; }
-.g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
-.g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
-.g2__leg-hinweis { margin-left: auto; color: var(--sehr-leise); font-size: 0.72rem; font-style: italic; }
-
 /* --- Zustandszeichen --------------------------------------------------- */
 .g2__zeichen {
   flex: none;
@@ -361,8 +320,6 @@
 }
 
 @media (max-width: 991px) {
-  .g2__kopf { padding-left: 1rem; padding-right: 1rem; }
-  .g2__legende { margin-left: 1rem; margin-right: 1rem; }
   .g2__varianten { margin-left: 0; }
   .g2__rail { display: none; }
   .g2__scroll { padding-left: 1rem; padding-right: 1rem; }
@@ -408,6 +365,5 @@
   --wer-bg: #eceae6;
   --wer-text: #5d5866;
 }
-.k--hell .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
 .k--hell .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
 .k--hell .g2__station-balken i { background-color: #15141a; }

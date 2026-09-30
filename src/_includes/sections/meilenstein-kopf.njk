@@ -1,0 +1,63 @@
+{#- Gemeinsamer Kopf für alle drei Ansichten. Die Ansicht wechselt nur die
+    Darstellung, nicht das Thema – deshalb überall dieselbe Überschrift. -#}
+<header class="mk">
+
+  <div class="mk__text">
+    <h1 class="mk__titel">Der Weg zum Zielbild</h1>
+    <p class="mk__lead">
+      Drei Handlungsfelder laufen parallel auf das Zielbild zu. Dazwischen liegen
+      vier Ergebnisstufen — jede ist erst erreicht, wenn alle drei Felder ihren
+      Teil erledigt haben.
+    </p>
+  </div>
+
+  <div class="mk__legende">
+    <div class="mk__legende-kopf">
+      <span class="mk__legende-titel">Legende</span>
+      <details class="mk__info">
+        <summary aria-label="Wie ist das Bild zu lesen?"><span aria-hidden="true">i</span></summary>
+        <div class="mk__info-panel">
+          <h2>Wie das Bild zu lesen ist</h2>
+          {% if konzept == "fein" %}
+            <p>Jedes Handlungsfeld ist eine <b>Linie</b>, die von links nach rechts läuft.
+              Jeder <b>Halt</b> darauf ist ein Schritt.</p>
+            <p>Ein Abschnitt ist <b>dick</b>, wenn der Halt an seinem Ende erledigt ist oder
+              gerade ansteht — sonst dünn. So zeigt die Linie selbst, wie weit das Feld
+              gekommen ist.</p>
+            <p>Die <b>nummerierten Stationen</b> sind Ergebnisstufen. Dort muss jede Linie
+              angekommen sein, bevor es weitergeht.</p>
+            <p>Gestrichelte <b>Umstiege</b> zeigen, wo ein Feld auf ein anderes wartet.</p>
+            <p>Ein Klick auf einen Halt zeigt die <b>Route dorthin</b>: alles, was nicht zu
+              diesem Ziel führt, tritt zurück. Ein Klick daneben hebt das wieder auf.</p>
+          {% else %}
+            <p>Von links nach rechts. Jeder <b>Pfeil</b> heißt „muss vorher fertig sein".</p>
+            <p>Die drei <b>Bahnen</b> untereinander sind die Handlungsfelder. Links steht,
+              welches Feld welche Frage beantwortet.</p>
+            <p>Nach jedem Abschnitt steht eine <b>Ergebnisstufe</b>. Dort muss jede der drei
+              Bahnen angekommen sein, bevor der nächste Abschnitt beginnt.</p>
+            <p>Ein Klick auf eine Karte zeigt ihre <b>Kette</b> nach vorn und nach hinten und
+              öffnet die Details. Ein Klick daneben hebt das wieder auf.</p>
+          {% endif %}
+        </div>
+      </details>
+    </div>
+
+    <div class="mk__eintraege">
+      {% if konzept == "fein" %}
+        <span class="mk__eintrag"><i class="me__muster me__muster--fertig"></i>erledigt</span>
+        <span class="mk__eintrag"><i class="me__muster me__muster--jetzt"></i>jetzt machbar</span>
+        <span class="mk__eintrag"><i class="me__muster me__muster--wartet"></i>wartet noch</span>
+        <span class="mk__eintrag"><i class="me__muster me__muster--dick"></i>Abschnitt erledigt oder dran</span>
+        <span class="mk__eintrag"><i class="me__muster me__muster--duenn"></i>noch offen</span>
+        <span class="mk__eintrag"><i class="me__muster me__muster--bogen"></i>Umstieg</span>
+      {% else %}
+        <span class="mk__eintrag"><i class="g2__zeichen g2__zeichen--fertig"></i>erledigt</span>
+        <span class="mk__eintrag"><i class="g2__zeichen g2__zeichen--jetzt"></i>jetzt machbar</span>
+        <span class="mk__eintrag"><i class="g2__zeichen g2__zeichen--wartet"></i>kommt später</span>
+        <span class="mk__eintrag mk__eintrag--pfeil">muss vorher fertig sein</span>
+        <span class="mk__eintrag mk__eintrag--quer">wartet auf andere Bahn</span>
+      {% endif %}
+    </div>
+  </div>
+
+</header>

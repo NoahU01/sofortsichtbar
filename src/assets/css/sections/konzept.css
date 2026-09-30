@@ -66,6 +66,7 @@
 }
 .k-pop[hidden] { display: none; }
 .k-pop.is-offen { opacity: 1; transform: scale(1); }
+.k-pop.wird-gezogen { transition: none; user-select: none; cursor: grabbing; }
 
 .k-pop__zu {
   position: absolute;
@@ -85,7 +86,15 @@
 
 .k-detail[hidden] { display: none; }
 
-.k-detail__kopf { display: flex; align-items: center; gap: 0.6rem; padding-right: 2rem; }
+/* Zugleich Griff zum Verschieben des Popovers */
+.k-detail__kopf {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-right: 2rem;
+  cursor: grab;
+}
+.k-pop.wird-gezogen .k-detail__kopf { cursor: grabbing; }
 .k-detail__strang {
   display: inline-flex;
   align-items: center;

@@ -290,6 +290,7 @@ const metroLinien = straenge.map((strang, spur) => {
     id: strang.id,
     label: strang.label,
     kurz: strang.kurz,
+    frage: strang.frage,
     farbe: strang.farbe,
     y,
     fortschritt: strang.fortschritt,
