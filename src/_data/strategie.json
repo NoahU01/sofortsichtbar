@@ -410,7 +410,7 @@
       "aufwand": "M",
       "titel": "Versandsystem anbinden",
       "ergebnis": "Mails gehen technisch sauber und messbar raus.",
-      "status": "offen",
+      "status": "aktiv",
       "braucht": [
         "crm-setup"
       ],

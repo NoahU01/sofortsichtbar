@@ -93,16 +93,17 @@
       {% endfor %}
 
       {% for s in g.schritte %}
-        <button class="me__halt me__halt--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+        <button class="me__halt me__halt--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
                 type="button" data-schritt="{{ s.id }}" data-halt="{{ s.id }}"
                 data-knoten="{{ s.id }}"
                 data-braucht="{{ s.braucht | join(" ") }}"
                 data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                data-vorher="{{ s.metroVorher | join(" ") }}"
                 style="left: {{ s.mx }}px; top: {{ s.my }}px; --f: {{ s.farbe }}">
           <span class="me__halt-punkt"></span>
           <span class="me__halt-label">{{ s.titel }}</span>
           {% if s.wer %}<span class="me__halt-wer">{{ s.wer }}</span>{% endif %}
-          {% if s.machbar and not metroV2 %}<span class="me__halt-jetzt">jetzt machbar</span>{% endif %}
+          {% if s.dran and not metroV2 %}<span class="me__halt-jetzt">jetzt machbar</span>{% endif %}
         </button>
       {% endfor %}
 

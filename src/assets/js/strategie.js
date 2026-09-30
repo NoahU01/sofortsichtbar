@@ -19,6 +19,7 @@
       el: el,
       braucht: (el.dataset.braucht || "").split(" ").filter(Boolean),
       nachfolger: (el.dataset.nachfolger || "").split(" ").filter(Boolean),
+      vorher: (el.dataset.vorher || "").split(" ").filter(Boolean),
     };
   });
 
@@ -92,9 +93,17 @@
     var ziel = metroPlan.querySelector('[data-halt="' + id + '"]');
     if (!ziel) return;
 
+    /* Zur Route gehören nicht nur die formalen Abhängigkeiten, sondern auch
+       alle früheren Halte auf denselben Linien: durch die fährt man mit. */
     var route = {};
-    route[id] = true;
-    Object.keys(sammle(id, "braucht")).forEach(function (k) { route[k] = true; });
+    var stapel = [id];
+    while (stapel.length) {
+      var k = stapel.pop();
+      if (route[k] || !knoten[k]) continue;
+      route[k] = true;
+      knoten[k].braucht.forEach(function (n) { stapel.push(n); });
+      knoten[k].vorher.forEach(function (n) { stapel.push(n); });
+    }
 
     metroPlan.classList.add("is-route");
     ziel.classList.add("is-gewaehlt");
@@ -217,11 +226,14 @@
     }
   });
 
-  // Klick daneben schließt
+  // Klick ins Leere schließt das Popover und hebt die Route auf
   document.addEventListener("click", function (e) {
-    if (!pop || pop.hidden) return;
-    if (e.target.closest("[data-pop]") || e.target.closest("[data-schritt]")) return;
-    schliesse();
+    if (e.target.closest("[data-pop]")) return;
+    if (e.target.closest("[data-schritt]")) return;
+    if (e.target.closest("[data-route-leiste]")) return;
+
+    if (pop && !pop.hidden) schliesse();
+    if (metroPlan && metroPlan.classList.contains("is-route")) metroZuruecksetzen();
   });
 
   document.addEventListener("keydown", function (e) {

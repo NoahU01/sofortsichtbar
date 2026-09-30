@@ -92,7 +92,7 @@
         </svg>
 
         {% for s in g.schritte %}
-          <button class="g2__karte g2__karte--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+          <button class="g2__karte g2__karte--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
                   type="button"
                   data-knoten="{{ s.id }}"
                   data-schritt="{{ s.id }}"

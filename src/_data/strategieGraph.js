@@ -33,7 +33,12 @@ const schritte = roh.schritte.map((s) => {
     ...s,
     rang: rang.get(s.id),
     blockiertVon: offeneAbhaengigkeit,
+    // machbar = alle Vorbedingungen stehen. dran = wird bearbeitet, entweder
+    // weil es frei ist oder weil wir es bewusst vorgezogen haben ("aktiv").
     machbar: s.status !== "erreicht" && offeneAbhaengigkeit.length === 0,
+    dran:
+      s.status !== "erreicht" &&
+      (s.status === "aktiv" || offeneAbhaengigkeit.length === 0),
     nachfolger: roh.schritte.filter((a) => a.braucht.includes(s.id)).map((a) => a.id),
     // Abhängigkeiten, die den Strang wechseln – nur die sind erklärungsbedürftig
     querBraucht: s.braucht.filter((b) => nachId.get(b).strang !== s.strang),
@@ -237,6 +242,17 @@ schritte.forEach((s) => {
   s.mx = p.x;
   s.my = p.y;
 });
+
+/* Auf einer Linie fährt man durch alle früheren Halte. Sie sind damit
+   stillschweigend Voraussetzung, auch ohne in "braucht" zu stehen. */
+straenge.forEach((strang) => {
+  const sortiert = strang.schritte
+    .slice()
+    .sort((a, b) => metroPos.get(a.id).x - metroPos.get(b.id).x);
+  sortiert.forEach((s, i) => {
+    s.metroVorher = sortiert.slice(0, i).map((v) => v.id);
+  });
+});
 const metroBreite = x + M.rechts;
 const metroHoehe = M.oben + (straenge.length - 1) * M.spurLuft + 96;
 
@@ -262,7 +278,7 @@ const metroLinien = straenge.map((strang, spur) => {
   halteMitStatus.forEach((h) => {
     abschnitte.push({
       pfad: `M ${cursor} ${y} L ${h.p.x} ${y}`,
-      dick: h.s.status === "erreicht" || h.s.machbar,
+      dick: h.s.status === "erreicht" || h.s.dran,
       bis: h.s.id,
     });
     cursor = h.p.x;
