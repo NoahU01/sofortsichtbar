@@ -86,6 +86,7 @@
 .g2__leg--quer::before { content: ""; flex: none; }
 .g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
 .g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
+.g2__leg-hinweis { margin-left: auto; color: var(--sehr-leise); font-size: 0.72rem; font-style: italic; }
 
 /* --- Zustandszeichen --------------------------------------------------- */
 .g2__zeichen {
