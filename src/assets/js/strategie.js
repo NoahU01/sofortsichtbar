@@ -82,6 +82,7 @@
       el.classList.remove("is-route-teil", "is-gewaehlt", "is-hell");
     });
     if (routeLeiste) routeLeiste.hidden = true;
+    if (/#route=/.test(location.hash)) history.replaceState(null, "", location.pathname);
   }
 
   function metroMarkieren(id) {
@@ -119,6 +120,9 @@
         umstiege++;
       }
     });
+
+    // Route in den Link schreiben, damit sie teilbar ist
+    history.replaceState(null, "", "#route=" + id);
 
     if (routeLeiste && routeText) {
       var gesamt = Object.keys(route).length;
@@ -246,6 +250,12 @@
 
     var ausHash = (location.hash.match(/hervorhebung=([abc])/) || [])[1];
     if (ausHash) setzeVariante(ausHash);
+  }
+
+  /* --- Route aus dem Link vorauswählen --------------------------------- */
+  if (metroPlan) {
+    var routeHash = (location.hash.match(/route=([a-z0-9_-]+)/i) || [])[1];
+    if (routeHash) metroMarkieren(routeHash);
   }
 
   /* --- Tafel: beim Überfahren zeigen, was ein Schritt braucht ---------- */
