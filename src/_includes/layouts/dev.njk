@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+{# Hülle für alle Seiten unter "/ Entwicklung /" – Arbeitsstände, die nie
+   auf main und damit nie auf die Live-Seite gelangen. #}
+<section class="dev-page">
+  <div class="section-padding">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="dev-page__box padding-large">
+
+          <div class="dev-page__header">
+            <div class="eyebrow"><div class="eyebrow__text">Arbeitsstand · nicht öffentlich</div></div>
+            <h1 class="text-white heading-h2">{{ devHeadline or title }}</h1>
+            {% if devIntro %}<p class="text-secondary text-regular">{{ devIntro }}</p>{% endif %}
+          </div>
+
+          <div class="dev-page__body">
+            {{ content | safe }}
+          </div>
+
+          <div class="glow dev-page__glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

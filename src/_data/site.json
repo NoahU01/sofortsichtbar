@@ -24,6 +24,16 @@
     {
       "label": "Für Vertriebsleiter",
       "href": "/vetriebsleiter"
+    },
+    {
+      "label": "/ Entwicklung /",
+      "devOnly": true,
+      "children": [
+        {
+          "label": "Strategie-Levels",
+          "href": "/entwicklung/strategie-levels"
+        }
+      ]
     }
   ],
   "navCta": {

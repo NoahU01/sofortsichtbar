@@ -11,8 +11,29 @@
           <div class="nav__top">
             <div class="nav__links">
               {% for item in site.nav %}
-                <a class="nav__link" href="{{ item.href }}"
-                   {% if item.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ item.label }}</a>
+                {# devOnly-Punkte sind Arbeitsstände und dürfen nie live erscheinen #}
+                {% if not (item.devOnly and env.isProduction) %}
+                  {% if item.children %}
+                    {% set panelId = "nav-submenu-" + loop.index %}
+                    <div class="nav__dropdown" data-dropdown>
+                      <button class="nav__link nav__dropdown-toggle" type="button"
+                              aria-expanded="false" aria-controls="{{ panelId }}"
+                              {% if item.children | hasCurrentChild(page.url) %}data-current="true"{% endif %}>
+                        <span>{{ item.label }}</span>
+                        <span class="nav__dropdown-caret" aria-hidden="true"></span>
+                      </button>
+                      <div class="nav__dropdown-panel" id="{{ panelId }}" hidden>
+                        {% for child in item.children %}
+                          <a class="nav__dropdown-link" href="{{ child.href }}"
+                             {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% else %}
+                    <a class="nav__link" href="{{ item.href }}"
+                       {% if item.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ item.label }}</a>
+                  {% endif %}
+                {% endif %}
               {% endfor %}
             </div>
             <a class="btn btn--primary btn--full" href="{{ site.navCta.href }}">{{ site.navCta.label }}</a>

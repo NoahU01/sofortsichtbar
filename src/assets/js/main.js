@@ -7,6 +7,51 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* --- Navigations-Dropdowns ------------------------------------------ */
+  function closeAllDropdowns() {
+    document.querySelectorAll("[data-dropdown]").forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav__dropdown-toggle");
+      var panel = dropdown.querySelector(".nav__dropdown-panel");
+      if (!toggle || !panel) return;
+      toggle.setAttribute("aria-expanded", "false");
+      panel.hidden = true;
+    });
+  }
+
+  function initDropdowns() {
+    var dropdowns = document.querySelectorAll("[data-dropdown]");
+    if (!dropdowns.length) return;
+
+    dropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav__dropdown-toggle");
+      var panel = dropdown.querySelector(".nav__dropdown-panel");
+      if (!toggle || !panel) return;
+
+      toggle.addEventListener("click", function (e) {
+        // Sonst schließt der Klick-außerhalb-Handler direkt wieder
+        e.stopPropagation();
+        var isOpen = toggle.getAttribute("aria-expanded") === "true";
+        closeAllDropdowns();
+        toggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        panel.hidden = isOpen;
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest("[data-dropdown]")) closeAllDropdowns();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var openToggle = document.querySelector('.nav__dropdown-toggle[aria-expanded="true"]');
+      if (!openToggle) return;
+      closeAllDropdowns();
+      openToggle.focus();
+    });
+
+    window.matchMedia("(min-width: 992px)").addEventListener("change", closeAllDropdowns);
+  }
+
   /* --- Navigation ---------------------------------------------------- */
   function initNav() {
     var toggle = document.querySelector(".nav__toggle");
@@ -28,6 +73,7 @@
       toggle.setAttribute("aria-label", "Menü öffnen");
       menu.classList.remove("is-open");
       document.body.classList.remove("is-locked");
+      closeAllDropdowns();
     }
 
     function open() {
@@ -256,6 +302,7 @@
 
   function init() {
     initNav();
+    initDropdowns();
     initTabs();
     initAccordion();
     initMarquee();

@@ -43,6 +43,14 @@ export default function (eleventyConfig) {
     return target !== "" && target === normalizePath(pageUrl);
   });
 
+  // Ist einer der Unterpunkte die aktuelle Seite? Markiert den Dropdown-Auslöser.
+  eleventyConfig.addFilter("hasCurrentChild", (children, pageUrl) => {
+    const current = normalizePath(pageUrl);
+    return (children || []).some(
+      (child) => normalizePath(child.href) !== "" && normalizePath(child.href) === current
+    );
+  });
+
   // Statische Assets 1:1 nach dist kopieren (CSS wird gebündelt, siehe unten)
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });

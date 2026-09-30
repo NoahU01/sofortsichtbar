@@ -1,0 +1,50 @@
+/* =========================================================
+   Entwicklungs-Seiten (/entwicklung/*) – nur Arbeitsstände
+   ========================================================= */
+.dev-page {
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.dev-page__box {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.dev-page__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.dev-page__header p { max-width: 38rem; }
+
+.dev-page__body { position: relative; z-index: 1; }
+
+.dev-note {
+  padding: 2rem;
+  border: 1px dashed var(--color-grey-600);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background);
+}
+
+.dev-page__glow {
+  inset: -2rem -4rem auto auto;
+  width: 42rem;
+  height: 18rem;
+  background-color: var(--glow-violet);
+  filter: blur(10rem);
+}
+
+@media (max-width: 479px) {
+  .dev-page__box { border-radius: var(--radius-xl); }
+  .dev-note { padding: 1.5rem; }
+  .dev-page__glow { z-index: 0; }
+}
