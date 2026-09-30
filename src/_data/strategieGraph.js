@@ -440,29 +440,44 @@ const graph2 = {
    Querbändern – als Stufe viel deutlicher als ein Punkt auf einer Linie.
    Innerhalb eines Abschnitts werden die Schritte eines Feldes einfach
    untereinander gereiht; die echten Abhängigkeiten zeigen die Pfeile. */
-const V = { spalte: 300, spaltenLuft: 36, zeile: 126, karte: 104, station: 84 };
+const V = { spalte: 300, spaltenLuft: 36, zeile: 126, karte: 104, stufe: 68 };
 
 const vSpaltenX = straenge.map((_, i) => i * (V.spalte + V.spaltenLuft));
 
+/* Zeilen ergeben sich aus der Abhängigkeitstiefe, nicht aus dem
+   Durchzählen. Wo ein Feld auf einer Tiefe nichts zu tun hat, bleibt die
+   Zeile leer – das erzeugt den Versatz, der einen Ablauf von einer
+   Tabelle unterscheidet. */
 let vy = 0;
-const vStationen = [];
+const vStufen = [];
 meilensteine.forEach((m) => {
-  const proStrang = straenge.map((strang) =>
-    m.schritte
-      .filter((s) => s.strang === strang.id)
-      .sort((a, b) => a.rang - b.rang || (a.id < b.id ? -1 : 1))
-  );
-  const tiefste = Math.max(1, ...proStrang.map((l) => l.length));
+  const maxLokal = Math.max(...m.schritte.map((s) => lokalRang.get(s.id)));
+  const startZeile = [];
+  let zeilen = 0;
+  for (let r = 0; r <= maxLokal; r++) {
+    startZeile[r] = zeilen;
+    zeilen += Math.max(
+      1,
+      ...straenge.map(
+        (st) => m.schritte.filter((s) => s.strang === st.id && lokalRang.get(s.id) === r).length
+      )
+    );
+  }
 
-  proStrang.forEach((liste, spur) => {
-    liste.forEach((s, i) => {
-      s.vx = vSpaltenX[spur];
-      s.vy = vy + i * V.zeile;
-    });
+  straenge.forEach((strang, spur) => {
+    for (let r = 0; r <= maxLokal; r++) {
+      m.schritte
+        .filter((s) => s.strang === strang.id && lokalRang.get(s.id) === r)
+        .sort((a, b) => (a.id < b.id ? -1 : 1))
+        .forEach((s, i) => {
+          s.vx = vSpaltenX[spur];
+          s.vy = vy + (startZeile[r] + i) * V.zeile;
+        });
+    }
   });
 
-  vy += tiefste * V.zeile;
-  vStationen.push({
+  vy += zeilen * V.zeile;
+  vStufen.push({
     id: m.id,
     nr: m.nr,
     titel: m.titel,
@@ -470,10 +485,9 @@ meilensteine.forEach((m) => {
     erreicht: m.erreicht,
     fortschritt: m.fortschritt,
     anzahl: m.anzahl,
-    y: vy + V.station / 2,
-    oben: vy,
+    y: vy + V.stufe / 2,
   });
-  vy += V.station;
+  vy += V.stufe;
 });
 
 const vBreite = straenge.length * V.spalte + (straenge.length - 1) * V.spaltenLuft;
@@ -542,12 +556,12 @@ const vertikal = {
   spalte: V.spalte,
   karte: V.karte,
   karteBreite: V.spalte - 36,
-  stationHoehe: V.station,
+  stufeZone: V.stufe,
   spalten: straenge.map((s, i) => ({
     id: s.id, label: s.label, kurz: s.kurz, frage: s.frage,
     farbe: s.farbe, x: vSpaltenX[i], fortschritt: s.fortschritt,
   })),
-  stationen: vStationen,
+  stufen: vStufen,
   kanten: vKanten,
   linien: vLinien,
   quer: vQuer,

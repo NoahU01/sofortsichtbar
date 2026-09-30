@@ -62,74 +62,87 @@
 }
 
 /* --- Bühne ------------------------------------------------------------- */
-.vt__buehne { overflow-x: auto; padding: 0 2rem; }
-.vt__rahmen { position: relative; margin: 0 auto; }
+.vt__buehne { display: flex; align-items: flex-start; gap: 1.5rem; padding: 0 2rem; }
+.vt__scroll { flex: 1; min-width: 0; overflow-x: auto; }
+.vt__rahmen { position: relative; }
 
 /* Spaltenköpfe bleiben beim Herunterscrollen stehen */
-.vt__spaltenkopf {
+.vt__koepfe {
   position: sticky;
   top: 0;
-  z-index: 5;
-  height: 4.75rem;
+  z-index: 6;
+  height: 5.5rem;
   background-color: var(--vt-bg);
 }
-.vt__spalte-name {
-  position: absolute;
-  top: 0.35rem;
-  padding-left: 0.85rem;
-  border-left: 4px solid var(--f);
+.vt__kopf { position: absolute; top: 0.25rem; bottom: 0; }
+.vt__kopf-name {
+  display: block;
+  color: var(--vt-text);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
-.vt__spalte-name b { display: block; color: var(--vt-text); font-size: 0.88rem; font-weight: 700; }
-.vt__spalte-name span { display: block; margin-top: 0.1rem; color: var(--vt-sehr-leise); font-size: 0.74rem; }
-.vt__spalte-name i { display: block; margin-top: 0.2rem; color: var(--f); font-size: 0.78rem; font-style: normal; font-weight: 800; }
+.vt__kopf-frage { display: block; margin-top: 0.2rem; color: var(--vt-sehr-leise); font-size: 0.76rem; }
+.vt__kopf-quote { display: block; margin-top: 0.15rem; color: var(--f); font-size: 0.76rem; font-weight: 700; }
+.vt__kopf-strich {
+  position: absolute;
+  left: 0;
+  right: 1.5rem;
+  bottom: 0.85rem;
+  height: 2px;
+  background-color: var(--f);
+  opacity: 0.45;
+}
+.vt__kopf-anschluss {
+  position: absolute;
+  bottom: -0.35rem;
+  width: 3px;
+  height: 1.2rem;
+  margin-left: -1.5px;
+  background-color: var(--f);
+}
 
 .vt__plan { position: relative; }
 .vt__svg { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
 .vt__spitze { fill: var(--vt-spitze); }
 
-/* --- Ergebnisstufe als Querband --------------------------------------- */
-.vt__station {
+/* --- Ergebnisstufe: nur eine Linie, Text steht am Rand ------------- */
+.vt__stufenlinie {
+  stroke: var(--vt-grau);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 6;
+}
+.vt__stufenlinie.is-erreicht { stroke: #2f7f5f; stroke-dasharray: none; }
+
+.vt__rand { position: relative; flex: none; width: 15rem; margin-top: 5.5rem; }
+.vt__stufe {
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0 1.1rem;
-  background-color: var(--vt-station-bg);
-  border-top: 1px solid var(--vt-rand);
-  border-bottom: 1px solid var(--vt-rand);
+  transform: translateY(-50%);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--vt-grau);
 }
-/* Die Linie laeuft sichtbar durch die Stufe hindurch */
-.vt__durchlauf {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  margin-left: -1.5px;
-  background-color: var(--f);
-  opacity: 0.28;
-}
-
-.vt__station-nr {
-  position: relative;
+.vt__stufe.is-erreicht { border-left-color: #2f7f5f; }
+.vt__stufe-kopf { display: flex; align-items: center; gap: 0.5rem; }
+.vt__stufe-nr {
   flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 1.65rem;
+  height: 1.65rem;
   background-color: var(--vt-station-nr-bg);
   border-radius: 99rem;
   color: var(--vt-station-nr-text);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 800;
 }
-.vt__station-titel { position: relative; flex: none; color: var(--vt-text); font-size: 1rem; font-weight: 700; }
-.vt__station-text { position: relative; color: var(--vt-leise); font-size: 0.82rem; line-height: 1.4; }
-.vt__station-quote { position: relative; margin-left: auto; flex: none; color: var(--vt-sehr-leise); font-size: 0.74rem; }
-.vt__station.is-erreicht .vt__station-nr { background-color: #2f7f5f; color: #fff; }
+.vt__stufe.is-erreicht .vt__stufe-nr { background-color: #2f7f5f; color: #fff; }
+.vt__stufe-titel { color: var(--vt-text); font-size: 0.92rem; font-weight: 700; }
+.vt__stufe-text { display: block; margin-top: 0.3rem; color: var(--vt-leise); font-size: 0.76rem; line-height: 1.4; }
+.vt__stufe-quote { display: block; margin-top: 0.2rem; color: var(--vt-sehr-leise); font-size: 0.7rem; }
 
 /* --- Feine Ansicht: Linie mit Halten ---------------------------------- */
 .vt__saum { fill: none; stroke: var(--vt-bg); stroke-linecap: round; }
@@ -301,7 +314,7 @@
 
 .vt__plan.is-route .vt__halt { opacity: 0.18; }
 .vt__plan.is-route .vt__halt.is-route-teil { opacity: 1; }
-.vt__plan.is-route .vt__station { opacity: 0.35; }
+
 .vt__plan.is-route .vt__linie { opacity: 0.1; }
 .vt__plan.is-route .vt__linie.is-route-teil { opacity: 1; }
 .vt__plan.is-route .vt__linie--offen.is-route-teil { stroke-width: 5; }
@@ -343,9 +356,9 @@
 @media (max-width: 991px) {
   .vt__buehne { padding: 0 1rem; }
   .vt__route { margin-left: 1rem; margin-right: 1rem; }
-  .vt__station { padding: 0 0.85rem; flex-wrap: wrap; gap: 0.5rem; }
-  .vt__station-text { flex-basis: 100%; }
-  .vt__station-quote { margin-left: 0; }
+  .vt__buehne { flex-flow: column; }
+  .vt__rand { width: 100%; margin-top: 1.5rem; height: auto !important; }
+  .vt__stufe { position: static; transform: none; margin-bottom: 1rem; }
 }
 
 
