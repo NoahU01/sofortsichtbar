@@ -200,6 +200,10 @@
 .hub__karte--graph .hub__vorschau i:nth-child(1) { height: 40%; }
 .hub__karte--graph .hub__vorschau i:nth-child(2) { height: 100%; }
 .hub__karte--graph .hub__vorschau i:nth-child(3) { height: 65%; }
+.hub__karte--graph2 .hub__vorschau i { width: 30%; height: 100%; }
+.hub__karte--graph2 .hub__vorschau i:nth-child(2) { width: 6%; background-color: #35c08a; }
+.hub__karte--graph3 .hub__vorschau i { width: 30%; height: 100%; background-color: #cfccc6; }
+.hub__karte--graph3 .hub__vorschau i:nth-child(2) { width: 6%; background-color: #12855c; }
 .hub__karte--metro .hub__vorschau { flex-flow: column; justify-content: center; gap: 6px; }
 .hub__karte--metro .hub__vorschau i { width: 100%; height: 4px; }
 .hub__karte--metro .hub__vorschau i:nth-child(1) { background-color: #8B7CFF; }

@@ -38,5 +38,25 @@
     "idee": "Der vollständige Abhängigkeitsbaum. Spalten nach Tiefe, Pfeile für jede Bedingung, Klick auf einen Knoten färbt die ganze Kette davor und danach. Ein Schalter zeigt den längsten Weg — er bestimmt die Mindestdauer.",
     "gutFuer": "Planung und Diskussion, wenn es um Reihenfolge und Engpässe geht.",
     "schwaeche": "Die dichteste Darstellung. Man muss sich kurz einlesen, auch mit Legende."
+  },
+  {
+    "id": "graph2",
+    "name": "Graph V2",
+    "href": "/entwicklung/strategie/graph-v2",
+    "claim": "Abschnitte mit Zwischenergebnis, dunkel",
+    "frage": "Was hängt woran – und wo ist eine Stufe geschafft?",
+    "idee": "Der Graph, aber nicht nach roher Abhängigkeitstiefe sortiert, sondern in vier Abschnitten. Nach jedem steht eine Station wie im Liniennetz. Die Karten tragen jetzt Überschrift und einen Satz, der das Ergebnis benennt – die Bahnbeschriftung steht links fest und wiederholt sich nicht mehr in jeder Karte.",
+    "gutFuer": "Planung mit Blick auf Etappen. Verbindet die Genauigkeit des Graphen mit den Zwischenzielen des Liniennetzes.",
+    "schwaeche": "Breit – man scrollt seitlich durch vier Abschnitte."
+  },
+  {
+    "id": "graph3",
+    "name": "Graph V3",
+    "href": "/entwicklung/strategie/graph-v3",
+    "claim": "Dieselbe Logik, helle Variante",
+    "frage": "Wie sieht das aus, wenn es gedruckt oder projiziert wird?",
+    "idee": "Inhaltlich identisch zu V2, aber als helle Oberfläche gedacht: eigene Tonwerte statt umgekehrter Farben, Tiefe über feine Schatten statt über Leuchten, kräftigere Linien fürs Papierweiß.",
+    "gutFuer": "Beamer, Ausdruck und helle Büros. Wirkt ruhiger und sachlicher als die dunkle Fassung.",
+    "schwaeche": "Der Status springt weniger ins Auge als auf dunklem Grund."
   }
 ]

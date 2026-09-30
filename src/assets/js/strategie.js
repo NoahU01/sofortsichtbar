@@ -10,7 +10,7 @@
 
   var pop = wurzel.querySelector("[data-pop]");
   var details = wurzel.querySelectorAll("[data-detail]");
-  var graphFlaeche = wurzel.querySelector(".gr__flaeche");
+  var graphFlaeche = wurzel.querySelector(".gr__flaeche, .g2__flaeche");
 
   /* --- Graph: Kette vor und nach einem Knoten ------------------------- */
   var knoten = {};
@@ -59,7 +59,7 @@
     Object.keys(nach).forEach(function (k) { knoten[k].el.classList.add("is-nach"); });
 
     var inKette = function (x) { return x === id || vor[x] || nach[x]; };
-    graphFlaeche.querySelectorAll(".gr__kante").forEach(function (kante) {
+    graphFlaeche.querySelectorAll(".gr__kante, .g2__kante").forEach(function (kante) {
       if (inKette(kante.dataset.von) && inKette(kante.dataset.nach)) kante.classList.add("is-hell");
     });
 

@@ -1,0 +1,106 @@
+{#- Gemeinsame Darstellung für Graph V2 (dunkel) und V3 (hell).
+    Farben kommen aus CSS-Variablen, die Struktur ist identisch. -#}
+{%- set g = strategieGraph -%}
+{%- set G = g.graph2 -%}
+
+<div class="g2">
+
+  <header class="g2__kopf">
+    <div class="g2__kopf-text">
+      <h1>{{ g2Titel }}</h1>
+      <p>
+        Von links nach rechts. Jeder Pfeil heißt <strong>„muss vorher fertig sein"</strong>.
+        Nach jedem Abschnitt steht eine <strong>Ergebnisstufe</strong> — dort muss jede
+        der drei Bahnen angekommen sein, bevor der nächste Abschnitt beginnt.
+      </p>
+    </div>
+    <div class="g2__kopf-stand">
+      <span class="g2__stand-zahl">{{ g.fortschritt }}%</span>
+      <span class="g2__stand-text">{{ g.erledigt.length }} von {{ g.anzahl }} Schritten</span>
+    </div>
+  </header>
+
+  <div class="g2__legende">
+    <span class="g2__leg g2__leg--fertig">erledigt</span>
+    <span class="g2__leg g2__leg--jetzt">jetzt machbar</span>
+    <span class="g2__leg g2__leg--wartet">wartet noch</span>
+    <span class="g2__leg g2__leg--pfeil">muss vorher fertig sein</span>
+    <span class="g2__leg g2__leg--quer">Bahn wartet auf andere Bahn</span>
+    <span class="g2__leg-hinweis">Karte anklicken für Details · seitlich scrollbar</span>
+  </div>
+
+  <div class="g2__buehne">
+
+    <aside class="g2__rail" aria-hidden="true">
+      {% for spur in G.spuren %}
+        <div class="g2__rail-bahn" style="top: {{ spur.y }}px; height: {{ spur.hoehe }}px; --f: {{ spur.farbe }}">
+          <b>{{ spur.label }}</b>
+          <span>{{ spur.frage }}</span>
+          <i>{{ spur.fortschritt }}%</i>
+        </div>
+      {% endfor %}
+    </aside>
+
+    <div class="g2__scroll">
+    <div class="g2__inhalt" style="width: {{ G.breite }}px">
+
+      <div class="g2__stationsreihe">
+        {% for st in G.stationen %}
+          <div class="g2__station{% if st.erreicht %} is-erreicht{% endif %}" style="left: {{ st.x }}px">
+            <span class="g2__station-nr">{{ st.nr }}</span>
+            <span class="g2__station-titel">{{ st.titel }}</span>
+            <span class="g2__station-text">{{ st.ergebnis }}</span>
+            <span class="g2__station-balken"><i style="width: {{ st.fortschritt }}%"></i></span>
+            <span class="g2__station-quote">{{ st.fortschritt }}% · {{ st.anzahl }} Schritte</span>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="g2__flaeche" style="height: {{ G.hoehe }}px">
+
+        {% for st in G.stationen %}
+          <div class="g2__tor{% if st.erreicht %} is-erreicht{% endif %}" style="left: {{ st.x }}px"></div>
+        {% endfor %}
+
+        {% for spur in G.spuren %}
+          <div class="g2__bahn" style="top: {{ spur.y }}px; height: {{ spur.hoehe }}px; --f: {{ spur.farbe }}"></div>
+        {% endfor %}
+
+        <svg class="g2__kanten" width="{{ G.breite }}" height="{{ G.hoehe }}" aria-hidden="true">
+          <defs>
+            <marker id="g2pfeil" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 8 4 L 0 8 z" class="g2__spitze" />
+            </marker>
+          </defs>
+          {% for k in G.kanten %}
+            <path class="g2__kante{% if k.quer %} is-quer{% endif %}"
+                  data-von="{{ k.von }}" data-nach="{{ k.nach }}" d="{{ k.pfad }}"
+                  marker-end="url(#g2pfeil)" />
+          {% endfor %}
+        </svg>
+
+        {% for s in g.schritte %}
+          <button class="g2__karte g2__karte--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+                  type="button"
+                  data-knoten="{{ s.id }}"
+                  data-schritt="{{ s.id }}"
+                  data-braucht="{{ s.braucht | join(" ") }}"
+                  data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                  style="left: {{ s.g2x }}px; top: {{ s.g2y }}px; width: {{ G.knotenBreite }}px; height: {{ G.knotenHoehe }}px; --f: {{ s.farbe }}">
+            <span class="g2__karte-titel">{{ s.titel }}</span>
+            <span class="g2__karte-satz">{{ s.ergebnis }}</span>
+            <span class="g2__karte-fuss">
+              {% if s.status == "erreicht" %}<b class="g2__marke g2__marke--fertig">erledigt</b>
+              {% elif s.machbar %}<b class="g2__marke g2__marke--jetzt">jetzt machbar</b>
+              {% else %}<b class="g2__marke g2__marke--wartet">wartet auf {{ s.blockiertListe.length }}</b>{% endif %}
+              <span class="g2__aufwand">{{ s.aufwand }}</span>
+            </span>
+          </button>
+        {% endfor %}
+
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>

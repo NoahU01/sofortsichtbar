@@ -281,8 +281,112 @@ const metro = {
   quer: metroQuer,
 };
 
+/* --- Layout 3: Graph V2 – Abschnitte je Ergebnisstufe ------------------
+   Nicht nach reiner Abhängigkeitstiefe, sondern in Blöcken je Stufe. So
+   lassen sich Stationen wie im Liniennetz dazwischensetzen. Zulässig, weil
+   kein Schritt von einer späteren Stufe abhängt – alle Pfeile zeigen rechts. */
+const G2 = { breite: 238, hoehe: 128, spaltenLuft: 58, zeilenLuft: 16, spurLuft: 56, station: 132 };
+
+const lokalRang = new Map();
+function lokal(id) {
+  if (lokalRang.has(id)) return lokalRang.get(id);
+  const s = schrittNachId.get(id);
+  const innen = s.braucht.filter((b) => schrittNachId.get(b).meilenstein === s.meilenstein);
+  const wert = innen.length ? Math.max(...innen.map(lokal)) + 1 : 0;
+  lokalRang.set(id, wert);
+  return wert;
+}
+schritte.forEach((s) => lokal(s.id));
+
+const abschnitte = meilensteine.map((m) => ({
+  stein: m,
+  spalten: Math.max(...m.schritte.map((s) => lokalRang.get(s.id))) + 1,
+}));
+
+const zelle2 = (m, lr, strangId) =>
+  m.schritte.filter((s) => lokalRang.get(s.id) === lr && s.strang === strangId);
+
+const g2Stapel = straenge.map((st) => {
+  let max = 1;
+  abschnitte.forEach((a) => {
+    for (let lr = 0; lr < a.spalten; lr++) max = Math.max(max, zelle2(a.stein, lr, st.id).length);
+  });
+  return max;
+});
+const g2SpurHoehe = g2Stapel.map((n) => n * G2.hoehe + (n - 1) * G2.zeilenLuft);
+const g2SpurY = g2SpurHoehe.map((_, i) =>
+  g2SpurHoehe.slice(0, i).reduce((a, b) => a + b, 0) + i * G2.spurLuft
+);
+
+const g2Stationen = [];
+let gx = 0;
+abschnitte.forEach((a, index) => {
+  for (let lr = 0; lr < a.spalten; lr++) {
+    straenge.forEach((st, spur) => {
+      zelle2(a.stein, lr, st.id).forEach((s, i) => {
+        s.g2x = gx + lr * (G2.breite + G2.spaltenLuft);
+        s.g2y = g2SpurY[spur] + i * (G2.hoehe + G2.zeilenLuft);
+      });
+    });
+  }
+  gx += a.spalten * G2.breite + (a.spalten - 1) * G2.spaltenLuft + G2.spaltenLuft;
+  g2Stationen.push({
+    id: a.stein.id,
+    nr: a.stein.nr,
+    titel: a.stein.titel,
+    ergebnis: a.stein.ergebnis,
+    erreicht: a.stein.erreicht,
+    fortschritt: a.stein.fortschritt,
+    anzahl: a.stein.anzahl,
+    x: gx + G2.station / 2,
+    letzte: index === abschnitte.length - 1,
+  });
+  gx += G2.station + G2.spaltenLuft;
+});
+
+const g2Breite = gx - G2.spaltenLuft;
+const g2Hoehe = g2SpurY[g2SpurY.length - 1] + g2SpurHoehe[g2SpurHoehe.length - 1];
+
+const bogen2 = (a, b) => {
+  const x1 = a.g2x + G2.breite;
+  const y1 = a.g2y + G2.hoehe / 2;
+  const x2 = b.g2x;
+  const y2 = b.g2y + G2.hoehe / 2;
+  const dx = Math.max(30, (x2 - x1) / 2);
+  return `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+};
+
+const g2Kanten = schritte.flatMap((s) =>
+  s.braucht.map((b) => ({
+    von: b,
+    nach: s.id,
+    quer: nachId.get(b).strang !== s.strang,
+    pfad: bogen2(schrittNachId.get(b), s),
+  }))
+);
+
+const graph2 = {
+  breite: g2Breite,
+  hoehe: g2Hoehe,
+  knotenBreite: G2.breite,
+  knotenHoehe: G2.hoehe,
+  kanten: g2Kanten,
+  stationen: g2Stationen,
+  spuren: straenge.map((s, i) => ({
+    id: s.id,
+    label: s.label,
+    kurz: s.kurz,
+    frage: s.frage,
+    farbe: s.farbe,
+    fortschritt: s.fortschritt,
+    y: g2SpurY[i],
+    hoehe: g2SpurHoehe[i],
+  })),
+};
+
 export default {
   ...roh,
+  graph2,
   schritte,
   straenge,
   meilensteine,

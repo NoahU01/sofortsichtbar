@@ -1,0 +1,311 @@
+/* =========================================================
+   Graph V2 / V3 – Abschnitte je Ergebnisstufe
+   Eine Struktur, zwei Paletten. V2 dunkel, V3 hell (weiter unten).
+   ========================================================= */
+.g2 {
+  --bg: #0d0c0f;
+  --karte: #17151b;
+  --karte-hover: #1d1a23;
+  --rand: #2d2834;
+  --rand-stark: #3d3648;
+  --text: #ffffff;
+  --leise: #a8a3b2;
+  --sehr-leise: #6c6875;
+  --linie: #4f4859;
+  --spitze: #6a6276;
+  --band: 7%;
+  --fertig-bg: #12251d;
+  --fertig-rand: #2f7f5f;
+  --fertig-text: #8fd6b4;
+  --jetzt: #35c08a;
+  --jetzt-text: #06231a;
+  --station-bg: #17151b;
+  --station-nr-bg: #ffffff;
+  --station-nr-text: #0d0c0f;
+  --tor: #3d3648;
+  --schatten: none;
+  --karte-schatten: none;
+
+  padding: 2rem 0 3rem;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* --- Kopf -------------------------------------------------------------- */
+.g2__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+}
+.g2__kopf h1 { font-size: 1.75rem; font-weight: 650; letter-spacing: -0.025em; color: var(--text); }
+.g2__kopf-text p {
+  max-width: 54rem;
+  margin-top: 0.5rem;
+  color: var(--leise);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.g2__kopf-text strong { color: var(--text); font-weight: 650; }
+.g2__kopf-stand { text-align: right; }
+.g2__stand-zahl { display: block; color: var(--text); font-size: 2rem; font-weight: 700; line-height: 1; }
+.g2__stand-text { display: block; margin-top: 0.2rem; color: var(--sehr-leise); font-size: 0.75rem; }
+
+/* --- Legende ----------------------------------------------------------- */
+.g2__legende {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 2rem 0;
+  padding: 0.7rem 1rem;
+  background-color: var(--karte);
+  border: 1px solid var(--rand);
+  border-radius: 0.7rem;
+}
+.g2__leg { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--leise); font-size: 0.76rem; }
+.g2__leg::before { content: ""; flex: none; }
+.g2__leg--fertig::before {
+  width: 1.5rem; height: 1rem;
+  background-color: var(--fertig-bg);
+  border: 1px solid var(--fertig-rand);
+  border-radius: 0.25rem;
+}
+.g2__leg--jetzt::before {
+  width: 1.5rem; height: 1rem;
+  background-color: var(--karte);
+  border: 2px solid var(--jetzt);
+  border-radius: 0.25rem;
+}
+.g2__leg--wartet::before {
+  width: 1.5rem; height: 1rem;
+  background-color: var(--karte);
+  border: 1px solid var(--rand);
+  border-radius: 0.25rem;
+}
+.g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
+.g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
+.g2__leg-hinweis { margin-left: auto; color: var(--sehr-leise); font-size: 0.72rem; font-style: italic; }
+
+/* --- Bühne: feste Leiste + scrollender Plan --------------------------- */
+.g2__buehne { display: flex; align-items: flex-start; margin-top: 1.25rem; }
+
+.g2__rail {
+  position: relative;
+  flex: none;
+  width: 12.5rem;
+  margin-top: 8.25rem; /* Höhe der Stationsreihe */
+  padding-left: 2rem;
+}
+.g2__rail-bahn {
+  position: absolute;
+  left: 2rem;
+  right: 0.75rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  gap: 0.15rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--f);
+}
+.g2__rail-bahn b { color: var(--text); font-size: 0.82rem; font-weight: 650; line-height: 1.25; }
+.g2__rail-bahn span { color: var(--sehr-leise); font-size: 0.72rem; line-height: 1.3; }
+.g2__rail-bahn i { color: var(--f); font-size: 0.72rem; font-style: normal; font-weight: 700; }
+
+.g2__scroll { flex: 1; overflow-x: auto; padding: 0 2rem 1.5rem 0; }
+.g2__inhalt { position: relative; }
+
+/* --- Stationsreihe über dem Plan -------------------------------------- */
+.g2__stationsreihe { position: relative; height: 8.25rem; }
+.g2__station {
+  position: absolute;
+  top: 0;
+  width: 12rem;
+  margin-left: -6rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+}
+.g2__station-nr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  background-color: var(--station-nr-bg);
+  border-radius: 99rem;
+  color: var(--station-nr-text);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+.g2__station-titel { margin-top: 0.4rem; color: var(--text); font-size: 0.88rem; font-weight: 700; }
+.g2__station-text { margin-top: 0.2rem; color: var(--sehr-leise); font-size: 0.7rem; line-height: 1.35; }
+.g2__station-balken {
+  width: 5.5rem;
+  height: 3px;
+  margin-top: 0.45rem;
+  background-color: var(--rand);
+  border-radius: 99rem;
+  overflow: hidden;
+}
+.g2__station-balken i { display: block; height: 100%; background-color: var(--jetzt); border-radius: 99rem; }
+.g2__station-quote { margin-top: 0.25rem; color: var(--sehr-leise); font-size: 0.65rem; }
+.g2__station.is-erreicht .g2__station-nr { background-color: var(--jetzt); color: var(--jetzt-text); }
+
+/* --- Zeichenfläche ----------------------------------------------------- */
+.g2__flaeche { position: relative; }
+
+.g2__tor {
+  position: absolute;
+  top: -1rem;
+  bottom: -0.5rem;
+  width: 0;
+  margin-left: -1px;
+  border-left: 2px dashed var(--tor);
+  pointer-events: none;
+}
+.g2__tor.is-erreicht { border-left-style: solid; border-left-color: var(--fertig-rand); }
+
+.g2__bahn {
+  position: absolute;
+  left: -1.5rem;
+  right: -1.5rem;
+  border-radius: 0.7rem;
+  background-color: color-mix(in srgb, var(--f) var(--band), transparent);
+  pointer-events: none;
+}
+
+.g2__kanten { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.g2__spitze { fill: var(--spitze); }
+.g2__kante {
+  fill: none;
+  stroke: var(--linie);
+  stroke-width: 1.75;
+  transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
+}
+.g2__kante.is-quer { stroke-dasharray: 5 4; }
+.g2__flaeche.is-auswahl .g2__kante { opacity: 0.12; }
+.g2__flaeche.is-auswahl .g2__kante.is-hell { opacity: 1; stroke: #a167e4; stroke-width: 2.5; }
+
+/* --- Karten ------------------------------------------------------------ */
+.g2__karte {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  gap: 0.35rem;
+  padding: 0.85rem 0.95rem;
+  text-align: left;
+  background-color: var(--karte);
+  border: 1px solid var(--rand);
+  border-left: 4px solid var(--f);
+  border-radius: 0.7rem;
+  color: var(--text);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--karte-schatten);
+  transition: transform 0.16s, border-color 0.16s, background-color 0.16s, opacity 0.2s, box-shadow 0.16s;
+}
+.g2__karte:hover {
+  transform: translateY(-2px);
+  background-color: var(--karte-hover);
+  border-color: var(--rand-stark);
+  border-left-color: var(--f);
+  box-shadow: var(--schatten);
+}
+
+.g2__karte-titel {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.g2__karte-satz {
+  color: var(--leise);
+  font-size: 0.775rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.g2__karte-fuss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+.g2__marke {
+  padding: 0.12rem 0.42rem;
+  border-radius: 0.25rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.g2__marke--fertig { background-color: var(--fertig-bg); color: var(--fertig-text); }
+.g2__marke--jetzt { background-color: var(--jetzt); color: var(--jetzt-text); }
+.g2__marke--wartet { background-color: transparent; border: 1px solid var(--rand); color: var(--sehr-leise); }
+.g2__aufwand { color: var(--sehr-leise); font-size: 0.65rem; font-weight: 700; }
+
+.g2__karte--erreicht { background-color: var(--fertig-bg); border-color: var(--fertig-rand); }
+.g2__karte--offen { opacity: 0.72; }
+.g2__karte--offen:hover { opacity: 1; }
+.g2__karte.is-machbar { border-color: var(--jetzt); border-width: 2px; border-left-width: 4px; opacity: 1; }
+
+.g2__flaeche.is-auswahl .g2__karte { opacity: 0.18; }
+.g2__flaeche.is-auswahl .g2__karte.is-vor,
+.g2__flaeche.is-auswahl .g2__karte.is-nach { opacity: 1; }
+.g2__flaeche.is-auswahl .g2__karte.is-gewaehlt {
+  opacity: 1;
+  border-color: #a167e4;
+  box-shadow: 0 0 0 2px #a167e4;
+}
+
+@media (max-width: 991px) {
+  .g2__kopf, .g2__legende { padding-left: 1rem; padding-right: 1rem; }
+  .g2__legende { margin-left: 1rem; margin-right: 1rem; }
+  .g2__rail { display: none; }
+  .g2__scroll { padding-left: 1rem; padding-right: 1rem; }
+}
+
+
+/* =========================================================
+   V3 – helle Variante
+   Kein Farbumkehr-Trick: eigene Tonwerte, Tiefe über Schatten
+   statt über Leuchten, kräftigere Linien fürs Papierweiß.
+   ========================================================= */
+.k--graph3 .g2 {
+  --bg: #f7f7f5;
+  --karte: #ffffff;
+  --karte-hover: #ffffff;
+  --rand: #e2e0dc;
+  --rand-stark: #cfccc6;
+  --text: #15141a;
+  --leise: #5d5866;
+  --sehr-leise: #8b8794;
+  --linie: #a9a3b3;
+  --spitze: #8d8797;
+  --band: 10%;
+  --fertig-bg: #edf7f2;
+  --fertig-rand: #63ad8b;
+  --fertig-text: #1c6c4c;
+  --jetzt: #12855c;
+  --jetzt-text: #ffffff;
+  --station-bg: #ffffff;
+  --station-nr-bg: #15141a;
+  --station-nr-text: #ffffff;
+  --tor: #cfccc6;
+  --schatten: 0 0.6rem 1.4rem rgb(21 20 26 / 0.1);
+  --karte-schatten: 0 1px 2px rgb(21 20 26 / 0.05);
+}
+.k--graph3 .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
+.k--graph3 .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
+.k--graph3 .g2__karte--erreicht .g2__karte-satz { color: #4a7a64; }
+.k--graph3 .g2__karte.is-machbar { box-shadow: 0 0.5rem 1.2rem -0.4rem rgb(18 133 92 / 0.45); }
+.k--graph3 .g2__flaeche.is-auswahl .g2__kante.is-hell { stroke: #6d3fb0; }
+.k--graph3 .g2__flaeche.is-auswahl .g2__karte.is-gewaehlt { border-color: #6d3fb0; box-shadow: 0 0 0 2px #6d3fb0; }
