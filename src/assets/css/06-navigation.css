@@ -97,6 +97,8 @@
   transition: background-color var(--transition), color var(--transition);
 }
 .nav__dropdown-link:hover { background-color: var(--color-element); }
+.nav__dropdown-link--sub { padding-left: 1.75rem; color: var(--color-grey-100); font-size: 0.8rem; }
+.nav__dropdown-link--sub::before { content: "└ "; color: var(--color-grey-600); }
 .nav__dropdown-link[aria-current="page"] { color: var(--color-grey-400); }
 
 @media (min-width: 992px) {

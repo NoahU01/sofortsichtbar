@@ -1,0 +1,158 @@
+/* =========================================================
+   Konzept "Cockpit" – Arbeitsoberfläche, dunkel
+   ========================================================= */
+.co {
+  min-height: 78vh;
+  padding: 1.75rem 2rem 4rem;
+  background-color: #0d0c0f;
+  color: #e8e6ea;
+}
+
+.co__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #221f28;
+}
+.co__ziel span {
+  color: #6c6875;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.co__ziel p { margin-top: 0.4rem; color: #fff; font-size: 1.25rem; font-weight: 500; }
+
+.co__stand { display: flex; gap: 2rem; flex-wrap: wrap; }
+.co__strang { min-width: 11rem; }
+.co__strang-name { display: block; color: #b6b2bd; font-size: 0.75rem; }
+.co__strang-zahl { display: block; margin-top: 0.15rem; color: var(--f); font-size: 1.25rem; font-weight: 600; }
+.co__strang-balken {
+  display: block;
+  height: 3px;
+  margin-top: 0.4rem;
+  background-color: #221f28;
+  border-radius: 99rem;
+  overflow: hidden;
+}
+.co__strang-balken i { display: block; height: 100%; background-color: var(--f); border-radius: 99rem; }
+
+.co__filter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0;
+}
+.co__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  background-color: #17151b;
+  border: 1px solid #2d2834;
+  border-radius: 99rem;
+  color: #b6b2bd;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.co__chip[data-filter]:not([data-filter="alle"])::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 99rem;
+  background-color: var(--f);
+}
+.co__chip:hover { color: #fff; }
+.co__chip.is-aktiv { background-color: #fff; border-color: #fff; color: #0d0c0f; font-weight: 600; }
+.co__stufe-hinweis { margin-left: auto; color: #6c6875; font-size: 0.74rem; }
+
+.co__spalten {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.co__spalte {
+  padding: 1rem;
+  background-color: #121116;
+  border: 1px solid #221f28;
+  border-radius: 0.9rem;
+}
+.co__spalte h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+  color: #8b8794;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.co__spalte h2 span {
+  padding: 0.1rem 0.45rem;
+  background-color: #221f28;
+  border-radius: 0.3rem;
+  color: #e8e6ea;
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+.co__spalte--jetzt { border-color: #24503c; }
+.co__spalte--jetzt h2 { color: #6fcfa4; }
+.co__spalte--jetzt h2 span { background-color: #1a3b2c; color: #9fd9bf; }
+
+.co__liste { display: flex; flex-flow: column; gap: 0.6rem; }
+
+.co__karte {
+  display: flex;
+  flex-flow: column;
+  gap: 0.4rem;
+  padding: 0.85rem 0.95rem;
+  text-align: left;
+  background-color: #17151b;
+  border: 1px solid #2d2834;
+  border-left: 3px solid var(--f);
+  border-radius: 0.6rem;
+  color: #e8e6ea;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s, background-color 0.15s;
+}
+.co__karte:hover { background-color: #1c1a22; transform: translateX(2px); }
+.co__karte[hidden] { display: none; }
+
+.co__karte-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  color: var(--f);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.co__karte-kopf i { color: #6c6875; font-style: normal; font-weight: 500; letter-spacing: 0.04em; }
+.co__karte-titel { color: #fff; font-size: 0.92rem; font-weight: 600; line-height: 1.3; }
+.co__karte-ziel { color: #9b96a4; font-size: 0.78rem; line-height: 1.45; }
+.co__karte-frei { color: #6fcfa4; font-size: 0.72rem; }
+.co__karte-warte { color: #7a7585; font-size: 0.74rem; line-height: 1.45; }
+.co__karte-warte em { color: var(--f); font-style: normal; }
+
+.co__karte--matt { opacity: 0.78; }
+.co__karte--matt:hover { opacity: 1; }
+.co__karte--fertig { opacity: 0.6; }
+.co__karte--fertig .co__karte-titel { text-decoration: line-through; text-decoration-color: #4a4552; }
+.co__karte--fertig:hover { opacity: 1; }
+
+.co__leer { color: #6c6875; font-size: 0.8rem; }
+
+@media (max-width: 991px) {
+  .co { padding: 1.25rem 1rem 3rem; }
+  .co__spalten { grid-template-columns: 1fr; }
+  .co__stufe-hinweis { margin-left: 0; }
+}

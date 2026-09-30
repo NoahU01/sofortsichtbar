@@ -1,0 +1,145 @@
+/* =========================================================
+   Konzept "Graph" – Abhängigkeitsbaum, dunkel und technisch
+   ========================================================= */
+.gr {
+  padding: 2rem 0 3rem;
+  background-color: #0d0c0f;
+  color: #e8e6ea;
+}
+
+.gr__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 2rem 1.5rem;
+}
+.gr__kopf h1 { font-size: 1.5rem; font-weight: 600; color: #fff; }
+.gr__kopf p { margin-top: 0.35rem; color: #8b8794; font-size: 0.85rem; }
+
+.gr__legende { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.gr__leg { display: inline-flex; align-items: center; gap: 0.45rem; color: #b6b2bd; font-size: 0.78rem; }
+.gr__leg::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 99rem;
+  background-color: var(--f);
+}
+.gr__reset {
+  padding: 0.35rem 0.75rem;
+  background: transparent;
+  border: 1px solid #39343f;
+  border-radius: 99rem;
+  color: #e8e6ea;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.gr__reset:hover { background-color: #1c1920; }
+.gr__reset[hidden] { display: none; }
+
+.gr__scroll { overflow-x: auto; padding: 0 2rem 1rem; }
+.gr__flaeche { position: relative; }
+
+/* Spur je Strang als ruhiges Band im Hintergrund */
+.gr__spur {
+  position: absolute;
+  left: -2rem;
+  right: -2rem;
+  padding: 0;
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--f) 6%, transparent);
+  pointer-events: none;
+}
+.gr__spur-name {
+  position: sticky;
+  left: 0;
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  color: var(--f);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gr__kanten { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.gr__kante {
+  fill: none;
+  stroke: #3a3441;
+  stroke-width: 1.5;
+  transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
+}
+.gr__kante.is-quer { stroke-dasharray: 4 4; stroke: #4d4556; }
+.gr__flaeche.is-auswahl .gr__kante { opacity: 0.18; }
+.gr__flaeche.is-auswahl .gr__kante.is-hell { opacity: 1; stroke: #a167e4; stroke-width: 2.25; }
+
+.gr__knoten {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  background-color: #17151b;
+  border: 1px solid #2d2834;
+  border-radius: 0.7rem;
+  color: #e8e6ea;
+  cursor: pointer;
+  transition: border-color 0.18s, transform 0.18s, opacity 0.2s, background-color 0.18s;
+}
+.gr__knoten:hover { border-color: var(--f); transform: translateY(-2px); }
+
+.gr__knoten-kopf { display: flex; align-items: center; gap: 0.4rem; }
+.gr__punkt { width: 0.5rem; height: 0.5rem; border-radius: 99rem; background-color: var(--f); flex: none; }
+.gr__knoten-kopf em {
+  color: #7a7585;
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.gr__knoten-titel {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.25;
+  overflow: hidden;
+}
+.gr__jetzt {
+  align-self: flex-start;
+  padding: 0.1rem 0.4rem;
+  background-color: #1f6f52;
+  border-radius: 0.3rem;
+  color: #d6f5e7;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gr__knoten--erreicht { background-color: #12251d; border-color: #24503c; }
+.gr__knoten--erreicht .gr__knoten-titel { color: #9fd9bf; }
+.gr__knoten--offen { opacity: 0.72; }
+.gr__knoten.is-machbar { border-color: #2f7f5f; }
+
+/* Auswahlzustand */
+.gr__flaeche.is-auswahl .gr__knoten { opacity: 0.22; }
+.gr__flaeche.is-auswahl .gr__knoten.is-vor,
+.gr__flaeche.is-auswahl .gr__knoten.is-nach { opacity: 1; }
+.gr__flaeche.is-auswahl .gr__knoten.is-gewaehlt {
+  opacity: 1;
+  border-color: #a167e4;
+  box-shadow: 0 0 0 1px #a167e4, 0 0 2.5rem -0.5rem #a167e4;
+}
+.gr__flaeche.is-auswahl .gr__knoten.is-vor { border-color: #6d5a8a; }
+.gr__flaeche.is-auswahl .gr__knoten.is-nach { border-color: #3f6b7d; }
+
+.gr__fuss { padding: 0 2rem; color: #6c6875; font-size: 0.75rem; }
+
+@media (max-width: 767px) {
+  .gr__kopf, .gr__scroll, .gr__fuss { padding-left: 1rem; padding-right: 1rem; }
+  .gr__spur { left: -1rem; right: -1rem; }
+}

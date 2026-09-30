@@ -29,10 +29,11 @@
       "label": "/ Entwicklung /",
       "devOnly": true,
       "children": [
-        {
-          "label": "Strategie-Levels",
-          "href": "/entwicklung/strategie-levels"
-        }
+        { "label": "Strategie-Levels", "href": "/entwicklung/strategie-levels" },
+        { "label": "Fokus", "href": "/entwicklung/strategie/fokus", "sub": true },
+        { "label": "Graph", "href": "/entwicklung/strategie/graph", "sub": true },
+        { "label": "Cockpit", "href": "/entwicklung/strategie/cockpit", "sub": true },
+        { "label": "Liniennetz", "href": "/entwicklung/strategie/metro", "sub": true }
       ]
     }
   ],

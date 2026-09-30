@@ -1,0 +1,64 @@
+---
+title: "Graph – Strategie"
+description: "Konzept Graph – der Abhängigkeitsbaum aller Schritte."
+permalink: /entwicklung/strategie/graph/index.html
+konzept: "graph"
+---
+{%- set g = strategieGraph -%}
+
+<div class="gr">
+
+  <div class="gr__kopf">
+    <div>
+      <h1>Abhängigkeitsgraph</h1>
+      <p>Von links nach rechts nach Abhängigkeitstiefe. Ein Knoten anklicken, um seine Kette zu sehen.</p>
+    </div>
+    <div class="gr__legende">
+      {% for s in g.straenge %}
+        <span class="gr__leg" style="--f: {{ s.farbe }}">{{ s.label }}</span>
+      {% endfor %}
+      <button class="gr__reset" type="button" data-graph-reset hidden>Auswahl aufheben</button>
+    </div>
+  </div>
+
+  <div class="gr__scroll">
+    <div class="gr__flaeche" style="width: {{ g.graph.breite }}px; height: {{ g.graph.hoehe }}px">
+
+      {% for spur in g.graph.spuren %}
+        <div class="gr__spur" style="top: {{ spur.y }}px; height: {{ spur.hoehe }}px; --f: {{ spur.farbe }}">
+          <span class="gr__spur-name">{{ spur.label }}</span>
+        </div>
+      {% endfor %}
+
+      <svg class="gr__kanten" width="{{ g.graph.breite }}" height="{{ g.graph.hoehe }}" aria-hidden="true">
+        {% for k in g.graph.kanten %}
+          <path class="gr__kante{% if k.quer %} is-quer{% endif %}"
+                data-von="{{ k.von }}" data-nach="{{ k.nach }}" d="{{ k.pfad }}" />
+        {% endfor %}
+      </svg>
+
+      {% for s in g.schritte %}
+        <button class="gr__knoten gr__knoten--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+                type="button"
+                data-knoten="{{ s.id }}"
+                data-schritt="{{ s.id }}"
+                data-braucht="{{ s.braucht | join(" ") }}"
+                data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                style="left: {{ s.gx }}px; top: {{ s.gy }}px; width: {{ g.graph.knotenBreite }}px; height: {{ g.graph.knotenHoehe }}px; --f: {{ s.farbe }}">
+          <span class="gr__knoten-kopf">
+            <i class="gr__punkt"></i>
+            <em>{{ s.strangKurz }} · {{ s.aufwand }}</em>
+          </span>
+          <span class="gr__knoten-titel">{{ s.titel }}</span>
+          {% if s.machbar %}<span class="gr__jetzt">jetzt machbar</span>{% endif %}
+        </button>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <p class="gr__fuss">
+    {{ g.anzahl }} Schritte · {{ g.graph.kanten.length }} Abhängigkeiten, davon
+    {{ g.graph.querAnzahl }} über Strangrenzen hinweg.
+  </p>
+</div>

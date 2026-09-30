@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fokus",
+    "name": "Fokus",
+    "href": "/entwicklung/strategie/fokus",
+    "claim": "Nur was jetzt zählt",
+    "frage": "Wo stehen wir, und was ist als Nächstes dran?",
+    "idee": "Radikale Reduktion. Der Bildschirm zeigt einen Meilenstein und die Handvoll Schritte, die wirklich sofort machbar sind. Alles andere ist weggeräumt, bis man es holt. Heller Auftritt, große Typo, viel Weißraum.",
+    "gutFuer": "Den Montagmorgen. Man öffnet die Seite und weiß in drei Sekunden, woran zu arbeiten ist.",
+    "schwaeche": "Zeigt bewusst nicht das große Ganze – Zusammenhänge sieht man hier nur ausschnittweise."
+  },
+  {
+    "id": "graph",
+    "name": "Graph",
+    "href": "/entwicklung/strategie/graph",
+    "claim": "Der echte Abhängigkeitsbaum",
+    "frage": "Was hängt woran, und was blockiert was?",
+    "idee": "Kein Raster, sondern ein gerichteter Graph: Spalten ergeben sich aus der Abhängigkeitstiefe, drei Spuren für die Stränge, Linien für jede Abhängigkeit. Klick auf einen Knoten färbt die ganze Kette davor und danach ein, der Rest tritt zurück.",
+    "gutFuer": "Zu verstehen, warum etwas noch nicht geht – und was man freischaltet, wenn man einen Schritt erledigt.",
+    "schwaeche": "Braucht Breite und etwas Einarbeitung. Nichts für den schnellen Blick."
+  },
+  {
+    "id": "cockpit",
+    "name": "Cockpit",
+    "href": "/entwicklung/strategie/cockpit",
+    "claim": "Arbeitsoberfläche statt Schaubild",
+    "frage": "Was kann ich anfassen, was liegt auf Halde?",
+    "idee": "Wie ein modernes Projektwerkzeug: oben der Fortschritt je Strang, darunter drei Spalten – sofort machbar, blockiert, erledigt. Jede blockierte Karte nennt den Grund und verlinkt darauf. Filter je Strang.",
+    "gutFuer": "Das tägliche Arbeiten und Priorisieren. Die einzige Variante, die wie Software wirkt, nicht wie eine Grafik.",
+    "schwaeche": "Die zeitliche Abfolge und das Zielbild treten in den Hintergrund."
+  },
+  {
+    "id": "metro",
+    "name": "Liniennetz",
+    "href": "/entwicklung/strategie/metro",
+    "claim": "Drei Linien, gemeinsame Stationen",
+    "frage": "Wie läuft das über die Zeit zusammen?",
+    "idee": "Als U-Bahn-Plan gedacht: jeder Strang eine Linie, jeder Schritt ein Halt, und dort wo alle Linien eine Ergebnisstufe erreichen, liegt eine große Station. Umsteigebögen zeigen, wo ein Strang auf einen anderen wartet.",
+    "gutFuer": "Den Überblick und das Erklären gegenüber Dritten. Die Variante, die man ausdrucken und an die Wand hängen will.",
+    "schwaeche": "Schön, aber weniger präzise als der Graph – nicht jede Abhängigkeit ist eingezeichnet."
+  }
+]

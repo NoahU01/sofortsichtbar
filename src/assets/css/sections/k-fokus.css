@@ -1,0 +1,177 @@
+/* =========================================================
+   Konzept "Fokus" – radikale Reduktion, heller Auftritt
+   ========================================================= */
+.fo {
+  min-height: 78vh;
+  padding: 6rem 2rem 9rem;
+  background-color: #f6f5f4;
+  color: #16141a;
+  font-family: var(--font-sans);
+}
+
+.fo__stufe { max-width: 54rem; margin: 0 auto; }
+.fo__stufe[hidden] { display: none; }
+
+.fo__wo {
+  color: #8b8794;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.fo__titel {
+  margin-top: 0.75rem;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #16141a;
+}
+.fo__satz {
+  max-width: 40rem;
+  margin-top: 1.25rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #55505c;
+}
+
+.fo__balken {
+  height: 3px;
+  margin: 2.5rem 0 3.5rem;
+  background-color: #e0ddda;
+  border-radius: 99rem;
+  overflow: hidden;
+}
+.fo__balken span { display: block; height: 100%; background-color: #16141a; border-radius: 99rem; }
+
+.fo__label {
+  color: #8b8794;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fo__jetzt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1px;
+  margin-top: 1.25rem;
+  background-color: #e0ddda;
+  border: 1px solid #e0ddda;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.fo__karte {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  padding: 1.75rem 1.5rem;
+  text-align: left;
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.18s;
+}
+.fo__karte:hover { background-color: #fbfaf9; }
+.fo__karte-strang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #8b8794;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.fo__karte-strang::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 99rem;
+  background-color: var(--f, #16141a);
+}
+.fo__karte-titel { font-size: 1.2rem; font-weight: 600; line-height: 1.25; color: #16141a; }
+.fo__karte-ziel { color: #6d6875; font-size: 0.88rem; line-height: 1.5; }
+
+.fo__leer { margin-top: 1rem; color: #8b8794; font-size: 0.95rem; }
+.fo__fertig { margin-top: 2rem; color: #1a7f5a; font-size: 0.95rem; font-weight: 500; }
+
+.fo__spaeter { margin-top: 2.5rem; }
+.fo__spaeter summary {
+  color: #8b8794;
+  font-size: 0.85rem;
+  cursor: pointer;
+  list-style: none;
+}
+.fo__spaeter summary::before { content: "+ "; }
+.fo__spaeter[open] summary::before { content: "– "; }
+.fo__spaeter summary::-webkit-details-marker { display: none; }
+.fo__spaeter ul { margin: 1rem 0 0; padding: 0; list-style: none; display: flex; flex-flow: column; }
+.fo__spaeter li + li { border-top: 1px solid #e6e3e0; }
+.fo__spaeter button {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.7rem 0;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.fo__spaeter button span { color: #3c3845; font-size: 0.92rem; }
+.fo__spaeter button span::before {
+  content: "";
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.5rem;
+  border-radius: 99rem;
+  background-color: var(--f, #b9b5bf);
+}
+.fo__spaeter button em { color: #9b97a3; font-size: 0.76rem; font-style: normal; white-space: nowrap; }
+.fo__spaeter button:hover span { color: #16141a; }
+
+/* --- Schiene der Ergebnisstufen -------------------------------------- */
+.fo__schiene {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 54rem;
+  margin: 4rem auto 0;
+  background-color: #e0ddda;
+  border: 1px solid #e0ddda;
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.fo__punkt {
+  display: flex;
+  flex-flow: column;
+  gap: 0.3rem;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.18s;
+}
+.fo__punkt:hover { background-color: #fbfaf9; }
+.fo__punkt.is-aktiv { background-color: #16141a; }
+.fo__punkt-nr { color: #b3aeb8; font-size: 0.68rem; font-weight: 700; }
+.fo__punkt-titel { color: #16141a; font-size: 0.88rem; font-weight: 600; }
+.fo__punkt.is-aktiv .fo__punkt-nr { color: #7d7889; }
+.fo__punkt.is-aktiv .fo__punkt-titel { color: #fff; }
+.fo__punkt-balken { height: 2px; margin-top: 0.3rem; background-color: #e6e3e0; border-radius: 99rem; }
+.fo__punkt-balken i { display: block; height: 100%; background-color: #16141a; border-radius: 99rem; }
+.fo__punkt.is-aktiv .fo__punkt-balken { background-color: #38343f; }
+.fo__punkt.is-aktiv .fo__punkt-balken i { background-color: #fff; }
+
+@media (max-width: 767px) {
+  .fo { padding: 3rem 1.25rem 6rem; }
+  .fo__schiene { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

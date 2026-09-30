@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+---
+{%- set g = strategieGraph -%}
+<div class="k k--{{ konzept }}">
+
+  <header class="k-bar">
+    <a class="k-bar__zurueck" href="/entwicklung/strategie-levels">Konzepte</a>
+    <nav class="k-bar__wechsel" aria-label="Darstellungskonzept">
+      {% for k in konzepte %}
+        <a class="k-bar__pill{% if k.id == konzept %} is-aktiv{% endif %}"
+           href="{{ k.href }}"{% if k.id == konzept %} aria-current="page"{% endif %}>{{ k.name }}</a>
+      {% endfor %}
+    </nav>
+    <span class="k-bar__meta">{{ g.fortschritt }}% · {{ g.erledigt.length }}/{{ g.anzahl }}</span>
+  </header>
+
+  {{ content | safe }}
+
+  {# Detailschublade – für jeden Schritt fertig gerendert, JS blendet nur um #}
+  <div class="k-schatten" data-schatten hidden></div>
+  <aside class="k-drawer" data-drawer hidden aria-label="Schrittdetails">
+    <button class="k-drawer__zu" type="button" data-drawer-zu aria-label="Schließen">&times;</button>
+    {% for s in g.schritte %}
+      <article class="k-detail" data-detail="{{ s.id }}" hidden>
+        <span class="k-detail__strang" style="--f: {{ s.farbe }}">{{ s.strangLabel }}</span>
+        <h2 class="k-detail__titel">{{ s.titel }}</h2>
+        <p class="k-detail__ergebnis">{{ s.ergebnis }}</p>
+
+        <dl class="k-detail__fakten">
+          <div><dt>Status</dt><dd>{% if s.status == "erreicht" %}Erledigt{% elif s.machbar %}Jetzt machbar{% else %}Blockiert{% endif %}</dd></div>
+          <div><dt>Ergebnisstufe</dt><dd>{{ s.meilensteinNr }} · {{ s.meilensteinTitel }}</dd></div>
+          <div><dt>Aufwand</dt><dd>{{ s.aufwand }}</dd></div>
+        </dl>
+
+        {% if s.details.length %}
+          <section class="k-detail__block">
+            <h3>Inhalte</h3>
+            <ul>{% for d in s.details %}<li>{{ d }}</li>{% endfor %}</ul>
+          </section>
+        {% endif %}
+
+        {% if s.blockiertListe.length %}
+          <section class="k-detail__block">
+            <h3>Wartet auf</h3>
+            <div class="k-chips">
+              {% for b in s.blockiertListe %}
+                <button class="k-chip" type="button" data-schritt="{{ b.id }}" style="--f: {{ b.farbe }}">{{ b.strangKurz }} · {{ b.titel }}</button>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if s.nachfolgerListe.length %}
+          <section class="k-detail__block">
+            <h3>Schaltet frei</h3>
+            <div class="k-chips">
+              {% for n in s.nachfolgerListe %}
+                <button class="k-chip" type="button" data-schritt="{{ n.id }}" style="--f: {{ n.farbe }}">{{ n.strangKurz }} · {{ n.titel }}</button>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if s.offen.length %}
+          <section class="k-detail__block">
+            <h3>Offen</h3>
+            <ul class="k-detail__offen">{% for o in s.offen %}<li>{{ o }}</li>{% endfor %}</ul>
+          </section>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </aside>
+
+</div>

@@ -279,63 +279,6 @@
     });
   }
 
-  /* --- Strategie-Darstellung (/entwicklung/strategie-levels) ----------- */
-  function initStrategie() {
-    var wurzel = document.querySelector(".strategie");
-    if (!wurzel) return;
-
-    /* Variante umschalten – die Wahl steht im Hash, damit sie teilbar ist */
-    var schalter = wurzel.querySelectorAll("[data-variante]");
-    var panels = wurzel.querySelectorAll("[data-panel]");
-
-    function zeige(name) {
-      var treffer = false;
-      panels.forEach(function (panel) {
-        var an = panel.dataset.panel === name;
-        panel.hidden = !an;
-        if (an) treffer = true;
-      });
-      if (!treffer) return;
-
-      schalter.forEach(function (btn) {
-        btn.setAttribute("aria-selected", btn.dataset.variante === name ? "true" : "false");
-      });
-    }
-
-    schalter.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        zeige(btn.dataset.variante);
-        history.replaceState(null, "", "#variante=" + btn.dataset.variante);
-      });
-    });
-
-    var ausHash = (location.hash.match(/variante=([a-z]+)/) || [])[1];
-    if (ausHash) zeige(ausHash);
-
-    /* Details */
-    function oeffne(id) {
-      var dialog = document.getElementById("dialog-" + id);
-      if (!dialog) return;
-      wurzel.querySelectorAll(".dlg[open]").forEach(function (offen) { offen.close(); });
-      dialog.showModal();
-    }
-
-    wurzel.querySelectorAll("[data-open]").forEach(function (button) {
-      button.addEventListener("click", function () { oeffne(button.dataset.open); });
-    });
-
-    wurzel.querySelectorAll("[data-close]").forEach(function (button) {
-      button.addEventListener("click", function () { button.closest("dialog").close(); });
-    });
-
-    // Klick auf den Backdrop schließt den Dialog
-    wurzel.querySelectorAll(".dlg").forEach(function (dialog) {
-      dialog.addEventListener("click", function (e) {
-        if (e.target === dialog) dialog.close();
-      });
-    });
-  }
-
   /* --- Scroll-Reveal --------------------------------------------------- */
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -366,7 +309,6 @@
     initThemeFilter();
     initAnchors();
     initConsentRenew();
-    initStrategie();
     initReveal();
   }
 
