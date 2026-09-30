@@ -90,12 +90,13 @@
 /* --- Ergebnisstufe als Querband --------------------------------------- */
 .vt__station {
   position: absolute;
-  left: -2rem;
-  right: -2rem;
+  left: 0;
+  right: 0;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0 2rem;
+  padding: 0 1.1rem;
   background-color: var(--vt-station-bg);
   border-top: 1px solid var(--vt-rand);
   border-bottom: 1px solid var(--vt-rand);
@@ -137,6 +138,7 @@
 
 .vt__halt {
   position: absolute;
+  z-index: 4;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -192,6 +194,7 @@
 
 .vt__karte {
   position: absolute;
+  z-index: 4;
   display: flex;
   flex-flow: column;
   gap: 0.35rem;
@@ -328,7 +331,7 @@
 @media (max-width: 991px) {
   .vt__buehne { padding: 0 1rem; }
   .vt__route { margin-left: 1rem; margin-right: 1rem; }
-  .vt__station { left: -1rem; right: -1rem; padding: 0 1rem; flex-wrap: wrap; gap: 0.5rem; }
+  .vt__station { padding: 0 0.85rem; flex-wrap: wrap; gap: 0.5rem; }
   .vt__station-text { flex-basis: 100%; }
   .vt__station-quote { margin-left: 0; }
 }
