@@ -174,21 +174,22 @@
   var g2 = wurzel.querySelector("[data-g2]");
   if (g2) {
     var vbtns = wurzel.querySelectorAll("[data-variante]");
+
+    function setzeVariante(wahl) {
+      g2.classList.remove("g2--a", "g2--b", "g2--c");
+      g2.classList.add("g2--" + wahl);
+      vbtns.forEach(function (b) { b.classList.toggle("is-an", b.dataset.variante === wahl); });
+    }
+
     vbtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var wahl = btn.dataset.variante;
-        g2.classList.remove("g2--a", "g2--b", "g2--c");
-        g2.classList.add("g2--" + wahl);
-        vbtns.forEach(function (b) { b.classList.toggle("is-an", b === btn); });
-        history.replaceState(null, "", "#hervorhebung=" + wahl);
+        setzeVariante(btn.dataset.variante);
+        history.replaceState(null, "", "#hervorhebung=" + btn.dataset.variante);
       });
     });
 
     var ausHash = (location.hash.match(/hervorhebung=([abc])/) || [])[1];
-    if (ausHash) {
-      var treffer = wurzel.querySelector('[data-variante="' + ausHash + '"]');
-      if (treffer) treffer.click();
-    }
+    if (ausHash) setzeVariante(ausHash);
   }
 
   /* --- Tafel: beim Überfahren zeigen, was ein Schritt braucht ---------- */
