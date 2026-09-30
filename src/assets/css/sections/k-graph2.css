@@ -346,13 +346,15 @@
    Nicht der nächste Schritt wird lauter, alles andere wird
    leiser: nur der aktive Schritt hat überhaupt eine Fläche.
    ========================================================= */
+/* Deckend genug, dass die Verbindungslinien nicht durchscheinen,
+   aber blass genug, um zurückzutreten. */
 .g2--c .g2__karte {
-  background-color: transparent;
+  background-color: color-mix(in srgb, var(--bg) 88%, transparent);
   border-color: color-mix(in srgb, var(--rand) 60%, transparent);
 }
 .g2--c .g2__karte--erreicht {
-  background-color: transparent;
-  border-color: color-mix(in srgb, var(--f) 18%, transparent);
+  background-color: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-color: color-mix(in srgb, var(--f) 22%, transparent);
 }
 .g2--c .g2__karte--offen .g2__karte-titel { color: var(--sehr-leise); font-weight: 500; }
 .g2--c .g2__karte--offen .g2__karte-satz { color: color-mix(in srgb, var(--sehr-leise) 70%, transparent); }
