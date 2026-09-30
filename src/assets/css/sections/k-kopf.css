@@ -53,7 +53,7 @@
   border-radius: 0.7rem;
   box-shadow: var(--mk-schatten);
 }
-.mk__legende { min-width: 15rem; max-width: 24rem; }
+.mk__legende { min-width: 15rem; max-width: 27rem; }
 .mk__box--schalter { display: flex; flex-flow: column; flex: none; }
 
 .mk__box-titel {
@@ -92,10 +92,14 @@
   border-bottom: 1px solid var(--mk-rand);
 }
 
+/* Spaltenweise füllen: links die Zustände als Kreise,
+   rechts alles, was eine Linie zeigt. */
 .mk__eintraege {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.4rem 1rem;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-columns: max-content;
+  gap: 0.45rem 1.5rem;
 }
 .mk__eintrag {
   display: inline-flex;
@@ -200,5 +204,5 @@
   .mk__legende { max-width: none; flex: 1; }
 }
 @media (max-width: 479px) {
-  .mk__eintraege { grid-template-columns: 1fr; }
+  .mk__eintraege { grid-auto-flow: row; grid-template-rows: none; grid-auto-columns: auto; }
 }
