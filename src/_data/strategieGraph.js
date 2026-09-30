@@ -70,9 +70,12 @@ const kurzform = (id) => {
   return { id: s.id, titel: s.titel, status: s.status, strangKurz: strang.kurz, farbe: strang.farbe };
 };
 
+const aufwandNamen = { S: "Klein (Stunden bis ein Tag)", M: "Mittel (mehrere Tage)", L: "Groß (Wochen)" };
+
 schritte.forEach((s) => {
   const strang = straenge.find((t) => t.id === s.strang);
   const stein = meilensteine.find((m) => m.id === s.meilenstein);
+  s.aufwandLabel = aufwandNamen[s.aufwand] || s.aufwand;
   s.strangLabel = strang.label;
   s.strangKurz = strang.kurz;
   s.farbe = strang.farbe;
@@ -285,8 +288,8 @@ const metro = {
    Nicht nach reiner Abhängigkeitstiefe, sondern in Blöcken je Stufe. So
    lassen sich Stationen wie im Liniennetz dazwischensetzen. Zulässig, weil
    kein Schritt von einer späteren Stufe abhängt – alle Pfeile zeigen rechts. */
-// hoehe muss zweizeilige Überschrift + dreizeiligen Satz + Fußzeile fassen
-const G2 = { breite: 238, hoehe: 152, spaltenLuft: 58, zeilenLuft: 16, spurLuft: 56, station: 132 };
+// Ohne Fußzeile reichen Überschrift + zweizeiliger Satz
+const G2 = { breite: 238, hoehe: 110, spaltenLuft: 58, zeilenLuft: 16, spurLuft: 56, station: 132 };
 
 const lokalRang = new Map();
 function lokal(id) {

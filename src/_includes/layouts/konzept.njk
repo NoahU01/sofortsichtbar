@@ -29,7 +29,7 @@ layout: layouts/base.njk
         <dl class="k-detail__fakten">
           <div><dt>Status</dt><dd>{% if s.status == "erreicht" %}Erledigt{% elif s.machbar %}Jetzt machbar{% else %}Blockiert{% endif %}</dd></div>
           <div><dt>Ergebnisstufe</dt><dd>{{ s.meilensteinNr }} · {{ s.meilensteinTitel }}</dd></div>
-          <div><dt>Aufwand</dt><dd>{{ s.aufwand }}</dd></div>
+          <div><dt>Aufwand</dt><dd>{{ s.aufwandLabel }}</dd></div>
         </dl>
 
         {% if s.details.length %}

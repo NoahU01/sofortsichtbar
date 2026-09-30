@@ -21,9 +21,9 @@
   </header>
 
   <div class="g2__legende">
-    <span class="g2__leg g2__leg--fertig">erledigt</span>
-    <span class="g2__leg g2__leg--jetzt">jetzt machbar</span>
-    <span class="g2__leg g2__leg--wartet">wartet noch</span>
+    <span class="g2__leg"><i class="g2__zeichen g2__zeichen--fertig"></i>erledigt</span>
+    <span class="g2__leg"><i class="g2__zeichen g2__zeichen--jetzt"></i>jetzt machbar</span>
+    <span class="g2__leg"><i class="g2__zeichen g2__zeichen--wartet"></i>kommt später</span>
     <span class="g2__leg g2__leg--pfeil">muss vorher fertig sein</span>
     <span class="g2__leg g2__leg--quer">Bahn wartet auf andere Bahn</span>
     <span class="g2__leg-hinweis">Karte anklicken für Details · seitlich scrollbar</span>
@@ -87,14 +87,11 @@
                   data-braucht="{{ s.braucht | join(" ") }}"
                   data-nachfolger="{{ s.nachfolger | join(" ") }}"
                   style="left: {{ s.g2x }}px; top: {{ s.g2y }}px; width: {{ G.knotenBreite }}px; height: {{ G.knotenHoehe }}px; --f: {{ s.farbe }}">
-            <span class="g2__karte-titel">{{ s.titel }}</span>
-            <span class="g2__karte-satz">{{ s.ergebnis }}</span>
-            <span class="g2__karte-fuss">
-              {% if s.status == "erreicht" %}<b class="g2__marke g2__marke--fertig">erledigt</b>
-              {% elif s.machbar %}<b class="g2__marke g2__marke--jetzt">jetzt machbar</b>
-              {% else %}<b class="g2__marke g2__marke--wartet">wartet auf {{ s.blockiertListe.length }}</b>{% endif %}
-              <span class="g2__aufwand">{{ s.aufwand }}</span>
+            <span class="g2__karte-kopf">
+              <i class="g2__zeichen" aria-hidden="true"></i>
+              <span class="g2__karte-titel">{{ s.titel }}</span>
             </span>
+            <span class="g2__karte-satz">{{ s.ergebnis }}</span>
           </button>
         {% endfor %}
 

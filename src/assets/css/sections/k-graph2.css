@@ -14,11 +14,19 @@
   --linie: #4f4859;
   --spitze: #6a6276;
   --band: 7%;
-  --fertig-bg: #12251d;
+  --fertig-bg: #11201a;
   --fertig-rand: #2f7f5f;
   --fertig-text: #8fd6b4;
+  --erledigt-titel: #6f8d80;
+  --erledigt-satz: #4f6560;
+  --wartet-titel: #cfcad7;
+  --wartet-satz: #8b8697;
+  --ring: #56505f;
   --jetzt: #35c08a;
   --jetzt-text: #06231a;
+  --jetzt-karte: #16211c;
+  --jetzt-schein: 0 0 2rem -0.7rem #35c08a;
+  --zeichen-haken: #06231a;
   --station-bg: #17151b;
   --station-nr-bg: #ffffff;
   --station-nr-text: #0d0c0f;
@@ -66,27 +74,41 @@
   border-radius: 0.7rem;
 }
 .g2__leg { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--leise); font-size: 0.76rem; }
-.g2__leg::before { content: ""; flex: none; }
-.g2__leg--fertig::before {
-  width: 1.5rem; height: 1rem;
-  background-color: var(--fertig-bg);
-  border: 1px solid var(--fertig-rand);
-  border-radius: 0.25rem;
-}
-.g2__leg--jetzt::before {
-  width: 1.5rem; height: 1rem;
-  background-color: var(--karte);
-  border: 2px solid var(--jetzt);
-  border-radius: 0.25rem;
-}
-.g2__leg--wartet::before {
-  width: 1.5rem; height: 1rem;
-  background-color: var(--karte);
-  border: 1px solid var(--rand);
-  border-radius: 0.25rem;
-}
+.g2__leg--pfeil::before,
+.g2__leg--quer::before { content: ""; flex: none; }
 .g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
 .g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
+
+/* --- Zustandszeichen: dasselbe in Legende und Karte ------------------- */
+.g2__zeichen {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 99rem;
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+.g2__zeichen--fertig,
+.g2__karte--erreicht .g2__zeichen {
+  background-color: var(--fertig-rand);
+  color: var(--zeichen-haken);
+}
+.g2__zeichen--fertig::after,
+.g2__karte--erreicht .g2__zeichen::after { content: "\2713"; }
+
+.g2__zeichen--jetzt,
+.g2__karte.is-machbar .g2__zeichen {
+  border: 2px solid var(--jetzt);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--jetzt) 22%, transparent);
+}
+
+.g2__zeichen--wartet,
+.g2__karte--offen .g2__zeichen { border: 1.5px solid var(--ring); }
 .g2__leg-hinweis { margin-left: auto; color: var(--sehr-leise); font-size: 0.72rem; font-style: italic; }
 
 /* --- Bühne: feste Leiste + scrollender Plan --------------------------- */
@@ -216,6 +238,7 @@
   box-shadow: var(--schatten);
 }
 
+.g2__karte-kopf { display: flex; align-items: center; gap: 0.45rem; }
 .g2__karte-titel {
   color: var(--text);
   font-size: 0.95rem;
@@ -228,34 +251,38 @@
   font-size: 0.775rem;
   line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.g2__karte-fuss {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: auto;
-}
-.g2__marke {
-  padding: 0.12rem 0.42rem;
-  border-radius: 0.25rem;
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.g2__marke--fertig { background-color: var(--fertig-bg); color: var(--fertig-text); }
-.g2__marke--jetzt { background-color: var(--jetzt); color: var(--jetzt-text); }
-.g2__marke--wartet { background-color: transparent; border: 1px solid var(--rand); color: var(--sehr-leise); }
-.g2__aufwand { color: var(--sehr-leise); font-size: 0.65rem; font-weight: 700; }
 
-.g2__karte--erreicht { background-color: var(--fertig-bg); border-color: var(--fertig-rand); }
-.g2__karte--offen { opacity: 0.72; }
-.g2__karte--offen:hover { opacity: 1; }
-.g2__karte.is-machbar { border-color: var(--jetzt); border-width: 2px; border-left-width: 4px; opacity: 1; }
+/* Drei klar getrennte Zustände – Form, nicht nur Farbe:
+   erledigt tritt zurück, jetzt machbar sticht hervor,
+   später gestrichelt umrandet. */
+.g2__karte--erreicht {
+  background-color: var(--fertig-bg);
+  border-color: var(--fertig-rand);
+}
+.g2__karte--erreicht .g2__karte-titel { color: var(--erledigt-titel); font-weight: 500; }
+.g2__karte--erreicht .g2__karte-satz { color: var(--erledigt-satz); }
+.g2__karte--erreicht:hover .g2__karte-titel { color: var(--text); }
+
+.g2__karte--offen {
+  border-style: dashed;
+  border-left-style: solid;
+}
+.g2__karte--offen .g2__karte-titel { color: var(--wartet-titel); }
+.g2__karte--offen .g2__karte-satz { color: var(--wartet-satz); }
+
+.g2__karte.is-machbar {
+  border-style: solid;
+  border-color: var(--jetzt);
+  border-width: 2px;
+  border-left-width: 4px;
+  background-color: var(--jetzt-karte);
+  box-shadow: var(--jetzt-schein);
+}
+.g2__karte.is-machbar .g2__karte-titel { color: var(--text); font-weight: 700; }
 
 .g2__flaeche.is-auswahl .g2__karte { opacity: 0.18; }
 .g2__flaeche.is-auswahl .g2__karte.is-vor,
@@ -291,11 +318,19 @@
   --linie: #a9a3b3;
   --spitze: #8d8797;
   --band: 10%;
-  --fertig-bg: #edf7f2;
-  --fertig-rand: #63ad8b;
+  --fertig-bg: #f0f5f2;
+  --fertig-rand: #9cc4b1;
   --fertig-text: #1c6c4c;
+  --erledigt-titel: #7d938a;
+  --erledigt-satz: #9db0a6;
+  --wartet-titel: #3a3642;
+  --wartet-satz: #77727f;
+  --ring: #bdb8c4;
   --jetzt: #12855c;
   --jetzt-text: #ffffff;
+  --jetzt-karte: #ffffff;
+  --jetzt-schein: 0 0.5rem 1.2rem -0.4rem rgb(18 133 92 / 0.4);
+  --zeichen-haken: #ffffff;
   --station-bg: #ffffff;
   --station-nr-bg: #15141a;
   --station-nr-text: #ffffff;
@@ -306,6 +341,5 @@
 .k--graph3 .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
 .k--graph3 .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
 .k--graph3 .g2__karte--erreicht .g2__karte-satz { color: #4a7a64; }
-.k--graph3 .g2__karte.is-machbar { box-shadow: 0 0.5rem 1.2rem -0.4rem rgb(18 133 92 / 0.45); }
 .k--graph3 .g2__flaeche.is-auswahl .g2__kante.is-hell { stroke: #6d3fb0; }
 .k--graph3 .g2__flaeche.is-auswahl .g2__karte.is-gewaehlt { border-color: #6d3fb0; box-shadow: 0 0 0 2px #6d3fb0; }
