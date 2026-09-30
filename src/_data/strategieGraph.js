@@ -76,6 +76,7 @@ schritte.forEach((s) => {
   const strang = straenge.find((t) => t.id === s.strang);
   const stein = meilensteine.find((m) => m.id === s.meilenstein);
   s.aufwandLabel = aufwandNamen[s.aufwand] || s.aufwand;
+  s.werName = (roh.personen || {})[s.wer] || "";
   s.strangLabel = strang.label;
   s.strangKurz = strang.kurz;
   s.farbe = strang.farbe;

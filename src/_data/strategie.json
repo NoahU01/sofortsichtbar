@@ -80,7 +80,8 @@
       ],
       "offen": [
         "Alle Segmente oder ein Kern von drei?"
-      ]
+      ],
+      "wer": "NH"
     },
     {
       "id": "crm-kriterien",
@@ -97,7 +98,8 @@
         "Einschlusskriterien je Segment",
         "Ausschlusskriterien festhalten"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "NH"
     },
     {
       "id": "crm-quellen",
@@ -116,7 +118,8 @@
       ],
       "offen": [
         "Kaufen, recherchieren oder aus Bestand?"
-      ]
+      ],
+      "wer": "KC"
     },
     {
       "id": "crm-auswahl",
@@ -135,7 +138,8 @@
       ],
       "offen": [
         "Anbieter offen"
-      ]
+      ],
+      "wer": "NH"
     },
     {
       "id": "crm-setup",
@@ -152,7 +156,8 @@
         "Pipeline-Stufen definieren",
         "Pflichtfelder je Segment"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "NH"
     },
     {
       "id": "crm-import",
@@ -172,7 +177,8 @@
       ],
       "offen": [
         "Wer pflegt die Daten dauerhaft?"
-      ]
+      ],
+      "wer": "NH"
     },
     {
       "id": "crm-selektion",
@@ -189,7 +195,8 @@
         "Gespeicherte Selektionen je Segment",
         "Übergabe an den Versand"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "NH"
     },
     {
       "id": "crm-vorlagen",
@@ -206,7 +213,8 @@
         "Vorlagen je Branche",
         "Mandantentrennung im CRM"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "DS"
     },
     {
       "id": "web-live",
@@ -221,7 +229,8 @@
         "Alle Seiten live, 20 Zielgruppenseiten",
         "GA4 mit Consent Mode v2"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "DS"
     },
     {
       "id": "web-angebot",
@@ -240,7 +249,8 @@
       ],
       "offen": [
         "Preise öffentlich oder erst im Gespräch?"
-      ]
+      ],
+      "wer": "DS"
     },
     {
       "id": "web-bausteine",
@@ -258,7 +268,8 @@
         "Sektionen zu Bausteinen machen",
         "Inhalte datengetrieben pflegen"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "DS"
     },
     {
       "id": "web-baukasten",
@@ -277,7 +288,8 @@
       ],
       "offen": [
         "Wie viel darf der Kunde selbst anpassen?"
-      ]
+      ],
+      "wer": "DS"
     },
     {
       "id": "web-events",
@@ -294,7 +306,8 @@
         "Events definieren",
         "Terminbuchung als Conversion"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "DS"
     },
     {
       "id": "web-messung",
@@ -312,7 +325,8 @@
         "Auswertung je Quelle",
         "Schwellwerte festlegen"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "NH"
     },
     {
       "id": "web-serie",
@@ -330,7 +344,8 @@
         "Serienbetrieb",
         "Qualitätscheck automatisieren"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "DS"
     },
     {
       "id": "kanal-landkarte",
@@ -345,7 +360,8 @@
         "LinkedIn, Mailing, Empfehlung, Events, Ads",
         "Aufwand und Wirkung schätzen"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "KC"
     },
     {
       "id": "kanal-wahl",
@@ -365,7 +381,8 @@
       ],
       "offen": [
         "Welcher wird es?"
-      ]
+      ],
+      "wer": "DS"
     },
     {
       "id": "kanal-erster",
@@ -383,7 +400,8 @@
         "Inhalte vorproduzieren",
         "Anfragen zählen und Quelle erfassen"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "KC"
     },
     {
       "id": "kanal-versand",
@@ -402,7 +420,8 @@
       ],
       "offen": [
         "Welches System?"
-      ]
+      ],
+      "wer": "KC"
     },
     {
       "id": "kanal-mailing",
@@ -420,7 +439,8 @@
         "Strecke je Segment texten",
         "Abmeldung und Impressum sauber"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "KC"
     },
     {
       "id": "kanal-utm",
@@ -437,7 +457,8 @@
         "Namensschema festlegen",
         "Im Team verbindlich machen"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "KC"
     },
     {
       "id": "kanal-mix",
@@ -456,7 +477,13 @@
         "Zweiten und dritten Kanal starten",
         "Monatliches Reporting"
       ],
-      "offen": []
+      "offen": [],
+      "wer": "KC"
     }
-  ]
+  ],
+  "personen": {
+    "DS": "Daniel Ströbel",
+    "NH": "Noah Hermanns",
+    "KC": "Kerstin Christ"
+  }
 }

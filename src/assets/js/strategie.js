@@ -170,6 +170,27 @@
 
   window.addEventListener("resize", schliesse);
 
+  /* --- Graph V2/V3: Hervorhebungsvariante A/B/C ------------------------ */
+  var g2 = wurzel.querySelector("[data-g2]");
+  if (g2) {
+    var vbtns = wurzel.querySelectorAll("[data-variante]");
+    vbtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var wahl = btn.dataset.variante;
+        g2.classList.remove("g2--a", "g2--b", "g2--c");
+        g2.classList.add("g2--" + wahl);
+        vbtns.forEach(function (b) { b.classList.toggle("is-an", b === btn); });
+        history.replaceState(null, "", "#hervorhebung=" + wahl);
+      });
+    });
+
+    var ausHash = (location.hash.match(/hervorhebung=([abc])/) || [])[1];
+    if (ausHash) {
+      var treffer = wurzel.querySelector('[data-variante="' + ausHash + '"]');
+      if (treffer) treffer.click();
+    }
+  }
+
   /* --- Tafel: beim Überfahren zeigen, was ein Schritt braucht ---------- */
   wurzel.querySelectorAll(".ta__chip[data-braucht]").forEach(function (chip) {
     var ids = (chip.dataset.braucht || "").split(" ").filter(Boolean);

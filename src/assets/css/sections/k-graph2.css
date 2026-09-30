@@ -1,6 +1,11 @@
 /* =========================================================
    Graph V2 / V3 – Abschnitte je Ergebnisstufe
-   Eine Struktur, zwei Paletten. V2 dunkel, V3 hell (weiter unten).
+   Eine Struktur, zwei Paletten (V2 dunkel, V3 hell) und drei
+   Hervorhebungsvarianten A/B/C.
+
+   Farbregel: Die Bahnfarbe bedeutet "zählt jetzt". Alles, was
+   noch nicht dran ist, wird grau. Der Status benutzt keine
+   eigene Farbe mehr – sonst kollidiert er mit den Bahnen.
    ========================================================= */
 .g2 {
   --bg: #0d0c0f;
@@ -14,25 +19,27 @@
   --linie: #4f4859;
   --spitze: #6a6276;
   --band: 7%;
-  --fertig-bg: #11201a;
-  --fertig-rand: #2f7f5f;
-  --fertig-text: #8fd6b4;
-  --erledigt-titel: #6f8d80;
-  --erledigt-satz: #4f6560;
-  --wartet-titel: #cfcad7;
-  --wartet-satz: #8b8697;
+  --grau-balken: #3a3441;
   --ring: #56505f;
-  --jetzt: #35c08a;
-  --jetzt-text: #06231a;
-  --jetzt-karte: #16211c;
-  --jetzt-schein: 0 0 2rem -0.7rem #35c08a;
-  --zeichen-haken: #06231a;
-  --station-bg: #17151b;
+  --erledigt-titel: #8a8596;
+  --erledigt-satz: #635f6d;
+  --erledigt-ton: 10%;
+  --wartet-titel: #c9c4d2;
+  --wartet-satz: #837e8f;
+  --jetzt-flaeche: #262231;
+  --jetzt-rand: #ffffff;
+  --jetzt-schein: 0 0 2.5rem -0.8rem rgb(255 255 255 / 0.5);
+  --invers-bg: #ffffff;
+  --invers-text: #15141a;
+  --invers-leise: #55505c;
   --station-nr-bg: #ffffff;
   --station-nr-text: #0d0c0f;
   --tor: #3d3648;
   --schatten: none;
   --karte-schatten: none;
+  --wer-bg: #262231;
+  --wer-text: #b8b3c2;
+  --spotlight-schatten: 0 0.8rem 2rem -0.6rem rgb(0 0 0 / 0.7);
 
   padding: 2rem 0 3rem;
   background-color: var(--bg);
@@ -61,7 +68,7 @@
 .g2__stand-zahl { display: block; color: var(--text); font-size: 2rem; font-weight: 700; line-height: 1; }
 .g2__stand-text { display: block; margin-top: 0.2rem; color: var(--sehr-leise); font-size: 0.75rem; }
 
-/* --- Legende ----------------------------------------------------------- */
+/* --- Legende und Variantenumschalter ---------------------------------- */
 .g2__legende {
   display: flex;
   align-items: center;
@@ -79,7 +86,28 @@
 .g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
 .g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
 
-/* --- Zustandszeichen: dasselbe in Legende und Karte ------------------- */
+.g2__varianten { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: auto; }
+.g2__varianten-titel {
+  color: var(--sehr-leise);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.g2__vbtn {
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  border: 1px solid var(--rand);
+  border-radius: 99rem;
+  color: var(--leise);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.g2__vbtn:hover { border-color: var(--rand-stark); color: var(--text); }
+.g2__vbtn.is-an { background-color: var(--text); border-color: var(--text); color: var(--bg); font-weight: 650; }
+
+/* --- Zustandszeichen --------------------------------------------------- */
 .g2__zeichen {
   flex: none;
   display: inline-flex;
@@ -93,32 +121,28 @@
   font-weight: 900;
   line-height: 1;
 }
-.g2__zeichen--fertig,
-.g2__karte--erreicht .g2__zeichen {
-  background-color: var(--fertig-rand);
-  color: var(--zeichen-haken);
-}
-.g2__zeichen--fertig::after,
+/* In der Legende neutral, auf der Karte in Bahnfarbe */
+.g2__zeichen--fertig { background-color: var(--leise); color: var(--bg); }
+.g2__zeichen--fertig::after { content: "\2713"; }
+.g2__zeichen--jetzt { border: 2px solid var(--text); box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 18%, transparent); }
+.g2__zeichen--wartet { border: 1.5px solid var(--ring); }
+
+.g2__karte--erreicht .g2__zeichen { background-color: var(--f); color: var(--bg); }
 .g2__karte--erreicht .g2__zeichen::after { content: "\2713"; }
-
-.g2__zeichen--jetzt,
 .g2__karte.is-machbar .g2__zeichen {
-  border: 2px solid var(--jetzt);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--jetzt) 22%, transparent);
+  border: 2px solid var(--f);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--f) 26%, transparent);
 }
-
-.g2__zeichen--wartet,
 .g2__karte--offen .g2__zeichen { border: 1.5px solid var(--ring); }
-.g2__leg-hinweis { margin-left: auto; color: var(--sehr-leise); font-size: 0.72rem; font-style: italic; }
 
-/* --- Bühne: feste Leiste + scrollender Plan --------------------------- */
+/* --- Bühne ------------------------------------------------------------- */
 .g2__buehne { display: flex; align-items: flex-start; margin-top: 1.25rem; }
 
 .g2__rail {
   position: relative;
   flex: none;
   width: 12.5rem;
-  margin-top: 8.25rem; /* Höhe der Stationsreihe */
+  margin-top: 8.25rem;
   padding-left: 2rem;
 }
 .g2__rail-bahn {
@@ -139,7 +163,7 @@
 .g2__scroll { flex: 1; overflow-x: auto; padding: 0 2rem 1.5rem 0; }
 .g2__inhalt { position: relative; }
 
-/* --- Stationsreihe über dem Plan -------------------------------------- */
+/* --- Stationen --------------------------------------------------------- */
 .g2__stationsreihe { position: relative; height: 8.25rem; }
 .g2__station {
   position: absolute;
@@ -173,29 +197,27 @@
   border-radius: 99rem;
   overflow: hidden;
 }
-.g2__station-balken i { display: block; height: 100%; background-color: var(--jetzt); border-radius: 99rem; }
+.g2__station-balken i { display: block; height: 100%; background-color: var(--leise); border-radius: 99rem; }
 .g2__station-quote { margin-top: 0.25rem; color: var(--sehr-leise); font-size: 0.65rem; }
-.g2__station.is-erreicht .g2__station-nr { background-color: var(--jetzt); color: var(--jetzt-text); }
 
-/* --- Zeichenfläche ----------------------------------------------------- */
+/* --- Fläche ------------------------------------------------------------ */
 .g2__flaeche { position: relative; }
 
 .g2__tor {
   position: absolute;
-  top: -1rem;
-  bottom: -0.5rem;
+  top: -1.5rem;
+  bottom: -1rem;
   width: 0;
   margin-left: -1px;
   border-left: 2px dashed var(--tor);
   pointer-events: none;
 }
-.g2__tor.is-erreicht { border-left-style: solid; border-left-color: var(--fertig-rand); }
 
 .g2__bahn {
   position: absolute;
   left: -1.5rem;
   right: -1.5rem;
-  border-radius: 0.7rem;
+  border-radius: 0.85rem;
   background-color: color-mix(in srgb, var(--f) var(--band), transparent);
   pointer-events: none;
 }
@@ -210,9 +232,9 @@
 }
 .g2__kante.is-quer { stroke-dasharray: 5 4; }
 .g2__flaeche.is-auswahl .g2__kante { opacity: 0.12; }
-.g2__flaeche.is-auswahl .g2__kante.is-hell { opacity: 1; stroke: #a167e4; stroke-width: 2.5; }
+.g2__flaeche.is-auswahl .g2__kante.is-hell { opacity: 1; stroke: var(--text); stroke-width: 2.5; }
 
-/* --- Karten ------------------------------------------------------------ */
+/* --- Karten: Grundform ------------------------------------------------- */
 .g2__karte {
   position: absolute;
   display: flex;
@@ -222,29 +244,34 @@
   text-align: left;
   background-color: var(--karte);
   border: 1px solid var(--rand);
-  border-left: 4px solid var(--f);
+  border-left: 4px solid var(--grau-balken);
   border-radius: 0.7rem;
   color: var(--text);
   cursor: pointer;
   overflow: hidden;
   box-shadow: var(--karte-schatten);
-  transition: transform 0.16s, border-color 0.16s, background-color 0.16s, opacity 0.2s, box-shadow 0.16s;
+  transition: transform 0.16s, border-color 0.16s, background-color 0.16s, box-shadow 0.16s;
 }
-.g2__karte:hover {
-  transform: translateY(-2px);
-  background-color: var(--karte-hover);
-  border-color: var(--rand-stark);
-  border-left-color: var(--f);
-  box-shadow: var(--schatten);
-}
+.g2__karte:hover { transform: translateY(-2px); border-color: var(--rand-stark); }
 
 .g2__karte-kopf { display: flex; align-items: center; gap: 0.45rem; }
 .g2__karte-titel {
+  flex: 1;
   color: var(--text);
   font-size: 0.95rem;
   font-weight: 650;
   line-height: 1.25;
   letter-spacing: -0.01em;
+}
+.g2__wer {
+  flex: none;
+  padding: 0.1rem 0.32rem;
+  background-color: var(--wer-bg);
+  border-radius: 0.25rem;
+  color: var(--wer-text);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
 .g2__karte-satz {
   color: var(--leise);
@@ -256,46 +283,104 @@
   overflow: hidden;
 }
 
-/* Drei klar getrennte Zustände – Form, nicht nur Farbe:
-   erledigt tritt zurück, jetzt machbar sticht hervor,
-   später gestrichelt umrandet. */
+/* Erledigt: Bahnfarbe bleibt, Karte tritt zurück, Haken */
 .g2__karte--erreicht {
-  background-color: var(--fertig-bg);
-  border-color: var(--fertig-rand);
+  background-color: color-mix(in srgb, var(--f) var(--erledigt-ton), var(--karte));
+  border-color: color-mix(in srgb, var(--f) 22%, var(--rand));
+  border-left-color: var(--f);
 }
 .g2__karte--erreicht .g2__karte-titel { color: var(--erledigt-titel); font-weight: 500; }
 .g2__karte--erreicht .g2__karte-satz { color: var(--erledigt-satz); }
 .g2__karte--erreicht:hover .g2__karte-titel { color: var(--text); }
 
-.g2__karte--offen {
-  border-style: dashed;
-  border-left-style: solid;
-}
-.g2__karte--offen .g2__karte-titel { color: var(--wartet-titel); }
+/* Kommt später: grauer Balken, gestrichelt, blass */
+.g2__karte--offen { border-style: dashed; border-left-style: solid; }
+.g2__karte--offen .g2__karte-titel { color: var(--wartet-titel); font-weight: 600; }
 .g2__karte--offen .g2__karte-satz { color: var(--wartet-satz); }
 
+/* Jetzt machbar: Bahnfarbe am Balken, Hervorhebung je Variante */
 .g2__karte.is-machbar {
   border-style: solid;
-  border-color: var(--jetzt);
-  border-width: 2px;
-  border-left-width: 4px;
-  background-color: var(--jetzt-karte);
-  box-shadow: var(--jetzt-schein);
+  border-left-color: var(--f);
+  border-left-width: 5px;
 }
 .g2__karte.is-machbar .g2__karte-titel { color: var(--text); font-weight: 700; }
 
+
+/* =========================================================
+   Variante A – Grauwert
+   Der nächste Schritt hebt sich durch Helligkeit und einen
+   kräftigen neutralen Rahmen ab, nicht durch eine Farbe.
+   ========================================================= */
+.g2--a .g2__karte.is-machbar {
+  background-color: var(--jetzt-flaeche);
+  border-color: var(--jetzt-rand);
+  border-width: 2px;
+  border-left-width: 5px;
+  box-shadow: var(--jetzt-schein);
+}
+
+/* =========================================================
+   Variante B – Invertiert
+   Der nächste Schritt kehrt Vorder- und Hintergrund um.
+   Maximaler Kontrast, garantiert ohne Farbkonflikt.
+   ========================================================= */
+.g2--b .g2__karte.is-machbar {
+  background-color: var(--invers-bg);
+  border-color: var(--invers-bg);
+  border-left-color: var(--f);
+}
+.g2--b .g2__karte.is-machbar .g2__karte-titel { color: var(--invers-text); }
+.g2--b .g2__karte.is-machbar .g2__karte-satz { color: var(--invers-leise); }
+.g2--b .g2__karte.is-machbar .g2__zeichen {
+  border-color: var(--invers-text);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--invers-text) 16%, transparent);
+}
+.g2--b .g2__karte.is-machbar .g2__wer {
+  background-color: color-mix(in srgb, var(--invers-text) 12%, transparent);
+  color: var(--invers-text);
+}
+
+/* =========================================================
+   Variante C – Spotlight
+   Nicht der nächste Schritt wird lauter, alles andere wird
+   leiser: nur der aktive Schritt hat überhaupt eine Fläche.
+   ========================================================= */
+.g2--c .g2__karte {
+  background-color: transparent;
+  border-color: color-mix(in srgb, var(--rand) 60%, transparent);
+}
+.g2--c .g2__karte--erreicht {
+  background-color: transparent;
+  border-color: color-mix(in srgb, var(--f) 18%, transparent);
+}
+.g2--c .g2__karte--offen .g2__karte-titel { color: var(--sehr-leise); font-weight: 500; }
+.g2--c .g2__karte--offen .g2__karte-satz { color: color-mix(in srgb, var(--sehr-leise) 70%, transparent); }
+.g2--c .g2__karte.is-machbar {
+  background-color: var(--karte);
+  border-color: var(--rand-stark);
+  border-width: 1px;
+  border-left-width: 6px;
+  transform: scale(1.02);
+  box-shadow: var(--spotlight-schatten);
+  z-index: 2;
+}
+.g2--c .g2__karte.is-machbar:hover { transform: scale(1.02) translateY(-2px); }
+
+/* --- Auswahl (Kette) --------------------------------------------------- */
 .g2__flaeche.is-auswahl .g2__karte { opacity: 0.18; }
 .g2__flaeche.is-auswahl .g2__karte.is-vor,
 .g2__flaeche.is-auswahl .g2__karte.is-nach { opacity: 1; }
 .g2__flaeche.is-auswahl .g2__karte.is-gewaehlt {
   opacity: 1;
-  border-color: #a167e4;
-  box-shadow: 0 0 0 2px #a167e4;
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--text);
 }
 
 @media (max-width: 991px) {
-  .g2__kopf, .g2__legende { padding-left: 1rem; padding-right: 1rem; }
+  .g2__kopf { padding-left: 1rem; padding-right: 1rem; }
   .g2__legende { margin-left: 1rem; margin-right: 1rem; }
+  .g2__varianten { margin-left: 0; }
   .g2__rail { display: none; }
   .g2__scroll { padding-left: 1rem; padding-right: 1rem; }
 }
@@ -303,43 +388,43 @@
 
 /* =========================================================
    V3 – helle Variante
-   Kein Farbumkehr-Trick: eigene Tonwerte, Tiefe über Schatten
-   statt über Leuchten, kräftigere Linien fürs Papierweiß.
+   Eigene Tonwerte, Tiefe über Schatten statt über Leuchten.
    ========================================================= */
 .k--graph3 .g2 {
   --bg: #f7f7f5;
   --karte: #ffffff;
   --karte-hover: #ffffff;
   --rand: #e2e0dc;
-  --rand-stark: #cfccc6;
+  --rand-stark: #c4c0b9;
   --text: #15141a;
   --leise: #5d5866;
   --sehr-leise: #8b8794;
   --linie: #a9a3b3;
   --spitze: #8d8797;
-  --band: 10%;
-  --fertig-bg: #f0f5f2;
-  --fertig-rand: #9cc4b1;
-  --fertig-text: #1c6c4c;
-  --erledigt-titel: #7d938a;
-  --erledigt-satz: #9db0a6;
+  --band: 12%;
+  --grau-balken: #cfccc6;
+  --ring: #bdb8c4;
+  --erledigt-titel: #8d8895;
+  --erledigt-satz: #a9a4b0;
+  --erledigt-ton: 14%;
   --wartet-titel: #3a3642;
   --wartet-satz: #77727f;
-  --ring: #bdb8c4;
-  --jetzt: #12855c;
-  --jetzt-text: #ffffff;
-  --jetzt-karte: #ffffff;
-  --jetzt-schein: 0 0.5rem 1.2rem -0.4rem rgb(18 133 92 / 0.4);
-  --zeichen-haken: #ffffff;
-  --station-bg: #ffffff;
+  /* "grau hinterlegt" – der aktive Schritt ist der einzige mit Fläche */
+  --jetzt-flaeche: #e7e6e1;
+  --jetzt-rand: #15141a;
+  --jetzt-schein: 0 0.7rem 1.6rem -0.6rem rgb(21 20 26 / 0.28);
+  --invers-bg: #15141a;
+  --invers-text: #ffffff;
+  --invers-leise: #b9b4c0;
   --station-nr-bg: #15141a;
   --station-nr-text: #ffffff;
   --tor: #cfccc6;
   --schatten: 0 0.6rem 1.4rem rgb(21 20 26 / 0.1);
   --karte-schatten: 0 1px 2px rgb(21 20 26 / 0.05);
+  --spotlight-schatten: 0 0.8rem 1.8rem -0.5rem rgb(21 20 26 / 0.22);
+  --wer-bg: #eceae6;
+  --wer-text: #5d5866;
 }
 .k--graph3 .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
 .k--graph3 .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
-.k--graph3 .g2__karte--erreicht .g2__karte-satz { color: #4a7a64; }
-.k--graph3 .g2__flaeche.is-auswahl .g2__kante.is-hell { stroke: #6d3fb0; }
-.k--graph3 .g2__flaeche.is-auswahl .g2__karte.is-gewaehlt { border-color: #6d3fb0; box-shadow: 0 0 0 2px #6d3fb0; }
+.k--graph3 .g2__station-balken i { background-color: #15141a; }

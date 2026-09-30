@@ -77,6 +77,8 @@
 .k-pop__zu:hover { background-color: #221f27; }
 
 .k-detail[hidden] { display: none; }
+
+.k-detail__kopf { display: flex; align-items: center; gap: 0.6rem; padding-right: 2rem; }
 .k-detail__strang {
   display: inline-flex;
   align-items: center;
@@ -94,60 +96,51 @@
   border-radius: 99rem;
   background-color: var(--f, #fff);
 }
-.k-detail__titel { margin-top: 0.5rem; padding-right: 1.5rem; font-size: 1.15rem; font-weight: 600; line-height: 1.25; color: #fff; }
-.k-detail__ergebnis { margin-top: 0.4rem; color: #b6b2bd; font-size: 0.85rem; line-height: 1.5; }
-
-.k-detail__fakten {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.6rem;
-  margin: 1rem 0;
-  padding: 0.7rem 0;
-  border-top: 1px solid #2b2731;
-  border-bottom: 1px solid #2b2731;
+.k-detail__wer {
+  margin-left: auto;
+  padding: 0.15rem 0.4rem;
+  background-color: #262231;
+  border-radius: 0.25rem;
+  color: #b8b3c2;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
-.k-detail__fakten dt { color: #6c6875; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.k-detail__fakten dd { margin: 0.2rem 0 0; color: #fff; font-size: 0.82rem; font-weight: 500; }
 
-.k-detail__block { margin-top: 1.4rem; }
+.k-detail__titel {
+  margin-top: 0.55rem;
+  padding-right: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.k-detail__block { margin-top: 1.25rem; }
 .k-detail__block h3 {
   color: #8b8794;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.k-detail__block ul { margin: 0.6rem 0 0; padding-left: 1.1rem; display: flex; flex-flow: column; gap: 0.35rem; }
+.k-detail__block p { margin-top: 0.35rem; color: #c6c2ce; font-size: 0.88rem; line-height: 1.5; }
+.k-detail__block ul { margin: 0.5rem 0 0; padding-left: 1.1rem; display: flex; flex-flow: column; gap: 0.35rem; }
 .k-detail__block li { color: #b6b2bd; font-size: 0.88rem; line-height: 1.5; }
+
+/* Das Ergebnis ist der Zweck des Schritts - abgesetzt hervorheben */
+.k-detail__block--ziel {
+  margin-top: 1.25rem;
+  padding: 0.85rem 0.95rem;
+  background-color: #1b1822;
+  border-left: 3px solid #a167e4;
+  border-radius: 0.4rem;
+}
+.k-detail__block--ziel p { color: #fff; }
+
 .k-detail__offen { list-style: none; padding-left: 0; }
 .k-detail__offen li { position: relative; padding-left: 1.2rem; }
 .k-detail__offen li::before { content: "?"; position: absolute; left: 0; color: #a167e4; font-weight: 700; }
-
-.k-chips { display: flex; flex-flow: column; gap: 0.4rem; margin-top: 0.6rem; align-items: flex-start; }
-.k-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  max-width: 100%;
-  padding: 0.45rem 0.7rem;
-  text-align: left;
-  background-color: #1c1920;
-  border: 1px solid #2b2731;
-  border-radius: 0.5rem;
-  color: #e8e6ea;
-  font-size: 0.8rem;
-  line-height: 1.3;
-  cursor: pointer;
-}
-.k-chip::before {
-  content: "";
-  flex: none;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 99rem;
-  background-color: var(--f, #fff);
-}
-.k-chip:hover { border-color: var(--f, #fff); }
 
 /* =========================================================
    Übersichtsseite (/entwicklung/strategie-levels)

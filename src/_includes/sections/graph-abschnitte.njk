@@ -3,7 +3,7 @@
 {%- set g = strategieGraph -%}
 {%- set G = g.graph2 -%}
 
-<div class="g2">
+<div class="g2 g2--a" data-g2>
 
   <header class="g2__kopf">
     <div class="g2__kopf-text">
@@ -26,7 +26,12 @@
     <span class="g2__leg"><i class="g2__zeichen g2__zeichen--wartet"></i>kommt später</span>
     <span class="g2__leg g2__leg--pfeil">muss vorher fertig sein</span>
     <span class="g2__leg g2__leg--quer">Bahn wartet auf andere Bahn</span>
-    <span class="g2__leg-hinweis">Karte anklicken für Details · seitlich scrollbar</span>
+    <span class="g2__varianten" role="group" aria-label="Hervorhebung">
+      <span class="g2__varianten-titel">Hervorhebung</span>
+      <button class="g2__vbtn is-an" type="button" data-variante="a">A Grauwert</button>
+      <button class="g2__vbtn" type="button" data-variante="b">B Invertiert</button>
+      <button class="g2__vbtn" type="button" data-variante="c">C Spotlight</button>
+    </span>
   </div>
 
   <div class="g2__buehne">
@@ -62,8 +67,9 @@
           <div class="g2__tor{% if st.erreicht %} is-erreicht{% endif %}" style="left: {{ st.x }}px"></div>
         {% endfor %}
 
+        {# Das Band greift oben und unten über die Karten hinaus #}
         {% for spur in G.spuren %}
-          <div class="g2__bahn" style="top: {{ spur.y }}px; height: {{ spur.hoehe }}px; --f: {{ spur.farbe }}"></div>
+          <div class="g2__bahn" style="top: {{ spur.y - 16 }}px; height: {{ spur.hoehe + 32 }}px; --f: {{ spur.farbe }}"></div>
         {% endfor %}
 
         <svg class="g2__kanten" width="{{ G.breite }}" height="{{ G.hoehe }}" aria-hidden="true">
@@ -90,6 +96,7 @@
             <span class="g2__karte-kopf">
               <i class="g2__zeichen" aria-hidden="true"></i>
               <span class="g2__karte-titel">{{ s.titel }}</span>
+              {% if s.wer %}<span class="g2__wer" title="{{ s.werName }}">{{ s.wer }}</span>{% endif %}
             </span>
             <span class="g2__karte-satz">{{ s.ergebnis }}</span>
           </button>

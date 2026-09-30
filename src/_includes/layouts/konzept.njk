@@ -17,56 +17,44 @@ layout: layouts/base.njk
 
   {{ content | safe }}
 
-  {# Details als Popover direkt am angeklickten Element, nicht am Bildschirmrand #}
+  {# Detail-Popover: nur was nicht schon im Bild steht –
+     Aufwand, Inhalte, Ergebnis. Abhängigkeiten sieht man an den Pfeilen. #}
   <div class="k-pop" data-pop hidden role="dialog" aria-label="Schrittdetails">
     <button class="k-pop__zu" type="button" data-pop-zu aria-label="Schließen">&times;</button>
     {% for s in g.schritte %}
       <article class="k-detail" data-detail="{{ s.id }}" hidden>
-        <span class="k-detail__strang" style="--f: {{ s.farbe }}">{{ s.strangLabel }}</span>
-        <h2 class="k-detail__titel">{{ s.titel }}</h2>
-        <p class="k-detail__ergebnis">{{ s.ergebnis }}</p>
 
-        <dl class="k-detail__fakten">
-          <div><dt>Status</dt><dd>{% if s.status == "erreicht" %}Erledigt{% elif s.machbar %}Jetzt machbar{% else %}Blockiert{% endif %}</dd></div>
-          <div><dt>Ergebnisstufe</dt><dd>{{ s.meilensteinNr }} · {{ s.meilensteinTitel }}</dd></div>
-          <div><dt>Aufwand</dt><dd>{{ s.aufwandLabel }}</dd></div>
-        </dl>
+        <div class="k-detail__kopf">
+          <span class="k-detail__strang" style="--f: {{ s.farbe }}">{{ s.strangLabel }}</span>
+          {% if s.wer %}<span class="k-detail__wer" title="{{ s.werName }}">{{ s.wer }}</span>{% endif %}
+        </div>
+
+        <h2 class="k-detail__titel">{{ s.titel }}</h2>
+
+        <div class="k-detail__block">
+          <h3>Aufwand</h3>
+          <p>{{ s.aufwandLabel }}</p>
+        </div>
 
         {% if s.details.length %}
-          <section class="k-detail__block">
+          <div class="k-detail__block">
             <h3>Inhalte</h3>
             <ul>{% for d in s.details %}<li>{{ d }}</li>{% endfor %}</ul>
-          </section>
+          </div>
         {% endif %}
 
-        {% if s.blockiertListe.length %}
-          <section class="k-detail__block">
-            <h3>Wartet auf</h3>
-            <div class="k-chips">
-              {% for b in s.blockiertListe %}
-                <button class="k-chip" type="button" data-schritt="{{ b.id }}" style="--f: {{ b.farbe }}">{{ b.strangKurz }} · {{ b.titel }}</button>
-              {% endfor %}
-            </div>
-          </section>
-        {% endif %}
-
-        {% if s.nachfolgerListe.length %}
-          <section class="k-detail__block">
-            <h3>Schaltet frei</h3>
-            <div class="k-chips">
-              {% for n in s.nachfolgerListe %}
-                <button class="k-chip" type="button" data-schritt="{{ n.id }}" style="--f: {{ n.farbe }}">{{ n.strangKurz }} · {{ n.titel }}</button>
-              {% endfor %}
-            </div>
-          </section>
-        {% endif %}
+        <div class="k-detail__block k-detail__block--ziel">
+          <h3>Ergebnis</h3>
+          <p>{{ s.ergebnis }}</p>
+        </div>
 
         {% if s.offen.length %}
-          <section class="k-detail__block">
+          <div class="k-detail__block">
             <h3>Offen</h3>
             <ul class="k-detail__offen">{% for o in s.offen %}<li>{{ o }}</li>{% endfor %}</ul>
-          </section>
+          </div>
         {% endif %}
+
       </article>
     {% endfor %}
   </div>
