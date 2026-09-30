@@ -67,14 +67,69 @@
     if (reset) reset.hidden = false;
   }
 
-  /* --- Liniennetz: Umstiege eines Halts hervorheben -------------------- */
+  /* --- Liniennetz: die Route zu einem Halt zeigen ----------------------
+     Wie eine Verbindungsauskunft: alles, was nicht zu diesem Halt führt,
+     tritt zurück. Übrig bleiben die nötigen Halte, die Linienabschnitte
+     dorthin und die Umstiege zwischen den Bahnen. */
+  var metroPlan = wurzel.querySelector(".me__plan");
+  var routeLeiste = wurzel.querySelector("[data-route-leiste]");
+  var routeText = wurzel.querySelector("[data-route-text]");
+
+  function metroZuruecksetzen() {
+    if (!metroPlan) return;
+    metroPlan.classList.remove("is-route");
+    metroPlan.querySelectorAll(".is-route-teil, .is-gewaehlt, .is-hell").forEach(function (el) {
+      el.classList.remove("is-route-teil", "is-gewaehlt", "is-hell");
+    });
+    if (routeLeiste) routeLeiste.hidden = true;
+  }
+
   function metroMarkieren(id) {
-    wurzel.querySelectorAll(".me__quer").forEach(function (pfad) {
-      pfad.classList.toggle("is-hell", pfad.dataset.von === id || pfad.dataset.nach === id);
+    if (!metroPlan) return;
+    metroZuruecksetzen();
+
+    var ziel = metroPlan.querySelector('[data-halt="' + id + '"]');
+    if (!ziel) return;
+
+    var route = {};
+    route[id] = true;
+    Object.keys(sammle(id, "braucht")).forEach(function (k) { route[k] = true; });
+
+    metroPlan.classList.add("is-route");
+    ziel.classList.add("is-gewaehlt");
+
+    var offen = 0;
+    var bahnen = {};
+    metroPlan.querySelectorAll("[data-halt]").forEach(function (halt) {
+      if (!route[halt.dataset.halt]) return;
+      halt.classList.add("is-route-teil");
+      if (!halt.classList.contains("me__halt--erreicht")) offen++;
+      var bahn = halt.style.getPropertyValue("--f");
+      if (bahn) bahnen[bahn] = true;
     });
-    wurzel.querySelectorAll("[data-halt]").forEach(function (halt) {
-      halt.classList.toggle("is-gewaehlt", halt.dataset.halt === id);
+
+    metroPlan.querySelectorAll("[data-bis]").forEach(function (seg) {
+      if (route[seg.dataset.bis]) seg.classList.add("is-route-teil");
     });
+
+    var umstiege = 0;
+    metroPlan.querySelectorAll(".me__quer").forEach(function (q) {
+      if (route[q.dataset.von] && route[q.dataset.nach]) {
+        q.classList.add("is-route-teil");
+        umstiege++;
+      }
+    });
+
+    if (routeLeiste && routeText) {
+      var gesamt = Object.keys(route).length;
+      var titel = ziel.querySelector(".me__halt-label");
+      routeText.textContent =
+        "Weg zu „" + (titel ? titel.textContent.trim() : id) + "“: " +
+        gesamt + " Schritte über " + Object.keys(bahnen).length + " Bahnen, " +
+        offen + " davon noch offen" +
+        (umstiege ? ", " + umstiege + " Umstieg" + (umstiege > 1 ? "e" : "") : "") + ".";
+      routeLeiste.hidden = false;
+    }
   }
 
   /* --- Detail-Popover am angeklickten Element -------------------------- */
@@ -149,6 +204,7 @@
     var kk = e.target.closest("[data-kritisch]");
     if (kk) { kritischUmschalten(kk); return; }
     if (e.target.closest("[data-graph-reset]")) { graphZuruecksetzen(); schliesse(); return; }
+    if (e.target.closest("[data-metro-reset]")) { metroZuruecksetzen(); schliesse(); return; }
 
     var ausloeser = e.target.closest("[data-schritt]");
     if (ausloeser) {

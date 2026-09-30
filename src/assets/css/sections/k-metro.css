@@ -61,6 +61,31 @@
 .me__muster--dick { width: 1.6rem; height: 9px; background-color: #6b6b6b; border-radius: 99rem; }
 .me__muster--duenn { width: 1.6rem; height: 3px; background-color: #6b6b6b; border-radius: 99rem; opacity: 0.55; }
 
+/* --- Routenleiste ------------------------------------------------------ */
+.me__route {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 2rem 0;
+  padding: 0.65rem 1.15rem;
+  background-color: #16141a;
+  border-radius: 0.7rem;
+}
+.me__route[hidden] { display: none; }
+.me__route-text { color: #fff; font-size: 0.85rem; }
+.me__route-zu {
+  margin-left: auto;
+  padding: 0.3rem 0.75rem;
+  background: transparent;
+  border: 1px solid #55505c;
+  border-radius: 99rem;
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.me__route-zu:hover { background-color: #2a2730; }
+
 /* --- Plan -------------------------------------------------------------- */
 .me__scroll { overflow-x: auto; padding: 1.25rem 2rem 1.5rem; }
 .me__plan { position: relative; }
@@ -172,6 +197,33 @@
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--f) 34%, transparent);
 }
 .me__halt.is-gewaehlt .me__halt-label { color: #16141a; font-weight: 700; }
+
+/* --- Routenmodus: was nicht zum Ziel führt, tritt zurück ------------- */
+.me__plan.is-route .me__halt { opacity: 0.18; }
+.me__plan.is-route .me__halt.is-route-teil { opacity: 1; }
+.me__plan.is-route .me__station,
+.me__plan.is-route .me__stationslinie,
+.me__plan.is-route .me__linienname { opacity: 0.28; }
+
+.me__plan.is-route .me__linie { opacity: 0.1; }
+.me__plan.is-route .me__linie.is-route-teil { opacity: 1; }
+/* Ein noch offener Abschnitt der Route bleibt dünner als ein gegangener,
+   wird aber kräftig genug, dass die Route durchgehend lesbar ist. */
+.me__plan.is-route .me__linie--offen.is-route-teil { stroke-width: 5; }
+
+.me__plan.is-route .me__quer { opacity: 0.08; }
+.me__plan.is-route .me__quer.is-route-teil {
+  opacity: 1;
+  stroke: #16141a;
+  stroke-width: 2.6;
+  stroke-dasharray: none;
+}
+
+.me__halt.is-gewaehlt .me__halt-label { color: #16141a; font-weight: 700; }
+.me__plan.is-route .me__halt.is-gewaehlt .me__halt-punkt {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--f) 32%, transparent);
+}
 
 /* --- Stationen = Ergebnisstufen, eigene Zone oben -------------------- */
 .me__station {

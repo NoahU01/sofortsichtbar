@@ -246,13 +246,29 @@ const metroLinien = straenge.map((strang, spur) => {
     .map((s) => metroPos.get(s.id))
     .filter(Boolean)
     .sort((a, b) => a.x - b.x);
-  // Bis hierher sind wir gekommen: letzter Halt, der erledigt oder frei ist.
-  // Links davon zeichnen wir die Linie dick, rechts davon dünn.
-  const erreicht = strang.schritte
-    .filter((s) => s.status === "erreicht" || s.machbar)
-    .map((s) => metroPos.get(s.id))
-    .filter(Boolean);
-  const grenzeX = erreicht.length ? Math.max(...erreicht.map((p) => p.x)) : M.links / 2;
+  /* Jeder Abschnitt gehört zu dem Halt, auf den er zuläuft: Ist dieser Halt
+     erledigt oder gerade dran, wird der Abschnitt davor dick gezeichnet,
+     sonst dünn. Dadurch können dicke Stücke auch mitten in der Linie
+     auftauchen, wenn weiter hinten etwas fertig ist. */
+  const halteMitStatus = strang.schritte
+    .map((s) => ({ s, p: metroPos.get(s.id) }))
+    .filter((h) => h.p)
+    .sort((a, b) => a.p.x - b.p.x);
+
+  const startX = M.links / 2;
+  const endeX = metroBreite - M.rechts / 2;
+  const abschnitte = [];
+  let cursor = startX;
+  halteMitStatus.forEach((h) => {
+    abschnitte.push({
+      pfad: `M ${cursor} ${y} L ${h.p.x} ${y}`,
+      dick: h.s.status === "erreicht" || h.s.machbar,
+      bis: h.s.id,
+    });
+    cursor = h.p.x;
+  });
+  // Hinter dem letzten Halt liegt kein erreichter Punkt mehr
+  abschnitte.push({ pfad: `M ${cursor} ${y} L ${endeX} ${y}`, dick: false, bis: null });
 
   return {
     id: strang.id,
@@ -261,10 +277,8 @@ const metroLinien = straenge.map((strang, spur) => {
     farbe: strang.farbe,
     y,
     fortschritt: strang.fortschritt,
-    pfad: `M ${M.links / 2} ${y} L ${metroBreite - M.rechts / 2} ${y}`,
-    grenzeX,
-    pfadGegangen: `M ${M.links / 2} ${y} L ${grenzeX} ${y}`,
-    pfadOffen: `M ${grenzeX} ${y} L ${metroBreite - M.rechts / 2} ${y}`,
+    pfad: `M ${startX} ${y} L ${endeX} ${y}`,
+    abschnitte,
     halte: punkte,
   };
 });

@@ -11,8 +11,8 @@
       Die <strong>nummerierten Stationen</strong> sind Ergebnisstufen — dort muss jede Linie
       angekommen sein, bevor es weitergeht.
       {% if metroV2 %}
-        Die Linie ist <strong>dick, solange der Weg hinter uns liegt</strong>, und wird dünn,
-        sobald er noch vor uns liegt.
+        Ein Abschnitt ist <strong>dick, wenn der Halt an seinem Ende erledigt ist oder gerade
+        ansteht</strong> — sonst dünn. Auf einen späteren Halt klicken zeigt die Route dorthin.
       {% endif %}
     </p>
   </div>
@@ -30,13 +30,20 @@
       <span class="me__leg-halt"><i class="me__muster me__muster--jetzt"></i>jetzt machbar</span>
       <span class="me__leg-halt"><i class="me__muster me__muster--wartet"></i>wartet noch</span>
       {% if metroV2 %}
-        <span class="me__leg-halt"><i class="me__muster me__muster--dick"></i>schon gegangen</span>
-        <span class="me__leg-halt"><i class="me__muster me__muster--duenn"></i>liegt noch vor uns</span>
+        <span class="me__leg-halt"><i class="me__muster me__muster--dick"></i>Abschnitt erledigt oder dran</span>
+        <span class="me__leg-halt"><i class="me__muster me__muster--duenn"></i>noch offen</span>
       {% else %}
         <span class="me__leg-halt"><i class="me__muster me__muster--bogen"></i>wartet auf andere Linie</span>
       {% endif %}
     </div>
   </div>
+
+  {% if metroV2 %}
+    <div class="me__route" data-route-leiste hidden>
+      <span class="me__route-text" data-route-text></span>
+      <button class="me__route-zu" type="button" data-metro-reset>Ganzes Netz zeigen</button>
+    </div>
+  {% endif %}
 
   <div class="me__scroll">
     <div class="me__plan" style="width: {{ g.metro.breite }}px; height: {{ g.metro.hoehe }}px">
@@ -54,8 +61,11 @@
 
         {% if metroV2 %}
           {% for l in g.metro.linien %}
-            <path class="me__linie me__linie--offen" d="{{ l.pfadOffen }}" style="--f: {{ l.farbe }}" />
-            <path class="me__linie me__linie--gegangen" d="{{ l.pfadGegangen }}" style="--f: {{ l.farbe }}" />
+            {% for a in l.abschnitte %}
+              <path class="me__linie {{ "me__linie--gegangen" if a.dick else "me__linie--offen" }}"
+                    {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
+                    d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
+            {% endfor %}
           {% endfor %}
         {% else %}
           {% for l in g.metro.linien %}
@@ -85,6 +95,9 @@
       {% for s in g.schritte %}
         <button class="me__halt me__halt--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
                 type="button" data-schritt="{{ s.id }}" data-halt="{{ s.id }}"
+                data-knoten="{{ s.id }}"
+                data-braucht="{{ s.braucht | join(" ") }}"
+                data-nachfolger="{{ s.nachfolger | join(" ") }}"
                 style="left: {{ s.mx }}px; top: {{ s.my }}px; --f: {{ s.farbe }}">
           <span class="me__halt-punkt"></span>
           <span class="me__halt-label">{{ s.titel }}</span>
