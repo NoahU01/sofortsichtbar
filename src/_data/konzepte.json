@@ -1,33 +1,23 @@
 [
   {
-    "id": "fokus",
-    "name": "Fokus",
-    "href": "/entwicklung/strategie/fokus",
-    "claim": "Nur was jetzt zählt",
-    "frage": "Wo stehen wir, und was ist als Nächstes dran?",
-    "idee": "Radikale Reduktion. Der Bildschirm zeigt einen Meilenstein und die Handvoll Schritte, die wirklich sofort machbar sind. Alles andere ist weggeräumt, bis man es holt. Heller Auftritt, große Typo, viel Weißraum.",
-    "gutFuer": "Den Montagmorgen. Man öffnet die Seite und weiß in drei Sekunden, woran zu arbeiten ist.",
-    "schwaeche": "Zeigt bewusst nicht das große Ganze – Zusammenhänge sieht man hier nur ausschnittweise."
+    "id": "tafel",
+    "name": "Tafel",
+    "href": "/entwicklung/strategie/tafel",
+    "claim": "Was jetzt zu tun ist – mit dem ganzen Plan darunter",
+    "frage": "Woran arbeiten wir heute?",
+    "idee": "Oben groß und unübersehbar die Schritte, die wirklich frei sind. Darunter der komplette Plan in vier Spalten, immer sichtbar. Fährt man über einen wartenden Schritt, leuchtet auf, was ihm noch fehlt.",
+    "gutFuer": "Den Alltag und die Teamrunde. Man sieht die Anweisung und den Kontext gleichzeitig, ohne zu klicken.",
+    "schwaeche": "Zeigt Abhängigkeiten nur beim Überfahren, nicht als durchgehendes Bild."
   },
   {
-    "id": "graph",
-    "name": "Graph",
-    "href": "/entwicklung/strategie/graph",
-    "claim": "Der echte Abhängigkeitsbaum",
-    "frage": "Was hängt woran, und was blockiert was?",
-    "idee": "Kein Raster, sondern ein gerichteter Graph: Spalten ergeben sich aus der Abhängigkeitstiefe, drei Spuren für die Stränge, Linien für jede Abhängigkeit. Klick auf einen Knoten färbt die ganze Kette davor und danach ein, der Rest tritt zurück.",
-    "gutFuer": "Zu verstehen, warum etwas noch nicht geht – und was man freischaltet, wenn man einen Schritt erledigt.",
-    "schwaeche": "Braucht Breite und etwas Einarbeitung. Nichts für den schnellen Blick."
-  },
-  {
-    "id": "cockpit",
-    "name": "Cockpit",
-    "href": "/entwicklung/strategie/cockpit",
-    "claim": "Arbeitsoberfläche statt Schaubild",
-    "frage": "Was kann ich anfassen, was liegt auf Halde?",
-    "idee": "Wie ein modernes Projektwerkzeug: oben der Fortschritt je Strang, darunter drei Spalten – sofort machbar, blockiert, erledigt. Jede blockierte Karte nennt den Grund und verlinkt darauf. Filter je Strang.",
-    "gutFuer": "Das tägliche Arbeiten und Priorisieren. Die einzige Variante, die wie Software wirkt, nicht wie eine Grafik.",
-    "schwaeche": "Die zeitliche Abfolge und das Zielbild treten in den Hintergrund."
+    "id": "stufen",
+    "name": "Stufenplan",
+    "href": "/entwicklung/strategie/stufen",
+    "claim": "Vier Tore, die sich nacheinander öffnen",
+    "frage": "Wie weit sind wir gekommen?",
+    "idee": "Wie die Fortschrittsanzeige in einem Spiel. Jede Ergebnisstufe ist ein Block mit Schritten als runden Marken; darunter ein Tor mit Fortschrittsbalken. Die aktuelle Stufe leuchtet, spätere sind abgedunkelt. Am Ende steht das Zielbild.",
+    "gutFuer": "Den schnellen Stand und die Motivation. Ohne Erklärung verständlich, auch für Leute außerhalb des Projekts.",
+    "schwaeche": "Einzelne Abhängigkeiten zwischen Schritten sind nicht sichtbar, nur die Stufenlogik."
   },
   {
     "id": "metro",
@@ -35,8 +25,18 @@
     "href": "/entwicklung/strategie/metro",
     "claim": "Drei Linien, gemeinsame Stationen",
     "frage": "Wie läuft das über die Zeit zusammen?",
-    "idee": "Als U-Bahn-Plan gedacht: jeder Strang eine Linie, jeder Schritt ein Halt, und dort wo alle Linien eine Ergebnisstufe erreichen, liegt eine große Station. Umsteigebögen zeigen, wo ein Strang auf einen anderen wartet.",
-    "gutFuer": "Den Überblick und das Erklären gegenüber Dritten. Die Variante, die man ausdrucken und an die Wand hängen will.",
-    "schwaeche": "Schön, aber weniger präzise als der Graph – nicht jede Abhängigkeit ist eingezeichnet."
+    "idee": "Als U-Bahn-Plan: jeder Strang eine Linie, jeder Schritt ein Halt, jede Ergebnisstufe eine Station, an der alle Linien ankommen müssen. Gestrichelte Bögen mit Pfeil zeigen, wo eine Linie auf eine andere wartet.",
+    "gutFuer": "Den Überblick und das Erklären gegenüber Dritten. Die Variante, die man ausdruckt und aufhängt.",
+    "schwaeche": "Braucht viel Breite, und es sind nur die strangübergreifenden Abhängigkeiten eingezeichnet."
+  },
+  {
+    "id": "graph",
+    "name": "Graph",
+    "href": "/entwicklung/strategie/graph",
+    "claim": "Jede einzelne Abhängigkeit, mit Pfeilrichtung",
+    "frage": "Was genau blockiert was?",
+    "idee": "Der vollständige Abhängigkeitsbaum. Spalten nach Tiefe, Pfeile für jede Bedingung, Klick auf einen Knoten färbt die ganze Kette davor und danach. Ein Schalter zeigt den längsten Weg — er bestimmt die Mindestdauer.",
+    "gutFuer": "Planung und Diskussion, wenn es um Reihenfolge und Engpässe geht.",
+    "schwaeche": "Die dichteste Darstellung. Man muss sich kurz einlesen, auch mit Legende."
   }
 ]

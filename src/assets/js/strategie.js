@@ -8,8 +8,7 @@
   var wurzel = document.querySelector(".k");
   if (!wurzel) return;
 
-  var drawer = wurzel.querySelector("[data-drawer]");
-  var schatten = wurzel.querySelector("[data-schatten]");
+  var pop = wurzel.querySelector("[data-pop]");
   var details = wurzel.querySelectorAll("[data-detail]");
   var graphFlaeche = wurzel.querySelector(".gr__flaeche");
 
@@ -47,6 +46,9 @@
 
   function graphMarkieren(id) {
     if (!graphFlaeche || !knoten[id]) return;
+    graphFlaeche.classList.remove("zeigt-kritisch");
+    var kk = wurzel.querySelector("[data-kritisch]");
+    if (kk) { kk.classList.remove("is-an"); kk.textContent = "Längsten Weg zeigen"; }
     graphZuruecksetzen();
     graphFlaeche.classList.add("is-auswahl");
 
@@ -75,16 +77,37 @@
     });
   }
 
-  /* --- Detailschublade ------------------------------------------------- */
+  /* --- Detail-Popover am angeklickten Element -------------------------- */
   function schliesse() {
-    if (!drawer) return;
-    drawer.hidden = true;
-    if (schatten) schatten.hidden = true;
-    drawer.classList.remove("is-offen");
+    if (!pop) return;
+    pop.hidden = true;
+    pop.classList.remove("is-offen");
+    wurzel.querySelectorAll(".is-offen-quelle").forEach(function (el) {
+      el.classList.remove("is-offen-quelle");
+    });
   }
 
-  function zeigeDetail(id) {
-    if (!drawer) return;
+  // Neben den Auslöser legen und dabei im Sichtfeld halten
+  function platziere(ausloeser) {
+    var r = ausloeser.getBoundingClientRect();
+    var breite = pop.offsetWidth;
+    var hoehe = pop.offsetHeight;
+    var luft = 10;
+
+    var links = r.right + luft;
+    if (links + breite > window.innerWidth - luft) links = r.left - breite - luft;
+    if (links < luft) links = Math.max(luft, (window.innerWidth - breite) / 2);
+
+    var oben = r.top;
+    if (oben + hoehe > window.innerHeight - luft) oben = window.innerHeight - hoehe - luft;
+    if (oben < luft) oben = luft;
+
+    pop.style.left = Math.round(links) + "px";
+    pop.style.top = Math.round(oben) + "px";
+  }
+
+  function zeigeDetail(id, ausloeser) {
+    if (!pop) return;
     var treffer = false;
     details.forEach(function (el) {
       var an = el.dataset.detail === id;
@@ -93,55 +116,74 @@
     });
     if (!treffer) return;
 
-    drawer.hidden = false;
-    if (schatten) schatten.hidden = false;
-    drawer.scrollTop = 0;
-    // Erst im nächsten Frame, damit die Einblend-Animation greift
-    requestAnimationFrame(function () { drawer.classList.add("is-offen"); });
+    wurzel.querySelectorAll(".is-offen-quelle").forEach(function (el) {
+      el.classList.remove("is-offen-quelle");
+    });
+    if (ausloeser) ausloeser.classList.add("is-offen-quelle");
+
+    pop.hidden = false;
+    pop.scrollTop = 0;
+    // Ohne Auslöser (Sprung über einen Chip im Popover) bleibt die Position stehen
+    if (ausloeser) {
+      platziere(ausloeser);
+      requestAnimationFrame(function () { platziere(ausloeser); });
+    }
+    requestAnimationFrame(function () { pop.classList.add("is-offen"); });
 
     graphMarkieren(id);
     metroMarkieren(id);
   }
 
+  /* --- Längster Weg ---------------------------------------------------- */
+  function kritischUmschalten(knopf) {
+    if (!graphFlaeche) return;
+    graphZuruecksetzen();
+    schliesse();
+    var an = graphFlaeche.classList.toggle("zeigt-kritisch");
+    knopf.classList.toggle("is-an", an);
+    knopf.textContent = an ? "Längsten Weg ausblenden" : "Längsten Weg zeigen";
+  }
+
   wurzel.addEventListener("click", function (e) {
+    if (e.target.closest("[data-pop-zu]")) { schliesse(); return; }
+    var kk = e.target.closest("[data-kritisch]");
+    if (kk) { kritischUmschalten(kk); return; }
+    if (e.target.closest("[data-graph-reset]")) { graphZuruecksetzen(); schliesse(); return; }
+
     var ausloeser = e.target.closest("[data-schritt]");
     if (ausloeser) {
-      zeigeDetail(ausloeser.dataset.schritt);
+      zeigeDetail(ausloeser.dataset.schritt, ausloeser.closest("[data-pop]") ? null : ausloeser);
       return;
     }
-    if (e.target.closest("[data-drawer-zu]") || e.target.closest("[data-schatten]")) schliesse();
-    if (e.target.closest("[data-graph-reset]")) graphZuruecksetzen();
+  });
+
+  // Klick daneben schließt
+  document.addEventListener("click", function (e) {
+    if (!pop || pop.hidden) return;
+    if (e.target.closest("[data-pop]") || e.target.closest("[data-schritt]")) return;
+    schliesse();
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && drawer && !drawer.hidden) schliesse();
+    if (e.key === "Escape" && pop && !pop.hidden) schliesse();
   });
 
-  /* --- Fokus: zwischen den Ergebnisstufen wechseln --------------------- */
-  var stufen = wurzel.querySelectorAll("[data-stufe]");
-  if (stufen.length) {
-    wurzel.querySelectorAll("[data-stufe-zu]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        var ziel = button.dataset.stufeZu;
-        stufen.forEach(function (s) { s.hidden = s.dataset.stufe !== ziel; });
-        wurzel.querySelectorAll("[data-stufe-zu]").forEach(function (b) {
-          b.classList.toggle("is-aktiv", b === button);
-        });
-      });
-    });
-  }
+  window.addEventListener("resize", schliesse);
 
-  /* --- Cockpit: nach Strang filtern ------------------------------------ */
-  var filter = wurzel.querySelectorAll("[data-filter]");
-  if (filter.length) {
-    filter.forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        var wahl = chip.dataset.filter;
-        filter.forEach(function (c) { c.classList.toggle("is-aktiv", c === chip); });
-        wurzel.querySelectorAll("[data-strang]").forEach(function (karte) {
-          karte.hidden = wahl !== "alle" && karte.dataset.strang !== wahl;
-        });
+  /* --- Tafel: beim Überfahren zeigen, was ein Schritt braucht ---------- */
+  wurzel.querySelectorAll(".ta__chip[data-braucht]").forEach(function (chip) {
+    var ids = (chip.dataset.braucht || "").split(" ").filter(Boolean);
+    if (!ids.length) return;
+
+    function setze(an) {
+      ids.forEach(function (id) {
+        var ziel = wurzel.querySelector('.ta__chip[data-chip="' + id + '"]');
+        if (ziel) ziel.classList.toggle("is-voraussetzung", an);
       });
-    });
-  }
+    }
+    chip.addEventListener("mouseenter", function () { setze(true); });
+    chip.addEventListener("mouseleave", function () { setze(false); });
+    chip.addEventListener("focus", function () { setze(true); });
+    chip.addEventListener("blur", function () { setze(false); });
+  });
 })();

@@ -17,10 +17,9 @@ layout: layouts/base.njk
 
   {{ content | safe }}
 
-  {# Detailschublade – für jeden Schritt fertig gerendert, JS blendet nur um #}
-  <div class="k-schatten" data-schatten hidden></div>
-  <aside class="k-drawer" data-drawer hidden aria-label="Schrittdetails">
-    <button class="k-drawer__zu" type="button" data-drawer-zu aria-label="Schließen">&times;</button>
+  {# Details als Popover direkt am angeklickten Element, nicht am Bildschirmrand #}
+  <div class="k-pop" data-pop hidden role="dialog" aria-label="Schrittdetails">
+    <button class="k-pop__zu" type="button" data-pop-zu aria-label="Schließen">&times;</button>
     {% for s in g.schritte %}
       <article class="k-detail" data-detail="{{ s.id }}" hidden>
         <span class="k-detail__strang" style="--f: {{ s.farbe }}">{{ s.strangLabel }}</span>
@@ -70,6 +69,6 @@ layout: layouts/base.njk
         {% endif %}
       </article>
     {% endfor %}
-  </aside>
+  </div>
 
 </div>

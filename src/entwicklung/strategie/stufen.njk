@@ -1,0 +1,74 @@
+---
+title: "Stufenplan – Strategie"
+description: "Konzept Stufenplan – Ergebnisstufen als Tore, die sich nacheinander öffnen."
+permalink: /entwicklung/strategie/stufen/index.html
+konzept: "stufen"
+---
+{%- set g = strategieGraph -%}
+
+<div class="st">
+
+  <div class="st__kopf">
+    <h1>Vier Tore bis zum Ziel</h1>
+    <p class="st__lies">
+      Jede Stufe sammelt Schritte aus allen drei Strängen. Erst wenn <strong>alle</strong> erledigt sind,
+      öffnet sich das Tor und die nächste Stufe wird spielbar.
+    </p>
+  </div>
+
+  {% for m in g.meilensteine %}
+    {%- set offen = m.erreicht or m.id == g.aktuellerMeilenstein.id -%}
+    <section class="st__stufe{% if m.erreicht %} is-fertig{% elif offen %} is-dran{% else %} is-zu{% endif %}">
+
+      <header class="st__stufe-kopf">
+        <span class="st__nr">{{ m.nr }}</span>
+        <div class="st__stufe-text">
+          <h2>{{ m.titel }}</h2>
+          <p>{{ m.ergebnis }}</p>
+        </div>
+        <div class="st__stufe-stand">
+          {% if m.erreicht %}
+            <span class="st__marke st__marke--fertig">geschafft</span>
+          {% elif offen %}
+            <span class="st__marke st__marke--dran">hier stehen wir</span>
+          {% else %}
+            <span class="st__marke st__marke--zu">noch zu</span>
+          {% endif %}
+          <span class="st__quote">{{ m.fortschritt }}%</span>
+        </div>
+      </header>
+
+      <div class="st__knoten">
+        {% for s in m.schritte %}
+          <button class="st__knopf st__knopf--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+                  type="button" data-schritt="{{ s.id }}" style="--f: {{ s.farbe }}">
+            <span class="st__scheibe">
+              {% if s.status == "erreicht" %}<span class="st__haken">&#10003;</span>
+              {% elif s.machbar %}<span class="st__stern">&#9679;</span>
+              {% else %}<span class="st__schloss">&#9679;</span>{% endif %}
+            </span>
+            <span class="st__knopf-titel">{{ s.titel }}</span>
+            <span class="st__knopf-strang">{{ s.strangKurz }}</span>
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="st__tor">
+        <span class="st__tor-text">
+          {% if m.erreicht %}
+            Tor offen — Stufe {{ m.nr }} steht
+          {% else %}
+            Tor öffnet, wenn alle {{ m.anzahl }} Schritte stehen
+          {% endif %}
+        </span>
+        <span class="st__tor-balken"><i style="width: {{ m.fortschritt }}%"></i></span>
+      </div>
+    </section>
+  {% endfor %}
+
+  <section class="st__ziel">
+    <span class="st__ziel-marke">Zielbild</span>
+    <p class="st__ziel-text">{{ g.zielbild.kurz }}</p>
+    <p class="st__ziel-lang">{{ g.zielbild.text }}</p>
+  </section>
+</div>

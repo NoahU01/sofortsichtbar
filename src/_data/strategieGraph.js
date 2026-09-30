@@ -84,8 +84,34 @@ schritte.forEach((s) => {
   s.nachfolgerListe = s.nachfolger.map(kurzform);
 });
 
+/* --- Kritischer Pfad: der längste Weg bis zum Ziel --------------------- */
+const gewicht = { S: 1, M: 2, L: 3 };
+const laengster = new Map();
+function laengsterPfad(id) {
+  if (laengster.has(id)) return laengster.get(id);
+  const s = schrittNachId.get(id);
+  let best = { kosten: 0, vorher: null };
+  s.braucht.forEach((b) => {
+    const v = laengsterPfad(b);
+    if (v.kosten > best.kosten) best = { kosten: v.kosten, vorher: b };
+  });
+  const eintrag = { kosten: best.kosten + (gewicht[s.aufwand] || 1), vorher: best.vorher };
+  laengster.set(id, eintrag);
+  return eintrag;
+}
+schritte.forEach((s) => laengsterPfad(s.id));
+
+let ende = schritte[0].id;
+schritte.forEach((s) => {
+  if (laengster.get(s.id).kosten > laengster.get(ende).kosten) ende = s.id;
+});
+const kritischerPfad = [];
+for (let cur = ende; cur; cur = laengster.get(cur).vorher) kritischerPfad.unshift(cur);
+const kritischSet = new Set(kritischerPfad);
+schritte.forEach((s) => { s.kritisch = kritischSet.has(s.id); });
+
 /* --- Layout 1: Graph nach Abhängigkeitsrang ---------------------------- */
-const K = { breite: 188, hoehe: 78, spaltenLuft: 74, zeilenLuft: 16, spurLuft: 46 };
+const K = { breite: 196, hoehe: 92, spaltenLuft: 76, zeilenLuft: 18, spurLuft: 52 };
 
 const maxRang = Math.max(...schritte.map((s) => s.rang));
 const zelle = (r, spur) =>
@@ -132,9 +158,17 @@ const graphKanten = schritte.flatMap((s) =>
     von: b,
     nach: s.id,
     quer: nachId.get(b).strang !== s.strang,
+    kritisch: kritischSet.has(b) && kritischSet.has(s.id),
     pfad: bogen(graphPos.get(b), graphPos.get(s.id)),
   }))
 );
+
+const graphSpalten = Array.from({ length: maxRang + 1 }, (_, r) => ({
+  nr: r + 1,
+  x: r * (K.breite + K.spaltenLuft),
+  breite: K.breite,
+  anzahl: schritte.filter((s) => s.rang === r).length,
+}));
 
 const graph = {
   knoten: graphKnoten,
@@ -142,6 +176,7 @@ const graph = {
   knotenBreite: K.breite,
   knotenHoehe: K.hoehe,
   querAnzahl: graphKanten.filter((k) => k.quer).length,
+  spalten: graphSpalten,
   breite: (maxRang + 1) * (K.breite + K.spaltenLuft) - K.spaltenLuft,
   hoehe: spurY[spurY.length - 1] + spurHoehe[spurHoehe.length - 1],
   spuren: straenge.map((s, i) => ({
@@ -154,7 +189,8 @@ const graph = {
 };
 
 /* --- Layout 2: Liniennetz nach Meilensteinen --------------------------- */
-const M = { halt: 158, station: 104, spurLuft: 104, oben: 54, links: 40 };
+// oben lässt Platz für die Stationsköpfe, damit sie nicht in den Linien liegen
+const M = { halt: 176, station: 128, spurLuft: 122, oben: 168, links: 92, rechts: 92 };
 
 const metroHalte = [];
 const metroStationen = [];
@@ -197,8 +233,8 @@ schritte.forEach((s) => {
   s.mx = p.x;
   s.my = p.y;
 });
-const metroBreite = x + M.links;
-const metroHoehe = M.oben + (straenge.length - 1) * M.spurLuft + M.oben;
+const metroBreite = x + M.rechts;
+const metroHoehe = M.oben + (straenge.length - 1) * M.spurLuft + 96;
 
 const metroLinien = straenge.map((strang, spur) => {
   const y = M.oben + spur * M.spurLuft;
@@ -213,7 +249,7 @@ const metroLinien = straenge.map((strang, spur) => {
     farbe: strang.farbe,
     y,
     fortschritt: strang.fortschritt,
-    pfad: `M ${M.links / 2} ${y} L ${metroBreite - M.links / 2} ${y}`,
+    pfad: `M ${M.links / 2} ${y} L ${metroBreite - M.rechts / 2} ${y}`,
     halte: punkte,
   };
 });
@@ -226,7 +262,13 @@ const metroQuer = schritte.flatMap((s) =>
     const z = metroPos.get(s.id);
     if (!a || !z) return null;
     const mitte = (a.y + z.y) / 2;
-    return { von: b, nach: s.id, pfad: `M ${a.x} ${a.y} C ${a.x} ${mitte}, ${z.x} ${mitte}, ${z.x} ${z.y}` };
+    const vonS = schrittNachId.get(b);
+    return {
+      von: b,
+      nach: s.id,
+      text: `${s.strangKurz} „${s.titel}" wartet auf ${vonS.strangKurz} „${vonS.titel}"`,
+      pfad: `M ${a.x} ${a.y} C ${a.x} ${mitte}, ${z.x} ${mitte}, ${z.x} ${z.y}`,
+    };
   }).filter(Boolean)
 );
 
@@ -247,6 +289,7 @@ export default {
   aktuellerMeilenstein,
   fortschritt: anteil(schritte),
   anzahl: schritte.length,
+  kritischerPfad: kritischerPfad.map((id) => schrittNachId.get(id)),
   machbar: schritte.filter((s) => s.machbar),
   blockiert: schritte.filter((s) => !s.machbar && s.status !== "erreicht"),
   erledigt: schritte.filter((s) => s.status === "erreicht"),

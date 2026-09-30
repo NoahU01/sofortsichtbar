@@ -1,0 +1,77 @@
+---
+title: "Tafel – Strategie"
+description: "Konzept Tafel – was jetzt zu tun ist, mit dem ganzen Plan darunter."
+permalink: /entwicklung/strategie/tafel/index.html
+konzept: "tafel"
+---
+{%- set g = strategieGraph -%}
+
+<div class="ta">
+
+  <section class="ta__jetzt">
+    <div class="ta__jetzt-kopf">
+      <h1>Das ist jetzt dran</h1>
+      <p>
+        {{ g.machbar.length }} von {{ g.anzahl }} Schritten sind frei — bei allen anderen fehlt noch
+        etwas davor. Wer Zeit hat, nimmt sich einen von diesen.
+      </p>
+    </div>
+
+    <div class="ta__karten">
+      {% for s in g.machbar %}
+        <button class="ta__karte" type="button" data-schritt="{{ s.id }}" style="--f: {{ s.farbe }}">
+          <span class="ta__karte-strang">{{ s.strangLabel }}</span>
+          <span class="ta__karte-titel">{{ s.titel }}</span>
+          <span class="ta__karte-ziel">{{ s.ergebnis }}</span>
+          <span class="ta__karte-fuss">
+            <span class="ta__karte-aufwand">Aufwand {{ s.aufwand }}</span>
+            {% if s.nachfolgerListe.length %}
+              <span class="ta__karte-frei">schaltet {{ s.nachfolgerListe.length }} frei</span>
+            {% endif %}
+          </span>
+        </button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="ta__plan">
+    <div class="ta__plan-kopf">
+      <h2>Der ganze Plan</h2>
+      <p>Von links nach rechts. Eine Stufe startet erst, wenn die davor steht. Über einen Schritt fahren zeigt, was er braucht.</p>
+    </div>
+
+    <div class="ta__stufen">
+      {% for m in g.meilensteine %}
+        <div class="ta__stufe{% if m.id == g.aktuellerMeilenstein.id %} is-dran{% endif %}">
+          <header class="ta__stufe-kopf">
+            <span class="ta__stufe-nr">{{ m.nr }}</span>
+            <span class="ta__stufe-titel">{{ m.titel }}</span>
+            {% if m.id == g.aktuellerMeilenstein.id %}<span class="ta__stufe-marke">hier stehen wir</span>{% endif %}
+            <span class="ta__stufe-text">{{ m.ergebnis }}</span>
+            <span class="ta__stufe-balken"><i style="width: {{ m.fortschritt }}%"></i></span>
+          </header>
+
+          <div class="ta__chips">
+            {% for s in m.schritte %}
+              <button class="ta__chip ta__chip--{{ s.status }}{% if s.machbar %} is-machbar{% endif %}"
+                      type="button" data-schritt="{{ s.id }}" data-chip="{{ s.id }}"
+                      data-braucht="{{ s.braucht | join(" ") }}"
+                      style="--f: {{ s.farbe }}">
+                <span class="ta__chip-punkt"></span>
+                <span class="ta__chip-titel">{{ s.titel }}</span>
+                <span class="ta__chip-strang">{{ s.strangKurz }}</span>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <p class="ta__hinweis">
+      <span class="ta__muster ta__muster--jetzt"></span> jetzt machbar
+      <span class="ta__muster ta__muster--fertig"></span> erledigt
+      <span class="ta__muster ta__muster--wartet"></span> wartet
+      <span class="ta__muster ta__muster--braucht"></span> beim Überfahren: wird dafür gebraucht
+    </p>
+  </section>
+</div>
