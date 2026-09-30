@@ -144,6 +144,28 @@
 .me__muster--duenn { width: 1.5rem; height: 3px; background-color: #6b6b6b; border-radius: 99rem; opacity: 0.55; }
 .me__muster--bogen { width: 1.5rem; height: 0; border-top: 2px dashed #b5b1bd; }
 
+/* Muster für die Graph-Legende – eigene Werte, damit sie nicht von den
+   Variablen der Graphansicht abhängen (die es senkrecht nicht gibt). */
+.mk .g2__zeichen {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 99rem;
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 900;
+}
+.mk .g2__zeichen--fertig { background-color: var(--mk-leise); color: var(--mk-flaeche); }
+.mk .g2__zeichen--fertig::after { content: "\2713"; }
+.mk .g2__zeichen--jetzt {
+  border: 2px solid var(--mk-text);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mk-text) 18%, transparent);
+}
+.mk .g2__zeichen--wartet { border: 1.5px solid var(--mk-sehr-leise); }
+
 /* --- Info-Knopf: nativ über <details>, kein JavaScript nötig ---------- */
 .mk__info { position: relative; margin-left: auto; }
 .mk__info summary {

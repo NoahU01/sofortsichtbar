@@ -101,7 +101,19 @@
   border-top: 1px solid var(--vt-rand);
   border-bottom: 1px solid var(--vt-rand);
 }
+/* Die Linie laeuft sichtbar durch die Stufe hindurch */
+.vt__durchlauf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  margin-left: -1.5px;
+  background-color: var(--f);
+  opacity: 0.28;
+}
+
 .vt__station-nr {
+  position: relative;
   flex: none;
   display: flex;
   align-items: center;
@@ -114,9 +126,9 @@
   font-size: 0.95rem;
   font-weight: 800;
 }
-.vt__station-titel { flex: none; color: var(--vt-text); font-size: 1rem; font-weight: 700; }
-.vt__station-text { color: var(--vt-leise); font-size: 0.82rem; line-height: 1.4; }
-.vt__station-quote { margin-left: auto; flex: none; color: var(--vt-sehr-leise); font-size: 0.74rem; }
+.vt__station-titel { position: relative; flex: none; color: var(--vt-text); font-size: 1rem; font-weight: 700; }
+.vt__station-text { position: relative; color: var(--vt-leise); font-size: 0.82rem; line-height: 1.4; }
+.vt__station-quote { position: relative; margin-left: auto; flex: none; color: var(--vt-sehr-leise); font-size: 0.74rem; }
 .vt__station.is-erreicht .vt__station-nr { background-color: #2f7f5f; color: #fff; }
 
 /* --- Feine Ansicht: Linie mit Halten ---------------------------------- */
@@ -334,4 +346,27 @@
   .vt__station { padding: 0 0.85rem; flex-wrap: wrap; gap: 0.5rem; }
   .vt__station-text { flex-basis: 100%; }
   .vt__station-quote { margin-left: 0; }
+}
+
+
+/* =========================================================
+   hell: Spotlight – nur der aktive Schritt hat eine Fläche
+   ========================================================= */
+.k--hell .vt__karte {
+  background-color: color-mix(in srgb, var(--vt-bg) 88%, transparent);
+  border-color: color-mix(in srgb, var(--vt-rand) 60%, transparent);
+  box-shadow: none;
+}
+.k--hell .vt__karte--erreicht {
+  background-color: color-mix(in srgb, var(--vt-bg) 88%, transparent);
+  border-color: color-mix(in srgb, var(--vt-fertig-rand) 40%, transparent);
+}
+.k--hell .vt__karte--offen .vt__karte-titel { color: var(--vt-sehr-leise); font-weight: 500; }
+.k--hell .vt__karte--offen .vt__karte-satz { color: color-mix(in srgb, var(--vt-sehr-leise) 70%, transparent); }
+.k--hell .vt__karte.is-machbar {
+  background-color: var(--vt-karte);
+  border-color: var(--vt-rand-stark);
+  border-width: 1px;
+  border-left-width: 6px;
+  box-shadow: 0 0.8rem 1.8rem -0.5rem rgb(21 20 26 / 0.22);
 }

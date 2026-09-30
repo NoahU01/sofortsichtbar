@@ -27,6 +27,11 @@
         {% for st in V.stationen %}
           <div class="vt__station{% if st.erreicht %} is-erreicht{% endif %}"
                style="top: {{ st.oben }}px; height: {{ V.stationHoehe }}px">
+            {# Das Band deckt ab, deshalb die Linien hier bewusst weiterführen #}
+            {% for sp in V.spalten %}
+              <span class="vt__durchlauf"
+                    style="left: {{ (sp.x + 26) if alsLinie else (sp.x + V.spalte / 2) }}px; --f: {{ sp.farbe }}"></span>
+            {% endfor %}
             <span class="vt__station-nr">{{ st.nr }}</span>
             <span class="vt__station-titel">{{ st.titel }}</span>
             <span class="vt__station-text">{{ st.ergebnis }}</span>
