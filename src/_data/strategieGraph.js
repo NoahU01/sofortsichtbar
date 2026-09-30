@@ -285,7 +285,8 @@ const metro = {
    Nicht nach reiner Abhängigkeitstiefe, sondern in Blöcken je Stufe. So
    lassen sich Stationen wie im Liniennetz dazwischensetzen. Zulässig, weil
    kein Schritt von einer späteren Stufe abhängt – alle Pfeile zeigen rechts. */
-const G2 = { breite: 238, hoehe: 128, spaltenLuft: 58, zeilenLuft: 16, spurLuft: 56, station: 132 };
+// hoehe muss zweizeilige Überschrift + dreizeiligen Satz + Fußzeile fassen
+const G2 = { breite: 238, hoehe: 152, spaltenLuft: 58, zeilenLuft: 16, spurLuft: 56, station: 132 };
 
 const lokalRang = new Map();
 function lokal(id) {
