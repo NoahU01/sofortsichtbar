@@ -24,8 +24,14 @@
                       </button>
                       <div class="nav__dropdown-panel" id="{{ panelId }}" hidden>
                         {% for child in item.children %}
-                          <a class="nav__dropdown-link{% if child.sub %} nav__dropdown-link--sub{% endif %}" href="{{ child.href }}"
-                             {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>
+                          {% if child.typ == "hinweis" %}
+                            <p class="nav__dropdown-hinweis">{{ child.text }}</p>
+                          {% elif child.typ == "gruppe" %}
+                            <span class="nav__dropdown-gruppe">{{ child.label }}</span>
+                          {% else %}
+                            <a class="nav__dropdown-link" href="{{ child.href }}"
+                               {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>
+                          {% endif %}
                         {% endfor %}
                       </div>
                     </div>

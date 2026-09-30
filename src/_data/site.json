@@ -30,12 +30,20 @@
       "devOnly": true,
       "children": [
         {
-          "label": "Meilensteine",
-          "href": "/entwicklung/meilensteine/fein"
+          "typ": "hinweis",
+          "text": "Nur in der Entwicklungsumgebung sichtbar. Dieser Menüpunkt ist in der Live-Version nicht enthalten."
+        },
+        {
+          "typ": "gruppe",
+          "label": "Strategie sofort sichtbar"
         },
         {
           "label": "Strategie und Zielbild",
           "href": "/entwicklung/strategie-zielbild"
+        },
+        {
+          "label": "Meilensteine",
+          "href": "/entwicklung/meilensteine/fein"
         }
       ]
     }
