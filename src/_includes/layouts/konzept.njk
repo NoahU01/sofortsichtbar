@@ -1,18 +1,12 @@
 ---
 layout: layouts/base.njk
+navReduziert: true
 ---
 {%- set g = strategieGraph -%}
 <div class="k k--{{ konzept }}">
 
   <header class="k-bar">
     <a class="k-bar__zurueck" href="/entwicklung/strategie-zielbild">Strategie und Zielbild</a>
-    <span class="k-bar__label">Darstellung</span>
-    <nav class="k-bar__wechsel" aria-label="Darstellung">
-      {% for k in konzepte %}
-        <a class="k-bar__pill{% if k.id == konzept %} is-aktiv{% endif %}"
-           href="{{ k.href }}"{% if k.id == konzept %} aria-current="page"{% endif %}>{{ k.name }}</a>
-      {% endfor %}
-    </nav>
     <span class="k-bar__meta">{{ g.fortschritt }}% · {{ g.erledigt.length }}/{{ g.anzahl }}</span>
   </header>
 

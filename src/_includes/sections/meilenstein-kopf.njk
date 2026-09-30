@@ -11,9 +11,21 @@
     </p>
   </div>
 
-  <div class="mk__legende">
+  <div class="mk__boxen">
+
+  <div class="mk__box mk__box--schalter">
+    <span class="mk__box-titel">Darstellung</span>
+    <nav class="mk__ansichten" aria-label="Darstellung wechseln">
+      {% for k in konzepte %}
+        <a class="mk__ansicht{% if k.id == konzept %} is-aktiv{% endif %}"
+           href="{{ k.href }}"{% if k.id == konzept %} aria-current="page"{% endif %}>{{ k.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+
+  <div class="mk__box mk__legende">
     <div class="mk__legende-kopf">
-      <span class="mk__legende-titel">Legende</span>
+      <span class="mk__box-titel">Legende</span>
       <details class="mk__info">
         <summary aria-label="Wie ist das Bild zu lesen?"><span aria-hidden="true">i</span></summary>
         <div class="mk__info-panel">
@@ -60,4 +72,5 @@
     </div>
   </div>
 
+  </div>
 </header>

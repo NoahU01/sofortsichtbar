@@ -13,10 +13,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  padding: 0 2rem 1.5rem;
+  padding: 0 2rem 3.25rem;
 }
+
+.mk__boxen { display: flex; align-items: stretch; gap: 1rem; flex-wrap: wrap; }
 
 .k--dunkel .mk {
   --mk-text: #ffffff;
@@ -44,15 +46,42 @@
 }
 
 /* --- Legendenkasten ---------------------------------------------------- */
-.mk__legende {
-  flex: 0 1 auto;
-  min-width: 15rem;
-  max-width: 24rem;
+.mk__box {
   padding: 0.85rem 1rem;
   background-color: var(--mk-flaeche);
   border: 1px solid var(--mk-rand);
   border-radius: 0.7rem;
   box-shadow: var(--mk-schatten);
+}
+.mk__legende { min-width: 15rem; max-width: 24rem; }
+.mk__box--schalter { display: flex; flex-flow: column; flex: none; }
+
+.mk__box-titel {
+  color: var(--mk-sehr-leise);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Ansichtswechsel – dieselbe Kastenform wie die Legende */
+.mk__ansichten { display: flex; flex-flow: column; gap: 0.25rem; margin-top: 0.7rem; }
+.mk__ansicht {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 99rem;
+  color: var(--mk-leise);
+  font-size: 0.8rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.mk__ansicht:hover { border-color: var(--mk-rand); color: var(--mk-text); }
+.mk__ansicht.is-aktiv {
+  background-color: var(--mk-text);
+  border-color: var(--mk-text);
+  color: var(--mk-flaeche);
+  font-weight: 650;
 }
 .mk__legende-kopf {
   display: flex;
@@ -61,13 +90,6 @@
   padding-bottom: 0.6rem;
   margin-bottom: 0.6rem;
   border-bottom: 1px solid var(--mk-rand);
-}
-.mk__legende-titel {
-  color: var(--mk-sehr-leise);
-  font-size: 0.64rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .mk__eintraege {
@@ -174,7 +196,8 @@
 
 @media (max-width: 991px) {
   .mk { padding-left: 1rem; padding-right: 1rem; gap: 1.5rem; }
-  .mk__legende { max-width: none; width: 100%; }
+  .mk__boxen { width: 100%; }
+  .mk__legende { max-width: none; flex: 1; }
 }
 @media (max-width: 479px) {
   .mk__eintraege { grid-template-columns: 1fr; }

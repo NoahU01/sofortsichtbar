@@ -1,3 +1,16 @@
+{%- if navReduziert -%}
+{# Arbeitsumgebung: nur Marke und Umgebungshinweis, keine Verkaufsnavigation #}
+<header class="nav nav--schlank" role="banner">
+  <div class="padding-global">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="/" aria-label="{{ site.name }} – zur Startseite">
+        <img class="nav__logo" src="/assets/img/logos/logo-white.svg" alt="{{ site.name }}" width="78" height="40">
+      </a>
+      <span class="nav__umgebung">Entwicklung</span>
+    </div>
+  </div>
+</header>
+{%- else -%}
 <header class="nav" role="banner">
   <div class="padding-global">
     <div class="container nav__inner">
@@ -66,3 +79,4 @@
     </div>
   </div>
 </header>
+{%- endif -%}
