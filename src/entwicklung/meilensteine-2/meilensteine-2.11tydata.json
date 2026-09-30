@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/konzept.njk",
+  "noindex": true,
+  "eleventyExcludeFromCollections": true,
+  "seiteJs": "strategie.js",
+  "satz": "2"
+}

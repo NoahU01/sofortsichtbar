@@ -434,9 +434,129 @@ const graph2 = {
   })),
 };
 
+/* --- Layout 4: senkrecht ----------------------------------------------
+   Die drei Handlungsfelder stehen als Spalten nebeneinander, der Weg
+   läuft nach unten. Die Ergebnisstufen werden dadurch zu durchgehenden
+   Querbändern – als Stufe viel deutlicher als ein Punkt auf einer Linie.
+   Innerhalb eines Abschnitts werden die Schritte eines Feldes einfach
+   untereinander gereiht; die echten Abhängigkeiten zeigen die Pfeile. */
+const V = { spalte: 300, spaltenLuft: 36, zeile: 126, karte: 104, station: 84 };
+
+const vSpaltenX = straenge.map((_, i) => i * (V.spalte + V.spaltenLuft));
+
+let vy = 0;
+const vStationen = [];
+meilensteine.forEach((m) => {
+  const proStrang = straenge.map((strang) =>
+    m.schritte
+      .filter((s) => s.strang === strang.id)
+      .sort((a, b) => a.rang - b.rang || (a.id < b.id ? -1 : 1))
+  );
+  const tiefste = Math.max(1, ...proStrang.map((l) => l.length));
+
+  proStrang.forEach((liste, spur) => {
+    liste.forEach((s, i) => {
+      s.vx = vSpaltenX[spur];
+      s.vy = vy + i * V.zeile;
+    });
+  });
+
+  vy += tiefste * V.zeile;
+  vStationen.push({
+    id: m.id,
+    nr: m.nr,
+    titel: m.titel,
+    ergebnis: m.ergebnis,
+    erreicht: m.erreicht,
+    fortschritt: m.fortschritt,
+    anzahl: m.anzahl,
+    y: vy + V.station / 2,
+    oben: vy,
+  });
+  vy += V.station;
+});
+
+const vBreite = straenge.length * V.spalte + (straenge.length - 1) * V.spaltenLuft;
+const vHoehe = vy;
+const vMitte = (s) => s.vx + V.spalte / 2;
+
+const vKanten = schritte.flatMap((s) =>
+  s.braucht.map((b) => {
+    const a = schrittNachId.get(b);
+    const x1 = vMitte(a);
+    const y1 = a.vy + V.karte;
+    const x2 = vMitte(s);
+    const y2 = s.vy;
+    const dy = Math.max(26, (y2 - y1) / 2);
+    return {
+      von: b,
+      nach: s.id,
+      quer: a.strang !== s.strang,
+      pfad: `M ${x1} ${y1} C ${x1} ${y1 + dy}, ${x2} ${y2 - dy}, ${x2} ${y2}`,
+    };
+  })
+);
+
+/* Für die feine Ansicht: senkrechte Linie je Feld, abschnittsweise dick */
+const vLinienX = (spur) => vSpaltenX[spur] + 26;
+const vHaltY = (s) => s.vy + V.karte / 2;
+
+const vLinien = straenge.map((strang, spur) => {
+  const x = vLinienX(spur);
+  const sortiert = strang.schritte.slice().sort((a, b) => a.vy - b.vy);
+  const abschnitte = [];
+  let cursor = 12;
+  sortiert.forEach((s) => {
+    abschnitte.push({
+      pfad: `M ${x} ${cursor} L ${x} ${vHaltY(s)}`,
+      dick: s.status === "erreicht" || s.dran,
+      bis: s.id,
+    });
+    cursor = vHaltY(s);
+  });
+  abschnitte.push({ pfad: `M ${x} ${cursor} L ${x} ${vHoehe - 12}`, dick: false, bis: null });
+  return { id: strang.id, label: strang.label, kurz: strang.kurz, frage: strang.frage,
+    farbe: strang.farbe, x, fortschritt: strang.fortschritt, abschnitte };
+});
+
+const vQuer = schritte.flatMap((s) =>
+  s.querBraucht.map((b) => {
+    const a = schrittNachId.get(b);
+    const x1 = vLinienX(a.spur);
+    const y1 = vHaltY(a);
+    const x2 = vLinienX(s.spur);
+    const y2 = vHaltY(s);
+    const mitte = (y1 + y2) / 2;
+    return {
+      von: b,
+      nach: s.id,
+      text: `${s.strangKurz} „${s.titel}" wartet auf ${a.strangKurz} „${a.titel}"`,
+      pfad: `M ${x1} ${y1} C ${x1} ${mitte}, ${x2} ${mitte}, ${x2} ${y2}`,
+    };
+  })
+);
+
+const vertikal = {
+  breite: vBreite,
+  hoehe: vHoehe,
+  spalte: V.spalte,
+  karte: V.karte,
+  karteBreite: V.spalte - 36,
+  stationHoehe: V.station,
+  spalten: straenge.map((s, i) => ({
+    id: s.id, label: s.label, kurz: s.kurz, frage: s.frage,
+    farbe: s.farbe, x: vSpaltenX[i], fortschritt: s.fortschritt,
+  })),
+  stationen: vStationen,
+  kanten: vKanten,
+  linien: vLinien,
+  quer: vQuer,
+};
+
 export default {
   ...roh,
   graph2,
+  vertikal,
   schritte,
   straenge,
   meilensteine,

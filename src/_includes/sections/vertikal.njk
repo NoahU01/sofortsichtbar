@@ -1,0 +1,113 @@
+{#- Senkrechte Ansicht: drei Spalten, der Weg läuft nach unten.
+    Die Ergebnisstufen liegen als durchgehende Querbänder dazwischen.
+    Bei konzept "fein" als Linie mit Halten, sonst als Karten. -#}
+{%- set g = strategieGraph -%}
+{%- set V = g.vertikal -%}
+{%- set alsLinie = konzept == "fein" -%}
+
+<div class="vt vt--{{ "linie" if alsLinie else "karten" }}">
+
+  {% include "sections/meilenstein-kopf.njk" %}
+
+  <div class="vt__buehne">
+    <div class="vt__rahmen" style="width: {{ V.breite }}px">
+
+      <div class="vt__spaltenkopf">
+        {% for sp in V.spalten %}
+          <div class="vt__spalte-name" style="left: {{ sp.x }}px; width: {{ V.spalte }}px; --f: {{ sp.farbe }}">
+            <b>{{ sp.label }}</b>
+            <span>{{ sp.frage }}</span>
+            <i>{{ sp.fortschritt }}%</i>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="vt__plan" style="height: {{ V.hoehe }}px">
+
+        {% for st in V.stationen %}
+          <div class="vt__station{% if st.erreicht %} is-erreicht{% endif %}"
+               style="top: {{ st.oben }}px; height: {{ V.stationHoehe }}px">
+            <span class="vt__station-nr">{{ st.nr }}</span>
+            <span class="vt__station-titel">{{ st.titel }}</span>
+            <span class="vt__station-text">{{ st.ergebnis }}</span>
+            <span class="vt__station-quote">{{ st.fortschritt }}% · {{ st.anzahl }} Schritte</span>
+          </div>
+        {% endfor %}
+
+        <svg class="vt__svg" width="{{ V.breite }}" height="{{ V.hoehe }}" aria-hidden="true">
+          <defs>
+            <marker id="vpfeil" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 8 4 L 0 8 z" class="vt__spitze" />
+            </marker>
+          </defs>
+
+          {% if alsLinie %}
+            {% for q in V.quer %}
+              <path class="vt__quer" data-von="{{ q.von }}" data-nach="{{ q.nach }}" d="{{ q.pfad }}"
+                    marker-end="url(#vpfeil)"><title>{{ q.text }}</title></path>
+            {% endfor %}
+            {% for l in V.linien %}
+              {% for a in l.abschnitte %}
+                <path class="vt__saum {{ "vt__saum--dick" if a.dick else "vt__saum--duenn" }}" d="{{ a.pfad }}" />
+              {% endfor %}
+            {% endfor %}
+            {% for l in V.linien %}
+              {% for a in l.abschnitte %}
+                <path class="vt__linie {{ "vt__linie--gegangen" if a.dick else "vt__linie--offen" }}"
+                      {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
+                      d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
+              {% endfor %}
+            {% endfor %}
+          {% else %}
+            {% for k in V.kanten %}
+              <path class="vt__kante{% if k.quer %} is-quer{% endif %}"
+                    data-von="{{ k.von }}" data-nach="{{ k.nach }}" d="{{ k.pfad }}"
+                    marker-end="url(#vpfeil)" />
+            {% endfor %}
+          {% endif %}
+        </svg>
+
+        {% for s in g.schritte %}
+          {% if alsLinie %}
+            <button class="vt__halt vt__halt--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
+                    type="button" data-schritt="{{ s.id }}" data-halt="{{ s.id }}"
+                    data-knoten="{{ s.id }}"
+                    data-braucht="{{ s.braucht | join(" ") }}"
+                    data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                    data-vorher="{{ s.metroVorher | join(" ") }}"
+                    style="left: {{ s.vx }}px; top: {{ s.vy }}px; width: {{ V.spalte }}px; height: {{ V.karte }}px; --f: {{ s.farbe }}">
+              <span class="vt__halt-punkt"></span>
+              <span class="vt__halt-text">
+                <span class="vt__halt-titel">{{ s.titel }}</span>
+                <span class="vt__halt-satz">{{ s.ergebnis }}</span>
+              </span>
+              {% if s.wer %}<span class="vt__wer">{{ s.wer }}</span>{% endif %}
+            </button>
+          {% else %}
+            <button class="vt__karte vt__karte--{{ s.status }}{% if s.dran %} is-machbar{% endif %}"
+                    type="button" data-schritt="{{ s.id }}"
+                    data-knoten="{{ s.id }}"
+                    data-braucht="{{ s.braucht | join(" ") }}"
+                    data-nachfolger="{{ s.nachfolger | join(" ") }}"
+                    style="left: {{ s.vx + 18 }}px; top: {{ s.vy }}px; width: {{ V.karteBreite }}px; height: {{ V.karte }}px; --f: {{ s.farbe }}">
+              <span class="vt__karte-kopf">
+                <i class="vt__zeichen" aria-hidden="true"></i>
+                <span class="vt__karte-titel">{{ s.titel }}</span>
+                {% if s.wer %}<span class="vt__wer">{{ s.wer }}</span>{% endif %}
+              </span>
+              <span class="vt__karte-satz">{{ s.ergebnis }}</span>
+            </button>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+  {% if alsLinie %}
+    <div class="vt__route" data-route-leiste hidden>
+      <span class="vt__route-text" data-route-text></span>
+      <button class="vt__route-zu" type="button" data-metro-reset>Ganzes Netz zeigen</button>
+    </div>
+  {% endif %}
+</div>
