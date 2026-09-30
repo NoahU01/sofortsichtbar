@@ -10,7 +10,7 @@
 
   var pop = wurzel.querySelector("[data-pop]");
   var details = wurzel.querySelectorAll("[data-detail]");
-  var graphFlaeche = wurzel.querySelector(".gr__flaeche, .g2__flaeche");
+  var graphFlaeche = wurzel.querySelector(".g2__flaeche");
 
   /* --- Graph: Kette vor und nach einem Knoten ------------------------- */
   var knoten = {};
@@ -41,15 +41,10 @@
     graphFlaeche.querySelectorAll(".is-gewaehlt, .is-vor, .is-nach, .is-hell").forEach(function (el) {
       el.classList.remove("is-gewaehlt", "is-vor", "is-nach", "is-hell");
     });
-    var reset = wurzel.querySelector("[data-graph-reset]");
-    if (reset) reset.hidden = true;
   }
 
   function graphMarkieren(id) {
     if (!graphFlaeche || !knoten[id]) return;
-    graphFlaeche.classList.remove("zeigt-kritisch");
-    var kk = wurzel.querySelector("[data-kritisch]");
-    if (kk) { kk.classList.remove("is-an"); kk.textContent = "Längsten Weg zeigen"; }
     graphZuruecksetzen();
     graphFlaeche.classList.add("is-auswahl");
 
@@ -60,12 +55,9 @@
     Object.keys(nach).forEach(function (k) { knoten[k].el.classList.add("is-nach"); });
 
     var inKette = function (x) { return x === id || vor[x] || nach[x]; };
-    graphFlaeche.querySelectorAll(".gr__kante, .g2__kante").forEach(function (kante) {
+    graphFlaeche.querySelectorAll(".g2__kante").forEach(function (kante) {
       if (inKette(kante.dataset.von) && inKette(kante.dataset.nach)) kante.classList.add("is-hell");
     });
-
-    var reset = wurzel.querySelector("[data-graph-reset]");
-    if (reset) reset.hidden = false;
   }
 
   /* --- Liniennetz: die Route zu einem Halt zeigen ----------------------
@@ -202,21 +194,8 @@
     metroMarkieren(id);
   }
 
-  /* --- Längster Weg ---------------------------------------------------- */
-  function kritischUmschalten(knopf) {
-    if (!graphFlaeche) return;
-    graphZuruecksetzen();
-    schliesse();
-    var an = graphFlaeche.classList.toggle("zeigt-kritisch");
-    knopf.classList.toggle("is-an", an);
-    knopf.textContent = an ? "Längsten Weg ausblenden" : "Längsten Weg zeigen";
-  }
-
   wurzel.addEventListener("click", function (e) {
     if (e.target.closest("[data-pop-zu]")) { schliesse(); return; }
-    var kk = e.target.closest("[data-kritisch]");
-    if (kk) { kritischUmschalten(kk); return; }
-    if (e.target.closest("[data-graph-reset]")) { graphZuruecksetzen(); schliesse(); return; }
     if (e.target.closest("[data-metro-reset]")) { metroZuruecksetzen(); schliesse(); return; }
 
     var ausloeser = e.target.closest("[data-schritt]");
@@ -234,6 +213,7 @@
 
     if (pop && !pop.hidden) schliesse();
     if (metroPlan && metroPlan.classList.contains("is-route")) metroZuruecksetzen();
+    if (graphFlaeche && graphFlaeche.classList.contains("is-auswahl")) graphZuruecksetzen();
   });
 
   document.addEventListener("keydown", function (e) {
@@ -242,48 +222,10 @@
 
   window.addEventListener("resize", schliesse);
 
-  /* --- Graph V2/V3: Hervorhebungsvariante A/B/C ------------------------ */
-  var g2 = wurzel.querySelector("[data-g2]");
-  if (g2) {
-    var vbtns = wurzel.querySelectorAll("[data-variante]");
-
-    function setzeVariante(wahl) {
-      g2.classList.remove("g2--a", "g2--b", "g2--c");
-      g2.classList.add("g2--" + wahl);
-      vbtns.forEach(function (b) { b.classList.toggle("is-an", b.dataset.variante === wahl); });
-    }
-
-    vbtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        setzeVariante(btn.dataset.variante);
-        history.replaceState(null, "", "#hervorhebung=" + btn.dataset.variante);
-      });
-    });
-
-    var ausHash = (location.hash.match(/hervorhebung=([abc])/) || [])[1];
-    if (ausHash) setzeVariante(ausHash);
-  }
-
   /* --- Route aus dem Link vorauswählen --------------------------------- */
   if (metroPlan) {
     var routeHash = (location.hash.match(/route=([a-z0-9_-]+)/i) || [])[1];
     if (routeHash) metroMarkieren(routeHash);
   }
 
-  /* --- Tafel: beim Überfahren zeigen, was ein Schritt braucht ---------- */
-  wurzel.querySelectorAll(".ta__chip[data-braucht]").forEach(function (chip) {
-    var ids = (chip.dataset.braucht || "").split(" ").filter(Boolean);
-    if (!ids.length) return;
-
-    function setze(an) {
-      ids.forEach(function (id) {
-        var ziel = wurzel.querySelector('.ta__chip[data-chip="' + id + '"]');
-        if (ziel) ziel.classList.toggle("is-voraussetzung", an);
-      });
-    }
-    chip.addEventListener("mouseenter", function () { setze(true); });
-    chip.addEventListener("mouseleave", function () { setze(false); });
-    chip.addEventListener("focus", function () { setze(true); });
-    chip.addEventListener("blur", function () { setze(false); });
-  });
 })();

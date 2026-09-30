@@ -37,6 +37,7 @@
   --tor: #3d3648;
   --schatten: none;
   --karte-schatten: none;
+  --kopfhoehe: 10.25rem;
   --wer-bg: #262231;
   --wer-text: #b8b3c2;
   --spotlight-schatten: 0 0.8rem 2rem -0.6rem rgb(0 0 0 / 0.7);
@@ -86,27 +87,6 @@
 .g2__leg--pfeil::before { width: 1.6rem; height: 0; border-top: 2px solid var(--linie); }
 .g2__leg--quer::before { width: 1.6rem; height: 0; border-top: 2px dashed var(--linie); }
 
-.g2__varianten { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: auto; }
-.g2__varianten-titel {
-  color: var(--sehr-leise);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.g2__vbtn {
-  padding: 0.3rem 0.6rem;
-  background: transparent;
-  border: 1px solid var(--rand);
-  border-radius: 99rem;
-  color: var(--leise);
-  font-size: 0.72rem;
-  cursor: pointer;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
-}
-.g2__vbtn:hover { border-color: var(--rand-stark); color: var(--text); }
-.g2__vbtn.is-an { background-color: var(--text); border-color: var(--text); color: var(--bg); font-weight: 650; }
-
 /* --- Zustandszeichen --------------------------------------------------- */
 .g2__zeichen {
   flex: none;
@@ -142,7 +122,7 @@
   position: relative;
   flex: none;
   width: 12.5rem;
-  margin-top: 8.25rem;
+  margin-top: var(--kopfhoehe);
   padding-left: 2rem;
 }
 .g2__rail-bahn {
@@ -164,7 +144,7 @@
 .g2__inhalt { position: relative; }
 
 /* --- Stationen --------------------------------------------------------- */
-.g2__stationsreihe { position: relative; height: 8.25rem; }
+.g2__stationsreihe { position: relative; height: var(--kopfhoehe); }
 .g2__station {
   position: absolute;
   top: 0;
@@ -392,7 +372,7 @@
    V3 – helle Variante
    Eigene Tonwerte, Tiefe über Schatten statt über Leuchten.
    ========================================================= */
-.k--graph3 .g2 {
+.k--hell .g2 {
   --bg: #f7f7f5;
   --karte: #ffffff;
   --karte-hover: #ffffff;
@@ -427,6 +407,6 @@
   --wer-bg: #eceae6;
   --wer-text: #5d5866;
 }
-.k--graph3 .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
-.k--graph3 .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
-.k--graph3 .g2__station-balken i { background-color: #15141a; }
+.k--hell .g2__legende { box-shadow: 0 1px 2px rgb(21 20 26 / 0.04); }
+.k--hell .g2__station-nr { box-shadow: 0 0 0 3px #f7f7f5; }
+.k--hell .g2__station-balken i { background-color: #15141a; }

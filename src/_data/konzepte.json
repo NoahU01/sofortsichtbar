@@ -1,72 +1,17 @@
 [
   {
-    "id": "tafel",
-    "name": "Tafel",
-    "href": "/entwicklung/strategie/tafel",
-    "claim": "Was jetzt zu tun ist – mit dem ganzen Plan darunter",
-    "frage": "Woran arbeiten wir heute?",
-    "idee": "Oben groß und unübersehbar die Schritte, die wirklich frei sind. Darunter der komplette Plan in vier Spalten, immer sichtbar. Fährt man über einen wartenden Schritt, leuchtet auf, was ihm noch fehlt.",
-    "gutFuer": "Den Alltag und die Teamrunde. Man sieht die Anweisung und den Kontext gleichzeitig, ohne zu klicken.",
-    "schwaeche": "Zeigt Abhängigkeiten nur beim Überfahren, nicht als durchgehendes Bild."
+    "id": "fein",
+    "name": "fein",
+    "href": "/entwicklung/meilensteine/fein"
   },
   {
-    "id": "stufen",
-    "name": "Stufenplan",
-    "href": "/entwicklung/strategie/stufen",
-    "claim": "Vier Tore, die sich nacheinander öffnen",
-    "frage": "Wie weit sind wir gekommen?",
-    "idee": "Wie die Fortschrittsanzeige in einem Spiel. Jede Ergebnisstufe ist ein Block mit Schritten als runden Marken; darunter ein Tor mit Fortschrittsbalken. Die aktuelle Stufe leuchtet, spätere sind abgedunkelt. Am Ende steht das Zielbild.",
-    "gutFuer": "Den schnellen Stand und die Motivation. Ohne Erklärung verständlich, auch für Leute außerhalb des Projekts.",
-    "schwaeche": "Einzelne Abhängigkeiten zwischen Schritten sind nicht sichtbar, nur die Stufenlogik."
+    "id": "dunkel",
+    "name": "dunkel",
+    "href": "/entwicklung/meilensteine/dunkel"
   },
   {
-    "id": "metro",
-    "name": "Liniennetz",
-    "href": "/entwicklung/strategie/metro",
-    "claim": "Drei Linien, gemeinsame Stationen",
-    "frage": "Wie läuft das über die Zeit zusammen?",
-    "idee": "Als U-Bahn-Plan: jeder Strang eine Linie, jeder Schritt ein Halt, jede Ergebnisstufe eine Station, an der alle Linien ankommen müssen. Gestrichelte Bögen mit Pfeil zeigen, wo eine Linie auf eine andere wartet.",
-    "gutFuer": "Den Überblick und das Erklären gegenüber Dritten. Die Variante, die man ausdruckt und aufhängt.",
-    "schwaeche": "Braucht viel Breite, und es sind nur die strangübergreifenden Abhängigkeiten eingezeichnet."
-  },
-  {
-    "id": "metro2",
-    "name": "Liniennetz V2",
-    "href": "/entwicklung/strategie/metro-v2",
-    "claim": "Die Linie selbst zeigt den Fortschritt",
-    "frage": "Wie weit ist jede Bahn gekommen?",
-    "idee": "Wie das Liniennetz, aber die Linie ist dick, solange der Weg hinter uns liegt, und wird genau am aktuellen Halt dünn. Damit ist der Fortschrittsbalken die Linie selbst – das Abzeichen „jetzt machbar“ entfällt, der Wechsel der Strichstärke markiert die Stelle.",
-    "gutFuer": "Den Stand auf einen Blick, ohne Legende lesen zu müssen.",
-    "schwaeche": "Funktioniert nur sauber, solange je Bahn ein Schritt gleichzeitig frei ist."
-  },
-  {
-    "id": "graph",
-    "name": "Graph",
-    "href": "/entwicklung/strategie/graph",
-    "claim": "Jede einzelne Abhängigkeit, mit Pfeilrichtung",
-    "frage": "Was genau blockiert was?",
-    "idee": "Der vollständige Abhängigkeitsbaum. Spalten nach Tiefe, Pfeile für jede Bedingung, Klick auf einen Knoten färbt die ganze Kette davor und danach. Ein Schalter zeigt den längsten Weg — er bestimmt die Mindestdauer.",
-    "gutFuer": "Planung und Diskussion, wenn es um Reihenfolge und Engpässe geht.",
-    "schwaeche": "Die dichteste Darstellung. Man muss sich kurz einlesen, auch mit Legende."
-  },
-  {
-    "id": "graph2",
-    "name": "Graph V2",
-    "href": "/entwicklung/strategie/graph-v2",
-    "claim": "Abschnitte mit Zwischenergebnis, dunkel",
-    "frage": "Was hängt woran – und wo ist eine Stufe geschafft?",
-    "idee": "Der Graph, aber nicht nach roher Abhängigkeitstiefe sortiert, sondern in vier Abschnitten. Nach jedem steht eine Station wie im Liniennetz. Die Karten tragen jetzt Überschrift und einen Satz, der das Ergebnis benennt – die Bahnbeschriftung steht links fest und wiederholt sich nicht mehr in jeder Karte.",
-    "gutFuer": "Planung mit Blick auf Etappen. Verbindet die Genauigkeit des Graphen mit den Zwischenzielen des Liniennetzes.",
-    "schwaeche": "Breit – man scrollt seitlich durch vier Abschnitte."
-  },
-  {
-    "id": "graph3",
-    "name": "Graph V3",
-    "href": "/entwicklung/strategie/graph-v3",
-    "claim": "Dieselbe Logik, helle Variante",
-    "frage": "Wie sieht das aus, wenn es gedruckt oder projiziert wird?",
-    "idee": "Inhaltlich identisch zu V2, aber als helle Oberfläche gedacht: eigene Tonwerte statt umgekehrter Farben, Tiefe über feine Schatten statt über Leuchten, kräftigere Linien fürs Papierweiß.",
-    "gutFuer": "Beamer, Ausdruck und helle Büros. Wirkt ruhiger und sachlicher als die dunkle Fassung.",
-    "schwaeche": "Der Status springt weniger ins Auge als auf dunklem Grund."
+    "id": "hell",
+    "name": "hell",
+    "href": "/entwicklung/meilensteine/hell"
   }
 ]

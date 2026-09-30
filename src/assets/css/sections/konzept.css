@@ -38,6 +38,13 @@
 .k-bar__pill:hover { background-color: #1c1920; color: #fff; }
 .k-bar__pill.is-aktiv { background-color: #fff; color: #0b0a0c; font-weight: 600; }
 
+.k-bar__label {
+  color: #6c6875;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .k-bar__meta { margin-left: auto; color: #6c6875; font-size: 0.72rem; white-space: nowrap; }
 
 /* --- Detail-Popover: erscheint am angeklickten Element ---------------- */
@@ -131,92 +138,3 @@
 .k-detail__offen { list-style: none; padding-left: 0; }
 .k-detail__offen li { position: relative; padding-left: 1.2rem; }
 .k-detail__offen li::before { content: "?"; position: absolute; left: 0; color: #a167e4; font-weight: 700; }
-
-/* =========================================================
-   Übersichtsseite (/entwicklung/strategie-levels)
-   ========================================================= */
-.hub { display: flex; flex-flow: column; gap: 2rem; }
-
-.hub__stand {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #332b38;
-}
-.hub__zahl { display: block; color: #fff; font-size: 2rem; font-weight: 600; line-height: 1; }
-.hub__label { display: block; margin-top: 0.35rem; color: #7e7f88; font-size: 0.72rem; line-height: 1.35; }
-
-.hub__karten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-
-.hub__karte {
-  display: flex;
-  flex-flow: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  background-color: #211d24;
-  border: 1px solid #332b38;
-  border-radius: 1rem;
-  text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.hub__karte:hover { border-color: #a167e4; transform: translateY(-3px); }
-
-/* Angedeutete Vorschau, je Konzept anders angeordnet */
-.hub__vorschau {
-  display: flex;
-  gap: 4px;
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
-  align-items: flex-end;
-}
-.hub__vorschau i { display: block; border-radius: 3px; background-color: #4a4152; }
-.hub__karte--tafel .hub__vorschau i:nth-child(1) { width: 46%; height: 100%; background-color: #35c08a; }
-.hub__karte--tafel .hub__vorschau i:nth-child(2) { width: 26%; height: 55%; }
-.hub__karte--tafel .hub__vorschau i:nth-child(3) { width: 26%; height: 55%; }
-.hub__karte--stufen .hub__vorschau { flex-flow: column; justify-content: center; gap: 5px; }
-.hub__karte--stufen .hub__vorschau i { height: 6px; border-radius: 99rem; }
-.hub__karte--stufen .hub__vorschau i:nth-child(1) { width: 100%; background-color: #35c08a; }
-.hub__karte--stufen .hub__vorschau i:nth-child(2) { width: 62%; }
-.hub__karte--stufen .hub__vorschau i:nth-child(3) { width: 38%; }
-.hub__karte--graph .hub__vorschau i { width: 33%; }
-.hub__karte--graph .hub__vorschau i:nth-child(1) { height: 40%; }
-.hub__karte--graph .hub__vorschau i:nth-child(2) { height: 100%; }
-.hub__karte--graph .hub__vorschau i:nth-child(3) { height: 65%; }
-.hub__karte--graph2 .hub__vorschau i { width: 30%; height: 100%; }
-.hub__karte--graph2 .hub__vorschau i:nth-child(2) { width: 6%; background-color: #35c08a; }
-.hub__karte--graph3 .hub__vorschau i { width: 30%; height: 100%; background-color: #cfccc6; }
-.hub__karte--graph3 .hub__vorschau i:nth-child(2) { width: 6%; background-color: #12855c; }
-.hub__karte--metro .hub__vorschau { flex-flow: column; justify-content: center; gap: 6px; }
-.hub__karte--metro .hub__vorschau i { width: 100%; height: 4px; }
-.hub__karte--metro .hub__vorschau i:nth-child(1) { background-color: #8B7CFF; }
-.hub__karte--metro .hub__vorschau i:nth-child(2) { background-color: #2DD4BF; width: 70%; }
-.hub__karte--metro .hub__vorschau i:nth-child(3) { background-color: #FB923C; width: 85%; }
-.hub__karte--metro2 .hub__vorschau { flex-flow: column; justify-content: center; gap: 6px; }
-.hub__karte--metro2 .hub__vorschau i { width: 100%; border-radius: 99rem; }
-.hub__karte--metro2 .hub__vorschau i:nth-child(1) { height: 7px; background: linear-gradient(90deg, #8B7CFF 0 30%, rgb(139 124 255 / 0.4) 30%); }
-.hub__karte--metro2 .hub__vorschau i:nth-child(2) { height: 7px; background: linear-gradient(90deg, #2DD4BF 0 55%, rgb(45 212 191 / 0.4) 55%); }
-.hub__karte--metro2 .hub__vorschau i:nth-child(3) { height: 7px; background: linear-gradient(90deg, #FB923C 0 20%, rgb(251 146 60 / 0.4) 20%); }
-
-.hub__name { color: #fff; font-size: 1.35rem; font-weight: 600; }
-.hub__claim { color: #a167e4; font-size: 0.85rem; font-weight: 500; }
-.hub__frage { color: #fff; font-size: 0.95rem; font-style: italic; }
-.hub__idee { color: #c3c2c3; font-size: 0.85rem; line-height: 1.55; }
-.hub__zeile { color: #7e7f88; font-size: 0.78rem; line-height: 1.5; }
-.hub__zeile b { color: #c3c2c3; font-weight: 600; }
-.hub__zeile--schwach b { color: #7e7f88; }
-
-.hub__hinweis {
-  padding-top: 1.5rem;
-  border-top: 1px solid #332b38;
-  color: #7e7f88;
-  font-size: 0.75rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 991px) {
-  .hub__stand { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hub__karten { grid-template-columns: 1fr; }
-  .k-bar { flex-wrap: wrap; gap: 0.75rem; }
-  .k-bar__meta { margin-left: 0; }
-}

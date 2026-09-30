@@ -1,0 +1,129 @@
+/* =========================================================
+   Seite "Strategie und Zielbild"
+   ========================================================= */
+.sz { display: flex; flex-flow: column; gap: 3rem; }
+
+.sz__marke {
+  color: #a167e4;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sz__kurz {
+  margin-top: 0.6rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.sz__text {
+  max-width: 48rem;
+  margin-top: 0.85rem;
+  color: #c3c2c3;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.sz__block { padding-top: 2.5rem; border-top: 1px solid #332b38; }
+.sz__h2 { color: #fff; font-size: 1.2rem; font-weight: 650; }
+.sz__unter { max-width: 44rem; margin-top: 0.35rem; color: #7e7f88; font-size: 0.88rem; line-height: 1.5; }
+
+/* --- Stränge ---------------------------------------------------------- */
+.sz__straenge {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.sz__strang {
+  padding: 1.25rem;
+  background-color: #211d24;
+  border: 1px solid #332b38;
+  border-top: 3px solid var(--f);
+  border-radius: 0.85rem;
+}
+.sz__strang-frage { color: var(--f); font-size: 0.8rem; font-style: italic; }
+.sz__strang-name { margin-top: 0.3rem; color: #fff; font-size: 1.05rem; font-weight: 650; }
+.sz__strang-zahl { display: block; margin-top: 0.5rem; color: #7e7f88; font-size: 0.78rem; }
+.sz__balken {
+  display: block;
+  height: 3px;
+  margin-top: 0.5rem;
+  background-color: #332b38;
+  border-radius: 99rem;
+  overflow: hidden;
+}
+.sz__balken i { display: block; height: 100%; background-color: var(--f); border-radius: 99rem; }
+
+/* --- Ergebnisstufen --------------------------------------------------- */
+.sz__stufen { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; flex-flow: column; gap: 0.6rem; }
+.sz__stufe {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: #211d24;
+  border: 1px solid #332b38;
+  border-radius: 0.7rem;
+}
+.sz__stufe.is-dran { border-color: #35c08a; background-color: #171f1c; }
+.sz__stufe.is-erreicht { border-color: #2c5a45; }
+
+.sz__stufe-nr {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #332b38;
+  border-radius: 99rem;
+  color: #c3c2c3;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+.sz__stufe.is-dran .sz__stufe-nr { background-color: #35c08a; color: #06231a; }
+.sz__stufe.is-erreicht .sz__stufe-nr { background-color: #2c5a45; color: #b6e6cf; }
+
+.sz__stufe-text { flex: 1; }
+.sz__stufe-text h3 { color: #fff; font-size: 1rem; font-weight: 650; }
+.sz__stufe-text p { margin-top: 0.2rem; color: #c3c2c3; font-size: 0.88rem; line-height: 1.5; }
+
+.sz__stufe-stand {
+  flex: none;
+  text-align: right;
+  color: #7e7f88;
+  font-size: 0.75rem;
+}
+.sz__stufe.is-dran .sz__stufe-stand { color: #6fcfa4; }
+.sz__stufe-stand i { display: block; margin-top: 0.2rem; color: #5f5c69; font-style: normal; font-size: 0.7rem; }
+
+/* --- Stand ------------------------------------------------------------ */
+.sz__zahlen {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.sz__zahlen div { color: #7e7f88; font-size: 0.75rem; line-height: 1.35; }
+.sz__zahlen span { display: block; color: #fff; font-size: 2rem; font-weight: 700; line-height: 1; }
+
+.sz__weiter { margin-top: 1.5rem; color: #c3c2c3; font-size: 0.88rem; }
+.sz__weiter a { color: #a167e4; }
+
+.sz__hinweis {
+  padding-top: 1.5rem;
+  border-top: 1px solid #332b38;
+  color: #7e7f88;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .sz__straenge { grid-template-columns: 1fr; }
+  .sz__zahlen { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sz__stufe { flex-wrap: wrap; }
+  .sz__stufe-stand { text-align: left; width: 100%; }
+}

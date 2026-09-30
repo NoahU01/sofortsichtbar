@@ -1,0 +1,69 @@
+---
+title: "Strategie und Zielbild – Entwicklung"
+description: "Worauf wir hinarbeiten, über welche drei Stränge und in welchen vier Stufen."
+permalink: /entwicklung/strategie-zielbild/index.html
+devHeadline: "Strategie und Zielbild"
+devIntro: "Worauf wir hinarbeiten, über welche drei Stränge wir dorthin kommen und welche vier Ergebnisstufen dazwischen liegen."
+devWide: true
+---
+{%- set g = strategieGraph -%}
+
+<div class="sz">
+
+  <section class="sz__ziel">
+    <span class="sz__marke">Zielbild</span>
+    <p class="sz__kurz">{{ g.zielbild.kurz }}</p>
+    <p class="sz__text">{{ g.zielbild.text }}</p>
+  </section>
+
+  <section class="sz__block">
+    <h2 class="sz__h2">Drei Stränge</h2>
+    <p class="sz__unter">Sie laufen parallel. Jeder beantwortet eine eigene Frage, und keiner kommt ohne die anderen ans Ziel.</p>
+    <div class="sz__straenge">
+      {% for s in g.straenge %}
+        <div class="sz__strang" style="--f: {{ s.farbe }}">
+          <span class="sz__strang-frage">{{ s.frage }}</span>
+          <h3 class="sz__strang-name">{{ s.label }}</h3>
+          <span class="sz__strang-zahl">{{ s.anzahl }} Schritte · {{ s.fortschritt }}% erledigt</span>
+          <span class="sz__balken"><i style="width: {{ s.fortschritt }}%"></i></span>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="sz__block">
+    <h2 class="sz__h2">Vier Ergebnisstufen</h2>
+    <p class="sz__unter">Eine Stufe ist erst erreicht, wenn alle drei Stränge ihren Teil erledigt haben. Erst dann beginnt die nächste.</p>
+    <ol class="sz__stufen">
+      {% for m in g.meilensteine %}
+        <li class="sz__stufe{% if m.erreicht %} is-erreicht{% elif m.id == g.aktuellerMeilenstein.id %} is-dran{% endif %}">
+          <span class="sz__stufe-nr">{{ m.nr }}</span>
+          <div class="sz__stufe-text">
+            <h3>{{ m.titel }}</h3>
+            <p>{{ m.ergebnis }}</p>
+          </div>
+          <span class="sz__stufe-stand">
+            {% if m.erreicht %}erreicht{% elif m.id == g.aktuellerMeilenstein.id %}hier stehen wir{% else %}später{% endif %}
+            <i>{{ m.fortschritt }}% · {{ m.anzahl }} Schritte</i>
+          </span>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="sz__block">
+    <h2 class="sz__h2">Stand</h2>
+    <div class="sz__zahlen">
+      <div><span>{{ g.fortschritt }}%</span>erledigt</div>
+      <div><span>{{ g.anzahl }}</span>Schritte insgesamt</div>
+      <div><span>{{ g.machbar.length }}</span>jetzt machbar</div>
+      <div><span>{{ g.graph.querAnzahl }}</span>Abhängigkeiten über Strangrenzen</div>
+    </div>
+    <p class="sz__weiter">
+      Wie sich das im Detail verzweigt, zeigen die
+      <a href="/entwicklung/meilensteine/fein">Meilensteine</a>.
+    </p>
+  </section>
+
+  <p class="sz__hinweis">{{ g.hinweis }}</p>
+</div>

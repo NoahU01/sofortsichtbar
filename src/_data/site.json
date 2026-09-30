@@ -30,43 +30,12 @@
       "devOnly": true,
       "children": [
         {
-          "label": "Strategie-Levels",
-          "href": "/entwicklung/strategie-levels"
+          "label": "Meilensteine",
+          "href": "/entwicklung/meilensteine/fein"
         },
         {
-          "label": "Tafel",
-          "href": "/entwicklung/strategie/tafel",
-          "sub": true
-        },
-        {
-          "label": "Stufenplan",
-          "href": "/entwicklung/strategie/stufen",
-          "sub": true
-        },
-        {
-          "label": "Liniennetz",
-          "href": "/entwicklung/strategie/metro",
-          "sub": true
-        },
-        {
-          "label": "Liniennetz V2",
-          "href": "/entwicklung/strategie/metro-v2",
-          "sub": true
-        },
-        {
-          "label": "Graph",
-          "href": "/entwicklung/strategie/graph",
-          "sub": true
-        },
-        {
-          "label": "Graph V2",
-          "href": "/entwicklung/strategie/graph-v2",
-          "sub": true
-        },
-        {
-          "label": "Graph V3",
-          "href": "/entwicklung/strategie/graph-v3",
-          "sub": true
+          "label": "Strategie und Zielbild",
+          "href": "/entwicklung/strategie-zielbild"
         }
       ]
     }

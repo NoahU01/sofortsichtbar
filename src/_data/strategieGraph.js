@@ -416,6 +416,9 @@ const graph2 = {
   hoehe: g2Hoehe,
   knotenBreite: G2.breite,
   knotenHoehe: G2.hoehe,
+  // Wie weit das Bahnband oben und unten über die Karten hinausragt.
+  // Die Leiste links muss denselben Wert verwenden.
+  bandLuft: 16,
   kanten: g2Kanten,
   stationen: g2Stationen,
   spuren: straenge.map((s, i) => ({

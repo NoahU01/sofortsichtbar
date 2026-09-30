@@ -1,8 +1,8 @@
-{#- Liniennetz. Mit metroV2 = true zeigt die Linie den Fortschritt:
-    dick bis zum aktuellen Halt, danach dünn. -#}
+{#- Liniennetz: Die Linie trägt den Fortschritt selbst. Ein Abschnitt ist
+    dick, wenn der Halt an seinem Ende erledigt ist oder gerade ansteht. -#}
 {%- set g = strategieGraph -%}
 
-<div class="me{% if metroV2 %} me--v2{% endif %}">
+<div class="me me--v2">
 
   <div class="me__kopf">
     <h1>{{ metroTitel }}</h1>
@@ -10,10 +10,8 @@
       Drei Linien laufen nebeneinander nach rechts. Jeder Halt ist ein Schritt.
       Die <strong>nummerierten Stationen</strong> sind Ergebnisstufen — dort muss jede Linie
       angekommen sein, bevor es weitergeht.
-      {% if metroV2 %}
-        Ein Abschnitt ist <strong>dick, wenn der Halt an seinem Ende erledigt ist oder gerade
+      Ein Abschnitt ist <strong>dick, wenn der Halt an seinem Ende erledigt ist oder gerade
         ansteht</strong> — sonst dünn. Auf einen späteren Halt klicken zeigt die Route dorthin.
-      {% endif %}
     </p>
   </div>
 
@@ -29,21 +27,16 @@
       <span class="me__leg-halt"><i class="me__muster me__muster--fertig"></i>erledigt</span>
       <span class="me__leg-halt"><i class="me__muster me__muster--jetzt"></i>jetzt machbar</span>
       <span class="me__leg-halt"><i class="me__muster me__muster--wartet"></i>wartet noch</span>
-      {% if metroV2 %}
-        <span class="me__leg-halt"><i class="me__muster me__muster--dick"></i>Abschnitt erledigt oder dran</span>
-        <span class="me__leg-halt"><i class="me__muster me__muster--duenn"></i>noch offen</span>
-      {% else %}
-        <span class="me__leg-halt"><i class="me__muster me__muster--bogen"></i>wartet auf andere Linie</span>
-      {% endif %}
+      <span class="me__leg-halt"><i class="me__muster me__muster--dick"></i>Abschnitt erledigt oder dran</span>
+      <span class="me__leg-halt"><i class="me__muster me__muster--duenn"></i>noch offen</span>
+      <span class="me__leg-halt"><i class="me__muster me__muster--bogen"></i>Umstieg auf andere Linie</span>
     </div>
   </div>
 
-  {% if metroV2 %}
-    <div class="me__route" data-route-leiste hidden>
+  <div class="me__route" data-route-leiste hidden>
       <span class="me__route-text" data-route-text></span>
       <button class="me__route-zu" type="button" data-metro-reset>Ganzes Netz zeigen</button>
-    </div>
-  {% endif %}
+  </div>
 
   <div class="me__scroll">
     <div class="me__plan" style="width: {{ g.metro.breite }}px; height: {{ g.metro.hoehe }}px">
@@ -59,19 +52,13 @@
           <line class="me__stationslinie" x1="{{ s.x }}" y1="96" x2="{{ s.x }}" y2="{{ g.metro.hoehe - 30 }}" />
         {% endfor %}
 
-        {% if metroV2 %}
-          {% for l in g.metro.linien %}
-            {% for a in l.abschnitte %}
-              <path class="me__linie {{ "me__linie--gegangen" if a.dick else "me__linie--offen" }}"
-                    {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
-                    d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
-            {% endfor %}
+        {% for l in g.metro.linien %}
+          {% for a in l.abschnitte %}
+            <path class="me__linie {{ "me__linie--gegangen" if a.dick else "me__linie--offen" }}"
+                  {% if a.bis %}data-bis="{{ a.bis }}"{% endif %}
+                  d="{{ a.pfad }}" style="--f: {{ l.farbe }}" />
           {% endfor %}
-        {% else %}
-          {% for l in g.metro.linien %}
-            <path class="me__linie" d="{{ l.pfad }}" style="--f: {{ l.farbe }}" />
-          {% endfor %}
-        {% endif %}
+        {% endfor %}
 
         {% for q in g.metro.quer %}
           <path class="me__quer" data-von="{{ q.von }}" data-nach="{{ q.nach }}" d="{{ q.pfad }}"
@@ -103,8 +90,7 @@
           <span class="me__halt-punkt"></span>
           <span class="me__halt-label">{{ s.titel }}</span>
           {% if s.wer %}<span class="me__halt-wer">{{ s.wer }}</span>{% endif %}
-          {% if s.dran and not metroV2 %}<span class="me__halt-jetzt">jetzt machbar</span>{% endif %}
-        </button>
+                  </button>
       {% endfor %}
 
     </div>
