@@ -1,12 +1,147 @@
 ---
 title: Strategie-Levels – Entwicklung
-description: Arbeitsstand zu den Strategie-Levels.
+description: Missionsbaum der Strategie – Zielbild, parallele Stränge und ihre Stage-Gates.
 permalink: /entwicklung/strategie-levels/index.html
 devHeadline: Strategie-Levels
-devIntro: Platzhalter. Hier entsteht die Struktur der Strategie-Levels – Inhalte, Reihenfolge und Darstellung sind noch offen.
+devIntro: Unsere Strategie als Missionsbaum: ein Zielbild, drei parallele Stränge und Levels, die aufeinander aufbauen. Ein Level ist erst durch, wenn sein Ergebnis steht.
+devWide: true
 ---
-<div class="dev-note">
-  <p class="text-secondary text-regular">
-    Noch kein Inhalt. Diese Seite dient als Einstiegspunkt für die weitere Ausarbeitung.
-  </p>
+{% set s = strategie %}
+
+<div class="strategie">
+
+  <section class="zielbild" aria-labelledby="zielbild-titel">
+    <div class="zielbild__head">
+      <div class="eyebrow"><div class="eyebrow__text">Zielbild</div></div>
+      <h2 class="heading-h4 text-white" id="zielbild-titel">{{ s.zielbild.headline }}</h2>
+    </div>
+    <p class="zielbild__text text-secondary text-regular">{{ s.zielbild.text }}</p>
+    <ul class="zielbild__punkte">
+      {% for p in s.zielbild.punkte %}
+        <li class="zielbild__punkt">
+          <span class="zielbild__punkt-label">{{ p.label }}</span>
+          <span class="text-secondary text-small">{{ p.text }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <div class="legende">
+    {% for key, st in s.status %}
+      <span class="legende__eintrag">
+        <span class="legende__dot legende__dot--{{ key }}" aria-hidden="true"></span>
+        <span class="legende__label">{{ st.label }}</span>
+        <span class="legende__text text-small">{{ st.beschreibung }}</span>
+      </span>
+    {% endfor %}
+    <span class="legende__hinweis text-small">Karte anklicken für Details · Abhängigkeiten werden beim Überfahren hervorgehoben</span>
+  </div>
+
+  <div class="board">
+    {% for strang in s.straenge %}
+      <section class="strang" aria-labelledby="strang-{{ strang.id }}">
+        <header class="strang__head">
+          <h3 class="strang__titel heading-h5 text-white" id="strang-{{ strang.id }}">{{ strang.label }}</h3>
+          <p class="strang__text text-secondary text-small">{{ strang.beschreibung }}</p>
+        </header>
+
+        <ol class="strang__levels">
+          {% for level in strang.levels %}
+            <li class="level level--{{ level.status }}" data-level="{{ level.id }}">
+              <button class="level__card" type="button"
+                      data-level-open="{{ level.id }}"
+                      {% if level.benoetigt.length %}data-requires="{{ level.benoetigt | join(" ") }}"{% endif %}
+                      aria-haspopup="dialog">
+                <span class="level__meta">
+                  <span class="level__nr">Level {{ level.level }}</span>
+                  <span class="level__status">
+                    <span class="legende__dot legende__dot--{{ level.status }}" aria-hidden="true"></span>
+                    {{ s.status[level.status].label }}
+                  </span>
+                </span>
+                <span class="level__titel">{{ level.titel }}</span>
+                <span class="level__ergebnis">{{ level.ergebnis }}</span>
+                {% if level.benoetigt.length %}
+                  <span class="level__deps">
+                    {% for dep in level.benoetigt %}
+                      {% set d = s.straenge | findLevel(dep) %}
+                      {% if d %}<span class="level__dep">braucht {{ d.strangKurz }} · L{{ d.level }}</span>{% endif %}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </button>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endfor %}
+  </div>
+
+  <p class="board__fuss text-secondary text-small">Alle drei Stränge laufen auf das Zielbild zu.</p>
+
+  {# Ein Dialog je Level – der Inhalt kommt aus src/_data/strategie.json #}
+  {% for strang in s.straenge %}
+    {% for level in strang.levels %}
+      <dialog class="level-dialog" id="dialog-{{ level.id }}" aria-labelledby="dialog-{{ level.id }}-titel">
+        <div class="level-dialog__inner">
+
+          <div class="level-dialog__head">
+            <span class="level-dialog__herkunft">{{ strang.label }} · Level {{ level.level }}</span>
+            <button class="level-dialog__close" type="button" data-dialog-close aria-label="Schließen">&times;</button>
+          </div>
+
+          <div class="level-dialog__titel-zeile">
+            <h3 class="heading-h4 text-white" id="dialog-{{ level.id }}-titel">{{ level.titel }}</h3>
+            <span class="level-dialog__status">
+              <span class="legende__dot legende__dot--{{ level.status }}" aria-hidden="true"></span>
+              {{ s.status[level.status].label }}
+            </span>
+          </div>
+
+          <div class="level-dialog__block">
+            <h4 class="level-dialog__label">Stage-Gate – erreicht, wenn</h4>
+            <p class="text-secondary text-regular">{{ level.ergebnis }}</p>
+          </div>
+
+          {% if level.details.length %}
+            <div class="level-dialog__block">
+              <h4 class="level-dialog__label">Inhalte</h4>
+              <ul class="level-dialog__liste">
+                {% for d in level.details %}<li class="text-secondary text-regular">{{ d }}</li>{% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if level.benoetigt.length %}
+            <div class="level-dialog__block">
+              <h4 class="level-dialog__label">Hängt ab von</h4>
+              <div class="level-dialog__deps">
+                {% for dep in level.benoetigt %}
+                  {% set d = s.straenge | findLevel(dep) %}
+                  {% if d %}
+                    <button class="level-dialog__dep" type="button" data-level-open="{{ d.id }}">
+                      {{ d.strangKurz }} · Level {{ d.level }}: {{ d.titel }}
+                    </button>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if level.offen.length %}
+            <div class="level-dialog__block">
+              <h4 class="level-dialog__label">Offen</h4>
+              <ul class="level-dialog__liste level-dialog__liste--offen">
+                {% for o in level.offen %}<li class="text-secondary text-regular">{{ o }}</li>{% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+        </div>
+      </dialog>
+    {% endfor %}
+  {% endfor %}
+
+  <p class="strategie__hinweis text-small">{{ s.hinweis }}</p>
+
 </div>

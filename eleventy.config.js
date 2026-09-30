@@ -51,6 +51,15 @@ export default function (eleventyConfig) {
     );
   });
 
+  // Löst eine Level-ID aus "benoetigt" über alle Stränge hinweg auf.
+  eleventyConfig.addFilter("findLevel", (straenge, id) => {
+    for (const strang of straenge || []) {
+      const level = (strang.levels || []).find((l) => l.id === id);
+      if (level) return { ...level, strangKurz: strang.kurz, strangLabel: strang.label };
+    }
+    return null;
+  });
+
   // Statische Assets 1:1 nach dist kopieren (CSS wird gebündelt, siehe unten)
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });

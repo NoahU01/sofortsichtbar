@@ -279,6 +279,53 @@
     });
   }
 
+  /* --- Strategie-Missionsbaum (/entwicklung/strategie-levels) ---------- */
+  function initStrategie() {
+    var board = document.querySelector(".board");
+    if (!board) return;
+
+    function openLevel(id) {
+      var dialog = document.getElementById("dialog-" + id);
+      if (!dialog) return;
+      document.querySelectorAll(".level-dialog[open]").forEach(function (open) { open.close(); });
+      dialog.showModal();
+    }
+
+    document.querySelectorAll("[data-level-open]").forEach(function (button) {
+      button.addEventListener("click", function () { openLevel(button.dataset.levelOpen); });
+    });
+
+    document.querySelectorAll("[data-dialog-close]").forEach(function (button) {
+      button.addEventListener("click", function () { button.closest("dialog").close(); });
+    });
+
+    // Klick auf den Backdrop schließt den Dialog
+    document.querySelectorAll(".level-dialog").forEach(function (dialog) {
+      dialog.addEventListener("click", function (e) {
+        if (e.target === dialog) dialog.close();
+      });
+    });
+
+    // Beim Überfahren einer Karte die Levels hervorheben, von denen sie abhängt
+    function highlight(card, on) {
+      var ids = (card.dataset.requires || "").split(" ").filter(Boolean);
+      if (!ids.length) return;
+
+      card.closest(".level").classList.toggle("is-source", on);
+      ids.forEach(function (id) {
+        var target = board.querySelector('.level[data-level="' + id + '"]');
+        if (target) target.classList.toggle("is-required", on);
+      });
+    }
+
+    board.querySelectorAll("[data-requires]").forEach(function (card) {
+      card.addEventListener("mouseenter", function () { highlight(card, true); });
+      card.addEventListener("mouseleave", function () { highlight(card, false); });
+      card.addEventListener("focus", function () { highlight(card, true); });
+      card.addEventListener("blur", function () { highlight(card, false); });
+    });
+  }
+
   /* --- Scroll-Reveal --------------------------------------------------- */
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -309,6 +356,7 @@
     initThemeFilter();
     initAnchors();
     initConsentRenew();
+    initStrategie();
     initReveal();
   }
 

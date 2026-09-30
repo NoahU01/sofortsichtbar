@@ -1,0 +1,253 @@
+{
+  "hinweis": "Erster Entwurf. Inhalte sind Platzhalter und sollen gemeinsam geschärft werden. Struktur: Zielbild + parallele Stränge, je Strang aufeinander aufbauende Levels (Stage-Gates). Ein Level gilt erst als erreicht, wenn sein Ergebnis steht. Querabhängigkeiten stehen in 'benoetigt'.",
+
+  "zielbild": {
+    "headline": "Wohin wir arbeiten",
+    "text": "sofort sichtbar ist der Standardweg, auf dem Versicherungsprofis und Vertriebsorganisationen in Tagen sichtbar werden statt in Monaten: definierte Zielgruppen, fertige Vertriebsstrecken, messbare Termine – als Mietmodell wiederholbar für jeden neuen Kunden.",
+    "punkte": [
+      {
+        "label": "Wiederholbar",
+        "text": "Eine neue Vertriebsstrecke entsteht aus Bausteinen, nicht aus Projektarbeit."
+      },
+      {
+        "label": "Messbar",
+        "text": "Von der ersten Anzeige bis zum Termin ist jeder Schritt einer Quelle zuordenbar."
+      },
+      {
+        "label": "Skalierbar",
+        "text": "Neue Zielgruppen und Kunden kommen ohne linear wachsenden Aufwand dazu."
+      },
+      {
+        "label": "Planbar",
+        "text": "Vertriebsleiter sehen, welcher Kanal wie viele Termine liefert."
+      }
+    ]
+  },
+
+  "status": {
+    "erreicht": {
+      "label": "Erreicht",
+      "beschreibung": "Stage-Gate abgenommen, der Strang ist hier durch."
+    },
+    "aktiv": {
+      "label": "In Arbeit",
+      "beschreibung": "Das nächste Stage-Gate, an dem gerade gearbeitet wird."
+    },
+    "gesperrt": {
+      "label": "Wartet",
+      "beschreibung": "Startet erst, wenn das Level davor steht und die Abhängigkeiten erfüllt sind."
+    }
+  },
+
+  "straenge": [
+    {
+      "id": "crm",
+      "kurz": "CRM",
+      "label": "CRM-System / Zielkunden",
+      "beschreibung": "Wen sprechen wir an – und wo liegen diese Kontakte sauber gepflegt?",
+      "levels": [
+        {
+          "id": "crm-1",
+          "level": 1,
+          "titel": "Zielkunden definiert",
+          "ergebnis": "Die Zielgruppensegmente stehen schriftlich: Kriterien, geschätzte Größe und der Anlass, zu dem wir sie ansprechen.",
+          "status": "aktiv",
+          "benoetigt": [],
+          "details": [
+            "Segmente aus den bestehenden 20 Zielgruppenseiten ableiten",
+            "Je Segment: Größe, Erreichbarkeit, Ansprache-Anlass",
+            "Ausschlusskriterien festhalten"
+          ],
+          "offen": [
+            "Starten wir mit allen Segmenten oder mit einem Kern von drei?"
+          ]
+        },
+        {
+          "id": "crm-2",
+          "level": 2,
+          "titel": "CRM ausgewählt und eingerichtet",
+          "ergebnis": "Ein CRM ist entschieden, aufgesetzt und bildet unsere Pipeline-Stufen mit Pflichtfeldern ab.",
+          "status": "gesperrt",
+          "benoetigt": [],
+          "details": [
+            "Anbieter vergleichen: Kosten, DSGVO, Schnittstellen",
+            "Pipeline-Stufen definieren",
+            "Pflichtfelder je Segment festlegen"
+          ],
+          "offen": [
+            "Anbieter noch offen",
+            "Wer pflegt die Daten dauerhaft?"
+          ]
+        },
+        {
+          "id": "crm-3",
+          "level": 3,
+          "titel": "Zielkunden im CRM hinterlegt",
+          "ergebnis": "Die Kontakte je Segment liegen im CRM – dublettenfrei und mit dokumentierter Rechtsgrundlage für die Ansprache.",
+          "status": "gesperrt",
+          "benoetigt": [],
+          "details": [
+            "Datenquellen erschließen",
+            "Import inklusive Dublettenabgleich",
+            "Rechtsgrundlage je Segment dokumentieren"
+          ],
+          "offen": [
+            "Woher kommen die Kontaktdaten je Segment?"
+          ]
+        },
+        {
+          "id": "crm-4",
+          "level": 4,
+          "titel": "Selektion auf Knopfdruck",
+          "ergebnis": "Für jedes Segment lässt sich eine Empfängerliste ohne Handarbeit erzeugen und an einen Kanal übergeben.",
+          "status": "gesperrt",
+          "benoetigt": [],
+          "details": [
+            "Gespeicherte Selektionen je Segment",
+            "Export- oder Schnittstellenweg zum Versandsystem",
+            "Aktualität der Listen sicherstellen"
+          ],
+          "offen": []
+        }
+      ]
+    },
+
+    {
+      "id": "web",
+      "kurz": "Web",
+      "label": "Webseite & Landingpages",
+      "beschreibung": "Unser Produkt: die Strecken, auf denen Interessenten landen und zu Terminen werden.",
+      "levels": [
+        {
+          "id": "web-1",
+          "level": 1,
+          "titel": "Website live",
+          "ergebnis": "sofortsichtbar.de ist live, Tracking und Consent laufen sauber, alle Zielgruppenseiten sind erreichbar.",
+          "status": "erreicht",
+          "benoetigt": [],
+          "details": [
+            "Startseite, Pricing, Vertriebsstrecken, Vertriebsleiter, 20 Zielgruppenseiten",
+            "GA4 mit Consent Mode v2 und Cookiebot",
+            "Strukturierte Daten, Sitemap, llms.txt"
+          ],
+          "offen": []
+        },
+        {
+          "id": "web-2",
+          "level": 2,
+          "titel": "Angebot eindeutig dargestellt",
+          "ergebnis": "Pakete, Preise und Leistungsumfang sind so dargestellt, dass ein Interessent ohne Rückfrage versteht, was er bekommt.",
+          "status": "aktiv",
+          "benoetigt": [],
+          "details": [
+            "Paketlogik schärfen",
+            "Abgrenzung Miete gegen Kauf klar machen",
+            "Häufige Einwände direkt auf der Seite beantworten"
+          ],
+          "offen": [
+            "Preise öffentlich zeigen oder erst im Gespräch?"
+          ]
+        },
+        {
+          "id": "web-3",
+          "level": 3,
+          "titel": "Landingpage-Baukasten",
+          "ergebnis": "Eine neue Zielgruppen-Landingpage steht aus Bausteinen in unter einem Tag live.",
+          "status": "gesperrt",
+          "benoetigt": ["crm-1"],
+          "details": [
+            "Bausteine aus den bestehenden Seiten herauslösen",
+            "Inhalte datengetrieben statt pro Seite gepflegt",
+            "Checkliste für den Livegang"
+          ],
+          "offen": [
+            "Wie weit soll der Kunde selbst anpassen können?"
+          ]
+        },
+        {
+          "id": "web-4",
+          "level": 4,
+          "titel": "Conversion-Strecke messbar",
+          "ergebnis": "Von Seitenaufruf bis Terminbuchung ist jede Stufe messbar, die Conversion-Rate je Zielgruppe ist bekannt.",
+          "status": "gesperrt",
+          "benoetigt": ["kanaele-2"],
+          "details": [
+            "Funnel-Stufen und Events definieren",
+            "Terminbuchung als Conversion sauber erfassen",
+            "Auswertung je Zielgruppe und Quelle"
+          ],
+          "offen": []
+        }
+      ]
+    },
+
+    {
+      "id": "kanaele",
+      "kurz": "Kanäle",
+      "label": "Marketing- & Vertriebskanäle",
+      "beschreibung": "Wie kommen die richtigen Menschen auf unsere Strecken?",
+      "levels": [
+        {
+          "id": "kanaele-1",
+          "level": 1,
+          "titel": "Kanal-Landkarte",
+          "ergebnis": "Alle in Frage kommenden Kanäle sind bewertet nach Aufwand, Reichweite in unserer Zielgruppe und Kosten.",
+          "status": "aktiv",
+          "benoetigt": [],
+          "details": [
+            "Kanäle sammeln: LinkedIn, Mailing, Empfehlung, Events, Ads",
+            "Je Kanal Aufwand, Kosten und erwartete Wirkung schätzen",
+            "Reihenfolge festlegen"
+          ],
+          "offen": [
+            "Welcher Kanal wird der erste?"
+          ]
+        },
+        {
+          "id": "kanaele-2",
+          "level": 2,
+          "titel": "Erster Kanal liefert reproduzierbar",
+          "ergebnis": "Ein Kanal erzeugt planbar Anfragen – nicht einmalig, sondern wiederholbar über mehrere Wochen.",
+          "status": "gesperrt",
+          "benoetigt": ["web-2"],
+          "details": [
+            "Kanal auswählen und Rhythmus festlegen",
+            "Inhalte vorproduzieren",
+            "Anfragen zählen und Quelle erfassen"
+          ],
+          "offen": []
+        },
+        {
+          "id": "kanaele-3",
+          "level": 3,
+          "titel": "Mailings",
+          "ergebnis": "Eine Mailing-Strecke läuft an definierte Segmente, mit messbarer Öffnungs- und Reaktionsrate.",
+          "status": "gesperrt",
+          "benoetigt": ["crm-3"],
+          "details": [
+            "Versandsystem anbinden",
+            "Strecke je Segment texten",
+            "Rechtsgrundlage, Impressum und Abmeldung sauber abbilden"
+          ],
+          "offen": [
+            "Welches Versandsystem, und wie koppeln wir es ans CRM?"
+          ]
+        },
+        {
+          "id": "kanaele-4",
+          "level": 4,
+          "titel": "Kanal-Mix mit Attribution",
+          "ergebnis": "Mehrere Kanäle laufen parallel und jede Anfrage lässt sich ihrer Quelle zuordnen.",
+          "status": "gesperrt",
+          "benoetigt": ["web-4"],
+          "details": [
+            "Zweiten und dritten Kanal starten",
+            "UTM-Konvention festlegen",
+            "Monatliches Kanal-Reporting"
+          ],
+          "offen": []
+        }
+      ]
+    }
+  ]
+}

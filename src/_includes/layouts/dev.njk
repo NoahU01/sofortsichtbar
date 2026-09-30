@@ -6,7 +6,7 @@ layout: layouts/base.njk
 <section class="dev-page">
   <div class="section-padding">
     <div class="padding-global">
-      <div class="container-medium">
+      <div class="{{ "container" if devWide else "container-medium" }}">
         <div class="dev-page__box padding-large">
 
           <div class="dev-page__header">
