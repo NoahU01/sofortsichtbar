@@ -1,24 +1,11 @@
 {
-  "titel": "Unser Prozessbild",
-  "untertitel": "Wie die Kanäle zusammenlaufen und was wir konkret tun",
-  "hinweis": "Interne Arbeitsgrundlage. Nicht verlinkt, nicht indexiert.",
-
-  "kreislauf": {
-    "titel": "Jeder Kanal ist derselbe Kreislauf",
-    "text": "Die Kanäle unterscheiden sich im Inhalt, nicht im Mechanismus. Wer das einmal sieht, muss nicht fünf Prozesse im Kopf behalten, sondern einen – fünfmal mit anderem Material.",
-    "schritte": [
-      { "nr": 1, "name": "Anlass", "text": "Ein Signal in der Datenbank oder ein Datum im Jahr gibt den Auslöser." },
-      { "nr": 2, "name": "Aktion", "text": "Wir posten, mailen oder reagieren – mit dem Inhalt, der zum Kanal passt." },
-      { "nr": 3, "name": "Reaktion", "text": "Jemand öffnet, klickt, kommentiert, bucht." },
-      { "nr": 4, "name": "Signal", "text": "Die Reaktion wird als Signal am Kontakt gespeichert." },
-      { "nr": 5, "name": "Auswertung", "text": "Signale verdichten sich zu Mustern – daraus entsteht der nächste Anlass." }
-    ]
-  },
-
+  "titel": "Prozessbild",
+  "hinweis": "Intern",
   "nabe": {
+    "id": "datenbank",
     "name": "SQL-Datenbank",
-    "kurz": "Der Kern. Kontakte plus ihre Signale.",
-    "beschreibung": "Qualitativ bewertete Bestandskunden von Daniel mit erkennbarem Potenzial. Jeder Kontakt trägt Signale, die sich über die Zeit ansammeln.",
+    "status": "teilweise",
+    "beschreibung": "Qualitativ bewertete Bestandskunden mit Potenzial. Jeder Kontakt sammelt Signale.",
     "inhalt": [
       "Bestandskunden mit Potenzialbewertung",
       "Signale je Kontakt, zeitlich gestempelt",
@@ -30,233 +17,265 @@
       "Mailing geöffnet, nicht geklickt",
       "Termin gebucht",
       "Seit 18 Monaten kein Kontakt"
-    ],
-    "status": "teilweise"
+    ]
   },
-
-  "agent": {
-    "name": "Agent",
-    "kurz": "Liest die Datenbank und schlägt vor, wer als Nächstes dran ist.",
-    "aufgaben": [
-      "Wöchentlicher Report: welcher Kontakt könnte welchen Newsletter oder welche Aktion bekommen",
-      "Muster erkennen: mehrere Kontakte erfüllen dasselbe Signal – daraus wird eine Aktion statt fünf Einzelfälle",
-      "Vorschläge für Newsletter, Landingpages und Anspracheanlässe"
-    ],
-    "status": "geplant"
+  "website": {
+    "id": "website",
+    "name": "Website",
+    "status": "laeuft",
+    "ziel": "Lead"
   },
-
   "statusLegende": [
-    { "id": "laeuft",     "name": "läuft",       "text": "Ist aufgesetzt und arbeitet." },
-    { "id": "manuell",    "name": "manuell",     "text": "Passiert, aber von Hand." },
-    { "id": "teilweise",  "name": "teils",       "text": "Grundlage steht, Ausbau fehlt." },
-    { "id": "geplant",    "name": "geplant",     "text": "Zielbild, noch nicht gebaut." }
+    {
+      "id": "laeuft",
+      "name": "läuft",
+      "text": "aufgesetzt"
+    },
+    {
+      "id": "manuell",
+      "name": "manuell",
+      "text": "von Hand"
+    },
+    {
+      "id": "teilweise",
+      "name": "teils",
+      "text": "Ausbau fehlt"
+    },
+    {
+      "id": "geplant",
+      "name": "geplant",
+      "text": "noch nicht gebaut"
+    }
   ],
-
   "kanaele": [
     {
       "id": "mailing",
       "name": "Mailing",
-      "kurz": "Kampagnen an ausgewählte Kontakte",
-      "icon": "mail",
-      "position": "oben",
       "status": "manuell",
-      "raus": {
-        "titel": "Was wir hineingeben",
-        "punkte": [
-          "Kampagne vorbereiten, zum Beispiel die Weihnachtsaktion",
-          "Empfängerkreis über Signale aus der Datenbank schneiden",
-          "Versand – wer es bekommen hat, wird zurückgeschrieben"
-        ],
-        "status": "manuell"
-      },
-      "rein": {
-        "titel": "Welche Signale zurückkommen",
-        "punkte": [
-          "Mail geöffnet",
-          "Link geklickt",
-          "Termin gebucht"
-        ],
-        "status": "geplant"
-      },
-      "rhythmus": {
-        "takt": "anlassbezogen",
-        "schritte": [
-          "Anlass festlegen – Jahreszeit, Aktion oder ein Signalmuster aus der Datenbank",
-          "Empfängerkreis über Signale schneiden",
-          "Mailing texten und bauen",
-          "Versenden, Empfänger in der Datenbank vermerken",
-          "Öffnungen, Klicks und Buchungen als Signal zurückschreiben",
-          "Auswerten: welches Signal hat zur Buchung geführt"
-        ]
-      },
+      "zurWebsite": true,
+      "prozess": [
+        {
+          "nr": 1,
+          "text": "Empfängerkreis über Signale aus der Datenbank schneiden",
+          "typ": "datenbank"
+        },
+        {
+          "nr": 2,
+          "text": "Mailing bauen und versenden",
+          "typ": "aktion",
+          "zurWebsite": true
+        },
+        {
+          "nr": 3,
+          "text": "Empfänger in der Datenbank vermerken",
+          "typ": "signal"
+        },
+        {
+          "nr": 4,
+          "text": "Öffnen, Klick und Buchung als Signal zurück",
+          "typ": "signal",
+          "status": "geplant"
+        },
+        {
+          "nr": 5,
+          "text": "Analyse & Optimierung durch Agenten",
+          "typ": "agent",
+          "status": "geplant"
+        }
+      ],
       "aufgaben": [
-        { "wer": "Daniel", "was": "Anlass und Zielgruppe festlegen", "takt": "je Kampagne" },
-        { "wer": "Noah",   "was": "Mailing bauen und versenden",     "takt": "je Kampagne" },
-        { "wer": "Agent",  "was": "Empfängerkreis vorschlagen",      "takt": "wöchentlich", "status": "geplant" }
+        {
+          "wer": "Daniel",
+          "was": "Anlass und Zielgruppe festlegen",
+          "takt": "je Kampagne"
+        },
+        {
+          "wer": "Noah",
+          "was": "Mailing bauen und versenden",
+          "takt": "je Kampagne"
+        },
+        {
+          "wer": "Agent",
+          "was": "Empfängerkreis vorschlagen",
+          "takt": "wöchentlich",
+          "status": "geplant"
+        }
+      ],
+      "icons": [
+        "mail"
       ]
     },
-
     {
       "id": "linkedin",
       "name": "LinkedIn",
-      "kurz": "Zwei Accounts, gegenseitig verstärkt",
-      "icon": "linkedin",
-      "position": "rechts-oben",
       "status": "manuell",
-      "accounts": ["sofort sichtbar", "Daniel Ströbel"],
-      "raus": {
-        "titel": "Was wir hineingeben",
-        "punkte": [
-          "Regelmäßige Beiträge auf beiden Accounts",
-          "Gegenseitig auf die Beiträge reagieren – das trägt die Reichweite",
-          "Auf Interaktionen antworten, nicht nur senden"
-        ],
-        "status": "manuell"
-      },
-      "rein": {
-        "titel": "Welche Signale zurückkommen",
-        "punkte": [
-          "Follower von sofort sichtbar",
-          "Passende Kontakte aus Daniels Netzwerk",
-          "Wer auf welchen Beitrag reagiert hat, über die LinkedIn-API"
-        ],
-        "status": "geplant"
-      },
-      "rhythmus": {
-        "takt": "wöchentlich",
-        "schritte": [
-          "Themen aus der Dashboard-Auswertung wählen",
-          "Beitrag auf beiden Accounts veröffentlichen",
-          "Gegenseitig reagieren, damit der Beitrag Fahrt aufnimmt",
-          "Auf Kommentare und Reaktionen persönlich antworten",
-          "Reaktionen als Signal in die Datenbank schreiben",
-          "Dashboard auswerten: was lief, was nicht – daraus die nächsten Themen"
-        ]
-      },
+      "zurWebsite": true,
+      "accounts": [
+        "sofort sichtbar",
+        "Daniel Ströbel"
+      ],
+      "prozess": [
+        {
+          "nr": 1,
+          "text": "Follower fließen in die Datenbank",
+          "typ": "signal"
+        },
+        {
+          "nr": 2,
+          "text": "Postings",
+          "typ": "aktion",
+          "zurWebsite": true
+        },
+        {
+          "nr": 3,
+          "text": "Interaktionen fließen als Signal in die Datenbank",
+          "typ": "signal",
+          "status": "geplant"
+        },
+        {
+          "nr": 4,
+          "text": "Wir reagieren darauf",
+          "typ": "aktion"
+        },
+        {
+          "nr": 5,
+          "text": "Analyse & Optimierung durch Agenten",
+          "typ": "agent",
+          "status": "geplant"
+        }
+      ],
       "aufgaben": [
-        { "wer": "Daniel", "was": "Beiträge auf dem eigenen Account, Reaktionen im Netzwerk", "takt": "wöchentlich" },
-        { "wer": "Noah",   "was": "Beiträge sofort sichtbar, Dashboard-Auswertung",           "takt": "wöchentlich" },
-        { "wer": "Beide",  "was": "Gegenseitig auf Beiträge reagieren",                        "takt": "je Beitrag" },
-        { "wer": "Agent",  "was": "Reaktionen als Signal einsammeln",                          "takt": "laufend", "status": "geplant" }
+        {
+          "wer": "Daniel",
+          "was": "Beiträge eigener Account, Reaktionen im Netzwerk",
+          "takt": "wöchentlich"
+        },
+        {
+          "wer": "Noah",
+          "was": "Beiträge sofort sichtbar, Auswertung",
+          "takt": "wöchentlich"
+        },
+        {
+          "wer": "Beide",
+          "was": "Gegenseitig auf Beiträge reagieren",
+          "takt": "je Beitrag"
+        },
+        {
+          "wer": "Agent",
+          "was": "Reaktionen als Signal einsammeln",
+          "takt": "laufend",
+          "status": "geplant"
+        }
+      ],
+      "icons": [
+        "linkedin"
       ]
     },
-
     {
-      "id": "instagram",
-      "name": "Instagram",
-      "kurz": "Eigene Inhalte – LinkedIn-Material zieht hier nicht",
-      "icon": "instagram",
-      "position": "rechts-unten",
+      "id": "meta",
+      "name": "Instagram & Facebook",
       "status": "manuell",
-      "raus": {
-        "titel": "Was wir hineingeben",
-        "punkte": [
-          "Eigene Beiträge – bewusst anderes Material als auf LinkedIn",
-          "Auf Reaktionen und Nachrichten antworten"
-        ],
-        "status": "manuell"
-      },
-      "rein": {
-        "titel": "Welche Signale zurückkommen",
-        "punkte": [
-          "Follower",
-          "Wer auf welchen Beitrag reagiert hat"
-        ],
-        "status": "geplant"
-      },
-      "rhythmus": {
-        "takt": "wöchentlich",
-        "schritte": [
-          "Themen wählen, die hier funktionieren – nicht die von LinkedIn übernehmen",
-          "Beitrag veröffentlichen",
-          "Auf Reaktionen antworten",
-          "Reaktionen als Signal in die Datenbank schreiben",
-          "Auswerten, welches Format trägt"
-        ]
-      },
+      "zurWebsite": true,
+      "notiz": "Eigene Inhalte – LinkedIn-Material zieht hier nicht.",
+      "prozess": [
+        {
+          "nr": 1,
+          "text": "Follower fließen in die Datenbank",
+          "typ": "signal"
+        },
+        {
+          "nr": 2,
+          "text": "Postings",
+          "typ": "aktion",
+          "zurWebsite": true
+        },
+        {
+          "nr": 3,
+          "text": "Interaktionen fließen als Signal in die Datenbank",
+          "typ": "signal",
+          "status": "geplant"
+        },
+        {
+          "nr": 4,
+          "text": "Wir reagieren darauf",
+          "typ": "aktion"
+        },
+        {
+          "nr": 5,
+          "text": "Analyse & Optimierung durch Agenten",
+          "typ": "agent",
+          "status": "geplant"
+        }
+      ],
       "aufgaben": [
-        { "wer": "Noah",  "was": "Inhalte planen und veröffentlichen", "takt": "wöchentlich" },
-        { "wer": "Agent", "was": "Reaktionen als Signal einsammeln",   "takt": "laufend", "status": "geplant" }
+        {
+          "wer": "Noah",
+          "was": "Inhalte planen und veröffentlichen",
+          "takt": "wöchentlich"
+        },
+        {
+          "wer": "Agent",
+          "was": "Reaktionen als Signal einsammeln",
+          "takt": "laufend",
+          "status": "geplant"
+        }
+      ],
+      "icons": [
+        "instagram",
+        "facebook"
       ]
     },
-
-    {
-      "id": "facebook",
-      "name": "Facebook",
-      "kurz": "Wie Instagram, eigene Zielgruppe",
-      "icon": "facebook",
-      "position": "unten",
-      "status": "manuell",
-      "raus": {
-        "titel": "Was wir hineingeben",
-        "punkte": [
-          "Eigene Beiträge, auf die Zielgruppe hier zugeschnitten",
-          "Auf Reaktionen antworten"
-        ],
-        "status": "manuell"
-      },
-      "rein": {
-        "titel": "Welche Signale zurückkommen",
-        "punkte": [
-          "Follower",
-          "Wer auf welchen Beitrag reagiert hat"
-        ],
-        "status": "geplant"
-      },
-      "rhythmus": {
-        "takt": "wöchentlich",
-        "schritte": [
-          "Themen wählen",
-          "Beitrag veröffentlichen",
-          "Auf Reaktionen antworten",
-          "Reaktionen als Signal in die Datenbank schreiben",
-          "Auswerten"
-        ]
-      },
-      "aufgaben": [
-        { "wer": "Noah",  "was": "Inhalte planen und veröffentlichen", "takt": "wöchentlich" },
-        { "wer": "Agent", "was": "Reaktionen als Signal einsammeln",   "takt": "laufend", "status": "geplant" }
-      ]
-    },
-
     {
       "id": "website",
       "name": "Website",
-      "kurz": "Ziel der Kampagnen – und Quelle echter Kontakte",
-      "icon": "eye",
-      "position": "links",
       "status": "laeuft",
-      "annahme": "Du hattest die Website als Signalquelle ausgeklammert. Für anonyme Besucher stimmt das. Es gibt aber drei Stellen, an denen sich jemand selbst zu erkennen gibt – die gehören in die Datenbank.",
-      "raus": {
-        "titel": "Was wir hineingeben",
-        "punkte": [
-          "Landingpages als Ziel von Mailings und Beiträgen",
-          "Zielgruppen-Seiten je Anlass"
-        ],
-        "status": "laeuft"
-      },
-      "rein": {
-        "titel": "Welche Signale zurückkommen",
-        "punkte": [
-          "Terminbuchung über Cal.com – mit Name und Mailadresse",
-          "Kontaktdaten beim Download der Checkliste",
-          "Anfrage per Mail oder Telefon aus der Seite heraus"
-        ],
-        "status": "geplant"
-      },
-      "grenze": "Anonyme Besucher liefern nur Zahlen, keine Personen: Seitenaufrufe, Verweildauer je Modul, Absprungpunkte. Das steuert die Inhalte, füllt aber keine Datenbank.",
-      "rhythmus": {
-        "takt": "laufend",
-        "schritte": [
-          "Landingpage je Zielgruppe bereitstellen",
-          "Aus Mailing und Beitrag dorthin verlinken",
-          "Kontaktaufnahme oder Buchung als Signal zurückschreiben",
-          "Anonyme Zahlen aus GA4 für die Inhaltsplanung nutzen"
-        ]
-      },
+      "istWebsite": true,
+      "prozess": [
+        {
+          "nr": 1,
+          "text": "Besucher kommen aus Postings und Mailings",
+          "typ": "aktion"
+        },
+        {
+          "nr": 2,
+          "text": "Landingpage je Zielgruppe",
+          "typ": "aktion"
+        },
+        {
+          "nr": 3,
+          "text": "Konversion: Buchung, Download, Anfrage",
+          "typ": "ziel"
+        },
+        {
+          "nr": 4,
+          "text": "Lead fließt in die Datenbank",
+          "typ": "signal",
+          "status": "geplant",
+          "istLead": true
+        },
+        {
+          "nr": 5,
+          "text": "Analyse & Optimierung durch Agenten",
+          "typ": "agent",
+          "status": "geplant"
+        }
+      ],
+      "grenze": "Anonyme Besucher liefern nur Zahlen, keine Personen. Erst wer bucht, lädt oder anfragt, wird ein Kontakt.",
       "aufgaben": [
-        { "wer": "Noah",  "was": "Seiten und Tracking pflegen",             "takt": "laufend" },
-        { "wer": "Agent", "was": "Buchungen und Downloads zurückschreiben", "takt": "laufend", "status": "geplant" }
+        {
+          "wer": "Noah",
+          "was": "Seiten und Tracking pflegen",
+          "takt": "laufend"
+        },
+        {
+          "wer": "Agent",
+          "was": "Buchungen und Downloads zurückschreiben",
+          "takt": "laufend",
+          "status": "geplant"
+        }
+      ],
+      "icons": [
+        "eye"
       ]
     }
   ]

@@ -1,205 +1,455 @@
-/* =========================================================
-   Prozessbild (interne Seite /prozess)
-   ========================================================= */
+/* ===== Internes Prozessbild ============================================== */
 
-.pz-hero__inner { display: flex; flex-flow: column; align-items: flex-start; gap: 1rem; max-width: 44rem; }
-
-/* --- Der eine Kreislauf ---------------------------------------------- */
-.pz-loop__head { display: flex; flex-flow: column; gap: 0.75rem; max-width: 44rem; margin-bottom: 2rem; }
-
-.pz-loop__steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: none;
+.pz-board {
+  --pz-rahmen: rgba(255, 255, 255, 0.12);
+  --pz-flaeche: rgba(255, 255, 255, 0.04);
 }
-.pz-loop__step {
-  position: relative;
+
+/* --- Kopfzeile ----------------------------------------------------------- */
+
+.pz-kopf {
   display: flex;
-  flex-flow: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
-/* Pfeil zum nächsten Schritt */
-.pz-loop__step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 2.4rem;
-  right: -0.55rem;
-  z-index: 1;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-top: 1.5px solid var(--color-grey-400);
-  border-right: 1.5px solid var(--color-grey-400);
-  transform: rotate(45deg);
-}
-.pz-loop__nr {
-  display: flex; justify-content: center; align-items: center;
-  width: 1.75rem; height: 1.75rem;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-pill);
-  color: var(--color-white); font-size: 0.8rem; font-weight: 600;
-}
-.pz-loop__name { color: var(--color-white); font-weight: 600; }
-.pz-loop__text { color: var(--color-grey-100); font-size: 0.85rem; line-height: 145%; }
 
-/* --- Karte: Nabe und Speichen ---------------------------------------- */
-.pz-map__head { display: flex; flex-flow: column; gap: 0.75rem; max-width: 44rem; margin-bottom: 2.5rem; }
+.pz-kopf__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
 
-.pz-map__stage {
+.pz-kopf__links .eyebrow { margin: 0; }
+
+.pz-zurueck {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 200ms linear;
+}
+.pz-zurueck:hover { color: #fff; }
+.pz-zurueck img {
+  width: 14px;
+  height: 14px;
+  transform: rotate(180deg);
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
+
+.pz-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pz-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 999px;
+  background: var(--pz-flaeche);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 200ms linear, color 200ms linear, background-color 200ms linear;
+}
+.pz-tab:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #fff;
+}
+.pz-tab.is-aktiv {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* --- Bühne --------------------------------------------------------------- */
+
+.pz-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 34rem;
+  min-height: 580px;
+  aspect-ratio: 16 / 8.5;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 42% 52%, rgba(255, 255, 255, 0.05), transparent 62%),
+    rgba(255, 255, 255, 0.015);
+  overflow: hidden;
 }
-.pz-map__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.pz-map__lines path { opacity: 0.6; transition: opacity var(--transition), stroke-width var(--transition); }
-.pz-map__lines path.is-aktiv { opacity: 1; stroke-width: 2.5; }
 
-/* Richtungs-Legende über der Karte */
-.pz-richtung { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
-.pz-richtung__item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--color-grey-100); }
-.pz-richtung__strich { width: 1.75rem; height: 0; border-top: 2px solid; position: relative; }
-.pz-richtung__strich::after {
-  content: ""; position: absolute; right: -1px; top: -4px;
-  border: 4px solid transparent; border-left-color: currentColor;
+.pz-view {
+  position: absolute;
+  inset: 0;
 }
-.pz-richtung__strich--raus { color: var(--color-accent); }
-.pz-richtung__strich--rein { color: #4ec9f1; }
+.pz-view:not(.is-aktiv) { display: none; }
+
+.pz-view.is-eingang { animation: pz-auf 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+@keyframes pz-auf {
+  from { opacity: 0; transform: scale(1.025); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.pz-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pz-linie { transition: stroke-opacity 200ms linear, stroke-width 200ms linear; }
+.pz-linie.is-hell { stroke-opacity: 1; }
+
+/* --- Knoten -------------------------------------------------------------- */
 
 .pz-node {
   position: absolute;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 0.35rem;
-  width: 13rem;
-  padding: 1.15rem 1.25rem;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-grey-600);
-  border-radius: var(--radius-lg);
+  gap: 6px;
+  width: max-content;
+  max-width: 210px;
+  padding: 14px 16px;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 14px;
+  background: #0d0d10;
+  color: #fff;
   text-align: left;
-  cursor: pointer;
-  transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
+  font-family: inherit;
+  z-index: 2;
 }
-.pz-node:hover { background-color: var(--color-element); }
-.pz-node.is-aktiv { border-color: var(--color-accent); background-color: var(--color-element); }
 
-.pz-node--hub {
-  width: 15rem;
-  background-image: linear-gradient(150deg, #2a1f3a, var(--color-surface));
-  border-color: var(--color-accent);
+button.pz-node {
+  cursor: pointer;
+  transition: border-color 200ms linear, transform 200ms linear, background-color 200ms linear;
 }
-.pz-node__icon { width: 1.25rem; height: 1.25rem; }
-.pz-node__name { color: var(--color-white); font-weight: 600; }
-.pz-node__kurz { color: var(--color-grey-100); font-size: 0.8rem; line-height: 140%; }
+button.pz-node:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: #14141a;
+  transform: translate(-50%, calc(-50% - 4px));
+}
+
+.pz-node__name {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.pz-node__hinweis {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pz-node__icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+.pz-node__nr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Nabe: die Datenbank */
+.pz-node--nabe {
+  max-width: 240px;
+  padding: 20px 24px;
+  border-color: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  background: #14141a;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.pz-node--nabe .pz-node__name { font-size: 17px; font-weight: 600; }
+
+/* Im Überblick ist die Datenbank eine breite Leiste unter allem */
+.pz-view[data-view="ueberblick"] .pz-node--nabe {
+  width: 86%;
+  max-width: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Website und Lead als Zweig */
+.pz-node--zweig { max-width: 150px; }
+.pz-node--ziel { border-color: rgba(255, 255, 255, 0.5); }
+
+/* Kanal im Überblick: Icons und Name in einer Reihe */
+.pz-node--kanal { flex-direction: row; align-items: center; gap: 10px; }
+.pz-node--kanal .pz-node__status { order: -1; }
+
+/* Prozessschritt */
+.pz-node--schritt {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  max-width: 215px;
+}
+.pz-node--schritt[data-typ="agent"] { border-style: dashed; }
+.pz-node--schritt[data-typ="ziel"] { border-color: rgba(255, 255, 255, 0.5); }
 
 /* Statuspunkt */
 .pz-node__status {
-  position: absolute; top: 0.85rem; right: 0.85rem;
-  width: 0.5rem; height: 0.5rem; border-radius: var(--radius-pill);
-  background-color: var(--color-grey-400);
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #6b6b73;
 }
-[data-status="laeuft"]    { background-color: #37ff00; }
-[data-status="manuell"]   { background-color: #ffc400; }
-[data-status="teilweise"] { background-color: #ff8a00; }
-[data-status="geplant"]   { background-color: var(--color-grey-400); }
+.pz-node__status[data-status="laeuft"]    { background: #37ff00; box-shadow: 0 0 8px rgba(55, 255, 0, 0.5); }
+.pz-node__status[data-status="manuell"]   { background: #ffc400; }
+.pz-node__status[data-status="teilweise"] { background: #ff8a00; }
+.pz-node__status[data-status="geplant"]   { background: #6b6b73; }
 
-/* --- Legende ---------------------------------------------------------- */
-.pz-legende { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
-.pz-legende__item { position: relative; display: flex; align-items: baseline; gap: 0.4rem; padding-left: 1rem; }
-.pz-legende__item .pz-node__status { top: 0.45rem; left: 0; right: auto; }
+/* --- Legende ------------------------------------------------------------- */
 
-/* --- Detailbereich ---------------------------------------------------- */
-.pz-panel[hidden] { display: none; }
-.pz-panel__head { display: flex; flex-flow: column; gap: 0.75rem; max-width: 46rem; margin-bottom: 2rem; }
-.pz-panel__titel { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
-
-.pz-takt {
-  padding: 0.25rem 0.7rem;
-  background-color: var(--color-element);
-  border-radius: var(--radius-pill);
-  color: var(--color-grey-100); font-size: 0.75rem;
+.pz-legende {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
 }
-.pz-annahme {
-  padding: 1rem 1.25rem;
-  border-left: 2px solid var(--color-accent);
-  background-color: var(--color-surface);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  color: var(--color-grey-100); font-size: 0.9rem; line-height: 150%;
+
+.pz-legende__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
+.pz-legende__item--ziel { color: #fff; }
+
+.pz-legende__linie { width: 40px; height: 8px; flex: none; }
+.pz-legende__linie path {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 0.5;
+  stroke-width: 1.6;
+}
+.pz-legende__linie .pz-legende__spitze { fill: #fff; fill-opacity: 0.6; stroke: none; }
+.pz-legende__linie--stark path { stroke-opacity: 1; stroke-width: 2.4; }
+.pz-legende__linie--stark .pz-legende__spitze { fill-opacity: 1; }
+
+.pz-legende__klein { color: rgba(255, 255, 255, 0.4); }
+
+.pz-legende__trenner {
+  width: 1px;
+  height: 16px;
+  background: var(--pz-rahmen);
+}
+
+/* --- Text unter dem Bild ------------------------------------------------- */
 
 .pz-panel__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
-.pz-card {
-  position: relative;
-  display: flex; flex-flow: column; gap: 0.85rem;
-  padding: 1.75rem;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-grey-600);
-  border-radius: var(--radius-lg);
-}
-.pz-card--raus { border-left: 2px solid var(--color-accent); }
-.pz-card--rein { border-left: 2px solid #4ec9f1; }
-.pz-card--ziel { border-style: dashed; }
 
-.pz-list { margin: 0; padding-left: 1.1rem; display: flex; flex-flow: column; gap: 0.5rem;
-           color: var(--color-grey-100); font-size: 0.875rem; line-height: 150%; }
-.pz-list--nummeriert { padding-left: 1.3rem; }
-.pz-list--tags { padding: 0; list-style: none; flex-flow: row; flex-wrap: wrap; gap: 0.4rem; }
-.pz-list--tags li {
-  padding: 0.3rem 0.7rem;
-  background-color: var(--color-element);
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+.pz-panel__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
 }
+
+.pz-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 16px;
+  background: var(--pz-flaeche);
+}
+
+.pz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.pz-list li { position: relative; padding-left: 16px; }
+.pz-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.pz-list--tags {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pz-list--tags li {
+  padding: 6px 12px;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 999px;
+  font-size: 13px;
+}
+.pz-list--tags li::before { display: none; }
 
 .pz-grenze {
-  margin-top: 1rem; padding: 1rem 1.25rem;
-  background-color: var(--color-background);
-  border: 1px dashed var(--color-grey-600);
-  border-radius: var(--radius-md);
-  color: var(--color-grey-100); font-size: 0.875rem; line-height: 150%;
+  padding: 14px 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.pz-aufgaben { margin-top: 2rem; display: flex; flex-flow: column; gap: 1rem; }
-.pz-tabelle { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.pz-aufgaben { margin-top: 8px; }
+.pz-aufgaben h2 { margin-bottom: 4px; }
+
+.pz-tabelle {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.pz-tabelle th,
+.pz-tabelle td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--pz-rahmen);
+  text-align: left;
+  vertical-align: top;
+}
 .pz-tabelle th {
-  text-align: left; padding: 0.6rem 0.75rem;
-  color: var(--color-grey-400); font-weight: 500; font-size: 0.75rem;
-  border-bottom: 1px solid var(--color-grey-600);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
 }
-.pz-tabelle td { padding: 0.75rem; color: var(--color-grey-100); border-bottom: 1px solid var(--color-surface); }
-.pz-tabelle td:first-child { color: var(--color-white); font-weight: 600; white-space: nowrap; }
-.pz-tabelle tr[data-geplant] td { opacity: 0.65; }
+.pz-tabelle td { color: rgba(255, 255, 255, 0.78); }
+.pz-tabelle tr[data-geplant] td { color: rgba(255, 255, 255, 0.42); }
+
 .pz-tag {
-  margin-left: 0.4rem; padding: 0.15rem 0.5rem;
-  background-color: var(--color-element); border-radius: var(--radius-sm);
-  font-size: 0.7rem; color: var(--color-grey-400);
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border: 1px solid var(--pz-rahmen);
+  border-radius: 999px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* --- Schmalere Fenster ------------------------------------------------ */
-@media (max-width: 991px) {
-  .pz-loop__steps { grid-template-columns: 1fr 1fr; }
-  .pz-loop__step:not(:last-child)::after { display: none; }
-  .pz-panel__grid { grid-template-columns: 1fr; }
+/* --- Schmalere Fenster --------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  .pz-stage { min-height: 560px; aspect-ratio: 4 / 5; }
+  .pz-node { max-width: 170px; padding: 12px 14px; }
+  .pz-node--nabe { max-width: 190px; padding: 16px 18px; }
+  .pz-node--schritt { max-width: 176px; }
+  .pz-node--zweig { max-width: 130px; }
+  .pz-node__name { font-size: 13px; }
+  .pz-node--nabe .pz-node__name { font-size: 15px; }
 }
 
-@media (max-width: 767px) {
-  /* Radiale Anordnung trägt hier nicht mehr – gestapelte Liste */
-  .pz-map__stage { aspect-ratio: auto; max-height: none; display: flex; flex-flow: column; gap: 0.75rem; }
-  .pz-map__lines { display: none; }
-  .pz-node { position: static; transform: none; width: 100%; }
-  .pz-node--hub { width: 100%; }
-  .pz-loop__steps { grid-template-columns: 1fr; }
-  .pz-tabelle { display: block; overflow-x: auto; }
+/* Auf dem Handy wird aus dem Bild eine Kette: Reihenfolge bleibt, Linien weg. */
+@media screen and (max-width: 767px) {
+  .pz-kopf { align-items: flex-start; }
+
+  .pz-stage {
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: 20px;
+    background: none;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .pz-view.is-aktiv {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pz-lines { display: none; }
+
+  .pz-node {
+    position: relative !important;   /* Anker für die Verbinder, sonst wie static */
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100%;
+    max-width: none !important;
+  }
+  button.pz-node:hover { transform: none; }
+
+  /* Verbinder zwischen den Kästen */
+  .pz-node + .pz-node { margin-top: 34px; }
+  .pz-node + .pz-node::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -34px;
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.4));
+  }
+  .pz-node + .pz-node::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -9px;
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .pz-legende { gap: 12px 16px; font-size: 12px; }
+  .pz-legende__trenner { display: none; }
+
+  .pz-tabelle { font-size: 13px; }
+  .pz-tabelle th, .pz-tabelle td { padding: 10px 8px; }
+}
+
+@media screen and (max-width: 479px) {
+  .pz-tabs { width: 100%; }
+  .pz-tab { font-size: 12px; padding: 7px 11px; }
 }
