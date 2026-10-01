@@ -10,7 +10,7 @@
 
   var pop = wurzel.querySelector("[data-pop]");
   var details = wurzel.querySelectorAll("[data-detail]");
-  var graphFlaeche = wurzel.querySelector(".g2__flaeche, .vt--karten .vt__plan");
+  var graphFlaeche = wurzel.querySelector(".g2__flaeche");
 
   /* --- Graph: Kette vor und nach einem Knoten ------------------------- */
   var knoten = {};
@@ -55,7 +55,7 @@
     Object.keys(nach).forEach(function (k) { knoten[k].el.classList.add("is-nach"); });
 
     var inKette = function (x) { return x === id || vor[x] || nach[x]; };
-    graphFlaeche.querySelectorAll(".g2__kante, .vt__kante").forEach(function (kante) {
+    graphFlaeche.querySelectorAll(".g2__kante").forEach(function (kante) {
       if (inKette(kante.dataset.von) && inKette(kante.dataset.nach)) kante.classList.add("is-hell");
     });
   }
@@ -64,7 +64,7 @@
      Wie eine Verbindungsauskunft: alles, was nicht zu diesem Halt führt,
      tritt zurück. Übrig bleiben die nötigen Halte, die Linienabschnitte
      dorthin und die Umstiege zwischen den Bahnen. */
-  var metroPlan = wurzel.querySelector(".me__plan, .vt--linie .vt__plan");
+  var metroPlan = wurzel.querySelector(".me__plan");
   var routeLeiste = wurzel.querySelector("[data-route-leiste]");
   var routeText = wurzel.querySelector("[data-route-text]");
 
@@ -115,7 +115,7 @@
     });
 
     var umstiege = 0;
-    metroPlan.querySelectorAll(".me__quer, .vt__quer").forEach(function (q) {
+    metroPlan.querySelectorAll(".me__quer").forEach(function (q) {
       if (route[q.dataset.von] && route[q.dataset.nach]) {
         q.classList.add("is-route-teil");
         umstiege++;

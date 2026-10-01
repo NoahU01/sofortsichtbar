@@ -1,13 +1,11 @@
 {#- Gemeinsamer Kopf für alle drei Ansichten. Die Ansicht wechselt nur die
     Darstellung, nicht das Thema – deshalb überall dieselbe Überschrift. -#}
-{%- set ansichten = konzepte2 if satz == "2" else konzepte -%}
-{%- set abwaerts = satz == "2" -%}
 <header class="mk">
 
   <div class="mk__text">
     <h1 class="mk__titel">Der Weg zum Zielbild</h1>
     <p class="mk__lead">
-      Drei Handlungsfelder laufen parallel {{ "nach unten" if abwaerts else "nach rechts" }} auf das Zielbild zu. Dazwischen liegen
+      Drei Handlungsfelder laufen parallel nach rechts auf das Zielbild zu. Dazwischen liegen
       vier Ergebnisstufen — jede ist erst erreicht, wenn alle drei Felder ihren
       Teil erledigt haben.
     </p>
@@ -18,7 +16,7 @@
   <div class="mk__box mk__box--schalter">
     <span class="mk__box-titel">Darstellung</span>
     <nav class="mk__ansichten" aria-label="Darstellung wechseln">
-      {% for k in ansichten %}
+      {% for k in konzepte %}
         <a class="mk__ansicht{% if k.id == konzept %} is-aktiv{% endif %}"
            href="{{ k.href }}"{% if k.id == konzept %} aria-current="page"{% endif %}>{{ k.name }}</a>
       {% endfor %}
@@ -33,7 +31,7 @@
         <div class="mk__info-panel">
           <h2>Wie das Bild zu lesen ist</h2>
           {% if konzept == "fein" %}
-            <p>Jedes Handlungsfeld ist eine <b>Linie</b>, die {{ "von oben nach unten" if abwaerts else "von links nach rechts" }} läuft.
+            <p>Jedes Handlungsfeld ist eine <b>Linie</b>, die von links nach rechts läuft.
               Jeder <b>Halt</b> darauf ist ein Schritt.</p>
             <p>Ein Abschnitt ist <b>dick</b>, wenn der Halt an seinem Ende erledigt ist oder
               gerade ansteht — sonst dünn. So zeigt die Linie selbst, wie weit das Feld
@@ -44,7 +42,7 @@
             <p>Ein Klick auf einen Halt zeigt die <b>Route dorthin</b>: alles, was nicht zu
               diesem Ziel führt, tritt zurück. Ein Klick daneben hebt das wieder auf.</p>
           {% else %}
-            <p>{{ "Von oben nach unten" if abwaerts else "Von links nach rechts" }}. Jeder <b>Pfeil</b> heißt „muss vorher fertig sein".</p>
+            <p>Von links nach rechts. Jeder <b>Pfeil</b> heißt „muss vorher fertig sein".</p>
             <p>Die drei <b>Bahnen</b> sind die Handlungsfelder. Ihre Beschriftung nennt,
               welches Feld welche Frage beantwortet.</p>
             <p>Zwischen den Abschnitten liegt je eine <b>Ergebnisstufe</b>. Dort muss jede der
