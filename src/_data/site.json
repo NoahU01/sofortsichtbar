@@ -44,6 +44,14 @@
         {
           "label": "Meilensteine",
           "href": "/entwicklung/meilensteine/fein"
+        },
+        {
+          "typ": "gruppe",
+          "label": "Kampagnen"
+        },
+        {
+          "label": "AVRG",
+          "href": "/entwicklung/kampagnen/avrg"
         }
       ]
     }
