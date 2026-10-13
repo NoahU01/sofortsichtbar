@@ -1,0 +1,46 @@
+/* AVRG-Landingpages in den vier sofort-sichtbar-Farben.
+   Die Varianten nutzen nur diese Variablen; gewählt wird über <html data-farbe="…">.
+   --rot        Farbfläche (Knöpfe, Ticket, Balken)
+   --rot-dunkel Farbfläche beim Darüberfahren
+   --auf-rot    Schrift und Symbole auf der Farbfläche (bei Gelb dunkel)
+   --rot-text   Farbe als Schrift auf Weiß (bei Gelb dunkel, Gelb auf Weiß ist unlesbar)
+   --rot-hell   Farbe als Schrift auf Schwarz (bei Blau aufgehellt, sonst zu dunkel)
+   --rot-betont Hervorhebung innerhalb einer Farbfläche */
+html[data-farbe]{
+  --auf-rot:#fff;
+  --auf-rot-leise:rgba(255,255,255,.86);
+  --auf-rot-rand:rgba(255,255,255,.55);
+  --auf-rot-linie:rgba(255,255,255,.3);
+}
+html[data-farbe="rot"]{--rot-betont:#141414;--rot-hell:#FF3B3B;--rot:#EF0000;--rot-dunkel:#C80000;--rot-text:#E00000;--rot-glut:rgba(150,0,0,.38);--rot-schatten:rgba(90,0,0,.45)}
+html[data-farbe="blau"]{--rot-betont:#9DAAFF;--rot-hell:#7D8CFF;--rot:#2A00DC;--rot-dunkel:#2000B0;--rot-text:#2A00DC;--rot-glut:rgba(30,0,150,.38);--rot-schatten:rgba(15,0,80,.45)}
+html[data-farbe="gruen"]{--rot-betont:#0B2A16;--rot-hell:#2BC25F;--rot:#028B34;--rot-dunkel:#016E29;--rot-text:#027A2E;--rot-glut:rgba(0,100,40,.38);--rot-schatten:rgba(0,50,20,.45)}
+html[data-farbe="gelb"]{--rot-betont:#6B5A00;--rot-hell:#FEE354;
+  --rot:#FEE354;--rot-dunkel:#F3D33A;--rot-text:#111;--rot-glut:rgba(190,150,0,.4);--rot-schatten:rgba(110,90,0,.35);
+  --auf-rot:#111;--auf-rot-leise:rgba(17,17,17,.78);--auf-rot-rand:rgba(17,17,17,.4);--auf-rot-linie:rgba(17,17,17,.2);
+}
+
+/* Platzhalter-Logo (Logoipsum) behält sein Seitenverhältnis */
+img[src*="logo-platzhalter"]{object-fit:contain;object-position:left center}
+
+/* Arbeitsleiste über der Seite: zurück, Variante wechseln, Farbe wählen */
+.lp-leiste{background:#0e0e12;color:#c9c9d1;font:500 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;position:relative;z-index:40}
+.lp-leiste__in{max-width:1200px;margin:0 auto;padding:8px clamp(16px,4vw,40px);display:flex;align-items:center;gap:18px;min-height:46px}
+.lp-leiste a{color:inherit;text-decoration:none}
+.lp-leiste__zurueck{color:#fff!important;white-space:nowrap}
+.lp-leiste__zurueck:hover{text-decoration:underline}
+.lp-leiste__titel{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lp-leiste__gruppe{display:flex;align-items:center;gap:6px}
+.lp-leiste__label{color:#8d8d99;margin-right:4px}
+.lp-leiste__var{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;border:1px solid #33333d;color:#c9c9d1}
+.lp-leiste__var:hover{border-color:#777}
+.lp-leiste__var[aria-current="page"]{background:#fff;border-color:#fff;color:#0e0e12}
+.lp-leiste__farbe{width:26px;height:26px;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--f);box-shadow:0 0 0 2px #0e0e12,0 0 0 3px #44444f}
+.lp-leiste__farbe[aria-pressed="true"]{box-shadow:0 0 0 2px #0e0e12,0 0 0 4px #fff}
+.lp-leiste__farbe:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.ist-eingebettet .lp-leiste{display:none}
+@media (max-width:760px){
+  .lp-leiste__in{gap:12px}
+  .lp-leiste__titel,.lp-leiste__label{display:none}
+  .lp-leiste__gruppe--var{margin-left:auto}
+}

@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "AVRG – Postings – Entwicklung"
+description: "30 fertige Postings zur neuen Altersvorsorge 2027 für Instagram, Facebook und LinkedIn."
+permalink: /entwicklung/kampagnen/avrg/postings/index.html
+---
+{%- set A = "/entwicklung/kampagnen/avrg/assets" -%}
+<script src="{{ A }}/farbe.js?v=1"></script>
+<link rel="stylesheet" href="{{ A }}/fonts/ubuntu.css">
+<link rel="stylesheet" href="{{ A }}/avrg-farben.css?v=1">
+<link rel="stylesheet" href="{{ A }}/creatives.css?v=1">
+<link rel="stylesheet" href="{{ A }}/kampagne.css?v=1">
+
+<div class="kp-arbeitsstand">
+  <div class="padding-global"><div class="container kp-arbeitsstand__in">
+    <a href="/entwicklung/kampagnen/avrg/">← AVRG</a>
+    <span>Paketinhalt · Postings · Arbeitsstand</span>
+  </div></div>
+</div>
+
+<section class="kp-unterseite">
+  <div class="glow kp-held__glow-1"></div>
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">Paketinhalt · Social Media</div></div>
+      <h1 class="heading-h2 text-white text-center">30 Postings. Fertig zum Posten.</h1>
+      <p class="text-secondary text-center kp-kopf__text">Zehn Wochen, drei pro Woche: von Anfang November bis zum Start im Januar. Jedes Posting ist ein Bild im Format 4:5 für Instagram, Facebook und LinkedIn, ohne Logo. Dazu gibt es den Text für Instagram und Facebook und eine längere Fassung für LinkedIn.</p>
+    </div>
+
+    <div class="ps-steuerung">
+      <div class="ps-filter" id="ps-filter" role="group" aria-label="Nach Thema filtern"></div>
+      <div class="kp-wahl__farben" role="group" aria-label="Farbe">
+        <button type="button" class="kp-wahl__farbe" style="--f: #EF0000" data-farbe-wahl="rot" aria-pressed="false" aria-label="Rot" title="Rot"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #2A00DC" data-farbe-wahl="blau" aria-pressed="false" aria-label="Blau" title="Blau"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #028B34" data-farbe-wahl="gruen" aria-pressed="false" aria-label="Grün" title="Grün"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #FEE354" data-farbe-wahl="gelb" aria-pressed="false" aria-label="Gelb" title="Gelb"></button>
+      </div>
+    </div>
+
+    <ol class="ps-raster" id="ps-raster"></ol>
+    <p class="kp-zeit">Reihenfolge = Redaktionsplan. Antippen zeigt Bild und Text zum Kopieren.</p>
+  </div></div></div>
+</section>
+
+<dialog class="ps-modal" id="ps-modal" aria-labelledby="ps-m-titel">
+  <div class="ps-modal__innen">
+    <div class="ps-modal__bild" id="ps-m-bild"></div>
+    <div class="ps-modal__text">
+      <div class="ps-modal__kopf">
+        <b id="ps-m-titel">Posting</b>
+        <button type="button" class="ps-zu" id="ps-zu" aria-label="Schließen">×</button>
+      </div>
+      <div class="ps-kanal" role="group" aria-label="Text für">
+        <button type="button" data-kanal="ig" aria-pressed="true">Instagram &amp; Facebook</button>
+        <button type="button" data-kanal="li" aria-pressed="false">LinkedIn</button>
+      </div>
+      <div class="ps-caption" id="ps-m-text"></div>
+      <dl class="ps-meta" id="ps-m-meta"></dl>
+      <div class="ps-aktionen">
+        <button type="button" class="btn btn--secondary" id="ps-zurueck">← Zurück</button>
+        <button type="button" class="btn btn--primary" id="ps-kopieren">Text kopieren</button>
+        <button type="button" class="btn btn--secondary" id="ps-vor">Weiter →</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="{{ A }}/postings.js?v=1" defer></script>
+<script src="{{ A }}/postings-seite.js?v=1" defer></script>

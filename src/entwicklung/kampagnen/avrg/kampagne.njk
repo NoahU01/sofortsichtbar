@@ -1,0 +1,277 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "AVRG – Kampagnen-Landingpage – Entwicklung"
+description: "Sonderthema AVRG: die neue Altersvorsorge 2027 als fertige digitale Vertriebsstrecke."
+permalink: /entwicklung/kampagnen/avrg/kampagne/index.html
+contactData:
+  headline: "Lass uns über die AVRG sprechen,"
+  bullets:
+    - icon: laptop-1
+      label: "welche Variante zu deinem Auftritt passt"
+    - icon: email-action-send-1
+      label: "wann dein erstes Mailing rausgeht"
+    - icon: clock
+      label: "wie du bis Januar startklar bist"
+  cta:
+    label: "Kontakt aufnehmen"
+    href: "/kontakt"
+  quote: "\"Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder einzelnen Vertriebsstrecke von sofort sichtbar.\""
+  quoteAuthor: "Kerstin   |   Daniel   |   Noah"
+  imageAlt: "Das Team von sofort sichtbar: Kerstin, Daniel und Noah"
+  variant: team
+  padding: padding-large
+---
+{%- set A = "/entwicklung/kampagnen/avrg/assets" -%}
+{%- set varianten = [
+  { nr: 1, name: "Nah an der Vorlage", text: "Foto über die volle Breite, Text mittig, ein Knopf. Darunter Problem, Lösung, Rechner und Termin – im Aufbau unserer bewährten Landingpages." },
+  { nr: 2, name: "Was trifft auf dich zu?", text: "Der Besucher wählt oben seine Lebenslage, die Seite antwortet mit seiner Frage. Das Gespräch wird als Zeitleiste gezeigt: Minute 0 bis 15." },
+  { nr: 3, name: "Das Klarheits-Ticket", text: "Eine starke Bildidee: das Ticket „15 Minuten Klarheit“, fünf Menschen mit ihrer Frage und kräftige Farbflächen." }
+] -%}
+{%- set farben = [
+  { id: "rot", name: "Rot", hex: "#EF0000" },
+  { id: "blau", name: "Blau", hex: "#2A00DC" },
+  { id: "gruen", name: "Grün", hex: "#028B34" },
+  { id: "gelb", name: "Gelb", hex: "#FEE354" }
+] -%}
+<link rel="stylesheet" href="{{ A }}/kampagne.css?v=1">
+
+<div class="kp-arbeitsstand">
+  <div class="padding-global"><div class="container kp-arbeitsstand__in">
+    <a href="/entwicklung/kampagnen/avrg/">← AVRG</a>
+    <span>Kampagnen-Landingpage · Arbeitsstand · Preis noch offen</span>
+  </div></div>
+</div>
+
+{# ---------- Aufmacher ---------- #}
+<section class="kp-held">
+  <div class="glow kp-held__glow-1"></div>
+  <div class="glow kp-held__glow-2"></div>
+  <div class="padding-global">
+    <div class="container kp-held__in">
+      <div class="kp-held__text">
+        <div class="eyebrow kp-eyebrow"><div class="eyebrow__text">Sonderthema AVRG · Altersvorsorge 2027</div></div>
+        <h1 class="kp-h1 text-white">Die neue Altersvorsorge 2027. <span>Als fertige Vertriebsstrecke.</span></h1>
+        <p class="text-secondary kp-lead">Ab 2027 fragen sich deine Kunden: Betrifft mich das? Mit unserer AVRG-Vertriebsstrecke beantwortest du genau diese Frage. Landingpage, Postings und Bestandskundenmailings sind fertig geschrieben und gestaltet.</p>
+        <div class="kp-knoepfe">
+          <a class="btn btn--primary" href="#preis">Vertriebsstrecke anfragen</a>
+          <a class="btn btn--secondary" href="#paket">Inhalte ansehen</a>
+        </div>
+      </div>
+      <div class="kp-held__bild" aria-hidden="true">
+        <img class="kp-fenster kp-fenster--1" src="{{ A }}/kampagne/vorschau-2-blau.webp" alt="" width="960" height="600">
+        <img class="kp-fenster kp-fenster--2" src="{{ A }}/kampagne/vorschau-3-gelb.webp" alt="" width="960" height="600">
+        <img class="kp-fenster kp-fenster--3" src="{{ A }}/kampagne/vorschau-1-rot.webp" alt="" width="960" height="600">
+        <div class="badge kp-badge kp-badge--1"><img class="icon-md" src="/assets/img/icons/laptop-1.svg" alt=""><span class="badge__text">Landingpage in 3 Varianten</span></div>
+        <div class="badge kp-badge kp-badge--2"><img class="icon-md" src="/assets/img/icons/frame-80.svg" alt=""><span class="badge__text">30 Postings</span></div>
+        <div class="badge kp-badge kp-badge--3"><img class="icon-md" src="/assets/img/icons/email-action-send-1.svg" alt=""><span class="badge__text">3 Mailings</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------- Positionierung ---------- #}
+<section class="kp-idee">
+  <div class="padding-global"><div class="section-padding"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">Die Idee</div></div>
+      <h2 class="heading-h2 text-white text-center">Problemlöser statt Detailberater.</h2>
+      <p class="text-secondary text-center kp-kopf__text">Die meisten Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen. Wer Zulagen erklärt, wird zum Detailberater, und der Kunde vertagt die Entscheidung. Wer in 15 Minuten Klarheit schafft, bekommt den Termin.</p>
+    </div>
+
+    <div class="kp-vergleich">
+      <article class="kp-seite kp-seite--nein">
+        <p class="kp-seite__wer">Detailberater</p>
+        <h3 class="heading-h4 text-white">Erklärt die Reform.</h3>
+        <ul class="kp-liste">
+          <li>{% include "partials/icon-close-red.njk" %}<span>Zulagen, Paragrafen und Tabellen</span></li>
+          <li>{% include "partials/icon-close-red.njk" %}<span>Der Kunde soll sich einarbeiten</span></li>
+          <li>{% include "partials/icon-close-red.njk" %}<span>Am Ende: „Ich überleg’s mir.“</span></li>
+        </ul>
+      </article>
+      <article class="kp-seite kp-seite--ja">
+        <p class="kp-seite__wer">Problemlöser</p>
+        <h3 class="heading-h4 text-white">Klärt, ob es den Kunden betrifft.</h3>
+        <ul class="kp-liste">
+          <li>{% include "partials/icon-check-green.njk" %}<span>Drei Fragen: Betrifft mich das? Wie? Habe ich einen Vorteil?</span></li>
+          <li>{% include "partials/icon-check-green.njk" %}<span>15 Minuten, ohne Unterlagen</span></li>
+          <li>{% include "partials/icon-check-green.njk" %}<span>Ein klares Ergebnis und ein Termin</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="kp-claim">
+      <p class="kp-claim__label">Der Claim, mit dem deine Kunden angesprochen werden</p>
+      <p class="kp-claim__text">Mitnehmen oder abhaken.</p>
+      <p class="text-secondary kp-claim__sub">Beide Ausgänge sind gut: Entweder hat der Kunde einen Vorteil, dann zeigst du ihn ihm. Oder er braucht es nicht, dann ist das Thema für ihn erledigt.</p>
+    </div>
+  </div></div></div>
+</section>
+
+{# ---------- Das Paket ---------- #}
+<section class="kp-paket" id="paket">
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-rahmen">
+      <div class="glow kp-rahmen__glow-1"></div>
+      <div class="glow kp-rahmen__glow-2"></div>
+
+      <div class="kp-kopf">
+        <div class="eyebrow"><div class="eyebrow__text">Das Paket</div></div>
+        <h2 class="heading-h2 text-white text-center">Alles für die AVRG in einem Paket.</h2>
+        <p class="text-secondary text-center kp-kopf__text">Fertig getextet und gestaltet. Wir setzen dein Logo, deine Kontaktdaten und deine Farbe ein, und du gehst damit zu deinen Kunden.</p>
+      </div>
+
+      <div class="kp-bausteine">
+        <article class="kp-baustein kp-baustein--breit">
+          <div class="kp-baustein__text">
+            <div class="kp-baustein__kopf"><img class="icon-md" src="/assets/img/icons/check.svg" alt=""><h3 class="text-white heading-h4">Landingpage</h3></div>
+            <p class="text-secondary">Eine Seite, ein Ziel: der Termin. Mit Rechner, häufigen Fragen und direkter Terminwahl per Telefon, Video oder im Büro.</p>
+            <div class="bullet-list kp-bullets">
+              <div class="bullet-item"><img class="icon-md" src="/assets/img/icons/laptop-1.svg" alt=""><div class="text-white">Drei Varianten zur Auswahl</div></div>
+              <div class="bullet-item"><img class="icon-md" src="/assets/img/icons/pipette.svg" alt=""><div class="text-white">In Rot, Blau, Grün oder Gelb</div></div>
+              <div class="bullet-item"><img class="icon-md" src="/assets/img/icons/clock.svg" alt=""><div class="text-white">Gespräch in 15 Minuten</div></div>
+            </div>
+            <a class="kp-mehr" href="#varianten">Varianten ansehen</a>
+          </div>
+          <div class="kp-baustein__bild kp-baustein__bild--lp" aria-hidden="true">
+            <img src="{{ A }}/kampagne/vorschau-1-blau.webp" alt="" loading="lazy" width="960" height="600">
+            <img src="{{ A }}/kampagne/vorschau-2-gruen.webp" alt="" loading="lazy" width="960" height="600">
+            <img src="{{ A }}/kampagne/vorschau-3-rot.webp" alt="" loading="lazy" width="960" height="600">
+          </div>
+        </article>
+
+        <article class="kp-baustein">
+          <div class="kp-baustein__text">
+            <div class="kp-baustein__kopf"><img class="icon-md" src="/assets/img/icons/check.svg" alt=""><h3 class="text-white heading-h4">Social Media Postings</h3></div>
+            <p class="text-secondary">30 fertige Postings für Instagram, Facebook und LinkedIn, mit Bild und Text. Als Redaktionsplan über zehn Wochen, von Anfang November bis zum Start im Januar.</p>
+            <a class="kp-mehr" href="/entwicklung/kampagnen/avrg/postings/">Postings ansehen</a>
+          </div>
+          <div class="kp-baustein__bild kp-baustein__bild--posts" aria-hidden="true">
+            <img src="{{ A }}/kampagne/posting-01.jpg" alt="" loading="lazy" width="360" height="450">
+            <img src="{{ A }}/kampagne/posting-04.jpg" alt="" loading="lazy" width="360" height="450">
+            <img src="{{ A }}/kampagne/posting-26.jpg" alt="" loading="lazy" width="360" height="450">
+          </div>
+        </article>
+
+        <article class="kp-baustein">
+          <div class="kp-baustein__text">
+            <div class="kp-baustein__kopf"><img class="icon-md" src="/assets/img/icons/check.svg" alt=""><h3 class="text-white heading-h4">Bestandskundenmailings</h3></div>
+            <p class="text-secondary">Drei Mails an deine Bestandskunden: an alle, an Kunden mit Riester-Vertrag und eine Erinnerung. Kurz, persönlich und mit einem Knopf zu deiner Landingpage.</p>
+            <a class="kp-mehr" href="/entwicklung/kampagnen/avrg/mailings/">Mailings ansehen</a>
+          </div>
+          <div class="kp-baustein__bild kp-baustein__bild--mail" aria-hidden="true">
+            <div class="kp-mail">
+              <p class="kp-mail__betreff">Neue Altersvorsorge 2027: Betrifft Sie das?</p>
+              <p class="kp-mail__vorschau">In 15 Minuten wissen Sie es – kostenlos und unverbindlich.</p>
+              <span class="kp-mail__zeile"></span><span class="kp-mail__zeile"></span><span class="kp-mail__zeile kp-mail__zeile--kurz"></span>
+              <span class="kp-mail__knopf">Termin in 15 Minuten wählen</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div></div></div>
+</section>
+
+{# ---------- Varianten zum Durchklicken ---------- #}
+<section class="kp-varianten" id="varianten">
+  <div class="padding-global"><div class="section-padding"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">Landingpage</div></div>
+      <h2 class="heading-h2 text-white text-center">Drei Varianten. Deine Farbe.</h2>
+      <p class="text-secondary text-center kp-kopf__text">Wähle die Variante, die zu dir passt. Jede gibt es in Rot, Blau, Grün und Gelb. Die Vorschau ist echt: Du kannst darin scrollen und klicken.</p>
+    </div>
+
+    <div class="kp-wahl" data-wahl>
+      <div class="kp-wahl__varianten" role="tablist" aria-label="Variante">
+        {% for v in varianten %}
+          <button type="button" class="kp-wahl__variante" role="tab" data-variante="{{ v.nr }}" aria-selected="{{ 'true' if loop.first else 'false' }}">
+            <span class="kp-wahl__nr">Variante {{ v.nr }}</span>
+            <span class="kp-wahl__name">{{ v.name }}</span>
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="kp-wahl__leiste">
+        {% for v in varianten %}<p class="text-secondary kp-wahl__text" data-text="{{ v.nr }}"{% if not loop.first %} hidden{% endif %}>{{ v.text }}</p>{% endfor %}
+        <div class="kp-wahl__farben" role="group" aria-label="Farbe">
+          {% for f in farben %}
+            <button type="button" class="kp-wahl__farbe" style="--f: {{ f.hex }}" data-farbe="{{ f.id }}" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-label="{{ f.name }}" title="{{ f.name }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="kp-browser">
+        <div class="kp-browser__leiste"><span></span><span></span><span></span><b data-adresse>deine-agentur.de/neue-altersvorsorge</b></div>
+        <div class="kp-browser__schirm" data-schirm>
+          <iframe data-rahmen src="/entwicklung/kampagnen/avrg/landingpage-1/?farbe=rot" title="Vorschau der Landingpage" loading="lazy"></iframe>
+        </div>
+      </div>
+      <p class="kp-wahl__offen"><a data-offen href="/entwicklung/kampagnen/avrg/landingpage-1/?farbe=rot">In voller Größe öffnen</a></p>
+    </div>
+  </div></div></div>
+</section>
+
+{# ---------- Ablauf ---------- #}
+<section class="kp-ablauf">
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">So läuft’s</div></div>
+      <h2 class="heading-h2 text-white text-center">In drei Schritten startklar.</h2>
+    </div>
+    <ol class="kp-schritte">
+      <li class="kp-schritt">
+        <span class="kp-schritt__nr">1</span>
+        <h3 class="heading-h5 text-white">Paket buchen</h3>
+        <p class="text-secondary">Du wählst Variante und Farbe deiner Landingpage.</p>
+      </li>
+      <li class="kp-schritt">
+        <span class="kp-schritt__nr">2</span>
+        <h3 class="heading-h5 text-white">Wir richten ein</h3>
+        <p class="text-secondary">Dein Logo, deine Kontaktdaten, dein Foto und deine Terminwahl kommen auf die Landingpage, in die Postings und in die Mailings.</p>
+      </li>
+      <li class="kp-schritt">
+        <span class="kp-schritt__nr">3</span>
+        <h3 class="heading-h5 text-white">Du gehst raus</h3>
+        <p class="text-secondary">Das erste Mailing geht an deine Bestandskunden, die Postings laufen nach Plan, die Terminanfragen kommen bei dir an.</p>
+      </li>
+    </ol>
+    <p class="kp-zeit"><img class="icon-sm" src="/assets/img/icons/clock.svg" alt=""> Die Reform gilt ab 1. Januar 2027. Der Redaktionsplan startet Anfang November.</p>
+  </div></div></div>
+</section>
+
+{# ---------- Preis ---------- #}
+<section class="kp-preis" id="preis">
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-preis__flaeche">
+      <div class="glow kp-preis__glow"></div>
+      <h2 class="heading-h2 text-white text-center">Die AVRG-Vertriebsstrecke</h2>
+    </div>
+    <div class="kp-preis__karte">
+      <div class="kp-preis__kopf">
+        <div class="kp-preis__name-zeile">
+          <h3 class="kp-preis__name">AVRG-Vertriebsstrecke</h3>
+          <span class="pill"><span class="pill__text">Sonderthema</span></span>
+        </div>
+        <p class="text-secondary text-small">Für alle, die ihre Kunden zur neuen Altersvorsorge 2027 ansprechen wollen, ohne selbst Inhalte zu erstellen.</p>
+      </div>
+      <div class="kp-preis__betrag">
+        <span class="kp-preis__platzhalter">Preis folgt</span>
+        <span class="kp-preis__hinweis">Platzhalter: Der Preis wird noch festgelegt.</span>
+      </div>
+      <div class="kp-preis__trenner"></div>
+      <ul class="kp-preis__liste">
+        <li>{% include "partials/icon-check.njk" %}<span>Landingpage in Variante und Farbe deiner Wahl</span></li>
+        <li>{% include "partials/icon-check.njk" %}<span>Mit deinem Logo, deinen Kontaktdaten und deinem Foto</span></li>
+        <li>{% include "partials/icon-check.njk" %}<span>30 Postings mit Texten für Instagram, Facebook und LinkedIn</span></li>
+        <li>{% include "partials/icon-check.njk" %}<span>3 Bestandskundenmailings</span></li>
+        <li>{% include "partials/icon-check.njk" %}<span>Redaktionsplan von November bis Januar</span></li>
+      </ul>
+      <a class="btn btn--primary btn--full" href="/kontakt">Vertriebsstrecke anfragen</a>
+    </div>
+  </div></div></div>
+</section>
+
+{% include "sections/contact.njk" %}
+
+<script src="{{ A }}/kampagne.js?v=1" defer></script>

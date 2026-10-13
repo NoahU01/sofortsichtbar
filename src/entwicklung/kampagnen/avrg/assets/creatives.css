@@ -1,0 +1,152 @@
+/* Postings AVRG: fertige Einzelbilder 4:5 ohne Logo, aus dem Medienkonzept übernommen.
+   Farben kommen aus avrg-farben.css (--rot, --auf-rot, --rot-text, --rot-hell). */
+.cr{--r:var(--rot);--auf-r:var(--auf-rot);--auf-r-leise:var(--auf-rot-leise);--r-text:var(--rot-text);--r-hell:var(--rot-hell);--k:#141414;--h:#f3efe9;position:relative;aspect-ratio:4/5;overflow:hidden;container-type:inline-size;font-family:'Ubuntu',system-ui,sans-serif;color:var(--k);background:#fff;text-align:left;display:block}
+.cr *{margin:0;box-sizing:border-box}
+.cr em{font-style:normal}
+.cr__in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;padding:8.5cqi}
+.cr__label{font-size:3.3cqi;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.cr__h{font-size:12.4cqi;font-weight:700;line-height:.98;letter-spacing:-.04em}
+.cr__mitte{margin:auto 0}
+.e2 main .cr p,.e2 main .cr li{margin:0;font-weight:500}
+.e2 main .cr .cr__h,.e2 main .cr .cr__blase,.e2 main .cr .cr__weg li,.e2 main .cr .cr__zettel li.offen{font-weight:700}
+.e2 main .cr .cr__mitte{margin-top:auto;margin-bottom:auto}
+.e2 main .cr .cr__fuss{margin-top:0}
+.cr__fuss{font-size:4.2cqi;font-weight:500;display:flex;align-items:center;gap:2.4cqi}
+.cr__fuss::before{content:"";width:8cqi;height:.7cqi;background:currentColor}
+.cr__deko{position:absolute;z-index:1;right:-10cqi;bottom:-26cqi;font:700 118cqi/1 'Ubuntu',sans-serif;letter-spacing:-.06em;pointer-events:none}
+
+/* Fläche + Text */
+.cr--weiss{background:var(--h)}
+.cr--weiss .cr__label{color:var(--r-text)}
+.cr--weiss em{color:var(--r-text)}
+.cr--weiss .cr__deko{color:rgba(20,20,20,.05)}
+.cr--rot{background:var(--r);color:var(--auf-r)}
+.cr--rot .cr__label{color:var(--auf-r-leise)}
+.cr--rot em{color:var(--rot-betont)}
+.cr--rot .cr__deko{color:rgba(0,0,0,.08)}
+.cr--schwarz{background:var(--k);color:#fff}
+.cr--schwarz .cr__label{color:var(--r-hell)}
+.cr--schwarz em{color:var(--r-hell)}
+.cr--schwarz .cr__deko{color:rgba(255,255,255,.05)}
+
+/* Foto mit Sprechblase */
+.cr__foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cr__blase{position:absolute;z-index:3;left:7cqi;top:7cqi;max-width:72cqi;background:#fff;border-radius:5cqi;padding:5cqi 5.6cqi;font-size:7.4cqi;font-weight:700;line-height:1.06;letter-spacing:-.025em;box-shadow:0 2cqi 8cqi rgba(0,0,0,.18)}
+.cr__blase::after{content:"";position:absolute;left:10cqi;bottom:-4cqi;border-left:3cqi solid #fff;border-bottom:4.2cqi solid transparent}
+.cr__tag{position:absolute;z-index:3;left:7cqi;bottom:7cqi;background:var(--r);color:var(--auf-r);font-size:3.6cqi;font-weight:500;padding:2cqi 3.6cqi;border-radius:999px}
+
+/* Foto mit Band */
+.cr--band .cr__foto{height:64%}
+.cr--band .cr__in{top:auto;height:40%;background:#fff;border-radius:6cqi 6cqi 0 0;justify-content:center;padding:7cqi 8.5cqi}
+.cr--band .cr__h{font-size:8.6cqi;line-height:1.04}
+.cr--band em{color:var(--r-text)}
+
+/* Frage + Antwort */
+.cr--fa{display:grid;grid-template-rows:56% 44%}
+.cr__frage,.cr__antwort{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:8.5cqi}
+.cr__frage{background:var(--h)}
+.cr__frage .cr__h{font-size:11cqi}
+.cr__antwort{background:var(--r);color:var(--auf-r);justify-content:flex-start}
+.cr__antwort p:not(.cr__fa-label){font-size:6.6cqi;font-weight:500;line-height:1.22;letter-spacing:-.01em}
+.cr__fa-label{font-size:3.2cqi;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3cqi!important;opacity:.7}
+.cr__frage .cr__fa-label{color:var(--r-text);opacity:1}
+
+/* Durchgestrichen */
+.cr--durch{background:var(--h)}
+.cr__weg{list-style:none;padding:0;display:grid;gap:2cqi}
+.cr__weg li{font-size:12cqi;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:rgba(20,20,20,.38);position:relative;width:max-content}
+.cr__weg li::after{content:"";position:absolute;left:-2cqi;right:-2cqi;top:52%;height:1.6cqi;background:var(--r);transform:rotate(-3deg);border-radius:1cqi}
+.cr--durch .cr__h{color:var(--r-text);font-size:15cqi;margin-top:6cqi!important}
+
+/* Drei Haken */
+.cr--check{background:var(--r);color:var(--auf-r)}
+.cr--check .cr__h{font-size:10.4cqi}
+.cr__haken{list-style:none;padding:0;display:grid;gap:4cqi;margin-top:9cqi!important}
+.cr__haken li{display:flex;align-items:center;gap:4.4cqi;font-size:7cqi;font-weight:500;letter-spacing:-.015em}
+.cr__haken i{width:10cqi;height:10cqi;border-radius:2.4cqi;background:var(--auf-r);flex:none;display:grid;place-items:center}
+.cr__haken i::after{content:"";width:4.6cqi;height:2.4cqi;border-left:1.3cqi solid var(--r);border-bottom:1.3cqi solid var(--r);transform:rotate(-45deg) translate(.4cqi,-.4cqi)}
+
+/* Geteilt */
+.cr--split{display:grid;grid-template-rows:1fr 1fr}
+.cr__teil{display:flex;flex-direction:column;justify-content:center;padding:0 8.5cqi}
+.cr__teil small{font-size:3.3cqi;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:2cqi}
+.cr__teil b{font-size:17cqi;font-weight:700;letter-spacing:-.05em;line-height:.95}
+.cr__teil--o{background:var(--h)}
+.cr__teil--o small{color:var(--r-text)}
+.cr__teil--u{background:var(--k);color:#fff}
+.cr__teil--u small{color:rgba(255,255,255,.55)}
+.cr__teil--u b span{color:var(--r-hell)}
+.cr__oder{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);background:var(--r);color:var(--auf-r);font-size:4.4cqi;font-weight:700;padding:2.2cqi 4.4cqi;border-radius:999px;z-index:2}
+
+/* Zahl */
+.cr--zahl{background:var(--h)}
+.cr__zahl{font-size:76cqi;font-weight:700;line-height:.78;letter-spacing:-.07em;color:var(--r-text);margin-left:-3cqi!important}
+.cr--zahl .cr__h{font-size:8.6cqi;margin-top:5cqi!important}
+
+/* Zitat */
+.cr--zitat{background:var(--k);color:#fff}
+.cr__anf{position:absolute;z-index:1;left:7cqi;top:3cqi;font-size:72cqi;font-weight:700;line-height:1;color:var(--r-hell);height:auto}
+.cr--zitat .cr__h{position:relative;z-index:2;margin-top:auto!important;margin-bottom:0!important}
+.cr--zitat .cr__h{font-size:11cqi;line-height:1.02}
+.cr--zitat em{color:var(--r-hell)}
+
+/* Suchleiste */
+.cr--suche{background:var(--h)}
+.cr__such{background:#fff;border-radius:7cqi;box-shadow:0 2cqi 8cqi rgba(0,0,0,.08);overflow:hidden}
+.cr__feld{display:flex;align-items:center;gap:3cqi;padding:4.4cqi 5cqi;font-size:3.9cqi;font-weight:500;white-space:nowrap}
+.cr__lupe{width:5.6cqi;height:5.6cqi;border:1cqi solid #777;border-radius:50%;position:relative;flex:none}
+.cr__lupe::after{content:"";position:absolute;width:2.6cqi;height:1cqi;background:#777;right:-2.4cqi;bottom:-1.4cqi;transform:rotate(45deg)}
+.cr__cursor{display:inline-block;width:.5cqi;height:5.6cqi;background:var(--r);margin-left:.6cqi;vertical-align:-1cqi}
+.cr__vorsch{list-style:none;padding:1cqi 0 3cqi;border-top:.3cqi solid #eee}
+.cr__vorsch li{display:flex;align-items:center;gap:3cqi;padding:2.2cqi 5cqi;font-size:3.9cqi;color:#777;white-space:nowrap;overflow:hidden}
+.cr__vorsch li::before{content:"";width:3.4cqi;height:3.4cqi;border:.7cqi solid #bbb;border-radius:50%;flex:none}
+.cr__vorsch b{color:var(--k);font-weight:500}
+.cr--suche .cr__h{font-size:10.4cqi;margin-top:auto!important}
+.cr--suche em{color:var(--r-text)}
+
+/* Chat */
+.cr--chat{background:var(--h)}
+.cr__chat{display:grid;gap:4cqi;margin:auto 0!important}
+.cr__msg{max-width:78%;border-radius:6cqi;padding:5cqi 5.6cqi;font-size:6.2cqi;font-weight:500;line-height:1.18;letter-spacing:-.01em;position:relative}
+.cr__msg small{display:block;font-size:3cqi;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:1.6cqi}
+.cr__msg--ich{justify-self:end;background:var(--r);color:var(--auf-r);border-bottom-right-radius:1.4cqi}
+.cr__msg--wir{justify-self:start;background:#fff;color:var(--k);border-bottom-left-radius:1.4cqi;box-shadow:0 1.4cqi 5cqi rgba(0,0,0,.07)}
+.cr__tippt{justify-self:start;display:flex;gap:1.4cqi;background:#fff;border-radius:5cqi;padding:3.4cqi 4.4cqi}
+.cr__tippt i{width:2cqi;height:2cqi;border-radius:50%;background:#bbb}
+
+/* Notizzettel */
+.cr--notiz{background:var(--k)}
+.cr__zettel{position:absolute;left:11cqi;right:11cqi;top:9cqi;height:68cqi;background:#fffdf7;transform:rotate(-3deg);box-shadow:0 3cqi 8cqi rgba(0,0,0,.35);padding:9cqi 8cqi;background-image:repeating-linear-gradient(transparent 0 10.6cqi,#e7e2d6 10.6cqi 10.9cqi);background-position:0 7.4cqi}
+.cr__zettel::before{content:"";position:absolute;left:50%;top:-3cqi;width:20cqi;height:7cqi;transform:translateX(-50%) rotate(2deg);background:var(--r);opacity:.8}
+.cr__zettel b{display:block;font:italic 700 6.4cqi/1 'Ubuntu',sans-serif;margin-bottom:4cqi;letter-spacing:-.02em}
+.cr__zettel ul{list-style:none;padding:0}
+.cr__zettel li{height:10.9cqi;display:flex;align-items:center;gap:3cqi;font:italic 500 5.6cqi/1 'Ubuntu',sans-serif}
+.cr__zettel li i{width:5cqi;height:5cqi;border:.6cqi solid var(--k);border-radius:1cqi;flex:none;position:relative}
+.cr__zettel li.ok i::after{content:"";position:absolute;left:.6cqi;top:-1.6cqi;width:4.6cqi;height:2.6cqi;border-left:1cqi solid var(--k);border-bottom:1cqi solid var(--k);transform:rotate(-45deg)}
+.cr__zettel li.ok span{text-decoration:line-through;text-decoration-thickness:.5cqi;opacity:.55}
+.cr__zettel li.offen{color:var(--r-text);font-weight:700}
+.cr__zettel li.offen i{border-color:var(--r-text)}
+.cr__zettel li.offen::after{content:"?";font-size:9cqi;font-weight:700;margin-left:2cqi}
+.cr--notiz .cr__in{justify-content:flex-end;color:#fff}
+.cr--notiz .cr__h{font-size:8.8cqi;line-height:1.04}
+.cr--notiz em{color:var(--r-hell)}
+
+/* Ticket */
+.cr--ticket{background:var(--h)}
+.cr__tk{position:absolute;left:8cqi;right:8cqi;top:40cqi;height:66cqi;transform:rotate(-6deg);display:grid;grid-template-columns:1fr 18cqi;isolation:isolate;}
+.cr__tk-haupt,.cr__tk-ab{background:var(--r);color:var(--auf-r)}
+.cr__tk-haupt{border-radius:4cqi 0 0 4cqi;padding:7cqi 6cqi;display:flex;flex-direction:column;justify-content:space-between;
+  -webkit-mask:radial-gradient(circle 3cqi at 100% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 100% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:radial-gradient(circle 3cqi at 100% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 100% 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.cr__tk-ab{border-radius:0 4cqi 4cqi 0;border-left:.7cqi dashed var(--auf-rot-rand);display:grid;place-items:center;
+  -webkit-mask:radial-gradient(circle 3cqi at 0 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:radial-gradient(circle 3cqi at 0 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.cr__tk-ab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:3cqi;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.cr__tk small{font-size:2.8cqi;letter-spacing:.16em;text-transform:uppercase;opacity:.8;font-weight:500}
+.cr__tk b{font-size:9cqi;font-weight:700;letter-spacing:-.04em;line-height:.95}
+.cr__tk ul{list-style:none;padding:0;display:grid;gap:2cqi}
+.cr__tk li{font-size:4.2cqi;font-weight:500;display:flex;gap:2.4cqi;align-items:center}
+.cr__tk li::before{content:"";width:4cqi;height:4cqi;border-radius:1cqi;background:var(--auf-r);flex:none}
+.cr--ticket .cr__h{font-size:11cqi}
+.cr--ticket em{color:var(--r-text)}
+

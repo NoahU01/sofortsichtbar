@@ -56,6 +56,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "src/static": "." });
+  // Dateien von Arbeitsständen (Bilder, CSS, Schriften) liegen direkt neben ihren Seiten
+  eleventyConfig.addPassthroughCopy("src/entwicklung/**/assets/**");
 
   eleventyConfig.addWatchTarget("src/assets/css/");
 

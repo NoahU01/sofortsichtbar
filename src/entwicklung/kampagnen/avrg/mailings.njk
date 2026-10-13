@@ -1,0 +1,134 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "AVRG – Mailings – Entwicklung"
+description: "Drei Bestandskundenmailings zur neuen Altersvorsorge 2027."
+permalink: /entwicklung/kampagnen/avrg/mailings/index.html
+---
+{%- set A = "/entwicklung/kampagnen/avrg/assets" -%}
+{%- set LP = "/entwicklung/kampagnen/avrg/landingpage-1/" -%}
+{%- set mails = [
+  {
+    nr: 1, titel: "Alle Bestandskunden",
+    an: "Alle Privatkunden im Bestand mit Werbeeinwilligung",
+    wann: "Mitte November, vor dem Jahresendtrubel",
+    ziel: "Neugier wecken und die Frage „Betrifft mich das?“ beantworten lassen",
+    link: "Landingpage, Einstieg oben",
+    empfaenger: "Frau Beispiel", anrede: "Liebe Frau Beispiel,",
+    betreff: "Neue Altersvorsorge 2027: Betrifft Sie das?",
+    vorschau: "In 15 Minuten wissen Sie es – kostenlos und unverbindlich.",
+    vor: [
+      "vielleicht haben Sie es schon gehört oder gelesen: Ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Überall wird darüber gesprochen – und meistens bleibt vor allem eine Frage offen: Betrifft mich das überhaupt?",
+      "Genau das klären wir gern mit Ihnen. Kein Fachvortrag, kein Verkaufsgespräch, sondern ein kurzes Gespräch zu drei Fragen:"
+    ],
+    liste: ["Betrifft Sie die neue Altersvorsorge?", "Wenn ja: wie?", "Haben Sie einen Vorteil davon?"],
+    nach: ["Danach wissen Sie, woran Sie sind. Entweder zeigen wir Ihnen Ihren Vorteil – oder Sie können das Thema mit gutem Gefühl abhaken."],
+    knopf: "Termin in 15 Minuten wählen", ziel_link: "",
+    schluss: ["Auf der Seite können Sie vorab auch kurz selbst durchrechnen, was der Staat dazulegt."]
+  },
+  {
+    nr: 2, titel: "Riester-Kunden",
+    an: "Kunden mit laufendem Riester-Vertrag",
+    wann: "Anfang Dezember",
+    ziel: "Die Sorge ernst nehmen, ohne Panik zu machen – und den Vertrag gemeinsam anschauen",
+    link: "Landingpage, direkt zum Termin",
+    empfaenger: "Herrn Beispiel", anrede: "Lieber Herr Beispiel,",
+    betreff: "Ihr Riester-Vertrag und die Reform 2027",
+    vorschau: "Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.",
+    vor: [
+      "Sie sorgen mit einem Riester-Vertrag fürs Alter vor. Mit der Reform 2027 fragen sich gerade viele: Ist mein Vertrag jetzt schlecht? Muss ich etwas tun?",
+      "Die kurze Antwort: Ihr Vertrag läuft weiter. Ab 2027 können Sie aber in die neue Förderung wechseln. Das ist eine Entscheidung, die man nur einmal trifft und nicht rückgängig machen kann – deshalb lohnt sich ein genauer Blick.",
+      "Ob ein Wechsel für Sie sinnvoll ist, hängt von Ihrem Vertrag ab. Das schauen wir uns gern gemeinsam an: in 15 Minuten, am Telefon oder bei uns im Büro."
+    ],
+    liste: [], nach: [],
+    knopf: "Meinen Vertrag anschauen lassen", ziel_link: "#termin",
+    schluss: []
+  },
+  {
+    nr: 3, titel: "Erinnerung",
+    an: "Empfänger von Mail 1, die noch keinen Termin gebucht haben",
+    wann: "Anfang Januar, kurz vor dem Start",
+    ziel: "Kurz erinnern und den Starttermin als natürlichen Anlass nutzen",
+    link: "Landingpage, direkt zum Termin",
+    empfaenger: "Frau Beispiel", anrede: "Liebe Frau Beispiel,",
+    betreff: "Mitnehmen oder abhaken?",
+    vorschau: "Die neue Altersvorsorge startet im Januar. 15 Minuten genügen.",
+    vor: [
+      "kurz und knapp: Im Januar startet die neue geförderte Altersvorsorge.",
+      "Wenn Sie wissen möchten, ob Sie etwas davon haben, genügen 15 Minuten. Und wenn nicht, wissen Sie das danach auch – und können das Thema abhaken."
+    ],
+    liste: [], nach: [],
+    knopf: "Termin wählen", ziel_link: "#termin",
+    schluss: []
+  }
+] -%}
+<script src="{{ A }}/farbe.js?v=1"></script>
+<link rel="stylesheet" href="{{ A }}/avrg-farben.css?v=1">
+<link rel="stylesheet" href="{{ A }}/kampagne.css?v=1">
+
+<div class="kp-arbeitsstand">
+  <div class="padding-global"><div class="container kp-arbeitsstand__in">
+    <a href="/entwicklung/kampagnen/avrg/">← AVRG</a>
+    <span>Paketinhalt · Mailings · Arbeitsstand</span>
+  </div></div>
+</div>
+
+<section class="kp-unterseite">
+  <div class="glow kp-held__glow-1"></div>
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">Paketinhalt · Bestandskundenmailings</div></div>
+      <h1 class="heading-h2 text-white text-center">Drei Mails, ein Link.</h1>
+      <p class="text-secondary text-center kp-kopf__text">Der stärkste Kanal: Die Kunden kennen ihren Berater schon. Jede Mail ist kurz, persönlich vom Berater und führt mit einem Knopf auf die Landingpage. Die Kunden werden gesiezt.</p>
+    </div>
+
+    <div class="ml-steuerung">
+      <span class="text-secondary text-small">Farbe des Knopfs</span>
+      <div class="kp-wahl__farben" role="group" aria-label="Farbe">
+        <button type="button" class="kp-wahl__farbe" style="--f: #EF0000" data-farbe-wahl="rot" aria-pressed="false" aria-label="Rot" title="Rot"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #2A00DC" data-farbe-wahl="blau" aria-pressed="false" aria-label="Blau" title="Blau"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #028B34" data-farbe-wahl="gruen" aria-pressed="false" aria-label="Grün" title="Grün"></button>
+        <button type="button" class="kp-wahl__farbe" style="--f: #FEE354" data-farbe-wahl="gelb" aria-pressed="false" aria-label="Gelb" title="Gelb"></button>
+      </div>
+    </div>
+
+    <div class="ml-liste">
+      {% for m in mails %}
+        <article class="ml-zeile">
+          <div class="ml-info">
+            <span class="kp-schritt__nr">{{ m.nr }}</span>
+            <h2 class="heading-h4 text-white">{{ m.titel }}</h2>
+            <dl class="ml-meta">
+              <dt>An</dt><dd>{{ m.an }}</dd>
+              <dt>Wann</dt><dd>{{ m.wann }}</dd>
+              <dt>Ziel</dt><dd>{{ m.ziel }}</dd>
+              <dt>Link</dt><dd>{{ m.link }}</dd>
+            </dl>
+          </div>
+          <div class="ml-mail">
+            <div class="ml-mail__kopf">
+              <span><small>Von</small> Max Mustermann</span>
+              <span><small>An</small> {{ m.empfaenger }}</span>
+              <b class="ml-mail__betreff">{{ m.betreff }}</b>
+              <span class="ml-mail__vorschau">{{ m.vorschau }}</span>
+            </div>
+            <div class="ml-mail__text">
+              <img class="ml-mail__logo" src="{{ A }}/logo-platzhalter.svg" alt="Logo">
+              <p>{{ m.anrede }}</p>
+              {% for t in m.vor %}<p>{{ t }}</p>{% endfor %}
+              {% if m.liste.length %}<ul>{% for t in m.liste %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+              {% for t in m.nach %}<p>{{ t }}</p>{% endfor %}
+              <a class="ml-mail__knopf" href="{{ LP }}{{ m.ziel_link }}">{{ m.knopf }}</a>
+              {% for t in m.schluss %}<p>{{ t }}</p>{% endfor %}
+              <p>Herzliche Grüße</p>
+              <div class="ml-mail__sig">
+                <img src="{{ A }}/max-mustermann.jpg" alt="">
+                <span><b>Max Mustermann</b><small>Geschäftsstelle Eins · + 123 456 789 123</small></span>
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div></div></div>
+</section>

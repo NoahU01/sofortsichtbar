@@ -1,0 +1,88 @@
+---
+title: "AVRG – Kampagnen – Entwicklung"
+description: "Kampagne AVRG: Wie Kampagne, Kampagnen-Landingpage und das verkaufte Paket zusammenhängen."
+permalink: /entwicklung/kampagnen/avrg/index.html
+devHeadline: "AVRG"
+devIntro: "Die neue Altersvorsorge 2027 als Sonderthema. Oben steht, wie wir Makler und Agenturen gewinnen, unten, was sie bei uns kaufen und bei ihren Kunden einsetzen."
+devWide: true
+---
+{%- set A = "/entwicklung/kampagnen/avrg/assets" -%}
+{%- set B = "/entwicklung/kampagnen/avrg" -%}
+<link rel="stylesheet" href="{{ A }}/kampagne.css?v=1">
+
+<div class="ov">
+
+  {# ---------- Stufe 1: Kampagne ---------- #}
+  <section class="ov-stufe">
+    <div class="ov-stufe__kopf">
+      <span class="ov-stufe__nr">1</span>
+      <div>
+        <h2 class="heading-h4 text-white">Kampagne: Wir gewinnen Makler und Agenturen</h2>
+        <p class="text-secondary text-small">Richtet sich an Versicherungsvermittler. Gestaltet im Corporate Design von sofort sichtbar.</p>
+      </div>
+    </div>
+    <div class="ov-reihe">
+      <article class="ov-karte ov-karte--offen">
+        <span class="ov-karte__marke">Folgt als Nächstes</span>
+        <h3 class="heading-h5 text-white">Medienkonzept der Kampagne</h3>
+        <p class="text-secondary text-small">Postings und Creatives für LinkedIn, Facebook und Instagram, die Makler auf die Kampagnen-Landingpage holen.</p>
+      </article>
+      <span class="ov-pfeil" aria-hidden="true"></span>
+      <a class="ov-karte ov-karte--link" href="{{ B }}/kampagne/">
+        <span class="ov-karte__marke ov-karte__marke--fertig">Entwurf steht</span>
+        <h3 class="heading-h5 text-white">Kampagnen-Landingpage</h3>
+        <p class="text-secondary text-small">Erklärt das Sonderthema, die Positionierung „Problemlöser statt Detailberater“ und das Paket. Preis noch offen.</p>
+        <span class="ov-karte__mehr">Ansehen</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="ov-uebergang" aria-hidden="true"><span>Der Makler bucht das Paket</span></div>
+
+  {# ---------- Stufe 2: Paket ---------- #}
+  <section class="ov-stufe">
+    <div class="ov-stufe__kopf">
+      <span class="ov-stufe__nr">2</span>
+      <div>
+        <h2 class="heading-h4 text-white">Paket: Das verkaufen wir</h2>
+        <p class="text-secondary text-small">Der Makler setzt es bei seinen eigenen Kunden ein. Mit seinem Logo, seinen Kontaktdaten und in seiner Farbe: Rot, Blau, Grün oder Gelb.</p>
+      </div>
+    </div>
+    <div class="ov-paket">
+      <article class="ov-karte ov-karte--lp">
+        <h3 class="heading-h5 text-white">Landingpage in drei Varianten</h3>
+        <p class="text-secondary text-small">Ziel ist der Termin: 15 Minuten Klarheit zur neuen Altersvorsorge. Alle Agenturdaten sind Platzhalter (Logoipsum, Max Mustermann).</p>
+        <div class="ov-varianten">
+          {% for v in [
+            { nr: 1, name: "Nah an der Vorlage", bild: "vorschau-1-rot" },
+            { nr: 2, name: "Was trifft auf dich zu?", bild: "vorschau-2-blau" },
+            { nr: 3, name: "Das Klarheits-Ticket", bild: "vorschau-3-gelb" }
+          ] %}
+            <a class="ov-variante" href="{{ B }}/landingpage-{{ v.nr }}/">
+              <img src="{{ A }}/kampagne/{{ v.bild }}.webp" alt="" loading="lazy" width="960" height="600">
+              <span><b>Variante {{ v.nr }}</b>{{ v.name }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </article>
+      <a class="ov-karte ov-karte--link" href="{{ B }}/postings/">
+        <h3 class="heading-h5 text-white">30 Postings</h3>
+        <p class="text-secondary text-small">Für Instagram, Facebook und LinkedIn, mit Bild und Text. Redaktionsplan über zehn Wochen, Anfang November bis Januar.</p>
+        <span class="ov-karte__mehr">Ansehen</span>
+      </a>
+      <a class="ov-karte ov-karte--link" href="{{ B }}/mailings/">
+        <h3 class="heading-h5 text-white">3 Bestandskundenmailings</h3>
+        <p class="text-secondary text-small">An alle Kunden, an Kunden mit Riester-Vertrag und eine Erinnerung im Januar. Jede Mail führt auf die Landingpage.</p>
+        <span class="ov-karte__mehr">Ansehen</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="ov-uebergang" aria-hidden="true"><span>Die Kunden des Maklers buchen</span></div>
+
+  <section class="ov-ziel">
+    <p class="ov-ziel__text">Ein 15-Minuten-Gespräch beim Makler: <b>Mitnehmen oder abhaken.</b></p>
+  </section>
+
+  <p class="ov-quelle">Quelle der Inhalte: Repo AVRG (Landingpages, Postings, Mailings). Nicht im Paket: Webinar, Print und Fahrplan aus dem dortigen Medienkonzept.</p>
+</div>
