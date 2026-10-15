@@ -1,0 +1,14 @@
+/* AVRG › Medienkonzept der Kampagne: eigene Postings, lesbar untereinander (Daniel, 15.10.2026) */
+.mk-botschaften { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: -1.5rem auto 3rem; padding: 0; list-style: none; }
+.mk-botschaften li { padding: 0.35rem 0.9rem; border-radius: var(--radius-pill); border: 1px solid var(--color-grey-600); color: var(--color-grey-100); font-size: 0.8rem; }
+.mk-liste { display: flex; flex-flow: column; gap: 1.25rem; max-width: 46rem; margin: 0 auto; padding: 0; list-style: none; }
+.mk-beitrag { padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--color-grey-600); background: var(--color-grey-800); }
+.mk-beitrag__kopf { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.75rem; }
+.mk-beitrag__nr { color: var(--color-white); font-weight: 600; font-variant-numeric: tabular-nums; }
+.mk-beitrag__art { color: var(--color-grey-400); letter-spacing: 0.04em; text-transform: uppercase; }
+.mk-beitrag__status { margin-left: auto; padding: 0.15rem 0.6rem; border-radius: var(--radius-pill); border: 1px dashed var(--color-grey-600); color: var(--color-grey-100); }
+.mk-beitrag__kern { margin: 0 0 1rem; color: var(--color-white); font-weight: 600; line-height: 1.45; }
+.mk-beitrag__text { color: var(--color-grey-100); line-height: 1.65; white-space: pre-line; }
+.mk-beitrag__bild { display: flex; gap: 0.75rem; margin: 1.25rem 0 0; padding-top: 1rem; border-top: 1px solid var(--color-grey-600); color: var(--color-grey-400); font-size: 0.85rem; line-height: 1.5; }
+.mk-beitrag__bild b { flex: none; color: var(--color-grey-100); font-weight: 500; }
+@media (max-width: 600px) { .mk-beitrag { padding: 1.25rem; } .mk-botschaften { margin-top: -1rem; } }

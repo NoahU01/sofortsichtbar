@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "AVRG – Medienkonzept der Kampagne – Entwicklung"
+description: "Eigene Postings von sofort sichtbar zur neuen Altersvorsorge 2027: so gewinnen wir Makler und Agenturen."
+permalink: /entwicklung/kampagnen/avrg/medienkonzept/index.html
+---
+{#- Medienkonzept der Kampagne (Daniel, 15.10.2026): die eigenen Postings, mit denen sofort sichtbar Makler und Agenturen
+    auf die Kampagnen-Landingpage holt. Quelle: Supabase-Tabelle beitraege (marke sofortsichtbar, Status Entwurf),
+    Word-Fassung unter claude/Ausarbeitungen/01 Projekte/sofortsichtbar – AVRG-Kampagne. Daten: medienkonzept.11tydata.json -#}
+{%- set A = "/entwicklung/kampagnen/avrg/assets" -%}
+<link rel="stylesheet" href="{{ A }}/kampagne.css?v=1">
+<link rel="stylesheet" href="{{ A }}/medienkonzept.css?v=1">
+
+<div class="kp-arbeitsstand">
+  <div class="padding-global"><div class="container kp-arbeitsstand__in">
+    <a href="/entwicklung/kampagnen/avrg/">← AVRG</a>
+    <span>Kampagne · Medienkonzept · Entwürfe zur Freigabe</span>
+  </div></div>
+</div>
+
+<section class="kp-unterseite">
+  <div class="glow kp-held__glow-1"></div>
+  <div class="padding-global"><div class="section-padding section-padding--top-4"><div class="container">
+    <div class="kp-kopf">
+      <div class="eyebrow"><div class="eyebrow__text">Kampagne · Medienkonzept</div></div>
+      <h1 class="heading-h2 text-white text-center">{{ eigenePostings | length }} Postings, die Makler gewinnen.</h1>
+      <p class="text-secondary text-center kp-kopf__text">Unsere eigenen Beiträge auf LinkedIn. Sie richten sich an Agenturen und Makler und holen sie auf die Kampagnen-Landingpage. Alle sind Entwürfe und warten auf Freigabe.</p>
+    </div>
+
+    <ul class="mk-botschaften" aria-label="Kernbotschaften">
+      <li>Unsicherheit herausnehmen statt Fachlichkeit</li>
+      <li>Das richtige Problem lösen</li>
+      <li>Sofort einsatzfähige Digitalstrecke</li>
+    </ul>
+
+    <ol class="mk-liste">
+      {% for p in eigenePostings %}
+      <li class="mk-beitrag">
+        <div class="mk-beitrag__kopf">
+          <span class="mk-beitrag__nr">{{ p.nr if p.nr >= 10 else "0" ~ p.nr }}</span>
+          <span class="mk-beitrag__art">{{ p.art | escape }} · {{ p.kanal | escape }}</span>
+          <span class="mk-beitrag__status">Entwurf</span>
+        </div>
+        <p class="mk-beitrag__kern">{{ p.kern | escape }}</p>
+        <div class="mk-beitrag__text">{{ p.text | escape }}</div>
+        {% if p.bild %}<p class="mk-beitrag__bild"><b>Bild</b>{{ p.bild | escape }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div></div></div>
+</section>
