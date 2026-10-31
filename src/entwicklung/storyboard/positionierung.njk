@@ -1,0 +1,237 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "Homepage-Story 3 · Positionierung – Entwicklung"
+description: "Storyboard der neuen Startseite, zugespitzt auf Positionierung: positioniert oder Einheitsbrei."
+permalink: /entwicklung/storyboard/positionierung/index.html
+---
+{#- Storyboard 3: Startseite mit Positionierung als scharfem Kern.
+    Grundstile aus Version 2 übernommen (s2-*), Ergänzungen unter s3-*.
+    Alles in dieser Datei, damit nichts außerhalb von src/entwicklung/ angefasst wird. -#}
+<style>
+.s2-leiste { border-bottom: 1px solid var(--color-element); background: var(--color-grey-800); }
+.s2-leiste__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding: 0.75rem 0; color: var(--color-grey-400); font-size: 0.8rem; }
+.s2-leiste a { color: var(--color-grey-100); }
+.s2-leiste b { color: #fff; font-weight: 500; }
+
+.s2-beat {
+  display: inline-block; margin-bottom: 2rem; padding: 0.3rem 0.7rem;
+  border: 1px dashed var(--color-grey-600); border-radius: var(--radius-sm);
+  color: var(--color-grey-400); font-size: 0.72rem; letter-spacing: 0.04em;
+}
+.s2 { position: relative; overflow: hidden; padding: clamp(5rem, 11vw, 9rem) 0; background: var(--color-background); }
+.s2 + .s2:not(.s2--hell) { border-top: 1px solid #1d1a20; }
+.s2 .container { position: relative; z-index: 1; }
+.s2--held { background: radial-gradient(60rem 30rem at 85% 0%, #3a1a3f 0%, transparent 70%), radial-gradient(50rem 30rem at 0% 100%, #0b1d3d 0%, transparent 70%), var(--color-background); }
+.s2--mitte { background: radial-gradient(46rem 26rem at 50% 50%, #1f1640 0%, transparent 72%), var(--color-background); }
+.s2--start { background: radial-gradient(50rem 28rem at 100% 100%, #34163a 0%, transparent 70%), var(--color-background); }
+
+.s2-h1 { max-width: 14ch; color: #fff; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; }
+.s2-h2 { max-width: 18ch; color: #fff; font-size: clamp(2.25rem, 5.2vw, 4.25rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.03em; }
+.s2-h1 em, .s2-h2 em { font-style: normal; color: var(--color-accent); }
+.s2-lead { max-width: 36rem; margin-top: 1.75rem; color: var(--color-grey-100); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.55; }
+.s2-eyebrow { margin-bottom: 1.5rem; color: var(--color-grey-100); font-size: 0.9rem; }
+.s2-knoepfe { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+
+/* Beat 2: das Zuviel */
+.s2-flut { display: flex; flex-flow: column; gap: 0.15rem; margin: 0; padding: 0; list-style: none; }
+.s2-flut li { color: #fff; font-size: clamp(1.75rem, 4.4vw, 3.5rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.025em; }
+.s2-flut li:nth-child(2) { opacity: 0.8; }
+.s2-flut li:nth-child(3) { opacity: 0.62; }
+.s2-flut li:nth-child(4) { opacity: 0.46; }
+.s2-flut li:nth-child(5) { opacity: 0.32; }
+.s2-flut li:nth-child(6) { opacity: 0.2; }
+.s2-rollen { max-width: 34rem; margin-top: 3rem; color: var(--color-grey-100); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.55; }
+.s2-punkt { margin-top: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--color-element); }
+
+/* Beat 3: der Moment */
+.s2--mitte { text-align: center; }
+.s2--mitte .s2-h2, .s2--mitte .s2-lead { margin-left: auto; margin-right: auto; }
+
+/* Beat 4: wir */
+.s2-wir { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.s2-wir img { width: 100%; height: auto; filter: grayscale(1); -webkit-mask-image: linear-gradient(#000 62%, transparent 92%); mask-image: linear-gradient(#000 62%, transparent 92%); }
+.s2-offen { display: inline-block; margin-top: 1.75rem; padding: 0.5rem 0.8rem; border: 1px dashed #b08a2e; border-radius: var(--radius-sm); color: #e0bd62; font-size: 0.8rem; }
+
+/* Beat 5: drei Schritte */
+.s2-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 3.5rem 0 0; padding: 0; list-style: none; }
+.s2-schritt { padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); }
+.s2-schritt__nr { display: block; color: var(--color-accent); font-size: 3.5rem; font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.s2-schritt h3 { margin-top: 1.5rem; color: #fff; font-size: 1.5rem; font-weight: 600; line-height: 1.2; }
+.s2-schritt p { margin-top: 0.75rem; color: var(--color-grey-100); font-size: 1rem; line-height: 1.55; }
+.s2-dazu { margin-top: 2rem; color: var(--color-grey-400); font-size: 1rem; }
+
+/* Beat 6: danach (helle Fläche = Ruhe) */
+.s2--hell { background: #fff; }
+.s2--hell .s2-beat { border-color: #c9c6cc; color: #77737b; }
+.s2--hell .s2-h2 { color: #000; }
+.s2--hell .s2-h2 em { color: #7d3fc8; }
+.s2-danach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 3.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid #e4e2e6; }
+.s2-danach li { padding: 2rem 2rem 2rem 0; border-bottom: 1px solid #e4e2e6; color: #000; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.015em; }
+.s2-danach li:nth-child(odd) { padding-right: 3rem; border-right: 1px solid #e4e2e6; }
+.s2-danach li:nth-child(even) { padding-left: 3rem; }
+.s2-zitat { max-width: 44rem; margin: 5rem 0 0; color: #000; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; }
+.s2-zitat-quelle { display: block; margin-top: 1rem; color: #77737b; font-size: 0.95rem; }
+
+/* Beat 7: Einstieg */
+.s2-wege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.s2-weg { display: flex; flex-flow: column; align-items: flex-start; gap: 0.75rem; padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); text-decoration: none; transition: border-color var(--transition); }
+.s2-weg:hover { border-color: var(--color-accent); }
+.s2-weg span { color: var(--color-grey-400); font-size: 0.9rem; }
+.s2-weg b { color: #fff; font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
+.s2-weg i { margin-top: 0.75rem; color: var(--color-accent); font-size: 1rem; font-style: normal; font-weight: 500; }
+
+@media (max-width: 767px) {
+  .s2-wir, .s2-schritte, .s2-wege { grid-template-columns: minmax(0, 1fr); }
+  .s2-danach { grid-template-columns: minmax(0, 1fr); }
+  .s2-danach li, .s2-danach li:nth-child(odd), .s2-danach li:nth-child(even) { padding: 1.5rem 0; border-right: 0; }
+  .s2-schritt, .s2-weg { padding: 1.5rem; }
+  .s2-wir img { max-width: 26rem; }
+}
+
+
+/* Version 3: Positionierung */
+.s3-vergleich { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+.s3-karte { display: flex; flex-flow: column; gap: 1.25rem; min-height: 17rem; padding: 2rem; border-radius: var(--radius-xl); }
+.s3-karte__label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.s3-karte__claim { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+.s3-karte__folge { margin-top: auto; font-size: 0.95rem; line-height: 1.5; }
+.s3-karte--brei { background: var(--color-surface); border: 1px solid var(--color-element); }
+.s3-karte--brei .s3-karte__label, .s3-karte--brei .s3-karte__folge { color: var(--color-grey-400); }
+.s3-karte--brei .s3-karte__claim { color: var(--color-grey-600); filter: blur(0.6px); }
+.s3-karte--klar { background: #fff; }
+.s3-karte--klar .s3-karte__label { color: #7d3fc8; }
+.s3-karte--klar .s3-karte__claim { color: #000; }
+.s3-karte--klar .s3-karte__folge { color: #4a474d; }
+
+.s3-fragen { margin: 3.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-element); }
+.s3-fragen li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem; align-items: baseline; padding: 2rem 0; border-bottom: 1px solid var(--color-element); }
+.s3-fragen b { color: #fff; font-size: clamp(1.6rem, 3.4vw, 2.75rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.025em; }
+.s3-fragen span { color: var(--color-grey-100); font-size: 1.05rem; line-height: 1.55; }
+
+.s3-job { margin: 3rem 0 0; padding: 0; list-style: none; display: flex; flex-flow: column; gap: 1.1rem; max-width: 46rem; }
+.s3-job li { position: relative; padding-left: 2rem; color: var(--color-grey-100); font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.45; }
+.s3-job li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.9rem; height: 2px; background: var(--color-accent); }
+.s3-job li:last-child { color: #fff; font-weight: 500; }
+
+.s3-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+.s3-paket { margin: 0; overflow: hidden; border-radius: var(--radius-lg); background: #fff; }
+.s3-paket img { display: block; width: 100%; height: auto; }
+.s3-paket figcaption { padding: 0.9rem 1.1rem 1.1rem; color: #000; font-size: 0.95rem; font-weight: 600; }
+.s3-paket figcaption span { display: block; margin-top: 0.15rem; color: #77737b; font-size: 0.8rem; font-weight: 400; }
+.s3-beleg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--color-element); }
+.s3-beleg p { color: var(--color-grey-100); font-size: 1.05rem; line-height: 1.55; }
+.s3-beleg b { display: block; margin-bottom: 0.4rem; color: #fff; font-size: 1.15rem; font-weight: 600; }
+.s3-unterseite { display: inline-block; margin-top: 1.5rem; padding: 0.3rem 0.7rem; border: 1px dashed #4f7fb8; border-radius: var(--radius-sm); color: #8db4e2; font-size: 0.75rem; }
+
+@media (max-width: 767px) {
+  .s3-vergleich, .s3-pakete, .s3-beleg { grid-template-columns: minmax(0, 1fr); }
+  .s3-karte { min-height: 0; padding: 1.5rem; }
+  .s3-fragen li { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; padding: 1.5rem 0; }
+  .s2--mitte { text-align: left; }
+  .s2--mitte .s2-h2, .s2--mitte .s2-lead { margin-left: 0; }
+}
+</style>
+<div class="s2-leiste"><div class="padding-global"><div class="container s2-leiste__in">
+  <span><b>Storyboard · Homepage-Story 3: Positionierung</b> · Arbeitsstand, Texte sind Entwürfe</span>
+  <a href="/entwicklung/storyboard/geschichte">Vorgänger: Homepage-Story 2 →</a>
+</div></div></div>
+
+{# ------------------------------------------------- Beat 1: Die These #}
+<section class="s2 s2--held">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 1 · Die These</span>
+    <p class="s2-eyebrow">Für Versicherungsagenturen und Maklerbüros mit Team</p>
+    <h1 class="s2-h1">Positioniert. <em>Oder Einheitsbrei.</em></h1>
+    <p class="s2-lead">Wer für eine klare Zielgruppe der Richtige ist, gewinnt sie. Wir machen dich genau dort sichtbar. Sofort.</p>
+    <div class="s2-knoepfe"><a class="btn btn--primary" href="#start">Für wen willst du der Richtige sein?</a></div>
+  </div></div>
+</section>
+
+{# ---------------------------------------------- Beat 2: Der Unterschied #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 2 · Der Unterschied</span>
+    <h2 class="s2-h2">Für alle da heißt: <em>für niemanden erkennbar.</em></h2>
+    <div class="s3-vergleich">
+      <div class="s3-karte s3-karte--brei">
+        <span class="s3-karte__label">Einheitsbrei</span>
+        <p class="s3-karte__claim">Ihre Versicherungsagentur. Alle Versicherungen aus einer Hand.</p>
+        <p class="s3-karte__folge">Klingt wie jede andere Agentur im Ort. Niemand fühlt sich gemeint.</p>
+      </div>
+      <div class="s3-karte s3-karte--klar">
+        <span class="s3-karte__label">Positioniert</span>
+        <p class="s3-karte__claim">Damit Sie sich auf Ihre Patienten konzentrieren können.</p>
+        <p class="s3-karte__folge">Jeder Arzt im Umkreis merkt sofort: Die kennen meine Welt.</p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+{# ---------------------------------------------- Beat 3: Warum jetzt #}
+<section class="s2 s2--mitte">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 3 · Warum jetzt</span>
+    <h2 class="s2-h2">Einheitsbrei macht bald <em>die&nbsp;KI.</em></h2>
+    <p class="s2-lead">Allgemeine Antworten auf Versicherungsfragen liefert die KI schneller als jeder Berater, rund um die Uhr. Bestehen wird, wer für eine klare Zielgruppe der erkennbare Ansprechpartner ist: ein Mensch, der ihre Welt kennt.</p>
+  </div></div>
+</section>
+
+{# ------------------------------------------------- Beat 4: Der Kern #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 4 · Der Kern</span>
+    <h2 class="s2-h2">Positionierung heißt, <em>drei Fragen</em> klar zu beantworten.</h2>
+    <ul class="s3-fragen">
+      <li><b>Für wen bist du da?</b><span>Eine klar abgegrenzte Zielgruppe, statt alle ein bisschen.</span></li>
+      <li><b>Welches Problem löst du?</b><span>Ihres, in ihren Worten und aus ihrer Lage heraus.</span></li>
+      <li><b>Wie nimmt sie dich wahr?</b><span>Als den, der sich auskennt. Immer wieder, auf allen Kanälen.</span></li>
+    </ul>
+    <span class="s3-unterseite">→ Unterseite „Positionierung“, auch als Ziel für Postings nutzbar</span>
+  </div></div>
+</section>
+
+{# ---------------------------------------------------- Beat 5: Dein Job #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 5 · Dein Job</span>
+    <h2 class="s2-h2">Du weißt das alles. <em>Dein Job ist ein anderer.</em></h2>
+    <ul class="s3-job">
+      <li>Du und dein Team tragt die Verantwortung für Vertriebserfolg aus Neugeschäft und Bestand.</li>
+      <li>Du weißt, dass digitales Marketing und Social Media wichtig sind.</li>
+      <li>Du willst vor allem eins: Gespräche führen, Kunden beraten, abschließen.</li>
+    </ul>
+    <p class="s2-lead">Eine Positionierung aufzubauen, ist ein eigener Job. Den übernehmen wir.</p>
+  </div></div>
+</section>
+
+{# ------------------------------------------------- Beat 6: Die Lösung #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 6 · Die Lösung</span>
+    <h2 class="s2-h2">Darum heißen wir <em>sofort&nbsp;sichtbar.</em></h2>
+    <p class="s2-lead">Für jede Zielgruppe, die du gewinnen willst, bekommst du ein fertiges Paket: Landingpage, Postings und Mailings, genau auf sie zugeschnitten. Ab dem ersten Tag bist du dort positioniert. Und kannst dich wieder um deine Kunden kümmern.</p>
+    <div class="s3-pakete">
+      <figure class="s3-paket"><img src="/assets/img/zielgruppen/arzte-style-1.webp" alt="Paket für Ärzte: Landingpage auf Desktop und Handy" loading="lazy" width="868" height="446"><figcaption>Ärzte<span>Praxisinhaber mit Verantwortung für Team und Familie</span></figcaption></figure>
+      <figure class="s3-paket"><img src="/assets/img/zielgruppen/werdende-eltern-style-1.webp" alt="Paket für werdende Eltern" loading="lazy" width="868" height="446"><figcaption>Werdende Eltern<span>Absicherung, bevor das Kind da ist</span></figcaption></figure>
+      <figure class="s3-paket"><img src="/assets/img/zielgruppen/landwirte-style-1.webp" alt="Paket für Landwirte" loading="lazy" width="868" height="446"><figcaption>Landwirte<span>Betrieb, Hof und Familie im Blick</span></figcaption></figure>
+    </div>
+    <span class="s3-unterseite">→ Unterseite „Zielgruppenpakete“ · Welche Zielgruppen zu dir passen, zeigt der Kompass</span>
+    <div class="s3-beleg">
+      <p><b>Seit 2012 im Versicherungsvertrieb.</b>Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jedem Paket.</p>
+      <p><b>„Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.“</b>Leitung unserer Pilotagentur</p>
+    </div>
+  </div></div>
+</section>
+
+{# -------------------------------------------------- Beat 7: Einstieg #}
+<section class="s2 s2--start" id="start">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 7 · Der Einstieg</span>
+    <h2 class="s2-h2">Für wen willst du <em>der Richtige sein?</em></h2>
+    <div class="s2-wege">
+      <a class="s2-weg" href="#start"><span>Ich will es erst herausfinden</span><b>Mit dem Kompass zu deinen Zielgruppen</b><i>Kompass starten →</i></a>
+      <a class="s2-weg" href="#start"><span>Ich weiß es schon</span><b>Direkt zu den Zielgruppenpaketen</b><i>Pakete ansehen →</i></a>
+    </div>
+  </div></div>
+</section>
