@@ -1,0 +1,204 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "Homepage-Story 2 · Geschichte – Entwicklung"
+description: "Storyboard der neuen Startseite als Geschichte: vom Zuviel zum klaren Kurs."
+permalink: /entwicklung/storyboard/geschichte/index.html
+---
+{#- Storyboard 2: die Startseite als Geschichte, so wie ein Besucher sie liest.
+    Die grauen Beat-Marken sind nur für die Arbeit daran. Stile bewusst hier
+    in der Datei, damit nichts außerhalb von src/entwicklung/ angefasst wird. -#}
+<style>
+.s2-leiste { border-bottom: 1px solid var(--color-element); background: var(--color-grey-800); }
+.s2-leiste__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding: 0.75rem 0; color: var(--color-grey-400); font-size: 0.8rem; }
+.s2-leiste a { color: var(--color-grey-100); }
+.s2-leiste b { color: #fff; font-weight: 500; }
+
+.s2-beat {
+  display: inline-block; margin-bottom: 2rem; padding: 0.3rem 0.7rem;
+  border: 1px dashed var(--color-grey-600); border-radius: var(--radius-sm);
+  color: var(--color-grey-400); font-size: 0.72rem; letter-spacing: 0.04em;
+}
+.s2 { position: relative; overflow: hidden; padding: clamp(5rem, 11vw, 9rem) 0; background: var(--color-background); }
+.s2 + .s2:not(.s2--hell) { border-top: 1px solid #1d1a20; }
+.s2 .container { position: relative; z-index: 1; }
+.s2--held { background: radial-gradient(60rem 30rem at 85% 0%, #3a1a3f 0%, transparent 70%), radial-gradient(50rem 30rem at 0% 100%, #0b1d3d 0%, transparent 70%), var(--color-background); }
+.s2--mitte { background: radial-gradient(46rem 26rem at 50% 50%, #1f1640 0%, transparent 72%), var(--color-background); }
+.s2--start { background: radial-gradient(50rem 28rem at 100% 100%, #34163a 0%, transparent 70%), var(--color-background); }
+
+.s2-h1 { max-width: 14ch; color: #fff; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; }
+.s2-h2 { max-width: 18ch; color: #fff; font-size: clamp(2.25rem, 5.2vw, 4.25rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.03em; }
+.s2-h1 em, .s2-h2 em { font-style: normal; color: var(--color-accent); }
+.s2-lead { max-width: 36rem; margin-top: 1.75rem; color: var(--color-grey-100); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.55; }
+.s2-eyebrow { margin-bottom: 1.5rem; color: var(--color-grey-100); font-size: 0.9rem; }
+.s2-knoepfe { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+
+/* Beat 2: das Zuviel */
+.s2-flut { display: flex; flex-flow: column; gap: 0.15rem; margin: 0; padding: 0; list-style: none; }
+.s2-flut li { color: #fff; font-size: clamp(1.75rem, 4.4vw, 3.5rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.025em; }
+.s2-flut li:nth-child(2) { opacity: 0.8; }
+.s2-flut li:nth-child(3) { opacity: 0.62; }
+.s2-flut li:nth-child(4) { opacity: 0.46; }
+.s2-flut li:nth-child(5) { opacity: 0.32; }
+.s2-flut li:nth-child(6) { opacity: 0.2; }
+.s2-rollen { max-width: 34rem; margin-top: 3rem; color: var(--color-grey-100); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.55; }
+.s2-punkt { margin-top: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--color-element); }
+
+/* Beat 3: der Moment */
+.s2--mitte { text-align: center; }
+.s2--mitte .s2-h2, .s2--mitte .s2-lead { margin-left: auto; margin-right: auto; }
+
+/* Beat 4: wir */
+.s2-wir { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.s2-wir img { width: 100%; height: auto; filter: grayscale(1); -webkit-mask-image: linear-gradient(#000 62%, transparent 92%); mask-image: linear-gradient(#000 62%, transparent 92%); }
+.s2-offen { display: inline-block; margin-top: 1.75rem; padding: 0.5rem 0.8rem; border: 1px dashed #b08a2e; border-radius: var(--radius-sm); color: #e0bd62; font-size: 0.8rem; }
+
+/* Beat 5: drei Schritte */
+.s2-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 3.5rem 0 0; padding: 0; list-style: none; }
+.s2-schritt { padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); }
+.s2-schritt__nr { display: block; color: var(--color-accent); font-size: 3.5rem; font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.s2-schritt h3 { margin-top: 1.5rem; color: #fff; font-size: 1.5rem; font-weight: 600; line-height: 1.2; }
+.s2-schritt p { margin-top: 0.75rem; color: var(--color-grey-100); font-size: 1rem; line-height: 1.55; }
+.s2-dazu { margin-top: 2rem; color: var(--color-grey-400); font-size: 1rem; }
+
+/* Beat 6: danach (helle Fläche = Ruhe) */
+.s2--hell { background: #fff; }
+.s2--hell .s2-beat { border-color: #c9c6cc; color: #77737b; }
+.s2--hell .s2-h2 { color: #000; }
+.s2--hell .s2-h2 em { color: #7d3fc8; }
+.s2-danach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 3.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid #e4e2e6; }
+.s2-danach li { padding: 2rem 2rem 2rem 0; border-bottom: 1px solid #e4e2e6; color: #000; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.015em; }
+.s2-danach li:nth-child(odd) { padding-right: 3rem; border-right: 1px solid #e4e2e6; }
+.s2-danach li:nth-child(even) { padding-left: 3rem; }
+.s2-zitat { max-width: 44rem; margin: 5rem 0 0; color: #000; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; }
+.s2-zitat-quelle { display: block; margin-top: 1rem; color: #77737b; font-size: 0.95rem; }
+
+/* Beat 7: Einstieg */
+.s2-wege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.s2-weg { display: flex; flex-flow: column; align-items: flex-start; gap: 0.75rem; padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); text-decoration: none; transition: border-color var(--transition); }
+.s2-weg:hover { border-color: var(--color-accent); }
+.s2-weg span { color: var(--color-grey-400); font-size: 0.9rem; }
+.s2-weg b { color: #fff; font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
+.s2-weg i { margin-top: 0.75rem; color: var(--color-accent); font-size: 1rem; font-style: normal; font-weight: 500; }
+
+@media (max-width: 767px) {
+  .s2-wir, .s2-schritte, .s2-wege { grid-template-columns: minmax(0, 1fr); }
+  .s2-danach { grid-template-columns: minmax(0, 1fr); }
+  .s2-danach li, .s2-danach li:nth-child(odd), .s2-danach li:nth-child(even) { padding: 1.5rem 0; border-right: 0; }
+  .s2-schritt, .s2-weg { padding: 1.5rem; }
+  .s2-wir img { max-width: 26rem; }
+}
+</style>
+
+<div class="s2-leiste"><div class="padding-global"><div class="container s2-leiste__in">
+  <span><b>Storyboard · Homepage-Story 2: die Geschichte</b> · Arbeitsstand, Texte sind Entwürfe</span>
+  <a href="/entwicklung/storyboard/homepage">Die Bausteine dahinter: Homepage-Story 1 →</a>
+</div></div></div>
+
+{# ---------------------------------------------------- Beat 1: Wunsch #}
+<section class="s2 s2--held">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 1 · Der Wunsch</span>
+    <p class="s2-eyebrow">Für Versicherungsagenturen und Maklerbüros mit Team</p>
+    <h1 class="s2-h1">Wieder das <em>Spiel</em> machen.</h1>
+    <p class="s2-lead">Für Büroleiter, die vorne mitspielen wollen: ein klarer Kurs für deinen Vertrieb und alles Digitale dafür, sofort einsatzbereit.</p>
+    <div class="s2-knoepfe"><a class="btn btn--primary" href="#start">Wo willst du hin?</a></div>
+  </div></div>
+</section>
+
+{# --------------------------------------------------- Beat 2: Problem #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 2 · Das Problem</span>
+    <ul class="s2-flut" aria-label="Was jede Woche ins Büro kommt">
+      <li>Eine neue Kampagne.</li>
+      <li>Eine neue Auswertung.</li>
+      <li>Eine Sonderaktion.</li>
+      <li>Ein Mailing, das raus soll.</li>
+      <li>Noch ein Tool.</li>
+      <li>Noch ein Kanal.</li>
+    </ul>
+    <p class="s2-rollen">Und dazwischen bist du Chef, Stratege, IT-Abteilung und Top-Berater. Jede Woche aufs Neue.</p>
+    <div class="s2-punkt">
+      <h2 class="s2-h2">Viel los. <em>Wenig Wirkung.</em></h2>
+      <p class="s2-lead">Und das Gefühl, dass eigentlich mehr drin wäre.</p>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------------ Beat 3: Wendepunkt #}
+<section class="s2 s2--mitte">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 3 · Was wirklich zählt</span>
+    <h2 class="s2-h2">Am Ende zählt <em>ein&nbsp;Moment.</em></h2>
+    <p class="s2-lead">Wenn du deinem Kunden gegenübersitzt. KI wird vieles übernehmen, dieses Gespräch nicht. Alles andere muss dafür sorgen, dass es dazu kommt. So oft wie möglich.</p>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------ Beat 4: Wir #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 4 · Warum wir</span>
+    <div class="s2-wir">
+      <div>
+        <h2 class="s2-h2">Wir kennen das. <em>Von innen.</em></h2>
+        <p class="s2-lead">Wir kommen aus dem Versicherungsvertrieb. Wir wissen, wie Ziele, Sparten und Aktionen auf einem Büro landen. Und was davon am Ende zu einem Abschluss führt.</p>
+        <span class="s2-offen">Beleg offen: Womit zeigen wir das konkret?</span>
+      </div>
+      <img src="/assets/img/team.png" alt="Das Team von sofort sichtbar" loading="lazy" width="608" height="487">
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------ Beat 5: Plan #}
+<section class="s2">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 5 · Der Weg</span>
+    <h2 class="s2-h2">Ein klarer Kurs. <em>In drei&nbsp;Schritten.</em></h2>
+    <ol class="s2-schritte">
+      <li class="s2-schritt">
+        <span class="s2-schritt__nr">1</span>
+        <h3>Kurs festlegen</h3>
+        <p>Du sagst, wo du wachsen willst. Wir zeigen dir, mit welchen Zielgruppen das gelingt.</p>
+      </li>
+      <li class="s2-schritt">
+        <span class="s2-schritt__nr">2</span>
+        <h3>Loslegen</h3>
+        <p>Für jede Zielgruppe bekommst du alles fertig, was dich sichtbar macht und ins Gespräch bringt.</p>
+      </li>
+      <li class="s2-schritt">
+        <span class="s2-schritt__nr">3</span>
+        <h3>Nachsteuern</h3>
+        <p>Du siehst schwarz auf weiß, was wirkt. Und steuerst nach, wann immer du willst.</p>
+      </li>
+    </ol>
+    <p class="s2-dazu">Was du heute schon machst, bleibt. Wir bringen das Digitale dazu.</p>
+  </div></div>
+</section>
+
+{# --------------------------------------------------- Beat 6: Danach #}
+<section class="s2 s2--hell">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 6 · Was danach anders ist</span>
+    <h2 class="s2-h2">Ruhe im Kopf. <em>Zug im&nbsp;Vertrieb.</em></h2>
+    <ul class="s2-danach">
+      <li>Du weißt, worauf du setzt. Und was du liegen lässt.</li>
+      <li>Dein Team weiß, wofür es läuft.</li>
+      <li>Die nächste Aktion passt in deinen Kurs. Oder sie bleibt liegen.</li>
+      <li>Deine Zeit gehört wieder deinen Kunden.</li>
+    </ul>
+    <blockquote class="s2-zitat">„Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.“<span class="s2-zitat-quelle">Leitung unserer Pilotagentur</span></blockquote>
+  </div></div>
+</section>
+
+{# -------------------------------------------------- Beat 7: Einstieg #}
+<section class="s2 s2--start" id="start">
+  <div class="padding-global"><div class="container">
+    <span class="s2-beat">Beat 7 · Der Einstieg</span>
+    <h2 class="s2-h2">Wo willst du <em>anfangen?</em></h2>
+    <div class="s2-wege">
+      <a class="s2-weg" href="#start"><span>Erst den Kurs festlegen</span><b>Mit dem Kompass zu deinen Zielgruppen</b><i>Kompass starten →</i></a>
+      <a class="s2-weg" href="#start"><span>Ich weiß, wohin ich will</span><b>Direkt zu den Vertriebsstrecken</b><i>Vertriebsstrecken ansehen →</i></a>
+    </div>
+  </div></div>
+</section>

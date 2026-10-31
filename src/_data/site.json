@@ -60,6 +60,10 @@
         {
           "label": "Homepage-Story",
           "href": "/entwicklung/storyboard/homepage"
+        },
+        {
+          "label": "Homepage-Story 2 · Geschichte",
+          "href": "/entwicklung/storyboard/geschichte"
         }
       ]
     }
