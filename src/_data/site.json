@@ -52,6 +52,14 @@
         {
           "label": "AVRG",
           "href": "/entwicklung/kampagnen/avrg"
+        },
+        {
+          "typ": "gruppe",
+          "label": "Storyboard"
+        },
+        {
+          "label": "Homepage-Story",
+          "href": "/entwicklung/storyboard/homepage"
         }
       ]
     }

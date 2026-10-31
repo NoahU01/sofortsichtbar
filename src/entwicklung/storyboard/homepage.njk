@@ -1,0 +1,362 @@
+---
+title: "Homepage-Story – Entwicklung"
+description: "Storyboard der neuen Startseite: wie sofort sichtbar die Gesamtstory erzählt, Szene für Szene."
+permalink: /entwicklung/storyboard/homepage/index.html
+devHeadline: "Homepage-Story"
+devIntro: "So erzählt die neue Startseite die Gesamtstory: sieben Szenen von oben nach unten. Links steht, was die Szene leisten soll, rechts, wie sie aussehen könnte. Alle Texte sind Arbeitstitel."
+devWide: true
+---
+{#- Storyboard-Seite. Stile bewusst hier in der Datei, damit nichts außerhalb
+    von src/entwicklung/ angefasst wird (bleibt auf daniel). -#}
+<style>
+.sb { display: flex; flex-flow: column; gap: 4rem; }
+
+/* Roter Faden */
+.sb-faden { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; counter-reset: f; }
+.sb-faden li { counter-increment: f; }
+.sb-faden a {
+  display: flex; align-items: center; gap: 0.55rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.5rem;
+  border: 1px solid var(--color-element); border-radius: var(--radius-pill);
+  color: var(--color-grey-100); font-size: 0.85rem; text-decoration: none;
+  transition: border-color var(--transition), color var(--transition);
+}
+.sb-faden a::before {
+  content: counter(f); display: grid; place-items: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%;
+  background: var(--color-element); color: #fff; font-size: 0.75rem; font-weight: 600;
+}
+.sb-faden a:hover { border-color: var(--color-accent); color: #fff; }
+
+/* Szene: links Aufgabe, rechts Bild */
+.sb-szene {
+  display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 2.5rem;
+  padding-top: 2.5rem; border-top: 1px solid var(--color-element);
+  scroll-margin-top: 6rem;
+}
+.sb-meta { display: flex; flex-flow: column; gap: 1.1rem; }
+.sb-nr { color: var(--color-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.sb-titel { margin-top: -0.6rem; color: #fff; font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
+.sb-meta dl { display: flex; flex-flow: column; gap: 0.9rem; margin: 0; }
+.sb-meta dt { color: var(--color-grey-400); font-size: 0.75rem; font-weight: 500; }
+.sb-meta dd { margin: 0.15rem 0 0; color: var(--color-grey-100); font-size: 0.9rem; line-height: 1.5; }
+.sb-meta dd.sb-gedanke { color: #fff; font-style: italic; }
+.sb-meta ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+.sb-meta li + li { margin-top: 0.25rem; }
+
+/* Bildrahmen im Stil der Startseite */
+.sb-bild {
+  position: relative; overflow: hidden;
+  display: flex; flex-flow: column; justify-content: center; gap: 1.75rem;
+  min-height: 24rem; padding: clamp(1.75rem, 4vw, 3.5rem);
+  background: var(--color-background); border: 1px solid var(--color-element); border-radius: var(--radius-xl);
+}
+.sb-bild > * { position: relative; z-index: 1; }
+.sb-bild::after {
+  content: ""; position: absolute; z-index: 0; inset: -6rem -8rem auto auto;
+  width: 28rem; height: 14rem; background: var(--glow-plum); filter: blur(7rem); opacity: 0.8;
+}
+.sb-eyebrow { color: var(--color-grey-100); font-size: 0.85rem; }
+.sb-h { max-width: 42rem; color: #fff; font-size: clamp(1.75rem, 3.6vw, 3rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.02em; }
+.sb-h--m { font-size: clamp(1.5rem, 2.8vw, 2.25rem); }
+.sb-h em { font-style: normal; color: var(--color-accent); }
+.sb-text { max-width: 38rem; color: var(--color-grey-100); font-size: 1rem; line-height: 1.55; }
+.sb-knoepfe { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.sb-knoepfe .btn { padding: 0.85rem 1.5rem; font-size: 0.95rem; }
+
+/* Szene 2: Eingang */
+.sb-eingang { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.6rem; }
+.sb-post {
+  padding: 0.85rem 1rem; border-radius: var(--radius-md);
+  background: var(--color-surface); border: 1px solid var(--color-element);
+}
+.sb-post span { display: block; color: var(--color-grey-400); font-size: 0.72rem; }
+.sb-post b { display: block; margin-top: 0.2rem; color: #fff; font-size: 0.9rem; font-weight: 500; }
+.sb-schluss { color: #fff; font-size: 1.1rem; font-weight: 500; }
+
+/* Szene 4: das Haus */
+.sb-haus { display: grid; gap: 0.6rem; max-width: 46rem; }
+.sb-dach {
+  padding: 1.1rem 1rem 0.9rem; text-align: center;
+  clip-path: polygon(6% 100%, 50% 0, 94% 100%);
+  background: var(--color-accent); color: #fff;
+}
+.sb-dach b { display: block; padding-top: 1.6rem; font-size: 1rem; font-weight: 600; }
+.sb-dach span { font-size: 0.78rem; opacity: 0.85; }
+.sb-saeulen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; align-items: end; }
+.sb-saeule { display: flex; flex-flow: column; gap: 0.3rem; }
+.sb-saeule__name { padding: 0.55rem 0.4rem; text-align: center; border-radius: var(--radius-sm); background: #fff; color: #000; font-size: 0.8rem; font-weight: 600; line-height: 1.25; }
+.sb-saeule__teil { padding: 0.5rem 0.4rem; text-align: center; border-radius: var(--radius-sm); background: var(--color-surface); border: 1px solid var(--color-element); color: var(--color-grey-100); font-size: 0.72rem; line-height: 1.3; }
+.sb-saeule--blind .sb-saeule__name { background: transparent; border: 1px dashed var(--color-grey-600); color: var(--color-grey-400); }
+.sb-saeule--blind .sb-saeule__teil { border-style: dashed; color: var(--color-grey-600); background: transparent; }
+.sb-saeule__fehlt { min-height: 4.6rem; margin: 0; padding: 0.4rem; color: var(--color-grey-400); font-size: 0.72rem; line-height: 1.35; text-align: center; }
+.sb-fundament { padding: 0.75rem 1rem; text-align: center; border-radius: var(--radius-sm); background: var(--color-element); color: #fff; font-size: 0.85rem; font-weight: 500; }
+.sb-fundament span { color: var(--color-grey-100); font-weight: 400; }
+
+/* Szene 5: der Weg */
+.sb-weg { display: flex; flex-flow: column; gap: 1.25rem; }
+.sb-block { display: flex; flex-flow: column; gap: 0.5rem; }
+.sb-block__titel { display: flex; align-items: baseline; gap: 0.6rem; color: #fff; font-size: 0.95rem; font-weight: 600; }
+.sb-block__titel span { color: var(--color-grey-400); font-size: 0.8rem; font-weight: 400; }
+.sb-block--mensch .sb-schritt { border-color: var(--color-accent); }
+.sb-schritt {
+  display: grid; grid-template-columns: 2rem minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1fr); gap: 1rem; align-items: start;
+  padding: 0.9rem 1rem; border-radius: var(--radius-md);
+  background: var(--color-surface); border: 1px solid var(--color-element);
+}
+.sb-schritt__nr { display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--color-element); color: #fff; font-size: 0.8rem; font-weight: 600; }
+.sb-schritt__frage { color: #fff; font-size: 0.92rem; font-weight: 500; line-height: 1.4; }
+.sb-schritt__wir { color: var(--color-grey-100); font-size: 0.85rem; line-height: 1.45; }
+.sb-schritt__du { color: var(--color-grey-400); font-size: 0.82rem; line-height: 1.45; }
+.sb-schritt__du::before { content: "+ "; color: var(--color-accent); font-weight: 600; }
+.sb-schritt__du:empty::before { content: ""; }
+.sb-weg__kopf { display: grid; grid-template-columns: 2rem minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1fr); gap: 1rem; padding: 0 1rem; color: var(--color-grey-400); font-size: 0.72rem; font-weight: 500; }
+
+/* Szene 6: Beleg */
+.sb-zitat { max-width: 40rem; margin: 0; color: #fff; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
+.sb-zitat-quelle { color: var(--color-grey-400); font-size: 0.9rem; }
+
+/* Szene 7: zwei Einstiege */
+.sb-einstiege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.sb-einstieg { display: flex; flex-flow: column; align-items: flex-start; gap: 0.75rem; padding: 1.5rem; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-element); }
+.sb-einstieg__wer { color: var(--color-accent); font-size: 0.8rem; font-weight: 600; }
+.sb-einstieg h3 { color: #fff; font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+.sb-einstieg p { color: var(--color-grey-100); font-size: 0.9rem; line-height: 1.5; }
+.sb-einstieg .btn { margin-top: auto; padding: 0.8rem 1.4rem; font-size: 0.9rem; }
+
+/* Offene Punkte */
+.sb-offen { padding: 2rem; border: 1px dashed var(--color-grey-600); border-radius: var(--radius-xl); background: var(--color-background); }
+.sb-offen h2 { color: #fff; font-size: 1.2rem; font-weight: 600; }
+.sb-offen ol { margin: 1rem 0 0; padding-left: 1.25rem; color: var(--color-grey-100); font-size: 0.92rem; line-height: 1.55; }
+.sb-offen li + li { margin-top: 0.5rem; }
+.sb-offen b { color: #fff; font-weight: 500; }
+
+@media (max-width: 991px) {
+  .sb-szene { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .sb-weg__kopf { display: none; }
+  .sb-schritt { grid-template-columns: 2rem minmax(0, 1fr); }
+  .sb-schritt__wir, .sb-schritt__du { grid-column: 2; }
+  .sb-schritt__du:empty { display: none; }
+}
+@media (max-width: 600px) {
+  .sb-saeulen { gap: 0.3rem; }
+  .sb-saeule__name { padding: 0.45rem 0.2rem; font-size: 0.66rem; hyphens: manual; }
+  .sb-saeule__teil { padding: 0.35rem 0.15rem; font-size: 0.58rem; }
+  .sb-saeule__fehlt { font-size: 0.58rem; padding: 0.3rem 0.1rem; }
+  .sb-dach { clip-path: polygon(0 100%, 50% 0, 100% 100%); }
+  .sb-dach b { padding-top: 2rem; font-size: 0.85rem; }
+  .sb-einstiege { grid-template-columns: minmax(0, 1fr); }
+  .sb-bild { min-height: 0; padding: 1.5rem 1.25rem; border-radius: var(--radius-lg); }
+  .sb-eingang { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sb-szene { padding-top: 2rem; }
+  .sb { gap: 3rem; }
+  .dev-page__box { padding: 1.5rem 1.25rem; }
+  .sb-offen { padding: 1.5rem; }
+}
+</style>
+
+<div class="sb">
+
+  <ol class="sb-faden" aria-label="Der rote Faden">
+    <li><a href="#szene-1">Weniger Aktionen</a></li>
+    <li><a href="#szene-2">Zu viel auf einmal</a></li>
+    <li><a href="#szene-3">Was bleibt</a></li>
+    <li><a href="#szene-4">Das Haus</a></li>
+    <li><a href="#szene-5">Der Weg</a></li>
+    <li><a href="#szene-6">Der Beleg</a></li>
+    <li><a href="#szene-7">Zwei Einstiege</a></li>
+  </ol>
+
+  {# ---------------------------------------------------------------- 1 #}
+  <section class="sb-szene" id="szene-1">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 01 · Einstieg</span>
+      <h2 class="sb-titel">Weniger Aktionen</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>In einem Satz das Versprechen: Klarheit statt Aktionsflut, und am Ende mehr Abschlüsse.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Genau das ist mein Problem.“</dd></div>
+        <div><dt>Weitere Headlines zur Wahl</dt><dd><ul><li>Klarheit im Vertrieb. Zeit für deine Kunden.</li><li>Ruhe im Vertrieb. Und alles Digitale dafür, sofort.</li></ul></dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <span class="sb-eyebrow">Für Versicherungsagenturen und Maklerbüros mit Team</span>
+      <h3 class="sb-h">Weniger Aktionen.<br><em>Mehr Abschlüsse.</em></h3>
+      <p class="sb-text">Wir übersetzen, wohin du willst, in einen klaren Vertriebsweg. Mit allem, was du digital dafür brauchst, sofort einsatzbereit. Damit du deine Zeit dort verbringst, wo sie zählt: beim Kunden.</p>
+      <div class="sb-knoepfe">
+        <a class="btn btn--primary" href="#szene-7">Kompass starten</a>
+        <a class="btn btn--secondary" href="#szene-7">Direkt zu den Vertriebsstrecken</a>
+      </div>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 2 #}
+  <section class="sb-szene" id="szene-2">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 02 · Wiedererkennen</span>
+      <h2 class="sb-titel">Zu viel auf einmal</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Den Alltag des Büroleiters so genau beschreiben, dass er merkt: Die kennen meine Welt.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Die wissen, wie es bei uns zugeht.“</dd></div>
+        <div><dt>Quelle</dt><dd>Aussagen der Pilotagentur: viele Rollen, laufend neue Kampagnen, Auswertungen, Sonderaktionen.</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <h3 class="sb-h sb-h--m">Du bist Chef, Stratege, IT-Abteilung und Top-Berater. Gleichzeitig.</h3>
+      <p class="sb-text">Und jede Woche kommt etwas Neues dazu:</p>
+      <div class="sb-eingang">
+        <div class="sb-post"><span>Montag</span><b>Neue Kampagne</b></div>
+        <div class="sb-post"><span>Dienstag</span><b>Neue Auswertung</b></div>
+        <div class="sb-post"><span>Mittwoch</span><b>Sonderaktion für ein Produkt</b></div>
+        <div class="sb-post"><span>Donnerstag</span><b>Mailing, das raus soll</b></div>
+      </div>
+      <p class="sb-schluss">Am Ende weißt du nicht mehr, was jetzt wirklich zählt.</p>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 3 #}
+  <section class="sb-szene" id="szene-3">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 03 · Warum jetzt</span>
+      <h2 class="sb-titel">Was bleibt</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Die Dringlichkeit: Im KI-Zeitalter entscheidet die Zeit von Mensch zu Mensch. Alles andere muss laufen.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Ich muss meine Zeit anders einsetzen.“</dd></div>
+        <div><dt>Quelle</dt><dd>Kernaussage aus der Positionierungs-Liste (22.10.2026).</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <h3 class="sb-h">Was bleibt,<br>ist das <em>Gespräch.</em></h3>
+      <p class="sb-text">KI wird vieles übernehmen, und zwar schneller als jeder Berater. Was sie nicht kann: dir gegenübersitzen. Deshalb muss alles andere so laufen, dass deine Zeit beim Kunden wächst.</p>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 4 #}
+  <section class="sb-szene" id="szene-4">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 04 · Das Prinzip</span>
+      <h2 class="sb-titel">Das Haus</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Zeigen, woher die Ruhe kommt: Jede Zielgruppe ist eine Säule und trägt nur, wenn sie bis zum Abschluss durchdacht ist. Damit ist auch klar, was du nicht machst.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Lieber wenige Zielgruppen richtig.“</dd></div>
+        <div><dt>Quelle</dt><dd>Daniels Bild vom Haus. Das Fundament „Steuerung“ ist ein Vorschlag von Claude.</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <h3 class="sb-h sb-h--m">Jede Zielgruppe ist eine Säule. Das Haus steht nur, wenn jede trägt.</h3>
+      <div class="sb-haus" aria-label="Haus aus Zielgruppen-Säulen">
+        <div class="sb-dach"><b>Wohin wollt ihr?</b><span>deine Ziele</span></div>
+        <div class="sb-saeulen">
+          {% for zg in ["Junge Familien", "Handwerks&shy;betriebe", "Arzt&shy;praxen"] %}
+          <div class="sb-saeule">
+            <div class="sb-saeule__name">{{ zg | safe }}</div>
+            <div class="sb-saeule__teil">Wahr&shy;nehmung</div>
+            <div class="sb-saeule__teil">Ansprache und Termin</div>
+            <div class="sb-saeule__teil">Beratung und Abschluss</div>
+          </div>
+          {% endfor %}
+          <div class="sb-saeule sb-saeule--blind">
+            <div class="sb-saeule__name">Aktion ins Blaue</div>
+            <div class="sb-saeule__teil">Wahr&shy;nehmung</div>
+            <p class="sb-saeule__fehlt">Endet nach der Wahrnehmung und trägt nichts.</p>
+          </div>
+        </div>
+        <div class="sb-fundament">Steuerung <span>· Funktioniert es? Was optimiere ich?</span></div>
+      </div>
+      <p class="sb-text">Lieber drei Zielgruppen, die bis zum Abschluss durchdacht sind, als zehn Aktionen ins Blaue. So weißt du auch, was du nicht machen musst.</p>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 5 #}
+  <section class="sb-szene" id="szene-5">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 05 · Das Wie</span>
+      <h2 class="sb-titel">Der Weg</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Beweisen, dass wir Versicherungsvertrieb verstehen: der Weg, den jeder Büroleiter kennt, und zu jedem Schritt unser Beitrag. Das, was das Büro schon macht, bleibt dabei.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Die haben wirklich Ahnung von Vertrieb.“</dd></div>
+        <div><dt>Quelle</dt><dd>Daniels Skizze, Schritte 1 bis 6 mit dem gelben Plus.</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <h3 class="sb-h sb-h--m">Der Weg, den du kennst. Mit allem, was digital dazugehört.</h3>
+      <div class="sb-weg">
+        <div class="sb-weg__kopf"><span></span><span>Deine Frage</span><span>Was wir mitbringen</span><span>Was du schon machst</span></div>
+
+        <div class="sb-block">
+          <div class="sb-block__titel">Aufstellen <span>Schritte 1 bis 3</span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">1</span><span class="sb-schritt__frage">Welche Ziele will ich erreichen?</span><span class="sb-schritt__wir">Kompass, frei auf der Homepage. Für Kunden die Pro-Version mit Bestand, Zielen und Beratern.</span><span class="sb-schritt__du"></span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">2</span><span class="sb-schritt__frage">Mit welchen Zielgruppen?</span><span class="sb-schritt__wir">Der Kompass übersetzt deine Ziele automatisch in Zielgruppen.</span><span class="sb-schritt__du"></span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">3</span><span class="sb-schritt__frage">Wie werde ich regelmäßig wahrgenommen?</span><span class="sb-schritt__wir">Digitale Vertriebsstrecke je Zielgruppe: Landingpage, Postings, Bestandskunden-Mailings.</span><span class="sb-schritt__du">Schaufenster, Messen, Veranstaltungen</span></div>
+        </div>
+
+        <div class="sb-block sb-block--mensch">
+          <div class="sb-block__titel">Verkaufen <span>Schritte 4 und 5 · hier bist du als Mensch gefragt</span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">4</span><span class="sb-schritt__frage">Wie komme ich ins Gespräch?</span><span class="sb-schritt__wir">Mailings und ein klares Vorgehen auf LinkedIn.</span><span class="sb-schritt__du">Telefon, persönliche Kontakte</span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">5</span><span class="sb-schritt__frage">Wie komme ich zum Abschluss?</span><span class="sb-schritt__wir">Landingpages vor dem Termin zur Einstimmung und danach statt Broschüre.</span><span class="sb-schritt__du">Beratungssoftware, Unterlagen des Versicherers</span></div>
+        </div>
+
+        <div class="sb-block">
+          <div class="sb-block__titel">Steuern <span>Schritt 6</span></div>
+          <div class="sb-schritt"><span class="sb-schritt__nr">6</span><span class="sb-schritt__frage">Funktioniert es? Was optimiere ich?</span><span class="sb-schritt__wir">Dashboard: Strategie, Zielgruppen, laufende Strecken je Berater, Zugriffe und Postings auf einen Blick.</span><span class="sb-schritt__du"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 6 #}
+  <section class="sb-szene" id="szene-6">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 06 · Beleg</span>
+      <h2 class="sb-titel">Der Beleg</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Eine echte Stimme aus der Praxis statt eigener Behauptung.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Das funktioniert schon bei anderen.“</dd></div>
+        <div><dt>Quelle</dt><dd>Aussage der Pilotagentur aus „Zielgruppe und Problem“, Runde 2. Freigabe und Namensnennung noch offen.</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <blockquote class="sb-zitat">„Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.“</blockquote>
+      <span class="sb-zitat-quelle">Pilotagentur, Leitung</span>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------------------- 7 #}
+  <section class="sb-szene" id="szene-7">
+    <div class="sb-meta">
+      <span class="sb-nr">Szene 07 · Einstieg</span>
+      <h2 class="sb-titel">Zwei Einstiege</h2>
+      <dl>
+        <div><dt>Aufgabe</dt><dd>Beide Arten von Kunden abholen: die, die erst über ihre Strategie nachdenken wollen, und die, die genau wissen, was sie brauchen.</dd></div>
+        <div><dt>Danach denkt der Leser</dt><dd class="sb-gedanke">„Da fange ich an.“</dd></div>
+      </dl>
+    </div>
+    <div class="sb-bild">
+      <h3 class="sb-h sb-h--m">Wo willst du anfangen?</h3>
+      <div class="sb-einstiege">
+        <div class="sb-einstieg">
+          <span class="sb-einstieg__wer">Erst die Strategie</span>
+          <h3>Mit dem Kompass zu deinen Zielgruppen</h3>
+          <p>Wo willst du wachsen, in welchen Sparten und wie schnell? Ein paar Fragen, und du siehst, welche Zielgruppen zu dir passen.</p>
+          <a class="btn btn--primary" href="#szene-7">Kompass starten</a>
+        </div>
+        <div class="sb-einstieg">
+          <span class="sb-einstieg__wer">Ich weiß, wohin ich will</span>
+          <h3>Direkt zu den Vertriebsstrecken</h3>
+          <p>Du kennst deine Zielgruppen? Dann suche dir die passenden Vertriebsstrecken aus und lege sofort los.</p>
+          <a class="btn btn--secondary" href="#szene-7">Vertriebsstrecken ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-offen">
+    <h2>Offen</h2>
+    <ol>
+      <li><b>Headline für Szene 1:</b> „Weniger Aktionen. Mehr Abschlüsse.“ oder eine der beiden anderen.</li>
+      <li><b>Bezeichnung für die Zielgruppe:</b> Hier steht vorläufig „Versicherungsagenturen und Maklerbüros mit Team“. Der weitere Stand liegt im Chat „B · Story“.</li>
+      <li><b>Zitat der Pilotagentur:</b> Freigabe einholen und klären, ob Name und Foto genannt werden dürfen.</li>
+      <li><b>Fundament im Haus:</b> „Steuerung“ als Fundament ist mein Vorschlag. Passt das zu deinem Bild?</li>
+    </ol>
+  </section>
+
+</div>
