@@ -1,0 +1,318 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "Homepage-Story 5 · Klarer Kern hell – Entwicklung"
+description: "Storyboard der neuen Startseite in hell: Inhalte aus Story 5, Grundlayout nach der Volksfestumzug-Seite."
+permalink: /entwicklung/storyboard/klarer-kern-hell/index.html
+---
+{#- Storyboard 5 hell: gleiche Inhalte wie klarer-kern.njk.
+    Vom Volksfestumzug (empiria-Repo, projekte/vofe-umzug-schulen.html) übernommen
+    sind nur die Grundmuster: weiße Fläche, Flächenwechsel weiß · Farbe · weiß ·
+    schwarz · hellgrau, Kicker mit Strich nur im Kopf, Marker im h1, Fakten-Zeile,
+    Karten mit dünnem Rand und Symbol-Kachel, dunkler Zitatkasten, Rahmenkasten,
+    Aufruf-Band. Schrift bleibt Poppins, Farbe Signalorange statt Gelb (dunkle Schrift auf Orange).
+    Alles in dieser Datei, damit nichts außerhalb von src/entwicklung/ angefasst wird. -#}
+<style>
+:root {
+  --h5-ink: #0e0d0f; --h5-ink-2: #3f3b45; --h5-grau: #6e6a75;
+  --h5-hell: #f5f3f8; --h5-linie: #e6e2ec;
+  --h5-orange: #ff5a1f; --h5-orange-text: #c2410c; --h5-marker: #ff5a1f; --h5-tupfer: #ffe6da;
+  --h5-r: 18px;
+}
+body { background: #fff; }
+html { background: #fff; }
+.nav { background: #fff; border-bottom: 1px solid var(--h5-linie); padding-bottom: 0.75rem; }
+.nav__logo { filter: invert(1); }
+.nav--schlank .nav__link { color: var(--h5-ink); }
+
+.h5-leiste { background: var(--h5-ink); }
+.h5-leiste__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1.5rem; padding: 0.5rem 0; color: #bdb8c4; font-size: 0.78rem; }
+.h5-leiste b { color: #fff; font-weight: 500; }
+.h5-leiste a { color: #fff; }
+
+.h5 { padding: clamp(4.5rem, 8vw, 6.5rem) 0; background: #fff; color: var(--h5-ink); }
+.h5--hell { background: var(--h5-hell); }
+.h5--orange { background: var(--h5-orange); color: var(--h5-ink); }
+.h5--schwarz { background: var(--h5-ink); color: #fff; }
+.h5-h2 { max-width: 18ch; color: inherit; font-size: clamp(2.1rem, 4.4vw, 3.4rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.035em; }
+
+/* Kopf */
+.h5-kopf { padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 7vw, 6rem); background: #fff; }
+.h5-kopf__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 28rem); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.h5-kicker { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--h5-ink); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.h5-kicker::before { content: ""; width: 1.4rem; height: 3px; flex: none; border-radius: 2px; background: currentColor; }
+.h5-h1 { margin-top: 1.4rem; color: var(--h5-ink); font-size: clamp(2.7rem, 5.6vw, 4.6rem); font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; }
+.h5-h1 em { font-style: normal; white-space: nowrap; padding: 0 0.06em; background: linear-gradient(transparent 62%, var(--h5-marker) 62%, var(--h5-marker) 90%, transparent 90%); }
+.h5-lead { max-width: 34rem; margin-top: 1.5rem; color: var(--h5-ink-2); font-size: 1.15rem; line-height: 1.6; }
+.h5-knoepfe { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+.h5-knopf { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.35rem; border: 2px solid var(--h5-ink); border-radius: var(--radius-pill); background: var(--h5-ink); color: #fff; font-size: 0.98rem; font-weight: 600; text-decoration: none; transition: transform 0.15s ease; }
+.h5-knopf:hover { transform: translateY(-1px); }
+.h5-knopf--rand { background: transparent; color: var(--h5-ink); }
+.h5-fakten { display: flex; flex-wrap: wrap; gap: 1.25rem 2.25rem; margin-top: 2.75rem; padding-top: 1.5rem; border-top: 1px solid var(--h5-linie); color: var(--h5-ink-2); font-size: 0.95rem; }
+.h5-fakten b { display: block; color: var(--h5-ink); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+
+/* Kompass */
+.h5-kompass { padding: 1.75rem; border: 1px solid var(--h5-linie); border-radius: var(--h5-r); background: #fff; color: var(--h5-ink); box-shadow: 0 1.5rem 3.5rem rgba(40, 20, 60, 0.1); }
+.h5-kompass__titel { font-size: 1.3rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
+.h5-kompass__frage { margin-top: 1.25rem; color: var(--h5-grau); font-size: 0.8rem; font-weight: 500; }
+.h5-wahl { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.h5-wahl button { padding: 0.55rem 0.95rem; border: 1.5px solid var(--h5-linie); border-radius: var(--radius-pill); background: #fff; color: var(--h5-ink); font: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+.h5-wahl button:hover { border-color: var(--h5-ink); }
+.h5-wahl button[aria-pressed="true"] { background: var(--h5-ink); border-color: var(--h5-ink); color: #fff; }
+.h5-ergebnis { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--h5-linie); }
+.h5-ergebnis__kopf { font-size: 0.95rem; font-weight: 600; }
+.h5-ergebnis__kopf span { color: var(--h5-orange-text); }
+.h5-treffer { display: grid; gap: 0.5rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.h5-treffer a { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto; gap: 0.85rem; align-items: center; padding: 0.4rem 0.75rem 0.4rem 0.4rem; border: 1px solid var(--h5-linie); border-radius: 12px; color: var(--h5-ink); text-decoration: none; transition: border-color 0.15s ease; }
+.h5-treffer a:hover { border-color: var(--h5-ink); }
+.h5-treffer img { width: 4.5rem; height: 2.6rem; object-fit: cover; object-position: left top; border-radius: 0.4rem; background: var(--h5-hell); }
+.h5-treffer b { font-size: 0.92rem; font-weight: 600; line-height: 1.25; }
+.h5-treffer i { color: var(--h5-orange-text); font-size: 0.8rem; font-style: normal; font-weight: 500; white-space: nowrap; }
+.h5-kompass__fuss { margin-top: 1rem; color: var(--h5-grau); font-size: 0.78rem; line-height: 1.45; }
+.h5-kompass__fuss a { color: var(--h5-ink); font-weight: 500; }
+
+/* Warum jetzt (Farbfläche) */
+.h5-jetzt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
+.h5-jetzt p { color: var(--h5-ink); font-size: 1.15rem; line-height: 1.6; }
+
+/* Karten */
+.h5-karten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.h5-karte { padding: 1.8rem 1.6rem; border: 1px solid var(--h5-linie); border-radius: var(--h5-r); background: #fff; }
+.h5-karte__ico { display: grid; place-items: center; width: 3.4rem; height: 3.4rem; border-radius: 14px; background: var(--h5-tupfer); color: var(--h5-ink); }
+.h5-karte__ico svg { width: 1.8rem; height: 1.8rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.h5-karte h3 { margin-top: 1.3rem; font-size: 1.3rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.015em; }
+.h5-karte p { margin-top: 0.55rem; color: var(--h5-ink-2); font-size: 0.97rem; line-height: 1.55; }
+
+/* Paket (schwarze Fläche) */
+.h5-paket { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.h5-teil { overflow: hidden; border-radius: var(--h5-r); background: #1d1a21; }
+.h5-teil__bild { aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.h5-teil__bild img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.h5-teil__text { padding: 1.6rem; }
+.h5-teil h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; }
+.h5-teil p { margin-top: 0.55rem; color: #c9c4cf; font-size: 0.97rem; line-height: 1.55; }
+.h5-plus { margin-top: 1.2rem; padding: 1.25rem 1.6rem; border-radius: var(--h5-r); border: 1px solid #3a3540; color: #c9c4cf; font-size: 0.97rem; line-height: 1.55; }
+.h5-plus b { color: #fff; font-weight: 600; }
+
+/* Preis und Zitat (hellgraue Fläche) */
+.h5-schluss { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.h5-preis { padding: 2.2rem; border: 1px solid var(--h5-linie); border-radius: var(--h5-r); background: #fff; }
+.h5-preis__ab { color: var(--h5-grau); font-size: 0.9rem; }
+.h5-preis__zahl { margin-top: 0.3rem; font-size: 3.2rem; font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.h5-preis__zahl small { color: var(--h5-ink-2); font-size: 1rem; font-weight: 400; letter-spacing: 0; }
+.h5-preis p:not([class]) { margin-top: 0.8rem; color: var(--h5-ink-2); font-size: 0.97rem; line-height: 1.55; }
+.h5-preis .h5-knopf { margin-top: 1.6rem; }
+.h5-zitat { display: flex; flex-flow: column; justify-content: space-between; padding: 2.2rem; border-radius: var(--h5-r); background: var(--h5-ink); color: #fff; }
+.h5-zitat blockquote { margin: 0; font-size: clamp(1.35rem, 2.3vw, 1.7rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.015em; }
+.h5-zitat small { display: block; margin-top: 1.5rem; color: #bdb8c4; font-size: 0.9rem; }
+
+/* Rahmenkasten (nur Storyboard) */
+.h5-offen { padding: 2.2rem; border: 2px solid var(--h5-ink); border-radius: var(--h5-r); color: var(--h5-ink-2); font-size: 0.97rem; line-height: 1.55; }
+.h5-offen h3 { color: var(--h5-ink); font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; }
+.h5-offen ol { margin: 0.9rem 0 0; padding-left: 1.25rem; }
+.h5-offen li + li { margin-top: 0.4rem; }
+
+/* Aufruf-Band */
+.h5-band { padding: 4.5rem 0; background: var(--h5-orange); color: var(--h5-ink); }
+.h5-band__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+.h5-band h2 { max-width: 16ch; color: var(--h5-ink); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.06; letter-spacing: -0.035em; }
+
+@media (max-width: 991px) {
+  .h5-kopf__grid, .h5-jetzt { grid-template-columns: minmax(0, 1fr); }
+  .h5-kompass { max-width: 34rem; }
+}
+@media (max-width: 767px) {
+  .h5-karten, .h5-paket, .h5-schluss { grid-template-columns: minmax(0, 1fr); }
+  .h5-kompass, .h5-preis, .h5-zitat, .h5-offen { padding: 1.4rem; }
+  .h5-treffer a { grid-template-columns: 3.5rem minmax(0, 1fr) auto; }
+  .h5-treffer img { width: 3.5rem; height: 2.2rem; }
+  .h5-treffer i { font-size: 0; }
+  .h5-treffer i::after { content: "→"; font-size: 1.1rem; }
+}
+</style>
+
+<div class="h5-leiste"><div class="padding-global"><div class="container h5-leiste__in">
+  <span><b>Storyboard · Homepage-Story 5 hell</b> · Inhalte wie Story 5, Grundlayout nach dem Volksfestumzug · Kompass-Zuordnung ist ein Platzhalter</span>
+  <a href="/entwicklung/storyboard/klarer-kern">Dunkle Fassung: Homepage-Story 5 →</a>
+</div></div></div>
+
+{# ------------------------------------------------ Erster Bildschirm #}
+<section class="h5-kopf">
+  <div class="padding-global"><div class="container h5-kopf__grid">
+    <div>
+      <p class="h5-kicker">Für Versicherungsagenturen und Maklerbüros mit Team</p>
+      <h1 class="h5-h1">Du weißt, wen du gewinnen willst. Der Weg zu ihnen <em>steht schon.</em></h1>
+      <p class="h5-lead">Landingpage, Postings und Kundenmailings für 20 Zielgruppen, fertig geschrieben und gestaltet. Mit deinem Logo und deinen Kontaktdaten bist du in wenigen Tagen bei deinen Wunschkunden sichtbar.</p>
+      <div class="h5-knoepfe">
+        <a class="h5-knopf" href="#kompass">Zielgruppen finden <span aria-hidden="true">→</span></a>
+        <a class="h5-knopf h5-knopf--rand" href="#paket">Was steckt drin?</a>
+      </div>
+      <div class="h5-fakten">
+        <div><b>20</b>fertige Zielgruppen</div>
+        <div><b>4</b>Sparten</div>
+        <div><b>3</b>Bausteine je Zielgruppe</div>
+      </div>
+    </div>
+
+    <div class="h5-kompass" id="kompass">
+      <p class="h5-kompass__titel">Noch offen, mit wem du wachsen willst?</p>
+      <p class="h5-kompass__frage">Segment</p>
+      <div class="h5-wahl" data-gruppe="segment">
+        <button type="button" data-wert="privat" aria-pressed="true">Privatkunden</button>
+        <button type="button" data-wert="gewerbe" aria-pressed="false">Gewerbekunden</button>
+      </div>
+      <p class="h5-kompass__frage">Sparte</p>
+      <div class="h5-wahl" data-gruppe="sparte">
+        <button type="button" data-wert="leben" aria-pressed="true">Leben</button>
+        <button type="button" data-wert="kranken" aria-pressed="false">Kranken</button>
+        <button type="button" data-wert="sach" aria-pressed="false">Schaden/Unfall</button>
+        <button type="button" data-wert="kfz" aria-pressed="false">Kfz</button>
+      </div>
+      <div class="h5-ergebnis" aria-live="polite">
+        <p class="h5-ergebnis__kopf">Passende Zielgruppen: <span>3 fertige Pakete</span></p>
+        <ul class="h5-treffer" id="h5-treffer"></ul>
+      </div>
+      <p class="h5-kompass__fuss">Im vollständigen Kompass kommen Wachstumstempo, Bestand und Berater dazu.</p>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------- Warum jetzt (Farbfläche) #}
+<section class="h5 h5--orange">
+  <div class="padding-global"><div class="container h5-jetzt">
+    <h2 class="h5-h2">Antworten liefert bald die KI. Vertrauen bekommt ein Mensch.</h2>
+    <p>Allgemeine Fragen zu Versicherungen beantwortet die KI schneller als jeder Berater. Abschließen werden Kunden bei dem Menschen, den sie kennen und dem sie vertrauen. Deshalb zählt jetzt, dass die richtigen Kunden dich kennen.</p>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------- Warum wir #}
+<section class="h5">
+  <div class="padding-global"><div class="container">
+    <h2 class="h5-h2">Wir kommen aus dem Versicherungsvertrieb.</h2>
+    <div class="h5-karten">
+      <div class="h5-karte">
+        <span class="h5-karte__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14.5h3"/></svg></span>
+        <h3>Seit 2012 im Vertrieb</h3>
+        <p>Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess.</p>
+      </div>
+      <div class="h5-karte">
+        <span class="h5-karte__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.8"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.8"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.8"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.8"/></svg></span>
+        <h3>Wir denken in Sparten</h3>
+        <p>Leben, Kranken, Schaden/Unfall, Kfz: Jede Zielgruppe ist einer Sparte und einem Segment zugeordnet.</p>
+      </div>
+      <div class="h5-karte">
+        <span class="h5-karte__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.3 2.5 2.5 5-5.2"/></svg></span>
+        <h3>Im Alltag erprobt</h3>
+        <p>Entwickelt und erprobt mit unserer Pilotagentur, die die Pakete im Einsatz hat.</p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+{# --------------------------------------- Was du bekommst (schwarz) #}
+<section class="h5 h5--schwarz" id="paket">
+  <div class="padding-global"><div class="container">
+    <h2 class="h5-h2">Das steckt in jedem Paket.</h2>
+    <div class="h5-paket">
+      <div class="h5-teil">
+        <div class="h5-teil__bild"><img src="/assets/img/preview-landingpages-800.png" alt="Vorschau: fertige Landingpages" loading="lazy"></div>
+        <div class="h5-teil__text"><h3>Landingpage</h3><p>Spricht die Zielgruppe in ihrer Sprache an und gewinnt Kontaktdaten: mit Download-Dokument und eigener Podcast-Folge.</p></div>
+      </div>
+      <div class="h5-teil">
+        <div class="h5-teil__bild"><img src="/assets/img/preview-postings-500.png" alt="Vorschau: fertige Postings" loading="lazy"></div>
+        <div class="h5-teil__text"><h3>Postings</h3><p>Fertig für LinkedIn, Instagram und Facebook, mit Contentplan. Jedes führt auf deine Landingpage.</p></div>
+      </div>
+      <div class="h5-teil">
+        <div class="h5-teil__bild"><img src="/assets/img/preview-funnel-500.png" alt="Vorschau: E-Mail-Funnel" loading="lazy"></div>
+        <div class="h5-teil__text"><h3>Kundenmailings</h3><p>Für deinen Bestand. Sie führen auf die passende Landingpage, und daraus werden Termine.</p></div>
+      </div>
+    </div>
+    <p class="h5-plus"><b>Dazu: dein Dashboard.</b> Strategie, Zielgruppen, laufende Strecken und Zahlen an einem Ort. Du siehst, was wirkt, und stellst jederzeit um.</p>
+  </div></div>
+</section>
+
+{# -------------------------------------- Preis und Zitat (hellgrau) #}
+<section class="h5 h5--hell">
+  <div class="padding-global"><div class="container h5-schluss">
+    <div class="h5-preis">
+      <p class="h5-preis__ab">Eine Zielgruppe, ganzjährig</p>
+      <p class="h5-preis__zahl">349&nbsp;€ <small>im Monat, bei jährlicher Zahlung</small></p>
+      <p>Drei Zielgruppen ab 499 €, zehn ab 999 €. Gemietet, jederzeit umstellbar.</p>
+      <a class="h5-knopf" href="#kompass">Zielgruppen finden <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="h5-zitat">
+      <blockquote>„Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.“</blockquote>
+      <small>Leitung unserer Pilotagentur</small>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------- Offen (nur Storyboard) #}
+<section class="h5">
+  <div class="padding-global"><div class="container">
+    <div class="h5-offen">
+      <h3>Offen für die nächste Runde</h3>
+      <ol>
+        <li>Bezeichnung der Zielgruppe im Kicker: vorläufig „Versicherungsagenturen und Maklerbüros mit Team“, der weitere Stand liegt im Chat „B · Story“.</li>
+        <li>„Im Alltag erprobt“: bestätigen, dass die Pilotagentur die Pakete so im Einsatz hat; Zitat freigeben lassen.</li>
+        <li>Kompass: Zuordnung Sparte → Zielgruppen ist ein Platzhalter, bis die Logik aus dem Chat „A · Tool“ vorliegt.</li>
+      </ol>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------ Aufruf-Band #}
+<section class="h5-band">
+  <div class="padding-global"><div class="container h5-band__in">
+    <h2>Finde die Kunden, die zu deinen Zielen passen.</h2>
+    <a class="h5-knopf" href="#kompass">Zum Kompass <span aria-hidden="true">→</span></a>
+  </div></div>
+</section>
+
+<script>
+(function () {
+  // Platzhalter-Zuordnung, bis die Kompass-Logik feststeht.
+  var Z = {
+    berufseinsteiger: ["Berufseinsteiger", "/zielgruppen/berufseinsteiger-im-ersten-job", "berufseinsteiger"],
+    familien: ["Junge Familien", "/zielgruppen/werdende-eltern", "werdende-eltern"],
+    angestellte: ["Kommunale Angestellte", "/zielgruppen/kommunale-angestellte", "angestellte"],
+    digital: ["Digital aktive Personen", "/zielgruppen/digital-aktive-privatpersonen", "digital-aktive"],
+    bauherren: ["Private Bauherren", "/zielgruppen/bauherren", "bauherren"],
+    umzug: ["Umzug", "/zielgruppen/umzug", "umzug"],
+    tierhalter: ["Private Tierhalter", "/zielgruppen/private-tierhalter-im-lokalen-umfeld", "tierhalter"],
+    ehepaare: ["Junge Ehepaare", "/zielgruppen/junge-ehepaare", "junge-ehepaare"],
+    firmen: ["Inhabergeführte Firmen", "/zielgruppen/gewerbekunden", "kmu"],
+    aerzte: ["Ärzte und Zahnärzte", "/zielgruppen/arzte", "arzte"],
+    kanzlei: ["Kanzleiinhaber", "/zielgruppen/anwalte-und-kanzleiinhaber", "kanzleiinhaber"],
+    it: ["IT-lastige Firmen", "/zielgruppen/cyber-firmen", "cyber-firmen"],
+    heilberufe: ["Gesundheitsnahe Heilberufe", "/zielgruppen/physio-und-pflege", "physio-pfleger"],
+    landwirte: ["Landwirte", "/zielgruppen/landwirte", "landwirte"],
+    hausverwaltung: ["Hausverwaltungen", "/zielgruppen/hausverwalter", "hausverwaltung"],
+    gruender: ["Gründer & Freelancer", "/zielgruppen/freelancer-und-grunder", "grunder-und-freelancer"]
+  };
+  var K = {
+    privat: { leben: ["berufseinsteiger", "familien", "ehepaare"], kranken: ["angestellte", "berufseinsteiger", "digital"], sach: ["bauherren", "umzug", "tierhalter"], kfz: ["berufseinsteiger", "familien", "umzug"] },
+    gewerbe: { leben: ["firmen", "aerzte", "kanzlei"], kranken: ["firmen", "it", "heilberufe"], sach: ["landwirte", "it", "hausverwaltung"], kfz: ["firmen", "landwirte", "gruender"] }
+  };
+  var stand = { segment: "privat", sparte: "leben" };
+  var liste = document.getElementById("h5-treffer");
+
+  function zeigen() {
+    liste.innerHTML = K[stand.segment][stand.sparte].map(function (id) {
+      var z = Z[id];
+      return '<li><a href="' + z[1] + '"><img src="/assets/img/zielgruppen/' + z[2] + '-style-1.webp" alt="" loading="lazy"><b>' + z[0] + '</b><i>Paket ansehen →</i></a></li>';
+    }).join("");
+  }
+
+  document.querySelectorAll(".h5-wahl").forEach(function (gruppe) {
+    gruppe.addEventListener("click", function (e) {
+      var knopf = e.target.closest("button");
+      if (!knopf) return;
+      gruppe.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b === knopf ? "true" : "false"); });
+      stand[gruppe.dataset.gruppe] = knopf.dataset.wert;
+      zeigen();
+    });
+  });
+  zeigen();
+})();
+</script>
