@@ -1,0 +1,279 @@
+---
+layout: layouts/base.njk
+navReduziert: true
+title: "Homepage-Story 4 · Direkt – Entwicklung"
+description: "Storyboard der neuen Startseite: sofort zum Punkt, sofort Mehrwert."
+permalink: /entwicklung/storyboard/direkt/index.html
+---
+{#- Storyboard 4: keine lange Situationsbeschreibung. Erster Bildschirm =
+    Zielgruppe ansprechen + Mini-Kompass mit sofortigem Ergebnis.
+    Die Zuordnung Sparte → Zielgruppen ist ein Platzhalter, bis die Logik aus
+    dem Kompass (Chat „A · Tool“) vorliegt. Alles in dieser Datei, damit nichts
+    außerhalb von src/entwicklung/ angefasst wird. -#}
+<style>
+.v4-leiste { border-bottom: 1px solid var(--color-element); background: var(--color-grey-800); }
+.v4-leiste__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding: 0.75rem 0; color: var(--color-grey-400); font-size: 0.8rem; }
+.v4-leiste a { color: var(--color-grey-100); }
+.v4-leiste b { color: #fff; font-weight: 500; }
+
+.v4 { padding: clamp(4rem, 8vw, 6.5rem) 0; background: var(--color-background); }
+.v4 + .v4 { border-top: 1px solid #1d1a20; }
+.v4-h2 { max-width: 22ch; color: #fff; font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; }
+.v4-h2 em { font-style: normal; color: var(--color-accent); }
+.v4-unter { max-width: 40rem; margin-top: 1rem; color: var(--color-grey-100); font-size: 1.1rem; line-height: 1.55; }
+
+/* Kopf: Ansprache links, Kompass rechts */
+.v4-kopf { padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 6rem); background: radial-gradient(60rem 30rem at 85% 0%, #3a1a3f 0%, transparent 70%), radial-gradient(50rem 30rem at 0% 100%, #0b1d3d 0%, transparent 70%), var(--color-background); }
+.v4-kopf__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.v4-wer { color: var(--color-grey-100); font-size: 0.95rem; line-height: 1.45; }
+.v4-wer b { color: #fff; font-weight: 600; }
+.v4-h1 { margin-top: 1.25rem; color: #fff; font-size: clamp(2.6rem, 5.4vw, 4.5rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.035em; }
+.v4-h1 em { font-style: normal; color: var(--color-accent); }
+.v4-lead { max-width: 34rem; margin-top: 1.5rem; color: var(--color-grey-100); font-size: 1.15rem; line-height: 1.55; }
+.v4-haken { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 1.75rem 0 0; padding: 0; list-style: none; }
+.v4-haken li { display: flex; align-items: center; gap: 0.5rem; color: #fff; font-size: 0.95rem; }
+.v4-haken li::before { content: ""; width: 1rem; height: 1rem; flex: none; border-radius: 50%; background: var(--color-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5 10 16.5 18 8'/%3E%3C/svg%3E") center / 0.7rem no-repeat; }
+
+/* Mini-Kompass */
+.v4-kompass { padding: 1.75rem; border-radius: var(--radius-xl); background: #fff; color: #000; box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.45); }
+.v4-kompass__titel { font-size: 1.35rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
+.v4-kompass__frage { margin-top: 1.25rem; color: #77737b; font-size: 0.8rem; font-weight: 500; }
+.v4-wahl { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.v4-wahl button {
+  padding: 0.55rem 0.95rem; border: 1px solid #dcd9df; border-radius: var(--radius-pill);
+  background: #fff; color: #000; font: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.v4-wahl button:hover { border-color: #000; }
+.v4-wahl button[aria-pressed="true"] { background: #000; border-color: #000; color: #fff; }
+.v4-ergebnis { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #ecebee; }
+.v4-ergebnis__kopf { color: #000; font-size: 0.95rem; font-weight: 600; }
+.v4-ergebnis__kopf span { color: #7d3fc8; }
+.v4-treffer { display: grid; gap: 0.5rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.v4-treffer a { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto; gap: 0.85rem; align-items: center; padding: 0.4rem 0.75rem 0.4rem 0.4rem; border: 1px solid #ecebee; border-radius: var(--radius-md); color: #000; text-decoration: none; transition: border-color var(--transition); }
+.v4-treffer a:hover { border-color: #7d3fc8; }
+.v4-treffer img { width: 4.5rem; height: 2.6rem; object-fit: cover; object-position: left top; border-radius: 0.4rem; background: #f3f2f4; }
+.v4-treffer b { font-size: 0.92rem; font-weight: 600; line-height: 1.25; }
+.v4-treffer i { color: #7d3fc8; font-size: 0.8rem; font-style: normal; font-weight: 500; white-space: nowrap; }
+.v4-kompass__fuss { margin-top: 1rem; color: #77737b; font-size: 0.78rem; line-height: 1.45; }
+.v4-kompass__fuss a { color: #000; font-weight: 500; }
+
+/* Was du bekommst */
+.v4-paket { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.v4-teil { display: flex; flex-flow: column; overflow: hidden; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); }
+.v4-teil__bild { aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.v4-teil__bild img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.v4-teil__text { padding: 1.5rem; }
+.v4-teil h3 { color: #fff; font-size: 1.3rem; font-weight: 600; line-height: 1.25; }
+.v4-teil p { margin-top: 0.5rem; color: var(--color-grey-100); font-size: 0.95rem; line-height: 1.5; }
+.v4-plus { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; margin-top: 1rem; padding: 1.25rem 1.5rem; border-radius: var(--radius-lg); border: 1px dashed var(--color-grey-600); color: var(--color-grey-100); font-size: 0.95rem; }
+.v4-plus b { color: #fff; font-weight: 600; }
+
+/* Ablauf */
+.v4-ablauf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 3rem 0 0; padding: 0; list-style: none; counter-reset: a; }
+.v4-ablauf li { counter-increment: a; padding: 0 2rem 0 0; }
+.v4-ablauf li + li { padding-left: 2rem; border-left: 1px solid var(--color-element); }
+.v4-ablauf li::before { content: counter(a); display: block; color: var(--color-accent); font-size: 2.75rem; font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.v4-ablauf b { display: block; margin-top: 1rem; color: #fff; font-size: 1.2rem; font-weight: 600; }
+.v4-ablauf span { display: block; margin-top: 0.4rem; color: var(--color-grey-100); font-size: 0.95rem; line-height: 1.5; }
+
+/* Modelle */
+.v4-modelle { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.v4-modell { padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); }
+.v4-modell--hell { background: #fff; border-color: #fff; }
+.v4-modell span { color: var(--color-grey-400); font-size: 0.85rem; font-weight: 500; }
+.v4-modell h3 { margin-top: 0.4rem; color: #fff; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+.v4-modell p { margin-top: 0.6rem; color: var(--color-grey-100); font-size: 1rem; line-height: 1.55; }
+.v4-modell--hell span { color: #7d3fc8; }
+.v4-modell--hell h3 { color: #000; }
+.v4-modell--hell p { color: #4a474d; }
+
+/* Preis und Beleg */
+.v4-schluss { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.v4-preis { padding: 2rem; border-radius: var(--radius-xl); background: var(--color-surface); border: 1px solid var(--color-element); }
+.v4-preis__ab { color: var(--color-grey-400); font-size: 0.9rem; }
+.v4-preis .v4-preis__zahl { margin-top: 0.25rem; color: #fff; font-size: 3.25rem; font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.v4-preis .v4-preis__zahl small { color: var(--color-grey-100); font-size: 1rem; font-weight: 400; letter-spacing: 0; }
+.v4-preis p { margin-top: 0.75rem; color: var(--color-grey-100); font-size: 0.95rem; line-height: 1.5; }
+.v4-preis .btn { margin-top: 1.5rem; }
+.v4-beleg { display: flex; flex-flow: column; gap: 2rem; }
+.v4-beleg blockquote { margin: 0; color: #fff; font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.015em; }
+.v4-beleg blockquote span { display: block; margin-top: 0.75rem; color: var(--color-grey-400); font-size: 0.9rem; font-weight: 400; letter-spacing: 0; }
+.v4-beleg p { color: var(--color-grey-100); font-size: 1rem; line-height: 1.55; }
+.v4-beleg p b { display: block; color: #fff; font-size: 1.1rem; font-weight: 600; }
+
+@media (max-width: 991px) {
+  .v4-kopf__grid { grid-template-columns: minmax(0, 1fr); }
+  .v4-kompass { max-width: 34rem; }
+}
+@media (max-width: 767px) {
+  .v4-paket, .v4-modelle, .v4-schluss { grid-template-columns: minmax(0, 1fr); }
+  .v4-ablauf { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .v4-ablauf li, .v4-ablauf li + li { padding: 0; border-left: 0; }
+  .v4-kompass, .v4-modell, .v4-preis { padding: 1.4rem; }
+  .v4-treffer a { grid-template-columns: 3.5rem minmax(0, 1fr) auto; }
+  .v4-treffer img { width: 3.5rem; height: 2.2rem; }
+  .v4-treffer i { font-size: 0; }
+  .v4-treffer i::after { content: "→"; font-size: 1.1rem; }
+}
+</style>
+
+<div class="v4-leiste"><div class="padding-global"><div class="container v4-leiste__in">
+  <span><b>Storyboard · Homepage-Story 4: Direkt</b> · Arbeitsstand, Texte sind Entwürfe · Kompass-Zuordnung ist ein Platzhalter</span>
+  <a href="/entwicklung/storyboard/positionierung">Vorgänger: Homepage-Story 3 →</a>
+</div></div></div>
+
+{# ------------------------------------------------ Erster Bildschirm #}
+<section class="v4-kopf">
+  <div class="padding-global"><div class="container v4-kopf__grid">
+    <div>
+      <p class="v4-wer"><b>Für Leiter von Versicherungsagenturen und Maklerbüros</b> mit Team</p>
+      <h1 class="v4-h1">Mehr Gespräche mit genau den Kunden, <em>die du willst.</em></h1>
+      <p class="v4-lead">Wähle deine Zielgruppen. Für jede bekommst du eine fertige Vertriebsstrecke: Landingpage, Postings und Mailings. Du führst die Gespräche.</p>
+      <ul class="v4-haken">
+        <li>In Tagen live</li>
+        <li>Für 20 Zielgruppen fertig</li>
+        <li>Aus dem Versicherungsvertrieb</li>
+      </ul>
+    </div>
+
+    <div class="v4-kompass" id="kompass">
+      <p class="v4-kompass__titel">Wo willst du wachsen?</p>
+      <p class="v4-kompass__frage">Segment</p>
+      <div class="v4-wahl" data-gruppe="segment">
+        <button type="button" data-wert="privat" aria-pressed="true">Privatkunden</button>
+        <button type="button" data-wert="gewerbe" aria-pressed="false">Gewerbekunden</button>
+      </div>
+      <p class="v4-kompass__frage">Sparte</p>
+      <div class="v4-wahl" data-gruppe="sparte">
+        <button type="button" data-wert="leben" aria-pressed="true">Leben</button>
+        <button type="button" data-wert="kranken" aria-pressed="false">Kranken</button>
+        <button type="button" data-wert="sach" aria-pressed="false">Schaden/Unfall</button>
+        <button type="button" data-wert="kfz" aria-pressed="false">Kfz</button>
+      </div>
+      <div class="v4-ergebnis" aria-live="polite">
+        <p class="v4-ergebnis__kopf">Deine passenden Zielgruppen: <span id="v4-anzahl">3 fertige Pakete</span></p>
+        <ul class="v4-treffer" id="v4-treffer"></ul>
+      </div>
+      <p class="v4-kompass__fuss">Im vollständigen Kompass kommen Wachstumstempo, Bestand und Berater dazu. <a href="#paket">Was steckt in einem Paket?</a></p>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------------- Was du bekommst #}
+<section class="v4" id="paket">
+  <div class="padding-global"><div class="container">
+    <h2 class="v4-h2">Das bekommst du. <em>Für jede Zielgruppe.</em></h2>
+    <p class="v4-unter">Fertig geschrieben, fertig gestaltet, mit deinem Logo, deinen Farben und deinen Kontaktdaten.</p>
+    <div class="v4-paket">
+      <div class="v4-teil">
+        <div class="v4-teil__bild"><img src="/assets/img/preview-landingpages-800.png" alt="Vorschau: fertige Landingpages" loading="lazy"></div>
+        <div class="v4-teil__text"><h3>Landingpage</h3><p>Spricht die Zielgruppe in ihrer Sprache an und gewinnt Kontaktdaten: mit Download-Dokument und eigener Podcast-Folge.</p></div>
+      </div>
+      <div class="v4-teil">
+        <div class="v4-teil__bild"><img src="/assets/img/preview-postings-500.png" alt="Vorschau: fertige Postings" loading="lazy"></div>
+        <div class="v4-teil__text"><h3>Postings</h3><p>Fertig für LinkedIn, Instagram und Facebook, mit Contentplan. Jedes führt auf deine Landingpage.</p></div>
+      </div>
+      <div class="v4-teil">
+        <div class="v4-teil__bild"><img src="/assets/img/preview-funnel-500.png" alt="Vorschau: E-Mail-Funnel" loading="lazy"></div>
+        <div class="v4-teil__text"><h3>Mailings</h3><p>Für deine Bestandskunden. Sie landen auf der passenden Landingpage, und daraus werden Termine.</p></div>
+      </div>
+    </div>
+    <p class="v4-plus"><b>Dazu: dein Dashboard.</b> Strategie, Zielgruppen, laufende Strecken und Zahlen an einem Ort. Du siehst, was wirkt.</p>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------- Ablauf #}
+<section class="v4">
+  <div class="padding-global"><div class="container">
+    <h2 class="v4-h2">Monate werden <em>zu Tagen.</em></h2>
+    <ol class="v4-ablauf">
+      <li><b>Zielgruppen wählen</b><span>Mit dem Kompass oder direkt aus den fertigen Paketen.</span></li>
+      <li><b>Logo, Farben, Kontakt</b><span>Einmal hinterlegen, wir übernehmen sie in alles.</span></li>
+      <li><b>Loslegen</b><span>Landingpage ist online, Postings und Mailings liegen bereit.</span></li>
+    </ol>
+  </div></div>
+</section>
+
+{# ------------------------------------------------------ Modelle #}
+<section class="v4">
+  <div class="padding-global"><div class="container">
+    <h2 class="v4-h2">Du postest selbst. <em>Oder wir posten für dich.</em></h2>
+    <div class="v4-modelle">
+      <div class="v4-modell">
+        <span>Eigenregie</span>
+        <h3>Du postest selbst.</h3>
+        <p>Alles liegt fertig im Dashboard. Du oder deine Marketing-Person entscheidet, wann was rausgeht.</p>
+      </div>
+      <div class="v4-modell v4-modell--hell">
+        <span>Autopilot</span>
+        <h3>Wir posten für dich.</h3>
+        <p>Wir planen ein, veröffentlichen und schlagen Antworten auf Kommentare vor. Du postest nur noch, wenn du selbst etwas zu sagen hast.</p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+{# ------------------------------------------------ Preis und Beleg #}
+<section class="v4">
+  <div class="padding-global"><div class="container v4-schluss">
+    <div class="v4-preis">
+      <p class="v4-preis__ab">Eine Zielgruppe, ganzjährig</p>
+      <p class="v4-preis__zahl">349&nbsp;€ <small>im Monat, bei jährlicher Zahlung</small></p>
+      <p>Drei Zielgruppen ab 499 €, zehn ab 999 €. Gemietet, jederzeit umstellbar.</p>
+      <a class="btn btn--primary" href="#kompass">Zielgruppen finden</a>
+    </div>
+    <div class="v4-beleg">
+      <blockquote>„Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.“<span>Leitung unserer Pilotagentur</span></blockquote>
+      <p><b>Seit 2012 im Versicherungsvertrieb.</b>Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jedem Paket.</p>
+    </div>
+  </div></div>
+</section>
+
+<script>
+(function () {
+  // Platzhalter-Zuordnung, bis die Kompass-Logik feststeht.
+  var Z = {
+    berufseinsteiger: ["Berufseinsteiger", "/zielgruppen/berufseinsteiger-im-ersten-job", "berufseinsteiger"],
+    familien: ["Junge Familien", "/zielgruppen/werdende-eltern", "werdende-eltern"],
+    angestellte: ["Kommunale Angestellte", "/zielgruppen/kommunale-angestellte", "angestellte"],
+    digital: ["Digital aktive Personen", "/zielgruppen/digital-aktive-privatpersonen", "digital-aktive"],
+    bauherren: ["Private Bauherren", "/zielgruppen/bauherren", "bauherren"],
+    umzug: ["Umzug", "/zielgruppen/umzug", "umzug"],
+    tierhalter: ["Private Tierhalter", "/zielgruppen/private-tierhalter-im-lokalen-umfeld", "tierhalter"],
+    ehepaare: ["Junge Ehepaare", "/zielgruppen/junge-ehepaare", "junge-ehepaare"],
+    firmen: ["Inhabergeführte Firmen", "/zielgruppen/gewerbekunden", "kmu"],
+    aerzte: ["Ärzte und Zahnärzte", "/zielgruppen/arzte", "arzte"],
+    kanzlei: ["Kanzleiinhaber", "/zielgruppen/anwalte-und-kanzleiinhaber", "kanzleiinhaber"],
+    it: ["IT-lastige Firmen", "/zielgruppen/cyber-firmen", "cyber-firmen"],
+    heilberufe: ["Gesundheitsnahe Heilberufe", "/zielgruppen/physio-und-pflege", "physio-pfleger"],
+    landwirte: ["Landwirte", "/zielgruppen/landwirte", "landwirte"],
+    hausverwaltung: ["Hausverwaltungen", "/zielgruppen/hausverwalter", "hausverwaltung"],
+    gruender: ["Gründer & Freelancer", "/zielgruppen/freelancer-und-grunder", "grunder-und-freelancer"]
+  };
+  var K = {
+    privat: { leben: ["berufseinsteiger", "familien", "ehepaare"], kranken: ["angestellte", "berufseinsteiger", "digital"], sach: ["bauherren", "umzug", "tierhalter"], kfz: ["berufseinsteiger", "familien", "umzug"] },
+    gewerbe: { leben: ["firmen", "aerzte", "kanzlei"], kranken: ["firmen", "it", "heilberufe"], sach: ["landwirte", "it", "hausverwaltung"], kfz: ["firmen", "landwirte", "gruender"] }
+  };
+  var stand = { segment: "privat", sparte: "leben" };
+  var liste = document.getElementById("v4-treffer");
+
+  function zeigen() {
+    liste.innerHTML = K[stand.segment][stand.sparte].map(function (id) {
+      var z = Z[id];
+      return '<li><a href="' + z[1] + '"><img src="/assets/img/zielgruppen/' + z[2] + '-style-1.webp" alt="" loading="lazy"><b>' + z[0] + '</b><i>Paket ansehen →</i></a></li>';
+    }).join("");
+  }
+
+  document.querySelectorAll(".v4-wahl").forEach(function (gruppe) {
+    gruppe.addEventListener("click", function (e) {
+      var knopf = e.target.closest("button");
+      if (!knopf) return;
+      gruppe.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b === knopf ? "true" : "false"); });
+      stand[gruppe.dataset.gruppe] = knopf.dataset.wert;
+      zeigen();
+    });
+  });
+  zeigen();
+})();
+</script>
