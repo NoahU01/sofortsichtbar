@@ -76,18 +76,26 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 .nav-links a[aria-current="page"] { font-weight: 600; }
 .e2v-held__pfeil.s6-mockup { width: min(100%, 34rem) !important; }
 .e2v-held__pfeil.s6-mockup img { display: block; width: 100%; height: auto; }
-/* Kompass-Platzhalter */
-.s6-kompass { padding: 4.5rem 0 5.5rem; background: #f6f5f2; }
-.s6-kompass__kasten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; padding: 2.6rem; border: 2px dashed #cfcac3; border-radius: 18px; background: #fff; }
-.s6-kompass__marke { display: inline-block; margin-bottom: 1rem; padding: .3rem .7rem; border-radius: 999px; background: #1a1817; color: #fff400; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.s6-kompass h2 { font-size: clamp(2rem, 4vw, 3rem); }
-.s6-kompass p { margin-top: 1rem; max-width: 30rem; color: #3d3a37; font-size: 1.05rem; line-height: 1.6; }
-.s6-kompass__attrappe { display: grid; gap: 1.1rem; padding: 1.6rem; border-radius: 14px; background: #f6f5f2; opacity: .75; }
-.s6-kompass__frage { font-size: .8rem; font-weight: 600; color: #6f6a64; }
-.s6-kompass__wahl { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .45rem; }
-.s6-kompass__wahl span { padding: .5rem .95rem; border-radius: 999px; border: 1.5px solid #e7e4df; background: #fff; font-size: .9rem; font-weight: 500; }
-.s6-kompass__wahl span.an { background: #1a1817; border-color: #1a1817; color: #fff; }
-.s6-kompass__ergebnis { padding-top: 1rem; border-top: 1px solid #e7e4df; font-size: .95rem; font-weight: 600; }
+/* Einstieg Strategiekompass (Startseite) */
+.s6-kompass { padding: 6rem 0; background: #f6f5f2; }
+.s6-kompass__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.s6-kompass h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); max-width: 14ch; }
+html body.e2 main .s6-kompass__schritte { margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: k; }
+.s6-kompass__schritte li { counter-increment: k; display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); column-gap: 1rem; padding: 1rem 0; border-top: 1px solid #e7e4df; color: #3d3a37; font-size: .98rem; line-height: 1.5; }
+.s6-kompass__schritte li::before { content: counter(k); grid-row: 1 / span 2; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #fff400; color: #1a1817; font: 700 1.1rem "Lora", Georgia, serif; }
+.s6-kompass__schritte b { display: block; color: #1a1817; font-weight: 600; font-size: 1.05rem; }
+html body.e2 main .s6-kompass__ende { margin-top: 1.2rem; color: #1a1817; font-weight: 600; }
+.s6-kompass__karte { padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 22px; background: #1a1817; color: #fff; }
+.s6-kompass__frage1 { color: #fff400; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+html body.e2 .s6-kompass__karte h3 { margin-top: .6rem; color: #fff; font-size: clamp(1.7rem, 2.8vw, 2.2rem); }
+.s6-kompass__wahl { display: grid; gap: .7rem; margin-top: 1.6rem; }
+.s6-kompass__wahl a { position: relative; display: block; padding: 1.1rem 3.6rem 1.1rem 1.2rem; border-radius: 16px; background: #fff; color: #1a1817; text-decoration: none; transition: background .15s ease, transform .15s ease; }
+.s6-kompass__wahl a:hover { background: #fff400; transform: translateX(4px); }
+.s6-kompass__wahl b { display: block; font-weight: 600; font-size: 1.05rem; }
+.s6-kompass__wahl span { display: block; margin-top: .15rem; color: #6f6a64; font-size: .9rem; }
+.s6-kompass__wahl a:hover span { color: #3d3a37; }
+.s6-kompass__wahl svg { position: absolute; right: 1.2rem; top: 50%; width: 1.4rem; height: 1.4rem; transform: translateY(-50%); fill: none; stroke: #1a1817; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+html body.e2 main .s6-kompass__fuss { margin-top: 1.2rem; color: #9b958e; font-size: .88rem; }
 /* Termin */
 .s6-termin { padding: 6rem 0; background: #fff; }
 .s6-termin__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
@@ -193,17 +201,16 @@ html body.e2 main .zp__leer { margin-top: 2.4rem; color: #3d3a37; }
   .zp__pfeil { top: 50%; bottom: auto; transform: translateY(-50%); }
 }
 /* .e2 main p setzt margin:0 – Abstände daher mit höherer Spezifität */
-html body.e2 main .s6-kompass p:not(.s6-kompass__frage):not(.s6-kompass__ergebnis) { margin-top: 1rem; }
 html body.e2 main .s6-termin__text { margin-top: 1.2rem; }
 html body.e2 main .s6-termin__karte p { margin-top: 1rem; }
 html body.e2 main .s6-termin__karte .e2-knopf { margin-top: 1.8rem; }
 html body.e2 main .s6-folgt p { margin-top: .8rem; }
 @media (max-width: 960px) {
-  .s6-kompass__kasten, .s6-termin__raster { grid-template-columns: minmax(0, 1fr); }
+  .s6-kompass__raster, .s6-termin__raster { grid-template-columns: minmax(0, 1fr); }
   .e2v-held__pfeil.s6-mockup { width: min(100%, 26rem) !important; }
 }
 @media (max-width: 640px) {
-  .s6-kompass__kasten, .s6-termin__karte, .s6-folgt__kasten { padding: 1.4rem; }
+  .s6-termin__karte, .s6-folgt__kasten { padding: 1.4rem; }
 }
 </style>
 </head>
@@ -405,24 +412,32 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <div class="e2v-held__text-oben"><h1>Digital sichtbar.<br><span class="hl">Sofort.</span></h1>
     <div class="e2v-held__text"><p>Für Versicherungsagenturen und Maklerbüros mit Team: fertige Postings, Landingpages und Kundenmailings für 20 Zielgruppen. Ohne Briefing, in wenigen Tagen einsatzbereit.</p></div></div>
   <div class="e2v-held__pfeil s6-mockup"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
-  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="{{ B }}/strategiekompass/">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/kontakt/">Termin auswählen</a></div>
+  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="#kompass">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/kontakt/">Termin auswählen</a></div>
 </div></section>
 
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
-  <!-- ===== Kompass (Platzhalter) ===== -->
+  <!-- ===== Einstieg in den Strategiekompass ===== -->
   <section class="s6-kompass" id="kompass">
-    <div class="container">
-      <div class="s6-kompass__kasten">
-        <div>
-          <span class="s6-kompass__marke">Platzhalter · Kompass</span>
-          <h2 class="h-serif">Wo willst du wachsen?</h2>
-          <p>Hier sitzt der Kompass: Segment und Sparte wählen, sofort passende Zielgruppen sehen. Welche der gebauten Fassungen hier hineinkommt, entscheiden wir noch.</p>
+    <div class="container s6-kompass__raster">
+      <div>
+        <p class="kicker">Strategiekompass</p>
+        <h2 class="h-serif">In drei Fragen zu deiner Strategie.</h2>
+        <ol class="s6-kompass__schritte">
+          <li><b>Wen willst du erreichen?</b>Privatkunden, Firmenkunden oder beide.</li>
+          <li><b>Wo willst du wachsen?</b>Die Sparten, in denen du zulegen willst.</li>
+          <li><b>Worauf legst du den Schwerpunkt?</b>Schneller Abschluss, Bestand, Kundenwert …</li>
+        </ol>
+        <p class="s6-kompass__ende">Am Ende stehen deine passenden Zielgruppen – und das Paket dazu.</p>
+      </div>
+      <div class="s6-kompass__karte">
+        <p class="s6-kompass__frage1">Frage 1 von 3</p>
+        <h3 class="h-serif">Wen willst du erreichen?</h3>
+        <div class="s6-kompass__wahl">
+          <a href="{{ B }}/strategiekompass/?seg=Privat#app"><b>Privatkunden</b><span>Familien, Berufseinsteiger, Bauherren …</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="{{ B }}/strategiekompass/?seg=Gewerbe#app"><b>Firmenkunden</b><span>Handwerk, Praxen, Kanzleien, Mittelstand …</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="{{ B }}/strategiekompass/?seg=Beides#app"><b>Beides</b><span>Privat- und Firmenkunden gleichermaßen</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="s6-kompass__attrappe" aria-hidden="true">
-          <div><p class="s6-kompass__frage">Segment</p><div class="s6-kompass__wahl"><span class="an">Privatkunden</span><span>Gewerbekunden</span></div></div>
-          <div><p class="s6-kompass__frage">Sparte</p><div class="s6-kompass__wahl"><span class="an">Leben</span><span>Kranken</span><span>Schaden/Unfall</span><span>Kfz</span></div></div>
-          <p class="s6-kompass__ergebnis">Passende Zielgruppen: 3 fertige Pakete</p>
-        </div>
+        <p class="s6-kompass__fuss">Weiter im Strategiekompass – kostenlos, ohne Anmeldung.</p>
       </div>
     </div>
   </section>
