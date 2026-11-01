@@ -125,6 +125,60 @@ html body.e2 .s6-ks--seite .kontakt-standalone-side { margin-top: 6.49rem; }
 @media (max-width: 900px) {
   html body.e2 .s6-ks .kontakt-standalone-side { margin-top: 1.6rem; }
 }
+/* Zielgruppenpakete */
+/* Die Übersicht ist der zweite Abschnitt – die empiria-Vorlage färbt ihn gelb (gewollt). */
+html body .e2-alt.e2-alt.e2-alt.e2-alt.e2-alt .e2-kopf .e2-knopf.e2-knopf.e2-knopf--rand { background: transparent !important; color: #1a1817 !important; border: 2px solid #1a1817 !important; }
+.zp__tabs { background: #fff !important; }
+.zp__suche { background: #fff; border-color: #fff !important; }
+.zp__suche:focus-within { border-color: #1a1817 !important; }
+.zp__leiste { border-bottom-color: rgba(26,24,23,.15) !important; }
+.zp__anlaesse li { border-top-color: rgba(26,24,23,.15) !important; }
+.zp__anlaesse em { color: #3d3a37 !important; }
+.zp__text small { display: none !important; }
+.zp__raster.zp--gemischt .zp__text small { display: block !important; }
+.zp { padding: 1rem 0 6rem; background: #fff; }
+.zp__leiste { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-bottom: 1.6rem; border-bottom: 1px solid #e7e4df; }
+.zp__tabs { display: inline-flex; flex-wrap: wrap; gap: .4rem; padding: .3rem; border-radius: 999px; background: #f6f5f2; }
+.zp__tabs button { display: inline-flex; align-items: center; gap: .5rem; padding: .65rem 1.2rem; border: 0; border-radius: 999px; background: none; color: #3d3a37; font: 600 .95rem/1 "Poppins", sans-serif; cursor: pointer; }
+.zp__tabs button span { display: grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 .35rem; border-radius: 999px; background: #e7e4df; color: #1a1817; font-size: .75rem; }
+.zp__tabs button[aria-selected="true"] { background: #1a1817; color: #fff; }
+.zp__tabs button[aria-selected="true"] span { background: #fff400; }
+.zp__suche { display: flex; align-items: center; gap: .6rem; flex: 0 1 22rem; padding: .7rem 1.1rem; border: 1.5px solid #e7e4df; border-radius: 999px; }
+.zp__suche:focus-within { border-color: #1a1817; }
+.zp__suche svg { width: 1.1rem; height: 1.1rem; flex: none; fill: none; stroke: #6f6a64; stroke-width: 2; stroke-linecap: round; }
+.zp__suche input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font: 400 .95rem "Poppins", sans-serif; color: #1a1817; }
+.zp__raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.2rem; margin-top: 2.4rem; }
+.zp__raster[hidden], .zp__anlaesse[hidden], .zp__leer[hidden], .zp__karte[hidden], .zp__anlaesse li[hidden] { display: none !important; }
+.zp__karte { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e7e4df; border-radius: 18px; background: #fff; color: #1a1817; text-decoration: none; transition: border-color .15s ease, transform .15s ease; }
+.zp__karte:hover { border-color: #1a1817; transform: translateY(-2px); }
+.zp__bild { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #f6f5f2; border-bottom: 1px solid #e7e4df; }
+.zp__bild img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+.zp__text { display: block; padding: 1.1rem 3.2rem 1.2rem 1.2rem; }
+.zp__text small { display: block; color: #6f6a64; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.zp__text b { display: block; margin-top: .3rem; font-family: "Lora", Georgia, serif; font-size: 1.3rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+.zp__pfeil { position: absolute; right: 1.1rem; bottom: 1.3rem; width: 1.6rem; height: 1.6rem; padding: .3rem; border-radius: 50%; background: #fff400; fill: none; stroke: #1a1817; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+html body.e2 main .zp__anlaesse { margin: 2.4rem 0 0; padding: 0; list-style: none; columns: 2; column-gap: 3rem; }
+.zp__anlaesse li { break-inside: avoid; border-top: 1px solid #e7e4df; }
+.zp__anlaesse a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; align-items: center; padding: 1rem 0; color: #1a1817; text-decoration: none; }
+.zp__anlaesse span { font-weight: 600; line-height: 1.35; }
+.zp__anlaesse em { grid-column: 1; font-style: normal; color: #6f6a64; font-size: .9rem; }
+.zp__anlaesse svg { grid-column: 2; grid-row: 1 / span 2; width: 1.2rem; height: 1.2rem; fill: none; stroke: #1a1817; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.zp__anlaesse a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+html body.e2 main .zp__leer { margin-top: 2.4rem; color: #3d3a37; }
+.zp-band { padding: 4.5rem 0; background: #fff; }
+.zp-band__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2rem; }
+.zp-band h2 { font-size: clamp(2rem, 4vw, 3rem); }
+@media (max-width: 760px) { html body.e2 main .zp__anlaesse { columns: 1; } .zp__suche { flex-basis: 100%; } }
+@media (max-width: 640px) {
+  .zp__tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
+  .zp__tabs button { flex: none; padding: .6rem 1rem; }
+  .zp__raster { grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: 1.6rem; }
+  .zp__karte { flex-direction: row; align-items: center; border-radius: 14px; }
+  .zp__bild { width: 6.5rem; flex: none; border-bottom: 0; border-right: 1px solid #e7e4df; }
+  .zp__text { padding: .8rem 3rem .8rem 1rem; }
+  .zp__text b { font-size: 1.05rem; }
+  .zp__pfeil { top: 50%; bottom: auto; transform: translateY(-50%); }
+}
 /* .e2 main p setzt margin:0 – Abstände daher mit höherer Spezifität */
 html body.e2 main .s6-kompass p:not(.s6-kompass__frage):not(.s6-kompass__ergebnis) { margin-top: 1rem; }
 html body.e2 main .s6-termin__text { margin-top: 1.2rem; }
@@ -559,6 +613,88 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <div class="kg"><div class="container"><div class="wrap" id="app"></div></div></div>
 </main>
 <script src="{{ A }}/kompass/kompass-g.js"></script>
+{% elif s.slug == "zielgruppenpakete" %}
+{#- Übersicht der Zielgruppenpakete. Daten aus _data/zielgruppen.json (Name, Bild) und
+    _data/vertriebsstrecken.json (Segment, Anlässe) – neue Zielgruppen erscheinen automatisch. -#}
+{%- set nPrivat = 0 %}{% set nGewerbe = 0 -%}
+{%- for v in vertriebsstrecken.zielgruppen %}{% if v.filter == "privat" %}{% set nPrivat = nPrivat + 1 %}{% elif v.filter == "gewerbe" %}{% set nGewerbe = nGewerbe + 1 %}{% endif %}{% endfor -%}
+<main>
+<div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
+  <section class="e2-kopf" id="intro"><div class="e2-wrap e2-kopf__raster">
+  <div class="e2-kopf__text"><h1>Zielgruppenpakete. <span class="hl">Fertig für dich.</span></h1>
+    <div class="e2-kopf__inhalt"><p>{{ zielgruppen | length }} Zielgruppen – {{ nPrivat }} für Privatkunden, {{ nGewerbe }} für Firmenkunden. Jede mit Landingpage, Postings und Kundenmailings. Laufend kommen neue dazu.</p></div>
+    <div class="e2-knoepfe"><a class="e2-knopf" href="#uebersicht">Zur Übersicht <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/strategiekompass/">Passende finden</a></div></div>
+  <div class="e2-kopfbild e2-kopfbild--foto"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
+</div></section>
+
+  <section class="zp" id="uebersicht">
+    <div class="container">
+      <div class="zp__leiste">
+        <div class="zp__tabs" role="tablist" aria-label="Zielgruppen filtern">
+          <button type="button" role="tab" data-tab="privat" aria-selected="true">Privatkunden <span>{{ nPrivat }}</span></button>
+          <button type="button" role="tab" data-tab="gewerbe" aria-selected="false">Firmenkunden <span>{{ nGewerbe }}</span></button>
+          <button type="button" role="tab" data-tab="anlass" aria-selected="false">Nach Anlass <span>{{ vertriebsstrecken.anlaesse | length }}</span></button>
+        </div>
+        <label class="zp__suche"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Zielgruppe oder Anlass suchen" aria-label="Zielgruppe oder Anlass suchen" data-suche></label>
+      </div>
+
+      <div class="zp__raster" data-raster>
+        {%- for z in zielgruppen | sort(false, false, "name") %}
+        {%- set seg = "" %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + z.slug %}{% set seg = v.filter %}{% endif %}{% endfor -%}
+        {%- set such = z.name -%}
+        {%- for a in vertriebsstrecken.anlaesse %}{% if a.href == "/zielgruppen/" + z.slug %}{% set such = such + " " + a.label %}{% endif %}{% endfor %}
+        <a class="zp__karte" href="/zielgruppen/{{ z.slug }}" data-seg="{{ seg }}" data-such="{{ such | lower }}">
+          <span class="zp__bild"><img src="/assets/img/{{ z.styles[0].image }}" alt="" loading="lazy"></span>
+          <span class="zp__text"><small>{{ "Privatkunden" if seg == "privat" else "Firmenkunden" }}</small><b>{{ z.name }}</b></span>
+          <svg class="zp__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        {%- endfor %}
+      </div>
+
+      <ul class="zp__anlaesse" data-anlaesse hidden>
+        {%- for a in vertriebsstrecken.anlaesse | sort(false, false, "label") %}
+        {%- set zslug = a.href | replace("/zielgruppen/", "") -%}
+        {%- set zname = "" %}{% for z in zielgruppen %}{% if z.slug == zslug %}{% set zname = z.name %}{% endif %}{% endfor %}
+        <li data-such="{{ (a.label + " " + zname) | lower }}"><a href="{{ a.href }}"><span>{{ a.label }}</span><em>{{ zname }}</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        {%- endfor %}
+      </ul>
+      <p class="zp__leer" data-leer hidden>Keine Zielgruppe gefunden. <a href="{{ B }}/kontakt/">Frag uns – wir bauen laufend neue.</a></p>
+    </div>
+  </section>
+
+  <section class="zp-band">
+    <div class="container zp-band__in">
+      <h2 class="h-serif">Nicht sicher, welche passen?</h2>
+      <a class="e2-knopf" href="{{ B }}/strategiekompass/">Zum Strategiekompass <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+</div>
+</main>
+<script>
+(function () {
+  var tabs = document.querySelectorAll("[data-tab]"), raster = document.querySelector("[data-raster]"),
+      anl = document.querySelector("[data-anlaesse]"), suche = document.querySelector("[data-suche]"),
+      leer = document.querySelector("[data-leer]"), tab = "privat";
+  function zeigen() {
+    var q = (suche.value || "").trim().toLowerCase(), n = 0;
+    var aufAnlass = tab === "anlass";
+    raster.hidden = aufAnlass; anl.hidden = !aufAnlass; raster.classList.toggle("zp--gemischt", !!q);
+    if (aufAnlass) {
+      anl.querySelectorAll("li").forEach(function (li) { var ok = !q || li.dataset.such.indexOf(q) >= 0; li.hidden = !ok; if (ok) n++; });
+    } else {
+      raster.querySelectorAll(".zp__karte").forEach(function (k) {
+        var ok = q ? k.dataset.such.indexOf(q) >= 0 : k.dataset.seg === tab; k.hidden = !ok; if (ok) n++;
+      });
+    }
+    leer.hidden = n > 0;
+  }
+  tabs.forEach(function (b) { b.addEventListener("click", function () {
+    tab = b.dataset.tab; tabs.forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); }); zeigen();
+  }); });
+  suche.addEventListener("input", zeigen);
+  zeigen();
+})();
+</script>
 {% elif s.slug == "kontakt" %}
 <main>
   <section class="kontakt-standalone s6-ks s6-ks--seite">
