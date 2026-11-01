@@ -1,6 +1,6 @@
 /* Strategiekompass im Corporate Design von Story 6 (empiria-Grundstil).
    Aufbau und Logik bleiben Variante G – nur die Gestaltung ändert sich.
-   .kg--cd = gemeinsame CD-Regeln · .kg--klar / .kg--gelb / .kg--schwarz = die drei Varianten. */
+   .kg--cd = gemeinsame CD-Regeln · .kg--klar = gewählte Variante „Klar“ (01.11.2026). */
 
 /* ---------- gemeinsam ---------- */
 .kg.kg--cd{--ink:#1a1817;--ink-2:#3d3a37;--ink-3:#6f6a64;--line:#e7e4df;--line-2:#efece8;--panel:#f6f5f2;--sel:#1a1817;--link:#1a1817;--gelb:#fff400;--warn:#8a5a12}
@@ -36,62 +36,3 @@ html body.e2 .kg.kg--cd .summary h3{font-size:1.6rem !important}
 .kg--klar .summary .btn{background:var(--gelb);color:var(--ink)}
 .kg--klar .summary .btn:disabled{background:#3d3a37;color:#9b958e}
 .kg--klar .summary .fine{color:#9b958e}
-
-/* ---------- 2 · Gelb: der ganze Kompass als gelber Raum, weiße Kacheln, Auswahl schwarz ---------- */
-.kg--gelb{background:var(--gelb);padding-bottom:4rem}
-.kg--gelb{--line:rgba(26,24,23,.18);--line-2:rgba(26,24,23,.14)}
-html body.e2 .kg--gelb .hero h1 .hl{background:var(--ink) !important;color:var(--gelb) !important}
-.kg--gelb .q .sub{color:var(--ink-2)}
-.kg--gelb .tile{background:#fff;border-color:#fff}
-.kg--gelb .tile:hover{border-color:var(--ink)}
-.kg--gelb .tile[aria-checked="true"],.kg--gelb .tile[aria-pressed="true"]{background:var(--ink);border:2px solid var(--ink);color:#fff}
-.kg--gelb .tile[aria-checked="true"] span,.kg--gelb .tile[aria-pressed="true"] span{color:#cfcac3}
-.kg--gelb .tile[aria-checked="true"] .ic,.kg--gelb .tile[aria-pressed="true"] .ic{color:var(--gelb)}
-.kg--gelb .tile[aria-pressed="true"] .ck{background:var(--gelb);border-color:var(--gelb);color:var(--ink)}
-.kg--gelb .rows{background:#fff;border:0;border-radius:18px;padding:0 1.2rem}
-.kg--gelb .row:last-child{border-bottom:0}
-.kg--gelb .radio[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--gelb)}
-.kg--gelb .rd{color:var(--ink-2)}
-.kg--gelb .summary{background:var(--ink);color:#fff}
-.kg--gelb .summary h3{color:#fff}
-.kg--gelb .summary .satz{color:#cfcac3}
-.kg--gelb .summary .satz b{color:#fff}
-.kg--gelb .summary .lbl{color:#9b958e;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
-.kg--gelb .summary li{border-color:#3d3a37;color:#fff}
-.kg--gelb .summary li small{color:#9b958e}
-.kg--gelb .price span,.kg--gelb .price b small{color:#cfcac3}
-.kg--gelb .price b{color:var(--gelb)}
-.kg--gelb .summary .btn{background:var(--gelb);color:var(--ink)}
-.kg--gelb .summary .btn:disabled{background:#3d3a37;color:#9b958e}
-.kg--gelb .summary .fine{color:#9b958e}
-
-/* ---------- 3 · Schwarz: Studio-Look, dunkle Kacheln, Auswahl gelb, Zusammenfassung als gelbe Karte ---------- */
-.kg--schwarz{background:var(--ink);color:#fff;padding-bottom:4rem}
-.kg--schwarz{--line:#3d3a37;--line-2:#2e2b29}
-html body.e2 .kg--schwarz :is(h1,h2,h3){color:#fff !important}
-.kg--schwarz .hero .eyebrow{color:var(--gelb)}
-.kg--schwarz .q .sub,.kg--schwarz .rn small{color:#9b958e}
-.kg--schwarz .tile{background:#252220;border-color:#252220;color:#fff}
-.kg--schwarz .tile span{color:#bdb7af}
-.kg--schwarz .tile .ic{color:#fff}
-.kg--schwarz .tile:hover{border-color:#6f6a64}
-.kg--schwarz .tile[aria-checked="true"],.kg--schwarz .tile[aria-pressed="true"]{background:var(--gelb);border:2px solid var(--gelb);color:var(--ink)}
-.kg--schwarz .tile[aria-checked="true"] span,.kg--schwarz .tile[aria-pressed="true"] span{color:var(--ink-2)}
-.kg--schwarz .tile[aria-checked="true"] .ic,.kg--schwarz .tile[aria-pressed="true"] .ic{color:var(--ink)}
-.kg--schwarz .tile .ck{border-color:#6f6a64}
-.kg--schwarz .tile[aria-pressed="true"] .ck{background:var(--ink);border-color:var(--ink);color:var(--gelb)}
-.kg--schwarz .textlink{color:#fff}
-.kg--schwarz .rn{color:#fff}
-.kg--schwarz .radio{border-color:#6f6a64}
-.kg--schwarz .radio[aria-checked="true"]{background:var(--gelb);border-color:var(--gelb);color:var(--ink)}
-.kg--schwarz .rd{color:#bdb7af}
-.kg--schwarz .rd h4{color:#9b958e}
-.kg--schwarz .rd b{color:#fff !important}
-.kg--schwarz .rd .warn{color:#e9c46a}
-.kg--schwarz .summary{background:var(--gelb);color:var(--ink)}
-.kg--schwarz .summary .lbl{color:var(--ink-2);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
-.kg--schwarz .summary li{border-color:rgba(26,24,23,.2)}
-.kg--schwarz .summary li small,.kg--schwarz .price span,.kg--schwarz .price b small,.kg--schwarz .summary .fine{color:var(--ink-2)}
-html body.e2 .kg--schwarz .summary h3{color:var(--ink) !important}
-.kg--schwarz .summary .btn{background:var(--ink);color:#fff}
-.kg--schwarz .summary .btn:disabled{background:rgba(26,24,23,.25);color:var(--ink-2)}

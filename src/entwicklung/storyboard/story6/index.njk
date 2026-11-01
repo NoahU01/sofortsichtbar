@@ -11,15 +11,6 @@ seiten:
   - slug: "strategiekompass"
     titel: "Strategiekompass"
     kompass: "klar"
-  - slug: "strategiekompass-gelb"
-    titel: "Strategiekompass · Gelb"
-    kompass: "gelb"
-  - slug: "strategiekompass-schwarz"
-    titel: "Strategiekompass · Schwarz"
-    kompass: "schwarz"
-  - slug: "strategiekompass-g"
-    titel: "Strategiekompass · G unverändert"
-    kompass: "g"
   - slug: "anwendungsfaelle"
     titel: "Anwendungsfälle"
     h1: 'Anwendungsfälle. <span class="hl">Aus dem Alltag.</span>'
@@ -34,6 +25,8 @@ seiten:
     text: "Hier zeigen wir, wie Logo, Farben, Bilder und Kontaktdaten in jedes Paket einfließen, damit alles nach deiner Agentur aussieht."
   - slug: "kontakt"
     titel: "Kontakt"
+  - slug: "anspracheanlaesse"
+    titel: "Anspracheanlässe"
   - slug: "ueber-uns"
     titel: "Über uns"
     h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
@@ -62,30 +55,55 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="stylesheet" href="{{ A }}/css/schwarzgelb-ergaenzung.css">
 <link rel="stylesheet" href="{{ A }}/css/sofort-sichtbar-seite.css">
 <link rel="stylesheet" href="{{ A }}/css/kontakt.css">
-{% if s.kompass %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-g.css">{% if s.kompass != "g" %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-cd.css">{% endif %}{% endif %}
+{% if s.kompass %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-g.css"><link rel="stylesheet" href="{{ A }}/kompass/kompass-cd.css">{% endif %}
 <style>
 /* Ergänzungen Story 6 – nur, was das Vorbild nicht mitbringt */
+/* Entwicklungsmenü am Logo */
+.s6-marke { display: flex; align-items: center; gap: .35rem; flex: 0 0 auto; }
+.s6-dd { position: relative; }
+.s6-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: #6f6a64; cursor: pointer; }
+.s6-dd__auf:hover, .s6-dd__auf[aria-expanded="true"] { background: #f6f5f2; color: #1a1817; }
+.s6-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; transition: transform .2s ease; }
+.s6-dd__auf[aria-expanded="true"] svg { transform: rotate(180deg); }
+.s6-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem; max-height: calc(100vh - 140px); overflow-y: auto; padding: .7rem; border: 1px solid #e7e4df; border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s6-dd__panel[hidden] { display: none; }
+.s6-dd__hinweis { margin: 0 0 .5rem !important; padding: .7rem .8rem; border-radius: 10px; background: #fff400; color: #1a1817; font-size: .78rem; line-height: 1.45; }
+.s6-dd__gruppe { margin: .7rem .8rem .2rem !important; color: #6f6a64; font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.s6-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: #1a1817; font-size: .9rem; text-decoration: none; }
+.s6-dd__panel a:hover { background: #f6f5f2; }
+.s6-dd__panel a[aria-current="page"] { font-weight: 600; background: #f6f5f2; }
+/* Entwicklungsmenü-Ende */
+
 .s6-dev { background: #1a1817; color: #cfcac3; font-size: 12.5px; }
 .s6-dev .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding-top: .45rem; padding-bottom: .45rem; }
 .s6-dev b { color: #fff; font-weight: 600; }
 .s6-dev a { color: #fff400; text-decoration: none; }
-.s6-dev__var { justify-content: flex-start !important; gap: .4rem 1.2rem !important; border-top: 1px solid #3d3a37; }
-.s6-dev__var a { color: #cfcac3; }
-.s6-dev__var a[aria-current="page"] { color: #1a1817; background: #fff400; padding: 0 .5rem; border-radius: 4px; }
 .site-header .brand img { height: 2.5rem; width: auto; max-width: none; } /* wie .nav__logo auf sofortsichtbar.de */
 .nav-links a[aria-current="page"] { font-weight: 600; }
 .e2v-held__pfeil.s6-mockup { width: min(100%, 34rem) !important; }
 .e2v-held__pfeil.s6-mockup img { display: block; width: 100%; height: auto; }
-/* Einstieg Strategiekompass (Startseite): Kicker, eine Frage, drei Antworten – sonst nichts */
-.s6-kompass { padding: 6.5rem 0; background: #1a1817; color: #fff; }
-html body .e2-alt.e2-alt.e2-alt.e2-alt .s6-kompass .kicker { color: #fff400 !important; }
-html body.e2 .s6-kompass .kicker::before { background: #fff400; }
-html body .e2-alt.e2-alt.e2-alt.e2-alt .s6-kompass h2 { color: #fff !important; font-size: clamp(2.2rem, 4.6vw, 3.8rem) !important; line-height: 1.1 !important; }
-.s6-kompass__wahl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
-.s6-kompass__wahl a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.6rem 1.8rem; border: 2px solid #fff; border-radius: 999px; color: #fff; font: 600 1.25rem/1 "Poppins", sans-serif; text-decoration: none; transition: background .15s ease, color .15s ease, border-color .15s ease; }
-.s6-kompass__wahl a:hover, .s6-kompass__wahl a:focus-visible { background: #fff400; border-color: #fff400; color: #1a1817; }
-.s6-kompass__wahl svg { width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-@media (max-width: 760px) { .s6-kompass__wahl { grid-template-columns: minmax(0, 1fr); } .s6-kompass__wahl a { padding: 1.3rem 1.5rem; font-size: 1.1rem; } }
+/* Einstieg Strategiekompass (Startseite): hell, Kicker · Headline · ein Satz · ein Knopf, rechts eine wortlose Vorschau im Look der Kompass-Seite */
+.s6-kompass { padding: 6.5rem 0; background: #f6f5f2; }
+.s6-kompass__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+html body .e2-alt.e2-alt.e2-alt.e2-alt .s6-kompass h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem) !important; line-height: 1.22 !important; max-width: 17ch; }
+html body.e2 main .s6-kompass__lead { margin-top: 1.4rem; max-width: 30rem; color: #3d3a37; font-size: 1.15rem; line-height: 1.6; }
+html body.e2 main .s6-kompass .e2-knopf { margin-top: 2rem; }
+/* Vorschau: dieselben Bausteine wie auf der Kompass-Seite (Kachel mit schwarzem Rahmen, schwarze Strategie-Karte, gelber Knopf) – ohne Text */
+.s6-vorschau { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.2rem; padding: 1.6rem; border-radius: 22px; background: #fff; text-decoration: none; transition: transform .2s ease; }
+.s6-vorschau:hover { transform: translateY(-4px); }
+.s6-vorschau__links { display: grid; gap: .8rem; align-content: start; }
+.s6-vorschau__frage { display: block; width: 70%; height: .9rem; border-radius: 99px; background: #1a1817; }
+.s6-vorschau__frage--kurz { width: 55%; margin-top: .6rem; }
+.s6-vorschau__kacheln { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.s6-vorschau__kacheln i { position: relative; display: block; aspect-ratio: 4 / 3; border: 1.5px solid #e7e4df; border-radius: 10px; }
+.s6-vorschau__kacheln i.an { border: 2px solid #1a1817; }
+.s6-vorschau__kacheln i.an::after { content: ""; position: absolute; top: .4rem; right: .4rem; width: .8rem; height: .8rem; border-radius: 50%; background: #1a1817; box-shadow: inset 0 0 0 .22rem #1a1817, inset 0 0 0 .4rem #fff400; }
+.s6-vorschau__karte { display: grid; gap: .6rem; align-content: start; padding: 1.1rem; border-radius: 14px; background: #1a1817; }
+.s6-vorschau__karte b { color: #fff; font: 700 1.05rem/1.2 "Lora", Georgia, serif; }
+.s6-vorschau__zeile { display: block; height: .45rem; border-radius: 99px; background: #3d3a37; }
+.s6-vorschau__zeile--kurz { width: 60%; }
+.s6-vorschau__knopf { display: block; height: 1.6rem; margin-top: .6rem; border-radius: 99px; background: #fff400; }
+@media (max-width: 900px) { .s6-kompass__raster { grid-template-columns: minmax(0, 1fr); } }
 /* Termin */
 .s6-termin { padding: 6rem 0; background: #fff; }
 .s6-termin__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
@@ -136,6 +154,14 @@ html body.e2 .s6-ks--seite .kontakt-standalone-side { margin-top: 6.49rem; }
 @media (max-width: 900px) {
   html body.e2 .s6-ks .kontakt-standalone-side { margin-top: 1.6rem; }
 }
+/* Anspracheanlässe (intern) */
+.aa__liste > li { padding-bottom: 1rem; }
+.aa__liste > li > a { padding-bottom: .4rem; }
+html body.e2 main .aa__anlaesse { margin: 0; padding: 0 0 0 1rem; list-style: none; border-left: 3px solid #fff400; }
+.aa__anlaesse li { border: 0 !important; padding: .15rem 0; color: #3d3a37; font-size: .95rem; line-height: 1.45; }
+.aa__anlaesse li.aa__leer { color: #9b958e; font-style: italic; }
+html body.e2 main .aa__quelle { margin-top: 3rem; color: #6f6a64; font-size: .85rem; }
+
 /* Zielgruppenpakete: Verzeichnis in zwei Spalten. Je Ebene eine Schrift, zwei Größen, zwei Farben. */
 .zp-kopf { padding-bottom: 3.5rem !important; }
 html body.e2 .zp-kopf h1 { font-size: clamp(2rem, 8.4vw, 6rem) !important; line-height: 1.12 !important; }
@@ -339,11 +365,23 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </defs>
 </svg>
 {%- set nav = [["strategiekompass","Strategiekompass"],["zielgruppenpakete","Zielgruppenpakete"],["anwendungsfaelle","Anwendungsfälle"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
-<div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div>
-{% if s.kompass %}<div class="container s6-dev__var"><span>Kompass-Varianten:</span>{% for v in [["strategiekompass","1 · Klar"],["strategiekompass-gelb","2 · Gelb"],["strategiekompass-schwarz","3 · Schwarz"],["strategiekompass-g","G unverändert"]] %}<a href="{{ B }}/{{ v[0] }}/"{% if s.slug == v[0] %} aria-current="page"{% endif %}>{{ v[1] }}</a>{% endfor %}</div>{% endif %}</div>
+<div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div></div>
 <header class="site-header" id="top">
   <div class="container nav">
-    <a class="brand" href="{{ B }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ A }}/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+    <div class="s6-marke">
+      <a class="brand" href="{{ B }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ A }}/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+      {#- Entwicklungsmenü (nur Entwicklungsumgebung – Story 6 liegt komplett unter /entwicklung/). Einträge aus site.json (devOnly). -#}
+      <div class="s6-dd" data-s6-dd>
+        <button type="button" class="s6-dd__auf" aria-expanded="false" aria-controls="s6-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
+        <div class="s6-dd__panel" id="s6-dd-panel" hidden>
+          {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
+          {%- if c.typ == "hinweis" %}<p class="s6-dd__hinweis">{{ c.text }}</p>
+          {%- elif c.typ == "gruppe" %}<p class="s6-dd__gruppe">{{ c.label }}</p>
+          {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
+          {%- endfor %}{% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
     <nav class="nav-links" aria-label="Hauptnavigation">
       {%- for n in nav %}
       <a href="{{ B }}/{{ n[0] }}/"{% if s.slug == n[0] or (n[0] == "strategiekompass" and s.kompass) %} aria-current="page"{% endif %}>{{ n[1] }}</a>
@@ -372,16 +410,28 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 </div></section>
 
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
-  <!-- ===== Einstieg in den Strategiekompass: die erste Frage ist der Abschnitt ===== -->
+  <!-- ===== Einstieg in den Strategiekompass: hell, kurz erklärt, Vorschau im Look der Kompass-Seite ===== -->
   <section class="s6-kompass" id="kompass">
-    <div class="container">
-      <p class="kicker">Strategiekompass · Frage 1 von 3</p>
-      <h2 class="h-serif">Wen willst du erreichen?</h2>
-      <div class="s6-kompass__wahl">
-        <a href="{{ B }}/strategiekompass/?seg=Privat#app">Privatkunden<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="{{ B }}/strategiekompass/?seg=Gewerbe#app">Firmenkunden<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="{{ B }}/strategiekompass/?seg=Beides#app">Beides<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="container s6-kompass__raster">
+      <div>
+        <p class="kicker">Strategiekompass</p>
+        <h2 class="h-serif">Welche Zielgruppen passen <span class="hl">zu dir?</span></h2>
+        <p class="s6-kompass__lead">Drei Fragen zu deinen Zielen – und du siehst sofort, mit welchen Zielgruppen du wachsen kannst.</p>
+        <a class="e2-knopf" href="{{ B }}/strategiekompass/">Strategiekompass starten <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+      <a class="s6-vorschau" href="{{ B }}/strategiekompass/" aria-label="Zum Strategiekompass">
+        <span class="s6-vorschau__links">
+          <span class="s6-vorschau__frage"></span>
+          <span class="s6-vorschau__kacheln"><i class="an"></i><i></i><i></i></span>
+          <span class="s6-vorschau__frage s6-vorschau__frage--kurz"></span>
+          <span class="s6-vorschau__kacheln"><i class="an"></i><i class="an"></i><i></i></span>
+        </span>
+        <span class="s6-vorschau__karte">
+          <b>Deine Strategie</b>
+          <span class="s6-vorschau__zeile"></span><span class="s6-vorschau__zeile"></span><span class="s6-vorschau__zeile s6-vorschau__zeile--kurz"></span>
+          <span class="s6-vorschau__knopf"></span>
+        </span>
+      </a>
     </div>
   </section>
 
@@ -582,7 +632,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 </main>
 {% elif s.kompass %}
 <main>
-  <div class="kg{% if s.kompass != "g" %} kg--cd kg--{{ s.kompass }}{% endif %}"><div class="container"><div class="wrap" id="app"></div></div></div>
+  <div class="kg kg--cd kg--klar"><div class="container"><div class="wrap" id="app"></div></div></div>
 </main>
 <script src="{{ A }}/kompass/kompass-g.js"></script>
 {% elif s.slug == "zielgruppenpakete" %}
@@ -628,6 +678,49 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <a class="zp-band__knopf" href="{{ B }}/strategiekompass/">Zum Strategiekompass<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </section>
+</div>
+</main>
+{% elif s.slug == "anspracheanlaesse" %}
+{#- Interne Seite (nur im Entwicklungsmenü): welche Anspracheanlässe zu welcher Zielgruppe gehören.
+    Daten aus _data/vertriebsstrecken.json (anlaesse → href der Zielgruppenseite). -#}
+<main>
+<div class="zp-seite">
+  <section class="e2-kopf zp-kopf"><div class="e2-wrap">
+    <h1>Anspracheanlässe. <span class="hl">Wer wann zuhört.</span></h1>
+    <p class="zp-kopf__lead">Welcher Anlass zu welcher Zielgruppe gehört – {{ vertriebsstrecken.anlaesse | length }} Anlässe für {{ zielgruppen | length }} Zielgruppen. Intern, nicht auf der Startseite.</p>
+  </div></section>
+
+  <section class="zp">
+    <div class="container zp__spalten">
+      {%- for seg in [["privat","Privatkunden"],["gewerbe","Firmenkunden"]] %}
+      <div class="zp__spalte">
+        <h2 class="h-serif">{{ seg[1] }}</h2>
+        <ul class="zp__liste aa__liste">
+          {%- for z in zielgruppen | sort(false, false, "name") %}
+          {%- set zseg = "" %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + z.slug %}{% set zseg = v.filter %}{% endif %}{% endfor %}
+          {%- if zseg == seg[0] %}
+          <li>
+            <a href="/zielgruppen/{{ z.slug }}"><span>{{ z.name }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            {%- set anz = 0 %}
+            <ul class="aa__anlaesse">
+              {%- for a in vertriebsstrecken.anlaesse %}{% if a.href == "/zielgruppen/" + z.slug %}{% set anz = anz + 1 %}<li>{{ a.label }}</li>{% endif %}{% endfor %}
+              {%- if anz == 0 %}<li class="aa__leer">Noch kein Anlass hinterlegt</li>{% endif %}
+            </ul>
+          </li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="container"><p class="aa__quelle">Quelle: <code>src/_data/vertriebsstrecken.json</code>, Feld „anlaesse“. Neue Anlässe dort eintragen, die Seite aktualisiert sich selbst.</p></div>
+  </section>
+  <script>
+    document.querySelectorAll(".zp__liste").forEach(function (ul) {
+      var c = new Intl.Collator("de");
+      Array.from(ul.children).sort(function (a, b) { return c.compare(a.querySelector("span").textContent.trim(), b.querySelector("span").textContent.trim()); }).forEach(function (li) { ul.appendChild(li); });
+    });
+  </script>
 </div>
 </main>
 {% elif s.slug == "kontakt" %}
@@ -738,6 +831,16 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     t.setAttribute("aria-expanded", auf ? "true" : "false");
   });
   m.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { m.classList.remove("open"); t.setAttribute("aria-expanded", "false"); }); });
+})();
+</script>
+<script>
+(function () {
+  var dd = document.querySelector("[data-s6-dd]"); if (!dd) return;
+  var auf = dd.querySelector(".s6-dd__auf"), panel = dd.querySelector(".s6-dd__panel");
+  function zu() { panel.hidden = true; auf.setAttribute("aria-expanded", "false"); }
+  auf.addEventListener("click", function (e) { e.stopPropagation(); var offen = panel.hidden; panel.hidden = !offen; auf.setAttribute("aria-expanded", offen ? "true" : "false"); });
+  document.addEventListener("click", function (e) { if (!dd.contains(e.target)) zu(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") zu(); });
 })();
 </script>
 </body>
