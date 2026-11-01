@@ -76,26 +76,16 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 .nav-links a[aria-current="page"] { font-weight: 600; }
 .e2v-held__pfeil.s6-mockup { width: min(100%, 34rem) !important; }
 .e2v-held__pfeil.s6-mockup img { display: block; width: 100%; height: auto; }
-/* Einstieg Strategiekompass (Startseite) */
-.s6-kompass { padding: 6rem 0; background: #f6f5f2; }
-.s6-kompass__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-.s6-kompass h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); max-width: 14ch; }
-html body.e2 main .s6-kompass__schritte { margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: k; }
-.s6-kompass__schritte li { counter-increment: k; display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); column-gap: 1rem; padding: 1rem 0; border-top: 1px solid #e7e4df; color: #3d3a37; font-size: .98rem; line-height: 1.5; }
-.s6-kompass__schritte li::before { content: counter(k); grid-row: 1 / span 2; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #fff400; color: #1a1817; font: 700 1.1rem "Lora", Georgia, serif; }
-.s6-kompass__schritte b { display: block; color: #1a1817; font-weight: 600; font-size: 1.05rem; }
-html body.e2 main .s6-kompass__ende { margin-top: 1.2rem; color: #1a1817; font-weight: 600; }
-.s6-kompass__karte { padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 22px; background: #1a1817; color: #fff; }
-.s6-kompass__frage1 { color: #fff400; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-html body.e2 .s6-kompass__karte h3 { margin-top: .6rem; color: #fff; font-size: clamp(1.7rem, 2.8vw, 2.2rem); }
-.s6-kompass__wahl { display: grid; gap: .7rem; margin-top: 1.6rem; }
-.s6-kompass__wahl a { position: relative; display: block; padding: 1.1rem 3.6rem 1.1rem 1.2rem; border-radius: 16px; background: #fff; color: #1a1817; text-decoration: none; transition: background .15s ease, transform .15s ease; }
-.s6-kompass__wahl a:hover { background: #fff400; transform: translateX(4px); }
-.s6-kompass__wahl b { display: block; font-weight: 600; font-size: 1.05rem; }
-.s6-kompass__wahl span { display: block; margin-top: .15rem; color: #6f6a64; font-size: .9rem; }
-.s6-kompass__wahl a:hover span { color: #3d3a37; }
-.s6-kompass__wahl svg { position: absolute; right: 1.2rem; top: 50%; width: 1.4rem; height: 1.4rem; transform: translateY(-50%); fill: none; stroke: #1a1817; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-html body.e2 main .s6-kompass__fuss { margin-top: 1.2rem; color: #9b958e; font-size: .88rem; }
+/* Einstieg Strategiekompass (Startseite): Kicker, eine Frage, drei Antworten – sonst nichts */
+.s6-kompass { padding: 6.5rem 0; background: #1a1817; color: #fff; }
+html body .e2-alt.e2-alt.e2-alt.e2-alt .s6-kompass .kicker { color: #fff400 !important; }
+html body.e2 .s6-kompass .kicker::before { background: #fff400; }
+html body .e2-alt.e2-alt.e2-alt.e2-alt .s6-kompass h2 { color: #fff !important; font-size: clamp(2.2rem, 4.6vw, 3.8rem) !important; line-height: 1.1 !important; }
+.s6-kompass__wahl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.s6-kompass__wahl a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.6rem 1.8rem; border: 2px solid #fff; border-radius: 999px; color: #fff; font: 600 1.25rem/1 "Poppins", sans-serif; text-decoration: none; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+.s6-kompass__wahl a:hover, .s6-kompass__wahl a:focus-visible { background: #fff400; border-color: #fff400; color: #1a1817; }
+.s6-kompass__wahl svg { width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 760px) { .s6-kompass__wahl { grid-template-columns: minmax(0, 1fr); } .s6-kompass__wahl a { padding: 1.3rem 1.5rem; font-size: 1.1rem; } }
 /* Termin */
 .s6-termin { padding: 6rem 0; background: #fff; }
 .s6-termin__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
@@ -146,67 +136,33 @@ html body.e2 .s6-ks--seite .kontakt-standalone-side { margin-top: 6.49rem; }
 @media (max-width: 900px) {
   html body.e2 .s6-ks .kontakt-standalone-side { margin-top: 1.6rem; }
 }
-/* Zielgruppenpakete */
-/* Die Übersicht ist der zweite Abschnitt – die empiria-Vorlage färbt ihn gelb (gewollt). */
-html body .e2-alt.e2-alt.e2-alt.e2-alt.e2-alt .e2-kopf .e2-knopf.e2-knopf.e2-knopf--rand { background: transparent !important; color: #1a1817 !important; border: 2px solid #1a1817 !important; }
-.zp__tabs { background: #fff !important; }
-.zp__suche { background: #fff; border-color: #fff !important; }
-.zp__suche:focus-within { border-color: #1a1817 !important; }
-.zp__leiste { border-bottom-color: rgba(26,24,23,.15) !important; }
-.zp__anlaesse li { border-top-color: rgba(26,24,23,.15) !important; }
-.zp__anlaesse em { color: #3d3a37 !important; }
-.zp__text small { display: none !important; }
-.zp__raster.zp--gemischt .zp__text small { display: block !important; }
-.zp { padding: 1rem 0 6rem; background: #fff; }
-.zp__leiste { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-bottom: 1.6rem; border-bottom: 1px solid #e7e4df; }
-.zp__tabs { display: inline-flex; flex-wrap: wrap; gap: .4rem; padding: .3rem; border-radius: 999px; background: #f6f5f2; }
-.zp__tabs button { display: inline-flex; align-items: center; gap: .5rem; padding: .65rem 1.2rem; border: 0; border-radius: 999px; background: none; color: #3d3a37; font: 600 .95rem/1 "Poppins", sans-serif; cursor: pointer; }
-.zp__tabs button span { display: grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 .35rem; border-radius: 999px; background: #e7e4df; color: #1a1817; font-size: .75rem; }
-.zp__tabs button[aria-selected="true"] { background: #1a1817; color: #fff; }
-.zp__tabs button[aria-selected="true"] span { background: #fff400; }
-.zp__suche { display: flex; align-items: center; gap: .6rem; flex: 0 1 22rem; padding: .7rem 1.1rem; border: 1.5px solid #e7e4df; border-radius: 999px; }
-.zp__suche:focus-within { border-color: #1a1817; }
-.zp__suche svg { width: 1.1rem; height: 1.1rem; flex: none; fill: none; stroke: #6f6a64; stroke-width: 2; stroke-linecap: round; }
-.zp__suche input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font: 400 .95rem "Poppins", sans-serif; color: #1a1817; }
-.zp__raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1.2rem; margin-top: 2.4rem; }
-.zp__raster[hidden], .zp__anlaesse[hidden], .zp__leer[hidden], .zp__karte[hidden], .zp__anlaesse li[hidden] { display: none !important; }
-.zp__karte { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e7e4df; border-radius: 18px; background: #fff; color: #1a1817; text-decoration: none; transition: border-color .15s ease, transform .15s ease; }
-.zp__karte:hover { border-color: #1a1817; transform: translateY(-2px); }
-.zp__bild { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #f6f5f2; border-bottom: 1px solid #e7e4df; }
-.zp__bild img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
-.zp__text { display: block; padding: 1.1rem 3.2rem 1.2rem 1.2rem; }
-.zp__text small { display: block; color: #6f6a64; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.zp__text b { display: block; margin-top: .3rem; font-family: "Lora", Georgia, serif; font-size: 1.3rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
-.zp__pfeil { position: absolute; right: 1.1rem; bottom: 1.3rem; width: 1.6rem; height: 1.6rem; padding: .3rem; border-radius: 50%; background: #fff400; fill: none; stroke: #1a1817; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-html body.e2 main .zp__anlaesse { margin: 2.4rem 0 0; padding: 0; list-style: none; columns: 2; column-gap: 3rem; }
-.zp__anlaesse li { break-inside: avoid; border-top: 1px solid #e7e4df; }
-.zp__anlaesse a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; align-items: center; padding: 1rem 0; color: #1a1817; text-decoration: none; }
-.zp__anlaesse span { font-weight: 600; line-height: 1.35; }
-.zp__anlaesse em { grid-column: 1; font-style: normal; color: #6f6a64; font-size: .9rem; }
-.zp__anlaesse svg { grid-column: 2; grid-row: 1 / span 2; width: 1.2rem; height: 1.2rem; fill: none; stroke: #1a1817; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.zp__anlaesse a:hover span { text-decoration: underline; text-underline-offset: 3px; }
-html body.e2 main .zp__leer { margin-top: 2.4rem; color: #3d3a37; }
-.zp-band { padding: 4.5rem 0; background: #fff; }
+/* Zielgruppenpakete: Verzeichnis in zwei Spalten. Je Ebene eine Schrift, zwei Größen, zwei Farben. */
+.zp-kopf { padding-bottom: 3.5rem !important; }
+html body.e2 .zp-kopf h1 { font-size: clamp(2rem, 8.4vw, 6rem) !important; line-height: 1.12 !important; }
+html body.e2 main .zp-kopf__lead { margin-top: 2.2rem; max-width: 52rem; color: #3d3a37; font-size: 1.2rem; line-height: 1.6; }
+.zp { padding: 1rem 0 7rem; background: #fff; }
+.zp__spalten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem clamp(3rem, 7vw, 6rem); }
+.zp__spalte h2 { padding-bottom: 1.2rem; border-bottom: 3px solid #1a1817; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+html body.e2 main .zp__liste { margin: 0; padding: 0; list-style: none; }
+.zp__liste li { border-bottom: 1px solid #e7e4df; }
+.zp__liste a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; color: #1a1817; text-decoration: none; }
+.zp__liste span { font-size: 1.2rem; font-weight: 500; line-height: 1.3; padding: 0 .1em; background: linear-gradient(transparent 62%, transparent 62%); transition: background .15s ease; }
+.zp__liste a:hover span, .zp__liste a:focus-visible span { background: linear-gradient(transparent 58%, #fff400 58%, #fff400 92%, transparent 92%); }
+.zp__liste svg { width: 1.3rem; height: 1.3rem; flex: none; fill: none; stroke: #1a1817; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s ease; }
+.zp__liste a:hover svg { transform: translateX(4px); }
+.zp-band { padding: 5rem 0; background: #1a1817; color: #fff; }
 .zp-band__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2rem; }
-.zp-band h2 { font-size: clamp(2rem, 4vw, 3rem); }
-@media (max-width: 760px) { html body.e2 main .zp__anlaesse { columns: 1; } .zp__suche { flex-basis: 100%; } }
-@media (max-width: 640px) {
-  .zp__tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
-  .zp__tabs button { flex: none; padding: .6rem 1rem; }
-  .zp__raster { grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: 1.6rem; }
-  .zp__karte { flex-direction: row; align-items: center; border-radius: 14px; }
-  .zp__bild { width: 6.5rem; flex: none; border-bottom: 0; border-right: 1px solid #e7e4df; }
-  .zp__text { padding: .8rem 3rem .8rem 1rem; }
-  .zp__text b { font-size: 1.05rem; }
-  .zp__pfeil { top: 50%; bottom: auto; transform: translateY(-50%); }
-}
+html body.e2 .zp-band h2 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); }
+.zp-band__knopf { display: inline-flex; align-items: center; gap: .8rem; padding: 1.1rem 1.8rem; border-radius: 999px; background: #fff400; color: #1a1817; font: 600 1.05rem/1 "Poppins", sans-serif; text-decoration: none; }
+.zp-band__knopf svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 760px) { .zp__spalten { grid-template-columns: minmax(0, 1fr); } .zp__liste span { font-size: 1.1rem; } }
 /* .e2 main p setzt margin:0 – Abstände daher mit höherer Spezifität */
 html body.e2 main .s6-termin__text { margin-top: 1.2rem; }
 html body.e2 main .s6-termin__karte p { margin-top: 1rem; }
 html body.e2 main .s6-termin__karte .e2-knopf { margin-top: 1.8rem; }
 html body.e2 main .s6-folgt p { margin-top: .8rem; }
 @media (max-width: 960px) {
-  .s6-kompass__raster, .s6-termin__raster { grid-template-columns: minmax(0, 1fr); }
+  .s6-termin__raster { grid-template-columns: minmax(0, 1fr); }
   .e2v-held__pfeil.s6-mockup { width: min(100%, 26rem) !important; }
 }
 @media (max-width: 640px) {
@@ -416,28 +372,15 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 </div></section>
 
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
-  <!-- ===== Einstieg in den Strategiekompass ===== -->
+  <!-- ===== Einstieg in den Strategiekompass: die erste Frage ist der Abschnitt ===== -->
   <section class="s6-kompass" id="kompass">
-    <div class="container s6-kompass__raster">
-      <div>
-        <p class="kicker">Strategiekompass</p>
-        <h2 class="h-serif">In drei Fragen zu deiner Strategie.</h2>
-        <ol class="s6-kompass__schritte">
-          <li><b>Wen willst du erreichen?</b>Privatkunden, Firmenkunden oder beide.</li>
-          <li><b>Wo willst du wachsen?</b>Die Sparten, in denen du zulegen willst.</li>
-          <li><b>Worauf legst du den Schwerpunkt?</b>Schneller Abschluss, Bestand, Kundenwert …</li>
-        </ol>
-        <p class="s6-kompass__ende">Am Ende stehen deine passenden Zielgruppen – und das Paket dazu.</p>
-      </div>
-      <div class="s6-kompass__karte">
-        <p class="s6-kompass__frage1">Frage 1 von 3</p>
-        <h3 class="h-serif">Wen willst du erreichen?</h3>
-        <div class="s6-kompass__wahl">
-          <a href="{{ B }}/strategiekompass/?seg=Privat#app"><b>Privatkunden</b><span>Familien, Berufseinsteiger, Bauherren …</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="{{ B }}/strategiekompass/?seg=Gewerbe#app"><b>Firmenkunden</b><span>Handwerk, Praxen, Kanzleien, Mittelstand …</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="{{ B }}/strategiekompass/?seg=Beides#app"><b>Beides</b><span>Privat- und Firmenkunden gleichermaßen</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <p class="s6-kompass__fuss">Weiter im Strategiekompass – kostenlos, ohne Anmeldung.</p>
+    <div class="container">
+      <p class="kicker">Strategiekompass · Frage 1 von 3</p>
+      <h2 class="h-serif">Wen willst du erreichen?</h2>
+      <div class="s6-kompass__wahl">
+        <a href="{{ B }}/strategiekompass/?seg=Privat#app">Privatkunden<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="{{ B }}/strategiekompass/?seg=Gewerbe#app">Firmenkunden<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="{{ B }}/strategiekompass/?seg=Beides#app">Beides<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -643,87 +586,50 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 </main>
 <script src="{{ A }}/kompass/kompass-g.js"></script>
 {% elif s.slug == "zielgruppenpakete" %}
-{#- Übersicht der Zielgruppenpakete. Daten aus _data/zielgruppen.json (Name, Bild) und
-    _data/vertriebsstrecken.json (Segment, Anlässe) – neue Zielgruppen erscheinen automatisch. -#}
-{%- set nPrivat = 0 %}{% set nGewerbe = 0 -%}
-{%- for v in vertriebsstrecken.zielgruppen %}{% if v.filter == "privat" %}{% set nPrivat = nPrivat + 1 %}{% elif v.filter == "gewerbe" %}{% set nGewerbe = nGewerbe + 1 %}{% endif %}{% endfor -%}
+{#- Übersicht der Zielgruppenpakete als Verzeichnis: zwei Spalten (Privat, Firmen), nur Namen.
+    Daten aus _data/zielgruppen.json und _data/vertriebsstrecken.json – neue Zielgruppen erscheinen automatisch.
+    Bewusst ohne Bildschirmfotos: Vorschaubilder gehören auf die Einzelseiten (nur Style „Elegant“, -style-3). -#}
 <main>
-<div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
-  <section class="e2-kopf" id="intro"><div class="e2-wrap e2-kopf__raster">
-  <div class="e2-kopf__text"><h1>Zielgruppenpakete. <span class="hl">Fertig für dich.</span></h1>
-    <div class="e2-kopf__inhalt"><p>{{ zielgruppen | length }} Zielgruppen – {{ nPrivat }} für Privatkunden, {{ nGewerbe }} für Firmenkunden. Jede mit Landingpage, Postings und Kundenmailings. Laufend kommen neue dazu.</p></div>
-    <div class="e2-knoepfe"><a class="e2-knopf" href="#uebersicht">Zur Übersicht <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/strategiekompass/">Passende finden</a></div></div>
-  <div class="e2-kopfbild e2-kopfbild--foto"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
-</div></section>
+<div class="zp-seite">
+  <section class="e2-kopf zp-kopf"><div class="e2-wrap">
+    <h1>Zielgruppenpakete. <span class="hl">Fertig für dich.</span></h1>
+    <p class="zp-kopf__lead">Jedes Paket: Landingpage, Postings und Kundenmailings – für genau eine Zielgruppe.</p>
+  </div></section>
 
-  <section class="zp" id="uebersicht">
-    <div class="container">
-      <div class="zp__leiste">
-        <div class="zp__tabs" role="tablist" aria-label="Zielgruppen filtern">
-          <button type="button" role="tab" data-tab="privat" aria-selected="true">Privatkunden <span>{{ nPrivat }}</span></button>
-          <button type="button" role="tab" data-tab="gewerbe" aria-selected="false">Firmenkunden <span>{{ nGewerbe }}</span></button>
-          <button type="button" role="tab" data-tab="anlass" aria-selected="false">Nach Anlass <span>{{ vertriebsstrecken.anlaesse | length }}</span></button>
-        </div>
-        <label class="zp__suche"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Zielgruppe oder Anlass suchen" aria-label="Zielgruppe oder Anlass suchen" data-suche></label>
+  <section class="zp">
+    <div class="container zp__spalten">
+      {%- for seg in [["privat","Privatkunden"],["gewerbe","Firmenkunden"]] %}
+      <div class="zp__spalte">
+        <h2 class="h-serif">{{ seg[1] }}</h2>
+        <ul class="zp__liste">
+          {%- for z in zielgruppen | sort(false, false, "name") %}
+          {%- set zseg = "" %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + z.slug %}{% set zseg = v.filter %}{% endif %}{% endfor %}
+          {%- if zseg == seg[0] %}
+          <li><a href="/zielgruppen/{{ z.slug }}"><span>{{ z.name }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
       </div>
-
-      <div class="zp__raster" data-raster>
-        {%- for z in zielgruppen | sort(false, false, "name") %}
-        {%- set seg = "" %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + z.slug %}{% set seg = v.filter %}{% endif %}{% endfor -%}
-        {%- set such = z.name -%}
-        {%- for a in vertriebsstrecken.anlaesse %}{% if a.href == "/zielgruppen/" + z.slug %}{% set such = such + " " + a.label %}{% endif %}{% endfor %}
-        <a class="zp__karte" href="/zielgruppen/{{ z.slug }}" data-seg="{{ seg }}" data-such="{{ such | lower }}">
-          <span class="zp__bild"><img src="/assets/img/{{ z.styles[0].image }}" alt="" loading="lazy"></span>
-          <span class="zp__text"><small>{{ "Privatkunden" if seg == "privat" else "Firmenkunden" }}</small><b>{{ z.name }}</b></span>
-          <svg class="zp__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        {%- endfor %}
-      </div>
-
-      <ul class="zp__anlaesse" data-anlaesse hidden>
-        {%- for a in vertriebsstrecken.anlaesse | sort(false, false, "label") %}
-        {%- set zslug = a.href | replace("/zielgruppen/", "") -%}
-        {%- set zname = "" %}{% for z in zielgruppen %}{% if z.slug == zslug %}{% set zname = z.name %}{% endif %}{% endfor %}
-        <li data-such="{{ (a.label + " " + zname) | lower }}"><a href="{{ a.href }}"><span>{{ a.label }}</span><em>{{ zname }}</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        {%- endfor %}
-      </ul>
-      <p class="zp__leer" data-leer hidden>Keine Zielgruppe gefunden. <a href="{{ B }}/kontakt/">Frage uns – wir bauen laufend neue.</a></p>
+      {%- endfor %}
     </div>
   </section>
 
+  <script>
+    /* Deutsche Sortierung (Ä wie A) – Nunjucks sortiert nach Zeichencode */
+    document.querySelectorAll(".zp__liste").forEach(function (ul) {
+      var c = new Intl.Collator("de");
+      Array.from(ul.children).sort(function (a, b) { return c.compare(a.textContent.trim(), b.textContent.trim()); }).forEach(function (li) { ul.appendChild(li); });
+    });
+  </script>
+
   <section class="zp-band">
     <div class="container zp-band__in">
-      <h2 class="h-serif">Nicht sicher, welche passen?</h2>
-      <a class="e2-knopf" href="{{ B }}/strategiekompass/">Zum Strategiekompass <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <h2 class="h-serif">Welche passen zu dir?</h2>
+      <a class="zp-band__knopf" href="{{ B }}/strategiekompass/">Zum Strategiekompass<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </section>
 </div>
 </main>
-<script>
-(function () {
-  var tabs = document.querySelectorAll("[data-tab]"), raster = document.querySelector("[data-raster]"),
-      anl = document.querySelector("[data-anlaesse]"), suche = document.querySelector("[data-suche]"),
-      leer = document.querySelector("[data-leer]"), tab = "privat";
-  function zeigen() {
-    var q = (suche.value || "").trim().toLowerCase(), n = 0;
-    var aufAnlass = tab === "anlass";
-    raster.hidden = aufAnlass; anl.hidden = !aufAnlass; raster.classList.toggle("zp--gemischt", !!q);
-    if (aufAnlass) {
-      anl.querySelectorAll("li").forEach(function (li) { var ok = !q || li.dataset.such.indexOf(q) >= 0; li.hidden = !ok; if (ok) n++; });
-    } else {
-      raster.querySelectorAll(".zp__karte").forEach(function (k) {
-        var ok = q ? k.dataset.such.indexOf(q) >= 0 : k.dataset.seg === tab; k.hidden = !ok; if (ok) n++;
-      });
-    }
-    leer.hidden = n > 0;
-  }
-  tabs.forEach(function (b) { b.addEventListener("click", function () {
-    tab = b.dataset.tab; tabs.forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); }); zeigen();
-  }); });
-  suche.addEventListener("input", zeigen);
-  zeigen();
-})();
-</script>
 {% elif s.slug == "kontakt" %}
 <main>
   <section class="kontakt-standalone s6-ks s6-ks--seite">
