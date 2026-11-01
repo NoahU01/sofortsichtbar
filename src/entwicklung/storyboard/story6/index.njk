@@ -10,6 +10,16 @@ seiten:
     titel: "Startseite"
   - slug: "strategiekompass"
     titel: "Strategiekompass"
+    kompass: "klar"
+  - slug: "strategiekompass-gelb"
+    titel: "Strategiekompass · Gelb"
+    kompass: "gelb"
+  - slug: "strategiekompass-schwarz"
+    titel: "Strategiekompass · Schwarz"
+    kompass: "schwarz"
+  - slug: "strategiekompass-g"
+    titel: "Strategiekompass · G unverändert"
+    kompass: "g"
   - slug: "anwendungsfaelle"
     titel: "Anwendungsfälle"
     h1: 'Anwendungsfälle. <span class="hl">Aus dem Alltag.</span>'
@@ -52,13 +62,16 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="stylesheet" href="{{ A }}/css/schwarzgelb-ergaenzung.css">
 <link rel="stylesheet" href="{{ A }}/css/sofort-sichtbar-seite.css">
 <link rel="stylesheet" href="{{ A }}/css/kontakt.css">
-{% if s.slug == "strategiekompass" %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-g.css">{% endif %}
+{% if s.kompass %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-g.css">{% if s.kompass != "g" %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-cd.css">{% endif %}{% endif %}
 <style>
 /* Ergänzungen Story 6 – nur, was das Vorbild nicht mitbringt */
 .s6-dev { background: #1a1817; color: #cfcac3; font-size: 12.5px; }
 .s6-dev .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding-top: .45rem; padding-bottom: .45rem; }
 .s6-dev b { color: #fff; font-weight: 600; }
 .s6-dev a { color: #fff400; text-decoration: none; }
+.s6-dev__var { justify-content: flex-start !important; gap: .4rem 1.2rem !important; border-top: 1px solid #3d3a37; }
+.s6-dev__var a { color: #cfcac3; }
+.s6-dev__var a[aria-current="page"] { color: #1a1817; background: #fff400; padding: 0 .5rem; border-radius: 4px; }
 .site-header .brand img { height: 2.5rem; width: auto; max-width: none; } /* wie .nav__logo auf sofortsichtbar.de */
 .nav-links a[aria-current="page"] { font-weight: 600; }
 .e2v-held__pfeil.s6-mockup { width: min(100%, 34rem) !important; }
@@ -363,13 +376,14 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </defs>
 </svg>
 {%- set nav = [["strategiekompass","Strategiekompass"],["zielgruppenpakete","Zielgruppenpakete"],["anwendungsfaelle","Anwendungsfälle"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
-<div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div></div>
+<div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div>
+{% if s.kompass %}<div class="container s6-dev__var"><span>Kompass-Varianten:</span>{% for v in [["strategiekompass","1 · Klar"],["strategiekompass-gelb","2 · Gelb"],["strategiekompass-schwarz","3 · Schwarz"],["strategiekompass-g","G unverändert"]] %}<a href="{{ B }}/{{ v[0] }}/"{% if s.slug == v[0] %} aria-current="page"{% endif %}>{{ v[1] }}</a>{% endfor %}</div>{% endif %}</div>
 <header class="site-header" id="top">
   <div class="container nav">
     <a class="brand" href="{{ B }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ A }}/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       {%- for n in nav %}
-      <a href="{{ B }}/{{ n[0] }}/"{% if s.slug == n[0] %} aria-current="page"{% endif %}>{{ n[1] }}</a>
+      <a href="{{ B }}/{{ n[0] }}/"{% if s.slug == n[0] or (n[0] == "strategiekompass" and s.kompass) %} aria-current="page"{% endif %}>{{ n[1] }}</a>
       {%- endfor %}
     </nav>
     <a class="btn btn--dark btn--sm nav-cta" href="{{ B }}/kontakt/">Termin auswählen</a>
@@ -608,9 +622,9 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </section>
 </div>
 </main>
-{% elif s.slug == "strategiekompass" %}
+{% elif s.kompass %}
 <main>
-  <div class="kg"><div class="container"><div class="wrap" id="app"></div></div></div>
+  <div class="kg{% if s.kompass != "g" %} kg--cd kg--{{ s.kompass }}{% endif %}"><div class="container"><div class="wrap" id="app"></div></div></div>
 </main>
 <script src="{{ A }}/kompass/kompass-g.js"></script>
 {% elif s.slug == "zielgruppenpakete" %}
