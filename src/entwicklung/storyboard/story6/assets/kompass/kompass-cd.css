@@ -22,7 +22,6 @@ html body.e2 .kg.kg--cd .summary h3{font-size:1.6rem !important}
 /* ---------- 1 · Klar: weiße Seite, Auswahl mit schwarzem Rahmen und gelbem Haken, Zusammenfassung als schwarze Karte ---------- */
 .kg--klar .tile[aria-checked="true"],.kg--klar .tile[aria-pressed="true"]{border:2px solid var(--ink)}
 .kg--klar .tile[aria-pressed="true"] .ck{background:var(--ink);border-color:var(--ink);color:var(--gelb)}
-.kg--klar .tile[aria-checked="true"] .ic{color:var(--ink);background:var(--gelb);border-radius:8px;padding:3px;width:32px;height:32px;margin:-3px 0 5px -3px}
 .kg--klar .radio[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--gelb)}
 .kg--klar .summary{background:var(--ink);color:#fff}
 .kg--klar .summary h3{color:#fff}
