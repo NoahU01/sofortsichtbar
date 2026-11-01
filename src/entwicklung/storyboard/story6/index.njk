@@ -20,6 +20,8 @@ seiten:
     titel: "Dein Style"
     h1: 'Dein Style. <span class="hl">Dein Auftritt.</span>'
     text: "Hier zeigen wir, wie Logo, Farben, Bilder und Kontaktdaten in jedes Paket einfließen, damit alles nach deiner Agentur aussieht."
+  - slug: "kontakt"
+    titel: "Kontakt"
   - slug: "ueber-uns"
     titel: "Über uns"
     h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
@@ -101,6 +103,22 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 @media (max-width: 960px) {
   html body.e2 .e2v-held__raster .e2v-held__pfeil.s6-mockup { position: static !important; grid-column: 1 !important; grid-row: auto !important; order: 3 !important; width: 100% !important; max-width: 26rem; margin: 2rem 0 0 !important; justify-self: start !important; }
   html body.e2 .e2v-held__text-oben h1 { padding-right: 0 !important; }
+}
+/* Kontakt-Abschnitt und Kontaktseite */
+html body.e2 .s6-ks .kontakt-standalone-text :is(h1, h2) { font-size: clamp(3rem, 7.2vw, 6.2rem) !important; line-height: 1.22 !important; }
+html body.e2 .s6-ks .kontakt-standalone-text .lead { margin-top: 1.8rem !important; }
+html body.e2 .s6-ks .kontakt-standalone-side { margin-top: 6.49rem; }
+.s6-ks__label { font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #6f6a64; }
+html body.e2 main .s6-ks__themen { margin: 1rem 0 0; padding: 0; list-style: none; }
+.s6-ks__themen li { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid #e7e4df; color: #1a1817; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+.s6-ks__themen li:last-child { border-bottom: 1px solid #e7e4df; }
+.s6-ks__themen svg { width: 2.2rem; height: 2.2rem; flex: none; padding: .4rem; border-radius: 10px; background: #fff400; color: #1a1817; }
+html body.e2 main .s6-ks__knopf { margin-top: 1.8rem; align-self: flex-start; }
+.s6-ks__zeichen { width: clamp(320px, 42vw, 640px) !important; bottom: 12% !important; color: rgba(26,24,23,.08) !important; }
+.s6-kalender { margin-bottom: clamp(40px, 6vw, 80px); min-height: 600px; }
+html body.e2 .s6-ks--seite .kontakt-standalone-side { margin-top: 6.49rem; }
+@media (max-width: 900px) {
+  html body.e2 .s6-ks .kontakt-standalone-side { margin-top: 1.6rem; }
 }
 /* .e2 main p setzt margin:0 – Abstände daher mit höherer Spezifität */
 html body.e2 main .s6-kompass p:not(.s6-kompass__frage):not(.s6-kompass__ergebnis) { margin-top: 1rem; }
@@ -282,6 +300,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         <path d="M14,58l18-18,12,12,10-10,12,12"/>
       </g>
     </symbol>
+<symbol id="ss-pille" viewBox="0 0 55 22"><path fill="currentColor" d="M9.50193 18.4865C5.64217 18.4719 3.76584 16.0162 3.76584 10.9783C3.76584 5.96979 5.64217 3.52814 9.50193 3.51347L9.98181 3.51151V3.5089H45.0182V3.51151L45.4984 3.51347C49.3575 3.52814 51.2333 5.96979 51.2333 10.9783C51.2333 16.0162 49.3575 18.4719 45.4984 18.4865L45.0182 18.4885V18.4911H9.98181V18.4885L9.50193 18.4865ZM9.49871 21.9987L9.98181 22V21.9987H45.0182V22L45.5013 21.9987H46.0143V21.9762C51.8097 21.7437 55 17.8647 55 10.9783C55 4.11833 51.8097 0.25499 46.0143 0.0234768V0.00129741H45.5013L45.0182 0V0.00129741H9.98181V0L9.49871 0.00129741H8.94677V0.0251085C3.17608 0.2726 0 4.13399 0 10.9783C0 17.8494 3.17608 21.7258 8.94677 21.9746V21.9987H9.49871Z"/><path fill="currentColor" d="M42.8887 15.4987C45.4267 15.4987 47.4914 13.4053 47.4914 10.8322C47.4914 8.2595 45.4267 6.16609 42.8887 6.16609C40.3509 6.16609 38.286 8.2595 38.286 10.8322C38.286 13.4053 40.3509 15.4987 42.8887 15.4987Z"/></symbol>
   </defs>
 </svg>
 {%- set nav = [["anwendungsfaelle","Anwendungsfälle"],["zielgruppenpakete","Zielgruppenpakete"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
@@ -294,7 +313,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <a href="{{ B }}/{{ n[0] }}/"{% if s.slug == n[0] %} aria-current="page"{% endif %}>{{ n[1] }}</a>
       {%- endfor %}
     </nav>
-    <a class="btn btn--dark btn--sm nav-cta" href="{{ B }}/#termin">Termin auswählen</a>
+    <a class="btn btn--dark btn--sm nav-cta" href="{{ B }}/kontakt/">Termin auswählen</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
     </button>
@@ -303,7 +322,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     {%- for n in nav %}
     <a href="{{ B }}/{{ n[0] }}/">{{ n[1] }}</a>
     {%- endfor %}
-    <a href="{{ B }}/#termin">Termin auswählen</a>
+    <a href="{{ B }}/kontakt/">Termin auswählen</a>
   </nav>
 </header>
 {% if not s.slug %}
@@ -313,7 +332,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <div class="e2v-held__text-oben"><h1>Digital sichtbar.<br><span class="hl">Sofort.</span></h1>
     <div class="e2v-held__text"><p>Für Versicherungsagenturen und Maklerbüros mit Team: fertige Postings, Landingpages und Kundenmailings für 20 Zielgruppen. Ohne Briefing, in wenigen Tagen einsatzbereit.</p></div></div>
   <div class="e2v-held__pfeil s6-mockup"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
-  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="#kompass">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="#termin">Termin auswählen</a></div>
+  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="#kompass">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/kontakt/">Termin auswählen</a></div>
 </div></section>
 
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
@@ -443,7 +462,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <div class="s6-termin__karte">
         <h3 class="h-serif">Wähle deinen Wunschtermin.</h3>
         <p>Suche dir einen Termin aus, der für dich am besten passt. Im Gespräch klären wir offen deine Fragen und schauen, wie wir dich konkret unterstützen können.</p>
-        <a class="e2-knopf e2-knopf--gelb" href="/kontakt">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="e2-knopf e2-knopf--gelb" href="{{ B }}/kontakt/">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -504,44 +523,110 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     </div>
   </section>
 
-  <!-- ===== Ansprechpartner + CTA ===== -->
-  <section class="produkt-cta produkt-team-cta">
-    <div class="container">
-      <p class="kicker">Jetzt loslegen</p>
-      <h2>Bereit, sofort sichtbar zu werden?</h2>
-      <p class="produkt-team-cta-sub">Dein direkter Draht zu uns. Kurze Wege statt langer Abstimmungsrunden.</p>
-      <div class="ansprechpartner-grid">
-        <div class="ansprechpartner-card reveal">
-          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-daniel.webp" alt="Daniel Ströbel" width="132" height="132" loading="lazy"></div>
-          <p class="ansprechpartner-name">Daniel Ströbel</p>
-          <p class="ansprechpartner-role">Strategiehandwerker</p>
-        </div>
-        <div class="ansprechpartner-card reveal">
-          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-kerstin.webp" alt="Kerstin Christ" width="132" height="132" loading="lazy"></div>
-          <p class="ansprechpartner-name">Kerstin Christ</p>
-          <p class="ansprechpartner-role">Expertin Content &amp; Sichtbarkeit</p>
-        </div>
-        <div class="ansprechpartner-card reveal">
-          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-noah.webp" alt="Noah Hermanns" width="132" height="132" loading="lazy"></div>
-          <p class="ansprechpartner-name">Noah Hermanns</p>
-          <p class="ansprechpartner-role">Experte Performance Marketing</p>
-        </div>
+  <!-- ===== Kontakt im Aufbau der empiria-Startseite (ohne Logo-Band, ohne persönliche Daten) ===== -->
+  <section class="kontakt-standalone s6-ks" id="kontakt">
+    <div class="container kontakt-standalone-top">
+      <div class="kontakt-standalone-text">
+        <p class="e2-kicker">Kontakt</p>
+        <h2 class="h-serif">Lass uns<br><span class="hl" style="white-space:nowrap">sprechen.</span></h2>
+        <p class="lead">Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder einzelnen Vertriebsstrecke von sofort sichtbar.</p>
+        <p class="kontakt-standalone-note">Kerstin · Daniel · Noah</p>
       </div>
-      <div class="produkt-cta-actions">
-        <a class="btn btn--dark" href="#termin">Termin auswählen</a>
-        <a class="btn btn--outline" href="mailto:kontakt@sofortsichtbar.de">kontakt@sofortsichtbar.de</a>
+      <div class="kontakt-standalone-side">
+        <p class="s6-ks__label">Darüber sprechen wir</p>
+        <ul class="s6-ks__themen">
+          <li><svg aria-hidden="true"><use href="#ic-audience"/></svg>Welche Zielgruppen bei dir wirklich Umsatz bewegen</li>
+          <li><svg aria-hidden="true"><use href="#ic-posts"/></svg>Welche Inhalte für dich am meisten bringen</li>
+          <li><svg aria-hidden="true"><use href="#ic-rocket"/></svg>Wie du in wenigen Tagen startklar bist</li>
+        </ul>
+        <a class="e2-knopf s6-ks__knopf" href="{{ B }}/kontakt/">Kontakt aufnehmen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+    </div>
+    <div class="kontakt-standalone-media">
+      <svg class="ks-media-icon s6-ks__zeichen" viewBox="0 0 55 22" aria-hidden="true"><use href="#ss-pille"/></svg>
+      <img class="ks-photo" src="{{ A }}/img/team-portrait.webp" alt="Das Team von sofort sichtbar: Kerstin, Daniel und Noah" width="759" height="411" loading="lazy">
     </div>
   </section>
 </div>
 </main>
+{% elif s.slug == "kontakt" %}
+<main>
+  <section class="kontakt-standalone s6-ks s6-ks--seite">
+    <div class="container kontakt-standalone-top">
+      <div class="kontakt-standalone-text">
+        <p class="e2-kicker">Kontakt</p>
+        <h1 class="h-serif">Wir sind<br><span class="hl" style="white-space:nowrap">für dich</span> da!</h1>
+        <p class="lead">Wir helfen dir bei deiner Entscheidung oder bei Fragen, die du klären möchtest. Wähle unten einen Termin, der für dich am besten passt.</p>
+        <p class="kontakt-standalone-note">Direkter Draht – keine Warteschleifen.</p>
+      </div>
+      <div class="kontakt-standalone-side">
+        <div class="ks-actions">
+          <a class="ks-pill" href="#termin-kalender">
+            <span class="ks-pill-icon"><svg width="20" height="20"><use href="#ic-clock"/></svg></span>
+            Termin im Kalender wählen
+          </a>
+          <a class="ks-pill" href="mailto:kontakt@sofortsichtbar.de">
+            <span class="ks-pill-icon"><svg width="20" height="20"><use href="#ic-mail"/></svg></span>
+            kontakt@sofortsichtbar.de
+          </a>
+          <a class="ks-pill ks-pill--ghost" href="https://www.linkedin.com/company/sofort-sichtbar/" target="_blank" rel="noopener">
+            <span class="ks-pill-icon"><svg width="20" height="20"><use href="#ic-in"/></svg></span>
+            sofort sichtbar auf LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="termin-kalender">
+      <div class="s6-kalender">
+        <div id="cal-inline-{{ kontakt.cal.namespace }}" style="width:100%;height:100%;overflow:scroll"></div>
+      </div>
+    </div>
+    <div class="kontakt-standalone-media">
+      <svg class="ks-media-icon s6-ks__zeichen" viewBox="0 0 55 22" aria-hidden="true"><use href="#ss-pille"/></svg>
+      <img class="ks-photo" src="{{ A }}/img/team-portrait.webp" alt="Das Team von sofort sichtbar: Kerstin, Daniel und Noah" width="759" height="411" loading="lazy">
+    </div>
+  </section>
+</main>
+{# Cal.com wie in partials/cal-embed.njk, aber hell. Nur Entwicklungsumgebung,
+   daher ohne Cookie-Sperre; vor einem Live-Gang die Einwilligungslogik von dort übernehmen. #}
+<script>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal, ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+        else { p(cal, ar); }
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "{{ kontakt.cal.origin }}/embed/embed.js", "init");
+  Cal("init", "{{ kontakt.cal.namespace }}", { origin: "{{ kontakt.cal.origin }}" });
+  Cal.ns["{{ kontakt.cal.namespace }}"]("inline", {
+    elementOrSelector: "#cal-inline-{{ kontakt.cal.namespace }}",
+    config: { layout: "month_view", useSlotsViewOnSmallScreen: "true", theme: "light" },
+    calLink: "{{ kontakt.cal.link }}"
+  });
+  Cal.ns["{{ kontakt.cal.namespace }}"]("ui", {
+    theme: "light",
+    cssVarsPerTheme: { light: { "cal-brand": "#1a1817" }, dark: { "cal-brand": "#fff400" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+</script>
 {% else %}
 <main>
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
   <section class="e2-kopf" id="intro"><div class="e2-wrap e2-kopf__raster">
   <div class="e2-kopf__text"><h1>{{ s.h1 | safe }}</h1>
     <div class="e2-kopf__inhalt"><p>{{ s.text }}</p></div>
-    <div class="e2-knoepfe"><a class="e2-knopf" href="{{ B }}/#termin">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    <div class="e2-knoepfe"><a class="e2-knopf" href="{{ B }}/kontakt/">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
   <div class="e2-kopfbild e2-kopfbild--foto"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
 </div></section>
   <section class="s6-folgt">
