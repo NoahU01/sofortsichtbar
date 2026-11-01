@@ -1,0 +1,578 @@
+---
+layout: false
+eleventyExcludeFromCollections: true
+pagination:
+  data: seiten
+  size: 1
+  alias: s
+seiten:
+  - slug: ""
+    titel: "Startseite"
+  - slug: "anwendungsfaelle"
+    titel: "Anwendungsfälle"
+    h1: 'Anwendungsfälle. <span class="hl">Aus dem Alltag.</span>'
+    text: "Hier zeigen wir, wofür Versicherungsagenturen und Maklerbüros sofort sichtbar einsetzen: Neukunden gewinnen, Bestand aktivieren, Termine vor- und nachbereiten."
+  - slug: "zielgruppenpakete"
+    titel: "Zielgruppenpakete"
+    h1: 'Zielgruppenpakete. <span class="hl">Fertig für dich.</span>'
+    text: "Hier stehen alle 20 Zielgruppen mit Landingpage, Postings und Kundenmailings – zum Ansehen, Vergleichen und Auswählen."
+  - slug: "dein-style"
+    titel: "Dein Style"
+    h1: 'Dein Style. <span class="hl">Dein Auftritt.</span>'
+    text: "Hier zeigen wir, wie Logo, Farben, Bilder und Kontaktdaten in jedes Paket einfließen, damit alles nach deiner Agentur aussieht."
+  - slug: "ueber-uns"
+    titel: "Über uns"
+    h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
+    text: "Hier stellen wir das Team hinter sofort sichtbar vor – und warum wir seit 2012 im Versicherungsvertrieb zu Hause sind."
+permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
+---
+{#- Storyboard 6: Startseite und vier Unterseiten (Dummys) im Grundstil des
+    empiria-Repos (Seite „sofort sichtbar“ unter Marketing 2.0, Kopf wie
+    empiria-Startseite ohne Logo-Laufband). Stylesheets, Schriften und Bilder
+    1:1 aus dem empiria-Repo kopiert, liegen unter story6/assets/.
+    Eigenständige Seiten (layout: false), alles in src/entwicklung/. -#}
+{%- set A = "/entwicklung/storyboard/story6/assets" -%}
+{%- set B = "/entwicklung/storyboard/story6" -%}
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if s.slug %}{{ s.titel }} · {% endif %}Homepage-Story 6 – Entwicklung</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
+<link rel="stylesheet" href="{{ A }}/css/styles.css">
+<link rel="stylesheet" href="{{ A }}/css/e2.css">
+<link rel="stylesheet" href="{{ A }}/css/e2-seiten.css">
+<link rel="stylesheet" href="{{ A }}/css/e2-runde5.css">
+<link rel="stylesheet" href="{{ A }}/css/schwarzgelb-ergaenzung.css">
+<link rel="stylesheet" href="{{ A }}/css/sofort-sichtbar-seite.css">
+<link rel="stylesheet" href="{{ A }}/css/kontakt.css">
+<style>
+/* Ergänzungen Story 6 – nur, was das Vorbild nicht mitbringt */
+.s6-dev { background: #1a1817; color: #cfcac3; font-size: 12.5px; }
+.s6-dev .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding-top: .45rem; padding-bottom: .45rem; }
+.s6-dev b { color: #fff; font-weight: 600; }
+.s6-dev a { color: #fff400; text-decoration: none; }
+.site-header .brand img { height: 24px; width: auto; max-width: none; }
+.nav-links a[aria-current="page"] { font-weight: 600; }
+.e2v-held__pfeil.s6-mockup { width: min(100%, 34rem) !important; }
+.e2v-held__pfeil.s6-mockup img { display: block; width: 100%; height: auto; }
+/* Kompass-Platzhalter */
+.s6-kompass { padding: 4.5rem 0 5.5rem; background: #f6f5f2; }
+.s6-kompass__kasten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; padding: 2.6rem; border: 2px dashed #cfcac3; border-radius: 18px; background: #fff; }
+.s6-kompass__marke { display: inline-block; margin-bottom: 1rem; padding: .3rem .7rem; border-radius: 999px; background: #1a1817; color: #fff400; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.s6-kompass h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.s6-kompass p { margin-top: 1rem; max-width: 30rem; color: #3d3a37; font-size: 1.05rem; line-height: 1.6; }
+.s6-kompass__attrappe { display: grid; gap: 1.1rem; padding: 1.6rem; border-radius: 14px; background: #f6f5f2; opacity: .75; }
+.s6-kompass__frage { font-size: .8rem; font-weight: 600; color: #6f6a64; }
+.s6-kompass__wahl { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .45rem; }
+.s6-kompass__wahl span { padding: .5rem .95rem; border-radius: 999px; border: 1.5px solid #e7e4df; background: #fff; font-size: .9rem; font-weight: 500; }
+.s6-kompass__wahl span.an { background: #1a1817; border-color: #1a1817; color: #fff; }
+.s6-kompass__ergebnis { padding-top: 1rem; border-top: 1px solid #e7e4df; font-size: .95rem; font-weight: 600; }
+/* Termin */
+.s6-termin { padding: 6rem 0; background: #fff; }
+.s6-termin__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.s6-termin h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); }
+.s6-termin__text { margin-top: 1.2rem; max-width: 32rem; color: #3d3a37; font-size: 1.12rem; line-height: 1.6; }
+.s6-termin__wege { display: grid; gap: .6rem; margin-top: 1.8rem; }
+.s6-termin__wege a { display: inline-flex; align-items: center; gap: .7rem; color: #1a1817; font-weight: 500; text-decoration: none; }
+.s6-termin__wege svg { width: 1.3rem; height: 1.3rem; flex: none; }
+.s6-termin__karte { padding: 2.4rem; border-radius: 18px; background: #1a1817; color: #fff; }
+.s6-termin__karte h3 { color: #fff; font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.s6-termin__karte p { margin-top: 1rem; color: #cfcac3; font-size: 1.02rem; line-height: 1.6; }
+.s6-termin__karte .btn { margin-top: 1.8rem; }
+/* Dummy-Unterseiten */
+.s6-folgt { padding: 5rem 0 6rem; background: #fff400; }
+.s6-folgt__kasten { padding: 2.4rem; border: 2px dashed #1a1817; border-radius: 18px; }
+.s6-folgt h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+.s6-folgt p { margin-top: .8rem; max-width: 40rem; font-size: 1.05rem; line-height: 1.6; }
+.nav-links a { white-space: nowrap; }
+/* Vier Menüpunkte plus Knopf: Burger-Menü schon ab 1180px statt 900px */
+@media (max-width: 1180px) {
+  html body.e2 .site-header .nav-links, html body.e2 .site-header .nav-cta { display: none; }
+  html body.e2 .site-header .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: none; color: var(--ink); margin-left: auto; }
+  html body.e2 .site-header .nav { height: 68px; }
+  html body.e2 .mobile-menu { position: fixed; inset: 68px 0 auto 0; z-index: 55; background: #fff; border-bottom: 1px solid #ededed; display: flex; flex-direction: column; padding: 12px var(--pad-x, 20px) 24px; box-shadow: 0 12px 24px rgba(0,0,0,.06); transform: translateY(-120%); transition: transform .3s ease; }
+  html body.e2 .mobile-menu.open { transform: none; }
+  html body.e2 .mobile-menu a { padding: 14px 0; font-size: 1.15rem; border-bottom: 1px solid #f2f2f2; color: var(--ink); text-decoration: none; }
+}
+.mobile-menu:not(.open) { visibility: hidden; }
+@media (max-width: 960px) {
+  html body.e2 .e2v-held__raster .e2v-held__pfeil.s6-mockup { position: static !important; grid-column: 1 !important; grid-row: auto !important; order: 3 !important; width: 100% !important; max-width: 26rem; margin: 2rem 0 0 !important; justify-self: start !important; }
+  html body.e2 .e2v-held__text-oben h1 { padding-right: 0 !important; }
+}
+/* .e2 main p setzt margin:0 – Abstände daher mit höherer Spezifität */
+html body.e2 main .s6-kompass p:not(.s6-kompass__frage):not(.s6-kompass__ergebnis) { margin-top: 1rem; }
+html body.e2 main .s6-termin__text { margin-top: 1.2rem; }
+html body.e2 main .s6-termin__karte p { margin-top: 1rem; }
+html body.e2 main .s6-termin__karte .e2-knopf { margin-top: 1.8rem; }
+html body.e2 main .s6-folgt p { margin-top: .8rem; }
+@media (max-width: 960px) {
+  .s6-kompass__kasten, .s6-termin__raster { grid-template-columns: minmax(0, 1fr); }
+  .e2v-held__pfeil.s6-mockup { width: min(100%, 26rem) !important; }
+}
+@media (max-width: 640px) {
+  .s6-kompass__kasten, .s6-termin__karte, .s6-folgt__kasten { padding: 1.4rem; }
+}
+</style>
+</head>
+<body class="e2 produktseite produktseite-clean produktseite--sofort-sichtbar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-forward" viewBox="0 0 232.44 232.44">
+      <path fill="currentColor" d="M124.63,201.36c-7.96-.02-14.41-6.49-14.39-14.43,0-2.73.78-5.38,2.24-7.69l40.09-63.07-40.08-63c-4.25-6.77-2.2-15.67,4.52-19.89,2.28-1.43,4.91-2.19,7.59-2.2h43.03c7.41.02,14.18,3.76,18.12,10.02l40.52,63.6c4.45,7.01,4.45,16.05,0,23.04l-40.54,63.64c-3.92,6.22-10.69,9.97-18.08,9.99h-43.01ZM125.11,45.72l42.32,66.52c1.52,2.4,1.53,5.46,0,7.86l-42.34,66.62h42.54c2.33,0,4.48-1.2,5.73-3.18l40.55-63.66c1.41-2.22,1.41-5.09,0-7.31l-40.53-63.62c-1.27-2.02-3.42-3.21-5.77-3.21h-42.51Z"/>
+      <path fill="currentColor" d="M60.23,201.36H17.22c-7.96-.02-14.41-6.49-14.39-14.43,0-2.72.78-5.38,2.24-7.68l40.09-63.08L5.08,53.2c-4.26-6.72-2.26-15.63,4.45-19.88,2.31-1.46,4.97-2.23,7.69-2.24h43c7.41.01,14.18,3.76,18.13,10.02l40.52,63.6c4.45,7.01,4.45,16.05,0,23.04l-40.54,63.64c-3.93,6.23-10.7,9.97-18.1,9.99ZM17.68,45.72l42.34,66.52c1.52,2.4,1.53,5.46,0,7.86l-42.34,66.62h42.53c2.34,0,4.49-1.2,5.74-3.18l40.55-63.66c1.41-2.22,1.41-5.09,0-7.31l-40.53-63.62c-1.27-2.02-3.42-3.21-5.77-3.21H17.68Z"/>
+    </symbol>
+    <symbol id="ic-visibility" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6,40c6-14,20-22,34-22s28,8,34,22c-6,14-20,22-34,22S12,54,6,40Z"/>
+        <circle cx="40" cy="40" r="10"/>
+      </g>
+    </symbol>
+    <symbol id="ic-check" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="40" cy="40" r="28"/>
+        <path d="M28,41l9,9,17-19"/>
+      </g>
+    </symbol>
+    <symbol id="ic-layout" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="14" width="60" height="52" rx="5"/>
+        <path d="M10,30h60"/>
+        <path d="M30,30v36"/>
+      </g>
+    </symbol>
+    <symbol id="ic-mobile" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="24" y="8" width="32" height="64" rx="6"/>
+        <path d="M36,62h8"/>
+      </g>
+    </symbol>
+    <symbol id="ic-speed" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14,52a26,26 0 1 1 52,0"/>
+        <path d="M40,52l14-16"/>
+        <circle cx="40" cy="52" r="3" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ic-rocket" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40,10c10,8,14,20,14,32c0,8-4,16-14,22c-10-6-14-14-14-22c0-12,4-24,14-32z"/>
+        <circle cx="40" cy="34" r="6"/>
+        <path d="M26,48l-8,14"/>
+        <path d="M54,48l8,14"/>
+        <path d="M34,64c0,6,3,10,6,12c3-2,6-6,6-12"/>
+      </g>
+    </symbol>
+    <symbol id="ic-clock" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="40" cy="40" r="26"/>
+        <path d="M40,24v16l12,8"/>
+      </g>
+    </symbol>
+    <symbol id="ic-seo" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="34" cy="34" r="18"/>
+        <path d="M47,47l19,19"/>
+      </g>
+    </symbol>
+    <symbol id="ic-grow" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12,58l18-18,12,12,26-26"/>
+        <path d="M52,26h16v16"/>
+      </g>
+    </symbol>
+    <symbol id="ic-control" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18,20h44"/>
+        <path d="M18,40h44"/>
+        <path d="M18,60h44"/>
+        <circle cx="30" cy="20" r="4" fill="currentColor" stroke="none"/>
+        <circle cx="52" cy="40" r="4" fill="currentColor" stroke="none"/>
+        <circle cx="34" cy="60" r="4" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ic-audience" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="28" cy="30" r="10"/>
+        <circle cx="54" cy="34" r="8"/>
+        <path d="M12,64c0-11,7-18,16-18s16,7,16,18"/>
+        <path d="M46,64c0-8,5-14,12-14s14,6,14,14" opacity=".6"/>
+      </g>
+    </symbol>
+    <symbol id="ic-shield" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40,10l24,10v18c0,18-12,28-24,32-12-4-24-14-24-32V20Z"/>
+        <path d="M30,40l8,8,14-16"/>
+      </g>
+    </symbol>
+    <symbol id="ic-mail" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="18" width="60" height="44" rx="6"/>
+        <path d="M12,22l28,22,28-22"/>
+      </g>
+    </symbol>
+    <symbol id="ic-posts" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="10" width="40" height="40" rx="5"/>
+        <rect x="30" y="30" width="40" height="40" rx="5"/>
+        <path d="M18,22h24"/>
+        <path d="M18,30h16"/>
+      </g>
+    </symbol>
+    <symbol id="ic-phone" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M34.67,62h10.67"/>
+        <path d="M22,18c0-4.42,3.58-8,8-8h20c4.42,0,8,3.58,8,8v44c0,4.42-3.58,8-8,8h-20c-4.42,0-8-3.58-8-8V18Z"/>
+      </g>
+    </symbol>
+    <symbol id="ic-in" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="10" width="60" height="60" rx="12.3" ry="12.3"/>
+        <path d="M29.93,56.86h-7.71v-22.11h7.71v22.11ZM45.94,41.96c-1.88,0-3.4,1.52-3.4,3.4v11.51h-8.11v-22.11h8.11v2.52c1.9-1.61,4.3-2.51,6.79-2.54,5.03,0,8.52,3.73,8.52,10.81v11.32h-8.52v-11.51c0-1.88-1.5-3.4-3.38-3.41,0,0-.01,0-.02,0v.02ZM30.07,27.1c0,2.19-1.78,3.97-3.97,3.97s-3.97-1.78-3.97-3.97,1.78-3.97,3.97-3.97c2.18.02,3.94,1.79,3.94,3.97h.03Z"/>
+      </g>
+    </symbol>
+    <symbol id="ic-toolbox" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="30" width="60" height="36" rx="6"/>
+        <path d="M28,30v-8c0-4,3-7,7-7h10c4,0,7,3,7,7v8"/>
+        <path d="M10,46h60"/>
+        <path d="M36,46v8"/>
+        <path d="M44,46v8"/>
+      </g>
+    </symbol>
+    <symbol id="ic-chart" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="10" width="60" height="60" rx="6"/>
+        <path d="M22,50v10"/>
+        <path d="M36,38v22"/>
+        <path d="M50,44v16"/>
+        <path d="M64,30v30"/>
+      </g>
+    </symbol>
+    <symbol id="ic-refresh" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60,33A22,22,0,0,0,20,25"/>
+        <path d="M20,13v14h14"/>
+        <path d="M20,47A22,22,0,0,0,60,55"/>
+        <path d="M60,67v-14h-14"/>
+      </g>
+    </symbol>
+    <symbol id="ic-doc" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20,10h28l12,12v48a4,4 0 0 1-4,4H20a4,4 0 0 1-4-4V14a4,4 0 0 1 4-4Z"/>
+        <path d="M48,10v12h12"/>
+        <path d="M26,42h28"/>
+        <path d="M26,52h28"/>
+        <path d="M26,62h18"/>
+      </g>
+    </symbol>
+    <symbol id="ic-text" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14,20h52"/>
+        <path d="M14,38h52"/>
+        <path d="M14,56h34"/>
+      </g>
+    </symbol>
+    <symbol id="ic-image" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="14" width="60" height="52" rx="6"/>
+        <circle cx="28" cy="32" r="6"/>
+        <path d="M14,58l18-18,12,12,10-10,12,12"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+{%- set nav = [["anwendungsfaelle","Anwendungsfälle"],["zielgruppenpakete","Zielgruppenpakete"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
+<div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div></div>
+<header class="site-header" id="top">
+  <div class="container nav">
+    <a class="brand" href="{{ B }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ A }}/img/sofort-sichtbar-logo-ink.svg" alt="sofort sichtbar"></a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      {%- for n in nav %}
+      <a href="{{ B }}/{{ n[0] }}/"{% if s.slug == n[0] %} aria-current="page"{% endif %}>{{ n[1] }}</a>
+      {%- endfor %}
+    </nav>
+    <a class="btn btn--dark btn--sm nav-cta" href="{{ B }}/#termin">Termin auswählen</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+    {%- for n in nav %}
+    <a href="{{ B }}/{{ n[0] }}/">{{ n[1] }}</a>
+    {%- endfor %}
+    <a href="{{ B }}/#termin">Termin auswählen</a>
+  </nav>
+</header>
+{% if not s.slug %}
+<main>
+<!-- ===== Kopf wie empiria-Startseite, ohne Logo-Laufband ===== -->
+<section class="e2v-held" id="hero"><div class="e2-wrap e2v-held__raster">
+  <div class="e2v-held__text-oben"><h1>Digital sichtbar.<br><span class="hl">Sofort.</span></h1>
+    <div class="e2v-held__text"><p>Für Versicherungsagenturen und Maklerbüros mit Team: fertige Postings, Landingpages und Kundenmailings für 20 Zielgruppen. Ohne Briefing, in wenigen Tagen einsatzbereit.</p></div></div>
+  <div class="e2v-held__pfeil s6-mockup"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
+  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="#kompass">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="#termin">Termin auswählen</a></div>
+</div></section>
+
+<div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
+  <!-- ===== Kompass (Platzhalter) ===== -->
+  <section class="s6-kompass" id="kompass">
+    <div class="container">
+      <div class="s6-kompass__kasten">
+        <div>
+          <span class="s6-kompass__marke">Platzhalter · Kompass</span>
+          <h2 class="h-serif">Wo willst du wachsen?</h2>
+          <p>Hier sitzt der Kompass: Segment und Sparte wählen, sofort passende Zielgruppen sehen. Welche der gebauten Fassungen hier hineinkommt, entscheiden wir noch.</p>
+        </div>
+        <div class="s6-kompass__attrappe" aria-hidden="true">
+          <div><p class="s6-kompass__frage">Segment</p><div class="s6-kompass__wahl"><span class="an">Privatkunden</span><span>Gewerbekunden</span></div></div>
+          <div><p class="s6-kompass__frage">Sparte</p><div class="s6-kompass__wahl"><span class="an">Leben</span><span>Kranken</span><span>Schaden/Unfall</span><span>Kfz</span></div></div>
+          <p class="s6-kompass__ergebnis">Passende Zielgruppen: 3 fertige Pakete</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gelber Balken: Fertig gedacht ===== -->
+  <section class="produkt-grid">
+    <div class="container">
+      <div class="produkt-section-head reveal">
+        <p class="kicker">Was sofort sichtbar mitbringt</p>
+        <h2 class="h-serif">Fertig gedacht, nicht nur fertig gebaut.</h2>
+        <p>Alles in einem Paket – abgestimmt auf deine Vertriebsschwerpunkte.</p>
+      </div>
+      <div class="produkt-grid-cards">
+      <div class="produkt-glass sofort-feature-card reveal">
+        <h3>Social Media Postings</h3>
+        <p>Fertige Postings, die genau auf deine Zielgruppe abgestimmt sind – sofort einsetzbar, ohne eigene Content-Produktion.</p>
+        <img src="{{ A }}/img/sofort-sichtbar-preview-postings.png" alt="Vorschau: fertige Social-Media-Postings von sofort sichtbar" class="sofort-feature-img" loading="lazy">
+      </div>
+      <div class="produkt-glass sofort-feature-card reveal">
+        <h3>E-Mail-Funnel</h3>
+        <p>Aktiviert deine Bestandskunden und leitet sie auf die passende, zielgruppenspezifische Landingpage weiter.</p>
+        <img src="{{ A }}/img/sofort-sichtbar-preview-funnel.png" alt="Vorschau: E-Mail-Funnel von sofort sichtbar" class="sofort-feature-img" loading="lazy">
+      </div>
+      <div class="produkt-glass sofort-feature-card reveal">
+        <h3>Passende Landingpages</h3>
+        <p>Mit Download-Dokument, integrierter Podcast-Folge und optimierten Kontaktdaten – fertig für jede Zielgruppe und jeden Anlass.</p>
+        <img src="{{ A }}/img/sofort-sichtbar-preview-landingpages.png" alt="Vorschau: Landingpage von sofort sichtbar" class="sofort-feature-img" loading="lazy">
+      </div>
+      </div>
+      <div class="usp-highlight reveal">
+        <div class="usp-highlight-icon"><svg><use href="#ic-check"/></svg></div>
+        <div class="usp-highlight-body">
+          <p class="usp-highlight-kicker">Individualisierung</p>
+          <h3>Alles in deinem Corporate Design.</h3>
+          <p>Logo, Bilder, Kontaktdaten und Farbwelt werden eingebunden, damit alles aussieht, als wäre es für deine Agentur gebaut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== Pricing ===== -->
+  <section class="produkt-grid produkt-pricing e2-posts-sek"><div class="container">
+  <div class="e2-s2-split e2-faelle__kopf"><div><p class="kicker">Preise</p><h2 class="h-serif">Die passenden Pakete für deinen Vertriebsfokus.</h2></div><p class="lead">Monatlich buchbar, mit Rabatt bei jährlicher Zahlung – jede Vertriebsstrecke mit einer Mindestlaufzeit von drei Monaten.</p></div>
+  <div class="e2-posts"><article class="e2-post"><div class="e2-post__kopf"><span>Eine Zielgruppe</span></div><div class="e2-post__bild"><small>1 Vertriebsstrecke</small><div class="e2-post__unten"><div><b>Fokus</b><span class="e2-post__preis">349 € <small>/Monat</small></span></div><svg class="e2-post__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></svg></div></div><div class="e2-post__text"><p>Erreiche eine klar definierte Zielgruppe ganzjährig – mit fertigen Postings, Mailings und Landingpage.</p><ul><li>1 digitale Vertriebsstrecke</li><li>Individualisierungspaket</li><li>Contentplan für Social Media</li></ul><p class=e2-post__hinweis>bei jährlicher Zahlung · 435 €/Monat bei monatlicher Zahlung</p></div></article><article class="e2-post e2-post--top"><div class="e2-post__kopf"><span>Mehrere Zielgruppen</span><em>Beliebt</em></div><div class="e2-post__bild"><small>3 Vertriebsstrecken</small><div class="e2-post__unten"><div><b>Reichweite</b><span class="e2-post__preis">499 € <small>/Monat</small></span></div><svg class="e2-post__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg></div></div><div class="e2-post__text"><p>Gewinne Kontakte aus mehreren Zielgruppen, ohne eigenen Aufwand für Content oder Kampagnen.</p><ul><li>3 digitale Vertriebsstrecken</li><li>Erweiterte Individualisierung</li><li>Performance-Reporting</li></ul><p class=e2-post__hinweis>bei jährlicher Zahlung · 625 €/Monat bei monatlicher Zahlung</p></div></article><article class="e2-post"><div class="e2-post__kopf"><span>Planbare Neukontakte</span></div><div class="e2-post__bild"><small>10 Vertriebsstrecken</small><div class="e2-post__unten"><div><b>Marktposition</b><span class="e2-post__preis">999 € <small>/Monat</small></span></div><svg class="e2-post__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></svg></div></div><div class="e2-post__text"><p>Positioniere deine Berater gezielt, mach Stärken sichtbar und sorge für planbare Neukontakte.</p><ul><li>10 digitale Vertriebsstrecken</li><li>Automatisierung der Postings</li><li>Regelmäßige 1:1-Beratung</li></ul><p class=e2-post__hinweis>bei jährlicher Zahlung · 1.250 €/Monat bei monatlicher Zahlung</p></div></article></div>
+</div></section>
+  <!-- ===== Prozess ===== -->
+  <section class="produkt-section produkt-process">
+    <div class="container">
+      <div class="produkt-section-head reveal">
+        <p class="kicker">Ablauf</p>
+        <h2 class="h-serif">Monate werden zu Tagen.</h2>
+        <p>Mit sofort sichtbar bist du online, bevor eine klassische Agentur die Auftragsklärung abgeschlossen hat.</p>
+      </div>
+      <div class="vergleich-bild reveal">
+        <div class="vergleich-row">
+          <div class="vergleich-label">Klassische<br>Agentur</div>
+          <div class="vergleich-timeline">
+            <span class="vergleich-pill">Auftragsklärung</span>
+            <span class="vergleich-pill">Konzeption</span>
+            <span class="vergleich-pill">Umsetzung</span>
+            <span class="vergleich-pill">Optimierung</span>
+            <span class="vergleich-rocket"><svg width="28" height="28"><use href="#ic-rocket"/></svg></span>
+          </div>
+        </div>
+        <div class="vergleich-row">
+          <div class="vergleich-label vergleich-label--brand"><img src="{{ A }}/img/sofort-sichtbar-logo-stacked-gelb.svg" alt="sofort sichtbar" class="vergleich-label-logo"></div>
+          <div class="vergleich-timeline vergleich-timeline--outline">
+            <span class="vergleich-pill">Auftragsklärung</span>
+            <span class="vergleich-rocket"><svg width="28" height="28"><use href="#ic-rocket"/></svg></span>
+            <span class="vergleich-bonus"><svg width="20" height="20"><use href="#ic-clock"/></svg>Mehr Zeit für Kundengespräche</span>
+          </div>
+        </div>
+      </div>
+      <div class="produkt-process-list">
+        <div class="produkt-process-step reveal">
+          <span class="step-num">01</span>
+          <h3>Auftragsklärung</h3>
+          <p>Wir klären kurz deinen Vertriebsfokus – ohne die wochenlange Konzeptphase einer klassischen Agentur.</p>
+        </div>
+        <div class="produkt-process-step reveal">
+          <span class="step-num">02</span>
+          <h3>Zielgruppen auswählen</h3>
+          <p>Du wählst aus den vorbereiteten Profilen die aus, die zu deinen Kundinnen und Kunden passen.</p>
+        </div>
+        <div class="produkt-process-step reveal">
+          <span class="step-num">03</span>
+          <h3>Stil & Auftritt festlegen</h3>
+          <p>Du wählst deinen Stil und bringst dein Design ein – Logo, Bilder, Kontaktdaten, Farbwelt.</p>
+        </div>
+        <div class="produkt-process-step reveal">
+          <span class="step-num">04</span>
+          <h3>Live gehen</h3>
+          <p>Postings, Landingpage und E-Mail-Funnel gehen live – und du hast mehr Zeit für Kundengespräche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Termin (wie auf der bisherigen sofortsichtbar-Startseite) ===== -->
+  <section class="s6-termin" id="termin">
+    <div class="container s6-termin__raster">
+      <div>
+        <p class="kicker">Persönlich</p>
+        <h2 class="h-serif">Wir helfen bei der Entscheidung.</h2>
+        <p class="s6-termin__text">Wir helfen dir bei deiner Entscheidung oder bei Fragen, die du klären möchtest.</p>
+        <div class="s6-termin__wege">
+          <a href="mailto:kontakt@sofortsichtbar.de"><svg><use href="#ic-mail"/></svg>kontakt@sofortsichtbar.de</a>
+          <a href="tel:+4917631347217"><svg><use href="#ic-phone"/></svg>+49 176 3134 7217</a>
+        </div>
+      </div>
+      <div class="s6-termin__karte">
+        <h3 class="h-serif">Wähle deinen Wunschtermin.</h3>
+        <p>Suche dir einen Termin aus, der für dich am besten passt. Im Gespräch klären wir offen deine Fragen und schauen, wie wir dich konkret unterstützen können.</p>
+        <a class="e2-knopf e2-knopf--gelb" href="/kontakt">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="produkt-section produkt-faq">
+    <div class="container">
+      <div class="produkt-section-head reveal">
+        <p class="kicker">FAQ</p>
+        <h2 class="h-serif">Häufige Fragen.</h2>
+        <p>Was Agenturleiterinnen und Agenturleiter uns am häufigsten fragen.</p>
+      </div>
+      <div class="produkt-faq-list">
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Kann ich mehrere Zielgruppenpakete gleichzeitig buchen?</summary>
+          <p>Ja. Du kannst mehrere Vertriebsstrecken parallel buchen oder eine einzelne Lizenz im Jahresverlauf für wechselnde Zielgruppen nutzen – je nachdem, was gerade in deinem Vertriebsfokus steht.</p>
+        </details>
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Wofür kann ich sofort sichtbar einsetzen?</summary>
+          <p>Für Neukundengewinnung, Bestandskundenaktivierung und im Beratungsalltag – etwa mit einer kurzen Erinnerungs-Mail samt passender Landingpage vor und nach einem Termin.</p>
+        </details>
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Wie kommen Anfragen DSGVO-konform bei mir an?</summary>
+          <p>Direkt bei dir – per Anruf, E-Mail oder Formular, das automatisch an deine Adresse weitergeleitet wird. Es gibt keinen Umweg über uns, und die Landingpages laufen auf Servern innerhalb der EU.</p>
+        </details>
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Wie individuell sind die Landingpages?</summary>
+          <p>Logo, Bilder, Kontaktdaten und Farbwelt werden auf deine Agentur angepasst. Struktur und Inhalte bleiben bewusst standardisiert, damit du schnell online bist – für eine komplett individuelle Lösung sprechen wir gerne separat.</p>
+        </details>
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Gibt es eine Mindestlaufzeit?</summary>
+          <p>Ja, drei Monate je Vertriebsstrecke, damit Landingpage und Sichtbarkeit Zeit haben zu wirken. Danach kannst du verlängern, die Zielgruppe wechseln oder unkompliziert kündigen.</p>
+        </details>
+        <details class="produkt-faq-item reveal" name="produkt-faq">
+          <summary>Wie hoch ist mein monatlicher Zeitaufwand?</summary>
+          <p>Sehr gering. Nach der Einrichtung übernehmen wir den technischen Teil – Du investierst deine Zeit nur ins Posten der Inhalte und in deine eigentlichen Kundengespräche.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Download: PDF-Zusammenfassung ===== -->
+  <section class="produkt-section pdf-dl-section">
+    <div class="container">
+      <div class="pdf-dl pdf-dl--mist reveal" id="download" style="--dl-acc:#fff400;">
+        <div class="pdf-dl-visual" aria-hidden="true">
+          <img class="pdf-dl-page pdf-dl-page--back" src="{{ A }}/img/empiria-sofort-sichtbar-2.png" alt="" loading="lazy">
+          <img class="pdf-dl-page pdf-dl-page--front" src="{{ A }}/img/empiria-sofort-sichtbar-1.png" alt="" loading="lazy">
+        </div>
+        <div class="pdf-dl-text">
+          <p class="pdf-dl-kicker">Download</p>
+          <h2 class="pdf-dl-h">sofort sichtbar auf <span class="e2-dl-hl">einen Blick.</span></h2>
+          <p class="pdf-dl-lead">Das Wichtigste kompakt zusammengefasst. Zum Nachlesen und Weitergeben an dein Team oder deine Entscheider.</p>
+          <div class="pdf-dl-meta"><span>PDF</span><span>6 Seiten</span><span>0,4 MB</span></div>
+          <a class="pdf-dl-btn" href="{{ A }}/img/empiria-sofort-sichtbar.pdf" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ansprechpartner + CTA ===== -->
+  <section class="produkt-cta produkt-team-cta">
+    <div class="container">
+      <p class="kicker">Jetzt loslegen</p>
+      <h2>Bereit, sofort sichtbar zu werden?</h2>
+      <p class="produkt-team-cta-sub">Dein direkter Draht zu uns. Kurze Wege statt langer Abstimmungsrunden.</p>
+      <div class="ansprechpartner-grid">
+        <div class="ansprechpartner-card reveal">
+          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-daniel.webp" alt="Daniel Ströbel" width="132" height="132" loading="lazy"></div>
+          <p class="ansprechpartner-name">Daniel Ströbel</p>
+          <p class="ansprechpartner-role">Strategiehandwerker</p>
+        </div>
+        <div class="ansprechpartner-card reveal">
+          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-kerstin.webp" alt="Kerstin Christ" width="132" height="132" loading="lazy"></div>
+          <p class="ansprechpartner-name">Kerstin Christ</p>
+          <p class="ansprechpartner-role">Expertin Content &amp; Sichtbarkeit</p>
+        </div>
+        <div class="ansprechpartner-card reveal">
+          <div class="ansprechpartner-photo"><img src="{{ A }}/img/ansprechpartner-noah.webp" alt="Noah Hermanns" width="132" height="132" loading="lazy"></div>
+          <p class="ansprechpartner-name">Noah Hermanns</p>
+          <p class="ansprechpartner-role">Experte Performance Marketing</p>
+        </div>
+      </div>
+      <div class="produkt-cta-actions">
+        <a class="btn btn--dark" href="#termin">Termin auswählen</a>
+        <a class="btn btn--outline" href="mailto:kontakt@sofortsichtbar.de">kontakt@sofortsichtbar.de</a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+{% else %}
+<main>
+<div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
+  <section class="e2-kopf" id="intro"><div class="e2-wrap e2-kopf__raster">
+  <div class="e2-kopf__text"><h1>{{ s.h1 | safe }}</h1>
+    <div class="e2-kopf__inhalt"><p>{{ s.text }}</p></div>
+    <div class="e2-knoepfe"><a class="e2-knopf" href="{{ B }}/#termin">Termin auswählen <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+  <div class="e2-kopfbild e2-kopfbild--foto"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
+</div></section>
+  <section class="s6-folgt">
+    <div class="container">
+      <div class="s6-folgt__kasten">
+        <h2 class="h-serif">Inhalt folgt.</h2>
+        <p>Diese Unterseite ist ein Platzhalter. Aufbau und Inhalte legen wir gemeinsam fest.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+{% endif %}
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <span>sofort sichtbar 2026</span>
+    <span class="footer-links"><a href="/impressum">Impressum</a> <span>|</span> <a href="/datenschutzerklarung">Datenschutz</a></span>
+  </div>
+</footer>
+<script>
+(function () {
+  var t = document.getElementById("navToggle"), m = document.getElementById("mobileMenu");
+  if (!t || !m) return;
+  t.addEventListener("click", function () {
+    var auf = !m.classList.contains("open");
+    m.classList.toggle("open", auf);
+    t.setAttribute("aria-expanded", auf ? "true" : "false");
+  });
+  m.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { m.classList.remove("open"); t.setAttribute("aria-expanded", "false"); }); });
+})();
+</script>
+</body>
+</html>

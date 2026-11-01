@@ -1,0 +1,248 @@
+  /* ===== Clean/A2-Redesign: weißer Hintergrund, Akzentfarbe "violet" ===== */
+  body.produktseite-clean { background: #fff; }
+  .produktseite-clean .produkt-hero { color: var(--ink); background: #fff; }
+  .produktseite-clean .produkt-hero .kicker { color: #1a1817; }
+  .produktseite-clean .produkt-hero h1 { color: var(--ink); }
+  .produktseite-clean .produkt-hero .hl { color: #fff; }
+  .produktseite-clean .produkt-hero .hl { background-image: linear-gradient(#fff400, #fff400); }
+  .produktseite-clean .produkt-hero p.lead { color: var(--grey-70); }
+  .produktseite-clean .produkt-hero-lead-cols p.lead { color: var(--grey-70); }
+  .produktseite-clean .produkt-hero .btn--dark { background: #fff400; border-color: #fff400; color: #1a1817; }
+  .produktseite-clean .produkt-pill { background: #fff; border-color: rgba(0,0,0,.14); color: var(--ink); }
+  .produktseite-clean .hero-stat { background: var(--grey-bg); border: 1.5px solid #e7e2df; box-shadow: none; }
+  .produktseite-clean .hero-stat-icon, .produktseite-clean .hero-stat-num { color: var(--ink); }
+  .produktseite-clean .hero-stat-label { color: var(--grey-70); }
+  .produktseite-clean .btn--outline { color: var(--ink); border-color: var(--black); }
+  .produktseite-clean .btn--outline:hover { background: var(--black); color: #fff; }
+
+  /* Separat hervorgehobener USP-Bereich (z.B. "Umsetzungsturbo") — volle Breite,
+     dezenter grauer Hintergrund wie die Problem-Sektion auf der Startseite. */
+  .usp-turbo-icon { background: #fff400; color: #1a1817; }
+
+  /* Mockup-/Vorschau-Karten (PowerPoint, Roll-up, Landingpage, Medien-Kacheln,
+     Sprint-Landingpage-Struktur) — werden zur vollfarbigen Farbkarte. */
+  .produktseite-clean .sprint-structure-card {
+    background: linear-gradient(155deg, #fff400 0%, #fff400 100%);
+    border: none; box-shadow: 0 34px 80px rgba(0,0,0,.28);
+  }
+  .produktseite-clean .sprint-structure-card:hover { border-color: transparent; }
+  .produktseite-clean .media-box-footer,
+  .produktseite-clean .sprint-structure-footer { background: rgba(0,0,0,.16); border-top: 1px solid rgba(255,255,255,.2); }
+  .produktseite-clean .media-box-title,
+  .produktseite-clean .sprint-structure-title { color: #fff; }
+  .produktseite-clean .sprint-structure-cta.btn--dark { background: #fff; border-color: #fff; color: #1a1817; }
+
+  /* Standard-Icon-Mockup (Seiten ohne eigenes Bild) */
+  .produktseite-clean .produkt-mock { border: 1px solid #e7e2df; background: var(--grey-bg); box-shadow: 0 30px 70px rgba(0,0,0,.08); }
+  .produktseite-clean .produkt-mock-icon { background: none; }
+  .produktseite-clean .produkt-mock-icon svg { color: #1a1817; filter: none; }
+  .produktseite-clean .produkt-mock--structure svg { filter: invert(1); }
+
+  /* Dashboard-/Tool-Mockups (Paid Ads, Dashboard digitales Marketing) */
+  .produktseite-clean .produkt-mock--dashboard,
+  .produktseite-clean .produkt-mock--tool { border-color: #e7e2df; background: var(--grey-bg); }
+  .produktseite-clean .dash-kpi { background: #fff; border-color: #e7e2df; }
+  .produktseite-clean .dash-kpi .val { color: var(--ink); }
+  .produktseite-clean .dash-kpi .lbl { color: var(--grey-70); }
+  .produktseite-clean .dash-bars { background: none; padding-top: 6px; }
+  .produktseite-clean .dash-bar { background: linear-gradient(180deg, #fff400, #fff400); }
+  .produktseite-clean .dash-caption { color: var(--grey-50); }
+  .produktseite-clean .tool-dash-nav { background: #fff; border-right-color: #e7e2df; }
+  .produktseite-clean .tool-dash-logo { background: #fff400; }
+  .produktseite-clean .tool-dash-nav-item { background: rgba(0,0,0,.08); }
+  .produktseite-clean .tool-dash-nav-item--active { background: #fff400; }
+
+  /* Bare Split-Mockup (Dashboard digitales Marketing: MacBook + Video-Skizze) — komplett
+     ohne Kasten/Hintergrund, frei auf dem Hero. Weiß gezeichnete Skizzen, Invertierung
+     macht sie auf Weiß lesbar; verstärkter Kontrast gleicht das Fehlen der Karte aus. */
+  .produktseite-clean .mock-split-half svg { filter: invert(1) contrast(1.6); }
+
+  /* Tools-Reihe (KI zum Anfassen) — die Logos werden bereits vorab eingefärbt als
+     PNG ausgeliefert (siehe _KI_TOOLS_ITEMS), daher hier nur die Beschriftung. */
+  .produktseite-clean .tools-row-label { color: var(--grey-70); }
+  .produktseite-clean .tools-row-icon img { opacity: 1; }
+
+  /* Hero: zweispaltiges Grid — Text links, Skizzen-Visualisierung rechts. Die
+     Visualisierung steht IMMER frei im Header: kein Kasten, kein Hintergrund, keine
+     Klickfläche — jede Kastenoptik einzelner Mockup-Bausteine wird hier neutralisiert. */
+  .produktseite-clean .produkt-hero-grid {
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: clamp(36px, 6vw, 90px); align-items: center;
+  }
+  /* Modifier fuer Seiten, deren Lead-Text NICHT in der linken Spalte steht, sondern
+     darunter ueber die volle Breite (siehe lead_below_full_width): Skizze richtet
+     sich dann an der Kopfzeile aus, statt sich an einem laengeren Textblock zu
+     zentrieren — nur ueber die Zusatzklasse aktiv, betrifft keine andere Seite. */
+  .produktseite-clean .produkt-hero-grid.produkt-hero-grid--top { align-items: flex-start; }
+  .produktseite-clean .produkt-hero-text { min-width: 0; }
+  .produktseite-clean .produkt-hero-visual { min-width: 0; }
+  .produktseite-clean .produkt-hero-visual > * { margin-top: 0; }
+  .produktseite-clean .produkt-hero-visual .produkt-mock,
+  .produktseite-clean .produkt-hero-visual .produkt-mock--dashboard,
+  .produktseite-clean .produkt-hero-visual .produkt-mock--tool,
+  .produktseite-clean .produkt-hero-visual .produkt-mock--structure {
+    background: none; border: none; box-shadow: none; padding: 0;
+  }
+  .produktseite-clean .produkt-hero-visual .produkt-mock { aspect-ratio: 1/1; max-width: 440px; }
+  .produktseite-clean .produkt-hero-visual .produkt-mock-icon svg {
+    width: clamp(100px, 13vw, 168px); height: clamp(100px, 13vw, 168px);
+  }
+  .produktseite-clean .produkt-hero-visual .produkt-mock-bare { max-width: 420px; }
+  .produktseite-clean .produkt-mock-sketch { max-width: 420px; }
+  .produktseite-clean .produkt-mock-sketch svg { width: 100%; height: auto; display: block; filter: invert(1) contrast(1.6); }
+  /* Roll-up-Skizze ist im Ausgangsformat sehr hochformatig (220x460) — deutlich
+     schmaler begrenzen, damit die Höhe im Header nicht dominiert (min. -50%). */
+  .produktseite-clean .produkt-mock-sketch--rollup { max-width: 190px; }
+
+  /* Wiederverwendete Skizzen auf farbigen Kacheln/Kästen (Übersichtsseiten-Kacheln,
+     Übersichts-Popups): dort sind sie wie das MarketingEcoSystem-Diagramm auf der
+     Marketing-as-a-Service-Seite zu behandeln — weiß gezeichnet, direkt auf dem
+     Farbverlauf, OHNE Invertierung und OHNE separaten hellen Kasten. */
+  .produktseite-clean .media-box-thumb .produkt-mock-sketch svg,
+  .produktseite-clean .modal-summary-mock .produkt-mock-sketch svg { filter: none; }
+  .produktseite-clean .media-box-thumb .produkt-mock-sketch,
+  .produktseite-clean .modal-summary-mock .produkt-mock-sketch { max-width: none; }
+  /* iPhone-Körper der KI-zum-Anfassen-Skizze: auf farbigen Kacheln/Popups (ohne
+     Invertierung) weiß/transparent statt des dunklen Ausgangs-Fills, der nur im
+     Header (mit Invertierung) automatisch weiß wird. */
+  .produktseite-clean .media-box-thumb .mock-phone-body,
+  .produktseite-clean .modal-summary-mock .mock-phone-body { fill: rgba(255,255,255,.14); }
+  .produktseite-clean .modal--structure-accent { background: linear-gradient(155deg, #fff400 0%, #fff400 100%); }
+  @media (max-width: 900px) {
+    .produktseite-clean .produkt-hero-grid { grid-template-columns: 1fr; }
+    .produktseite-clean .produkt-hero-visual { order: -1; max-width: 360px; margin: 0 auto; }
+  }
+  .produktseite-clean .produkt-hero-actions--center {
+    justify-content: center; margin-top: clamp(30px, 4vw, 46px);
+  }
+
+  /* Vorschau-Abschnitt (PowerPoint/Roll-up/Landingpage/Sprint Landingpage): die farbige,
+     anklickbare Vorschau-Karte, jetzt unterhalb des ersten CTAs statt im Header. */
+  .produktseite-clean .produkt-vorschau-card { max-width: 380px; margin: 0 auto; }
+
+  /* Sprint-Landingpage: Timeline */
+  .produktseite-clean .sprint-step:not(:last-child)::before { background: #e7e2df; }
+  .produktseite-clean .sprint-step-marker { background: #fff400; border-color: #fff400; color: #1a1817; }
+  .produktseite-clean .sprint-step-body h4 { color: var(--ink); }
+  .produktseite-clean .sprint-step-meta { color: var(--grey-70); }
+  .produktseite-clean .sprint-substep-tag { color: #1a1817; background: #fff400; border-color: #fff400; }
+  .produktseite-clean .sprint-substep p { color: var(--grey-70); }
+
+  /* Sektionsköpfe / Vorteile-Kästen (immer clean weiß) */
+  .produktseite-clean .produkt-section-head .kicker { color: #1a1817; }
+  .produktseite-clean .produkt-section-head h2 { color: var(--ink); }
+  .produktseite-clean .produkt-section-head p { color: var(--grey-70); }
+
+  /* Zweispaltige Vorschau-Sektion (z.B. "Erfolgsfaktor") */
+  .produktseite-clean .vorschau-split-text .kicker { color: #1a1817; }
+  .produktseite-clean .vorschau-split-text h2 { color: var(--ink); }
+  .produktseite-clean .vorschau-split-text p { color: var(--grey-70); }
+  .produktseite-clean .vorschau-facts-list { border-top-color: #e7e2df; }
+  .produktseite-clean .vorschau-facts-list li { color: var(--ink); }
+  .produktseite-clean .vorschau-facts-list li::before { background: #1a1817; }
+  .produktseite-clean .produkt-glass { background: #fff; border: 1px solid #e7e2df; box-shadow: 0 14px 34px rgba(0,0,0,.05); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .produktseite-clean .produkt-glass:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(0,0,0,.08); background: #fff; border-color: #e7e2df; }
+  .produktseite-clean .produkt-glass h3 { color: var(--ink); }
+  .produktseite-clean .produkt-glass p { color: var(--grey-70); }
+  .produktseite-clean .feature-icon { background: none; border: none; border-radius: 0; width: auto; height: auto; margin-bottom: 18px; }
+  .produktseite-clean .feature-icon svg { width: 36px; height: 36px; color: #1a1817; }
+  .produktseite-clean .topics-list li { color: var(--ink); }
+  .produktseite-clean .topics-list li::before { background: #1a1817; }
+
+  /* Preis-Hinweis-Karte (einzelner großer Preis) */
+  .produktseite-clean .price-note-card { background: #fff; border: 1px solid #e7e2df; }
+  .produktseite-clean .price-note-card--feature { background: linear-gradient(155deg, #fff400 0%, #fff400 100%); border-color: transparent; box-shadow: 0 30px 70px rgba(0,0,0,.18); }
+  .produktseite-clean .price-note-amount { color: #fff; }
+  .produktseite-clean .price-note-unit { color: rgba(255,255,255,.75); }
+  .produktseite-clean .price-note-detail { color: rgba(255,255,255,.85); }
+  .produktseite-clean .price-note-list { border-top-color: rgba(255,255,255,.3); }
+  .produktseite-clean .price-note-list li { color: rgba(255,255,255,.9); }
+  .produktseite-clean .price-note-list li::before { background: #fff; }
+
+  /* Preis-Bundles: Karten clean, hervorgehobene Karte als Farbkarte */
+  .produktseite-clean .price-card h3, .produktseite-clean .price-amount { color: var(--ink); }
+  .produktseite-clean .price-name-sub, .produktseite-clean .price-desc,
+  .produktseite-clean .price-unit, .produktseite-clean .price-note { color: var(--grey-70); }
+  .produktseite-clean .price-features { border-top-color: #e7e2df; }
+  .produktseite-clean .price-features li { color: var(--ink); }
+  .produktseite-clean .price-features li::before { background: #1a1817; }
+  .produktseite-clean .price-badge { background: #fff400; border-color: #fff400; color: #1a1817; }
+  .produktseite-clean .price-card--featured { background: linear-gradient(155deg, #fff400 0%, #fff400 100%); border-color: transparent; }
+  .produktseite-clean .price-card--featured:hover { background: linear-gradient(155deg, #fff400 0%, #fff400 100%); border-color: transparent; }
+  .produktseite-clean .price-card--featured h3, .produktseite-clean .price-card--featured .price-amount,
+  .produktseite-clean .price-card--featured .price-features li { color: #1a1817; }
+  .produktseite-clean .price-card--featured .price-name-sub, .produktseite-clean .price-card--featured .price-desc,
+  .produktseite-clean .price-card--featured .price-unit, .produktseite-clean .price-card--featured .price-note { color: rgba(26,24,23,.82); }
+  .produktseite-clean .price-card--featured .price-features { border-top-color: rgba(26,24,23,.3); }
+  .produktseite-clean .price-card--featured .price-features li::before { background: #1a1817; }
+  .produktseite-clean .price-card--featured .price-badge { background: #fff; color: #1a1817; border-color: #1a1817; }
+  .produktseite-clean .pricing-footnote { color: var(--grey-50); }
+  .produktseite-clean .price-more-btn { margin-top: 30px; align-self: center; }
+  .produktseite-clean .price-card--featured .btn--outline { background: #fff; color: #1a1817; border-color: #fff; }
+  .produktseite-clean .price-card--featured .btn--outline:hover { background: #fff; color: #1a1817; opacity: .92; }
+  .produktseite-clean .price-ideal-band { background: var(--grey-bg); }
+  .produktseite-clean .price-ideal { color: var(--ink); }
+  .produktseite-clean .price-card--featured .price-ideal-band { background: rgba(0,0,0,.16); }
+  .produktseite-clean .price-card--featured .price-ideal { color: #1a1817; }
+
+  /* Ablauf-Popups (je Paket, "Mehr erfahren") — nutzen dieselbe Timeline wie Sprint Landingpage */
+  .produktseite-clean .modal .sprint-step-marker { background: #fff400; border-color: #fff400; color: #1a1817; }
+
+  /* Hervorgehobener USP-Banner unterhalb der Feature-Kacheln (z.B. "Kein Briefing nötig") —
+     bewusst NICHT im weißen .produkt-glass-Stil, sondern als eigenständiger, farbiger Block. */
+  .produktseite-clean .usp-highlight {
+    margin-top: 28px; padding: clamp(28px, 4vw, 44px);
+    border-radius: 22px; background: linear-gradient(150deg, #fff400 0%, #fff400 100%);
+    color: #1a1817; box-shadow: 0 30px 70px rgba(0,0,0,.18);
+    display: flex; flex-wrap: wrap; align-items: center; gap: clamp(18px, 3vw, 36px);
+  }
+  .produktseite-clean .usp-highlight-icon {
+    flex: 0 0 auto; width: 56px; height: 56px; border-radius: 16px;
+    background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center;
+  }
+  .produktseite-clean .usp-highlight-icon svg { width: 30px; height: 30px; color: #fff; }
+  .produktseite-clean .usp-highlight-body { flex: 1 1 320px; }
+  .produktseite-clean .usp-highlight-kicker {
+    font-family: var(--font-sans); font-weight: 700; font-size: .74rem; letter-spacing: .08em;
+    text-transform: uppercase; color: rgba(255,255,255,.72); margin: 0 0 8px;
+  }
+  .produktseite-clean .usp-highlight h3 { font-family: var(--font-serif); font-size: 1.4rem; margin: 0 0 10px; color: #fff; }
+  .produktseite-clean .usp-highlight p { margin: 0; color: rgba(255,255,255,.88); line-height: 1.65; }
+
+  /* Prozess-Schritte */
+  .produktseite-clean .produkt-process-step { background: #fff; border: 1px solid #e7e2df; }
+  .produktseite-clean .produkt-process-step:hover { background: #faf8f7; transform: translateY(-3px); }
+  .produktseite-clean .produkt-process-step .step-num { color: #1a1817; }
+  .produktseite-clean .produkt-process-step h3 { color: var(--ink); }
+  .produktseite-clean .produkt-process-step p { color: var(--grey-70); }
+
+  /* Vergleich-Bild (z.B. sofort sichtbar: klassische Agentur vs. sofort sichtbar) — auf der
+     hellen "clean"-Seite als helle Karte statt als dunkler Kasten, deshalb überall dunkle
+     statt weißer Schrift (sonst unlesbar auf hellem Grund). */
+  .produktseite-clean .vergleich-bild { background: var(--grey-bg); border: 1px solid #e7e2df; }
+  .produktseite-clean .vergleich-label { color: var(--ink); }
+  .produktseite-clean .vergleich-label--brand { color: #1a1817; }
+  .produktseite-clean .vergleich-timeline { background: #fff; border: 1px solid #e7e2df; }
+  .produktseite-clean .vergleich-timeline--outline { border-color: #fff400; }
+  .produktseite-clean .vergleich-pill { background: var(--grey-bg); border: 1px solid #e7e2df; color: var(--ink); }
+  .produktseite-clean .vergleich-rocket { border-color: rgba(26,24,23,.5); }
+  .produktseite-clean .vergleich-bonus { color: var(--ink); }
+  .produktseite-clean .vergleich-bonus svg { color: #1a1817; }
+
+  /* FAQ */
+  .produktseite-clean .produkt-faq-item { background: #fff; border: 1px solid #e7e2df; }
+  .produktseite-clean .produkt-faq-item:hover { background: #faf8f7; border-color: #e7e2df; }
+  .produktseite-clean .produkt-faq-item summary { color: var(--ink); }
+  .produktseite-clean .produkt-faq-item summary::after { color: #1a1817; }
+  .produktseite-clean .produkt-faq-item p { color: var(--grey-70); }
+
+  /* Ansprechpartner + finaler CTA */
+  .produktseite-clean .produkt-team-cta { background: #fff; padding-bottom: clamp(60px, 8vw, 110px); }
+  .produktseite-clean .produkt-team-cta .kicker { color: #1a1817; }
+  .produktseite-clean .produkt-team-cta h2, .produktseite-clean .produkt-cta h2 { color: var(--ink); }
+  .produktseite-clean .produkt-team-cta-sub { color: var(--grey-70); }
+  .produktseite-clean .ansprechpartner-name { color: var(--ink); }
+  .produktseite-clean .ansprechpartner-role { color: var(--grey-50); }
+  .produktseite-clean .produkt-cta .btn--dark { background: #fff400; border-color: #fff400; color: #1a1817; }
+
+  body.produktseite-clean .site-footer { background: var(--black); }
