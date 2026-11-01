@@ -8,6 +8,8 @@ pagination:
 seiten:
   - slug: ""
     titel: "Startseite"
+  - slug: "strategiekompass"
+    titel: "Strategiekompass"
   - slug: "anwendungsfaelle"
     titel: "Anwendungsfälle"
     h1: 'Anwendungsfälle. <span class="hl">Aus dem Alltag.</span>'
@@ -50,6 +52,7 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="stylesheet" href="{{ A }}/css/schwarzgelb-ergaenzung.css">
 <link rel="stylesheet" href="{{ A }}/css/sofort-sichtbar-seite.css">
 <link rel="stylesheet" href="{{ A }}/css/kontakt.css">
+{% if s.slug == "strategiekompass" %}<link rel="stylesheet" href="{{ A }}/kompass/kompass-g.css">{% endif %}
 <style>
 /* Ergänzungen Story 6 – nur, was das Vorbild nicht mitbringt */
 .s6-dev { background: #1a1817; color: #cfcac3; font-size: 12.5px; }
@@ -89,9 +92,11 @@ permalink: "/entwicklung/storyboard/story6/{% if s.slug %}{{ s.slug }}/{% endif 
 .s6-folgt__kasten { padding: 2.4rem; border: 2px dashed #1a1817; border-radius: 18px; }
 .s6-folgt h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .s6-folgt p { margin-top: .8rem; max-width: 40rem; font-size: 1.05rem; line-height: 1.6; }
-.nav-links a { white-space: nowrap; }
-/* Vier Menüpunkte plus Knopf: Burger-Menü schon ab 1180px statt 900px */
-@media (max-width: 1180px) {
+html body.e2 .site-header .nav-links { gap: 1.6rem; position: static; transform: none; margin-left: auto; } /* empiria zentriert absolut – bei fünf Punkten läuft das in den Knopf */
+html body.e2 .site-header .nav-cta { margin-left: 2rem !important; }
+html body.e2 .site-header .nav-links a { white-space: nowrap; font-size: .9rem; }
+/* Fünf Menüpunkte plus Knopf: Burger-Menü schon ab 1200px statt 900px */
+@media (max-width: 1200px) {
   html body.e2 .site-header .nav-links, html body.e2 .site-header .nav-cta { display: none; }
   html body.e2 .site-header .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: none; color: var(--ink); margin-left: auto; }
   html body.e2 .site-header .nav { height: 68px; }
@@ -303,7 +308,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 <symbol id="ss-pille" viewBox="0 0 55 22"><path fill="currentColor" d="M9.50193 18.4865C5.64217 18.4719 3.76584 16.0162 3.76584 10.9783C3.76584 5.96979 5.64217 3.52814 9.50193 3.51347L9.98181 3.51151V3.5089H45.0182V3.51151L45.4984 3.51347C49.3575 3.52814 51.2333 5.96979 51.2333 10.9783C51.2333 16.0162 49.3575 18.4719 45.4984 18.4865L45.0182 18.4885V18.4911H9.98181V18.4885L9.50193 18.4865ZM9.49871 21.9987L9.98181 22V21.9987H45.0182V22L45.5013 21.9987H46.0143V21.9762C51.8097 21.7437 55 17.8647 55 10.9783C55 4.11833 51.8097 0.25499 46.0143 0.0234768V0.00129741H45.5013L45.0182 0V0.00129741H9.98181V0L9.49871 0.00129741H8.94677V0.0251085C3.17608 0.2726 0 4.13399 0 10.9783C0 17.8494 3.17608 21.7258 8.94677 21.9746V21.9987H9.49871Z"/><path fill="currentColor" d="M42.8887 15.4987C45.4267 15.4987 47.4914 13.4053 47.4914 10.8322C47.4914 8.2595 45.4267 6.16609 42.8887 6.16609C40.3509 6.16609 38.286 8.2595 38.286 10.8322C38.286 13.4053 40.3509 15.4987 42.8887 15.4987Z"/></symbol>
   </defs>
 </svg>
-{%- set nav = [["anwendungsfaelle","Anwendungsfälle"],["zielgruppenpakete","Zielgruppenpakete"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
+{%- set nav = [["strategiekompass","Strategiekompass"],["zielgruppenpakete","Zielgruppenpakete"],["anwendungsfaelle","Anwendungsfälle"],["dein-style","Dein Style"],["ueber-uns","Über uns"]] -%}
 <div class="s6-dev"><div class="container"><span><b>Storyboard · Homepage-Story 6</b> · Grundstil empiria-Repo · Texte sind Entwürfe, Unterseiten sind Platzhalter</span><a href="/entwicklung/storyboard/klarer-kern-hell">← Homepage-Story 5 hell</a></div></div>
 <header class="site-header" id="top">
   <div class="container nav">
@@ -332,7 +337,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <div class="e2v-held__text-oben"><h1>Digital sichtbar.<br><span class="hl">Sofort.</span></h1>
     <div class="e2v-held__text"><p>Für Versicherungsagenturen und Maklerbüros mit Team: fertige Postings, Landingpages und Kundenmailings für 20 Zielgruppen. Ohne Briefing, in wenigen Tagen einsatzbereit.</p></div></div>
   <div class="e2v-held__pfeil s6-mockup"><img src="{{ A }}/img/sofort-sichtbar-mockup.webp" alt="Mockup: Landingpage von sofort sichtbar" width="772" height="644"></div>
-  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="#kompass">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/kontakt/">Termin auswählen</a></div>
+  <div class="e2-knoepfe e2v-held__knoepfe"><a class="e2-knopf" href="{{ B }}/strategiekompass/">Zielgruppen finden <svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="e2-knopf e2-knopf--rand" href="{{ B }}/kontakt/">Termin auswählen</a></div>
 </div></section>
 
 <div class="e2-alt e2-alt--cyan e2-seite--sofort-sichtbar">
@@ -549,6 +554,11 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </section>
 </div>
 </main>
+{% elif s.slug == "strategiekompass" %}
+<main>
+  <div class="kg"><div class="container"><div class="wrap" id="app"></div></div></div>
+</main>
+<script src="{{ A }}/kompass/kompass-g.js"></script>
 {% elif s.slug == "kontakt" %}
 <main>
   <section class="kontakt-standalone s6-ks s6-ks--seite">
