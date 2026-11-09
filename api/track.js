@@ -169,25 +169,32 @@ export async function POST(request) {
       internal,
     });
   }
-  if (events.length === 0) return antwort(204, headers);
+  // X-Track verrät nur den Ausgang (keine Daten) – zur Fehlersuche im Netzwerk-Tab.
+  if (events.length === 0) return antwort(204, { ...headers, "X-Track": "keine-gueltigen-events" });
 
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
   if (!url || !key) {
     console.error("[track] SUPABASE_URL oder SUPABASE_SECRET_KEY fehlt");
-    return antwort(204, headers);   // Besucher merkt nichts, Fehler steht im Log
+    // Besucher merkt nichts, Fehler steht im Log
+    return antwort(204, { ...headers, "X-Track": "config-fehlt" + (url ? "" : ":url") + (key ? "" : ":key") });
   }
 
+  let ausgang = "gespeichert";
   try {
-    const r = await fetch(`${url}/rest/v1/rpc/ingest_events`, {
+    const r = await fetch(`${url.replace(/\/+$/, "")}/rest/v1/rpc/ingest_events`, {
       method: "POST",
       headers: { apikey: key, "Content-Type": "application/json" },
       body: JSON.stringify({ p_events: events }),
     });
-    if (!r.ok) console.error("[track] Supabase", r.status, (await r.text()).slice(0, 300));
+    if (!r.ok) {
+      ausgang = "supabase-" + r.status;
+      console.error("[track] Supabase", r.status, (await r.text()).slice(0, 300));
+    }
   } catch (err) {
+    ausgang = "supabase-nicht-erreichbar";
     console.error("[track] Supabase nicht erreichbar", err);
   }
 
-  return antwort(204, headers);
+  return antwort(204, { ...headers, "X-Track": ausgang });
 }
