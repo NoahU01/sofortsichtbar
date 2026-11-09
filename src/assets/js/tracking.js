@@ -21,9 +21,14 @@
   };
 
   /** Sendet direkt über gtag; ohne gtag als dataLayer-Push, damit ein
-      späterer Umzug auf GTM ohne Code-Änderung funktioniert. */
-  function track(name, params) {
+      späterer Umzug auf GTM ohne Code-Änderung funktioniert.
+
+      fp = dasselbe Ereignis für das eigene First-Party-Tracking
+      (firstparty.js → Datenbank), mit Namen aus dem festen Katalog:
+      { name: "cta_click", props: {...} }. Ohne fp geht nur GA4. */
+  function track(name, params, fp) {
     params = params || {};
+    if (fp && typeof window.ssTrack === "function") window.ssTrack(fp.name, fp.props || {});
     if (typeof window.gtag === "function") {
       window.gtag("event", name, params);
     } else {
@@ -42,20 +47,28 @@
       var href = a.getAttribute("href") || "";
 
       if (href.indexOf("mailto:") === 0) {
-        track(EVENTS.mail, { ziel: href.replace("mailto:", "") });
+        track(EVENTS.mail, { ziel: href.replace("mailto:", "") },
+          { name: "cta_click", props: { ziel: "mail" } });
       } else if (href.indexOf("tel:") === 0) {
-        track(EVENTS.telefon, { ziel: href.replace("tel:", "") });
+        track(EVENTS.telefon, { ziel: href.replace("tel:", "") },
+          { name: "cta_click", props: { ziel: "telefon" } });
       } else if (href.indexOf("/kontakt") === 0) {
-        track(EVENTS.ctaKontakt, { quelle: location.pathname, text: (a.textContent || "").trim().slice(0, 60) });
+        var ctaText = (a.textContent || "").trim().slice(0, 60);
+        track(EVENTS.ctaKontakt, { quelle: location.pathname, text: ctaText },
+          { name: "cta_click", props: { ziel: "kontakt", text: ctaText } });
       } else if (href.indexOf("/zielgruppen/") === 0) {
-        track(EVENTS.themaKlick, { zielgruppe: href.replace("/zielgruppen/", "").replace(/\/$/, "") });
+        var zg = href.replace("/zielgruppen/", "").replace(/\/$/, "");
+        track(EVENTS.themaKlick, { zielgruppe: zg },
+          { name: "cta_click", props: { ziel: "zielgruppe", zielgruppe: zg } });
       }
     });
 
     // Preis-Umschalter
     document.querySelectorAll("[data-tabs] [role='tab']").forEach(function (tab) {
       tab.addEventListener("click", function () {
-        track(EVENTS.pricingWechsel, { intervall: (tab.id || "").replace("tab-", "") });
+        var intervall = (tab.id || "").replace("tab-", "");
+        track(EVENTS.pricingWechsel, { intervall: intervall },
+          { name: "pricing_toggle", props: { intervall: intervall } });
       });
     });
   }
@@ -74,13 +87,17 @@
       if (!api) { if (versuche > 60) clearInterval(timer); return; }
       clearInterval(timer);
 
-      track(EVENTS.terminGeoeffnet, {});
+      track(EVENTS.terminGeoeffnet, {}, { name: "booking_widget_view" });
 
       // Neuere Embeds feuern beide Varianten – einmal zählen reicht.
-      function gebucht() {
+      // Die Buchungs-ID (uid) verbindet später das Website-Event mit dem
+      // Cal.com-Webhook, der die E-Mail liefert → Besucher wird zur Person.
+      function gebucht(e) {
         if (window.__terminGetrackt) return;
         window.__terminGetrackt = true;
-        track(EVENTS.terminGebucht, {});
+        var d = (e && e.detail && e.detail.data) || {};
+        var uid = (d.booking && d.booking.uid) || d.uid || "";
+        track(EVENTS.terminGebucht, {}, { name: "meeting_booked", props: uid ? { booking_uid: String(uid) } : {} });
       }
       ["bookingSuccessful", "bookingSuccessfulV2"].forEach(function (action) {
         try { api("on", { action: action, callback: gebucht }); } catch (e) {}
@@ -160,7 +177,7 @@
           page_location: seitenUrl,
           // beacon überlebt das Verlassen der Seite
           transport_type: "beacon"
-        });
+        }, { name: "section_time", props: { section: id, seconds: Math.min(sekunden, MAX_SEKUNDEN) } });
       }
       summe = {};
       // Sichtbares läuft weiter, falls die Person zurückkommt.
@@ -179,7 +196,8 @@
         if (istSichtbar) {
           if (!gesehen[id]) {
             gesehen[id] = true;
-            track("section_view_" + id.replace(/-/g, "_"), { page: pfad, page_location: seitenUrl });
+            track("section_view_" + id.replace(/-/g, "_"), { page: pfad, page_location: seitenUrl },
+              { name: "section_view", props: { section: id } });
           }
           sichtbar[id] = true;
           if (document.visibilityState === "visible" && !seit.hasOwnProperty(id)) seit[id] = jetzt();

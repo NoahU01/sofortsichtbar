@@ -85,8 +85,11 @@
   </div>
 
   <script src="/assets/js/main.js" defer></script>
-  {% if env.isProduction and (site.tracking.ga4Id or site.tracking.gtmId) %}
+  {# Eigenes Tracking läuft überall – auf Vorschau und lokal markiert der
+     Server die Events als internal. tracking.js sendet an GA4 nur, wenn gtag
+     geladen ist (Produktion); sonst landet es folgenlos im dataLayer.
+     firstparty.js muss VOR tracking.js stehen (stellt window.ssTrack bereit). #}
+  <script src="/assets/js/firstparty.js" data-cookieconsent="ignore" defer></script>
   <script src="/assets/js/tracking.js" defer></script>
-  {% endif %}
 </body>
 </html>
