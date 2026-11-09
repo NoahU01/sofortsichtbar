@@ -108,7 +108,10 @@ const antwort = (status, headers = {}) => new Response(null, { status, headers }
 
 export async function POST(request) {
   const ua = request.headers.get("user-agent") || "";
-  if (BOT.test(ua)) return antwort(204);
+  // Der Cookiebot-Scanner muss das Cookie sehen, sonst taucht es nie in der
+  // Cookie-Erklärung auf. Er bekommt es gesetzt, seine Events werden verworfen.
+  const scanner = /cookiebot/i.test(ua);
+  if (BOT.test(ua) && !scanner) return antwort(204);
 
   const host = request.headers.get("host") || "";
   // Nur Anfragen von der eigenen Seite.
@@ -136,6 +139,8 @@ export async function POST(request) {
   } else if (leseCookie(request.headers.get("cookie"), COOKIE)) {
     headers["Set-Cookie"] = `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`;
   }
+
+  if (scanner) return antwort(204, { ...headers, "X-Track": "scanner" });
 
   const jetzt = Date.now();
   const events = [];
