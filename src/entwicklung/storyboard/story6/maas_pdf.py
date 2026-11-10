@@ -294,6 +294,10 @@ def main():
     link = os.path.join(BUILD, "assets")
     if not os.path.exists(link):
         os.symlink(os.path.join(EMPIRIA, "site", "assets"), link)
+    # Kopfbild der Seite = Kopfbild der PDF-Titelseite (CD-Bildsprache, eine Quelle)
+    svg = kopfbild("MarketingEcoSystem (MES)")
+    open(os.path.join(ZIEL, "kopfbild.svg"), "w", encoding="utf-8").write(
+        svg if svg.startswith("<svg") and 'xmlns=' in svg else svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"', 1))
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")
