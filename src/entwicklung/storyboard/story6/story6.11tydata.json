@@ -5,8 +5,8 @@
     "hinweis_preise": "Alle Preise zzgl. Umsatzsteuer in gesetzlicher Höhe.",
     "pdf": {
       "datei": "marketing-as-a-service.pdf",
-      "seiten": 10,
-      "groesse": "0,5 MB"
+      "seiten": 19,
+      "groesse": "0,6 MB"
     },
     "bausteine": [
       {
@@ -300,177 +300,214 @@
       "handshake": "<path d=\"m11 17 2 2a1 1 0 1 0 3-3\" /> <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\" /> <path d=\"m21 3 1 11h-2\" /> <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\" /> <path d=\"M3 4h8\" />",
       "app-window": "<rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" /> <path d=\"M10 4v4\" /> <path d=\"M2 8h20\" /> <path d=\"M6 4v4\" />",
       "trending-up": "<path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" />",
-      "message-square-text": "<path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\" /> <path d=\"M7 11h10\" /> <path d=\"M7 15h6\" /> <path d=\"M7 7h8\" />"
+      "message-square-text": "<path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\" /> <path d=\"M7 11h10\" /> <path d=\"M7 15h6\" /> <path d=\"M7 7h8\" />",
+      "compass": "<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z\" />",
+      "image": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" /> <circle cx=\"9\" cy=\"9\" r=\"2\" /> <path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\" />",
+      "code": "<path d=\"m16 18 6-6-6-6\" /> <path d=\"m8 6-6 6 6 6\" />"
     },
-    "team": {
-      "_hinweis": "Gehälter: StepStone-Durchschnitt brutto/Jahr (abgerufen 10.11.2026). Arbeitgeberkosten = Gehalt × (1 + ag_anteil) / 12, berechnet von maas_pdf.py (Felder kosten_monat, summe_monat).",
-      "ag_anteil": 0.21,
-      "ag_quelle": {
-        "text": "Arbeitgeberanteil Sozialversicherung 2026 rund 21 %",
-        "url": "https://lohnklar.de/blog/lohnnebenkosten-2026"
-      },
-      "maas_monat": "3.650 €",
-      "maas_erklaerung": "Kernpaket, LinkedIn Power Package und Paid Ads Betreuung für einen Werbekanal",
-      "zusatzkosten": [
-        "Recruiting und Einarbeitung",
-        "Vertretung bei Urlaub und Krankheit",
-        "Arbeitsplatz, Software und Lizenzen",
-        "Weiterbildung, damit das Wissen aktuell bleibt"
-      ],
-      "rollen": [
+    "profile": {
+      "_hinweis": "Fünf ausschreibbare Profile (Daniel, 10.11.2026). Zuordnung zu den Bausteinen und Stellentexte sind abgeleitet aus dem Leistungsumfang – Vorlagen, keine Belege. Kein Kostenvergleich.",
+      "lead": "Hinter den Bausteinen stehen unterschiedliche Menschen mit unterschiedlichen Fähigkeiten. Im Kernpaket arbeiten vier Profile für dich, mit Paid Ads kommt ein Spezialist dazu.",
+      "hinweis_ergaenzungen": "LinkedIn Power Package und Website-Entwicklung übernimmt dasselbe Team – dafür kommt kein weiteres Profil dazu.",
+      "liste": [
         {
-          "id": "omm",
-          "rolle": "Online-Marketing-Manager",
-          "ico": "layout-dashboard",
-          "bausteine": "Kernpaket",
+          "id": "strategie",
+          "nr": "01",
+          "gruppe": "kern",
+          "klartext": "Strategie und Steuerung",
+          "stelle": "Online-Marketing-Manager (m/w/d)",
+          "h2": "Online-Marketing-<span class=\"hl\">Manager</span> (m/w/d)",
+          "ico": "compass",
+          "denkweise": "Denkt vom Ziel her, liest Kennzahlen und entscheidet, was als Nächstes zählt.",
+          "einleitung": "Verantwortet das digitale Marketing als Ganzes: legt mit der Geschäftsführung Zielgruppen und Prioritäten fest, steuert alle Kanäle über ein zentrales Dashboard und sorgt dafür, dass aus Sichtbarkeit Anfragen werden.",
           "aufgaben": [
-            "Steuert das Dashboard und alle Kennzahlen",
-            "Erstellt den monatlichen Report mit Empfehlungen",
-            "Optimiert Landingpages und Maßnahmen laufend",
-            "Führt den monatlichen Betreuungscall"
+            "Zielgruppen, Angebote und Prioritäten mit der Geschäftsführung festlegen",
+            "Alle Kanäle über ein zentrales Dashboard steuern",
+            "Monatlichen Report mit Einordnung und Handlungsempfehlungen erstellen",
+            "Landingpages, Inhalte und Maßnahmen auf Basis der Daten weiterentwickeln",
+            "Monatliche Abstimmung mit fester Agenda führen",
+            "Beteiligte intern und extern koordinieren"
           ],
-          "gehalt_jahr": 40100,
-          "quelle": "https://www.stepstone.de/gehalt/Online-Marketing-Manager.html",
-          "gehalt_text": "40.100 €",
-          "kosten_monat": "4.040 €"
+          "anforderungen": [
+            "Klares Verständnis von Geschäftsmodell, Zielgruppen und Vertrieb",
+            "Sicherer Umgang mit Kennzahlen, Dashboards und Analytics",
+            "Strategisches Denken und Freude an der Umsetzung",
+            "Eigenständige, strukturierte Arbeitsweise",
+            "Kommunikationsstärke auf Geschäftsführungsebene"
+          ],
+          "ausbildung": [
+            "Studium in Marketing, Kommunikation oder Wirtschaft oder vergleichbare Qualifikation",
+            "Mehrjährige Erfahrung im Online-Marketing, idealerweise kanalübergreifend"
+          ],
+          "posting": {
+            "farbe": "gelb",
+            "titel": "Online-Marketing-Manager gesucht.",
+            "sub": "Ziele, Kanäle und Kennzahlen in einer Hand.",
+            "headline": "Wir suchen: Online-Marketing-Manager (m/w/d)",
+            "text": [
+              "Du legst mit der Geschäftsführung fest, wen wir erreichen wollen, steuerst alle Kanäle über ein zentrales Dashboard und sorgst dafür, dass aus Sichtbarkeit Anfragen werden.",
+              "Klingt nach dir? Wir freuen uns auf deine Bewerbung."
+            ]
+          }
         },
         {
-          "id": "smm",
-          "rolle": "Social-Media-Manager",
+          "id": "content",
+          "nr": "02",
+          "gruppe": "kern",
+          "klartext": "Texte und Social Media",
+          "stelle": "Content- und Social-Media-Manager (m/w/d)",
+          "h2": "Content- und Social-Media-<span class=\"hl\">Manager</span> (m/w/d)",
           "ico": "message-square-text",
-          "bausteine": "Kernpaket · LinkedIn Power Package",
+          "denkweise": "Schreibt so, wie deine Kunden denken, und bleibt dran – Woche für Woche.",
+          "einleitung": "Sorgt dafür, dass das Unternehmen auf allen Kanälen regelmäßig und erkennbar sichtbar ist: plant Themen, schreibt Postings und Texte und baut auf LinkedIn ein Netzwerk zu den richtigen Entscheidern auf.",
           "aufgaben": [
-            "Schreibt 25 Postings je Zielgruppenthema",
-            "Veröffentlicht regelmäßig auf allen Kanälen",
-            "Schreibt deine LinkedIn-Beiträge in deiner Tonalität",
-            "Baut dein Netzwerk auf und liefert Anlässe für die Direktansprache"
+            "Themen planen, abgestimmt auf Zielgruppen und Angebote",
+            "Postings je Zielgruppenthema schreiben und regelmäßig veröffentlichen",
+            "LinkedIn-Beiträge in der Tonalität der Geschäftsführung verfassen",
+            "Das LinkedIn-Netzwerk gezielt ausbauen",
+            "Anlässe für die Direktansprache erkennen und Reaktionen vorschlagen",
+            "Texte für Landingpages, Website und Anzeigen liefern"
           ],
-          "gehalt_jahr": 38600,
-          "quelle": "https://www.stepstone.de/gehalt/Social-Media-Manager-in.html",
-          "gehalt_text": "38.600 €",
-          "kosten_monat": "3.890 €"
+          "anforderungen": [
+            "Sicheres, zielgruppengerechtes Schreiben",
+            "Gespür für Tonalität und Positionierung",
+            "Erfahrung mit LinkedIn, Instagram, Facebook und Planungswerkzeugen",
+            "Verständnis für Vertrieb und Kundenansprache",
+            "Zuverlässigkeit bei regelmäßiger Veröffentlichung"
+          ],
+          "ausbildung": [
+            "Studium oder Ausbildung in Kommunikation, Journalismus, Marketing oder vergleichbar",
+            "Mehrjährige Erfahrung in Content-Erstellung und Social Media"
+          ],
+          "posting": {
+            "farbe": "schwarz",
+            "titel": "Texte, die gelesen werden.",
+            "sub": "Content- und Social-Media-Manager (m/w/d) gesucht.",
+            "headline": "Du schreibst gern – und willst, dass es wirkt?",
+            "text": [
+              "Du planst Themen, schreibst Postings und LinkedIn-Beiträge und baust ein Netzwerk zu Entscheidern auf. Bei uns siehst du direkt, welche Inhalte zu Anfragen führen.",
+              "Wir freuen uns auf deine Bewerbung."
+            ]
+          }
         },
         {
-          "id": "web",
-          "rolle": "Webentwickler",
-          "ico": "app-window",
-          "bausteine": "Kernpaket · Website-Entwicklung",
+          "id": "gestaltung",
+          "nr": "03",
+          "gruppe": "kern",
+          "klartext": "Gestaltung",
+          "stelle": "Grafik- und Webdesigner (m/w/d)",
+          "h2": "Grafik- und <span class=\"hl\">Webdesigner</span> (m/w/d)",
+          "ico": "image",
+          "denkweise": "Macht aus Inhalten ein klares Bild – erkennbar, ruhig und im Look deiner Marke.",
+          "einleitung": "Gibt allen Kanälen ein einheitliches Gesicht: gestaltet Postinggrafiken, Landingpages, die Website und Anzeigenmotive im Erscheinungsbild der Marke – für Desktop, Tablet und Smartphone.",
           "aufgaben": [
-            "Betreut fünf Landingpages technisch",
-            "Sorgt für DSGVO, Tracking und schnelle Ladezeiten",
-            "Bindet Anfrageformulare an das Dashboard an",
-            "Entwickelt deine Website, sichtbar in Google und KI-Systemen"
+            "Postinggrafiken und Formate für Social Media gestalten",
+            "Landingpages und Website im Look der Marke entwerfen",
+            "Anzeigenmotive als Bild- und Videoformate erstellen",
+            "Das Erscheinungsbild über alle Kanäle einheitlich halten",
+            "Entwürfe für Desktop, Tablet und Smartphone ausarbeiten"
           ],
-          "gehalt_jahr": 41800,
-          "quelle": "https://www.stepstone.de/gehalt/Web-Entwickler-in.html",
-          "gehalt_text": "41.800 €",
-          "kosten_monat": "4.210 €"
+          "anforderungen": [
+            "Sicheres Gespür für Typografie, Layout und Bildsprache",
+            "Sichere Kenntnisse in Design-Werkzeugen wie Figma oder Adobe",
+            "Verständnis für Nutzerführung und Conversion",
+            "Erfahrung mit Web- und Social-Media-Formaten",
+            "Markenvorgaben konsequent umsetzen"
+          ],
+          "ausbildung": [
+            "Studium oder Ausbildung in Kommunikations-, Grafik- oder Mediendesign",
+            "Berufserfahrung in digitaler Gestaltung mit aussagekräftigem Portfolio"
+          ],
+          "posting": {
+            "farbe": "hell",
+            "titel": "Gestaltung mit Wirkung.",
+            "sub": "Grafik- und Webdesigner (m/w/d) gesucht.",
+            "headline": "Du gestaltest lieber Wirkung als Dekoration?",
+            "text": [
+              "Du gibst unseren Kanälen ein einheitliches Gesicht – von Postinggrafiken über Landingpages bis zu Anzeigenmotiven.",
+              "Bewirb dich mit deinem Portfolio, wir freuen uns auf dich."
+            ]
+          }
         },
         {
-          "id": "pmm",
-          "rolle": "Performance-Marketing-Manager",
+          "id": "technik",
+          "nr": "04",
+          "gruppe": "kern",
+          "klartext": "Technik",
+          "stelle": "Webentwickler (m/w/d)",
+          "h2": "<span class=\"hl\">Webentwickler</span> (m/w/d)",
+          "ico": "code",
+          "denkweise": "Baut sauber, schnell und rechtssicher – und denkt an Tracking, bevor jemand danach fragt.",
+          "einleitung": "Setzt Landingpages und Website technisch um und hält sie in Betrieb: schnell, DSGVO-konform, messbar und so aufgebaut, dass Google und KI-Systeme die Inhalte verstehen.",
+          "aufgaben": [
+            "Landingpages und Website entwickeln und pflegen",
+            "DSGVO-konforme Umsetzung mit Cookie-Banner und Consent-Management",
+            "Analytics und Conversion-Tracking einrichten",
+            "Anfrageformulare an das Dashboard anbinden",
+            "Seiten für Google und KI-Systeme optimieren (SEO und GEO)",
+            "Go-live mit Domain, Hosting, SSL und Weiterleitungen"
+          ],
+          "anforderungen": [
+            "Fundierte Kenntnisse in HTML, CSS und JavaScript",
+            "Erfahrung mit Content-Management-Systemen und Hosting",
+            "Kenntnisse in Tracking, Tag Manager und Consent Mode",
+            "Verständnis für Ladezeiten und strukturierte Daten (Schema.org)",
+            "Sorgfalt bei Datenschutz und Rechtssicherheit"
+          ],
+          "ausbildung": [
+            "Studium der Informatik oder Medieninformatik oder Ausbildung als Fachinformatiker",
+            "Mehrjährige Erfahrung in der Webentwicklung"
+          ],
+          "posting": {
+            "farbe": "gelb",
+            "titel": "Webentwickler gesucht.",
+            "sub": "Schnell, sauber, messbar.",
+            "headline": "Wir suchen: Webentwickler (m/w/d)",
+            "text": [
+              "Du entwickelst unsere Landingpages und unsere Website, sorgst für Tracking und Datenschutz und machst unsere Inhalte für Google und KI-Systeme lesbar.",
+              "Klingt nach dir? Wir freuen uns auf deine Bewerbung."
+            ]
+          }
+        },
+        {
+          "id": "performance",
+          "nr": "05",
+          "gruppe": "paid-ads",
+          "klartext": "Werbekampagnen",
+          "stelle": "Performance-Marketing-Manager (m/w/d)",
+          "h2": "Performance-Marketing-<span class=\"hl\">Manager</span> (m/w/d)",
           "ico": "trending-up",
-          "bausteine": "Paid Ads",
+          "denkweise": "Behandelt jeden Werbe-Euro wie den eigenen und testet, statt zu vermuten.",
+          "einleitung": "Baut bezahlte Werbung auf Google, Meta und LinkedIn auf und betreut sie laufend – mit dem Ziel, qualifizierte Anfragen zu wirtschaftlichen Kosten zu gewinnen.",
           "aufgaben": [
-            "Richtet Werbekonto und Tracking ein",
-            "Baut Kampagnen auf und schreibt die Anzeigen",
-            "Steuert Budgets und Gebote laufend",
-            "Testet Anzeigen und optimiert auf Anfragen"
+            "Werbekonten einrichten und Tracking über Tag Manager und Pixel aufsetzen",
+            "Zielgruppen, Keywords und Kampagnenziele festlegen",
+            "Kampagnen aufbauen, Budgets und Gebotsstrategien festlegen",
+            "Anzeigentexte und Creatives regelmäßig testen",
+            "Kampagnen laufend steuern und optimieren",
+            "Kennzahlen in Dashboard und Report einordnen"
           ],
-          "gehalt_jahr": 44900,
-          "quelle": "https://www.stepstone.de/jobs/performance-marketing-manager",
-          "gehalt_text": "44.900 €",
-          "kosten_monat": "4.530 €"
-        }
-      ],
-      "summe_monat": "16.700 €",
-      "ag_prozent": "21 %"
-    },
-    "pdf_team": {
-      "datei": "marketing-as-a-service-team.pdf",
-      "seiten": 4,
-      "groesse": "0,4 MB"
-    },
-    "kompetenzen": {
-      "_hinweis": "Zuordnung Kompetenz → Baustein aus dem Leistungsumfang abgeleitet (Einschätzung, kein Beleg). Ohne Kosten (Daniel, 10.11.2026).",
-      "spalten": [
-        [
-          "kern",
-          "Kernpaket"
-        ],
-        [
-          "linkedin",
-          "LinkedIn"
-        ],
-        [
-          "website",
-          "Website"
-        ],
-        [
-          "paid-ads",
-          "Paid Ads"
-        ]
-      ],
-      "felder": [
-        {
-          "name": "Strategie und Steuerung",
-          "skills": "Zielgruppen und Positionierung, Prioritäten setzen, Kennzahlen deuten und Entscheidungen ableiten",
-          "suche": "Marketingstratege oder erfahrener Online-Marketing-Manager",
-          "bausteine": [
-            "kern",
-            "linkedin",
-            "website",
-            "paid-ads"
-          ]
-        },
-        {
-          "name": "Content und Social Media",
-          "skills": "Texte in deiner Tonalität, Themenplanung, Veröffentlichung, Netzwerkaufbau und Direktansprache auf LinkedIn",
-          "suche": "Content- und Social-Media-Manager",
-          "bausteine": [
-            "kern",
-            "linkedin",
-            "website",
-            "paid-ads"
-          ]
-        },
-        {
-          "name": "Gestaltung",
-          "skills": "Postinggrafiken, Landingpage- und Website-Design, Anzeigenmotive im Look deiner Marke",
-          "suche": "Grafik- und Webdesigner",
-          "bausteine": [
-            "kern",
-            "linkedin",
-            "website",
-            "paid-ads"
-          ]
-        },
-        {
-          "name": "Webentwicklung",
-          "skills": "Landingpages und Website bauen und pflegen, DSGVO, Ladezeiten, Formulare, SEO und Sichtbarkeit in KI-Systemen",
-          "suche": "Webentwickler",
-          "bausteine": [
-            "kern",
-            "website"
-          ]
-        },
-        {
-          "name": "Daten und Tracking",
-          "skills": "Tracking und Consent einrichten, Dashboard pflegen, Report erstellen, Conversion-Rate optimieren",
-          "suche": "Marketing-Analyst oder Tracking-Spezialist",
-          "bausteine": [
-            "kern",
-            "website",
-            "paid-ads"
-          ]
-        },
-        {
-          "name": "Performance Marketing",
-          "skills": "Werbekonten, Kampagnenstruktur, Budgets und Gebote, Anzeigen-Tests auf Google, Meta und LinkedIn",
-          "suche": "Performance-Marketing-Manager",
-          "bausteine": [
-            "paid-ads"
-          ]
+          "anforderungen": [
+            "Praxiserfahrung mit Google Ads, Meta Ads und LinkedIn Ads",
+            "Analytisches Denken und sicherer Umgang mit Zahlen",
+            "Kenntnisse in Conversion-Tracking und Consent Mode",
+            "Wirtschaftliches Verständnis für Budgets und Kosten je Anfrage",
+            "Freude am Testen und Verbessern"
+          ],
+          "ausbildung": [
+            "Studium in Marketing, Wirtschaft oder vergleichbare Qualifikation",
+            "Mehrjährige Erfahrung im Performance Marketing; Zertifizierungen der Plattformen sind ein Plus"
+          ],
+          "posting": {
+            "farbe": "schwarz",
+            "titel": "Jeder Euro zählt.",
+            "sub": "Performance-Marketing-Manager (m/w/d) gesucht.",
+            "headline": "Du willst wissen, was eine Anfrage kostet – und wie es günstiger geht?",
+            "text": [
+              "Du baust unsere Kampagnen auf Google, Meta und LinkedIn auf, testest Anzeigen und steuerst Budgets nach Daten.",
+              "Wir freuen uns auf deine Bewerbung."
+            ]
+          }
         }
       ]
     }

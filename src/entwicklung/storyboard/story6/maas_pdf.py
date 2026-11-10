@@ -5,9 +5,9 @@ Inhalt: story6.11tydata.json → maas (dieselbe Quelle wie die Seite /entwicklun
 Bausteine: lib.py und _marketing_teile.py aus ~/Projekte/empiria/werkzeuge/pdf2 – nur gelesen, nicht verändert.
 
 Aufruf:  python3 src/entwicklung/storyboard/story6/maas_pdf.py
-Ergebnis: assets/maas/marketing-as-a-service.pdf und marketing-as-a-service-team.pdf (Teamvergleich),
-          je -1.png/-2.png (Vorschau im Download-Kasten),
-          Seitenbilder zum Prüfen im Temp-Ordner maas_pdf_build/seiten/ (Pfad wird ausgegeben), Seitenzahl/Größe und die berechneten Teamkosten zurück in die JSON.
+Ergebnis: assets/maas/marketing-as-a-service.pdf (Angebot, Team, Stellenbeschreibungen, Postings),
+          -1.png/-2.png (Vorschau im Download-Kasten),
+          Seitenbilder zum Prüfen im Temp-Ordner maas_pdf_build/seiten/ (Pfad wird ausgegeben), Seitenzahl/Größe zurück in die JSON.
 """
 import json
 import os
@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 EMPIRIA = os.path.expanduser("~/Projekte/empiria")
 PDF2 = os.path.join(EMPIRIA, "werkzeuge", "pdf2")
 sys.path.insert(0, PDF2)
-from lib import titelseite, kopfbild, seite, kopf, kicker, punkte, dokument  # noqa: E402
+from lib import titelseite, kopfbild, seite, kopf, kicker, punkte, dokument, ico  # noqa: E402
 import _marketing_teile as mt  # noqa: E402
 
 DATEN = os.path.join(HERE, "story6.11tydata.json")
@@ -87,13 +87,110 @@ def kapitel(b, nr, n):
     return seiten
 
 
+def team_seite(PR, nr, n):
+    """Dein Team: vier Profile im Kernpaket, eines mit Paid Ads; darunter gelbes Band als Übergang zu den Stellenbeschreibungen."""
+    def zeile(x):
+        return (f'<div><div><h3>{x["klartext"]}</h3><span class="rolle-in">Gesucht als: {x["stelle"]}</span></div>'
+                f'<div><p>{x["denkweise"]}</p></div></div>')
+    gruppen = ""
+    for g, label in (("kern", "Im Kernpaket"), ("paid-ads", "Mit Paid Ads")):
+        gruppen += (f'<p class="mlabel">{label}</p><div class="liste mliste mliste--team">'
+                    + "".join(zeile(x) for x in PR["liste"] if x["gruppe"] == g) + '</div>')
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:16mm">' + kicker("Dein Team")
+        + '<h2>Fünf Profile. <span class="hl">Ein Team.</span></h2>'
+        + f'<p class="lead" style="max-width:155mm">{PR["lead"]}</p>' + gruppen
+        + f'<p class="notiz">{PR["hinweis_ergaenzungen"]}</p></div>', nr, n)
+
+
+def uebergang_seite(PR, nr, n):
+    """Kapitelseite (gelb): Lieber selbst einstellen? – mit Verzeichnis der Stellenbeschreibungen und Postings."""
+    eintraege = "".join(
+        f'<div><h3>{x["stelle"]}</h3><p>Stellenbeschreibung · Seite {nr + 1 + i:02d}</p></div>' for i, x in enumerate(PR["liste"]))
+    eintraege += f'<div><h3>Fünf fertige Postings</h3><p>Zum Veröffentlichen · ab Seite {nr + 1 + len(PR["liste"]):02d}</p></div>'
+    return seite(
+        kopf(T) + '<div class="rand wachsen mitte" style="padding-top:10mm">' + kicker("Lieber selbst einstellen?")
+        + '<h2>Hier ist alles drin.</h2>'
+        + '<p class="lead" style="max-width:150mm">Wir sind überzeugt, dass es einfacher ist, uns zu buchen. Wenn du die Profile lieber selbst '
+          'besetzt, findest du hier fünf komplette Stellenbeschreibungen und fertige Postings für die Suche.</p>'
+        + f'<div class="liste mliste mliste--verz">{eintraege}</div></div>', nr, n, klasse="seite--gelb")
+
+
+def stellen_seite(x, nr, n):
+    """Eine Stellenbeschreibung – Aufbau wie das empiria-Anforderungsprofil (drei Bereiche nebeneinander, Hinweis als schwarzer Kasten)."""
+    bereiche = "".join(
+        f'<div class="bereich">{ico(i)}<h3>{t}</h3><ul>{"".join(f"<li>{y}</li>" for y in items)}</ul></div>'
+        for i, t, items in (("clipboard-list", "Aufgaben", x["aufgaben"]), ("target", "Anforderungen", x["anforderungen"]),
+                            ("graduation-cap", "Ausbildung und Erfahrung", x["ausbildung"])))
+    wo = "im Kernpaket" if x["gruppe"] == "kern" else "mit Paid Ads"
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:16mm">' + kicker(f'Stellenbeschreibung {x["nr"]} · {x["klartext"]}')
+        + f'<h2>{x["h2"]}</h2><p class="lead" style="max-width:160mm">{x["einleitung"]}</p>'
+        + f'<div class="profil">{bereiche}</div>'
+        + f'<div class="kasten mkasten"><p class="label">Bei Marketing as a Service</p><p>Dieses Profil ist {wo} bereits besetzt – '
+          'eingearbeitet und im Team abgestimmt.</p></div></div>', nr, n)
+
+
+def posting_seiten(PR, nr, n):
+    """Fertige Stellen-Postings: Motiv im Kartenstil (gelb · schwarz · hell) plus Text; Platzhalter statt Logo."""
+    def zeile(x):
+        q = x["posting"]
+        return (f'<div class="posting"><div class="motiv motiv--{q["farbe"]}"><small>Stellenanzeige</small>'
+                f'<div><b>{q["titel"]}</b><span>{q["sub"]}</span></div><i>Dein Logo</i></div>'
+                f'<div><p class="label">Posting {x["nr"]} · {x["klartext"]}</p><h3>{q["headline"]}</h3>'
+                + "".join(f"<p>{y}</p>" for y in q["text"]) + '</div></div>')
+    L = PR["liste"]
+    teile = [L[:3], L[3:]]
+    seiten = []
+    for k, teil in enumerate(teile):
+        kopfteil = (kicker("Fertige Postings") + '<h2>Fünf Stellenanzeigen <span class="hl">zum Veröffentlichen.</span></h2>'
+                    + '<p class="lead" style="max-width:160mm">Für LinkedIn, die Karriereseite oder Social Media – Logo, Unternehmensname '
+                      'und Kontakt einfach ergänzen.</p>') if k == 0 else kicker("Fertige Postings · Fortsetzung")
+        seiten.append(seite(kopf(T) + '<div class="rand" style="padding-top:16mm">' + kopfteil
+                            + '<div class="postings">' + "".join(zeile(x) for x in teil) + '</div></div>', nr + k, n))
+    return seiten
+
+
+CSS_TEAM = """
+.mliste--verz { margin-top: 10mm; }
+.mliste--verz > div { grid-template-columns: 1fr 60mm; align-items: baseline; border-color: rgba(26,24,23,.25); }
+.mliste--verz p { color: #1a1817; text-align: right; }
+.mliste--team > div { grid-template-columns: 70mm 1fr; }
+.mliste--team p { font-size: 9pt; color: #1a1817; }
+.rolle-in { display: block; margin-top: 1.2mm; font-size: 8pt; color: #8a847c; line-height: 1.4; }
+.profil { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm; margin-top: 9mm; }
+.bereich { border-top: 1.6px solid #1a1817; padding-top: 4.5mm; }
+.bereich svg { width: 7mm; height: 7mm; margin-bottom: 3mm; }
+.bereich h3 { font-size: 12.5pt; }
+.bereich ul { list-style: none; margin-top: 2.5mm; }
+.bereich li { position: relative; padding: 1.6mm 0 1.6mm 4mm; border-bottom: 1px solid #e4e0db; font-size: 8.8pt; line-height: 1.5; }
+.bereich li:last-child { border-bottom: 0; }
+.bereich li::before { content: ""; position: absolute; left: 0; top: 3.7mm; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: #1a1817; }
+.postings { margin-top: 7mm; }
+.posting { display: grid; grid-template-columns: 52mm 1fr; gap: 8mm; align-items: center; padding: 5.5mm 0; border-top: 1px solid #dcd8d1; }
+.posting:first-child { border-top: 1.6px solid #1a1817; }
+.motiv { width: 52mm; height: 52mm; border-radius: 3.5mm; padding: 4.6mm; display: flex; flex-direction: column; justify-content: space-between; }
+.motiv small { font-size: 5.6pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.motiv b { display: block; font-family: 'Lora', Georgia, serif; font-size: 12pt; line-height: 1.15; }
+.motiv span { display: block; margin-top: 2mm; font-size: 6.4pt; line-height: 1.4; }
+.motiv i { align-self: flex-start; font-style: normal; font-size: 5.8pt; font-weight: 600; padding: .8mm 2mm; border: 1px dashed currentColor; border-radius: 1.2mm; }
+.motiv--gelb { background: #fff400; color: #1a1817; }
+.motiv--schwarz { background: #1a1817; color: #fff; }
+.motiv--hell { background: #f3f1ee; color: #1a1817; }
+.posting .label { font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.posting h3 { margin-top: 2mm; font-size: 12pt; }
+.posting p:not(.label) { margin-top: 2mm; font-size: 8.8pt; line-height: 1.6; color: #3d3a37; }
+"""
+
+
 def bauen(M):
     B = M["bausteine"]
-    n = 3 + sum(len(teile_von(b)) for b in B)
+    PR = M["profile"]
+    n = 3 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
-        [("Betreuung", "Laufend"), ("Steuerung", "Zentrales Dashboard"), ("Aufbau", "Kern und Ergänzungen"), ("Investition", "ab 1.800 € mtl.")]))
+        [("Bausteine", "Kern und Ergänzungen"), ("Team", "Fünf Profile"), ("Zum Selbermachen", "Stellenprofile"), ("Investition", "ab 1.800 € mtl.")]))
 
     zeilen = "".join(
         f'<div class="ue{" ue--kern" if b["id"] == "kern" else ""}"><span class="ue__nr">{b["nr"]}</span>'
@@ -114,14 +211,24 @@ def bauen(M):
         k = kapitel(b, nr, n)
         seiten += k
         nr += len(k)
+    seiten.append(team_seite(PR, nr, n))
+    nr += 1
+    seiten.append(uebergang_seite(PR, nr, n))
+    nr += 1
+    for x in PR["liste"]:
+        seiten.append(stellen_seite(x, nr, n))
+        nr += 1
+    p = posting_seiten(PR, nr, n)
+    seiten += p
+    nr += len(p)
 
     extra = '<div>' + mt.ico("app-window") + 'sofortsichtbar.de</div>'
     seiten.append(seite(
         kopf(T) + '<div class="rand weiss" style="padding-top:16mm">'
-        + mt.schritte('Lass uns <span class="hl">sprechen.</span>',
-                      "Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
+        + mt.schritte('Oder du buchst <span class="hl">das Team.</span>',
+                      "Ohne Suche, ohne Einarbeitung, ohne Ausfallrisiko: Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
         + '</div>' + mt.draht(extra), nr, n))
-    return dokument(f"{T} – sofort sichtbar", seiten, extra_css=mt.CSS + CSS)
+    return dokument(f"{T} – sofort sichtbar", seiten, extra_css=mt.CSS + CSS + CSS_TEAM)
 
 
 ERGEBNIS = punkte([
@@ -161,90 +268,6 @@ CSS = """
 """
 
 
-def euro(x):
-    return f"{x:,.0f} €".replace(",", ".")
-
-
-def team_rechnen(M):
-    """Arbeitgeberkosten je Rolle (Gehalt × (1 + AG-Anteil) / 12, auf 10 € gerundet) und die Summe (auf 100 € gerundet)."""
-    tm = M["team"]
-    summe = 0
-    for r in tm["rollen"]:
-        k = r["gehalt_jahr"] * (1 + tm["ag_anteil"]) / 12
-        summe += k
-        r["gehalt_text"] = euro(r["gehalt_jahr"])
-        r["kosten_monat"] = euro(round(k, -1))
-    tm["summe_monat"] = euro(round(summe, -2))
-    tm["ag_prozent"] = f'{tm["ag_anteil"] * 100:.0f} %'
-
-
-def bauen_team(M):
-    tm = M["team"]
-    R = tm["rollen"]
-    T2 = "Dein Marketing-Team"
-    n = 4
-    s1 = seite(titelseite(
-        "Marketing as a Service", 'Vier Fachleute.<br><span class="hl">Ein Team.</span>',
-        "Hinter den Bausteinen von Marketing as a Service stehen vier Fachleute, die für deine Themen verantwortlich sind. "
-        "Du buchst das Team – statt vier Stellen zu besetzen.",
-        kopfbild("sofort sichtbar"),
-        [("Team", "Vier Fachleute"), ("Selbst eingestellt", f'rund {tm["summe_monat"]} mtl.'), ("Mit uns", f'{tm["maas_monat"]} mtl.')]))
-
-    zeilen = "".join(
-        f'<div><div><h3>{r["rolle"]}</h3><span class="rolle-in">{r["bausteine"]}</span></div>'
-        f'<div><ul>{"".join(f"<li>{x}</li>" for x in r["aufgaben"])}</ul></div></div>' for r in R)
-    s2 = seite(
-        kopf(T2) + '<div class="rand" style="padding-top:16mm">' + kicker("Wer für dich arbeitet")
-        + '<h2>Vier Rollen. <span class="hl">Klar verantwortlich.</span></h2>'
-        + '<p class="lead" style="max-width:150mm">Jede Rolle steht für einen Teil der Leistungen. Zusammen decken sie alles ab, '
-          'was in den Bausteinen steckt – von der Landingpage bis zur Anzeige.</p>'
-        + f'<div class="liste mliste">{zeilen}</div></div>', 2, n)
-
-    tab = "".join(f'<tr><td>{r["rolle"]}</td><td class="r">{r["gehalt_text"]}</td><td class="r"><b>{r["kosten_monat"]}</b></td></tr>' for r in R)
-    tab = (f'<table class="vgl"><thead><tr><th>Rolle in Vollzeit</th><th class="r">Gehalt im Jahr</th><th class="r">Kosten im Monat</th></tr></thead>'
-           f'<tbody>{tab}</tbody></table>')
-    gegen = (f'<div class="gegen"><div><span>Selbst eingestellt</span><b>rund {tm["summe_monat"]}</b><small>im Monat, vier Vollzeitstellen</small></div>'
-             f'<div class="gegen--gelb"><span>Mit uns</span><b>{tm["maas_monat"]}</b><small>im Monat: {tm["maas_erklaerung"]}</small></div></div>')
-    kasten = ('<div class="kasten mkasten"><p class="label">Beim Einstellen kommen dazu</p><ul class="zk">'
-              + "".join(f"<li>{x}</li>" for x in tm["zusatzkosten"]) + '</ul></div>')
-    quellen = ("Gehälter: StepStone-Durchschnitt brutto, abgerufen am 10.11.2026. Kosten im Monat = Gehalt plus rund "
-               f'{tm["ag_prozent"]} Arbeitgeberanteil zur Sozialversicherung, geteilt durch zwölf. '
-               "Einmalige Leistungen (Website, Einrichtung Paid Ads) sind nicht eingerechnet. Alle Preise zzgl. Umsatzsteuer.")
-    s3 = seite(
-        kopf(T2) + '<div class="rand" style="padding-top:16mm">' + kicker("Der Vergleich")
-        + '<h2>Weniger als <span class="hl">eine Stelle.</span></h2>'
-        + '<p class="lead" style="max-width:150mm">Schon eine einzige Vollzeitkraft kostet mehr als alle laufenden Bausteine zusammen.</p>'
-        + tab + gegen + kasten + f'<p class="notiz">{quellen}</p></div>', 3, n)
-
-    extra = '<div>' + mt.ico("app-window") + 'sofortsichtbar.de</div>'
-    s4 = seite(
-        kopf(T2) + '<div class="rand weiss" style="padding-top:16mm">'
-        + mt.schritte('Lass uns <span class="hl">sprechen.</span>',
-                      "Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
-        + '</div>' + mt.draht(extra), 4, n)
-    return dokument(f"{T2} – Marketing as a Service", [s1, s2, s3, s4], extra_css=mt.CSS + CSS + CSS_TEAM)
-
-
-CSS_TEAM = """
-.vgl { width: 100%; border-collapse: collapse; margin-top: 8mm; font-size: 9pt; }
-.vgl th { padding: 0 0 2.6mm; text-align: left; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1.6px solid #1a1817; }
-.vgl td { padding: 3mm 0; border-bottom: 1px solid #dcd8d1; }
-.vgl .r { text-align: right; }
-.vgl td b { font-weight: 600; }
-.vgl tfoot td { padding-top: 3.4mm; font-weight: 700; border-bottom: 0; }
-.gegen { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 8mm; }
-.gegen > div { padding: 5mm 6mm 5.5mm; border-radius: 4.5mm; background: #f3f1ee; }
-.gegen > div.gegen--gelb { background: #fff400; }
-.gegen span { display: block; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-.gegen b { display: block; margin-top: 2mm; font-family: 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 22pt; line-height: 1.1; }
-.gegen small { display: block; margin-top: 1.6mm; font-size: 8pt; line-height: 1.45; }
-.zk { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 8mm; margin-top: 3mm; }
-.zk li { position: relative; padding-left: 3.6mm; font-size: 9pt; color: rgba(255,255,255,.85); }
-.zk li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: #fff400; }
-.rolle-in { display: block; margin-top: 1.2mm; font-size: 8pt; color: #8a847c; line-height: 1.4; }
-"""
-
-
 def drucken(html, datei, praefix, meta):
     """HTML → PDF, Seitenbilder, Vorschau -1/-2; trägt Seitenzahl und Größe in meta ein."""
     src = os.path.join(BUILD, praefix + ".html")
@@ -267,13 +290,11 @@ def drucken(html, datei, praefix, meta):
 def main():
     d = json.load(open(DATEN, encoding="utf-8"))
     M = d["maas"]
-    team_rechnen(M)
     os.makedirs(BUILD, exist_ok=True)
     link = os.path.join(BUILD, "assets")
     if not os.path.exists(link):
         os.symlink(os.path.join(EMPIRIA, "site", "assets"), link)
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
-    drucken(bauen_team(M), M["pdf_team"]["datei"], "marketing-as-a-service-team", M["pdf_team"])
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")
 

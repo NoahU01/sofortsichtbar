@@ -207,67 +207,30 @@ html body .maas-d .maas-d__hinweis { margin: .4rem 0 0 !important; padding-top: 
 @media (max-width: 900px) { .maas-kern { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 640px) { .maas-posts { grid-template-columns: minmax(0, 1fr) !important; } html body .e2-alt .maas-kern__text ul { grid-template-columns: minmax(0, 1fr); } .maas-kern__unten b { font-size: 2.1rem; } }
 
-/* Marketing as a Service · Team-Vergleich: vier Rollen, Gegenüberstellung, zweiter Download */
-.maas-team { padding: 2rem 0 5rem; background: #fff; }
+
+/* Marketing as a Service · Dein Team: fünf Profile, gruppiert nach Kernpaket und Paid Ads, Rollenprofil im Fenster */
+.maas-team { padding: 1rem 0 5.5rem; background: #fff; }
 html body .e2-alt .maas-team h2 { max-width: none !important; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.38 !important; }
 html body .e2-alt .maas-team h2 .hl { white-space: nowrap; }
 html body .e2-alt .maas-team__lead { margin-top: 1.2rem !important; max-width: 46rem; font-size: 1.12rem; line-height: 1.6; color: #3d3a37; }
-.maas-rollen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); gap: 0 1.4rem; margin-top: 3rem; } /* Subgrid: Name, Bausteine, Liste und Kosten stehen in allen Karten auf gleicher Höhe */
-.maas-rolle { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; padding: 1.6rem 1.5rem 1.4rem; border: 1px solid #e4e0db; border-radius: 18px; }
-.maas-rolle__ico { width: 2.4rem; height: 2.4rem; color: #1a1817; }
-html body .e2-alt .maas-rolle h3 { margin: 1.2rem 0 0; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.2; }
-html body .e2-alt .maas-rolle .maas-rolle__in { margin: .4rem 0 0 !important; font-size: .84rem; color: #6f6a64; }
-html body .e2-alt .maas-rolle ul { list-style: none; align-self: start; margin: 1rem 0 0; padding: 1rem 0 0; border-top: 1px solid #ece9e5; display: grid; gap: .45rem; }
-.maas-rolle li { position: relative; padding-left: 1.1rem; font-size: .9rem; line-height: 1.45; color: #1a1817; }
-.maas-rolle li::before { content: ""; position: absolute; left: 0; top: .52rem; width: .38rem; height: .38rem; border-radius: 50%; background: #1a1817; }
-html body .e2-alt .maas-rolle .maas-rolle__kosten { margin: 0 !important; padding-top: 1.2rem; align-self: end; font-size: .9rem; color: #3d3a37; }
-.maas-rolle__kosten span { display: block; font-size: .84rem; color: #6f6a64; }
-.maas-rolle__kosten b { color: #1a1817; font-weight: 600; font-size: 1.05rem; }
-.maas-gegen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.4rem; }
-.maas-gegen > div { padding: 1.8rem 2rem 1.9rem; border-radius: 18px; background: #f4f3f0; }
-.maas-gegen > div.maas-gegen--gelb { background: #fff400; }
-.maas-gegen span { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #1a1817; }
-.maas-gegen b { display: block; margin-top: .6rem; font-family: var(--font-sans, Poppins, sans-serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.1; color: #1a1817; }
-.maas-gegen small { display: block; margin-top: .5rem; font-size: .92rem; line-height: 1.45; color: #1a1817; }
-html body .e2-alt .maas-team__dazu { margin-top: 1.6rem !important; font-size: .95rem; line-height: 1.6; color: #3d3a37; }
-.maas-team__dazu b { font-weight: 600; color: #1a1817; }
-.maas-fuss a { color: inherit; }
-@media (max-width: 1100px) { .maas-rollen { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.4rem; } }
-@media (max-width: 640px) { .maas-rollen { grid-template-rows: none; } .maas-rolle { grid-row: auto; display: flex; flex-direction: column; } html body .e2-alt .maas-rolle .maas-rolle__kosten { align-self: stretch; } }
-@media (max-width: 640px) { .maas-rollen, .maas-gegen { grid-template-columns: minmax(0, 1fr); } }
-
-/* Marketing as a Service · Kompetenzen je Baustein: Matrix ohne Kosten, Kernpaket-Spalte gelb (wie die Vergleichstabellen der empiria-Seiten) */
-.maas-komp { padding: 5rem 0 6rem; background: #fff; }
-html body .e2-alt .maas-komp h2 { max-width: none !important; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.38 !important; }
-html body .e2-alt .maas-komp h2 .hl { white-space: nowrap; }
-html body .e2-alt .maas-komp__lead { margin-top: 1.2rem !important; max-width: 46rem; font-size: 1.12rem; line-height: 1.6; color: #3d3a37; }
-.maas-matrix { margin-top: 3rem; border-top: 2px solid #1a1817; }
-.maas-matrix__zeile { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.3fr) repeat(4, 6.6rem); column-gap: 1.6rem; border-bottom: 1px solid #e7e4df; }
-.maas-matrix__zeile > * { padding: 1.15rem 0; }
-.maas-matrix__kopf > span { padding: 1rem 0 .9rem; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #1a1817; }
-.maas-matrix__zeile b { display: block; font-size: 1.02rem; font-weight: 600; color: #1a1817; }
-html body .e2-alt .maas-matrix__zeile p { margin: .3rem 0 0 !important; font-size: .9rem; line-height: 1.5; color: #6f6a64; }
-.maas-matrix__suche { font-size: .95rem; line-height: 1.5; color: #1a1817; }
-.maas-matrix__b { display: flex; justify-content: center; align-items: flex-start; text-align: center; }
-.maas-matrix__b i { display: block; width: .8rem; height: .8rem; margin-top: .35rem; border-radius: 50%; background: #1a1817; }
-.maas-matrix__b--kern { background: #fff400; }
-.maas-matrix__kopf .maas-matrix__b--kern { border-radius: 12px 12px 0 0; }
-.maas-matrix__zeile:last-child .maas-matrix__b--kern { border-radius: 0 0 12px 12px; }
-.maas-matrix__zeile:last-child { border-bottom: 0; }
-html body .e2-alt .maas-matrix__mobil { display: none; }
-.maas-matrix .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-@media (max-width: 1100px) and (min-width: 901px) { .maas-matrix__zeile { grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) repeat(4, 5.4rem); column-gap: 1rem; } .maas-matrix__kopf > span { font-size: .66rem; letter-spacing: .08em; } }
-@media (max-width: 900px) {
-  .maas-matrix__kopf { display: none; }
-  .maas-matrix__zeile { grid-template-columns: minmax(0, 1fr); }
-  .maas-matrix__zeile > .maas-matrix__b { display: none; }
-  .maas-matrix__zeile > * { padding: 0; }
-  .maas-matrix__zeile { padding: 1.2rem 0; }
-  .maas-matrix__suche { margin-top: .6rem; font-size: .92rem; }
-  .maas-matrix__suche::before { content: "Wen du suchst: "; color: #6f6a64; }
-  html body .e2-alt .maas-matrix__zeile .maas-matrix__mobil { display: block; margin-top: .3rem !important; font-size: .92rem; color: #1a1817; }
-  .maas-matrix__mobil span { color: #6f6a64; }
-}
+.maas-gruppen { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 1fr); gap: 1.4rem; margin-top: 3rem; }
+.maas-gruppe { display: flex; flex-direction: column; }
+html body .e2-alt .maas-gruppe__label { display: flex; align-items: center; gap: .6rem; margin: 0 0 1rem !important; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #1a1817; }
+.maas-gruppe__label::after { content: ""; flex: 1; height: 2px; background: #1a1817; }
+.maas-profile { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+.maas-gruppe--paid-ads .maas-profile { grid-template-columns: minmax(0, 1fr); }
+.maas-profil { display: flex; flex-direction: column; padding: 1.5rem 1.4rem 1.3rem; border: 1px solid #e4e0db; border-radius: 18px; background: #fff; }
+.maas-profil__ico { width: 2.3rem; height: 2.3rem; color: #1a1817; }
+html body .e2-alt .maas-profil > h3 { min-height: 2.4em; margin: 1.1rem 0 0; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.2; }
+html body .e2-alt .maas-profil > .maas-profil__stelle { min-height: 2.9em; margin: .5rem 0 0 !important; font-size: .82rem; line-height: 1.45; color: #6f6a64; }
+html body .e2-alt .maas-profil > .maas-profil__denk { margin: .9rem 0 0 !important; padding-top: .9rem; border-top: 1px solid #ece9e5; font-size: .92rem; line-height: 1.5; color: #1a1817; }
+.maas-profil > .e2-post__mehr { margin-top: auto; padding-top: 1.2rem; }
+html body .maas-d .maas-d__wert { color: #1a1817 !important; }
+.maas-d__ul { list-style: none; margin: .2rem 0 0; padding: .7rem 0 0; border-top: 1px solid #e7e4df; display: grid; gap: .3rem; }
+.maas-d__ul li { position: relative; padding-left: 1.1rem; font-size: 1rem; line-height: 1.55; color: #3d3a37; }
+.maas-d__ul li::before { content: ""; position: absolute; left: 0; top: .62rem; width: .35rem; height: .35rem; border-radius: 50%; background: #1a1817; }
+@media (max-width: 1100px) { .maas-gruppen { grid-template-columns: minmax(0, 1fr); } .maas-profile, .maas-gruppe--paid-ads .maas-profile { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .maas-profile, .maas-gruppe--paid-ads .maas-profile { grid-template-columns: minmax(0, 1fr); } html body .e2-alt .maas-profil > h3, html body .e2-alt .maas-profil > .maas-profil__stelle { min-height: 0; } }
 
 /* Zielgruppenpakete: Verzeichnis in zwei Spalten. Je Ebene eine Schrift, zwei Größen, zwei Farben. */
 .zp-kopf { padding-bottom: 3.5rem !important; }
@@ -900,6 +863,47 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     </div>
   </section>
 
+  {%- set PR = M.profile %}
+  <section class="maas-team" id="team">
+    <div class="container">
+      <p class="kicker">Dein Team</p>
+      <h2 class="h-serif">Fünf Profile. <span class="hl">Ein Team.</span></h2>
+      <p class="maas-team__lead">{{ PR.lead }}</p>
+      <div class="maas-gruppen">
+        {%- for g in [["kern","Im Kernpaket"],["paid-ads","Mit Paid Ads"]] %}
+        <div class="maas-gruppe maas-gruppe--{{ g[0] }}">
+          <p class="maas-gruppe__label">{{ g[1] }}</p>
+          <div class="maas-profile">
+            {%- for x in PR.liste %}{% if x.gruppe == g[0] %}
+            <article class="maas-profil">
+              <svg class="maas-profil__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ M.icons[x.ico] | safe }}</svg>
+              <h3>{{ x.klartext }}</h3>
+              <p class="maas-profil__stelle">Gesucht als: {{ x.stelle }}</p>
+              <p class="maas-profil__denk">{{ x.denkweise }}</p>
+              <button type="button" class="e2-post__mehr" data-maas-auf="maas-profil-{{ x.id }}">Rollenprofil →</button>
+              <dialog class="e2-dialog e2-dialog--breit maas-d" id="maas-profil-{{ x.id }}" aria-labelledby="maas-profil-{{ x.id }}-t">
+                <button type="button" class="e2-dialog__zu" aria-label="Schließen">×</button>
+                <p class="maas-d__meta">Profil {{ x.nr }} · {{ g[1] }}</p>
+                <h3 id="maas-profil-{{ x.id }}-t">{{ x.klartext }}</h3>
+                <p>{{ x.einleitung }}</p>
+                <p class="maas-d__label">Gesucht als</p>
+                <p class="maas-d__wert">{{ x.stelle }}</p>
+                {%- for t2 in [["Aufgaben", x.aufgaben], ["Anforderungen", x.anforderungen], ["Ausbildung und Erfahrung", x.ausbildung]] %}
+                <p class="maas-d__label">{{ t2[0] }}</p>
+                <ul class="maas-d__ul">{% for y in t2[1] %}<li>{{ y }}</li>{% endfor %}</ul>
+                {%- endfor %}
+                <p class="maas-d__hinweis">Die vollständige Stellenbeschreibung mit fertigem Posting für die Suche steht im PDF.</p>
+              </dialog>
+            </article>
+            {%- endif %}{% endfor %}
+          </div>
+        </div>
+        {%- endfor %}
+      </div>
+      <p class="maas-fuss">{{ PR.hinweis_ergaenzungen }}</p>
+    </div>
+  </section>
+
   <section class="produkt-section pdf-dl-section maas-dl">
     <div class="container">
       <div class="pdf-dl pdf-dl--mist" id="download" style="--dl-acc:#fff400;">
@@ -909,8 +913,8 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         </div>
         <div class="pdf-dl-text">
           <p class="pdf-dl-kicker">Download</p>
-          <h2 class="pdf-dl-h">Das Angebot <span class="e2-dl-hl">zum Weitergeben.</span></h2>
-          <p class="pdf-dl-lead">Alle Bausteine mit Leistungsumfang und Preisen – zum Nachlesen und Weitergeben.</p>
+          <h2 class="pdf-dl-h">Alles <span class="e2-dl-hl">drin.</span></h2>
+          <p class="pdf-dl-lead">Alle Bausteine mit Preisen, dein Team – und fünf komplette Stellenbeschreibungen mit fertigen Postings, falls du die Profile lieber selbst besetzt.</p>
           <div class="pdf-dl-meta"><span>PDF</span><span>{{ M.pdf.seiten }} Seiten</span><span>{{ M.pdf.groesse }}</span></div>
           <a class="pdf-dl-btn" href="{{ A }}/maas/{{ M.pdf.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
@@ -918,73 +922,6 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     </div>
   </section>
 
-  {%- set TM = M.team %}
-  <section class="maas-team" id="team">
-    <div class="container">
-      <p class="kicker">Dein Marketing-Team</p>
-      <h2 class="h-serif">Vier Fachleute. <span class="hl">Ein Team.</span></h2>
-      <p class="maas-team__lead">Hinter den Bausteinen stehen vier Fachleute, die für deine Themen verantwortlich sind. Du buchst das Team – statt vier Stellen zu besetzen.</p>
-      <div class="maas-rollen">
-        {%- for r in TM.rollen %}
-        <article class="maas-rolle">
-          <svg class="maas-rolle__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ M.icons[r.ico] | safe }}</svg>
-          <h3>{{ r.rolle }}</h3>
-          <p class="maas-rolle__in">{{ r.bausteine }}</p>
-          <ul>{% for x in r.aufgaben %}<li>{{ x }}</li>{% endfor %}</ul>
-          <p class="maas-rolle__kosten"><span>Selbst eingestellt</span><b>{{ r.kosten_monat }}</b> im Monat</p>
-        </article>
-        {%- endfor %}
-      </div>
-      <div class="maas-gegen">
-        <div><span>Selbst eingestellt</span><b>rund {{ TM.summe_monat }}</b><small>im Monat, vier Vollzeitstellen</small></div>
-        <div class="maas-gegen--gelb"><span>Mit uns</span><b>{{ TM.maas_monat }}</b><small>im Monat: {{ TM.maas_erklaerung }}</small></div>
-      </div>
-      <p class="maas-team__dazu"><b>Beim Einstellen kommen dazu:</b> {{ TM.zusatzkosten | join(" · ") }}.</p>
-      <p class="maas-fuss">Gehälter: StepStone-Durchschnitt brutto, abgerufen am 10.11.2026 ({% for r in TM.rollen %}<a href="{{ r.quelle }}" target="_blank" rel="noopener">{{ r.rolle }}</a>{% if not loop.last %}, {% endif %}{% endfor %}). Kosten im Monat = Gehalt plus rund {{ TM.ag_prozent }} <a href="{{ TM.ag_quelle.url }}" target="_blank" rel="noopener">Arbeitgeberanteil zur Sozialversicherung</a>, geteilt durch zwölf. Einmalige Leistungen sind nicht eingerechnet. {{ M.hinweis_preise }}</p>
-    </div>
-  </section>
-
-  <section class="produkt-section pdf-dl-section maas-dl">
-    <div class="container">
-      <div class="pdf-dl pdf-dl--mist" id="download-team" style="--dl-acc:#fff400;">
-        <div class="pdf-dl-visual" aria-hidden="true">
-          <img class="pdf-dl-page pdf-dl-page--back" src="{{ A }}/maas/marketing-as-a-service-team-2.png" alt="" loading="lazy">
-          <img class="pdf-dl-page pdf-dl-page--front" src="{{ A }}/maas/marketing-as-a-service-team-1.png" alt="" loading="lazy">
-        </div>
-        <div class="pdf-dl-text">
-          <p class="pdf-dl-kicker">Download</p>
-          <h2 class="pdf-dl-h">Das Team <span class="e2-dl-hl">im Vergleich.</span></h2>
-          <p class="pdf-dl-lead">Rollen, Aufgaben und Kosten – selbst eingestellt oder gebucht.</p>
-          <div class="pdf-dl-meta"><span>PDF</span><span>{{ M.pdf_team.seiten }} Seiten</span><span>{{ M.pdf_team.groesse }}</span></div>
-          <a class="pdf-dl-btn" href="{{ A }}/maas/{{ M.pdf_team.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {%- set KO = M.kompetenzen %}
-  <section class="maas-komp" id="kompetenzen">
-    <div class="container">
-      <p class="kicker">Kompetenzen hinter den Bausteinen</p>
-      <h2 class="h-serif">Wen du dafür <span class="hl">suchen müsstest.</span></h2>
-      <p class="maas-komp__lead">Schon das Kernpaket verlangt fünf verschiedene Kompetenzfelder – von der Strategie bis zur Webentwicklung. Mit Paid Ads kommt Performance Marketing dazu.</p>
-      <div class="maas-matrix" role="table" aria-label="Kompetenzen je Baustein">
-        <div class="maas-matrix__zeile maas-matrix__kopf" role="row">
-          <span role="columnheader">Kompetenz</span><span role="columnheader">Wen du suchst</span>
-          {%- for s in KO.spalten %}<span role="columnheader" class="maas-matrix__b{% if loop.first %} maas-matrix__b--kern{% endif %}">{{ s[1] }}</span>{% endfor %}
-        </div>
-        {%- for f in KO.felder %}
-        <div class="maas-matrix__zeile" role="row">
-          <div role="cell"><b>{{ f.name }}</b><p>{{ f.skills }}</p></div>
-          <div role="cell" class="maas-matrix__suche">{{ f.suche }}</div>
-          {%- for s in KO.spalten %}<span role="cell" class="maas-matrix__b{% if loop.first %} maas-matrix__b--kern{% endif %}">{% if s[0] in f.bausteine %}<i aria-label="gebraucht"></i>{% else %}<span class="sr">nicht gebraucht</span>{% endif %}</span>{% endfor %}
-          {%- set ns = [] %}{% for s in KO.spalten %}{% if s[0] in f.bausteine %}{% set _ = ns.push(s[1]) %}{% endif %}{% endfor %}
-          <p class="maas-matrix__mobil"><span>Gebraucht für: </span>{{ ns | join(" · ") }}</p>
-        </div>
-        {%- endfor %}
-      </div>
-    </div>
-  </section>
 </div>
 </main>
 <script>
