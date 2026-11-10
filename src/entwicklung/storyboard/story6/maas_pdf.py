@@ -39,7 +39,7 @@ H2 = {
 }
 # Leistungen, die nicht mit Luft auf eine Seite passen, laufen auf einer zweiten Seite weiter (Index = erste Leistung der Folgeseite).
 # Bausteine mit mehreren Leistungsgruppen (Paid Ads: Einrichtung · Betreuung) bekommen je Gruppe eine Seite.
-TEILEN = {"kern": 3, "website": 5}
+TEILEN = {"kern": [2], "website": [5], "paid-ads": [4]}
 
 
 def leistung(l):
@@ -49,36 +49,52 @@ def leistung(l):
 
 
 def teile_von(b):
-    """[(label, leistungen), …] – eine Liste je Seite."""
-    if len(b["gruppen"]) > 1:
-        return [(g["label"], g["leistungen"]) for g in b["gruppen"]]
-    g = b["gruppen"][0]
-    if b["id"] in TEILEN:
-        i = TEILEN[b["id"]]
-        return [(g["label"], g["leistungen"][:i]), (None, g["leistungen"][i:])]
-    return [(g["label"], g["leistungen"])]
+    """Seiten eines Kapitels: [[(label|None, leistungen), …], …]. Umbruch an den Leistungs-Indizes aus TEILEN (über alle Gruppen gezählt).
+    label steht nur dort, wo eine Gruppe beginnt."""
+    brueche = set(TEILEN.get(b["id"], []))
+    seiten, akt, i = [], [], 0
+    for g in b["gruppen"]:
+        seg = [g["label"], []]
+        for l in g["leistungen"]:
+            if i in brueche and (seg[1] or akt):
+                if seg[1]:
+                    akt.append(tuple(seg))
+                seiten.append(akt)
+                akt, seg = [], [None, []]
+            seg[1].append(l)
+            i += 1
+        akt.append(tuple(seg))
+    seiten.append(akt)
+    return seiten
 
 
 def kapitel(b, nr, n):
     """Ein Baustein: Kicker · H2 · Einleitung · Preis-Fakten · Leistungsumfang (ggf. auf mehreren Seiten)."""
     teile = teile_von(b)
-    fk = b.get("fakten") or [["Abrechnung", b["abrechnung"]], ["Investition", b["preis"]]]
-    fakten = (f'<div class="fakten mfakten" style="grid-template-columns:repeat({len(fk)},1fr)">'
-              + "".join(f'<div><span>{l}</span><b>{v}</b></div>' for l, v in fk) + '</div>')
-    hinweis = (f'<div class="kasten mkasten"><p class="label">Gut zu wissen</p><p>{b["hinweis"]}</p></div>'
-               if b.get("hinweis") else "")
+    einheit = "einmalig" if b["einheit"] != "mtl." else ("pro Monat und Kanal" if "Kanal" in b["abrechnung"] else "pro Monat")
+    zusatz = f'<span class="kz__zusatz">{b["zusatz"]}</span>' if b.get("zusatz") else ""
+    haken = "".join(f"<li>{x}</li>" for x in b["punkte"])
+    fakten = (f'<div class="kz"><div class="kz__ico">{ico(b["ico"], strich=1.3)}</div>'
+              f'<div class="kz__preis"><span class="kz__label">Investition</span><b>{b["preis"]}</b><span>{einheit}</span>{zusatz}</div>'
+              f'<div class="kz__haken"><span class="kz__label">Das Wichtigste</span><ul>{haken}</ul></div>'
+              + (f'<p class="kz__hinweis"><b>Gut zu wissen:</b> {b["hinweis"]}</p>' if b.get("hinweis") and len(teile) == 1 else "") + '</div>')
+    # „Gut zu wissen“: bei einseitigen Kapiteln in der Kennzeile, sonst als ruhiger Kasten am Ende des Kapitels
+    hinweis = (f'<div class="kz kz--fuss"><p class="kz__hinweis"><b>Gut zu wissen:</b> {b["hinweis"]}</p></div>'
+               if b.get("hinweis") and len(teile) > 1 else "")
     seiten = []
-    for k, (label, teil) in enumerate(teile):
+    for k, segmente in enumerate(teile):
         letzte = k == len(teile) - 1
         if k == 0:
-            kopfteil = (kicker(f'Baustein {b["nr"]} · {b["art"]}') + f'<h2>{H2[b["id"]]}</h2>'
-                        + "".join(f'<p class="lead mlead">{p}</p>' for p in b["intro"]) + fakten
-                        + f'<p class="mlabel">{label}</p>')
+            kopfteil = (kicker(f'Baustein {b["nr"]} · {b["art"]}') + f'<h2>{H2[b["id"]]}</h2>' + fakten
+                        + "".join(f'<p class="lead mlead">{p}</p>' for p in b["intro"]))
         else:
-            kopfteil = kicker(f'Baustein {b["nr"]} · {b["name"]} · Fortsetzung') + (
-                f'<p class="mlabel" style="margin-top:7mm">{label}</p>' if label else "")
-        inhalt = (kopf(T) + '<div class="rand" style="padding-top:16mm">' + kopfteil
-                  + '<div class="liste mliste">' + "".join(leistung(l) for l in teil) + '</div>'
+            kopfteil = kicker(f'Baustein {b["nr"]} · {b["name"]} · Fortsetzung')
+        listen = ""
+        for j, (label, teil) in enumerate(segmente):
+            if label:
+                listen += f'<p class="mlabel"{" style=&quot;margin-top:7mm&quot;" if (k > 0 and j == 0) else ""}>{label}</p>'.replace("&quot;", '"')
+            listen += '<div class="liste mliste">' + "".join(leistung(l) for l in teil) + '</div>'
+        inhalt = (kopf(T) + '<div class="rand" style="padding-top:16mm">' + kopfteil + listen
                   + (hinweis if letzte else "") + '</div>')
         if letzte and b["id"] == "kern":   # Kernpaket: Ergebnis als gelbes Band unter dem Rest des Leistungsumfangs
             inhalt += ('<div class="band band--gelb wachsen mitte" style="margin-top:12mm">' + kicker("Das bekommst du")
@@ -87,20 +103,35 @@ def kapitel(b, nr, n):
     return seiten
 
 
-def team_seite(PR, nr, n):
-    """Dein Team: vier Profile im Kernpaket, eines mit Paid Ads; darunter gelbes Band als Übergang zu den Stellenbeschreibungen."""
-    def zeile(x):
-        return (f'<div><div><h3>{x["klartext"]}</h3><span class="rolle-in">Gesucht als: {x["stelle"]}</span></div>'
-                f'<div><p>{x["denkweise"]}</p></div></div>')
-    gruppen = ""
-    for g, label in (("kern", "Im Kernpaket"), ("paid-ads", "Mit Paid Ads")):
-        gruppen += (f'<p class="mlabel">{label}</p><div class="liste mliste mliste--team">'
-                    + "".join(zeile(x) for x in PR["liste"] if x["gruppe"] == g) + '</div>')
+def team_seite(M, nr, n):
+    """Dein Team (schwarz): vier Profile im Kernpaket als 2 × 2, eines mit Paid Ads; gelbe Icons wie auf der Seite; Band „Immer dabei“."""
+    PR = M["profile"]
+    def karte(x):
+        return (f'<div class="tk">{ico(x["ico"], farbe="#fff400", strich=1.4)}<h3>{x["klartext"]}</h3>'
+                f'<span class="tk__stelle">{x["stelle"]}</span><p>{x["denkweise"]}</p></div>')
+    kern = "".join(karte(x) for x in PR["liste"] if x["gruppe"] == "kern")
+    ads = "".join(karte(x) for x in PR["liste"] if x["gruppe"] == "paid-ads")
+    immer = "".join(f"<b>{x}</b>" for x in M["immer"])
     return seite(
-        kopf(T) + '<div class="rand" style="padding-top:16mm">' + kicker("Dein Team")
-        + '<h2>Fünf Profile. <span class="hl">Ein Team.</span></h2>'
-        + f'<p class="lead" style="max-width:155mm">{PR["lead"]}</p>' + gruppen
-        + f'<p class="notiz">{PR["hinweis_ergaenzungen"]}</p></div>', nr, n)
+        kopf(T).replace("empiria-logo.svg", "empiria-logo-weiss.svg") + '<div class="rand dunkel" style="padding-top:16mm">' + kicker("Dein Team")
+        + '<h2>Fünf Profile. Ein Team.</h2>'
+        + f'<p class="lead" style="max-width:155mm">{PR["lead"]}</p>'
+        + '<p class="tklammer tklammer--kern">Im Kernpaket</p>' + f'<div class="tgrid">{kern}</div>'
+        + '<p class="tklammer">Mit Paid Ads</p>' + f'<div class="tgrid">{ads}<p class="tnotiz">{PR["hinweis_ergaenzungen"]}</p></div>'
+        + f'<div class="immer"><span>Immer dabei</span>{immer}</div></div>', nr, n, hell_fuss=True, klasse="seite--schwarz")
+
+
+def ablauf_seite(M, nr, n):
+    """So arbeiten wir (gelb): der Monatsablauf als nummerierter Zeitstrahl mit Icons – wie auf der Seite."""
+    schritte = "".join(
+        f'<li><span class="ab__nr">{i}</span>{ico(a["ico"], strich=1.4)}<h3>{a["titel"]}</h3><p>{a["text"]}</p></li>'
+        for i, a in enumerate(M["ablauf"], 1))
+    return seite(
+        kopf(T) + '<div class="rand wachsen mitte">' + kicker("So arbeiten wir")
+        + '<h2>Jeden Monat ein Stück besser.</h2>'
+        + '<p class="lead" style="max-width:150mm">Laufende Betreuung heißt bei uns: umsetzen, messen, besprechen, verbessern – '
+          'in einem festen Rhythmus, mit einem festen Ansprechpartner.</p>'
+        + f'<ol class="ab">{schritte}</ol></div>', nr, n, klasse="seite--gelb")
 
 
 def uebergang_seite(PR, nr, n):
@@ -152,6 +183,48 @@ def posting_seiten(PR, nr, n):
 
 
 CSS_TEAM = """
+/* Kennzeile je Baustein: Icon · Preis groß (Poppins Bold) · das Wichtigste mit Häkchen */
+.kz { display: grid; grid-template-columns: 20mm 50mm 1fr; gap: 6mm; align-items: start; margin-top: 7mm; padding: 6mm 7mm; border-radius: 4.5mm; background: #f3f1ee; }
+.kz__ico svg { width: 16mm; height: 16mm; }
+.kz__label { display: block; margin-bottom: 1.6mm; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.kz__preis b { display: block; font-family: 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 22pt; line-height: 1.05; }
+.kz__preis span:not(.kz__label) { display: block; margin-top: 1mm; font-size: 8.6pt; color: #3d3a37; }
+.kz__preis .kz__zusatz { color: #1a1817 !important; font-weight: 600; }
+.kz__haken ul { list-style: none; display: grid; gap: 1.6mm; }
+.kz__haken li { position: relative; padding-left: 5mm; font-size: 8.8pt; line-height: 1.4; }
+.kz__haken li::before { content: ""; position: absolute; left: .3mm; top: 1.1mm; width: 2.6mm; height: 1.3mm; border-left: 1.5px solid #1a1817; border-bottom: 1.5px solid #1a1817; transform: rotate(-45deg); }
+.kz__hinweis { grid-column: 1 / -1; padding-top: 3.5mm; border-top: 1px solid #dcd8d1; font-size: 8.6pt; line-height: 1.5; color: #3d3a37; }
+.kz__hinweis b { color: #1a1817; font-weight: 600; }
+.kz--fuss { display: block; margin-top: 7mm; padding: 5mm 7mm; }
+.kz--fuss .kz__hinweis { padding-top: 0; border-top: 0; }
+.mlead { margin-top: 6mm; }
+.mlead + .mlead { margin-top: 2.5mm; }
+/* Ablauf (gelb) */
+.ab { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6mm; margin-top: 12mm; }
+.ab li { position: relative; }
+.ab li:not(:last-child)::after { content: ""; position: absolute; top: 4mm; left: 10mm; right: -4mm; border-top: 1.5px dashed rgba(26,24,23,.5); }
+.ab__nr { display: grid; place-items: center; width: 8mm; height: 8mm; border: 1.5px solid #1a1817; border-radius: 50%; font-size: 8pt; font-weight: 600; }
+.ab svg { display: block; width: 8mm; height: 8mm; margin-top: 7mm; }
+.ab h3 { margin-top: 3.5mm; font-size: 13pt; }
+.ab p { margin-top: 2mm; font-size: 8.8pt; line-height: 1.55; }
+/* Team (schwarz) */
+.seite--schwarz { background: #1a1817; color: #fff; }
+.seite--schwarz .kicker { color: #fff400; }
+.seite--schwarz .lead { color: #cfcac3; }
+.tklammer { display: flex; align-items: center; gap: 3mm; margin-top: 8mm; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #cfcac3; }
+.tklammer::after { content: ""; flex: 1; height: 1.2px; background: rgba(255,255,255,.3); }
+.tklammer--kern { color: #fff400; } .tklammer--kern::after { background: #fff400; }
+.tgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+.tk { padding: 5mm 5.5mm 5.5mm; border-radius: 3.5mm; background: #262321; }
+.tk svg { width: 7mm; height: 7mm; }
+.tk h3 { margin-top: 3mm; font-size: 12pt; color: #fff; }
+.tk__stelle { display: block; margin-top: 1mm; padding-bottom: 2.4mm; border-bottom: 1px solid rgba(255,255,255,.14); font-size: 7.8pt; font-weight: 600; color: #fff; }
+.tk p { margin-top: 2.4mm; font-size: 8.4pt; line-height: 1.5; color: #cfcac3; }
+.tnotiz { align-self: center; padding: 0 2mm; font-size: 8.4pt; line-height: 1.55; color: #9b958e; }
+.immer { display: flex; flex-wrap: nowrap; white-space: nowrap; align-items: center; gap: 2mm 5mm; margin-top: 7mm; padding: 4mm 5mm; border-radius: 3.5mm; background: #fff400; color: #1a1817; }
+.immer span { font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.immer b { position: relative; padding-left: 4.4mm; font-size: 8.4pt; font-weight: 600; }
+.immer b::before { content: ""; position: absolute; left: .3mm; top: 1.1mm; width: 2.4mm; height: 1.2mm; border-left: 1.5px solid #1a1817; border-bottom: 1.5px solid #1a1817; transform: rotate(-45deg); }
 .mliste--verz { margin-top: 10mm; }
 .mliste--verz > div { grid-template-columns: 1fr 60mm; align-items: baseline; border-color: rgba(26,24,23,.25); }
 .mliste--verz p { color: #1a1817; text-align: right; }
@@ -186,7 +259,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 3 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 4 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -204,14 +277,14 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 2, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 3, n)
 
-    seiten, nr = [s1, s2], 3
+    seiten, nr = [s1, ablauf_seite(M, 2, n), s2], 4
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
         nr += len(k)
-    seiten.append(team_seite(PR, nr, n))
+    seiten.append(team_seite(M, nr, n))
     nr += 1
     seiten.append(uebergang_seite(PR, nr, n))
     nr += 1
