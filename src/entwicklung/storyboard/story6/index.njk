@@ -175,7 +175,7 @@ html body .e2-alt.maas .mx-lead { margin-top: 1.2rem !important; max-width: 44re
 .mx-band--gelb { background: #fff400; }
 .mx-band--hell { background: #f4f3f0; }
 .mx-band--schwarz { background: #1a1817; color: #fff; }
-html body .e2-alt.maas .mx-band--schwarz h2, html body .e2-alt.maas .mx-band--schwarz h3 { color: #fff; }
+html body .e2-alt.maas .mx-band--schwarz h2 { color: #fff; }
 html body .e2-alt.maas .mx-band--schwarz .kicker { color: #fff400; }
 html body .e2-alt.maas .mx-band--schwarz .mx-lead { color: #cfcac3; }
 html body .e2-alt.maas .mx-notiz { margin-top: 1.4rem !important; font-size: .85rem; line-height: 1.5; color: #6f6a64; }
@@ -183,6 +183,7 @@ html body .e2-alt.maas .mx-band--schwarz .mx-notiz { color: #9b958e; }
 .mx-mehr { margin-top: auto; align-self: flex-start; padding: 0; border: 0; background: none; cursor: pointer; font: 600 .9rem/1 var(--font-sans, Poppins, sans-serif); color: #1a1817; }
 .mx-mehr:hover { text-decoration: underline; }
 .mx-band--schwarz .mx-mehr { color: #fff400; }
+.mx-band--schwarz .maas-d .mx-mehr { color: #1a1817; }
 
 /* 1 · Kopf */
 .mx-held { padding: 5rem 0 5.5rem; background: #fff; }
@@ -212,8 +213,8 @@ html body .e2-alt.maas .mx-ablauf p { margin: .5rem 0 0 !important; font-size: .
 .mx-kern__kopf, .mx-karte__kopf { display: flex; align-items: center; gap: .8rem; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .mx-kern__kopf { color: #fff400; }
 .mx-kern__ico { width: 1.8rem; height: 1.8rem; color: #fff400; }
-html body .e2-alt.maas .mx-kern h3 { margin: 1.6rem 0 0; font-family: var(--font-serif); font-size: clamp(2.2rem, 3.6vw, 3rem); line-height: 1.1; color: #fff; }
-html body .e2-alt.maas .mx-kern .mx-preis { margin-top: 1rem !important; color: #cfcac3; }
+html body .e2-alt.maas .mx-kern__links > h3 { margin: 1.6rem 0 0; font-family: var(--font-serif); font-size: clamp(2.2rem, 3.6vw, 3rem); line-height: 1.1; color: #fff; }
+html body .e2-alt.maas .mx-kern__links > .mx-preis { margin-top: 1rem !important; color: #cfcac3; }
 .mx-kern .mx-preis b { color: #fff; }
 html body .e2-alt.maas .mx-kern__kurz { margin: 1.4rem 0 2rem !important; max-width: 30rem; font-size: 1rem; line-height: 1.6; color: #cfcac3; }
 .mx-kern .mx-mehr { color: #fff400; }
@@ -227,8 +228,8 @@ html body .e2-alt.maas .mx-label { margin: 0 0 1rem !important; font-size: .74re
 .mx-karte { display: grid; grid-row: span 7; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.8rem; border: 1px solid #e4e0db; border-radius: 22px; background: #fff; }
 .mx-karte__kopf { color: #1a1817; }
 .mx-karte__ico { width: 1.6rem; height: 1.6rem; color: #1a1817; }
-html body .e2-alt.maas .mx-karte h3 { margin: 1.4rem 0 0; font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.2; }
-html body .e2-alt.maas .mx-karte .mx-preis { margin-top: .8rem !important; }
+html body .e2-alt.maas .mx-karte > h3 { margin: 1.4rem 0 0; font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.2; }
+html body .e2-alt.maas .mx-karte > .mx-preis { margin-top: .8rem !important; }
 html body .e2-alt.maas .mx-karte__zusatz { margin: .3rem 0 0 !important; min-height: 1.4em; font-size: .88rem; color: #1a1817; font-weight: 500; }
 html body .e2-alt.maas .mx-karte__kurz { margin: 1.2rem 0 0 !important; padding-top: 1.2rem; border-top: 1px solid #ece9e5; font-size: .95rem; line-height: 1.55; color: #3d3a37; }
 .mx-punkte { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .45rem; align-content: start; }
@@ -237,15 +238,16 @@ html body .e2-alt.maas .mx-karte__kurz { margin: 1.2rem 0 0 !important; padding-
 .mx-karte .mx-mehr { margin-top: 1.6rem; align-self: end; justify-self: start; text-align: left; }
 
 /* 4 · Team (schwarz): Klammer über vier Karten im Kernpaket, eine mit Paid Ads; dunkle Karten mit gelben Icons */
-.mx-team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto repeat(4, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.mx-team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto repeat(5, auto); column-gap: 1.2rem; margin-top: 3rem; }
 html body .e2-alt.maas .mx-team__klammer { grid-row: 1; display: flex; align-items: center; gap: .7rem; margin: 0 0 1.2rem !important; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #cfcac3; }
 .mx-team__klammer::after { content: ""; flex: 1; height: 2px; background: rgba(255,255,255,.3); }
 .mx-team__klammer--kern { grid-column: 1 / span 4; color: #fff400 !important; }
 .mx-team__klammer--kern::after { background: #fff400; }
-.mx-profil { display: grid; grid-row: 2 / span 4; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.6rem 1.6rem; border-radius: 18px; background: #262321; }
+.mx-profil { display: grid; grid-row: 2 / span 5; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.6rem 1.6rem; border-radius: 18px; background: #262321; }
 .mx-profil__ico { width: 2.2rem; height: 2.2rem; color: #fff400; }
-html body .e2-alt.maas .mx-profil h3 { margin: 1.3rem 0 0; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.2; color: #fff; hyphens: manual; }
-html body .e2-alt.maas .mx-profil p { margin: .7rem 0 0 !important; font-size: .92rem; line-height: 1.55; color: #cfcac3; }
+html body .e2-alt.maas .mx-profil > .mx-profil__stelle { margin: .45rem 0 0 !important; padding-bottom: .9rem; border-bottom: 1px solid rgba(255,255,255,.14); font-size: .84rem; font-weight: 500; line-height: 1.45; color: #fff; }
+html body .e2-alt.maas .mx-profil > h3 { margin: 1.3rem 0 0; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.2; color: #fff; hyphens: manual; }
+html body .e2-alt.maas .mx-profil > p { margin: .7rem 0 0 !important; font-size: .92rem; line-height: 1.55; color: #cfcac3; }
 .mx-profil .mx-mehr { margin-top: 1.4rem; align-self: end; justify-self: start; text-align: left; }
 .mx-immer { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 2.2rem; margin-top: 2.4rem; padding: 1.2rem 1.8rem; border-radius: 14px; background: #fff400; color: #1a1817; }
 .mx-immer span { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -257,7 +259,9 @@ html body .e2-alt.maas .mx-profil p { margin: .7rem 0 0 !important; font-size: .
 
 /* Fenster: hell und ruhig – Titel Lora, Inhalt Poppins in zwei Größen, Label grau, Blöcke mit feiner Linie */
 html body .maas-d p { margin: 0 0 .8rem !important; font-size: 1rem !important; line-height: 1.65 !important; color: #3d3a37 !important; }
-html body .maas-d h3 { margin: 0 2.5rem 1.4rem 0 !important; }
+html body .maas-d h3 { margin: 0 2.5rem 1.4rem 0 !important; font-family: var(--font-serif) !important; font-size: clamp(1.6rem, 3vw, 2.1rem) !important; line-height: 1.2 !important; color: #1a1817 !important; }
+html body .maas-d .maas-d__stelle { margin: -.8rem 0 1.4rem !important; font-weight: 600; color: #1a1817 !important; }
+.maas-d { max-height: calc(100dvh - 2rem); overflow-y: auto; overscroll-behavior: contain; } /* langes Fenster scrollt in sich */
 .maas-d .e2-dialog__zu:focus { outline: none; } /* kein Auswahlring beim Öffnen */
 html body .maas-d .maas-d__meta, html body .maas-d .maas-d__label { margin: 0 0 .5rem !important; font-size: .85rem !important; font-weight: 500; color: #6f6a64 !important; }
 html body .maas-d .maas-d__label { margin-top: 1.6rem !important; }
@@ -885,8 +889,9 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 {%- macro profilfenster(x, wo) -%}
 <dialog class="e2-dialog e2-dialog--breit maas-d" id="maas-profil-{{ x.id }}" aria-labelledby="maas-profil-{{ x.id }}-t">
   <button type="button" class="e2-dialog__zu" aria-label="Schließen">×</button>
-  <p class="maas-d__meta">Profil {{ x.nr }} · {{ wo }} · {{ x.stelle }}</p>
+  <p class="maas-d__meta">Profil {{ x.nr }} · {{ wo }}</p>
   <h3 id="maas-profil-{{ x.id }}-t">{{ x.klartext }}</h3>
+  <p class="maas-d__stelle">{{ x.stelle }}</p>
   <p>{{ x.einleitung }}</p>
   {%- for t2 in [["Aufgaben", x.aufgaben], ["Anforderungen", x.anforderungen], ["Ausbildung und Erfahrung", x.ausbildung]] %}
   <p class="maas-d__label">{{ t2[0] }}</p>
@@ -984,6 +989,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         <article class="mx-profil">
           {{ ico(x.ico, "mx-profil__ico") }}
           <h3>{{ x.klartext | replace("Werbekampagnen", "Werbe&shy;kampagnen") | safe }}</h3>
+          <p class="mx-profil__stelle">{{ x.stelle }}</p>
           <p>{{ x.denkweise }}</p>
           <button type="button" class="mx-mehr" data-maas-auf="maas-profil-{{ x.id }}">Rollenprofil →</button>
           {{ profilfenster(x, wo) }}
