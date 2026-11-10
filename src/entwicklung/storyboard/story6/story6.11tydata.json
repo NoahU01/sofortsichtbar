@@ -1,7 +1,7 @@
 {
   "maas": {
-    "_quelle": "Inhalte aus dem Angebot A-00062 (08.11.2026), Tippfehler der PDF-Ausgabe korrigiert. Eine Quelle für die Seite /entwicklung/storyboard/story6/marketing-as-a-service/ und das PDF (maas_pdf.py).",
-    "lead": "Wir übernehmen Ihr Marketing laufend – von Landingpages und Social Media über LinkedIn bis zu bezahlter Werbung. Sie behalten den Überblick und haben einen festen Ansprechpartner.",
+    "_quelle": "Inhalte aus dem Angebot A-00062 (08.11.2026), in Du-Form, Tippfehler der PDF-Ausgabe korrigiert. Eine Quelle für die Seite /entwicklung/storyboard/story6/marketing-as-a-service/ und das PDF (maas_pdf.py).",
+    "lead": "Wir übernehmen dein Marketing laufend – von Landingpages und Social Media über LinkedIn bis zu bezahlter Werbung. Du behältst den Überblick und hast einen festen Ansprechpartner.",
     "hinweis_preise": "Alle Preise zzgl. Umsatzsteuer in gesetzlicher Höhe.",
     "pdf": {
       "datei": "marketing-as-a-service.pdf",
@@ -20,7 +20,7 @@
         "einheit": "mtl.",
         "preis_lang": "1.800 € monatlich",
         "ico": "layout-dashboard",
-        "kurz": "Wir übernehmen die komplette laufende Betreuung Ihres digitalen Auftritts – damit sich Ihre Sichtbarkeit verlässlich in qualifizierte Anfragen übersetzt.",
+        "kurz": "Wir übernehmen die komplette laufende Betreuung deines digitalen Auftritts – damit sich deine Sichtbarkeit verlässlich in qualifizierte Anfragen übersetzt.",
         "punkte": [
           "Fünf Landingpages",
           "25 Postings je Zielgruppenthema",
@@ -30,40 +30,45 @@
           "Monatlicher Betreuungscall"
         ],
         "intro": [
-          "„sofort sichtbar“ ist das Herzstück der Zusammenarbeit. Wir übernehmen die komplette laufende Betreuung Ihres digitalen Auftritts – von den Landingpages über Social Media bis zur Auswertung aller Ergebnisse.",
-          "Ziel ist, dass sich Ihre Sichtbarkeit verlässlich in qualifizierte Anfragen übersetzt. Sie haben jederzeit den Überblick über Ihre Ergebnisse und einen festen Ansprechpartner, ohne sich selbst um die operative Umsetzung kümmern zu müssen."
+          "„sofort sichtbar“ ist das Herzstück der Zusammenarbeit. Wir übernehmen die komplette laufende Betreuung deines digitalen Auftritts – von den Landingpages über Social Media bis zur Auswertung aller Ergebnisse.",
+          "Ziel ist, dass sich deine Sichtbarkeit verlässlich in qualifizierte Anfragen übersetzt. Du hast jederzeit den Überblick über deine Ergebnisse und einen festen Ansprechpartner, ohne dich selbst um die operative Umsetzung kümmern zu müssen."
         ],
-        "leistungen": [
+        "gruppen": [
           {
-            "titel": "Betreuung von fünf Landingpages",
-            "text": "Jede Landingpage ist auf ein konkretes Angebot oder eine bestimmte Zielgruppe ausgerichtet.",
-            "liste": [
-              "DSGVO-konform aufgesetzt, inklusive Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung",
-              "Vollständig trackingfähig: Besucher, Conversions und Anfragen lassen sich sauber messen und den Kanälen zuordnen",
-              "Für alle Endgeräte optimiert und auf schnelle Ladezeiten ausgelegt",
-              "Anfrageformulare direkt an das Dashboard angebunden",
-              "Laufende Pflege, inhaltliche Anpassungen und kontinuierliche Optimierung der Conversion-Rate"
+            "label": "Leistungsumfang",
+            "leistungen": [
+              {
+                "titel": "Betreuung von fünf Landingpages",
+                "text": "Jede Landingpage ist auf ein konkretes Angebot oder eine bestimmte Zielgruppe ausgerichtet.",
+                "liste": [
+                  "DSGVO-konform aufgesetzt, inklusive Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung",
+                  "Vollständig trackingfähig: Besucher, Conversions und Anfragen lassen sich sauber messen und den Kanälen zuordnen",
+                  "Für alle Endgeräte optimiert und auf schnelle Ladezeiten ausgelegt",
+                  "Anfrageformulare direkt an das Dashboard angebunden",
+                  "Laufende Pflege, inhaltliche Anpassungen und kontinuierliche Optimierung der Conversion-Rate"
+                ]
+              },
+              {
+                "titel": "Betreuung Social Media",
+                "text": "Für jedes Zielgruppenthema 25 fertige Postings, abgestimmt auf die Zielgruppe und das passende Angebot. Wir veröffentlichen sie regelmäßig auf allen deinen Social-Media-Kanälen – so bleibt dein Auftritt dauerhaft aktiv, konsistent und sichtbar."
+              },
+              {
+                "titel": "Steuerung des Dashboards",
+                "text": "Alle Anfragen, Kampagnen und Kennzahlen laufen in einem zentralen Dashboard zusammen. Wir richten es ein, pflegen und steuern es – du siehst jederzeit, woher deine Anfragen kommen und was funktioniert."
+              },
+              {
+                "titel": "Monatlicher Report",
+                "text": "Strukturierte Auswertung aller relevanten Kennzahlen, mit Einordnung der Entwicklung und konkreten Handlungsempfehlungen."
+              },
+              {
+                "titel": "Laufende Optimierung",
+                "text": "Auf Basis der Daten entwickeln wir Landingpages, Inhalte und Maßnahmen kontinuierlich weiter, damit die Ergebnisse Monat für Monat besser werden."
+              },
+              {
+                "titel": "Monatlicher Betreuungscall",
+                "text": "Ein fester Termin, in dem wir Ergebnisse besprechen, Prioritäten festlegen und die nächsten Schritte gemeinsam planen."
+              }
             ]
-          },
-          {
-            "titel": "Betreuung Social Media",
-            "text": "Für jedes Zielgruppenthema 25 fertige Postings, abgestimmt auf die Zielgruppe und das passende Angebot. Wir veröffentlichen sie regelmäßig auf allen Ihren Social-Media-Kanälen – so bleibt Ihr Auftritt dauerhaft aktiv, konsistent und sichtbar."
-          },
-          {
-            "titel": "Steuerung des Dashboards",
-            "text": "Alle Anfragen, Kampagnen und Kennzahlen laufen in einem zentralen Dashboard zusammen. Wir richten es ein, pflegen und steuern es – Sie sehen jederzeit, woher Ihre Anfragen kommen und was funktioniert."
-          },
-          {
-            "titel": "Monatlicher Report",
-            "text": "Strukturierte Auswertung aller relevanten Kennzahlen, mit Einordnung der Entwicklung und konkreten Handlungsempfehlungen."
-          },
-          {
-            "titel": "Laufende Optimierung",
-            "text": "Auf Basis der Daten entwickeln wir Landingpages, Inhalte und Maßnahmen kontinuierlich weiter, damit die Ergebnisse Monat für Monat besser werden."
-          },
-          {
-            "titel": "Monatlicher Betreuungscall",
-            "text": "Ein fester Termin, in dem wir Ergebnisse besprechen, Prioritäten festlegen und die nächsten Schritte gemeinsam planen."
           }
         ]
       },
@@ -78,41 +83,46 @@
         "einheit": "mtl.",
         "preis_lang": "850 € monatlich",
         "ico": "handshake",
-        "kurz": "Wir bauen Ihr LinkedIn-Profil zu einem aktiven Vertriebskanal aus – sichtbar bei Entscheidern, mit den richtigen Kontakten.",
+        "kurz": "Wir bauen dein LinkedIn-Profil zu einem aktiven Vertriebskanal aus – sichtbar bei Entscheidern, mit den richtigen Kontakten.",
         "punkte": [
           "Vier Postings pro Monat",
           "Gezielter Netzwerkaufbau",
           "Begleitung der Direktansprache"
         ],
         "intro": [
-          "LinkedIn ist für viele Unternehmen der wichtigste Kanal, um Entscheider direkt zu erreichen. Regelmäßige Inhalte sorgen für Sichtbarkeit und unterstreichen Ihre Expertise, der gezielte Ausbau Ihres Netzwerks bringt die richtigen Kontakte.",
-          "Laufende Empfehlungen zeigen Ihnen, wann und wie Sie mit Ihren Wunschkunden ins Gespräch kommen. So wird LinkedIn von einer reinen Visitenkarte zu einer verlässlichen Quelle für neue Geschäftskontakte."
+          "LinkedIn ist für viele Unternehmen der wichtigste Kanal, um Entscheider direkt zu erreichen. Regelmäßige Inhalte sorgen für Sichtbarkeit und unterstreichen deine Expertise, der gezielte Ausbau deines Netzwerks bringt die richtigen Kontakte.",
+          "Laufende Empfehlungen zeigen dir, wann und wie du mit deinen Wunschkunden ins Gespräch kommst. So wird LinkedIn von einer reinen Visitenkarte zu einer verlässlichen Quelle für neue Geschäftskontakte."
         ],
-        "leistungen": [
+        "hinweis": "Voraussetzung ist ein Zugang zum LinkedIn Sales Navigator auf deiner Seite.",
+        "gruppen": [
           {
-            "titel": "Vier individuelle Postings pro Monat",
-            "liste": [
-              "Themen, die auf Ihre Positionierung und Zielgruppe einzahlen",
-              "Beiträge in Ihrer Tonalität, inklusive passender Grafiken oder Formate",
-              "Veröffentlichung nach Ihrer Freigabe"
-            ]
-          },
-          {
-            "titel": "Aufbau Ihres LinkedIn-Netzwerks",
-            "text": "Wir vernetzen Sie gezielt und kontinuierlich mit Entscheidern und relevanten Personen aus Ihrer Zielgruppe. So wächst nicht nur die Reichweite Ihrer Beiträge, sondern vor allem die Qualität Ihres Netzwerks."
-          },
-          {
-            "titel": "Betreuung der Direktansprache",
-            "liste": [
-              "Über den LinkedIn Sales Navigator legen wir gemeinsam Ihre Zielgruppe und Ihre Wunschkontakte fest",
-              "Die Aktivitäten dieser Kontakte werten wir laufend KI-gestützt aus",
-              "Sie erhalten regelmäßig Hinweise, welcher Kontakt gerade was gepostet hat – mit Vorschlägen, wie Sie darauf reagieren können",
-              "So erkennen Sie die richtigen Anlässe und kommen auf natürliche Weise ins Gespräch",
-              "Die Reaktion erfolgt durch Sie persönlich, damit die Ansprache authentisch bleibt"
+            "label": "Leistungsumfang",
+            "leistungen": [
+              {
+                "titel": "Vier individuelle Postings pro Monat",
+                "liste": [
+                  "Themen, die auf deine Positionierung und Zielgruppe einzahlen",
+                  "Beiträge in deiner Tonalität, inklusive passender Grafiken oder Formate",
+                  "Veröffentlichung nach deiner Freigabe"
+                ]
+              },
+              {
+                "titel": "Aufbau deines LinkedIn-Netzwerks",
+                "text": "Wir vernetzen dich gezielt und kontinuierlich mit Entscheidern und relevanten Personen aus deiner Zielgruppe. So wächst nicht nur die Reichweite deiner Beiträge, sondern vor allem die Qualität deines Netzwerks."
+              },
+              {
+                "titel": "Betreuung der Direktansprache",
+                "liste": [
+                  "Über den LinkedIn Sales Navigator legen wir gemeinsam deine Zielgruppe und deine Wunschkontakte fest",
+                  "Die Aktivitäten dieser Kontakte werten wir laufend KI-gestützt aus",
+                  "Du erhältst regelmäßig Hinweise, welcher Kontakt gerade was gepostet hat – mit Vorschlägen, wie du darauf reagieren kannst",
+                  "So erkennst du die richtigen Anlässe und kommst auf natürliche Weise ins Gespräch",
+                  "Die Reaktion erfolgt durch dich persönlich, damit die Ansprache authentisch bleibt"
+                ]
+              }
             ]
           }
-        ],
-        "hinweis": "Voraussetzung ist ein Zugang zum LinkedIn Sales Navigator auf Ihrer Seite."
+        ]
       },
       {
         "id": "website",
@@ -125,165 +135,170 @@
         "einheit": "einmalig",
         "preis_lang": "5.000 € einmalig",
         "ico": "app-window",
-        "kurz": "Eine moderne, schnelle Website, die Ihre Positionierung abbildet, Besucher zur Anfrage führt und in Google und KI-Systemen gefunden wird.",
+        "kurz": "Eine moderne, schnelle Website, die deine Positionierung abbildet, Besucher zur Anfrage führt und in Google und KI-Systemen gefunden wird.",
         "punkte": [
           "Konzeption, Design und Umsetzung",
           "Sichtbar in Google und KI-Systemen",
           "DSGVO, Tracking und Go-live"
         ],
         "intro": [
-          "Ihre Website ist oft der erste Eindruck, den potenzielle Kunden von Ihrem Unternehmen bekommen. Wir entwickeln eine moderne, schnelle und klar strukturierte Website, die Ihre Positionierung überzeugend abbildet und Besucher gezielt zur Anfrage führt.",
+          "Deine Website ist oft der erste Eindruck, den potenzielle Kunden von deinem Unternehmen bekommen. Wir entwickeln eine moderne, schnelle und klar strukturierte Website, die deine Positionierung überzeugend abbildet und Besucher gezielt zur Anfrage führt.",
           "Sie ist technisch auf dem neuesten Stand, rechtssicher und darauf ausgelegt, in Suchmaschinen wie Google und in KI-Systemen wie ChatGPT, Gemini oder Perplexity gefunden zu werden. Tracking, Anfrageformulare und die Anbindung an das Dashboard sind von Anfang an mitgedacht."
         ],
-        "leistungen": [
+        "gruppen": [
           {
-            "titel": "Konzeption und Seitenstruktur",
-            "text": "Klare Seitenarchitektur und Nutzerführung, abgeleitet aus Ihrer Positionierung und Zielgruppe."
-          },
-          {
-            "titel": "Design",
-            "text": "Modernes, individuelles Design im Look Ihrer Marke, optimiert für Desktop, Tablet und Smartphone."
-          },
-          {
-            "titel": "Technische Umsetzung",
-            "text": "Entwicklung mit Fokus auf schnelle Ladezeiten und einfache Pflege."
-          },
-          {
-            "titel": "Inhalte",
-            "text": "Einpflegen aller Texte, Bilder und Inhalte."
-          },
-          {
-            "titel": "Conversion-Elemente",
-            "text": "Gezielt platzierte Handlungsaufforderungen und Anfrageformulare, die Besucher zur Kontaktaufnahme führen."
-          },
-          {
-            "titel": "Sichtbarkeit in Google und KI-Systemen (SEO und GEO)",
-            "text": "Immer mehr Menschen fragen direkt KI-Assistenten wie ChatGPT, Gemini oder Perplexity. Deshalb optimieren wir Ihre Website für beide Welten:",
-            "liste": [
-              "Saubere Seitenstruktur, Meta-Titel und -Beschreibungen",
-              "Strukturierte Daten (Schema.org), damit Ihre Inhalte für Suchmaschinen und KI-Modelle eindeutig verständlich sind",
-              "Inhaltlicher Aufbau, der Ihr Unternehmen als relevante Quelle für KI-Antworten positioniert",
-              "Anbindung von Skripten, die das Auslesen Ihrer Website für KI-Agenten möglich machen",
-              "Einrichtung der Google Search Console und der Bing Webmaster Tools (relevant für ChatGPT)"
+            "label": "Leistungsumfang",
+            "leistungen": [
+              {
+                "titel": "Konzeption und Seitenstruktur",
+                "text": "Klare Seitenarchitektur und Nutzerführung, abgeleitet aus deiner Positionierung und Zielgruppe."
+              },
+              {
+                "titel": "Design",
+                "text": "Modernes, individuelles Design im Look deiner Marke, optimiert für Desktop, Tablet und Smartphone."
+              },
+              {
+                "titel": "Technische Umsetzung",
+                "text": "Entwicklung mit Fokus auf schnelle Ladezeiten und einfache Pflege."
+              },
+              {
+                "titel": "Inhalte",
+                "text": "Einpflegen aller Texte, Bilder und Inhalte."
+              },
+              {
+                "titel": "Conversion-Elemente",
+                "text": "Gezielt platzierte Handlungsaufforderungen und Anfrageformulare, die Besucher zur Kontaktaufnahme führen."
+              },
+              {
+                "titel": "Sichtbarkeit in Google und KI-Systemen (SEO und GEO)",
+                "text": "Immer mehr Menschen fragen direkt KI-Assistenten wie ChatGPT, Gemini oder Perplexity. Deshalb optimieren wir deine Website für beide Welten:",
+                "liste": [
+                  "Saubere Seitenstruktur, Meta-Titel und -Beschreibungen",
+                  "Strukturierte Daten (Schema.org), damit deine Inhalte für Suchmaschinen und KI-Modelle eindeutig verständlich sind",
+                  "Inhaltlicher Aufbau, der dein Unternehmen als relevante Quelle für KI-Antworten positioniert",
+                  "Anbindung von Skripten, die das Auslesen deiner Website für KI-Agenten möglich machen",
+                  "Einrichtung der Google Search Console und der Bing Webmaster Tools (relevant für ChatGPT)"
+                ]
+              },
+              {
+                "titel": "DSGVO-Konformität",
+                "text": "Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung."
+              },
+              {
+                "titel": "Tracking",
+                "text": "Einrichtung von Analytics und Conversion-Tracking, damit der Erfolg der Website messbar ist."
+              },
+              {
+                "titel": "Go-live",
+                "text": "Domain-Anbindung, Hosting-Setup und SSL-Verschlüsselung; bei einer bestehenden Website die Weiterleitungen, damit vorhandene Rankings erhalten bleiben."
+              }
             ]
-          },
-          {
-            "titel": "DSGVO-Konformität",
-            "text": "Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung."
-          },
-          {
-            "titel": "Tracking",
-            "text": "Einrichtung von Analytics und Conversion-Tracking, damit der Erfolg der Website messbar ist."
-          },
-          {
-            "titel": "Go-live",
-            "text": "Domain-Anbindung, Hosting-Setup und SSL-Verschlüsselung; bei einer bestehenden Website die Weiterleitungen, damit vorhandene Rankings erhalten bleiben."
           }
         ]
       },
       {
-        "id": "ads-einrichtung",
+        "id": "paid-ads",
         "nr": "04",
         "art": "Ergänzung",
-        "name": "Paid Ads Einrichtung",
-        "titel": "Paid Ads – einmalige Einrichtung",
-        "abrechnung": "Einmalig · je Kanal",
-        "preis": "2.000 €",
-        "einheit": "einmalig",
-        "preis_lang": "2.000 € einmalig je Kanal",
-        "ico": "rocket",
-        "kurz": "Wir bauen Ihren Werbekanal vollständig auf – zum Beispiel Google Ads, Meta Ads oder LinkedIn Ads –, damit jede Anfrage messbar ist.",
-        "punkte": [
-          "Werbekonto und Tracking",
-          "Zielgruppen und Kampagnenaufbau",
-          "Erste Anzeigen und Start"
-        ],
-        "intro": [
-          "Damit bezahlte Werbung vom ersten Tag an wirtschaftlich läuft, braucht es ein sauberes Fundament. Wir bauen den jeweiligen Werbekanal vollständig auf, zum Beispiel Google Ads, Meta Ads oder LinkedIn Ads: Werbekonto, lückenloses Tracking, Zielgruppen, Kampagnenstruktur und die ersten Anzeigen.",
-          "So ist jede Anfrage messbar, und jeder investierte Euro lässt sich einer konkreten Kampagne zuordnen."
-        ],
-        "leistungen": [
-          {
-            "titel": "Einrichtung des Werbekontos",
-            "text": "Anlage oder Überprüfung und Neuaufstellung des Werbekontos, inklusive Abrechnung, Berechtigungen und Grundeinstellungen."
-          },
-          {
-            "titel": "Tracking-Setup",
-            "liste": [
-              "Conversion-Tracking über den Google Tag Manager und die jeweiligen Plattform-Pixel",
-              "DSGVO-konforme Umsetzung, inklusive Consent Mode",
-              "Abgleich mit den Landingpages und dem Dashboard, damit Anfragen eindeutig dem Kanal zugeordnet werden"
-            ]
-          },
-          {
-            "titel": "Zielgruppen und Strategie",
-            "text": "Festlegung der Zielgruppen, Keywords bzw. Targeting-Optionen und Kampagnenziele auf Basis Ihrer Positionierung."
-          },
-          {
-            "titel": "Kampagnenaufbau",
-            "text": "Saubere Kampagnen- und Anzeigengruppenstruktur, Festlegung von Budgets und Gebotsstrategien."
-          },
-          {
-            "titel": "Anzeigenerstellung",
-            "text": "Die ersten Anzeigen inklusive Texten und, je nach Kanal, Bild- oder Videoformaten."
-          },
-          {
-            "titel": "Launch",
-            "text": "Freigabe und Start der Kampagnen sowie engmaschige Kontrolle in der Anlaufphase."
-          }
-        ]
-      },
-      {
-        "id": "ads-betreuung",
-        "nr": "05",
-        "art": "Ergänzung",
-        "name": "Paid Ads Betreuung",
-        "titel": "Paid Ads – laufende Betreuung",
+        "name": "Paid Ads",
+        "titel": "Paid Ads – Einrichtung und Betreuung",
         "abrechnung": "Monatlich · je Kanal",
         "preis": "1.000 €",
         "einheit": "mtl.",
-        "preis_lang": "1.000 € monatlich je Kanal",
+        "preis_lang": "1.000 € monatlich je Kanal, zzgl. 2.000 € einmalige Einrichtung",
+        "zusatz": "zzgl. 2.000 € einmalige Einrichtung",
+        "fakten": [
+          [
+            "Einrichtung · einmalig",
+            "2.000 €"
+          ],
+          [
+            "Betreuung · monatlich",
+            "1.000 €"
+          ],
+          [
+            "Abrechnung",
+            "je Werbekanal"
+          ]
+        ],
         "ico": "trending-up",
-        "kurz": "Wir steuern und optimieren Ihre Kampagnen laufend – auf qualifizierte Anfragen zu wirtschaftlichen Kosten.",
+        "kurz": "Wir bauen deinen Werbekanal auf und betreuen ihn laufend – auf qualifizierte Anfragen zu wirtschaftlichen Kosten.",
         "punkte": [
-          "Steuerung und Optimierung",
-          "Regelmäßige Anzeigen-Tests",
+          "Werbekonto, Tracking und Kampagnenaufbau",
+          "Laufende Steuerung und Anzeigen-Tests",
           "Kennzahlen im Dashboard und Report"
         ],
         "intro": [
-          "Nach dem Start beginnt die eigentliche Arbeit. Wir betreuen Ihre Kampagnen laufend, werten die Ergebnisse aus und optimieren konsequent auf das, was zählt: qualifizierte Anfragen zu wirtschaftlichen Kosten.",
-          "Budget, Gebote, Zielgruppen und Anzeigen entwickeln wir auf Basis der Daten kontinuierlich weiter, damit Ihre Kampagnen mit der Zeit immer effizienter werden."
+          "Damit bezahlte Werbung vom ersten Tag an wirtschaftlich läuft, braucht es ein sauberes Fundament. Wir bauen deinen Werbekanal vollständig auf, zum Beispiel Google Ads, Meta Ads oder LinkedIn Ads: Werbekonto, lückenloses Tracking, Zielgruppen, Kampagnenstruktur und die ersten Anzeigen.",
+          "Nach dem Start beginnt die eigentliche Arbeit: Wir betreuen deine Kampagnen laufend und optimieren konsequent auf qualifizierte Anfragen zu wirtschaftlichen Kosten. So ist jede Anfrage messbar, und jeder investierte Euro lässt sich einer konkreten Kampagne zuordnen."
         ],
-        "leistungen": [
+        "gruppen": [
           {
-            "titel": "Laufende Kampagnensteuerung",
-            "text": "Regelmäßige Kontrolle und Steuerung von Budgets, Geboten und Auslieferung."
+            "label": "Einrichtung · einmalig",
+            "leistungen": [
+              {
+                "titel": "Einrichtung des Werbekontos",
+                "text": "Anlage oder Überprüfung und Neuaufstellung des Werbekontos, inklusive Abrechnung, Berechtigungen und Grundeinstellungen."
+              },
+              {
+                "titel": "Tracking-Setup",
+                "liste": [
+                  "Conversion-Tracking über den Google Tag Manager und die jeweiligen Plattform-Pixel",
+                  "DSGVO-konforme Umsetzung, inklusive Consent Mode",
+                  "Abgleich mit den Landingpages und dem Dashboard, damit Anfragen eindeutig dem Kanal zugeordnet werden"
+                ]
+              },
+              {
+                "titel": "Zielgruppen und Strategie",
+                "text": "Festlegung der Zielgruppen, Keywords bzw. Targeting-Optionen und Kampagnenziele auf Basis deiner Positionierung."
+              },
+              {
+                "titel": "Kampagnenaufbau",
+                "text": "Saubere Kampagnen- und Anzeigengruppenstruktur, Festlegung von Budgets und Gebotsstrategien."
+              },
+              {
+                "titel": "Anzeigenerstellung",
+                "text": "Die ersten Anzeigen inklusive Texten und, je nach Kanal, Bild- oder Videoformaten."
+              },
+              {
+                "titel": "Launch",
+                "text": "Freigabe und Start der Kampagnen sowie engmaschige Kontrolle in der Anlaufphase."
+              }
+            ]
           },
           {
-            "titel": "Optimierung",
-            "text": "Kontinuierliche Verbesserung von Zielgruppen, Keywords, Ausschlüssen und Kampagnenstruktur."
-          },
-          {
-            "titel": "Anzeigen-Tests",
-            "text": "Regelmäßiges Testen neuer Anzeigentexte und Creatives, um die Leistung stetig zu steigern."
-          },
-          {
-            "titel": "Tracking-Kontrolle",
-            "text": "Laufende Überprüfung, ob alle Conversions korrekt erfasst werden."
-          },
-          {
-            "titel": "Reporting",
-            "text": "Alle Kennzahlen fließen in das Dashboard und den monatlichen Report, inklusive Einordnung und Empfehlungen."
+            "label": "Laufende Betreuung · monatlich",
+            "leistungen": [
+              {
+                "titel": "Laufende Kampagnensteuerung",
+                "text": "Regelmäßige Kontrolle und Steuerung von Budgets, Geboten und Auslieferung."
+              },
+              {
+                "titel": "Optimierung",
+                "text": "Kontinuierliche Verbesserung von Zielgruppen, Keywords, Ausschlüssen und Kampagnenstruktur – damit deine Kampagnen mit der Zeit immer effizienter werden."
+              },
+              {
+                "titel": "Anzeigen-Tests",
+                "text": "Regelmäßiges Testen neuer Anzeigentexte und Creatives, um die Leistung stetig zu steigern."
+              },
+              {
+                "titel": "Tracking-Kontrolle",
+                "text": "Laufende Überprüfung, ob alle Conversions korrekt erfasst werden."
+              },
+              {
+                "titel": "Reporting",
+                "text": "Alle Kennzahlen fließen in das Dashboard und den monatlichen Report, inklusive Einordnung und Empfehlungen."
+              }
+            ]
           }
         ],
-        "hinweis": "Das Werbebudget ist nicht enthalten. Es wird direkt an die jeweilige Plattform gezahlt."
+        "hinweis": "Einrichtung und Betreuung gehören zusammen und werden je Werbekanal gebucht. Das Werbebudget ist nicht enthalten, es wird direkt an die jeweilige Plattform gezahlt."
       }
     ],
     "icons": {
       "layout-dashboard": "<rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" />",
       "handshake": "<path d=\"m11 17 2 2a1 1 0 1 0 3-3\" /> <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\" /> <path d=\"m21 3 1 11h-2\" /> <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\" /> <path d=\"M3 4h8\" />",
       "app-window": "<rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" /> <path d=\"M10 4v4\" /> <path d=\"M2 8h20\" /> <path d=\"M6 4v4\" />",
-      "rocket": "<path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\" /> <path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09\" /> <path d=\"M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z\" /> <path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05\" />",
       "trending-up": "<path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" />"
     }
   }

@@ -34,10 +34,10 @@ H2 = {
     "kern": 'Kernpaket <span class="hl">sofort sichtbar.</span>',
     "linkedin": 'LinkedIn <span class="hl">Power Package.</span>',
     "website": 'Website-<span class="hl">Entwicklung.</span>',
-    "ads-einrichtung": 'Paid Ads <span class="hl">Einrichtung.</span>',
-    "ads-betreuung": 'Paid Ads <span class="hl">Betreuung.</span>',
+    "paid-ads": 'Paid Ads <span class="hl">mit Betreuung.</span>',
 }
-# Leistungen, die nicht mit Luft auf eine Seite passen, laufen auf einer zweiten Seite weiter (Index = erste Leistung der Folgeseite)
+# Leistungen, die nicht mit Luft auf eine Seite passen, laufen auf einer zweiten Seite weiter (Index = erste Leistung der Folgeseite).
+# Bausteine mit mehreren Leistungsgruppen (Paid Ads: Einrichtung · Betreuung) bekommen je Gruppe eine Seite.
 TEILEN = {"kern": 3, "website": 5}
 
 
@@ -47,30 +47,40 @@ def leistung(l):
     return f'<div><h3>{l["titel"]}</h3><div>{rechts}</div></div>'
 
 
-def kapitel(b, nr, n):
-    """Ein Baustein: Kicker · H2 · Einleitung · Abrechnung/Investition · Leistungsumfang (ggf. auf zwei Seiten)."""
-    teile = [b["leistungen"]]
+def teile_von(b):
+    """[(label, leistungen), …] – eine Liste je Seite."""
+    if len(b["gruppen"]) > 1:
+        return [(g["label"], g["leistungen"]) for g in b["gruppen"]]
+    g = b["gruppen"][0]
     if b["id"] in TEILEN:
         i = TEILEN[b["id"]]
-        teile = [b["leistungen"][:i], b["leistungen"][i:]]
-    fakten = (f'<div class="fakten mfakten"><div><span>Abrechnung</span><b>{b["abrechnung"]}</b></div>'
-              f'<div><span>Investition</span><b>{b["preis"]}</b></div></div>')
+        return [(g["label"], g["leistungen"][:i]), (None, g["leistungen"][i:])]
+    return [(g["label"], g["leistungen"])]
+
+
+def kapitel(b, nr, n):
+    """Ein Baustein: Kicker · H2 · Einleitung · Preis-Fakten · Leistungsumfang (ggf. auf mehreren Seiten)."""
+    teile = teile_von(b)
+    fk = b.get("fakten") or [["Abrechnung", b["abrechnung"]], ["Investition", b["preis"]]]
+    fakten = (f'<div class="fakten mfakten" style="grid-template-columns:repeat({len(fk)},1fr)">'
+              + "".join(f'<div><span>{l}</span><b>{v}</b></div>' for l, v in fk) + '</div>')
     hinweis = (f'<div class="kasten mkasten"><p class="label">Gut zu wissen</p><p>{b["hinweis"]}</p></div>'
                if b.get("hinweis") else "")
     seiten = []
-    for k, teil in enumerate(teile):
+    for k, (label, teil) in enumerate(teile):
         letzte = k == len(teile) - 1
         if k == 0:
             kopfteil = (kicker(f'Baustein {b["nr"]} · {b["art"]}') + f'<h2>{H2[b["id"]]}</h2>'
                         + "".join(f'<p class="lead mlead">{p}</p>' for p in b["intro"]) + fakten
-                        + '<p class="mlabel">Leistungsumfang</p>')
+                        + f'<p class="mlabel">{label}</p>')
         else:
-            kopfteil = kicker(f'Baustein {b["nr"]} · {b["name"]} · Fortsetzung')
+            kopfteil = kicker(f'Baustein {b["nr"]} · {b["name"]} · Fortsetzung') + (
+                f'<p class="mlabel" style="margin-top:7mm">{label}</p>' if label else "")
         inhalt = (kopf(T) + '<div class="rand" style="padding-top:16mm">' + kopfteil
                   + '<div class="liste mliste">' + "".join(leistung(l) for l in teil) + '</div>'
                   + (hinweis if letzte else "") + '</div>')
         if letzte and b["id"] == "kern":   # Kernpaket: Ergebnis als gelbes Band unter dem Rest des Leistungsumfangs
-            inhalt += ('<div class="band band--gelb wachsen mitte" style="margin-top:12mm">' + kicker("Das bekommen Sie")
+            inhalt += ('<div class="band band--gelb wachsen mitte" style="margin-top:12mm">' + kicker("Das bekommst du")
                        + '<h2>Sichtbarkeit, die zu Anfragen führt.</h2>' + ERGEBNIS + '</div>')
         seiten.append(seite(inhalt, nr + k, n))
     return seiten
@@ -78,7 +88,7 @@ def kapitel(b, nr, n):
 
 def bauen(M):
     B = M["bausteine"]
-    n = 3 + sum(2 if b["id"] in TEILEN else 1 for b in B)
+    n = 3 + sum(len(teile_von(b)) for b in B)
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -87,13 +97,14 @@ def bauen(M):
     zeilen = "".join(
         f'<div class="ue{" ue--kern" if b["id"] == "kern" else ""}"><span class="ue__nr">{b["nr"]}</span>'
         f'<div><small>{b["art"]}</small><h3>{b["name"]}</h3><p>{b["kurz"]}</p></div>'
-        f'<b class="ue__preis">{b["preis"]}<span>{b["abrechnung"]}</span></b></div>'
+        f'<b class="ue__preis">{b["preis"]}<span>{b["abrechnung"]}</span>'
+        f'{"<span>" + b["zusatz"] + "</span>" if b.get("zusatz") else ""}</b></div>'
         for b in B)
     s2 = seite(
         kopf(T) + '<div class="rand" style="padding-top:16mm">' + kicker("Die Bausteine")
-        + '<h2>Ein Kernpaket. <span class="hl">Vier Ergänzungen.</span></h2>'
+        + '<h2>Ein Kernpaket. <span class="hl">Drei Ergänzungen.</span></h2>'
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
-          'Die Ergänzungen buchen Sie dazu, wenn Sie sie brauchen.</p>'
+          'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
         + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 2, n)
 
@@ -106,16 +117,16 @@ def bauen(M):
     extra = '<div>' + mt.ico("app-window") + 'sofortsichtbar.de</div>'
     seiten.append(seite(
         kopf(T) + '<div class="rand weiss" style="padding-top:16mm">'
-        + mt.schritte('Lassen Sie uns <span class="hl">sprechen.</span>',
-                      "Wir klären, welche Bausteine zu Ihren Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
-        + '</div>' + mt.draht(extra).replace("Dein direkter Draht", "Ihr direkter Draht"), nr, n))
+        + mt.schritte('Lass uns <span class="hl">sprechen.</span>',
+                      "Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
+        + '</div>' + mt.draht(extra), nr, n))
     return dokument(f"{T} – sofort sichtbar", seiten, extra_css=mt.CSS + CSS)
 
 
 ERGEBNIS = punkte([
-    ("target", "Qualifizierte Anfragen", "Ihre Sichtbarkeit übersetzt sich verlässlich in qualifizierte Anfragen."),
+    ("target", "Qualifizierte Anfragen", "Deine Sichtbarkeit übersetzt sich verlässlich in qualifizierte Anfragen."),
     ("layout-dashboard", "Jederzeit Überblick", "Alle Anfragen, Kampagnen und Kennzahlen laufen in einem zentralen Dashboard zusammen."),
-    ("user-round", "Fester Ansprechpartner", "Wir übernehmen die operative Umsetzung – mit Ihnen besprechen wir Ergebnisse und Prioritäten.")])
+    ("user-round", "Fester Ansprechpartner", "Wir übernehmen die operative Umsetzung – mit dir besprechen wir Ergebnisse und Prioritäten.")])
 
 CSS = """
 .mlead { max-width: 160mm; margin-top: 3.5mm; }
@@ -136,7 +147,7 @@ CSS = """
 .team3 .kontaktdaten { display: grid; grid-template-columns: 1fr 1fr; }   /* vier Kontakt-Pillen wie im PDF „sofort sichtbar“: zwei Spalten */
 .weiss .zs .punkt { box-shadow: 0 0 0 1.2mm #fff; }
 .uebersicht { margin-top: 7mm; border-top: 1.6px solid #1a1817; }
-.ue { display: grid; grid-template-columns: 10mm 1fr 40mm; gap: 4mm; align-items: start; padding: 3.6mm 3mm; border-bottom: 1px solid #dcd8d1; }
+.ue { display: grid; grid-template-columns: 10mm 1fr 52mm; gap: 4mm; align-items: start; padding: 3.6mm 3mm; border-bottom: 1px solid #dcd8d1; }
 .ue--kern { background: #fff400; border-bottom-color: #fff400; border-radius: 0 0 3mm 3mm; }
 .ue__nr { font-size: 7pt; font-weight: 700; letter-spacing: .16em; padding-top: .8mm; }
 .ue small { display: block; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -144,6 +155,7 @@ CSS = """
 .ue p { margin-top: 1mm; font-size: 8.4pt; line-height: 1.45; color: #3d3a37; }
 .ue--kern p { color: #1a1817; }
 .ue__preis { text-align: right; font-family: 'Lora', Georgia, serif; font-size: 13pt; padding-top: 3.6mm; white-space: nowrap; }
+.ue__preis span + span { margin-top: .4mm; }
 .ue__preis span { display: block; margin-top: .8mm; font-family: 'Poppins', Arial, sans-serif; font-weight: 400; font-size: 8pt; }
 """
 

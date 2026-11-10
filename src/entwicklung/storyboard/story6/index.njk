@@ -182,9 +182,10 @@ html body .e2-alt .maas-kern__text p { margin: 0 !important; font-size: 1.02rem;
 html body .e2-alt .maas-kern__text ul { list-style: none; margin: 1.2rem 0 0; padding: 1.2rem 0 0; border-top: 1px solid #ece9e5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 2rem; }
 .maas-kern__text li { position: relative; padding-left: 1.2rem; font-size: .92rem; line-height: 1.45; color: #1a1817; }
 .maas-kern__text li::before { content: ""; position: absolute; left: 0; top: .52rem; width: .4rem; height: .4rem; border-radius: 50%; background: #1a1817; }
-.maas-posts { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; margin-top: 1.4rem !important; column-gap: 1.4rem; }
+.maas-posts { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; margin-top: 1.4rem !important; column-gap: 1.4rem; }
 .maas-posts .e2-post__bild { min-height: 13.5rem !important; }
-.maas-posts .e2-post__unten b { font-size: 1.55rem; }
+.maas-posts .e2-post__unten b { font-size: 1.8rem; }
+.maas-zusatz { display: block; margin-top: .35rem; font-size: .84rem; font-weight: 500; color: #1a1817; }
 .maas-posts .e2-post__preis { font-size: 1.45rem !important; }
 .maas-posts .e2-post__ico { width: 2.8rem; height: 2.8rem; }
 html body .e2-alt .maas-fuss { margin-top: 1.6rem !important; color: #6f6a64; font-size: .85rem; }
@@ -202,7 +203,7 @@ html body .maas-d .maas-d__liste p { margin: .25rem 0 0 !important; }
 .maas-d__liste li { position: relative; padding-left: 1.1rem; font-size: 1rem; line-height: 1.55; color: #3d3a37; }
 .maas-d__liste li::before { content: ""; position: absolute; left: 0; top: .62rem; width: .35rem; height: .35rem; border-radius: 50%; background: #1a1817; }
 html body .maas-d .maas-d__hinweis { margin: .4rem 0 0 !important; padding-top: .9rem; border-top: 1px solid #e7e4df; font-size: .85rem !important; color: #6f6a64 !important; }
-@media (max-width: 1100px) { .maas-posts { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-template-rows: none !important; row-gap: 1.4rem; max-width: none !important; } .maas-posts .e2-post { grid-row: auto; grid-template-rows: none; display: flex; flex-direction: column; } .maas-posts .e2-post__text { flex: 1; } .maas-posts .e2-post__bild { min-height: 0 !important; gap: 2.2rem; } .maas-kern__flaeche { gap: 2.2rem; } }
+@media (max-width: 900px) { .maas-posts { grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: none !important; row-gap: 1.4rem; max-width: none !important; } .maas-posts .e2-post { grid-row: auto; grid-template-rows: none; display: flex; flex-direction: column; } .maas-posts .e2-post__text { flex: 1; } .maas-posts .e2-post__bild { min-height: 0 !important; gap: 2.2rem; } .maas-kern__flaeche { gap: 2.2rem; } }
 @media (max-width: 900px) { .maas-kern { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 640px) { .maas-posts { grid-template-columns: minmax(0, 1fr) !important; } html body .e2-alt .maas-kern__text ul { grid-template-columns: minmax(0, 1fr); } .maas-kern__unten b { font-size: 2.1rem; } }
 
@@ -770,7 +771,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 {% elif s.slug == "marketing-as-a-service" %}
 {#- Interne Arbeitsseite (nur im Entwicklungsmenü, Strategie sofort sichtbar): Angebot Marketing as a Service.
     Inhalte aus story6.11tydata.json (maas) – dieselbe Quelle baut das PDF (maas_pdf.py).
-    Aufbau: Kopf · fünf Bausteine (Kernpaket breit, vier Ergänzungen als Karten, Details im Fenster) · Download. -#}
+    Aufbau: Kopf · vier Bausteine (Kernpaket breit, drei Ergänzungen als Karten, Details im Fenster) · Download. -#}
 {%- set M = maas -%}
 {%- macro ico(name) -%}<svg class="e2-post__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ M.icons[name] | safe }}</svg>{%- endmacro -%}
 {%- macro fenster(b) -%}
@@ -779,12 +780,14 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <p class="maas-d__meta">Baustein {{ b.nr }} · {{ b.art }} · {{ b.preis_lang }}</p>
   <h3 id="maas-{{ b.id }}-t">{{ b.titel }}</h3>
   {%- for p in b.intro %}<p>{{ p }}</p>{% endfor %}
-  <p class="maas-d__label">Leistungsumfang</p>
+  {%- for g in b.gruppen %}
+  <p class="maas-d__label">{{ g.label }}</p>
   <div class="maas-d__liste">
-    {%- for l in b.leistungen %}
+    {%- for l in g.leistungen %}
     <div><b>{{ l.titel }}</b>{% if l.text %}<p>{{ l.text }}</p>{% endif %}{% if l.liste %}<ul>{% for x in l.liste %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}</div>
     {%- endfor %}
   </div>
+  {%- endfor %}
   {%- if b.hinweis %}<p class="maas-d__hinweis">{{ b.hinweis }}</p>{% endif %}
 </dialog>
 {%- endmacro -%}
@@ -799,7 +802,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   <section class="maas-bs" id="bausteine">
     <div class="container">
       <p class="kicker">Die Bausteine</p>
-      <h2 class="h-serif">Ein Kernpaket. <span class="hl">Vier Ergänzungen.</span></h2>
+      <h2 class="h-serif">Ein Kernpaket. <span class="hl">Drei Ergänzungen.</span></h2>
 
       <article class="maas-kern">
         <div class="maas-kern__flaeche">
@@ -821,7 +824,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         {%- for b in M.bausteine %}{% if not loop.first %}
         <article class="e2-post">
           <div class="e2-post__kopf"><span>Baustein {{ b.nr }} · {{ b.art }}</span></div>
-          <div class="e2-post__bild"><small>{{ b.abrechnung }}</small><div class="e2-post__unten"><div><b>{{ b.name }}</b><span class="e2-post__preis">{{ b.preis }}</span></div>{{ ico(b.ico) }}</div></div>
+          <div class="e2-post__bild"><small>{{ b.abrechnung }}</small><div class="e2-post__unten"><div><b>{{ b.name }}</b><span class="e2-post__preis">{{ b.preis }}</span>{% if b.zusatz %}<span class="maas-zusatz">{{ b.zusatz }}</span>{% endif %}</div>{{ ico(b.ico) }}</div></div>
           <div class="e2-post__text">
             <p>{{ b.kurz }}</p>
             <ul>{% for x in b.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
@@ -845,7 +848,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         <div class="pdf-dl-text">
           <p class="pdf-dl-kicker">Download</p>
           <h2 class="pdf-dl-h">Das Angebot <span class="e2-dl-hl">zum Weitergeben.</span></h2>
-          <p class="pdf-dl-lead">Alle fünf Bausteine mit Leistungsumfang und Preisen – für Kundinnen, Kunden und Entscheider.</p>
+          <p class="pdf-dl-lead">Alle Bausteine mit Leistungsumfang und Preisen – zum Nachlesen und Weitergeben.</p>
           <div class="pdf-dl-meta"><span>PDF</span><span>{{ M.pdf.seiten }} Seiten</span><span>{{ M.pdf.groesse }}</span></div>
           <a class="pdf-dl-btn" href="{{ A }}/maas/{{ M.pdf.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
