@@ -299,7 +299,97 @@
       "layout-dashboard": "<rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" />",
       "handshake": "<path d=\"m11 17 2 2a1 1 0 1 0 3-3\" /> <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\" /> <path d=\"m21 3 1 11h-2\" /> <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\" /> <path d=\"M3 4h8\" />",
       "app-window": "<rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" /> <path d=\"M10 4v4\" /> <path d=\"M2 8h20\" /> <path d=\"M6 4v4\" />",
-      "trending-up": "<path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" />"
+      "trending-up": "<path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" />",
+      "message-square-text": "<path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\" /> <path d=\"M7 11h10\" /> <path d=\"M7 15h6\" /> <path d=\"M7 7h8\" />"
+    },
+    "team": {
+      "_hinweis": "Gehälter: StepStone-Durchschnitt brutto/Jahr (abgerufen 10.11.2026). Arbeitgeberkosten = Gehalt × (1 + ag_anteil) / 12, berechnet von maas_pdf.py (Felder kosten_monat, summe_monat).",
+      "ag_anteil": 0.21,
+      "ag_quelle": {
+        "text": "Arbeitgeberanteil Sozialversicherung 2026 rund 21 %",
+        "url": "https://lohnklar.de/blog/lohnnebenkosten-2026"
+      },
+      "maas_monat": "3.650 €",
+      "maas_erklaerung": "Kernpaket, LinkedIn Power Package und Paid Ads Betreuung für einen Werbekanal",
+      "zusatzkosten": [
+        "Recruiting und Einarbeitung",
+        "Vertretung bei Urlaub und Krankheit",
+        "Arbeitsplatz, Software und Lizenzen",
+        "Weiterbildung, damit das Wissen aktuell bleibt"
+      ],
+      "rollen": [
+        {
+          "id": "omm",
+          "rolle": "Online-Marketing-Manager",
+          "ico": "layout-dashboard",
+          "bausteine": "Kernpaket",
+          "aufgaben": [
+            "Steuert das Dashboard und alle Kennzahlen",
+            "Erstellt den monatlichen Report mit Empfehlungen",
+            "Optimiert Landingpages und Maßnahmen laufend",
+            "Führt den monatlichen Betreuungscall"
+          ],
+          "gehalt_jahr": 40100,
+          "quelle": "https://www.stepstone.de/gehalt/Online-Marketing-Manager.html",
+          "gehalt_text": "40.100 €",
+          "kosten_monat": "4.040 €"
+        },
+        {
+          "id": "smm",
+          "rolle": "Social-Media-Manager",
+          "ico": "message-square-text",
+          "bausteine": "Kernpaket · LinkedIn Power Package",
+          "aufgaben": [
+            "Schreibt 25 Postings je Zielgruppenthema",
+            "Veröffentlicht regelmäßig auf allen Kanälen",
+            "Schreibt deine LinkedIn-Beiträge in deiner Tonalität",
+            "Baut dein Netzwerk auf und liefert Anlässe für die Direktansprache"
+          ],
+          "gehalt_jahr": 38600,
+          "quelle": "https://www.stepstone.de/gehalt/Social-Media-Manager-in.html",
+          "gehalt_text": "38.600 €",
+          "kosten_monat": "3.890 €"
+        },
+        {
+          "id": "web",
+          "rolle": "Webentwickler",
+          "ico": "app-window",
+          "bausteine": "Kernpaket · Website-Entwicklung",
+          "aufgaben": [
+            "Betreut fünf Landingpages technisch",
+            "Sorgt für DSGVO, Tracking und schnelle Ladezeiten",
+            "Bindet Anfrageformulare an das Dashboard an",
+            "Entwickelt deine Website, sichtbar in Google und KI-Systemen"
+          ],
+          "gehalt_jahr": 41800,
+          "quelle": "https://www.stepstone.de/gehalt/Web-Entwickler-in.html",
+          "gehalt_text": "41.800 €",
+          "kosten_monat": "4.210 €"
+        },
+        {
+          "id": "pmm",
+          "rolle": "Performance-Marketing-Manager",
+          "ico": "trending-up",
+          "bausteine": "Paid Ads",
+          "aufgaben": [
+            "Richtet Werbekonto und Tracking ein",
+            "Baut Kampagnen auf und schreibt die Anzeigen",
+            "Steuert Budgets und Gebote laufend",
+            "Testet Anzeigen und optimiert auf Anfragen"
+          ],
+          "gehalt_jahr": 44900,
+          "quelle": "https://www.stepstone.de/jobs/performance-marketing-manager",
+          "gehalt_text": "44.900 €",
+          "kosten_monat": "4.530 €"
+        }
+      ],
+      "summe_monat": "16.700 €",
+      "ag_prozent": "21 %"
+    },
+    "pdf_team": {
+      "datei": "marketing-as-a-service-team.pdf",
+      "seiten": 4,
+      "groesse": "0,4 MB"
     }
   }
 }

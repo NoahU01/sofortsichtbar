@@ -5,8 +5,9 @@ Inhalt: story6.11tydata.json → maas (dieselbe Quelle wie die Seite /entwicklun
 Bausteine: lib.py und _marketing_teile.py aus ~/Projekte/empiria/werkzeuge/pdf2 – nur gelesen, nicht verändert.
 
 Aufruf:  python3 src/entwicklung/storyboard/story6/maas_pdf.py
-Ergebnis: assets/maas/marketing-as-a-service.pdf, -1.png/-2.png (Vorschau im Download-Kasten),
-          Seitenbilder zum Prüfen im Temp-Ordner maas_pdf_build/seiten/ (Pfad wird ausgegeben), Seitenzahl/Größe zurück in die JSON.
+Ergebnis: assets/maas/marketing-as-a-service.pdf und marketing-as-a-service-team.pdf (Teamvergleich),
+          je -1.png/-2.png (Vorschau im Download-Kasten),
+          Seitenbilder zum Prüfen im Temp-Ordner maas_pdf_build/seiten/ (Pfad wird ausgegeben), Seitenzahl/Größe und die berechneten Teamkosten zurück in die JSON.
 """
 import json
 import os
@@ -160,34 +161,121 @@ CSS = """
 """
 
 
+def euro(x):
+    return f"{x:,.0f} €".replace(",", ".")
+
+
+def team_rechnen(M):
+    """Arbeitgeberkosten je Rolle (Gehalt × (1 + AG-Anteil) / 12, auf 10 € gerundet) und die Summe (auf 100 € gerundet)."""
+    tm = M["team"]
+    summe = 0
+    for r in tm["rollen"]:
+        k = r["gehalt_jahr"] * (1 + tm["ag_anteil"]) / 12
+        summe += k
+        r["gehalt_text"] = euro(r["gehalt_jahr"])
+        r["kosten_monat"] = euro(round(k, -1))
+    tm["summe_monat"] = euro(round(summe, -2))
+    tm["ag_prozent"] = f'{tm["ag_anteil"] * 100:.0f} %'
+
+
+def bauen_team(M):
+    tm = M["team"]
+    R = tm["rollen"]
+    T2 = "Dein Marketing-Team"
+    n = 4
+    s1 = seite(titelseite(
+        "Marketing as a Service", 'Vier Fachleute.<br><span class="hl">Ein Team.</span>',
+        "Hinter den Bausteinen von Marketing as a Service stehen vier Fachleute, die für deine Themen verantwortlich sind. "
+        "Du buchst das Team – statt vier Stellen zu besetzen.",
+        kopfbild("sofort sichtbar"),
+        [("Team", "Vier Fachleute"), ("Selbst eingestellt", f'rund {tm["summe_monat"]} mtl.'), ("Mit uns", f'{tm["maas_monat"]} mtl.')]))
+
+    zeilen = "".join(
+        f'<div><div><h3>{r["rolle"]}</h3><span class="rolle-in">{r["bausteine"]}</span></div>'
+        f'<div><ul>{"".join(f"<li>{x}</li>" for x in r["aufgaben"])}</ul></div></div>' for r in R)
+    s2 = seite(
+        kopf(T2) + '<div class="rand" style="padding-top:16mm">' + kicker("Wer für dich arbeitet")
+        + '<h2>Vier Rollen. <span class="hl">Klar verantwortlich.</span></h2>'
+        + '<p class="lead" style="max-width:150mm">Jede Rolle steht für einen Teil der Leistungen. Zusammen decken sie alles ab, '
+          'was in den Bausteinen steckt – von der Landingpage bis zur Anzeige.</p>'
+        + f'<div class="liste mliste">{zeilen}</div></div>', 2, n)
+
+    tab = "".join(f'<tr><td>{r["rolle"]}</td><td class="r">{r["gehalt_text"]}</td><td class="r"><b>{r["kosten_monat"]}</b></td></tr>' for r in R)
+    tab = (f'<table class="vgl"><thead><tr><th>Rolle in Vollzeit</th><th class="r">Gehalt im Jahr</th><th class="r">Kosten im Monat</th></tr></thead>'
+           f'<tbody>{tab}</tbody></table>')
+    gegen = (f'<div class="gegen"><div><span>Selbst eingestellt</span><b>rund {tm["summe_monat"]}</b><small>im Monat, vier Vollzeitstellen</small></div>'
+             f'<div class="gegen--gelb"><span>Mit uns</span><b>{tm["maas_monat"]}</b><small>im Monat: {tm["maas_erklaerung"]}</small></div></div>')
+    kasten = ('<div class="kasten mkasten"><p class="label">Beim Einstellen kommen dazu</p><ul class="zk">'
+              + "".join(f"<li>{x}</li>" for x in tm["zusatzkosten"]) + '</ul></div>')
+    quellen = ("Gehälter: StepStone-Durchschnitt brutto, abgerufen am 10.11.2026. Kosten im Monat = Gehalt plus rund "
+               f'{tm["ag_prozent"]} Arbeitgeberanteil zur Sozialversicherung, geteilt durch zwölf. '
+               "Einmalige Leistungen (Website, Einrichtung Paid Ads) sind nicht eingerechnet. Alle Preise zzgl. Umsatzsteuer.")
+    s3 = seite(
+        kopf(T2) + '<div class="rand" style="padding-top:16mm">' + kicker("Der Vergleich")
+        + '<h2>Weniger als <span class="hl">eine Stelle.</span></h2>'
+        + '<p class="lead" style="max-width:150mm">Schon eine einzige Vollzeitkraft kostet mehr als alle laufenden Bausteine zusammen.</p>'
+        + tab + gegen + kasten + f'<p class="notiz">{quellen}</p></div>', 3, n)
+
+    extra = '<div>' + mt.ico("app-window") + 'sofortsichtbar.de</div>'
+    s4 = seite(
+        kopf(T2) + '<div class="rand weiss" style="padding-top:16mm">'
+        + mt.schritte('Lass uns <span class="hl">sprechen.</span>',
+                      "Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns zeitnah mit einem konkreten Vorschlag.")
+        + '</div>' + mt.draht(extra), 4, n)
+    return dokument(f"{T2} – Marketing as a Service", [s1, s2, s3, s4], extra_css=mt.CSS + CSS + CSS_TEAM)
+
+
+CSS_TEAM = """
+.vgl { width: 100%; border-collapse: collapse; margin-top: 8mm; font-size: 9pt; }
+.vgl th { padding: 0 0 2.6mm; text-align: left; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1.6px solid #1a1817; }
+.vgl td { padding: 3mm 0; border-bottom: 1px solid #dcd8d1; }
+.vgl .r { text-align: right; }
+.vgl td b { font-weight: 600; }
+.vgl tfoot td { padding-top: 3.4mm; font-weight: 700; border-bottom: 0; }
+.gegen { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 8mm; }
+.gegen > div { padding: 5mm 6mm 5.5mm; border-radius: 4.5mm; background: #f3f1ee; }
+.gegen > div.gegen--gelb { background: #fff400; }
+.gegen span { display: block; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.gegen b { display: block; margin-top: 2mm; font-family: 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 22pt; line-height: 1.1; }
+.gegen small { display: block; margin-top: 1.6mm; font-size: 8pt; line-height: 1.45; }
+.zk { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 8mm; margin-top: 3mm; }
+.zk li { position: relative; padding-left: 3.6mm; font-size: 9pt; color: rgba(255,255,255,.85); }
+.zk li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: #fff400; }
+.rolle-in { display: block; margin-top: 1.2mm; font-size: 8pt; color: #8a847c; line-height: 1.4; }
+"""
+
+
+def drucken(html, datei, praefix, meta):
+    """HTML → PDF, Seitenbilder, Vorschau -1/-2; trägt Seitenzahl und Größe in meta ein."""
+    src = os.path.join(BUILD, praefix + ".html")
+    open(src, "w", encoding="utf-8").write(html)
+    pdf = os.path.join(ZIEL, datei)
+    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", f"--print-to-pdf={pdf}",
+                    "--virtual-time-budget=8000", "file://" + src], capture_output=True, timeout=180)
+    seiten_dir = os.path.join(BUILD, praefix + "-seiten")
+    shutil.rmtree(seiten_dir, ignore_errors=True)
+    r = subprocess.run(["node", os.path.join(PDF2, "seiten.mjs"), src, seiten_dir, os.path.join(ZIEL, praefix)],
+                       check=True, capture_output=True, text=True)
+    for i in (1, 2):   # Vorschaubilder für den Download-Kasten verkleinern
+        subprocess.run(["sips", "-Z", "900", os.path.join(ZIEL, f"{praefix}-{i}.png")], capture_output=True)
+    kb = os.path.getsize(pdf) / 1024
+    meta["seiten"] = int(re.match(r"(\d+)", r.stdout).group(1))
+    meta["groesse"] = (f"{kb / 1024:.1f} MB" if kb >= 100 else f"{kb:.0f} KB").replace(".", ",")
+    print(f"{r.stdout.strip()}\n{pdf}  ({meta['seiten']} Seiten, {meta['groesse']})\nSeitenbilder: {seiten_dir}")
+
+
 def main():
     d = json.load(open(DATEN, encoding="utf-8"))
     M = d["maas"]
+    team_rechnen(M)
     os.makedirs(BUILD, exist_ok=True)
     link = os.path.join(BUILD, "assets")
     if not os.path.exists(link):
         os.symlink(os.path.join(EMPIRIA, "site", "assets"), link)
-    src = os.path.join(BUILD, "marketing-as-a-service.html")
-    open(src, "w", encoding="utf-8").write(bauen(M))
-    pdf = os.path.join(ZIEL, M["pdf"]["datei"])
-    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", f"--print-to-pdf={pdf}",
-                    "--virtual-time-budget=8000", "file://" + src], capture_output=True, timeout=180)
-    seiten_dir = os.path.join(BUILD, "seiten")
-    shutil.rmtree(seiten_dir, ignore_errors=True)
-    r = subprocess.run(["node", os.path.join(PDF2, "seiten.mjs"), src, seiten_dir,
-                        os.path.join(ZIEL, "marketing-as-a-service")], check=True, capture_output=True, text=True)
-    print(r.stdout.strip())
-    # Vorschaubilder für den Download-Kasten verkleinern (1588 px Breite reicht nicht als Original im Repo)
-    for i in (1, 2):
-        png = os.path.join(ZIEL, f"marketing-as-a-service-{i}.png")
-        subprocess.run(["sips", "-Z", "900", png], capture_output=True)
-    anzahl = int(re.match(r"(\d+)", r.stdout).group(1))
-    kb = os.path.getsize(pdf) / 1024
-    M["pdf"]["seiten"] = anzahl
-    M["pdf"]["groesse"] = (f"{kb / 1024:.1f} MB" if kb >= 100 else f"{kb:.0f} KB").replace(".", ",")
+    drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
+    drucken(bauen_team(M), M["pdf_team"]["datei"], "marketing-as-a-service-team", M["pdf_team"])
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")
-    print(f"{pdf}  ({anzahl} Seiten, {M['pdf']['groesse']})\nSeitenbilder: {seiten_dir}")
 
 
 if __name__ == "__main__":
