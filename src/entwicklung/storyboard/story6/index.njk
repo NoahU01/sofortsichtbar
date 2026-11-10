@@ -27,6 +27,8 @@ seiten:
     titel: "Kontakt"
   - slug: "anspracheanlaesse"
     titel: "Anspracheanlässe"
+  - slug: "marketing-as-a-service"
+    titel: "Marketing as a Service"
   - slug: "ueber-uns"
     titel: "Über uns"
     h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
@@ -721,6 +723,18 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       Array.from(ul.children).sort(function (a, b) { return c.compare(a.querySelector("span").textContent.trim(), b.querySelector("span").textContent.trim()); }).forEach(function (li) { ul.appendChild(li); });
     });
   </script>
+</div>
+</main>
+{% elif s.slug == "marketing-as-a-service" %}
+{#- Interne Arbeitsseite (nur im Entwicklungsmenü, Strategie sofort sichtbar):
+    Angebotsstruktur Marketing as a Service – Bausteine, Erklärungen, Preis, später PDF.
+    Vorerst nur der Kopf; Inhalte bauen wir gemeinsam auf. -#}
+<main>
+<div class="zp-seite">
+  <section class="e2-kopf zp-kopf"><div class="e2-wrap">
+    <h1>Marketing <span class="hl">as a Service.</span></h1>
+    <p class="zp-kopf__lead">Arbeitsstand für die Angebotsstruktur: Bausteine, Erklärungen und Preis. Intern, nicht auf der Startseite.</p>
+  </div></section>
 </div>
 </main>
 {% elif s.slug == "kontakt" %}
