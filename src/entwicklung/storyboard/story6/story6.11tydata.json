@@ -390,6 +390,89 @@
       "datei": "marketing-as-a-service-team.pdf",
       "seiten": 4,
       "groesse": "0,4 MB"
+    },
+    "kompetenzen": {
+      "_hinweis": "Zuordnung Kompetenz → Baustein aus dem Leistungsumfang abgeleitet (Einschätzung, kein Beleg). Ohne Kosten (Daniel, 10.11.2026).",
+      "spalten": [
+        [
+          "kern",
+          "Kernpaket"
+        ],
+        [
+          "linkedin",
+          "LinkedIn"
+        ],
+        [
+          "website",
+          "Website"
+        ],
+        [
+          "paid-ads",
+          "Paid Ads"
+        ]
+      ],
+      "felder": [
+        {
+          "name": "Strategie und Steuerung",
+          "skills": "Zielgruppen und Positionierung, Prioritäten setzen, Kennzahlen deuten und Entscheidungen ableiten",
+          "suche": "Marketingstratege oder erfahrener Online-Marketing-Manager",
+          "bausteine": [
+            "kern",
+            "linkedin",
+            "website",
+            "paid-ads"
+          ]
+        },
+        {
+          "name": "Content und Social Media",
+          "skills": "Texte in deiner Tonalität, Themenplanung, Veröffentlichung, Netzwerkaufbau und Direktansprache auf LinkedIn",
+          "suche": "Content- und Social-Media-Manager",
+          "bausteine": [
+            "kern",
+            "linkedin",
+            "website",
+            "paid-ads"
+          ]
+        },
+        {
+          "name": "Gestaltung",
+          "skills": "Postinggrafiken, Landingpage- und Website-Design, Anzeigenmotive im Look deiner Marke",
+          "suche": "Grafik- und Webdesigner",
+          "bausteine": [
+            "kern",
+            "linkedin",
+            "website",
+            "paid-ads"
+          ]
+        },
+        {
+          "name": "Webentwicklung",
+          "skills": "Landingpages und Website bauen und pflegen, DSGVO, Ladezeiten, Formulare, SEO und Sichtbarkeit in KI-Systemen",
+          "suche": "Webentwickler",
+          "bausteine": [
+            "kern",
+            "website"
+          ]
+        },
+        {
+          "name": "Daten und Tracking",
+          "skills": "Tracking und Consent einrichten, Dashboard pflegen, Report erstellen, Conversion-Rate optimieren",
+          "suche": "Marketing-Analyst oder Tracking-Spezialist",
+          "bausteine": [
+            "kern",
+            "website",
+            "paid-ads"
+          ]
+        },
+        {
+          "name": "Performance Marketing",
+          "skills": "Werbekonten, Kampagnenstruktur, Budgets und Gebote, Anzeigen-Tests auf Google, Meta und LinkedIn",
+          "suche": "Performance-Marketing-Manager",
+          "bausteine": [
+            "paid-ads"
+          ]
+        }
+      ]
     }
   }
 }
