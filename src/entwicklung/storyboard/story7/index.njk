@@ -10,6 +10,8 @@ seiten:
     titel: "Startseite"
   - slug: "stilproben"
     titel: "Stilproben"
+  - slug: "farbproben"
+    titel: "Farbproben"
 permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
 ---
 {#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
@@ -134,7 +136,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
 <style>
 /* ---------- Schriften (selbst gehostet, OFL) ---------- */
-{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Archivo", "archivo", [400, 500, 600, 700, 800]], ["Bricolage Grotesque", "bricolage-grotesque", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
+{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]]] %}{% for w in f[2] %}
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-ext-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 {%- endfor %}{% endfor %}
@@ -159,6 +161,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
   --s7-linie: #e2e2df;          /* Trennlinien, Rahmen */
   --s7-akzent: #c9d4e3;         /* Markierung: Auswahl, Leads, Kern des Trichters */
   --s7-akzent-fill: var(--s7-akzent);   /* dieselbe Markierung in Grafiken (darf url(#…) sein) */
+  --s7-akzent-verlauf: var(--s7-akzent); /* zarte Akzentfläche, darf ein Verlauf sein (Pills, Leads) */
   --s7-auf-akzent: #181818;     /* Schrift auf dem Akzent */
   --s7-wort: var(--s7-tinte);   /* hervorgehobenes Wort der Hauptüberschrift */
   --s7-wort-verlauf: none;      /* … oder als Verlauf */
@@ -345,7 +348,7 @@ p { margin: 0; }
   --s7-h1: clamp(3rem, 7.6vw, 6.6rem); --s7-h1-hoehe: 1.0;
   --s7-h2: clamp(2.3rem, 5vw, 4rem);   --s7-h2-hoehe: 1.05;
   --s7-grund: #ffffff; --s7-flaeche: #f5f5f7; --s7-tinte: #1d1d1f; --s7-text: #424245; --s7-grau: #86868b; --s7-linie: #e5e5ea;
-  --s7-akzent: #e3e8ff; --s7-akzent-fill: url(#s7v-pastell); --s7-auf-akzent: #1d1d1f;
+  --s7-akzent: #e3e8ff; --s7-akzent-fill: url(#s7v-pastell); --s7-akzent-verlauf: linear-gradient(100deg, #dfe6ff, #eddcff); --s7-auf-akzent: #1d1d1f;
   --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #2f6bff 0%, #7b3fe4 55%, #b44ce0 100%);
   --s7-knopf-grund: #1d1d1f; --s7-knopf-text: #ffffff;
   --s7-buehne: #f5f5f7; --s7-band-akzent: #f5f5f7; --s7-karte: #ffffff;
@@ -360,72 +363,34 @@ p { margin: 0; }
 .s7-stil--apple .s7-held .s7-lead { color: #6e6e73; }
 .s7-stil--apple .s7-kicker { letter-spacing: .02em; text-transform: none; font-size: 1rem; font-weight: 600; color: #6e6e73; }
 .s7-stil--apple .s7-schritt__nr { font-size: 1rem; color: #86868b; }
-.s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: linear-gradient(100deg, #dfe6ff, #eddcff); }
+.s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: var(--s7-akzent-verlauf); }
 
-/* 2 · Raster: Schweizer Grafik – linksbündig, feine Linien statt Karten, eckig, Ultramarin als Vollton */
-.s7-stil--raster {
-  --s7-schrift-titel: "Archivo", system-ui, sans-serif;
-  --s7-schrift-text: "Archivo", system-ui, sans-serif;
-  --s7-titel-gewicht: 600; --s7-titel-abstand: -0.03em;
-  --s7-h1: clamp(3rem, 7.8vw, 6.8rem); --s7-h1-hoehe: .98;
-  --s7-h2: clamp(2.3rem, 5vw, 4.1rem); --s7-h2-hoehe: 1.02;
-  --s7-grund: #f7f6f2; --s7-flaeche: #eeede7; --s7-tinte: #141414; --s7-text: #2e2e2c; --s7-grau: #737069; --s7-linie: #141414;
-  --s7-akzent: #2b3bff; --s7-akzent-fill: #c9cdff; --s7-auf-akzent: #ffffff;
-  --s7-wort: #2b3bff;
-  --s7-knopf-grund: #2b3bff; --s7-knopf-text: #ffffff;
-  --s7-buehne: transparent; --s7-band-akzent: #f7f6f2; --s7-karte: transparent;
-  --s7-schatten: none;
-  --s7-komplett-grund: #2b3bff; --s7-komplett-text: #e4e6ff; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #2b3bff;
-  --s7-lage-1: #dddcd5; --s7-lage-2: #e7e6e0; --s7-lage-3: #f0efea;
-  --s7-rund: 0px; --s7-rund-knopf: 0px;
+/* Farbakzente für Apple-klar (Farbproben): kräftiger Verlauf für Wort und Komplett, zarte Flächen als eigene kühle Tönungen */
+.s7-farbe--cyanblau {
+  --s7-wort-verlauf: linear-gradient(100deg, #00b8f0 0%, #1f8bff 45%, #2f55ff 100%);
+  --s7-akzent: #dcf3fd; --s7-akzent-verlauf: linear-gradient(100deg, #d9f4fd, #dfe6ff); --s7-akzent-fill: url(#s7v-cyanblau);
+  --s7-komplett-grund: linear-gradient(140deg, #00a6e0 0%, #1f6bff 60%, #2f45e6 100%); --s7-komplett-text: #e6f3ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #1f5bff;
 }
-.s7-stil--raster .s7-kicker { color: #141414; font-weight: 600; letter-spacing: .08em; }
-.s7-stil--raster .s7-kicker::before { content: ""; display: inline-block; width: .55rem; height: .55rem; margin-right: .6rem; background: #2b3bff; vertical-align: .05em; }
-.s7-stil--raster .s7-band, .s7-stil--raster .s7-held { border-top: 1px solid #141414; }
-.s7-stil--raster .s7-maschine { padding: 2rem 0 0; border-top: 1px solid #141414; }
-.s7-stil--raster .s7-schritte, .s7-stil--raster .s7-pakete { column-gap: 0; }
-.s7-stil--raster .s7-schritt { padding: 1.6rem 1.6rem 1.4rem 0; border-top: 1px solid #141414; }
-.s7-stil--raster .s7-schritt + .s7-schritt { padding-left: 1.6rem; border-left: 1px solid #141414; }
-.s7-stil--raster .s7-schritt__nr { color: #2b3bff; font-size: 3.4rem; font-weight: 600; letter-spacing: -0.04em; }
-.s7-stil--raster .s7-schritt__bild { background: #eeede7; }
-.s7-stil--raster .s7-pille, .s7-stil--raster .s7-strecke__teile span, .s7-stil--raster .s7-strecke__ziel, .s7-stil--raster .s7-dash, .s7-stil--raster .s7-dash__kachel, .s7-stil--raster .s7-dash__empf, .s7-stil--raster .s7-strecke__ziel b { border-radius: 0; }
-.s7-stil--raster .s7-pille--an, .s7-stil--raster .s7-dash__kachel--an { background: #2b3bff; color: #fff; }
-.s7-stil--raster .s7-dash__kachel--an svg { stroke: #fff; }
-.s7-stil--raster .s7-strecke__ziel b { background: #2b3bff; color: #fff; }
-.s7-stil--raster .s7-gruppe::after { height: 1px; }
-.s7-stil--raster .s7-gruppe--a { padding-right: 1.6rem; }
-.s7-stil--raster .s7-gruppe--b { padding-left: 1.6rem; }
-.s7-stil--raster .s7-paket { border: 0; border-top: 1px solid #141414; padding: 1.8rem 1.6rem 1.6rem 0; }
-.s7-stil--raster .s7-paket + .s7-paket { padding-left: 1.6rem; border-left: 1px solid #141414; }
-.s7-stil--raster .s7-paket--komplett { padding: 1.8rem 1.6rem 1.6rem !important; border: 0; }
-.s7-stil--raster .s7-paket__preis { border-top-color: #cfcdc6; }
-.s7-stil--raster .s7-knopf--rand { border-color: #141414; color: #141414; }
-@media (max-width: 1000px) { .s7-stil--raster .s7-schritt + .s7-schritt, .s7-stil--raster .s7-paket + .s7-paket { padding-left: 0; border-left: 0; } .s7-stil--raster .s7-gruppe--a, .s7-stil--raster .s7-gruppe--b { padding: 0; } .s7-stil--raster .s7-paket--komplett { margin-top: .6rem; } }
-
-/* 3 · Warm: Creme, große Rundungen, Schrift mit Charakter, Petrol als Akzent, Mint als Fläche */
-.s7-stil--warm {
-  --s7-schrift-titel: "Bricolage Grotesque", system-ui, sans-serif;
-  --s7-schrift-text: "Bricolage Grotesque", system-ui, sans-serif;
-  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.03em;
-  --s7-h1: clamp(3rem, 7.4vw, 6.4rem); --s7-h1-hoehe: 1.0;
-  --s7-h2: clamp(2.3rem, 5vw, 4rem); --s7-h2-hoehe: 1.04;
-  --s7-text-groesse: 1.08rem;
-  --s7-grund: #fbf7f1; --s7-flaeche: #f3ece2; --s7-tinte: #23201d; --s7-text: #4a443e; --s7-grau: #8a8178; --s7-linie: #e6ddd0;
-  --s7-akzent: #cfeee5; --s7-akzent-fill: #bfe6da; --s7-auf-akzent: #0b4f49;
-  --s7-wort: #0f6e66;
-  --s7-knopf-grund: #0f6e66; --s7-knopf-text: #ffffff;
-  --s7-buehne: #ffffff; --s7-band-akzent: #e3f3ee; --s7-karte: #ffffff;
-  --s7-schatten: none;
-  --s7-komplett-grund: #0f6e66; --s7-komplett-text: #d5ece7; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #bfe6da; --s7-komplett-knopf-text: #0f6e66;
-  --s7-lage-1: #e8dfd2; --s7-lage-2: #efe8dd; --s7-lage-3: #f6f1e9;
-  --s7-rund: 32px;
+.s7-farbe--cyanviolett {
+  --s7-wort-verlauf: linear-gradient(100deg, #00b4ef 0%, #4f6bff 50%, #8a3ffc 100%);
+  --s7-akzent: #e1efff; --s7-akzent-verlauf: linear-gradient(100deg, #d8f3fc, #ebe2ff); --s7-akzent-fill: url(#s7v-cyanviolett);
+  --s7-komplett-grund: linear-gradient(140deg, #00a3dc 0%, #4f5bf5 50%, #7d3cf0 100%); --s7-komplett-text: #ece9ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #5a45f0;
 }
-.s7-stil--warm .s7-kicker { color: #0f6e66; letter-spacing: .04em; text-transform: none; font-size: 1rem; font-weight: 600; }
-.s7-stil--warm .s7-schritt__nr { display: inline-grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 50%; background: #e3f3ee; color: #0f6e66; font-size: 1.2rem; }
-.s7-stil--warm .s7-paket { border-color: #e6ddd0; }
-.s7-stil--warm .s7-gruppe { color: #0f6e66; }
-.s7-stil--warm .s7-gruppe::after { background: #bfe6da; }
-.s7-stil--warm .s7-knopf--rand { border-color: #0f6e66; color: #0f6e66; }
+.s7-farbe--magentaviolett {
+  --s7-wort-verlauf: linear-gradient(100deg, #d6247f 0%, #a238e0 50%, #6c3cff 100%);
+  --s7-akzent: #ece4fb; --s7-akzent-verlauf: linear-gradient(100deg, #efe3f7, #e7e3ff); --s7-akzent-fill: url(#s7v-magentaviolett);
+  --s7-komplett-grund: linear-gradient(140deg, #c41f78 0%, #8a33d6 55%, #5b3cf0 100%); --s7-komplett-text: #f3e8ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #7a35e0;
+}
+/* Flächen-Test (Farbproben) */
+.fp-kacheln { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+.fp-k { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 11rem; padding: 1.6rem; border-radius: var(--s7-rund); }
+.fp-k b { display: block; font-size: .85rem; font-weight: 600; }
+.fp-k small { display: block; margin-top: .2rem; font-size: .85rem; opacity: .8; }
+.fp-k--voll { background: var(--s7-komplett-grund); color: #fff; }
+.fp-k--zart { background: var(--s7-akzent-verlauf); color: var(--s7-tinte); }
+.fp-k--text { background: #fff; color: var(--s7-tinte); }
+.fp-k__gross { font-family: var(--s7-schrift-titel); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+@media (max-width: 760px) { .fp-kacheln { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Stilproben-Seite: Steckbriefe ---------- */
 .sp-kopf { padding: clamp(3rem, 6vw, 5rem) 0 3rem; border-bottom: 1px solid #e2e2df; }
@@ -474,12 +439,15 @@ p { margin: 0; }
 {#- Verläufe für Grafiken (fill: url(#…)) – einmal je Seite -#}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
   <linearGradient id="s7v-pastell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e2ff"/><stop offset="1" stop-color="#ecdbff"/></linearGradient>
+  <linearGradient id="s7v-cyanblau" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4f2fd"/><stop offset="1" stop-color="#dbe4ff"/></linearGradient>
+  <linearGradient id="s7v-cyanviolett" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4f1fb"/><stop offset="1" stop-color="#e8deff"/></linearGradient>
+  <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eee0f6"/><stop offset="1" stop-color="#e3defe"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: drei Richtungen auf denselben Bausteinen{% else %}Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter{% endif %}</span><span>{% if s.slug == "stilproben" %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% else %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil">
-<header class="s7-kopf{% if s.slug == "stilproben" %} s7-kopf--nur-marke{% endif %}">
+<header class="s7-kopf{% if s.slug %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
       <a href="/entwicklung/storyboard/story7/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
@@ -494,7 +462,7 @@ p { margin: 0; }
         </div>
       </div>
     </div>
-    {%- if s.slug != "stilproben" %}
+    {%- if not s.slug %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       <a href="#maschine">So funktioniert es</a>
       <a href="#pakete">Pakete</a>
@@ -538,10 +506,47 @@ p { margin: 0; }
   {%- endfor %}
   <section class="sp-ende">
     <div class="s7-wrap">
-      <h2>Welche Richtung trägt?</h2>
-      <p>Eine wählen – oder Teile kombinieren, etwa Schrift aus der einen, Farbe aus der anderen. Die Startseite übernimmt den gewählten Stil über die Stellschrauben.</p>
+      <h2>Weiter mit der Farbe.</h2>
+      <p>Welcher Farbakzent zu Apple-klar passt, zeigen die <a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>.</p>
     </div>
   </section>
+</main>
+{%- elif s.slug == "farbproben" %}
+{%- set FP = S.farbproben %}
+<main>
+  <section class="sp-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Farbproben · Apple-klar</p>
+      <h1>{{ FP.h1 }} <span class="s7-wort">{{ FP.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ FP.lead }}</p>
+      <ul class="sp-massstab">{% for m in FP.stellen %}<li>{{ m }}</li>{% endfor %}</ul>
+      <nav class="sp-sprung" aria-label="Zu den Farben">{% for f in FP.farben %}<a href="#farbe-{{ f.id }}">{{ f.nr }} · {{ f.name }}</a>{% endfor %}</nav>
+    </div>
+  </section>
+  {%- for f in FP.farben %}
+  <section class="sp-brief" id="farbe-{{ f.id }}">
+    <div class="s7-wrap">
+      <span class="sp-brief__nr">{{ f.nr }}</span>
+      <div><h2>{{ f.name }}</h2><p>{{ f.satz }}</p></div>
+      <div class="sp-farben" aria-hidden="true"><i style="background: {{ f.swatch }}; width: 7rem; border-radius: 99px"></i></div>
+    </div>
+  </section>
+  <div class="s7-stil s7-stil--apple s7-farbe--{{ f.id }}">
+    {{ held(false) }}
+    <section class="s7-band s7-band--akzent">
+      <div class="s7-wrap">
+        <p class="s7-kicker">Flächen-Test</p>
+        <h2 class="s7-h2">So wirkt die Farbe als Fläche.</h2>
+        <div class="fp-kacheln">
+          <div class="fp-k fp-k--voll"><span class="fp-k__gross">ab 1.800 €</span><span><b>Kräftig</b><small>Komplett-Paket, hervorgehobene Flächen</small></span></div>
+          <div class="fp-k fp-k--zart"><span class="fp-k__gross">Leads</span><span><b>Zart</b><small>Kern der Maschine, Leads, gewählte Pills</small></span></div>
+          <div class="fp-k fp-k--text"><span class="fp-k__gross s7-wort">vor deinem Vertrieb.</span><span><b>Als Schrift</b><small>Das hervorgehobene Wort</small></span></div>
+        </div>
+      </div>
+    </section>
+    {{ pakete(false) }}
+  </div>
+  {%- endfor %}
 </main>
 {%- else %}
 <main>
