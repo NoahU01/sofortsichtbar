@@ -911,49 +911,22 @@
         }
       }
     ],
-    "wege": [
-      {
-        "name": "Weiche am Anfang",
-        "text": "Die Startseite fragt sofort: Machst du Marketing selbst – oder gibst du es ab? Zwei Wege, zwei Geschichten.",
-        "pro": "Jeder findet sich im ersten Moment wieder.",
-        "contra": "Zwei halbe Geschichten auf einer Seite; Entscheidung fällt, bevor wir überzeugt haben.",
-        "empfohlen": false
-      },
-      {
-        "name": "Hauptstory mit Ausbaustufe",
-        "text": "Die Startseite erzählt A. Marketing abgeben ist das oberste Paket und ein eigener Abschnitt.",
-        "pro": "Eine klare Linie, günstiger Einstieg.",
-        "contra": "Wer abgeben will, findet sein Angebot erst weit unten.",
-        "empfohlen": false
-      },
-      {
-        "name": "Zwei Seiten, verknüpft",
-        "text": "Startseite erzählt A. Eine eigene Seite erzählt B vollständig. Kopf, Pakete und Brücke verlinken gegenseitig.",
-        "pro": "Jede Geschichte bleibt ganz; Postings und Kampagnen können gezielt auf A oder B verlinken.",
-        "contra": "Zwei Seiten zu pflegen.",
-        "empfohlen": true
-      }
-    ],
     "entscheidungen": [
       {
-        "frage": "Wie erzählen wir Variante B?",
-        "vorschlag": "Als digitale Maschine (B2). Das Team bleibt zweite Ebene."
-      },
-      {
-        "frage": "Wie kommen A und B auf die Website?",
-        "vorschlag": "Zwei Seiten, gegenseitig verknüpft."
+        "frage": "Wie heißt die Unterseite für Weg A?",
+        "vorschlag": "„Mit deinem Team“ – oder bewusst „sofort sichtbar“, weil das der Kern der Marke ist."
       },
       {
         "frage": "Was heißt „Kernpaket“?",
-        "vorschlag": "Heute zweimal belegt: in Marketing as a Service die laufende Betreuung (1.800 €), im Paketentwurf nur die Vertriebsstrecken. Vorschlag: „Kernpaket“ bleibt bei Marketing as a Service; in A heißen die Bausteine „Vertriebsstrecken“."
+        "vorschlag": "Heute zweimal belegt: in Marketing as a Service die laufende Betreuung (1.800 €), im Paketentwurf nur die Vertriebsstrecken. Vorschlag: „Kernpaket“ bleibt bei Marketing as a Service; in Weg A heißen die Bausteine „Vertriebsstrecken“."
       },
       {
         "frage": "Wie unterscheiden sich Fokus und Team?",
-        "vorschlag": "Über die Leistung, nicht über die Zahl der Strecken. Strecken sind in jedem Paket einzeln dazubuchbar."
+        "vorschlag": "Über die Leistung (Strategietool Pro, Empfehlungen, mehrere Nutzer, Reporting), nicht über die Zahl der Strecken. Strecken sind in jedem Paket einzeln dazubuchbar."
       },
       {
         "frage": "Preise öffentlich oder erst im Gespräch?",
-        "vorschlag": "Offen."
+        "vorschlag": "Noch keiner – erst die Pakete beider Wege festlegen."
       }
     ],
     "grundlagen": [
@@ -1075,6 +1048,61 @@
         "d": "→ Termin auswählen"
       }
     ],
-    "grundstory_hinweis": "Kein Problem-Vorlauf: Der Mehrwert steht im ersten Bild. Das Problem steckt in einem Halbsatz – „Anfragen, die direkt in deinen Vertrieb laufen“ setzt voraus, dass sie heute fehlen."
+    "grundstory_hinweis": "Kein Problem-Vorlauf: Der Mehrwert steht im ersten Bild. Das Problem steckt in einem Halbsatz – „Anfragen, die direkt in deinen Vertrieb laufen“ setzt voraus, dass sie heute fehlen.",
+    "beats_hinweis": "Die früheren Storyboards A und B (Abschnitt für Abschnitt) bleiben hier als Daten erhalten und werden der Inhalt der Unterseiten „Mit deinem Team“ und „Marketing as a Service“.",
+    "struktur": {
+      "start": {
+        "name": "Startseite",
+        "erzaehlt": "Vom Ziel bis zur Anfrage – erzählt für alle, die mehr echte Anfragen wollen. Oben der Einstieg in den Strategiekompass.",
+        "weiche": "Abschnitt „Du bedienst sie. Oder wir.“ führt auf einen der zwei Wege."
+      },
+      "wege": [
+        {
+          "id": "a",
+          "label": "Weg A",
+          "name": "Mit deinem Team",
+          "fuer": "Agenturen, die selbst umsetzen.",
+          "inhalt": [
+            "Vertriebsstrecken je Zielgruppe",
+            "Pakete Fokus und Team – unterschieden nach Leistung",
+            "Preise"
+          ]
+        },
+        {
+          "id": "b",
+          "label": "Weg B",
+          "name": "Marketing as a Service",
+          "fuer": "Agenturen, die abgeben wollen.",
+          "inhalt": [
+            "Wir bedienen die Maschine",
+            "Kernpaket und drei Ergänzungen",
+            "Team-Profile, Preise, Angebots-PDF"
+          ]
+        }
+      ],
+      "beide": [
+        [
+          "Strategiekompass",
+          "Wo willst du wachsen? Gilt für beide Wege."
+        ],
+        [
+          "Zielgruppenpakete",
+          "Alle 20 Zielgruppen mit Landingpage, Postings und Mailings."
+        ],
+        [
+          "Über uns",
+          "Das Team und seit 2012 im Versicherungsvertrieb."
+        ],
+        [
+          "Kontakt",
+          "Termin auswählen."
+        ]
+      ]
+    },
+    "entschieden": [
+      "Eine Startseite mit einer Grundstory: die digitale Maschine vor deinem Vertrieb.",
+      "Die Weiche „Du bedienst sie. Oder wir.“ führt auf zwei Unterseiten: Mit deinem Team (A) und Marketing as a Service (B).",
+      "Strategiekompass, Zielgruppenpakete, Über uns und Kontakt gelten für beide."
+    ]
   }
 }
