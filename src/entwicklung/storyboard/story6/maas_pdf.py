@@ -121,6 +121,29 @@ def team_seite(M, nr, n):
         + f'<div class="immer"><span>Immer dabei</span>{immer}</div></div>', nr, n, hell_fuss=True, klasse="seite--schwarz")
 
 
+def stufen_seite(M, nr, n):
+    """Erste Ebene: die vier Stufen (Marketing · Qualifizierung · Vertrieb · Kundenbetreuung), Stufe 1 gelb als Schwerpunkt;
+    darunter das Fundament Strategie als schwarzer Kasten mit Verweis auf die sechs Fragen der nächsten Seite."""
+    ST, W = M["stufen"], M["weg"]
+    def karte(s):
+        extra = ""
+        if s.get("schwerpunkt"):
+            extra = '<span class="sf__label">Mit den Bausteinen</span><ul>' + "".join(
+                f'<li>{b["name"] if b["id"] != "kern" else "Kernpaket"}</li>' for b in M["bausteine"]) + '</ul>'
+        if s.get("wege"):
+            extra = '<span class="sf__label">Zwei Wege</span><ul>' + "".join(f"<li>{x}</li>" for x in s["wege"]) + '</ul>'
+        return (f'<div class="sf{" sf--wir" if s.get("schwerpunkt") else ""}"><div class="sf__kopf"><span>Stufe {s["nr"]}</span>{ico(s["ico"], strich=1.4)}</div>'
+                f'<h3>{s["titel"]}</h3><p>{s["text"]}</p><div class="sf__extra">{extra}</div>'
+                f'<p class="sf__erg"><span>Ergebnis</span>{s["ergebnis"]}</p></div>')
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:14mm">' + kicker(W["kicker"])
+        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:160mm">{ST["lead"]}</p>'
+        + f'<div class="sfk"><span class="sfk--wir">{ST["klammer_wir"]}</span><span>{ST["klammer_du"]}</span></div>'
+        + '<div class="sfg">' + "".join(karte(s) for s in ST["liste"]) + '</div>'
+        + f'<div class="kasten fund"><p class="label">{ST["fundament"]["label"]}</p><p>{ST["fundament"]["text"]} Die sechs Fragen stehen auf der nächsten Seite.</p></div>'
+        + '</div>', nr, n)
+
+
 def weg_seite(M, nr, n):
     """Die Grundstory: der Weg in sechs Schritten (Homepage-Story, Szene 05) – Aufstellen grau, Übergabe gelb, Verkaufen schwarz, Steuern grau."""
     W = M["weg"]
@@ -136,8 +159,8 @@ def weg_seite(M, nr, n):
                     + "".join(zeile(s) for s in ph["schritte"]) + '</div>')
     kopfzeile = '<div class="wg__z wg__kopf"><span></span>' + "".join(f"<span>{s}</span>" for s in W["spalten"]) + '</div>'
     return seite(
-        kopf(T) + '<div class="rand" style="padding-top:14mm">' + kicker(W["kicker"])
-        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:160mm">{W["lead"]}</p>'
+        kopf(T) + '<div class="rand" style="padding-top:14mm">' + kicker(W["kicker"] + " · " + M["stufen"]["fundament"]["label"])
+        + f'<h2>{W["h2_fenster"]}</h2><p class="lead" style="max-width:160mm">{W["lead"]}</p>'
         + f'<div class="wg">{kopfzeile}{bloecke}</div></div>', nr, n)
 
 
@@ -202,6 +225,29 @@ def posting_seiten(PR, nr, n):
 
 
 CSS_TEAM = """
+/* Vier Stufen */
+.sfk { display: grid; grid-template-columns: 1fr 3fr; gap: 3mm; margin-top: 8mm; font-size: 6.6pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
+.sfk span { display: flex; align-items: center; gap: 2mm; }
+.sfk span::after { content: ""; flex: 1; height: 1.2px; background: #cfcac3; }
+.sfk .sfk--wir { color: #1a1817; } .sfk .sfk--wir::after { background: #1a1817; }
+.sfg { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(5, auto); column-gap: 3mm; margin-top: 3mm; }
+.sf { display: grid; grid-row: span 5; grid-template-rows: subgrid; padding: 4.5mm 4mm 4.5mm; border-radius: 3.5mm; background: #f3f1ee; }
+.sf--wir { background: #fff400; }
+.sf__kopf { display: flex; justify-content: space-between; align-items: center; font-size: 6.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.sf__kopf svg { width: 6mm; height: 6mm; }
+.sf h3 { margin-top: 3mm; font-size: 12pt; }
+.sf > p { margin-top: 1.6mm; font-size: 8pt; line-height: 1.5; color: #3d3a37; }
+.sf--wir > p { color: #1a1817; }
+.sf__extra { margin-top: 3mm; }
+.sf__label { display: block; margin-bottom: 1.4mm; font-size: 6.2pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.sf__extra ul { list-style: none; display: grid; gap: 1.2mm; }
+.sf__extra li { position: relative; padding-left: 4mm; font-size: 7.8pt; line-height: 1.4; }
+.sf__extra li::before { content: ""; position: absolute; left: .2mm; top: 1mm; width: 2.2mm; height: 1.1mm; border-left: 1.4px solid #1a1817; border-bottom: 1.4px solid #1a1817; transform: rotate(-45deg); }
+.sf .sf__erg { margin-top: 3.5mm; padding-top: 2.6mm; border-top: 1px solid rgba(26,24,23,.2); font-size: 8.4pt; font-weight: 600; color: #1a1817; }
+.sf__erg span { display: block; margin-bottom: .8mm; font-size: 6.2pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
+.sf--wir .sf__erg span { color: #1a1817; }
+.fund { margin-top: 6mm; padding: 5mm 6mm; }
+.fund p:not(.label) { margin-top: 1.6mm; font-size: 9pt; }
 /* Der Weg: Raster Nr · Frage · Wir · Du; Aufstellen/Steuern grau, Verkaufen schwarz, Übergabe gelb */
 .wg { margin-top: 7mm; }
 .wg__z { display: grid; grid-template-columns: 8mm 42mm 1fr 40mm; column-gap: 5mm; align-items: start; }
@@ -301,7 +347,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 5 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 6 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -319,9 +365,9 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 4, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 5, n)
 
-    seiten, nr = [s1, weg_seite(M, 2, n), ablauf_seite(M, 3, n), s2], 5
+    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), ablauf_seite(M, 4, n), s2], 6
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k

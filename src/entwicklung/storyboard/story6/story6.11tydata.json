@@ -5,7 +5,7 @@
     "hinweis_preise": "Alle Preise zzgl. Umsatzsteuer in gesetzlicher Höhe.",
     "pdf": {
       "datei": "marketing-as-a-service.pdf",
-      "seiten": 21,
+      "seiten": 22,
       "groesse": "0,7 MB"
     },
     "bausteine": [
@@ -305,7 +305,10 @@
       "image": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" /> <circle cx=\"9\" cy=\"9\" r=\"2\" /> <path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\" />",
       "code": "<path d=\"m16 18 6-6-6-6\" /> <path d=\"m8 6-6 6 6 6\" />",
       "messages-square": "<path d=\"M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\" /> <path d=\"M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1\" />",
-      "refresh-cw": "<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\" /> <path d=\"M21 3v5h-5\" /> <path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\" /> <path d=\"M8 16H3v5\" />"
+      "refresh-cw": "<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\" /> <path d=\"M21 3v5h-5\" /> <path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\" /> <path d=\"M8 16H3v5\" />",
+      "megaphone": "<path d=\"M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z\" /> <path d=\"M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14\" /> <path d=\"M8 6v8\" />",
+      "filter": "<path d=\"M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z\" />",
+      "heart-handshake": "<path d=\"M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762\" />"
     },
     "profile": {
       "_hinweis": "Fünf ausschreibbare Profile (Daniel, 10.11.2026). Zuordnung zu den Bausteinen und Stellentexte sind abgeleitet aus dem Leistungsumfang – Vorlagen, keine Belege. Kein Kostenvergleich.",
@@ -613,8 +616,55 @@
         "label": "Übergabe",
         "text": "Echte Anfragen aus deiner Zielgruppe: Menschen, die selbst anrufen oder ein Formular ausfüllen. Keine gekauften Adressen."
       },
-      "fuss": "Was wir dafür konkret übernehmen, zeigen die Bausteine."
+      "fuss": "Was wir dafür konkret übernehmen, zeigen die Bausteine.",
+      "h2_fenster": "Die sechs Fragen hinter der Maschine."
     },
-    "ablauf_lead": "Jeden Monat gehen wir den Weg mit dir durch: Funktioniert es? Was optimieren wir?"
+    "ablauf_lead": "Jeden Monat gehen wir den Weg mit dir durch: Funktioniert es? Was optimieren wir?",
+    "stufen": {
+      "_quelle": "Daniels Vier-Stufen-Bild (11.11.2026): Marketing · Qualifizierung · Vertrieb · Kundenbetreuung. Schwerpunkt von Marketing as a Service ist Stufe 1.",
+      "lead": "Vertrieb läuft in vier Stufen. Wir optimieren die erste – damit aus regelmäßiger Wahrnehmung echte Anfragen werden, die direkt in deinen Vertrieb laufen.",
+      "klammer_wir": "Unser Schwerpunkt",
+      "klammer_du": "Dein Vertrieb – wir docken an",
+      "liste": [
+        {
+          "nr": "1",
+          "ico": "megaphone",
+          "titel": "Marketing",
+          "text": "Regelmäßig wahrgenommen werden – bei genau den Zielgruppen, die zu deinen Zielen passen.",
+          "ergebnis": "Leads: Interessenten aus deiner Zielgruppe",
+          "schwerpunkt": true
+        },
+        {
+          "nr": "2",
+          "ico": "filter",
+          "titel": "Qualifizierung",
+          "text": "Passen wir zueinander, und wie geht es weiter? Jemand geht aktiv auf die Interessenten zu.",
+          "wege": [
+            "Der Interessent bucht direkt über dein Terminierungstool",
+            "Ihr fasst aktiv nach und vereinbart den Termin"
+          ],
+          "ergebnis": "Termine"
+        },
+        {
+          "nr": "3",
+          "ico": "handshake",
+          "titel": "Vertrieb",
+          "text": "Beratung und Abschluss – so, wie du es kennst.",
+          "ergebnis": "Abschlüsse"
+        },
+        {
+          "nr": "4",
+          "ico": "heart-handshake",
+          "titel": "Kundenbetreuung",
+          "text": "Laufende Betreuung deiner Kundinnen und Kunden.",
+          "ergebnis": "Kunden, die bleiben"
+        }
+      ],
+      "fundament": {
+        "label": "Fundament: Strategie",
+        "text": "Wohin will deine Agentur, und wen will sie gewinnen? Ohne diese Antworten bringen alle Werkzeuge nichts. Deshalb klären wir sechs Fragen mit dir – zum Start und in jedem monatlichen Call.",
+        "knopf": "Die sechs Fragen ansehen"
+      }
+    }
   }
 }
