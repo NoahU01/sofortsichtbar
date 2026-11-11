@@ -58,7 +58,7 @@
           "fuer": "Für Agenturen, die ihr Marketing selbst umsetzen und schneller werden wollen.",
           "preis": "",
           "einheit": "pro Monat",
-          "vorspann": "",
+          "vorspann": "Das bekommst du:",
           "punkte": [
             "Strategiekompass",
             "Vertriebsstrecken für deine Zielgruppen",
@@ -104,47 +104,123 @@
     },
     "zielgruppen": {
       "kicker": "Für deine Zielgruppen",
-      "h2": "Jede Zielgruppe mit einem echten Anlass.",
-      "lead": "Fertige Vertriebsstrecken für 20 Zielgruppen – von der Geburt bis zur Praxisgründung.",
-      "liste": [
+      "h2": "20 Zielgruppen. Jede mit einem echten Anlass.",
+      "lead": "Für jede Zielgruppe eine fertige Vertriebsstrecke – Landingpage, Postings und Kundenmailings, im Look deiner Agentur.",
+      "bild": "zielgruppen/bauherren-style-3",
+      "bild_alt": "Landingpage für Private Bauherren auf Laptop und Handy",
+      "gruppen": [
         {
-          "name": "Junge Familien",
-          "anlass": "Geburt eines Kindes",
-          "bild": "pages/junge-ehepaare",
-          "slug": "werdende-eltern"
+          "name": "Privatkunden",
+          "liste": [
+            [
+              "Junge Familien",
+              "Geburt eines Kindes",
+              "werdende-eltern"
+            ],
+            [
+              "Junge Ehepaare",
+              "Hochzeit",
+              "junge-ehepaare"
+            ],
+            [
+              "Berufseinsteiger",
+              "Der erste Job",
+              "berufseinsteiger-im-ersten-job"
+            ],
+            [
+              "Private Bauherren",
+              "Finanzierung und Notartermin",
+              "bauherren"
+            ],
+            [
+              "Umzug",
+              "Neue Wohnung",
+              "umzug"
+            ],
+            [
+              "Getrennte Paare",
+              "Neuordnung nach der Trennung",
+              "getrennte-personen"
+            ],
+            [
+              "Private Tierhalter",
+              "Ein neues Haustier",
+              "private-tierhalter-im-lokalen-umfeld"
+            ],
+            [
+              "Kommunale Angestellte",
+              "Start im öffentlichen Dienst",
+              "kommunale-angestellte"
+            ],
+            [
+              "Digital aktive Personen",
+              "Neue Geräte, neue Risiken",
+              "digital-aktive-privatpersonen"
+            ],
+            [
+              "Ferienwohnungen",
+              "Die erste Vermietung",
+              "ferienwohnungen"
+            ]
+          ]
         },
         {
-          "name": "Private Bauherren",
-          "anlass": "Finanzierungszusage und Notartermin",
-          "bild": "pages/bauherren",
-          "slug": "bauherren"
-        },
-        {
-          "name": "Ärzte und Zahnärzte",
-          "anlass": "Gründung oder Übernahme einer Praxis",
-          "bild": "pages/arzte",
-          "slug": "arzte"
-        },
-        {
-          "name": "Gründer & Freelancer",
-          "anlass": "Start der Selbstständigkeit",
-          "bild": "pages/grunder-und-freelancer",
-          "slug": "freelancer-und-grunder"
-        },
-        {
-          "name": "Berufseinsteiger",
-          "anlass": "Der erste Job",
-          "bild": "pages/berufseinsteiger",
-          "slug": "berufseinsteiger-im-ersten-job"
-        },
-        {
-          "name": "Landwirte",
-          "anlass": "Hofübernahme oder neue Maschinen",
-          "bild": "pages/landwirte",
-          "slug": "landwirte"
+          "name": "Firmenkunden",
+          "liste": [
+            [
+              "Inhabergeführte Firmen",
+              "Neue Mitarbeitende",
+              "gewerbekunden"
+            ],
+            [
+              "Gründer & Freelancer",
+              "Start der Selbstständigkeit",
+              "freelancer-und-grunder"
+            ],
+            [
+              "IT-lastige Firmen",
+              "IT-Vorfall im Umfeld",
+              "cyber-firmen"
+            ],
+            [
+              "Ärzte und Zahnärzte",
+              "Praxisgründung",
+              "arzte"
+            ],
+            [
+              "Gesundheitsnahe Heilberufe",
+              "Die eigene Praxis",
+              "physio-und-pflege"
+            ],
+            [
+              "Kanzleiinhaber",
+              "Kanzleigründung",
+              "anwalte-und-kanzleiinhaber"
+            ],
+            [
+              "Immobilienmakler",
+              "Gewerbeanmeldung",
+              "immobilienmakler"
+            ],
+            [
+              "Hausverwaltungen",
+              "Eine neue Liegenschaft",
+              "hausverwalter"
+            ],
+            [
+              "Landwirte",
+              "Hofübernahme",
+              "landwirte"
+            ],
+            [
+              "Vereine",
+              "Ein neuer Vorstand",
+              "vereine"
+            ]
+          ]
         }
       ],
-      "link": "Alle 20 Zielgruppen ansehen"
+      "link": "Alle Zielgruppenpakete ansehen"
     },
     "vertrauen": {
       "kicker": "Über uns",
