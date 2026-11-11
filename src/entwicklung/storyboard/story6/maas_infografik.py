@@ -483,8 +483,103 @@ def entwurf_rollup2():
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Roll-up Version 2")
 
 
+# ---------------------------------------------------------------------------- Roll-up, Version 3: ein Blick in die Maschine
+EINSATZ = [("megaphone", "Wahrgenommen werden", "Laufende Postings auf LinkedIn, Facebook und Instagram. Wer dich sieht, findet hier mehr."),
+           ("mail", "Mailings verschicken", "Per E-Mail, gern auch per Post: Du schickst den Link – deine Kunden landen auf der Seite."),
+           ("calendar", "Termine vor- und nachbereiten", "Vorher zur Einstimmung mit Checkliste und Podcast, nachher zum Thema aus dem Gespräch.")]
+LINKEDIN_WEG = [("target", "Wunschkontakte festlegen", "gemeinsam"), ("users", "Netzwerk gezielt aufbauen", "wir"),
+                ("eye", "Ihre Postings verfolgen", "wir"), ("message-circle", "Dreimal kommentieren", "du"),
+                ("message-square-text", "„Lass uns sprechen“", "du"), ("calendar", "Chat und Termin", "du")]
+
+
+def entwurf_rollup3():
+    W, H, m = 300, 600, 22
+    o = [t(m, 22, "MARKETING AS A SERVICE · SOFORT SICHTBAR", 4.8, 700, INK, extra=' letter-spacing="0.8"')]
+    o.append(t(m, 42, "Ein Blick in", 16, 700, font=LORA))
+    o.append(f'<rect x="{m - 1.3}" y="{47}" width="{112}" height="{19}" rx="2" fill="{GELB}"/>')
+    o.append(t(m, 61.5, "die Maschine.", 16, 700, font=LORA))
+    o.append(zeilen(m, 80, "So läuft dein Vertrieb mit Baustein 1 und 2 – Woche für Woche. Paid Ads verstärken, die Website schließt die Lücke.", 70, 4.3, 6.2))
+
+    # 1 · Landingpage als Mittelpunkt
+    y = 98
+    o.append(sektion(m, W, y, "1", "BAUSTEIN 1 · KERNPAKET", "Für jede Zielgruppe eine Landingpage."))
+    lx, ly, lw, lh = 178, y + 32, 100, 116
+    o.append(f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" rx="4" fill="#fff" stroke="{INK}" stroke-width=".7"/>')
+    o.append(f'<path d="M{lx} {ly + 8} H{lx + lw}" stroke="{INK}" stroke-width=".4"/>')
+    for i in range(3):
+        o.append(f'<circle cx="{lx + 5 + i * 4}" cy="{ly + 4}" r="1.1" fill="{LINIE}"/>')
+    o.append(f'<rect x="{lx + 5}" y="{ly + 13}" width="{lw - 10}" height="26" rx="2.5" fill="{GELB}"/>')
+    o.append(t(lx + 9, ly + 20, "LANDINGPAGE", 2.6, 700, INK, extra=' letter-spacing="0.5"'))
+    o.append(t(lx + 9, ly + 29, "Junge Familien", 6, 700, font=LORA))
+    o.append(t(lx + 9, ly + 35, "mit deinem Logo und Kontakt", 3, 400))
+    for j, (icon, txt) in enumerate([("clipboard-list", "Checkliste zum Download"), ("mic-vocal", "Podcast-Folge"), ("calendar", "Termin direkt buchen")]):
+        yy = ly + 47 + j * 13
+        o.append(f'<rect x="{lx + 5}" y="{yy}" width="{lw - 10}" height="10" rx="2" fill="{HELL}"/>')
+        o.append(ico(icon, lx + 8, yy + 2.3, 5.4))
+        o.append(t(lx + 16, yy + 6.6, txt, 3.4, 600))
+    o.append(t(lx + 5, ly + lh - 5, "Echte Anfrage – direkt bei dir.", 3.2, 700))
+    for j, (icon, titel, text) in enumerate(EINSATZ):
+        yy = ly + 4 + j * 38
+        o.append(ico(icon, m, yy - 4, 9))
+        o.append(t(m + 13, yy + 3, titel, 5.2, 700, font=LORA))
+        o.append(zeilen(m + 13, yy + 11, text, 40, 3.6, 5.1))
+        o.append(f'<path d="M{m + 150} {yy + 1} H{lx - 2}" fill="none" stroke="{INK}" stroke-width=".5" marker-end="url(#ig-pf)"/>')
+
+    # 2 · LinkedIn als aktiver Vertriebskanal
+    y = 262
+    o.append(sektion(m, W, y, "2", "BAUSTEIN 2 · LINKEDIN POWER PACKAGE", "LinkedIn als aktiver Vertriebskanal.",
+                     "Mit dem Sales Navigator wissen wir, wen du gewinnen willst – und wann der richtige Moment für ein Gespräch ist."))
+    ty = y + 52
+    sw = (W - 2 * m) / 6
+    o.append(f'<path d="M{m + sw / 2} {ty} H{W - m - sw / 2}" stroke="{INK}" stroke-width=".5" stroke-dasharray="1.6 1.4"/>')
+    for i, (icon, titel, wer) in enumerate(LINKEDIN_WEG):
+        x = m + i * sw + sw / 2
+        letzter = i == 5
+        o.append(f'<circle cx="{x}" cy="{ty}" r="8" fill="{GELB if letzter else "#fff"}" stroke="{INK}" stroke-width=".6"/>')
+        o.append(ico(icon, x - 4.5, ty - 4.5, 9))
+        o.append(t(x, ty + 15, str(i + 1), 3, 700, GRAU, "middle"))
+        for k, z in enumerate(umbruch(titel, 13)):
+            o.append(t(x, ty + 22 + k * 4.6, z, 3.7, 700, anchor="middle"))
+        farbe = INK if wer == "du" else "#fff"
+        bw = len(wer) * 1.9 + 7
+        o.append(f'<rect x="{x - bw / 2}" y="{ty + 33}" width="{bw}" height="6" rx="3" fill="{farbe}" stroke="{INK}" stroke-width=".4"/>')
+        o.append(t(x, ty + 37.2, wer, 3, 700, "#fff" if wer == "du" else INK, "middle"))
+    o.append(zeilen(m, ty + 52, "Wir bauen dein Netzwerk in der Zielgruppe auf, werten aus, wer gerade etwas veröffentlicht, und liefern dir Anlass und Vorschlag. Kommentar und Nachricht kommen von dir persönlich – nach dem dritten Kommentar folgt die Einladung zum Gespräch.", 66, 3.8, 5.4))
+
+    # 3 · Verstärken und abrunden
+    y = 400
+    o.append(sektion(m, W, y, "3", "BAUSTEIN 3 UND 4", "Verstärken und abrunden."))
+    kw = (W - 2 * m - 8) / 2
+    karten = [("trending-up", "BAUSTEIN 3 · PAID ADS", "Mehr Tempo.",
+               "Mehr Menschen aus denselben Zielgruppen sehen dich. Was in Baustein 1 und 2 läuft, läuft mit mehr Schwung."),
+              ("app-window", "BAUSTEIN 4 · WEBSITE", "Die Lücke schließen.",
+               "Die Landingpages zeigen deine Themen, die Website zeigt deine Agentur – ordentlich, schnell und auffindbar in Google und KI-Systemen.")]
+    for i, (icon, label, titel, text) in enumerate(karten):
+        x = m + i * (kw + 8)
+        yy = y + 30
+        o.append(f'<rect x="{x}" y="{yy}" width="{kw}" height="62" rx="4" fill="{HELL}"/>')
+        o.append(ico(icon, x + 6, yy + 6, 9))
+        o.append(t(x + 6, yy + 23, label, 2.9, 700, GRAU, extra=' letter-spacing="0.4"'))
+        o.append(t(x + 6, yy + 32, titel, 6.4, 700, font=LORA))
+        o.append(zeilen(x + 6, yy + 40, text, 34, 3.6, 5.1))
+
+    # Abschluss: was du davon hast
+    y = 504
+    o.append(f'<rect x="{m}" y="{y}" width="{W - 2 * m}" height="58" rx="5" fill="{INK}"/>')
+    o.append(t(m + 8, y + 11, "WAS DU DAVON HAST", 3, 700, GELB, extra=' letter-spacing="0.6"'))
+    o.append(t(m + 8, y + 23, "Mehr Gespräche mit den Richtigen.", 7.6, 700, "#fff", font=LORA))
+    for j, z in enumerate(["Du weißt, wen du gewinnen willst – und wann du ihn ansprichst.",
+                           "Jede Zielgruppe hat ihre Seite: zum Finden, Verschicken, Vor- und Nachbereiten.",
+                           "Du führst die Gespräche. Den Rest übernimmt die Maschine."]):
+        yy = y + 33 + j * 7.5
+        o.append(f'<path d="M{m + 8} {yy - 1.6} l1.6 1.6 l3.2 -3.2" fill="none" stroke="{GELB}" stroke-width=".6" stroke-linecap="round" stroke-linejoin="round"/>')
+        o.append(t(m + 15, yy, z, 3.7, 500, "#fff"))
+    o.append(t(m, H - 5, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 3, 500, GRAU))
+    return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Roll-up Version 3: ein Blick in die Maschine")
+
+
 ENTWUERFE = {"a": (entwurf_a, 420, 297), "b": (entwurf_b, 297, 420), "rollup": (lambda: entwurf_b(H=600, W=300), 1000, 2000),
-             "rollup2": (entwurf_rollup2, 1000, 2000), "c": (entwurf_c, 420, 297)}
+             "rollup2": (entwurf_rollup2, 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000), "c": (entwurf_c, 420, 297)}
 
 
 # ---------------------------------------------------------------------------- Export
