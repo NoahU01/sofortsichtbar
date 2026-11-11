@@ -739,7 +739,7 @@ def entwurf_b2():
             o.append(f'<path d="M{xa} {ys + 6.2} l3.2 0 m-1.5 -1.5 l1.5 1.5 l-1.5 1.5" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # 02 · Marketing und Vertrieb – kompakter Trichter, ein Messpunkt
-    y = 128
+    y = 138
     o.append(sektion_kompakt(m, W, y, "02", "MARKETING UND VERTRIEB", "Drei Stufen zum Vertriebserfolg."))
     gx, gw = m, 96
     cx = gx + gw / 2
@@ -747,12 +747,12 @@ def entwurf_b2():
     mund = [14, 22, 30, 38]
     hals = [6, 11, 16, A_]
     yt0 = y + 27
-    yk, yh = yt0 + 50, yt0 + 60
+    yk, yh = yt0 + 62, yt0 + 74
     o.append(punkte_vor(cx - 36, cx + 36, yt0 - 5.5, yt0 - 1.5, 26, .75))
     for k in (3, 2, 1, 0):
         hm, ha = mund[k], hals[k]
-        d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 20} {cx - ha} {yk - 20} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
-             f"C{cx + ha} {yk - 20} {cx + hm} {yt0 + 20} {cx + hm} {yt0} Z")
+        d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 24} {cx - ha} {yk - 24} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
+             f"C{cx + ha} {yk - 24} {cx + hm} {yt0 + 24} {cx + hm} {yt0} Z")
         o.append(f'<path d="{d}" fill="{FARBEN[k]}" stroke="#fff" stroke-width=".7"/>')
     for k, nr in ((3, "4"), (2, "3"), (1, "2")):
         x = cx - (mund[k] + mund[k - 1]) / 2
@@ -764,15 +764,15 @@ def entwurf_b2():
     for i in range(3):
         o.append(f'<circle cx="{cx + (i - 1) * 1.6}" cy="{yk - 7 + i * 3.6}" r="1.05" fill="{INK}"/>')
     ym_ = yh - 2.5
-    yv1 = yh + 30
+    yv1 = yh + 34
     o.append(f'<path d="M{cx - A_} {yh} H{cx + A_} V{yv1 - 7} L{cx} {yv1} L{cx - A_} {yv1 - 7} Z" fill="#fff" stroke="{INK}" stroke-width=".55" stroke-linejoin="round"/>')
-    o.append(ico("handshake", cx - 3.5, yh + 3, 7))
-    o.append(t(cx, yh + 14.5, "Vertrieb", 4.8, 700, anchor="middle", font=LORA))
-    o.append(t(cx, yh + 19.5, "Termin · Beratung · Abschluss", 2.6, 500, anchor="middle"))
-    yb0, yb1 = yv1 + 1.5, yv1 + 26
+    o.append(ico("handshake", cx - 3.5, yh + 4.5, 7))
+    o.append(t(cx, yh + 16.5, "Vertrieb", 4.8, 700, anchor="middle", font=LORA))
+    o.append(t(cx, yh + 21.5, "Termin · Beratung · Abschluss", 2.6, 500, anchor="middle"))
+    yb0, yb1 = yv1 + 1.5, yv1 + 30
     o.append(f'<path d="M{cx - A_} {yb0} L{cx} {yb0 + 7} L{cx + A_} {yb0} V{yb1 - 3} Q{cx + A_} {yb1} {cx + A_ - 3} {yb1} H{cx - A_ + 3} Q{cx - A_} {yb1} {cx - A_} {yb1 - 3} Z" fill="{INK}"/>')
-    o.append(ico("heart-handshake", cx - 3.5, yb0 + 8, 7, GELB))
-    o.append(t(cx, yb0 + 20, "Kundenbetreuung", 4, 700, "#fff", "middle", font=LORA))
+    o.append(ico("heart-handshake", cx - 3.5, yb0 + 10, 7, GELB))
+    o.append(t(cx, yb0 + 23, "Kundenbetreuung", 4, 700, "#fff", "middle", font=LORA))
     o.append(f'<path d="M{cx - A_} {yb1 - 8} H{gx + 1.5} V{yt0 - 8} H{cx - 40} V{yt0 - 1}" fill="none" stroke="{INK}" stroke-width=".4" marker-end="url(#ig-pf)"/>')
     tx = gx + gw + 12
     n = int((W - m - tx) / 1.6)
@@ -791,152 +791,46 @@ def entwurf_b2():
         o.append(t(bx + 2.3, by + 1, nr, 2.6, 700, GELB if nr == "1" else INK, "middle"))
         o.append(t(bx + 6.5, by + 1.1, name_b.replace(" sofort sichtbar", ""), 3.1, 700))
     o.append(mess_linie(cx + A_ + 2, tx - 3, ym_ - 2, .95))
-    for i, (yy, nr, name) in enumerate([(yh + 13, 2, "VERTRIEB"), (yb0 + 8, 3, "KUNDENBETREUUNG")]):
+    for i, (yy, nr, name) in enumerate([(yh + 14, 2, "VERTRIEB"), (yb0 + 10, 3, "KUNDENBETREUUNG")]):
         claim, text = STUFEN_KURZ[nr - 1]
         o.append(t(tx, yy, f"STUFE {nr} · {name}", 2.7, 700, GRAU, extra=' letter-spacing="0.4"'))
         o.append(t(tx, yy + 7.5, claim, 5.4, 700, font=LORA))
         o.append(zeilen(tx, yy + 13.5, text, n, 3.3, 4.6))
-    yr = yb1 + 7
+    yr = yb1 + 9
     o.append(f'<rect x="{m}" y="{yr - 4}" width="{W - 2 * m}" height="8" rx="4" fill="{GELB}"/>')
     o.append(t(W / 2, yr + 1.2, "↑  " + RUECK, 3.2, 600, anchor="middle"))
 
-    # 03 · Steuerung – Dashboard flach
-    y = yr + 9
+    # 03 · Steuerung – kompakt: vier Kacheln und drei Empfehlungen je in einer Reihe
+    y = yr + 16
     o.append(sektion_kompakt(m, W, y, "03", "STEUERUNG", "Funktioniert es?", "Wo müssen wir nachsteuern? Jeden Monat im Report und im Betreuungscall."))
-    dx, dy, dw, dh = m, y + 26, W - 2 * m, 60
+    dx, dy, dw, dh = m, y + 25, W - 2 * m, 46
     o.append(f'<rect x="{dx}" y="{dy}" width="{dw}" height="{dh}" rx="3.5" fill="#fff" stroke="{INK}" stroke-width=".55"/>')
     o.append(f'<path d="M{dx} {dy + 7} H{dx + dw}" stroke="{INK}" stroke-width=".35"/>')
     for i in range(3):
         o.append(f'<circle cx="{dx + 4.5 + i * 3.5}" cy="{dy + 3.5}" r=".95" fill="{LINIE}"/>')
     o.append(t(dx + 17, dy + 4.7, "Analytics-Dashboard", 2.9, 700))
-    kw, kh = 54, 22
+    kw, kh = (dw - 8 - 3 * 3) / 4, 16
     for i, (name, frage) in enumerate(STEUERUNG_KACHELN):
-        kx = dx + 4 + (i % 2) * (kw + 3)
-        ky = dy + 10 + (i // 2) * (kh + 3)
+        kx, ky = dx + 4 + i * (kw + 3), dy + 10
         lead = name == "Leads"
         o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="2" fill="{GELB if lead else HELL}"/>')
-        o.append(t(kx + 3, ky + 5.2, name, 3.1, 700))
-        o.append(zeilen(kx + 3, ky + 10, frage, 32, 2.5, 3.2, INK if lead else TEXT2))
-        pts = " ".join(f"{kx + 3 + j * (kw - 6) / 6:.1f},{ky + kh - 2 - v:.1f}" for j, v in enumerate([0.6, 2, 1.4, 3, 2.3, 3.6, 4.6]))
+        o.append(t(kx + 3, ky + 5, name, 3.1, 700))
+        pts = " ".join(f"{kx + 3 + j * (kw - 6) / 6:.1f},{ky + kh - 2.2 - v:.1f}" for j, v in enumerate([.6, 2, 1.3, 3, 2.4, 3.8, 5]))
         o.append(f'<polyline points="{pts}" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
-    ex = dx + 4 + 2 * kw + 3 + 7
-    ew = dx + dw - 4 - ex
-    o.append(t(ex, dy + 12, "EMPFEHLUNGEN", 2.5, 700, GRAU, extra=' letter-spacing="0.4"'))
+    ey = dy + 30
+    o.append(t(dx + 4, ey, "EMPFEHLUNGEN", 2.4, 700, GRAU, extra=' letter-spacing="0.4"'))
+    ew = (dw - 8 - 2 * 3) / 3
     for j, (bereich, was) in enumerate(STEUERUNG_EMPF):
-        ey = dy + 15 + j * 12
-        o.append(f'<rect x="{ex}" y="{ey}" width="{ew}" height="8" rx="1.6" fill="#fff" stroke="{LINIE}" stroke-width=".4"/>')
-        o.append(t(ex + 2.5, ey + 5.2, bereich + ":", 2.8, 700))
-        o.append(t(ex + 2.5 + len(bereich) * 1.75 + 3, ey + 5.2, was, 2.6, 400, TEXT2))
-    o.append(t(ex, dy + dh - 3, "Übernehmen – nach acht Wochen nachgeprüft", 2.5, 600))
-    o.append(t(m, dy + dh + 6, "Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.", 3, 500, TEXT2))
+        ex = dx + 4 + j * (ew + 3)
+        o.append(f'<rect x="{ex}" y="{ey + 2.2}" width="{ew}" height="10.5" rx="1.6" fill="#fff" stroke="{LINIE}" stroke-width=".4"/>')
+        o.append(t(ex + 2.5, ey + 6.4, bereich, 2.7, 700))
+        o.append(t(ex + 2.5, ey + 10.4, was, 2.3, 400, TEXT2))
+    o.append(t(m, dy + dh + 5.5, "Empfehlungen übernehmen wir und prüfen sie nach acht Wochen nach. Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.", 2.8, 500, TEXT2))
     o.append(t(m, H - 6, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 2.7, 500, GRAU))
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Hochformat mit drei Sektionen")
 
 
-# ---- Überblick für das Angebots-PDF (A4 hoch, Seite 2): die drei Sektionen aus Roll-up V2, nur die Funktionsweise ----
-# gezeichnet im Maß der PDF-Seite: 174 mm breit (A4 minus 2 × 18 mm Rand); Schrift: Poppins 3,0 mm Text, 2,3 mm Kicker, Lora 4,4 mm Titel
-def ueberblick_pdf(ss=False):
-    W, m = 174, 0
-    o = []
-
-    def kopf_(y, nr, label, titel, sub=""):
-        r = f'<rect x="0" y="{y}" width="{W}" height=".5" fill="{INK}"/>'
-        r += t(0, y + 10, nr, 8, 700, INK)
-        r += t(14, y + 5.2, label, 2.3, 700, INK, extra=' letter-spacing="0.4"')
-        r += t(14, y + 11, titel, 4.4, 700, font=LORA)
-        if sub:
-            r += t(14, y + 15.6, sub, 2.9, 400, TEXT2)
-        return r
-
-    # 01 · Strategie
-    o.append(kopf_(0, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen? Daraus leiten wir alles ab."))
-    ys, sw = 24, (W - 2 * 7) / 3
-    for i, (kopf_name, werte) in enumerate(STRATEGIE):
-        x = i * (sw + 7)
-        o.append(t(x, ys, kopf_name.upper(), 2.2, 700, GRAU, extra=' letter-spacing="0.4"'))
-        for j, w_ in enumerate(werte[:2]):
-            yy = ys + 2.5 + j * 7
-            an = j == 0
-            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="5.6" rx="2.8" fill="{GELB if an else "#fff"}" stroke="{GELB if an else LINIE}" stroke-width=".4"/>')
-            o.append(t(x + 3, yy + 3.9, w_, 2.8, 600 if an else 400))
-        if i < 2:
-            xa = x + sw + 1.6
-            o.append(f'<path d="M{xa} {ys + 5.3} l3 0 m-1.4 -1.4 l1.4 1.4 l-1.4 1.4" fill="none" stroke="{INK}" stroke-width=".4" stroke-linecap="round" stroke-linejoin="round"/>')
-
-    # 02 · Marketing und Vertrieb – Trichter, ein Messpunkt, drei Stufen
-    y = 42
-    o.append(kopf_(y, "02", "MARKETING UND VERTRIEB", "Drei Stufen zum Vertriebserfolg."))
-    gw = 64
-    cx = gw / 2 + 2
-    A_ = 13.5
-    mund, hals = [9, 14, 19.5, 25], [4, 7, 10.5, A_]
-    yt0 = y + 23
-    yk, yh = yt0 + 28, yt0 + 34
-    o.append(punkte_vor(cx - 24, cx + 24, yt0 - 4, yt0 - 1, 20, .6))
-    for k in (3, 2, 1, 0):
-        hm, ha = mund[k], hals[k]
-        d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 12} {cx - ha} {yk - 12} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
-             f"C{cx + ha} {yk - 12} {cx + hm} {yt0 + 12} {cx + hm} {yt0} Z")
-        o.append(f'<path d="{d}" fill="{FARBEN[k]}" stroke="#fff" stroke-width=".5"/>')
-    o.append(t(cx, yt0 + 6.5, "Marketing", 2.6, 700, anchor="middle"))
-    for i in range(3):
-        o.append(f'<circle cx="{cx + (i - 1) * 1.1}" cy="{yk - 7 + i * 2.6}" r=".75" fill="{INK}"/>')
-    ym_ = yh - 2
-    o.append(f'<circle cx="{cx + A_ + 5.5}" cy="{ym_}" r="3" fill="{GELB}" stroke="{INK}" stroke-width=".4"/><circle cx="{cx + A_ + 5.5}" cy="{ym_}" r="1.05" fill="{INK}"/>')
-    o.append(f'<path d="M{cx + A_} {ym_} H{cx + A_ + 2.5}" stroke="{INK}" stroke-width=".4"/>')
-    yv1 = yh + 23
-    o.append(f'<path d="M{cx - A_} {yh} H{cx + A_} V{yv1 - 5} L{cx} {yv1} L{cx - A_} {yv1 - 5} Z" fill="#fff" stroke="{INK}" stroke-width=".45" stroke-linejoin="round"/>')
-    o.append(ico("handshake", cx - 2.6, yh + 2.6, 5.2))
-    o.append(t(cx, yh + 12, "Vertrieb", 3.4, 700, anchor="middle", font=LORA))
-    yb0, yb1 = yv1 + 1.2, yv1 + 17
-    o.append(f'<path d="M{cx - A_} {yb0} L{cx} {yb0 + 5} L{cx + A_} {yb0} V{yb1 - 2.5} Q{cx + A_} {yb1} {cx + A_ - 2.5} {yb1} H{cx - A_ + 2.5} Q{cx - A_} {yb1} {cx - A_} {yb1 - 2.5} Z" fill="{INK}"/>')
-    o.append(ico("heart-handshake", cx - 2.6, yb0 + 5.4, 5.2, GELB))
-    o.append(t(cx, yb0 + 13.6, "Kundenbetreuung", 2.6, 700, "#fff", "middle", font=LORA))
-    o.append(f'<path d="M{cx - A_} {yb1 - 6} H1 V{yt0 - 6} H{cx - 27} V{yt0 - .8}" fill="none" stroke="{INK}" stroke-width=".35" marker-end="url(#ig-pf)"/>')
-    tx = gw + 12
-    n = 58   # Zeichen je Zeile bei 2,9 mm Poppins (Umbrüche geprüft: keine Einzelwörter)
-    stufen = [(yt0 + 1, 1, "MARKETING · UNSER SCHWERPUNKT", INK), (yh + 9, 2, "VERTRIEB", GRAU), (yb0 + 6, 3, "KUNDENBETREUUNG", GRAU)]
-    ende = 0
-    for yy, nr, name, farbe in stufen:
-        claim, text = STUFEN_KURZ[nr - 1]
-        o.append(t(tx, yy, f"STUFE {nr} · {name}", 2.2, 700, farbe, extra=' letter-spacing="0.4"'))
-        o.append(t(tx, yy + 5.6, claim, 4.4, 700, font=LORA))
-        o.append(zeilen(tx, yy + 10.4, text, n, 2.9, 4.1))
-        ende = yy + 10.4 + (len(umbruch(text, n)) - 1) * 4.1
-    o.append(t(tx, ym_ - 1, "MESSPUNKT", 2.2, 700, GRAU, extra=' letter-spacing="0.4"'))
-    o.append(t(tx, ym_ + 3.4, "Leads: echte Anfragen", 3.2, 700))
-    yr = max(yb1, ende + 1) + 6
-    o.append(f'<rect x="0" y="{yr - 3.4}" width="{W}" height="6.8" rx="3.4" fill="{GELB}"/>')
-    o.append(t(W / 2, yr + 1, "↑  " + RUECK, 2.8, 600, anchor="middle"))
-
-    # 03 · Steuerung – Dashboard als eine Reihe
-    y = yr + 7.5
-    o.append(kopf_(y, "03", "STEUERUNG", "Funktioniert es?", "Wo müssen wir nachsteuern? Jeden Monat im Report und im Betreuungscall."))
-    dx, dy, dw, dh = 0, y + 20.5, W, 22
-    o.append(f'<rect x="{dx}" y="{dy}" width="{dw}" height="{dh}" rx="2.6" fill="#fff" stroke="{INK}" stroke-width=".45"/>')
-    o.append(f'<path d="M{dx} {dy + 5.6} H{dx + dw}" stroke="{INK}" stroke-width=".3"/>')
-    for i in range(3):
-        o.append(f'<circle cx="{dx + 3.6 + i * 2.8}" cy="{dy + 2.8}" r=".75" fill="{LINIE}"/>')
-    o.append(t(dx + 13, dy + 3.8, "Analytics-Dashboard", 2.3, 700))
-    kw, kh = (dw - 6 - 3 * 2.5) / 4, 13
-    for i, (name, frage) in enumerate(STEUERUNG_KACHELN):
-        kx, ky = dx + 3 + i * (kw + 2.5), dy + 8
-        lead = name == "Leads"
-        o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="1.6" fill="{GELB if lead else HELL}"/>')
-        o.append(t(kx + 2.5, ky + 4.6, name, 2.8, 700))
-        pts = " ".join(f"{kx + 2.5 + j * (kw - 5) / 6:.1f},{ky + kh - 2 - v:.1f}" for j, v in enumerate([0.5, 1.8, 1.2, 2.8, 2.1, 3.6, 4.8]))
-        o.append(f'<polyline points="{pts}" fill="none" stroke="{INK}" stroke-width=".4" stroke-linecap="round" stroke-linejoin="round"/>')
-    o.append(t(0, dy + dh + 5.6, "Daraus Empfehlungen für Landingpages, LinkedIn und Suche – übernommen und nach acht Wochen nachgeprüft.", 2.9, 400, TEXT2))
-    H = dy + dh + 7
-    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 {W} {H + 1}" width="{W}mm" height="{H + 1}mm" role="img" '
-           f'aria-label="Marketing as a Service im Überblick: Strategie, Marketing und Vertrieb, Steuerung">{pfeilkopf()}{"".join(o)}</svg>')
-    if ss:
-        from maas_strukturbild import ss_faerben
-        svg = ss_faerben(svg)
-    return svg
-
-
-ENTWUERFE = {"a": (entwurf_a, 420, 297), "a2": (entwurf_a2, 420, 297), "b": (entwurf_b, 297, 420), "b2": (entwurf_b2, 297, 420),
+ENTWUERFE = {"a": (entwurf_a, 420, 297), "a2": (entwurf_a2, 420, 297), "b2": (entwurf_b2, 297, 420),
              "rollup2": (entwurf_rollup2, 1000, 2000), "rollup21": (lambda: entwurf_rollup2(ss=True), 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000)}
 
 
