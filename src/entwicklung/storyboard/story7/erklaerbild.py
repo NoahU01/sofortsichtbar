@@ -152,54 +152,52 @@ def svg(w, h, inhalt, klasse, name):
 
 # Schnitt durch die Maschine (Daniel, 12.11.2026: „erklärt nicht, was passiert“):
 # der Trichter flach und breit wie auf der Startseite, aber aufgeschnitten – jede Lage ist eine Zeile mit dem,
-# was darin passiert. Kern unten (Basis, Farbe), darüber die Ergänzungen. Eine Quelle für Grafik (quer) und Liste (Handy).
+# was darin passiert. Ganzer Trichter: obere Hälfte dick zum Beschriften, untere dünn (Daniel, 12.11.2026). Eine Quelle für Grafik (quer) und Liste (Handy).
 SCHNITT = [  # innen → außen
     {"klasse": "ek2-kern", "name": "Kernpaket", "marke": "Die Basis",
      "text": ["Fünf Landingpages, laufende Postings je Zielgruppe,", "Dashboard, monatlicher Report und Betreuungscall"]},
     {"klasse": "ek2-l2", "name": "LinkedIn Power Package", "marke": "dazu buchbar",
-     "text": ["Vier Postings im Monat, Netzwerkaufbau und Direktansprache"]},
+     "text": ["Dein Profil als aktiver Vertriebskanal – mit Netzwerkaufbau und Direktansprache"]},
     {"klasse": "ek2-l3", "name": "Paid Ads", "marke": "dazu buchbar",
      "text": ["Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert"]},
     {"klasse": "ek2-l4", "name": "Website-Entwicklung", "marke": "dazu buchbar",
-     "text": ["Neue Website, gefunden in Google und KI-Systemen"]},
+     "text": ["Eine echte Website für deine Agentur – nach außen sauber positioniert"]},
 ]
 
 
 def schnitt_quer():
+    """Ganzer Trichter: obere Hälfte dick (dort steht, was in jeder Lage passiert), untere Hälfte dünn."""
     W = 1120
-    hz = [108, 64, 64, 64]                    # Zeilenhöhe innen → außen
-    unten = sum(hz)
-    hals = [28, 40, 52, 64]                   # Höhe an der Mündung (von unten gemessen)
+    hoch = [90, 154, 218, 282]               # Abstand der Oberkante von der Mitte, innen → außen
+    tief = [18, 30, 42, 54]                  # Abstand der Unterkante von der Mitte
+    hals = [14, 20, 26, 32]                  # halbe Höhe an der Mündung
+    c = hoch[3]
     x_flach, x_kurve, x_hals = 640, 860, 900
-    oben = []                                 # Oberkante je Lage
-    y = unten
-    for h in hz:
-        y -= h; oben.append(y)
     o = []
     for k in (3, 2, 1, 0):
-        yo, ym = oben[k], unten - hals[k]
-        d = (f"M0 {yo} H{x_flach} C{x_flach + 120} {yo} {x_kurve - 110} {ym} {x_kurve} {ym} H{x_hals} "
-             f"V{unten} H0 Z")
+        yo, yu, h = c - hoch[k], c + tief[k], hals[k]
+        d = (f"M0 {yo} H{x_flach} C{x_flach + 120} {yo} {x_kurve - 110} {c - h} {x_kurve} {c - h} H{x_hals} "
+             f"V{c + h} H{x_kurve} C{x_kurve - 110} {c + h} {x_flach + 120} {yu} {x_flach} {yu} H0 Z")
         o.append(f'<path d="{d}" class="{SCHNITT[k]["klasse"]} ek2-lage"/>')
     for k, z in enumerate(SCHNITT):
-        yo = oben[k]
+        yo = c - hoch[k]
         kern = k == 0
         kt = "ek2-kern-t" if kern else "ek2-t"
-        o.append(text(28, yo + (36 if kern else 27), z["name"], kt, 20 if kern else 17, 700))
-        o.append(text(x_flach - 20, yo + (36 if kern else 27), z["marke"], kt if kern else "ek2-grau", 13, 600, "end"))
+        o.append(text(28, yo + (34 if kern else 27), z["name"], kt, 20 if kern else 17, 700))
+        o.append(text(x_flach - 20, yo + (34 if kern else 27), z["marke"], kt if kern else "ek2-grau", 13, 600, "end"))
         for n, zeile in enumerate(z["text"]):
-            o.append(text(28, yo + (62 if kern else 50) + n * 21, zeile, kt, 15, 500))
+            o.append(text(28, yo + (59 if kern else 50) + n * 21, zeile, kt, 15, 500))
     for i in range(3):
-        o.append(f'<circle cx="{x_kurve - 40 + i * 16}" cy="{unten - 14}" r="4" class="ek2-kern-p"/>')
+        o.append(f'<circle cx="{x_kurve - 40 + i * 16}" cy="{c}" r="3.5" class="ek2-kern-p"/>')
     xm = x_hals + LUECKE / 2
-    y0 = unten - hals[3]
+    y0, y1 = c - hals[3], c + hals[3]
     o.append(f'<path d="M{xm} {y0} V{y0 - 34}" class="ek2-linie ek2-linie--fein"/>')
     o.append(text(xm, y0 - 42, TX["messpunkt"], "ek2-t", 15, 700, "middle"))
     xv = x_hals + LUECKE
-    o.append(f'<path d="M{xv} {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{unten - 16} Q{W} {unten} {W - 16} {unten} H{xv} Z" class="ek2-band"/>')
-    o.append(text(xv + 22, y0 + 28, "Dein Vertrieb", "ek2-band-t", 18, 700))
-    o.append(text(xv + 22, y0 + 49, "macht daraus Kunden", "ek2-band-s", 14))
-    return svg(W, unten + 2, "".join(o), "ek2-svg--quer", "schnitt")
+    o.append(f'<path d="M{xv} {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{y1 - 16} Q{W} {y1} {W - 16} {y1} H{xv} Z" class="ek2-band"/>')
+    o.append(text(xv + 22, c - 3, "Dein Vertrieb", "ek2-band-t", 18, 700))
+    o.append(text(xv + 22, c + 18, "macht daraus Kunden", "ek2-band-s", 14))
+    return svg(W, c + tief[3] + 2, "".join(o), "ek2-svg--quer", "schnitt")
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story7.11tydata.json")
