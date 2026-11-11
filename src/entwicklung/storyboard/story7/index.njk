@@ -1,0 +1,423 @@
+---
+layout: false
+eleventyExcludeFromCollections: true
+permalink: /entwicklung/storyboard/story7/index.html
+---
+{#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint).
+    Arbeitslook: bewusst neutral. Der Stil hängt ausschließlich an den Stellschrauben unter :root –
+    eine Stilrichtung wird später nur dort gesetzt, nicht in den Bausteinen.
+    Inhalte: story7.11tydata.json → s7 · Grafik: maschine_holen.py (aus story6/maas_strukturbild.py).
+    Eigenständige Seite (layout: false), alles in src/entwicklung/. -#}
+{%- set S = s7 -%}
+{%- set B6 = "/entwicklung/storyboard/story6" -%}
+{%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homepage-Story 7 · Die digitale Maschine – Entwicklung</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
+<style>
+/* ===================================================================================
+   STELLSCHRAUBEN – nur hier wird der Stil gesetzt (Arbeitslook: neutral, Platzhalter)
+   =================================================================================== */
+:root {
+  --s7-schrift-titel: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-schrift-text: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-titel-gewicht: 700;
+  --s7-titel-abstand: -0.02em;
+  --s7-grund: #ffffff;          /* Seitenhintergrund */
+  --s7-flaeche: #f4f4f3;        /* helle Fläche (Bänder, Karten) */
+  --s7-tinte: #181818;          /* Überschriften, dunkle Flächen */
+  --s7-text: #3b3b3b;           /* Fließtext */
+  --s7-grau: #7a7a7a;           /* Kicker, Nebeninfos */
+  --s7-linie: #e2e2df;          /* Trennlinien, Rahmen */
+  --s7-akzent: #c9d4e3;         /* Markierung (Kern des Trichters, Leads, Auswahl) */
+  --s7-akzent-zart: #e9eef5;    /* zarte Akzentfläche */
+  --s7-auf-akzent: #181818;     /* Schrift auf dem Akzent */
+  --s7-lage-1: #dededb; --s7-lage-2: #e9e9e7; --s7-lage-3: #f2f2f1;   /* Lagen des Trichters */
+  --s7-rund: 18px;              /* Rundung Karten */
+  --s7-rund-knopf: 999px;       /* Rundung Knöpfe */
+  --s7-band: clamp(4.5rem, 9vw, 7.5rem);   /* Abstand oben/unten je Band */
+}
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--s7-grund); color: var(--s7-text); font: 400 1.0625rem/1.6 var(--s7-schrift-text); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-weight: var(--s7-titel-gewicht); letter-spacing: var(--s7-titel-abstand); text-wrap: balance; }
+p { margin: 0; }
+.s7-wrap { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+.s7-band { padding: var(--s7-band) 0; }
+.s7-band--flaeche { background: var(--s7-flaeche); }
+.s7-band--tinte { background: var(--s7-tinte); color: #e9e9e9; }
+.s7-band--tinte h2, .s7-band--tinte h3 { color: #fff; }
+.s7-kicker { margin-bottom: 1rem; color: var(--s7-grau); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.s7-h2 { max-width: 22ch; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.12; }
+.s7-lead { max-width: 40rem; margin-top: 1.2rem; font-size: 1.15rem; line-height: 1.6; }
+.s7-knopf { display: inline-flex; align-items: center; gap: .6rem; padding: .95rem 1.5rem; border: 2px solid var(--s7-tinte); border-radius: var(--s7-rund-knopf); background: var(--s7-tinte); color: #fff; font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform .15s ease; }
+.s7-knopf:hover { transform: translateY(-2px); }
+.s7-knopf--rand { background: transparent; color: var(--s7-tinte); }
+.s7-pfeil { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.s7-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
+.s7-link:hover { text-decoration: underline; }
+
+/* ---------- Entwicklungsleiste + Kopf ---------- */
+.s7-dev { background: #111; color: #bbb; font-size: 12.5px; }
+.s7-dev .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem 0; }
+.s7-dev b { color: #fff; font-weight: 600; }
+.s7-dev a { color: #fff; }
+.s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
+.s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
+.s7-marke { display: flex; align-items: center; gap: .35rem; }
+.s7-marke img { height: 2.4rem; width: auto; }
+.s7-nav { display: flex; gap: 1.8rem; margin-left: auto; }
+.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; }
+.s7-nav a:hover { color: var(--s7-tinte); }
+.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
+.s7-dd { position: relative; }
+.s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
+.s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
+.s7-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; }
+.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem; max-height: calc(100vh - 140px); overflow-y: auto; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-dd__panel[hidden] { display: none; }
+.s7-dd__hinweis { margin: 0 0 .5rem; padding: .7rem .8rem; border-radius: 10px; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .78rem; line-height: 1.45; }
+.s7-dd__gruppe { margin: .7rem .8rem .2rem; color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.s7-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: var(--s7-tinte); font-size: .9rem; text-decoration: none; }
+.s7-dd__panel a:hover { background: var(--s7-flaeche); }
+.s7-dd__panel a[aria-current="page"] { font-weight: 600; background: var(--s7-flaeche); }
+
+/* ---------- 1 · Einstieg ---------- */
+.s7-held { padding: clamp(3.5rem, 7vw, 6rem) 0 0; }
+.s7-held h1 { max-width: 16ch; font-size: clamp(2.6rem, 6.6vw, 5.6rem); line-height: 1.04; letter-spacing: calc(var(--s7-titel-abstand) * 1.6); }
+.s7-held .s7-lead { font-size: clamp(1.15rem, 1.7vw, 1.35rem); max-width: 36rem; }
+.s7-held__knoepfe { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+.s7-maschine { margin: clamp(3rem, 6vw, 4.5rem) 0 0; padding: clamp(1.2rem, 3vw, 2.6rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); }
+.s7-maschine__bild { overflow-x: auto; }
+.s7-maschine__bild svg { width: 100%; min-width: 640px; height: auto; }
+.s7-maschine__fuss { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; align-items: baseline; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); }
+.s7-maschine__fuss .s7-kicker { margin: 0; }
+.s7-maschine__fuss p { flex: 1 1 28rem; color: var(--s7-text); font-size: 1rem; }
+/* Farben der Grafik an die Stellschrauben koppeln (CSS schlägt die Attribute der Grafik) */
+.s7-maschine svg [fill="#fff400"] { fill: var(--s7-akzent); }
+.s7-maschine svg [stroke="#fff400"] { stroke: var(--s7-akzent); }
+.s7-maschine svg [fill="#dcd8d2"] { fill: var(--s7-lage-1); }
+.s7-maschine svg [fill="#e8e5e0"] { fill: var(--s7-lage-2); }
+.s7-maschine svg [fill="#f3f1ee"] { fill: var(--s7-lage-3); }
+.s7-maschine svg [fill="#1a1817"] { fill: var(--s7-tinte); }
+.s7-maschine svg [stroke="#1a1817"] { stroke: var(--s7-tinte); }
+.s7-maschine svg [fill="#3d3a37"] { fill: var(--s7-text); }
+.s7-maschine svg [fill="#6f6a64"] { fill: var(--s7-grau); }
+.s7-maschine svg text { font-family: var(--s7-schrift-text); }
+
+/* ---------- 2 · So läuft die Maschine ---------- */
+.s7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.s7-schritt { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.8rem 1.6rem; border-radius: var(--s7-rund); background: var(--s7-grund); }
+.s7-schritt__nr { font: 700 2.4rem/1 var(--s7-schrift-text); color: var(--s7-tinte); }
+.s7-schritt__label { margin-top: 1rem; color: var(--s7-grau); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.s7-schritt h3 { margin-top: .35rem; font-size: 1.4rem; line-height: 1.25; }
+.s7-schritt__t { margin-top: .6rem; font-size: 1rem; line-height: 1.55; }
+.s7-schritt__bild { margin-top: 1.4rem; padding: 1.1rem; border-radius: calc(var(--s7-rund) * .7); background: var(--s7-flaeche); }
+.s7-schritt__link { margin-top: 1.2rem; align-self: end; }
+/* Mini-Bild 01: Auswahlpfad */
+.s7-pfad { display: grid; gap: .55rem; }
+.s7-pfad__zeile { display: grid; grid-template-columns: 5.4rem 1fr; align-items: center; gap: .5rem; }
+.s7-pfad__zeile > span { color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.s7-pillen { display: flex; flex-wrap: wrap; gap: .3rem; }
+.s7-pille { font-style: normal; padding: .22rem .6rem; border: 1px solid var(--s7-linie); border-radius: 99px; background: #fff; font-size: .78rem; line-height: 1.3; white-space: nowrap; }
+.s7-pille--an { border-color: var(--s7-akzent); background: var(--s7-akzent); color: var(--s7-auf-akzent); font-weight: 600; }
+.s7-pille--mehr { border-style: dashed; color: var(--s7-grau); background: transparent; }
+/* Mini-Bild 02: Strecke → Vertrieb */
+.s7-strecke { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; }
+.s7-strecke__teile { display: grid; gap: .35rem; }
+.s7-strecke__teile span { padding: .45rem .6rem; border-radius: 8px; background: #fff; font-size: .8rem; font-weight: 500; }
+.s7-strecke__pfeil { color: var(--s7-tinte); }
+.s7-strecke__ziel { padding: .7rem .7rem; border-radius: 10px; background: var(--s7-tinte); color: #fff; font-size: .8rem; line-height: 1.35; }
+.s7-strecke__ziel b { display: block; margin-bottom: .2rem; padding: .15rem .45rem; border-radius: 99px; width: max-content; background: var(--s7-akzent); color: var(--s7-auf-akzent); font-size: .7rem; }
+/* Mini-Bild 03: Dashboard */
+.s7-dash { border: 1px solid var(--s7-linie); border-radius: 10px; background: #fff; overflow: hidden; }
+.s7-dash__kopf { display: flex; gap: .3rem; align-items: center; padding: .4rem .6rem; border-bottom: 1px solid var(--s7-linie); font-size: .68rem; font-weight: 600; color: var(--s7-tinte); }
+.s7-dash__kopf i { width: .4rem; height: .4rem; border-radius: 50%; background: var(--s7-linie); }
+.s7-dash__kopf i:last-of-type { margin-right: .4rem; }
+.s7-dash__kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; padding: .5rem; }
+.s7-dash__kachel { padding: .4rem .5rem .3rem; border-radius: 7px; background: var(--s7-flaeche); font-size: .7rem; font-weight: 600; color: var(--s7-tinte); }
+.s7-dash__kachel svg { width: 100%; height: 1.2rem; margin-top: .2rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.4; }
+.s7-dash__kachel--an { background: var(--s7-akzent); color: var(--s7-auf-akzent); }
+.s7-dash__empf { margin: 0 .5rem .5rem; padding: .4rem .55rem; border: 1px solid var(--s7-linie); border-radius: 7px; font-size: .7rem; line-height: 1.35; color: var(--s7-text); }
+.s7-dash__empf b { color: var(--s7-tinte); }
+
+/* ---------- 3 · Pakete ---------- */
+.s7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.s7-gruppe { grid-row: 1; display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; color: var(--s7-tinte); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.s7-gruppe::after { content: ""; flex: 1; height: 2px; background: var(--s7-tinte); }
+.s7-gruppe--a { grid-column: 1 / span 2; }
+.s7-gruppe--b { grid-column: 3; }
+.s7-paket { display: grid; grid-row: 2 / span 7; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.8rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: var(--s7-grund); }
+.s7-paket--komplett { border-color: var(--s7-tinte); background: var(--s7-tinte); color: #e9e9e9; }
+.s7-paket--komplett h3, .s7-paket--komplett .s7-paket__preis b { color: #fff; }
+.s7-paket h3 { font-size: 1.7rem; line-height: 1.2; }
+.s7-paket__fuer { margin-top: .5rem; font-size: 1rem; line-height: 1.5; }
+.s7-paket__preis { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .9rem; }
+.s7-paket--komplett .s7-paket__preis { border-top-color: rgba(255,255,255,.18); color: #aaa; }
+.s7-paket__preis span { display: block; margin-top: .15rem; }
+.s7-paket__preis b { display: block; color: var(--s7-tinte); font-size: 1.9rem; font-weight: 700; line-height: 1.15; }
+.s7-paket__preis b.s7-offen { display: inline-block; margin-bottom: .2rem; padding: .1rem .7rem; border: 1.5px dashed var(--s7-grau); border-radius: 8px; color: var(--s7-grau); font-size: 1.2rem; }
+.s7-paket__vorspann { margin-top: 1.2rem; font-size: .88rem; font-weight: 600; color: var(--s7-tinte); min-height: 1.3em; }
+.s7-paket--komplett .s7-paket__vorspann { color: #fff; }
+.s7-paket ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+.s7-paket li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: .98rem; line-height: 1.45; }
+.s7-paket li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.s7-paket--komplett li::before { color: var(--s7-akzent); }
+.s7-paket .s7-knopf { margin-top: 1.4rem; align-self: end; justify-content: center; }
+.s7-paket--komplett .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
+.s7-pakete__fuss { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; }
+
+/* ---------- 4 · Zielgruppen ---------- */
+.s7-zg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.s7-zg__karte { display: block; border-radius: var(--s7-rund); background: var(--s7-grund); overflow: hidden; text-decoration: none; transition: transform .2s ease; }
+.s7-zg__karte:hover { transform: translateY(-4px); }
+.s7-zg__karte img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.s7-zg__text { padding: 1.1rem 1.3rem 1.3rem; }
+.s7-zg__text h3 { font-size: 1.2rem; line-height: 1.3; }
+.s7-zg__text p { margin-top: .3rem; color: var(--s7-grau); font-size: .92rem; }
+.s7-zg__text p b { color: var(--s7-text); font-weight: 500; }
+.s7-zg__fuss { margin-top: 2rem; }
+
+/* ---------- 5 · Vertrauen ---------- */
+.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.s7-team { display: flex; gap: 1.4rem; margin-top: 2.2rem; }
+.s7-team figure { margin: 0; text-align: center; }
+.s7-team img { width: 5.2rem; height: 5.2rem; border-radius: 50%; object-fit: cover; background: var(--s7-flaeche); }
+.s7-team figcaption { margin-top: .5rem; color: var(--s7-tinte); font-size: .85rem; font-weight: 600; }
+.s7-zitat { margin: 0; padding: 2.4rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); }
+.s7-zitat p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: var(--s7-titel-gewicht); line-height: 1.3; letter-spacing: var(--s7-titel-abstand); }
+.s7-zitat cite { display: block; margin-top: 1.2rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
+
+/* ---------- 6 · Kontakt ---------- */
+.s7-kontakt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: end; }
+.s7-kontakt .s7-lead { color: #cfcfcf; }
+.s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
+.s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
+.s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
+.s7-fuss { padding: 2rem 0; border-top: 1px solid #2a2a2a; background: var(--s7-tinte); color: #888; font-size: .85rem; }
+.s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
+
+/* ---------- Mobil ---------- */
+@media (max-width: 1000px) {
+  .s7-nav { display: none; }
+  .s7-kopf .s7-knopf { margin-left: auto; }
+  .s7-schritte, .s7-pakete { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
+  .s7-schritt, .s7-paket { grid-row: auto; grid-template-rows: none; }
+  .s7-gruppe { grid-row: auto; grid-column: 1; margin: 1rem 0 .2rem; }
+  .s7-gruppe--b { order: 3; }
+  .s7-paket--komplett { order: 4; }
+  .s7-zg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .s7-vertrauen, .s7-kontakt { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .s7-zg { grid-template-columns: minmax(0, 1fr); }
+  .s7-kopf .s7-knopf { display: none; }
+  .s7-team img { width: 4.4rem; height: 4.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter, die Stilproben folgen</span><a href="{{ B6 }}/story-varianten/">← Story-Varianten</a></div></div>
+
+<header class="s7-kopf">
+  <div class="s7-wrap">
+    <div class="s7-marke">
+      <a href="/entwicklung/storyboard/story7/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+      <div class="s7-dd" data-s7-dd>
+        <button type="button" class="s7-dd__auf" aria-expanded="false" aria-controls="s7-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
+        <div class="s7-dd__panel" id="s7-dd-panel" hidden>
+          {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
+          {%- if c.typ == "hinweis" %}<p class="s7-dd__hinweis">{{ c.text }}</p>
+          {%- elif c.typ == "gruppe" %}<p class="s7-dd__gruppe">{{ c.label }}</p>
+          {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
+          {%- endfor %}{% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+    <nav class="s7-nav" aria-label="Hauptnavigation">
+      <a href="#maschine">So funktioniert es</a>
+      <a href="#pakete">Pakete</a>
+      <a href="#zielgruppen">Zielgruppen</a>
+      <a href="#ueber-uns">Über uns</a>
+    </nav>
+    <a class="s7-knopf" href="#kontakt">Termin auswählen</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1 · Einstieg: der Mehrwert im ersten Bild -->
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.hero.kicker }}</p>
+      <h1>{{ S.hero.h1 }}</h1>
+      <p class="s7-lead">{{ S.hero.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ S.hero.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="{{ B6 }}/strategiekompass/">{{ S.hero.knopf2 }}</a>
+      </div>
+      <figure class="s7-maschine" id="maschine-bild">
+        <div class="s7-maschine__bild">{{ S.maschine | safe }}</div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2 · So läuft die Maschine: Strategie · Marketing und Vertrieb · Steuerung -->
+  <section class="s7-band s7-band--flaeche" id="maschine" style="margin-top: var(--s7-band)">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.schritte.kicker }}</p>
+      <h2 class="s7-h2">{{ S.schritte.h2 }}</h2>
+      <div class="s7-schritte">
+        {%- set L = S.schritte.liste %}
+        <article class="s7-schritt">
+          <span class="s7-schritt__nr">{{ L[0].nr }}</span>
+          <p class="s7-schritt__label">{{ L[0].label }}</p>
+          <h3>{{ L[0].h }}</h3>
+          <p class="s7-schritt__t">{{ L[0].t }}</p>
+          <div class="s7-schritt__bild" aria-hidden="true">
+            <div class="s7-pfad">
+              <div class="s7-pfad__zeile"><span>Segment</span><div class="s7-pillen"><i class="s7-pille s7-pille--an">Privatkunden</i><i class="s7-pille">Firmenkunden</i></div></div>
+              <div class="s7-pfad__zeile"><span>Sparte</span><div class="s7-pillen"><i class="s7-pille s7-pille--an">Leben</i><i class="s7-pille">Kranken</i><i class="s7-pille">Schaden/Unfall</i><i class="s7-pille">Kfz</i></div></div>
+              <div class="s7-pfad__zeile"><span>Zielgruppe</span><div class="s7-pillen"><i class="s7-pille s7-pille--an">Junge Familien</i><i class="s7-pille">Bauherren</i><i class="s7-pille s7-pille--mehr">+ weitere</i></div></div>
+            </div>
+          </div>
+          <a class="s7-link s7-schritt__link" href="{{ B6 }}/strategiekompass/">{{ L[0].link }} {{ pfeil | safe }}</a>
+        </article>
+        <article class="s7-schritt">
+          <span class="s7-schritt__nr">{{ L[1].nr }}</span>
+          <p class="s7-schritt__label">{{ L[1].label }}</p>
+          <h3>{{ L[1].h }}</h3>
+          <p class="s7-schritt__t">{{ L[1].t }}</p>
+          <div class="s7-schritt__bild" aria-hidden="true">
+            <div class="s7-strecke">
+              <div class="s7-strecke__teile"><span>Landingpage</span><span>Postings</span><span>Kundenmailings</span></div>
+              <svg class="s7-pfeil s7-strecke__pfeil" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <div class="s7-strecke__ziel"><b>Neue Anfrage</b>Junge Familien · direkt in deinen Vertrieb</div>
+            </div>
+          </div>
+          <a class="s7-link s7-schritt__link" href="/vertriebsstrecken">{{ L[1].link }} {{ pfeil | safe }}</a>
+        </article>
+        <article class="s7-schritt">
+          <span class="s7-schritt__nr">{{ L[2].nr }}</span>
+          <p class="s7-schritt__label">{{ L[2].label }}</p>
+          <h3>{{ L[2].h }}</h3>
+          <p class="s7-schritt__t">{{ L[2].t }}</p>
+          <div class="s7-schritt__bild" aria-hidden="true">
+            <div class="s7-dash">
+              <div class="s7-dash__kopf"><i></i><i></i><i></i>Dashboard</div>
+              <div class="s7-dash__kacheln">
+                {%- for k in ["Aufmerksamkeit", "Halten", "Google", "Leads"] %}
+                <div class="s7-dash__kachel{% if k == "Leads" %} s7-dash__kachel--an{% endif %}">{{ k }}<svg viewBox="0 0 60 14" preserveAspectRatio="none"><polyline points="0,12 10,10 20,11 30,7 40,8 50,4 60,2"/></svg></div>
+                {%- endfor %}
+              </div>
+              <p class="s7-dash__empf"><b>Empfehlung:</b> Schwerpunkt Bauherren verstärken</p>
+            </div>
+          </div>
+          <span class="s7-schritt__link"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Pakete: die Weiche – Fokus und Team (Weg A), Komplett (Weg B) -->
+  <section class="s7-band" id="pakete">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.pakete.kicker }}</p>
+      <h2 class="s7-h2">{{ S.pakete.h2 }}</h2>
+      <p class="s7-lead">{{ S.pakete.lead }}</p>
+      <div class="s7-pakete">
+        <p class="s7-gruppe s7-gruppe--a">{{ S.pakete.gruppen[0][0] }}</p>
+        <p class="s7-gruppe s7-gruppe--b">{{ S.pakete.gruppen[1][0] }}</p>
+        {%- for p in S.pakete.liste %}
+        <article class="s7-paket s7-paket--{{ p.id }}">
+          <h3>{{ p.name }}</h3>
+          <p class="s7-paket__fuer">{{ p.fuer }}</p>
+          <p class="s7-paket__preis">{% if p.preis %}<b>{{ p.preis }}</b>{% else %}<b class="s7-offen">Preis folgt</b>{% endif %}<span>{{ p.einheit }}</span></p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ B6 }}/marketing-as-a-service/{% else %}#kontakt{% endif %}">{{ p.knopf }}</a>
+        </article>
+        {%- endfor %}
+      </div>
+      <p class="s7-pakete__fuss">{{ S.pakete.fuss }}</p>
+    </div>
+  </section>
+
+  <!-- 4 · Zielgruppen -->
+  <section class="s7-band s7-band--flaeche" id="zielgruppen">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.zielgruppen.kicker }}</p>
+      <h2 class="s7-h2">{{ S.zielgruppen.h2 }}</h2>
+      <p class="s7-lead">{{ S.zielgruppen.lead }}</p>
+      <div class="s7-zg">
+        {%- for z in S.zielgruppen.liste %}
+        <a class="s7-zg__karte" href="/zielgruppen/{{ z.slug }}">
+          <img src="/assets/img/{{ z.bild }}-800.webp" alt="" width="800" height="500">
+          <div class="s7-zg__text"><h3>{{ z.name }}</h3><p>Anlass: <b>{{ z.anlass }}</b></p></div>
+        </a>
+        {%- endfor %}
+      </div>
+      <p class="s7-zg__fuss"><a class="s7-link" href="/vertriebsstrecken">{{ S.zielgruppen.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  <!-- 5 · Vertrauen -->
+  <section class="s7-band" id="ueber-uns">
+    <div class="s7-wrap s7-vertrauen">
+      <div>
+        <p class="s7-kicker">{{ S.vertrauen.kicker }}</p>
+        <h2 class="s7-h2">{{ S.vertrauen.h2 }}</h2>
+        <p class="s7-lead">{{ S.vertrauen.t }}</p>
+        <div class="s7-team">
+          {%- for m in S.vertrauen.team %}
+          <figure><img src="{{ B6 }}/assets/img/{{ m[1] }}.webp" alt="{{ m[0] }}"><figcaption>{{ m[0] }}</figcaption></figure>
+          {%- endfor %}
+        </div>
+      </div>
+      <blockquote class="s7-zitat"><p>„{{ S.vertrauen.zitat }}“</p><cite>{{ S.vertrauen.quelle }}</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- 6 · Kontakt -->
+  <section class="s7-band s7-band--tinte" id="kontakt">
+    <div class="s7-wrap s7-kontakt">
+      <div>
+        <h2 class="s7-h2">{{ S.kontakt.h2 }}</h2>
+        <p class="s7-lead">{{ S.kontakt.t }}</p>
+      </div>
+      <div class="s7-kontakt__wege">
+        <a class="s7-knopf" href="{{ B6 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+        <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
+        <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung">Datenschutz</a><a href="/impressum">Impressum</a></span></div></footer>
+
+<script>
+(function () {
+  var dd = document.querySelector("[data-s7-dd]"); if (!dd) return;
+  var auf = dd.querySelector(".s7-dd__auf"), panel = dd.querySelector(".s7-dd__panel");
+  function zu() { panel.hidden = true; auf.setAttribute("aria-expanded", "false"); }
+  auf.addEventListener("click", function (e) { e.stopPropagation(); var offen = panel.hidden; panel.hidden = !offen; auf.setAttribute("aria-expanded", offen ? "true" : "false"); });
+  document.addEventListener("click", function (e) { if (!dd.contains(e.target)) zu(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") zu(); });
+})();
+</script>
+</body>
+</html>
