@@ -160,13 +160,17 @@ BAUSTEINE = [("1", "Kernpaket sofort sichtbar", "layout-dashboard"), ("2", "Link
              ("3", "Paid Ads", "trending-up"), ("4", "Website-Entwicklung", "app-window")]
 
 
-def marketing_svg():
+def marketing_svg(ss=False):
+    """ss=True: Farben von sofort sichtbar (Blau → Violett) statt Gelb, hell."""
     o = []
+    ST = "url(#mb-ss)" if ss else GELB
+    TST = "#fff" if ss else INK
+    AD = "#b98cf0" if ss else GELB
     c = 196                         # Mittellinie
     H = 60                          # Halbhöhe der Prozesspfeile = Halbhöhe des Trichter-Ausgangs mit allen Bausteinen
     mund_x, hals_x, rohr_ende = 34, 372, 452
     # je Baustein: Halbhöhe an der Öffnung und am Ausgang (gestapelt bis H), Füllung
-    schicht = [(60, 21, GELB), (94, 34, "#dcd8d2"), (128, 47, "#e8e5e0"), (162, H, "#f3f1ee")]
+    schicht = [(60, 21, ST), (94, 34, "#dcd3ec" if ss else "#dcd8d2"), (128, 47, "#e8e2f3" if ss else "#e8e5e0"), (162, H, "#f3effa" if ss else "#f3f1ee")]
 
     def trichter(hm, ha):
         return (f"M{mund_x} {c - hm} C{mund_x + 230} {c - hm} {hals_x - 120} {c - ha} {hals_x} {c - ha} H{rohr_ende} "
@@ -190,13 +194,13 @@ def marketing_svg():
         o.append(ico(icon, mund_x + 14, y - 12, 15))
         o.append(t(mund_x + 36, y, f"Baustein {nr} · {name}", 11.5, 600))
     nr, name, icon = BAUSTEINE[0]
-    o.append(ico(icon, mund_x + 14, c - 24, 17))
-    o.append(t(mund_x + 38, c - 11, f"Baustein {nr}", 11.5, 600))
-    o.append(t(mund_x + 14, c + 13, "Kernpaket", 17, 700))
-    o.append(t(mund_x + 14, c + 32, "sofort sichtbar", 12.5, 400))
+    o.append(ico(icon, mund_x + 14, c - 24, 17, TST))
+    o.append(t(mund_x + 38, c - 11, f"Baustein {nr}", 11.5, 600, TST))
+    o.append(t(mund_x + 14, c + 13, "Kernpaket", 17, 700, TST))
+    o.append(t(mund_x + 14, c + 32, "sofort sichtbar", 12.5, 400, TST))
     # Leads im Kern-Rohr
     for i, x in enumerate([392, 414, 436]):
-        o.append(f'<circle cx="{x}" cy="{c + (i - 1) * 7}" r="4.2" fill="{INK}"/>')
+        o.append(f'<circle cx="{x}" cy="{c + (i - 1) * 7}" r="4.2" fill="{TST}"/>')
     # Prozesspfeile: Vertrieb (mit drei Schritten) und Kundenbetreuung – gleiche Höhe wie der Trichter-Ausgang
     x0, xm, x1 = rohr_ende, 860, 1200
     o.append(f'<path d="M{x0} {c - H} H{xm - 26} L{xm} {c} L{xm - 26} {c + H} H{x0} Z" fill="#fff" stroke="{INK}" stroke-width="2" stroke-linejoin="round"/>')
@@ -212,7 +216,7 @@ def marketing_svg():
             px = sx + breite + 12
             o.append(f'<path d="M{px} {c + 13} l5 4.5 l-5 4.5" fill="none" stroke="{GRAU}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>')
             sx = px + 17
-    o.append(ico("heart-handshake", xm + 52, c - 13, 26, GELB))
+    o.append(ico("heart-handshake", xm + 52, c - 13, 26, AD))
     o.append(t(xm + 88, c + 6, "Kundenbetreuung", 18, 700, "#fff", font=LORA))
     # Texte je Stufe – gleiche Höhe in allen Spalten
     spalten = [(0, 440), (474, 820), (884, 1200)]
@@ -226,9 +230,11 @@ def marketing_svg():
         o.append(t(sx0, y + 150, erg, 13.5, 700))
     # Rückweg Kundenbetreuung → Marketing
     o.append(f'<path d="M1040 592 V624 H220 V598" fill="none" stroke="{INK}" stroke-width="1.6" marker-end="url(#mb-pfeil)"/>')
-    o.append(f'<rect x="390" y="607" width="480" height="34" rx="17" fill="{GELB}"/>')
-    o.append(t(630, 629, "Sichtbarkeit pflegt auch deinen Bestand – und bringt neue Anlässe.", 12.5, 600, anchor="middle"))
-    defs = (f'<defs><marker id="mb-pfeil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+    o.append(f'<rect x="390" y="607" width="480" height="34" rx="17" fill="{ST}"/>')
+    o.append(t(630, 629, "Sichtbarkeit pflegt auch deinen Bestand – und bringt neue Anlässe.", 12.5, 600, TST, anchor="middle"))
+    verlauf = ('<linearGradient id="mb-ss" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f55c8"/>'
+               '<stop offset=".55" stop-color="#8324b9"/><stop offset="1" stop-color="#a23edb"/></linearGradient>') if ss else ""
+    defs = (f'<defs>{verlauf}<marker id="mb-pfeil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
             f'<path d="M1 1 L8 5 L1 9" fill="none" stroke="{INK}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 1210 652" class="mx-strukturbild" role="img" '
             f'aria-label="Die digitale Maschine: ein Trichter aus vier Bausteinen mündet in deinen Vertrieb und die Kundenbetreuung">'
@@ -308,3 +314,14 @@ def hoch_teile():
     o = [f'<path d="M{cx} 0 V6 H1 V0" {linie}/>']
     teile.append(svgw(h4, "".join(o)))
     return teile
+
+
+
+def ss_faerben(svg):
+    """Gelb → Farben von sofort sichtbar: Flächen mit Text darauf als zarter Blau-Violett-Verlauf, gelbe Schrift auf Dunkel als Hell-Violett."""
+    import re
+    svg = re.sub(r'(<text[^>]*?)fill="#fff400"', r'\1fill="#b98cf0"', svg)
+    svg = svg.replace('fill="#fff400"', 'fill="url(#ss-zart)"')
+    verlauf = ('<linearGradient id="ss-zart" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f55c8" stop-opacity=".16"/>'
+               '<stop offset="1" stop-color="#a23edb" stop-opacity=".24"/></linearGradient>')
+    return svg.replace("<defs>", "<defs>" + verlauf, 1)

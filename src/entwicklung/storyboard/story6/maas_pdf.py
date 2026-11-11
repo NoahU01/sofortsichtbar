@@ -534,8 +534,12 @@ def main():
         svg if svg.startswith("<svg") and 'xmlns=' in svg else svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"', 1))
     M["strukturbild"] = maas_strukturbild.svg()            # Ablauf im Detail (Arbeitsgrundlage)
     M["maschine"] = maas_strukturbild.marketing_svg()       # Marketing-Grafik (erste Ebene)
+    M["maschine_ss"] = maas_strukturbild.marketing_svg(ss=True)          # Farben sofort sichtbar (Seite 2.0)
+    M["strukturbild_ss"] = maas_strukturbild.ss_faerben(M["strukturbild"])
     bild_png(M["strukturbild"], "strukturbild", 652)
     bild_png(M["maschine"], "maschine", 748)
+    bild_png(M["maschine_ss"], "maschine-ss", 748)
+    bild_png(M["strukturbild_ss"], "strukturbild-ss", 652)
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
     # Arbeitsgrundlage als eigenes PDF (nicht im Angebots-PDF): Ablauf im Detail, A4 quer
     M.setdefault("pdf_ablauf", {"datei": "marketing-as-a-service-ablauf.pdf"})

@@ -29,6 +29,9 @@ seiten:
     titel: "Anspracheanlässe"
   - slug: "marketing-as-a-service"
     titel: "Marketing as a Service"
+  - slug: "marketing-as-a-service-2"
+    titel: "Marketing as a Service 2.0"
+    farbe: "ss"
   - slug: "maas-infografik"
     titel: "Infografik Marketing as a Service"
   - slug: "ueber-uns"
@@ -419,6 +422,27 @@ html body .maas-d .maas-d__hinweis { margin: 1rem 0 0 !important; padding-top: .
   .mx-kern__links, .mx-kern__rechts, .mx-karte { padding: 1.8rem 1.5rem; }
   .mx-immer { padding: 1.2rem 1.4rem; }
 }
+
+/* ===== Marketing as a Service 2.0: Farben von sofort sichtbar (Blau → Violett), hell; Inhalt, Schrift und Aufbau unverändert =====
+   Gelb wird zu: kräftigem Verlauf (Flächen mit weißer Schrift), zartem Verlauf (Flächen mit dunkler Schrift), Hell-Violett (auf Schwarz). */
+.maas--ss { --ss-voll: linear-gradient(120deg, #2f55c8 0%, #8324b9 58%, #a23edb 100%); --ss-zart: linear-gradient(90deg, rgba(47,85,200,.16), rgba(162,62,219,.24)); --ss-violett: #8324b9; --ss-hell: #b98cf0; }
+html body .e2-alt.maas--ss .hl { background: var(--ss-zart) !important; border-radius: .14em !important; }
+.maas--ss .mx-band--gelb { background: linear-gradient(135deg, #eaf0fd 0%, #f3e9fc 100%); }
+.maas--ss .mx-ablauf__nr { background: #fff; }
+html body .e2-alt.maas--ss .mx-band--schwarz .kicker, .maas--ss .mx-band--schwarz .mx-mehr, .maas--ss .mx-kern__kopf, .maas--ss .mx-kern__ico, .maas--ss .mx-kern .mx-mehr, .maas--ss .mx-profil__ico,
+html body .e2-alt.maas--ss .mx-fundament__label, html body .e2-alt.maas--ss .mx-team__klammer--kern { color: var(--ss-hell) !important; }
+.maas--ss .mx-team__klammer--kern::after { background: var(--ss-voll); }
+.maas--ss .mx-haken li::before { border-color: var(--ss-hell); }
+.maas--ss .mx-immer { background: var(--ss-voll); color: #fff; }
+.maas--ss .mx-immer b::before { border-color: #fff; }
+.maas--ss .mx-fundament__knopf { background: var(--ss-voll); color: #fff; }
+.maas--ss .mx-fundament__knopf:hover { background: #fff; color: #1a1817; }
+.maas--ss .mx-bild__leg--wir::before { background: var(--ss-zart); border-color: #c9b6ec; }
+.maas--ss .mx-weg__block--dunkel .mx-weg__phase b { color: var(--ss-hell); }
+.maas--ss .mx-weg__block--dunkel .mx-weg__nr { border-color: var(--ss-hell); color: var(--ss-hell); }
+html body .maas--ss .mx-weg__uebergabe { background: var(--ss-zart) !important; }
+.maas--ss .pdf-dl { --dl-acc: #b98cf0 !important; }
+html body .e2-alt.maas--ss .e2-dl-hl { background: var(--ss-voll) !important; color: #fff !important; border-radius: .14em !important; }
 
 /* Infografik-Entwürfe */
 .ig-entwurf { padding: 5rem 0; background: #fff; }
@@ -1001,7 +1025,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </script>
 </div>
 </main>
-{% elif s.slug == "marketing-as-a-service" %}
+{% elif s.slug == "marketing-as-a-service" or s.slug == "marketing-as-a-service-2" %}
 {#- Interne Arbeitsseite (nur im Entwicklungsmenü, Strategie sofort sichtbar): Angebot Marketing as a Service.
     Inhalte aus story6.11tydata.json (maas) – dieselbe Quelle baut das PDF (maas_pdf.py).
     Maßstab: Volksfest-/Wagenpaten-Seite. Flächenrhythmus weiß · gelb · weiß · schwarz · hellgrau,
@@ -1041,7 +1065,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 {%- endmacro -%}
 {%- set pfeil -%}<svg class="e2-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
 <main>
-<div class="e2-alt e2-seite--sofort-sichtbar maas">
+<div class="e2-alt e2-seite--sofort-sichtbar maas{% if s.farbe == "ss" %} maas--ss{% endif %}">
 
   <!-- ===== 1 · Kopf (weiß) ===== -->
   <section class="mx-held">
@@ -1069,11 +1093,11 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <h2 class="h-serif">{{ W.h2 }}</h2>
       <p class="mx-lead">{{ ST.lead }}</p>
       <figure class="mx-bild">
-        <div class="mx-bild__rahmen">{{ M.maschine | safe }}</div>
+        <div class="mx-bild__rahmen">{{ (M.maschine_ss if s.farbe == "ss" else M.maschine) | safe }}</div>
         <figcaption class="mx-bild__fuss">
           <span class="mx-bild__wisch">Seitlich wischen</span>
           <button type="button" class="mx-bild__detail" data-maas-auf="maas-detail">Ablauf im Detail ansehen →</button>
-          <a class="mx-bild__dl" href="{{ A }}/maas/maschine.png" download>Bild herunterladen (PNG)</a>
+          <a class="mx-bild__dl" href="{{ A }}/maas/{{ "maschine-ss" if s.farbe == "ss" else "maschine" }}.png" download>Bild herunterladen (PNG)</a>
         </figcaption>
       </figure>
       <dialog class="e2-dialog maas-d maas-d--weit" id="maas-detail" aria-labelledby="maas-detail-t">
@@ -1081,8 +1105,8 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         <p class="maas-d__meta">Arbeitsgrundlage</p>
         <h3 id="maas-detail-t">Der Ablauf im Detail.</h3>
         <p>Mit diesem Bild klären wir im Auftakt, welche Kanäle wir nutzen, wer Interessenten qualifiziert und wie wir sie warmhalten, bis sie abschlussbereit sind.</p>
-        <div class="mx-detail">{{ M.strukturbild | safe }}</div>
-        <p class="maas-d__hinweis mx-detail__fuss"><span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span><span class="mx-bild__leg">dein Vertrieb – wir docken an</span><a href="{{ A }}/maas/strukturbild.png" download>Bild (PNG)</a><a class="mx-detail__pdf" href="{{ A }}/maas/{{ M.pdf_ablauf.datei }}" target="_blank" rel="noopener">Arbeitsgrundlage als PDF</a></p>
+        <div class="mx-detail">{{ (M.strukturbild_ss if s.farbe == "ss" else M.strukturbild) | safe }}</div>
+        <p class="maas-d__hinweis mx-detail__fuss"><span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span><span class="mx-bild__leg">dein Vertrieb – wir docken an</span><a href="{{ A }}/maas/{{ "strukturbild-ss" if s.farbe == "ss" else "strukturbild" }}.png" download>Bild (PNG)</a><a class="mx-detail__pdf" href="{{ A }}/maas/{{ M.pdf_ablauf.datei }}" target="_blank" rel="noopener">Arbeitsgrundlage als PDF</a></p>
       </dialog>
       <div class="mx-fundament">
         <div><p class="mx-fundament__label">{{ ST.fundament.label }}</p><p class="mx-fundament__text">{{ ST.fundament.text }}</p></div>
