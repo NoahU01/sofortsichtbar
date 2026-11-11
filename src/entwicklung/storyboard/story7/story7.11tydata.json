@@ -227,20 +227,9 @@
       "t": "Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Vertriebsstrecke.",
       "zitat": "Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.",
       "quelle": "Leitung unserer Pilotagentur",
-      "team": [
-        [
-          "Daniel Ströbel",
-          "ansprechpartner-daniel"
-        ],
-        [
-          "Kerstin Christ",
-          "ansprechpartner-kerstin"
-        ],
-        [
-          "Noah Hermanns",
-          "ansprechpartner-noah"
-        ]
-      ]
+      "namen": "Kerstin Christ · Daniel Ströbel · Noah Hermanns",
+      "bild": "team-portrait",
+      "bild_alt": "Das Team von sofort sichtbar: Kerstin Christ, Daniel Ströbel und Noah Hermanns"
     },
     "kontakt": {
       "h2": "Welche Zielgruppen bewegen bei dir Umsatz?",
