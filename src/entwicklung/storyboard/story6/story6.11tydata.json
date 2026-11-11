@@ -706,5 +706,375 @@
       "seiten": 23,
       "groesse": "1,0 MB"
     }
+  },
+  "story_varianten": {
+    "lead": "Die Leistung steht: Strategie, Vertriebsstrecken, Steuerung. Offen ist, wie wir sie auf der Startseite erzählen – über das, was du bekommst, oder über das, was du abgibst. Diese Seite stellt beide Wege nebeneinander.",
+    "zielgruppe": "Leitung von Versicherungsagenturen und Maklerbüros mit Team, die Verantwortung für Vertriebserfolg trägt und weiß, dass digitales Marketing dazugehört.",
+    "kern": [
+      {
+        "nr": "01",
+        "label": "Strategie",
+        "titel": "Wo willst du wachsen?",
+        "text": "Segment, Sparte, Zielgruppe – mit dem Strategiekompass bzw. Strategietool."
+      },
+      {
+        "nr": "02",
+        "label": "Marketing und Vertrieb",
+        "titel": "Drei Stufen zum Vertriebserfolg.",
+        "text": "Vertriebsstrecken je Zielgruppe bringen echte Anfragen in deinen Vertrieb."
+      },
+      {
+        "nr": "03",
+        "label": "Steuerung",
+        "titel": "Funktioniert es?",
+        "text": "Dashboard, Messpunkt Leads, Empfehlungen – Monat für Monat."
+      }
+    ],
+    "zeilen": [
+      "Für wen",
+      "Das Problem",
+      "Das Versprechen",
+      "Was wir liefern",
+      "Pakete",
+      "Stärke",
+      "Risiko"
+    ],
+    "varianten": [
+      {
+        "id": "a",
+        "label": "Variante A",
+        "name": "Sofort sichtbar",
+        "frage": "Was bekommst du?",
+        "werte": [
+          "Agenturen, die Marketing schon selbst machen – oft mit jemandem im Team, der postet – und Ergänzung und Effizienz suchen.",
+          "Jede neue Zielgruppe fängt bei null an: Landingpage, Postings, Mailings. Das kostet Zeit, die im Vertrieb fehlt.",
+          "Für jede Zielgruppe sofort sichtbar – in Tagen statt in Monaten.",
+          "Fertige Vertriebsstrecken je Zielgruppe, davor der Kompass, danach das Dashboard. Dein Team setzt um.",
+          "Fokus und Team. Sie unterscheiden sich in der Leistung (Strategietool Pro, Empfehlungen, mehrere Nutzer, Reporting), nicht in der Zahl der Strecken.",
+          "Greifbar, schnell, günstiger Einstieg. Der Name erzählt die Story.",
+          "Wirkt wie Material. Vorlagen vom Versicherer hat jede Agentur schon."
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Variante B",
+        "name": "Marketing abgeben",
+        "frage": "Was gibst du ab?",
+        "werte": [
+          "Agenturen, die Marketing nicht selbst machen wollen oder niemanden dafür haben.",
+          "Marketing läuft nebenher – und deshalb läuft es nicht. Zwischen Terminen und Schadenfällen bleibt nichts liegen außer den Vorlagen.",
+          "Wir bauen und betreiben dein digitales Marketing. Bei dir kommen echte Anfragen an.",
+          "Marketing as a Service: Kernpaket mit Landingpages, Postings, Dashboard, Report und Betreuungscall; dazu LinkedIn, Paid Ads, Website.",
+          "Kernpaket ab 1.800 € im Monat, Ergänzungen einzeln buchbar.",
+          "Größter Mehrwert, höchster Umsatz je Kunde, fester Ansprechpartner.",
+          "Hoher Einstiegspreis. Klingt schnell wie jede Agentur."
+        ]
+      }
+    ],
+    "b_weisen": [
+      {
+        "id": "b1",
+        "label": "B1",
+        "name": "Auslagerung",
+        "h": "Deine Marketingabteilung. Ohne Einstellung.",
+        "argument": "Erzählt über das Team: fünf Profile, ein fester Ansprechpartner, du musst niemanden suchen.",
+        "passt": "Agenturleiter, die gerade überlegen, jemanden einzustellen.",
+        "risiko": "Austauschbar mit Agenturen; lädt zum Gehaltsvergleich ein."
+      },
+      {
+        "id": "b2",
+        "label": "B2",
+        "name": "Digitale Maschine",
+        "h": "Die digitale Maschine vor deinem Vertrieb.",
+        "argument": "Erzählt über das Ergebnis: ein System, das echte Anfragen in deinen Vertrieb bringt – und wir bedienen es.",
+        "passt": "Infografik, Roll-ups und Angebots-PDF erzählen schon so.",
+        "risiko": "Klingt technisch; Menschen und Ansprechpartner müssen sichtbar bleiben."
+      }
+    ],
+    "b_einschaetzung": "B2 – weil alle Unterlagen von heute schon so erzählen. Die Rollen aus B1 bleiben als zweite Ebene (Team-Abschnitt, Rollenprofile, PDF).",
+    "beats": [
+      {
+        "name": "Einstieg",
+        "a": {
+          "h": "Für jede Zielgruppe sofort sichtbar.",
+          "t": "Fertige Vertriebsstrecken für die Zielgruppen, die du gewinnen willst – in Tagen online.",
+          "d": "Knöpfe: Kompass starten · Pakete ansehen"
+        },
+        "b": {
+          "h": "Die digitale Maschine vor deinem Vertrieb.",
+          "t": "Wir bauen und betreiben dein digitales Marketing. Bei dir kommen echte Anfragen an.",
+          "d": "B1 stattdessen: „Deine Marketingabteilung. Ohne Einstellung.“"
+        }
+      },
+      {
+        "name": "Problem",
+        "a": {
+          "h": "Du machst Marketing schon. Es kostet nur zu viel Zeit.",
+          "t": "Jede neue Zielgruppe fängt bei null an: Landingpage, Postings, Mailings.",
+          "d": ""
+        },
+        "b": {
+          "h": "Marketing läuft nebenher. Und deshalb läuft es nicht.",
+          "t": "Vorlagen gibt es genug. Zwischen Terminen und Schadenfällen wird wenig davon umgesetzt.",
+          "d": ""
+        }
+      },
+      {
+        "name": "Lösung",
+        "a": {
+          "h": "Eine Vertriebsstrecke je Zielgruppe.",
+          "t": "Landingpage, Postings und Kundenmailings – abgestimmt auf eine Zielgruppe und ihren Anlass.",
+          "d": "→ Unterseite Zielgruppenpakete"
+        },
+        "b": {
+          "h": "Drei Stufen zum Vertriebserfolg.",
+          "t": "Wir optimieren die erste: Aus regelmäßiger Wahrnehmung werden Anfragen, die direkt in deinen Vertrieb laufen.",
+          "d": "→ Infografik · Pop-up „Ablauf im Detail“"
+        }
+      },
+      {
+        "name": "So funktioniert es",
+        "a": {
+          "h": "Planen. Umsetzen. Steuern.",
+          "t": "Der Kompass zeigt, welche Zielgruppen zu dir passen. Die Strecken gehen online. Das Dashboard zeigt, was ankommt.",
+          "d": "→ Strategiekompass · Pop-up Dashboard"
+        },
+        "b": {
+          "h": "Erst klären wir, wo du wachsen willst.",
+          "t": "Segment, Sparte, Zielgruppe. Daraus leiten wir Themen, Landingpages und Kanäle ab.",
+          "d": "→ Strategiekompass"
+        }
+      },
+      {
+        "name": "Arbeitsteilung",
+        "a": {
+          "h": "Dein Team bleibt am Steuer.",
+          "t": "Wer bei dir postet, bekommt fertige Inhalte und einen Plan statt eines leeren Kalenders.",
+          "d": ""
+        },
+        "b": {
+          "h": "Wir übernehmen. Du führst die Gespräche.",
+          "t": "Landingpages, Postings, Dashboard, Report und Betreuungscall liegen bei uns. LinkedIn, Paid Ads und Website kommen dazu, wenn du willst.",
+          "d": "→ Pop-up „Alle Leistungen“ · Angebots-PDF"
+        }
+      },
+      {
+        "name": "Steuerung",
+        "a": {
+          "h": "Du siehst, was ankommt.",
+          "t": "Anfragen je Zielgruppe im Dashboard. Im Paket Team mit Empfehlungen und Reporting.",
+          "d": "→ Pop-up Dashboard"
+        },
+        "b": {
+          "h": "Jeden Monat ein Stück besser.",
+          "t": "Report, Betreuungscall und Empfehlungen. Gemessen wird, was zählt: echte Anfragen.",
+          "d": ""
+        }
+      },
+      {
+        "name": "Angebot",
+        "a": {
+          "h": "Fokus oder Team.",
+          "t": "Fokus für den Einstieg, Team mit Strategietool Pro, Empfehlungen, mehreren Nutzern und Reporting. Weitere Strecken in jedem Paket buchbar.",
+          "d": "→ Unterseite Pakete und Preise"
+        },
+        "b": {
+          "h": "Ein Kernpaket. Drei Ergänzungen.",
+          "t": "Dahinter ein festes Team aus fünf Profilen – mit einem Ansprechpartner.",
+          "d": "→ Rollenprofile im Pop-up · PDF als Download"
+        }
+      },
+      {
+        "name": "Brücke",
+        "a": {
+          "h": "Lieber ganz abgeben?",
+          "t": "Dann bedienen wir die Maschine für dich.",
+          "d": "→ Variante B"
+        },
+        "b": {
+          "h": "Lieber selbst steuern?",
+          "t": "Dann bekommst du die Vertriebsstrecken und steuerst mit deinem Team.",
+          "d": "→ Variante A"
+        }
+      },
+      {
+        "name": "Kontakt",
+        "a": {
+          "h": "Welche Zielgruppen bewegen bei dir Umsatz?",
+          "t": "In 30 Minuten klären wir, womit du startest.",
+          "d": "→ Termin auswählen"
+        },
+        "b": {
+          "h": "Aus Gespräch wird Klarheit.",
+          "t": "Wir klären, welche Bausteine zu deinen Zielen passen, und melden uns mit einem konkreten Vorschlag.",
+          "d": "→ Termin auswählen"
+        }
+      }
+    ],
+    "wege": [
+      {
+        "name": "Weiche am Anfang",
+        "text": "Die Startseite fragt sofort: Machst du Marketing selbst – oder gibst du es ab? Zwei Wege, zwei Geschichten.",
+        "pro": "Jeder findet sich im ersten Moment wieder.",
+        "contra": "Zwei halbe Geschichten auf einer Seite; Entscheidung fällt, bevor wir überzeugt haben.",
+        "empfohlen": false
+      },
+      {
+        "name": "Hauptstory mit Ausbaustufe",
+        "text": "Die Startseite erzählt A. Marketing abgeben ist das oberste Paket und ein eigener Abschnitt.",
+        "pro": "Eine klare Linie, günstiger Einstieg.",
+        "contra": "Wer abgeben will, findet sein Angebot erst weit unten.",
+        "empfohlen": false
+      },
+      {
+        "name": "Zwei Seiten, verknüpft",
+        "text": "Startseite erzählt A. Eine eigene Seite erzählt B vollständig. Kopf, Pakete und Brücke verlinken gegenseitig.",
+        "pro": "Jede Geschichte bleibt ganz; Postings und Kampagnen können gezielt auf A oder B verlinken.",
+        "contra": "Zwei Seiten zu pflegen.",
+        "empfohlen": true
+      }
+    ],
+    "entscheidungen": [
+      {
+        "frage": "Wie erzählen wir Variante B?",
+        "vorschlag": "Als digitale Maschine (B2). Das Team bleibt zweite Ebene."
+      },
+      {
+        "frage": "Wie kommen A und B auf die Website?",
+        "vorschlag": "Zwei Seiten, gegenseitig verknüpft."
+      },
+      {
+        "frage": "Was heißt „Kernpaket“?",
+        "vorschlag": "Heute zweimal belegt: in Marketing as a Service die laufende Betreuung (1.800 €), im Paketentwurf nur die Vertriebsstrecken. Vorschlag: „Kernpaket“ bleibt bei Marketing as a Service; in A heißen die Bausteine „Vertriebsstrecken“."
+      },
+      {
+        "frage": "Wie unterscheiden sich Fokus und Team?",
+        "vorschlag": "Über die Leistung, nicht über die Zahl der Strecken. Strecken sind in jedem Paket einzeln dazubuchbar."
+      },
+      {
+        "frage": "Preise öffentlich oder erst im Gespräch?",
+        "vorschlag": "Offen."
+      }
+    ],
+    "grundlagen": [
+      [
+        "Marketing as a Service",
+        "/entwicklung/storyboard/story6/marketing-as-a-service/"
+      ],
+      [
+        "Infografik Marketing as a Service",
+        "/entwicklung/storyboard/story6/maas-infografik/"
+      ],
+      [
+        "Strategiekompass",
+        "/entwicklung/storyboard/story6/strategiekompass/"
+      ],
+      [
+        "Homepage-Story 3 · Positionierung",
+        "/entwicklung/storyboard/positionierung"
+      ]
+    ],
+    "gemeinsam": [
+      [
+        "Strategie",
+        "Wir klären mit dir, wo du wachsen willst: Segment, Sparte, Zielgruppe."
+      ],
+      [
+        "Vertriebsstrecken",
+        "Je Zielgruppe Landingpage, Postings und Kundenmailings – fertig und auf einen Anlass zugeschnitten."
+      ],
+      [
+        "Anschluss an den Vertrieb",
+        "Anfragen kommen direkt bei dir an und gehen nahtlos in Terminierung, Beratung, Abschluss."
+      ],
+      [
+        "Steuerung",
+        "Dashboard mit dem einen Messpunkt, der zählt: echte Anfragen."
+      ],
+      [
+        "Ergebnis",
+        "Mehr Gespräche mit den Menschen, die du gewinnen willst."
+      ]
+    ],
+    "unterschied": [
+      [
+        "Wer setzt um?",
+        "Dein Team, mit fertigen Inhalten und Plan.",
+        "Wir."
+      ],
+      [
+        "Postings",
+        "Fertig geliefert, ihr veröffentlicht.",
+        "Wir erstellen und veröffentlichen laufend."
+      ],
+      [
+        "Empfehlungen und Reporting",
+        "Im Paket Team.",
+        "Monatlicher Report und Betreuungscall."
+      ],
+      [
+        "Ergänzungen",
+        "–",
+        "LinkedIn Power Package, Paid Ads, Website."
+      ],
+      [
+        "Einstieg",
+        "Fokus oder Team.",
+        "Kernpaket ab 1.800 € im Monat."
+      ]
+    ],
+    "grundstory": [
+      {
+        "name": "Einstieg",
+        "h": "Die digitale Maschine vor deinem Vertrieb.",
+        "t": "Mehr echte Anfragen aus den Zielgruppen, die du gewinnen willst. Planbar, messbar, in Tagen gestartet.",
+        "d": "Rechts die Maschinen-Grafik · Knöpfe: Termin auswählen · Kompass starten"
+      },
+      {
+        "name": "So läuft die Maschine",
+        "h": "Vom Ziel bis zur Anfrage. Durchgängig.",
+        "t": "",
+        "d": "Die drei Sektionen aus Infografik und Roll-up · → Pop-up „Ablauf im Detail“",
+        "schritte": [
+          [
+            "01",
+            "Du weißt, wo du wachsen willst."
+          ],
+          [
+            "02",
+            "Deine Zielgruppen nehmen dich regelmäßig wahr. Anfragen laufen direkt in deinen Vertrieb."
+          ],
+          [
+            "03",
+            "Du siehst jeden Monat, ob es funktioniert."
+          ]
+        ]
+      },
+      {
+        "name": "Wie viel machst du selbst?",
+        "h": "Du bedienst sie. Oder wir.",
+        "t": "Gleiches Ergebnis, zwei Wege. Mit eigenem Team bekommst du die Vertriebsstrecken und steuerst selbst. Ohne eigenes Team betreiben wir die Maschine für dich.",
+        "d": "Zwei Karten nebeneinander: „Mit deinem Team“ → Pakete Fokus und Team · „Wir übernehmen“ → Marketing as a Service"
+      },
+      {
+        "name": "Für deine Zielgruppen",
+        "h": "20 Zielgruppen. Jede mit einem echten Anlass.",
+        "t": "Von der Geburt bis zur Praxisgründung: fertige Vertriebsstrecken, die sofort live gehen.",
+        "d": "Laufband der Zielgruppen · → Unterseite Zielgruppenpakete"
+      },
+      {
+        "name": "Vertrauen",
+        "h": "Seit 2012 im Versicherungsvertrieb.",
+        "t": "Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Strecke.",
+        "d": "Team-Foto · Stimme der Pilotagentur"
+      },
+      {
+        "name": "Kontakt",
+        "h": "Welche Zielgruppen bewegen bei dir Umsatz?",
+        "t": "In 30 Minuten klären wir, wo du wachsen willst und welcher Weg zu dir passt.",
+        "d": "→ Termin auswählen"
+      }
+    ],
+    "grundstory_hinweis": "Kein Problem-Vorlauf: Der Mehrwert steht im ersten Bild. Das Problem steckt in einem Halbsatz – „Anfragen, die direkt in deinen Vertrieb laufen“ setzt voraus, dass sie heute fehlen."
   }
 }

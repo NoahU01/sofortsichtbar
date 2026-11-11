@@ -34,6 +34,8 @@ seiten:
     farbe: "ss"
   - slug: "maas-infografik"
     titel: "Infografik Marketing as a Service"
+  - slug: "story-varianten"
+    titel: "Story-Varianten"
   - slug: "ueber-uns"
     titel: "Über uns"
     h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
@@ -1297,6 +1299,315 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     </div>
   </section>
   {%- endfor %}
+</div>
+</main>
+{% elif s.slug == "story-varianten" %}
+{#- Diskussionsgrundlage: zwei Story-Varianten für die Startseite (A sofort sichtbar · B Marketing abgeben).
+    Inhalt in story6.11tydata.json → story_varianten. -#}
+{%- set V = story_varianten -%}
+<style>
+.sv .container { max-width: 76rem; }
+html body .e2-alt.sv .sv-kopf h1 { margin: 0; font-size: clamp(2.6rem, 6vw, 5rem) !important; line-height: 1.3 !important; }
+.sv-kopf__raster { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4rem; align-items: start; }
+.sv-zg { margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid #e7e4df; }
+html body .e2-alt.sv .sv-label { margin: 0 !important; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6f6a64; }
+html body .e2-alt.sv .sv-zg p:not(.sv-label) { margin: .4rem 0 0 !important; font-size: 1rem; line-height: 1.55; color: #1a1817; }
+.sv-fragen { padding: 2rem 2rem 1.6rem; border-radius: 22px; background: #1a1817; color: #fff; }
+html body .e2-alt.sv .sv-fragen .sv-label { color: #fff400; }
+.sv-fragen ol { list-style: none; margin: 1rem 0 0; padding: 0; }
+.sv-fragen li + li { border-top: 1px solid rgba(255,255,255,.14); }
+.sv-fragen a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; color: #fff; font-size: 1rem; line-height: 1.4; text-decoration: none; }
+.sv-fragen a:hover { color: #fff400; }
+/* gemeinsamer Kern */
+.sv-kern { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }
+.sv-kern > div { padding: 1.8rem; border-radius: 22px; background: #fff; }
+.sv-kern b { display: block; font: 700 2.4rem/1 var(--font-sans, Poppins, sans-serif); color: #1a1817; }
+html body .e2-alt.sv .sv-kern .sv-label { margin-top: 1.2rem !important; }
+html body .e2-alt.sv .sv-kern h3 { margin: .3rem 0 0; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.3; }
+html body .e2-alt.sv .sv-kern p:not(.sv-label) { margin: .6rem 0 0 !important; font-size: .98rem; line-height: 1.55; color: #3d3a37; }
+/* Vergleich: Zeilen auf gleicher Höhe (subgrid) */
+.sv-vgl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(10, auto); column-gap: 1.4rem; margin-top: 2.6rem; }
+.sv-karte { display: grid; grid-row: span 10; grid-template-rows: subgrid; row-gap: 0; padding: 2.2rem 2.2rem 1.6rem; border-radius: 22px; border: 2px solid #1a1817; background: #fff; }
+.sv-karte--b { background: #1a1817; color: #fff; }
+html body .e2-alt.sv .sv-karte__kopf { margin: 0 !important; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6f6a64; }
+html body .e2-alt.sv .sv-karte--b .sv-karte__kopf { color: #fff400; }
+html body .e2-alt.sv .sv-karte h3 { margin: .4rem 0 0; font-family: var(--font-serif); font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.2; }
+html body .e2-alt.sv .sv-karte--b h3 { color: #fff; }
+html body .e2-alt.sv .sv-karte__frage { margin: .3rem 0 .8rem !important; font-size: 1rem; color: #6f6a64; }
+html body .e2-alt.sv .sv-karte--b .sv-karte__frage { color: #cfcac3; }
+.sv-zeile { padding: 1rem 0; border-top: 1px solid #e7e4df; }
+.sv-karte--b .sv-zeile { border-top-color: rgba(255,255,255,.16); }
+html body .e2-alt.sv .sv-zeile .sv-label { font-size: .7rem; }
+html body .e2-alt.sv .sv-karte--b .sv-zeile .sv-label { color: #9b958e; }
+html body .e2-alt.sv .sv-zeile p:not(.sv-label) { margin: .35rem 0 0 !important; font-size: 1rem; line-height: 1.55; color: #1a1817; }
+html body .e2-alt.sv .sv-karte--b .sv-zeile p:not(.sv-label) { color: #fff; }
+html body .e2-alt.sv .sv-zeile--versprechen p:not(.sv-label) { font-family: var(--font-serif); font-size: 1.25rem !important; font-weight: 700; line-height: 1.35 !important; }
+/* B1 / B2 */
+.sv-weisen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.4rem; margin-top: 2.6rem; }
+.sv-weise { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.4rem; border-radius: 22px; background: #fff; }
+html body .e2-alt.sv .sv-weise__h { margin: .5rem 0 .6rem !important; font-family: var(--font-serif); font-size: 1.55rem; font-weight: 700; line-height: 1.3; color: #1a1817; }
+.sv-weise .sv-zeile:first-of-type { border-top: 0; }
+.sv-einsch { display: flex; gap: 1.2rem; align-items: baseline; margin-top: 1.4rem; padding: 1.2rem 1.8rem; border-radius: 14px; background: #fff400; }
+html body .e2-alt.sv .sv-einsch p { margin: 0 !important; font-size: 1rem; line-height: 1.5; color: #1a1817; }
+html body .e2-alt.sv .sv-einsch .sv-label { flex: none; color: #1a1817; }
+/* Beats */
+.sv-beats { margin-top: 2.6rem; }
+.sv-beat { display: grid; grid-template-columns: 11rem minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.4rem; padding: 1.5rem 0; border-top: 1px solid #e7e4df; }
+.sv-beat--kopf { padding: 0 0 .8rem; border-top: 0; }
+html body .e2-alt.sv .sv-beat__name { margin: .35rem 0 0 !important; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6f6a64; }
+html body .e2-alt.sv .sv-beat h3 { margin: 0; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.32; }
+html body .e2-alt.sv .sv-beat p.sv-beat__t { margin: .45rem 0 0 !important; font-size: .98rem; line-height: 1.55; color: #3d3a37; }
+html body .e2-alt.sv .sv-beat p.sv-beat__d { margin: .5rem 0 0 !important; font-size: .85rem; line-height: 1.45; color: #6f6a64; }
+.sv-beat__zelle--b { padding-left: 1.4rem; border-left: 2px solid #1a1817; }
+.sv-beat__zelle--a { padding-left: 1.4rem; border-left: 2px solid #e7e4df; }
+/* Wege */
+.sv-wege { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); column-gap: 1.2rem; margin-top: 2.6rem; }
+.sv-weg { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.8rem 1.4rem; border-radius: 22px; background: #fff; }
+.sv-weg--emp { box-shadow: inset 0 0 0 2px #1a1817; }
+html body .e2-alt.sv .sv-weg h3 { margin: .4rem 0 0; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.3; }
+html body .e2-alt.sv .sv-weg__text { margin: .6rem 0 .4rem !important; font-size: .98rem; line-height: 1.55; color: #3d3a37; }
+.sv-marke { align-self: start; justify-self: start; padding: .25rem .7rem; border-radius: 99px; background: #fff400; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.sv-marke--leer { visibility: hidden; }
+/* Entscheidungen */
+.sv-ent { list-style: none; margin: 2.4rem 0 0; padding: 0; }
+.sv-ent li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2rem; padding: 1.3rem 0; border-top: 1.5px solid rgba(26,24,23,.35); }
+html body .e2-alt.sv .sv-ent h3 { margin: 0; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.35; }
+html body .e2-alt.sv .sv-ent p { margin: 0 !important; font-size: 1rem; line-height: 1.55; color: #1a1817; }
+html body .e2-alt.sv .sv-ent p b { font-weight: 600; }
+/* Grundstory */
+.sv-story { margin-top: 2.6rem; border-radius: 22px; background: #1a1817; color: #fff; overflow: hidden; }
+.sv-story__beat { display: grid; grid-template-columns: 13rem minmax(0, 1fr); column-gap: 2rem; padding: 1.8rem 2.4rem; border-top: 1px solid rgba(255,255,255,.14); }
+.sv-story__beat:first-child { border-top: 0; padding-top: 2.4rem; }
+.sv-story__beat:last-child { padding-bottom: 2.4rem; }
+html body .e2-alt.sv .sv-story__name { margin: .45rem 0 0 !important; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff400; }
+html body .e2-alt.sv .sv-story h3 { margin: 0; color: #fff; font-family: var(--font-serif); font-size: clamp(1.4rem, 2.2vw, 1.8rem); line-height: 1.3; }
+html body .e2-alt.sv .sv-story__beat:first-child h3 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+html body .e2-alt.sv .sv-story p.sv-story__t { margin: .55rem 0 0 !important; max-width: 46rem; font-size: 1.05rem; line-height: 1.6; color: #e9e6e1; }
+html body .e2-alt.sv .sv-story p.sv-story__d { margin: .55rem 0 0 !important; font-size: .86rem; line-height: 1.45; color: #9b958e; }
+.sv-story__schritte { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin: 1rem 0 .2rem; padding: 0; }
+.sv-story__schritte b { display: block; color: #fff400; font: 700 1.6rem/1 var(--font-sans, Poppins, sans-serif); }
+.sv-story__schritte span { display: block; margin-top: .5rem; color: #e9e6e1; font-size: 1rem; line-height: 1.5; }
+@media (max-width: 760px) { .sv-story__schritte { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+/* Gilt in beiden */
+.sv-gem { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.4rem; margin-top: 2.6rem; align-items: start; }
+.sv-gem__liste { padding: 2rem 2.2rem 1.4rem; border-radius: 22px; background: #fff400; }
+.sv-gem__liste .sv-zeile { border-top-color: rgba(26,24,23,.25); }
+.sv-gem__liste > .sv-label, .sv-gem__tab > .sv-label { margin-bottom: .8rem !important; }
+html body .e2-alt.sv .sv-tab--kopf .sv-label { font-size: .68rem; }
+html body .e2-alt.sv .sv-gem__liste .sv-label { color: #1a1817; }
+.sv-gem__tab { padding: 2rem 2.2rem 1.4rem; border-radius: 22px; background: #f4f3f0; }
+.sv-tab { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 5fr); column-gap: 1.4rem; padding: 1rem 0; border-top: 1px solid #dcd8d1; }
+.sv-tab--kopf { padding-top: .6rem; border-top: 0; }
+html body .e2-alt.sv .sv-tab p { margin: 0 !important; font-size: .98rem; line-height: 1.5; color: #1a1817; }
+html body .e2-alt.sv .sv-tab p:first-child { font-weight: 600; }
+@media (max-width: 1000px) { .sv-gem { grid-template-columns: minmax(0, 1fr); } .sv-story__beat { grid-template-columns: minmax(0, 1fr); row-gap: .3rem; padding: 1.5rem 1.6rem; } }
+@media (max-width: 600px) { .sv-tab { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: .3rem; } .sv-tab > :first-child { grid-column: 1 / -1; } }
+.sv-grund { display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin-top: 1.4rem; }
+.sv-grund a { color: #1a1817; font-weight: 500; }
+@media (max-width: 1000px) {
+  .sv-kopf__raster, .sv-kern, .sv-wege { grid-template-columns: minmax(0, 1fr); }
+  .sv-kern, .sv-wege { gap: 1rem; }
+  .sv-weg { grid-row: auto; }
+  .sv-beat { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: .8rem; }
+  .sv-beat__name { grid-column: 1 / -1; }
+  .sv-beat--kopf > :first-child { display: none; }
+}
+@media (max-width: 760px) {
+  .sv-vgl, .sv-weisen { grid-template-columns: minmax(0, 1fr); row-gap: 1.2rem; }
+  .sv-karte, .sv-weise { grid-row: auto; grid-template-rows: none; }
+  .sv-beat { grid-template-columns: minmax(0, 1fr); }
+  .sv-beat--kopf { display: none; }
+  .sv-beat__zelle--a::before, .sv-beat__zelle--b::before { display: block; margin-bottom: .3rem; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6f6a64; }
+  .sv-beat__zelle--a::before { content: "A · Sofort sichtbar"; }
+  .sv-beat__zelle--b::before { content: "B · Marketing abgeben"; }
+  .sv-ent li { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .sv-einsch { flex-direction: column; gap: .4rem; }
+}
+</style>
+<main>
+<div class="e2-alt e2-seite--sofort-sichtbar maas sv">
+
+  <!-- Kopf -->
+  <section class="mx-held sv-kopf">
+    <div class="container sv-kopf__raster">
+      <div>
+        <p class="kicker">Storyboard · zur Diskussion</p>
+        <h1>Zwei Geschichten. <span class="hl">Ein Inhalt.</span></h1>
+        <p class="mx-lead">{{ V.lead }}</p>
+        <div class="sv-zg"><p class="sv-label">Für wen wir die Startseite schreiben</p><p>{{ V.zielgruppe }}</p></div>
+      </div>
+      <nav class="sv-fragen" aria-label="Was wir besprechen">
+        <p class="sv-label">Was wir besprechen</p>
+        <ol>
+          <li><a href="#grundstory">Die Grundstory für die Startseite <span>→</span></a></li>
+          <li><a href="#gemeinsam">Was in A und B gilt – und was nicht <span>→</span></a></li>
+          <li><a href="#kern">Was in jeder Variante gleich bleibt <span>→</span></a></li>
+          <li><a href="#varianten">A und B im Vergleich <span>→</span></a></li>
+          <li><a href="#b-erzaehlen">Wie wir B erzählen <span>→</span></a></li>
+          <li><a href="#beats">Die Startseite Abschnitt für Abschnitt <span>→</span></a></li>
+          <li><a href="#website">Wie beide auf die Website kommen <span>→</span></a></li>
+          <li><a href="#entscheiden">Was wir entscheiden müssen <span>→</span></a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Grundstory (neu, 11.11.2026): eine Story für A und B -->
+  <section class="mx-band mx-band--hell" id="grundstory">
+    <div class="container">
+      <p class="kicker">Vorschlag für die Startseite</p>
+      <h2 class="h-serif">Eine Grundstory <span class="hl">für A und B.</span></h2>
+      <p class="mx-lead">Das Ergebnis ist in beiden Varianten gleich: Marketing, das sauber aufgestellt ist und Vertriebserfolg bringt – vom Ziel bis zur Anfrage. Darum erzählt die Startseite die Maschine und fragt erst danach, wer sie bedient.</p>
+      <div class="sv-story">
+        {%- for b in V.grundstory %}
+        <div class="sv-story__beat">
+          <p class="sv-story__name">{{ b.name }}</p>
+          <div><h3>{{ b.h }}</h3>{% if b.t %}<p class="sv-story__t">{{ b.t }}</p>{% endif %}
+            {%- if b.schritte %}<ol class="sv-story__schritte">{% for x in b.schritte %}<li><b>{{ x[0] }}</b><span>{{ x[1] }}</span></li>{% endfor %}</ol>{% endif %}
+            <p class="sv-story__d">{{ b.d }}</p></div>
+        </div>
+        {%- endfor %}
+      </div>
+      <div class="sv-einsch"><p class="sv-label">Warum so kurz</p><p>{{ V.grundstory_hinweis }}</p></div>
+    </div>
+  </section>
+
+  <!-- Gilt in beiden -->
+  <section class="mx-band" id="gemeinsam">
+    <div class="container">
+      <p class="kicker">Herausgefiltert</p>
+      <h2 class="h-serif">Was in A und B gilt. <span class="hl">Und was nicht.</span></h2>
+      <p class="mx-lead">Links steht, was die Startseite für alle verspricht. Rechts, worin sich die beiden Wege unterscheiden – das gehört hinter die Weiche.</p>
+      <div class="sv-gem">
+        <div class="sv-gem__liste">
+          <p class="sv-label">Gilt in beiden</p>
+          {%- for g in V.gemeinsam %}<div class="sv-zeile"><p class="sv-label">{{ g[0] }}</p><p>{{ g[1] }}</p></div>{% endfor %}
+        </div>
+        <div class="sv-gem__tab">
+          <p class="sv-label">Unterscheidet sich</p>
+          <div class="sv-tab sv-tab--kopf"><p class="sv-label">&nbsp;</p><p class="sv-label">A · Mit deinem Team</p><p class="sv-label">B · Wir übernehmen</p></div>
+          {%- for u in V.unterschied %}<div class="sv-tab"><p>{{ u[0] }}</p><p>{{ u[1] }}</p><p>{{ u[2] }}</p></div>{% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gemeinsamer Kern -->
+  <section class="mx-band mx-band--hell" id="kern">
+    <div class="container">
+      <p class="kicker">Was gleich bleibt</p>
+      <h2 class="h-serif">Die Leistung ist <span class="hl">in beiden dieselbe.</span></h2>
+      <p class="mx-lead">Die drei Sektionen aus Infografik und Roll-up. Sie verändern sich nicht, egal welche Geschichte wir erzählen.</p>
+      <div class="sv-kern">
+        {%- for k in V.kern %}
+        <div><b>{{ k.nr }}</b><p class="sv-label">{{ k.label }}</p><h3>{{ k.titel }}</h3><p>{{ k.text }}</p></div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- A und B -->
+  <section class="mx-band" id="varianten">
+    <div class="container">
+      <p class="kicker">Die zwei Varianten</p>
+      <h2 class="h-serif">Was du bekommst – oder <span class="hl">was du abgibst.</span></h2>
+      <p class="mx-lead">Zwei Agenturleiter, zwei Ausgangslagen. Der eine macht schon selbst und will schneller werden. Der andere will das Thema loswerden.</p>
+      <div class="sv-vgl">
+        {%- for v in V.varianten %}
+        <article class="sv-karte sv-karte--{{ v.id }}">
+          <p class="sv-karte__kopf">{{ v.label }}</p>
+          <h3>{{ v.name }}</h3>
+          <p class="sv-karte__frage">Erzählt über die Frage: {{ v.frage }}</p>
+          {%- for z in V.zeilen %}
+          <div class="sv-zeile{% if z == "Das Versprechen" %} sv-zeile--versprechen{% endif %}"><p class="sv-label">{{ z }}</p><p>{{ v.werte[loop.index0] }}</p></div>
+          {%- endfor %}
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- B erzählen -->
+  <section class="mx-band mx-band--hell" id="b-erzaehlen">
+    <div class="container">
+      <p class="kicker">Variante B</p>
+      <h2 class="h-serif">Auslagerung oder <span class="hl">Maschine?</span></h2>
+      <p class="mx-lead">Gleicher Inhalt, zwei Erzählweisen. Die Rollenprofile (Webdesigner, Content-Manager …) bleiben in beiden vorerst drin.</p>
+      <div class="sv-weisen">
+        {%- for w in V.b_weisen %}
+        <article class="sv-weise">
+          <p class="sv-label">{{ w.label }} · {{ w.name }}</p>
+          <p class="sv-weise__h">„{{ w.h }}“</p>
+          <div class="sv-zeile"><p class="sv-label">Argument</p><p>{{ w.argument }}</p></div>
+          <div class="sv-zeile"><p class="sv-label">Passt zu</p><p>{{ w.passt }}</p></div>
+          <div class="sv-zeile"><p class="sv-label">Risiko</p><p>{{ w.risiko }}</p></div>
+          <span></span>
+        </article>
+        {%- endfor %}
+      </div>
+      <div class="sv-einsch"><p class="sv-label">Unsere Einschätzung</p><p>{{ V.b_einschaetzung }}</p></div>
+    </div>
+  </section>
+
+  <!-- Beats -->
+  <section class="mx-band" id="beats">
+    <div class="container">
+      <p class="kicker">Storyboard</p>
+      <h2 class="h-serif">Die Startseite <span class="hl">Abschnitt für Abschnitt.</span></h2>
+      <p class="mx-lead">Je Abschnitt die Überschrift, ein Satz darunter und wohin die Details gehen. Nur Text, noch ohne Gestaltung. B ist als Maschine (B2) geschrieben.</p>
+      <div class="sv-beats">
+        <div class="sv-beat sv-beat--kopf"><span></span><p class="sv-label">A · Sofort sichtbar</p><p class="sv-label" style="padding-left:1.4rem">B · Marketing abgeben</p></div>
+        {%- for b in V.beats %}
+        <div class="sv-beat">
+          <p class="sv-beat__name">{{ b.name }}</p>
+          {%- for x in [["a", b.a], ["b", b.b]] %}
+          <div class="sv-beat__zelle sv-beat__zelle--{{ x[0] }}">
+            <h3>{{ x[1].h }}</h3>
+            <p class="sv-beat__t">{{ x[1].t }}</p>
+            {%- if x[1].d %}<p class="sv-beat__d">{{ x[1].d }}</p>{% endif %}
+          </div>
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Website -->
+  <section class="mx-band mx-band--hell" id="website">
+    <div class="container">
+      <p class="kicker">Auf der Website</p>
+      <h2 class="h-serif">Wie kommen <span class="hl">beide zusammen?</span></h2>
+      <p class="mx-lead">Drei Möglichkeiten, A und B auf sofortsichtbar.de unterzubringen.</p>
+      <div class="sv-wege">
+        {%- for w in V.wege %}
+        <article class="sv-weg{% if w.empfohlen %} sv-weg--emp{% endif %}">
+          <span class="sv-marke{% if not w.empfohlen %} sv-marke--leer{% endif %}">Unsere Einschätzung</span>
+          <h3>{{ w.name }}</h3>
+          <p class="sv-weg__text">{{ w.text }}</p>
+          <div class="sv-zeile"><p class="sv-label">Dafür</p><p>{{ w.pro }}</p></div>
+          <div class="sv-zeile"><p class="sv-label">Dagegen</p><p>{{ w.contra }}</p></div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Entscheidungen -->
+  <section class="mx-band mx-band--gelb" id="entscheiden">
+    <div class="container">
+      <p class="kicker">Zu entscheiden</p>
+      <h2 class="h-serif">Was wir festlegen müssen.</h2>
+      <ul class="sv-ent">
+        {%- for e in V.entscheidungen %}
+        <li><h3>{{ e.frage }}</h3><p><b>Vorschlag:</b> {{ e.vorschlag }}</p></li>
+        {%- endfor %}
+      </ul>
+      <div class="sv-zg" style="border-top-color: rgba(26,24,23,.35)"><p class="sv-label" style="color:#1a1817">Grundlagen</p>
+        <div class="sv-grund">{% for g in V.grundlagen %}<a href="{{ g[1] }}">{{ g[0] }}</a>{% endfor %}<span>Landingpage-Entwurf mit Paketen Fokus · Team · Komplett (Datei, 11.11.2026)</span></div>
+      </div>
+    </div>
+  </section>
 </div>
 </main>
 {% elif s.slug == "kontakt" %}
