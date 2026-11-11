@@ -26,10 +26,6 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
 
 {#- ======================= Bausteine ======================= -#}
-{%- macro symbol(klasse="") -%}
-<svg class="s7-symbol {{ klasse }}" viewBox="0 0 48 24" aria-hidden="true"><path class="s7-symbol__trichter" d="M0 1 C14 1 18 9 30 10 V14 C18 15 14 23 0 23 Z"/><path class="s7-symbol__pfeil" d="M32 12 H45 M40 7 L45 12 L40 17"/></svg>
-{%- endmacro -%}
-
 {%- macro erklaerbild() -%}
 {%- set E = S.erklaerbild -%}
 <div class="ek" role="img" aria-label="Die digitale Maschine: Landingpages, Postings, Mailings, LinkedIn und Anzeigen füllen einen Trichter. Heraus kommen echte Anfragen – sie laufen in deinen Vertrieb und werden zu Kunden, die bleiben. Sichtbarkeit pflegt den Bestand und bringt neue Anlässe.">
@@ -48,7 +44,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
   <div class="ek__karte ek__karte--kunden"><b>{{ E.kunden }}</b><small>{{ E.kunden_klein }}</small></div>
   <div class="ek__rueck"><span>↑ {{ E.rueck }}</span></div>
 </div>
-<p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ symbol("s7-symbol--klein") }} {{ E.link }} {{ pfeil | safe }}</a></p>
+<p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
 {%- endmacro -%}
 
 {%- macro held(mitIds=true) -%}
@@ -314,10 +310,6 @@ p { margin: 0; }
 .ek__rueck::before { content: ""; position: absolute; left: -.42rem; top: -.55rem; border: .4rem solid transparent; border-bottom: .55rem solid var(--s7-tinte); border-top: 0; }
 .ek__rueck span { position: relative; top: 100%; display: inline-block; padding: .45rem 1rem; border-radius: 99px; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); font-size: .85rem; font-weight: 600; transform: translateY(-50%); }
 .ek__mehr { margin-top: 2.4rem; text-align: center; }
-.s7-symbol { width: 2.6rem; height: 1.3rem; flex: none; }
-.s7-symbol--klein { width: 2rem; height: 1rem; }
-.s7-symbol__trichter { fill: var(--s7-akzent-fill); }
-.s7-symbol__pfeil { fill: none; stroke: var(--s7-tinte); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 820px) {
   .ek { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; justify-items: center; text-align: center; }
   .ek > * { grid-column: 1 !important; grid-row: auto !important; }
