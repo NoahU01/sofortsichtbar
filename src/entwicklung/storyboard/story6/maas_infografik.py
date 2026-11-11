@@ -90,9 +90,9 @@ def logo(w):
     import base64, os
     pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "img", "logo-dunkel.svg")
     daten = base64.b64encode(open(pfad, "rb").read()).decode()
-    lw = 46 if w >= 400 else 40
+    lw = 30 if w >= 400 else 26          # wie ein Briefkopf-Logo: auf A3 rund 26–30 mm breit
     lh = lw * 40 / 78
-    return (f'<image x="{w - 20 - lw}" y="8" width="{lw}" height="{lh:.1f}" href="data:image/svg+xml;base64,{daten}" '
+    return (f'<image x="{w - 20 - lw}" y="11" width="{lw}" height="{lh:.1f}" href="data:image/svg+xml;base64,{daten}" '
             f'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="data:image/svg+xml;base64,{daten}"/>')
 
 

@@ -490,6 +490,39 @@ CSS = """
 """
 
 
+# ---- Farbvariante sofort sichtbar (Seite „Marketing as a Service 2.0“): Gelb → Blau-Violett, Logo sofort sichtbar ----
+SS_VOLL = "linear-gradient(120deg, #2f55c8 0%, #8324b9 58%, #a23edb 100%)"
+SS_ZART = "linear-gradient(90deg, rgba(47,85,200,.16), rgba(162,62,219,.24))"
+SS_FLAECHEN = ".seite--gelb, .band--gelb, .wg__ueb, .immer, .sf--wir, .hs__rueck, .motiv--gelb, .titel-b .unten, .tabelle .mitte, .fall .sym, .post--top .post__bild"
+SS_CSS = f"""
+.hl {{ background: {SS_ZART} !important; color: #1a1817 !important; }}
+:is({SS_FLAECHEN}) {{ background: {SS_VOLL} !important; color: #fff !important; }}
+:is({SS_FLAECHEN}) :is(*):not(svg *) {{ color: #fff !important; border-color: rgba(255,255,255,.7) !important; }}
+:is({SS_FLAECHEN}) svg {{ color: #fff !important; stroke: currentColor; }}
+:is({SS_FLAECHEN}) .hl {{ background: rgba(255,255,255,.22) !important; color: #fff !important; }}
+:is({SS_FLAECHEN}) .strich, :is({SS_FLAECHEN}) .kicker::before {{ background: #fff !important; }}
+.immer b::before, .seite--gelb li::before, .band--gelb li::before {{ border-color: #fff !important; }}
+.ab li:not(:last-child)::after {{ border-top-color: rgba(255,255,255,.6) !important; }}
+.hs__nr--kern {{ color: #b98cf0 !important; }}
+.sbild__leg--wir::before {{ background: #8324b9 !important; border-color: #8324b9 !important; }}
+.seite--gelb .kopf img {{ filter: brightness(0) invert(1); }}
+.kopf img, .titel .logo, .titel-b .oben .logo {{ height: 9mm !important; margin: -1.5mm 0 -1.5mm -2.6mm; }}
+"""
+
+
+def ss_html(html):
+    """Fertiges Angebots-HTML in die Farben von sofort sichtbar umstellen (Inhalt und Schrift unverändert)."""
+    html = re.sub(r"color:\s*#fff400", "color: #b98cf0", html)          # gelbe Schrift auf Schwarz → helles Violett
+    html = re.sub(r"(background|border-color|border-top-color)(\s*:\s*)#fff400", r"\1\2#8324b9", html)
+    html = re.sub(r"box-shadow: 0 0 0 1.2mm #fff400", "box-shadow: 0 0 0 1.2mm #a23edb", html)
+    html = re.sub(r"#fff400", "#a23edb", html, flags=re.I)                # übrige Flächen (Kopfbild, Icons)
+    logo = os.path.join(HERE, "assets", "img", "logo-dunkel.svg")
+    logo_w = os.path.join(HERE, "..", "..", "..", "assets", "img", "logos", "logo-white.svg")
+    html = html.replace("assets/empiria-logo-weiss.svg", "file://" + os.path.abspath(logo_w))
+    html = html.replace("assets/empiria-logo.svg", "file://" + os.path.abspath(logo)).replace('alt="empiria"', 'alt="sofort sichtbar"')
+    return html.replace("</head>", f"<style>{SS_CSS}</style></head>", 1)
+
+
 def drucken(html, datei, praefix, meta):
     """HTML → PDF, Seitenbilder, Vorschau -1/-2; trägt Seitenzahl und Größe in meta ein."""
     src = os.path.join(BUILD, praefix + ".html")
@@ -541,6 +574,10 @@ def main():
     bild_png(M["maschine_ss"], "maschine-ss", 748)
     bild_png(M["strukturbild_ss"], "strukturbild-ss", 652)
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
+    # gleiche Inhalte in den Farben von sofort sichtbar (Download auf Seite 2.0)
+    M_ss = dict(M, maschine=M["maschine_ss"], strukturbild=M["strukturbild_ss"])
+    M.setdefault("pdf_ss", {"datei": "marketing-as-a-service-ss.pdf"})
+    drucken(ss_html(bauen(M_ss)), M["pdf_ss"]["datei"], "marketing-as-a-service-ss", M["pdf_ss"])
     # Arbeitsgrundlage als eigenes PDF (nicht im Angebots-PDF): Ablauf im Detail, A4 quer
     M.setdefault("pdf_ablauf", {"datei": "marketing-as-a-service-ablauf.pdf"})
     drucken(dokument(f"Ablauf im Detail – {T}", [detail_seite(M, 1, 1)], extra_css=mt.CSS + CSS + CSS_TEAM),

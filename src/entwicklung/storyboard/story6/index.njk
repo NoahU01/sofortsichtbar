@@ -427,8 +427,12 @@ html body .maas-d .maas-d__hinweis { margin: 1rem 0 0 !important; padding-top: .
    Gelb wird zu: kräftigem Verlauf (Flächen mit weißer Schrift), zartem Verlauf (Flächen mit dunkler Schrift), Hell-Violett (auf Schwarz). */
 .maas--ss { --ss-voll: linear-gradient(120deg, #2f55c8 0%, #8324b9 58%, #a23edb 100%); --ss-zart: linear-gradient(90deg, rgba(47,85,200,.16), rgba(162,62,219,.24)); --ss-violett: #8324b9; --ss-hell: #b98cf0; }
 html body .e2-alt.maas--ss .hl { background: var(--ss-zart) !important; border-radius: .14em !important; }
-.maas--ss .mx-band--gelb { background: linear-gradient(135deg, #eaf0fd 0%, #f3e9fc 100%); }
-.maas--ss .mx-ablauf__nr { background: #fff; }
+.maas--ss .mx-band--gelb { background: var(--ss-voll); color: #fff; }
+html body .e2-alt.maas--ss .mx-band--gelb :is(.kicker, h2, h3, p, .mx-lead) { color: #fff !important; }
+.maas--ss .mx-band--gelb .kicker::before { background: #fff !important; }
+.maas--ss .mx-ablauf__nr { background: transparent; border-color: #fff; color: #fff; }
+.maas--ss .mx-ablauf__ico { color: #fff; }
+.maas--ss .mx-ablauf li:not(:last-child)::after { border-top-color: rgba(255,255,255,.55); }
 html body .e2-alt.maas--ss .mx-band--schwarz .kicker, .maas--ss .mx-band--schwarz .mx-mehr, .maas--ss .mx-kern__kopf, .maas--ss .mx-kern__ico, .maas--ss .mx-kern .mx-mehr, .maas--ss .mx-profil__ico,
 html body .e2-alt.maas--ss .mx-fundament__label, html body .e2-alt.maas--ss .mx-team__klammer--kern { color: var(--ss-hell) !important; }
 .maas--ss .mx-team__klammer--kern::after { background: var(--ss-voll); }
@@ -1228,15 +1232,15 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     <div class="container">
       <div class="pdf-dl pdf-dl--mist" style="--dl-acc:#fff400;">
         <div class="pdf-dl-visual" aria-hidden="true">
-          <img class="pdf-dl-page pdf-dl-page--back" src="{{ A }}/maas/marketing-as-a-service-2.png" alt="" loading="lazy">
-          <img class="pdf-dl-page pdf-dl-page--front" src="{{ A }}/maas/marketing-as-a-service-1.png" alt="" loading="lazy">
+          <img class="pdf-dl-page pdf-dl-page--back" src="{{ A }}/maas/marketing-as-a-service{{ "-ss" if s.farbe == "ss" }}-2.png" alt="" loading="lazy">
+          <img class="pdf-dl-page pdf-dl-page--front" src="{{ A }}/maas/marketing-as-a-service{{ "-ss" if s.farbe == "ss" }}-1.png" alt="" loading="lazy">
         </div>
         <div class="pdf-dl-text">
           <p class="pdf-dl-kicker">Download</p>
           <h2 class="pdf-dl-h">Alles drin.</h2>
           <p class="pdf-dl-lead">Alle Bausteine mit Preisen, dein Team – und fünf komplette Stellenbeschreibungen mit fertigen Postings, falls du die Profile lieber selbst besetzt.</p>
-          <div class="pdf-dl-meta"><span>PDF</span><span>{{ M.pdf.seiten }} Seiten</span><span>{{ M.pdf.groesse }}</span></div>
-          <a class="pdf-dl-btn" href="{{ A }}/maas/{{ M.pdf.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="pdf-dl-meta"><span>PDF</span>{% set P = M.pdf_ss if s.farbe == "ss" else M.pdf %}<span>{{ P.seiten }} Seiten</span><span>{{ P.groesse }}</span></div>
+          <a class="pdf-dl-btn" href="{{ A }}/maas/{{ P.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
