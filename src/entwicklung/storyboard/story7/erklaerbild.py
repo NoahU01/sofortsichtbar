@@ -144,34 +144,50 @@ def svg(w, h, inhalt, klasse, name):
 
 # ---------------------------------------------------------------------------------------------
 # Herangezoomter Trichter für die Unterseite Marketing as a Service (Daniel, 12.11.2026):
-# nur unser Teil der Maschine, groß; jede Lage trägt Namen und Preis – die Grafik ist das Angebot.
+# Zielgruppen hinein → Trichter mit benannten Lagen → Leads → dein Vertrieb (Seite muss allein verständlich sein).
+# Preise stehen bei den Bausteinen, nicht in der Grafik (keine Doppelung).
 # Die ausführliche Fassung mit Strategie und Steuerung ist verworfen („nimmt der Grafik die Genialität“).
 # ---------------------------------------------------------------------------------------------
 MUND_Z = [60, 98, 136, 174]
 HALS_Z = [20, 28, 36, 44]
-PREISE = [  # außen → innen für die Beschriftung: (Lage, Name, Preis)
-    (1, "LinkedIn Power Package", "850 € im Monat"),
-    (2, "Paid Ads", "1.000 € im Monat je Kanal"),
-    (3, "Website-Entwicklung", "5.000 € einmalig"),
-]
+
+
+ZG = ["Junge Familien", "Private Bauherren", "Ärzte und Zahnärzte", "Inhabergeführte Firmen"]
+LAGEN_LANG = ["Kernpaket", "LinkedIn Power Package", "Paid Ads", "Website-Entwicklung"]
+
+
+def pille(x, y, s, groesse, mehr=False):
+    b = len(s) * groesse * 0.56 + 28
+    k = "ek2-pille ek2-pille--mehr" if mehr else "ek2-pille"
+    h = groesse + 18
+    return (f'<rect x="{x}" y="{y}" width="{b:.0f}" height="{h}" rx="{h / 2}" class="{k}"/>'
+            + text(x + b / 2, y + h / 2 + groesse * 0.36, s, "ek2-grau" if mehr else "ek2-t", groesse, 600, "middle")), b
 
 
 def zoom_quer():
-    W, H, c = 1120, 360, 180
-    x_flach, x_kurve, x_hals = 470, 780, 850
+    """Zielgruppen hinein → Trichter (Lagen mit Namen) → Leads → dein Vertrieb. Preise stehen bei den Bausteinen, nicht hier."""
+    W, H, c = 1120, 380, 200
+    xt = 250                                   # Beginn des Trichters
+    x_flach, x_kurve, x_hals = xt + 250, xt + 520, xt + 590
     o = []
+    # Zielgruppen
+    o.append(text(0, 20, "Deine Zielgruppen", "ek2-t", 15, 700))
+    hp, abst = 33, 14
+    y = c - (5 * hp + 4 * abst) / 2
+    for s in ZG:
+        o.append(pille(0, y, s, 15)[0]); y += hp + abst
+    o.append(pille(0, y, "+ weitere", 15, True)[0])
+    o.append(f'<path d="M{xt - 44} {c} H{xt - 14}" class="ek2-linie" marker-end="url(#ek2-pfeil-zquer)"/>')
+    # Trichter
+    o.append(text(xt, 20, "sofort sichtbar – deine Maschine", "ek2-t", 15, 700))
     for k in (3, 2, 1, 0):
         hm, hh = MUND_Z[k], HALS_Z[k]
-        d = (f"M0 {c - hm} H{x_flach} C{x_flach + 150} {c - hm} {x_kurve - 110} {c - hh} {x_kurve} {c - hh} H{x_hals} "
-             f"V{c + hh} H{x_kurve} C{x_kurve - 110} {c + hh} {x_flach + 150} {c + hm} {x_flach} {c + hm} H0 Z")
+        d = (f"M{xt} {c - hm} H{x_flach} C{x_flach + 140} {c - hm} {x_kurve - 100} {c - hh} {x_kurve} {c - hh} H{x_hals} "
+             f"V{c + hh} H{x_kurve} C{x_kurve - 100} {c + hh} {x_flach + 140} {c + hm} {x_flach} {c + hm} H{xt} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
-    for k, name, preis in PREISE:
-        y = c - (MUND_Z[k] + MUND_Z[k - 1]) / 2 + 5.5
-        o.append(f'<text x="28" y="{y}" class="ek2-t" font-size="15"><tspan font-weight="700">{name}</tspan>'
-                 f'<tspan class="ek2-grau" font-weight="500" dx="12">{preis}</tspan></text>')
-    o.append(logo(28, c - 13, 200, "ek2zq"))
-    o.append(f'<text x="28" y="{c + 30}" class="ek2-kern-t" font-size="15"><tspan font-weight="700">Kernpaket</tspan>'
-             f'<tspan font-weight="500" dx="12">ab 1.800 € im Monat</tspan></text>')
+    for k in (1, 2, 3):
+        o.append(text(xt + 24, c - (MUND_Z[k] + MUND_Z[k - 1]) / 2 + 5.5, LAGEN_LANG[k], "ek2-t", 15, 700))
+    o.append(text(xt + 24, c + 7, LAGEN_LANG[0], "ek2-kern-t", 20, 700))
     for i in range(3):
         o.append(f'<circle cx="{x_kurve - 34 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
     xm = x_hals + LUECKE / 2
@@ -187,9 +203,19 @@ def zoom_quer():
 
 def zoom_hoch():
     W, c = 340, 170
-    y_oben = 20
-    y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
     o = []
+    o.append(text(c, 16, "Deine Zielgruppen", "ek2-t", 13, 700, "middle"))
+    reihen = [[("Junge Familien", False), ("Private Bauherren", False)], [("Ärzte und Zahnärzte", False), ("+ weitere", True)]]
+    y = 30
+    for r in reihen:
+        breiten = [len(s) * 13 * 0.56 + 28 for s, _ in r]
+        x = c - (sum(breiten) + 8 * (len(r) - 1)) / 2
+        for (s, m), b in zip(r, breiten):
+            o.append(pille(x, y, s, 13, m)[0]); x += b + 8
+        y += 39
+    o.append(f'<path d="M{c} {y + 2} V{y + 24}" class="ek2-linie" marker-end="url(#ek2-pfeil-zhoch)"/>')
+    y_oben = y + 36
+    y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
     for k in (3, 2, 1, 0):
         hm, hh = MUND_H[k], HALS[k]
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
@@ -199,8 +225,7 @@ def zoom_hoch():
     for k, kurz in ((1, "LinkedIn"), (2, "Paid Ads"), (3, "Website")):
         xk = c - (MUND_H[k] + MUND_H[k - 1]) / 2 + 4.5
         o.append(text(xk, ym, kurz, "ek2-t", 12, 600, "middle", f' transform="rotate(-90 {xk} {ym})"'))
-    o.append(logo(c - 48, y_oben + 30, 96, "ek2zh"))
-    o.append(text(c, y_oben + 58, "Kernpaket", "ek2-kern-t", 13, 700, "middle"))
+    o.append(text(c, y_oben + 44, "Kernpaket", "ek2-kern-t", 16, 700, "middle"))
     for i in range(3):
         o.append(f'<circle cx="{c}" cy="{y_kurve - 30 + i * 15}" r="4" class="ek2-kern-p"/>')
     o.append(f'<path d="M{c + HALS[3]} {y_hals - 14} H{c + HALS[3] + 22}" class="ek2-linie ek2-linie--fein"/>')

@@ -453,6 +453,16 @@ p { margin: 0; }
 .mx7-dl__seite--vorn { left: 6%; top: 8%; transform: rotate(-4deg); }
 .mx7-dl__meta { display: flex; gap: 1.2rem; margin: 1.4rem 0 1.8rem; color: var(--s7-grau); font-size: .95rem; }
 
+/* Beleg */
+.mx7-beleg { text-align: center; }
+.mx7-beleg blockquote { max-width: 46rem; margin: 0 auto; }
+.mx7-beleg blockquote p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-wrap: balance; }
+.mx7-beleg cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
+.mx7-beleg__link { margin-top: 2rem; }
+/* Grafik: Zielgruppen als Pillen */
+.ek2-pille { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 1.4; }
+.ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
+
 /* Pop-ups: hell und ruhig, Grundschrift */
 .mx7-d { width: min(100% - 2rem, 46rem); max-height: 86vh; padding: clamp(1.6rem, 4vw, 2.6rem); border: 0; border-radius: var(--s7-rund); background: #fff; color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: 1rem; line-height: 1.6; text-align: left; }
 .mx7-d__zu { position: absolute; top: 1rem; right: 1rem; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: 1.3rem; line-height: 1; cursor: pointer; }
@@ -812,6 +822,14 @@ p { margin: 0; }
         <p class="mx7-dl__meta">{% for x in DL.meta %}<span>{{ x }}</span>{% endfor %}</p>
         <a class="s7-knopf" href="{{ B6 }}/assets/maas/{{ DL.datei }}" target="_blank" rel="noopener">{{ DL.knopf }} <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- Beleg: ein ruhiger Satz vor dem Kontakt, dazu der Weg zur Startseite -->
+  <section class="s7-band mx7-beleg">
+    <div class="s7-wrap">
+      <blockquote><p>„{{ M.beleg.zitat }}“</p><cite>{{ M.beleg.quelle }}</cite></blockquote>
+      <p class="mx7-beleg__link"><a class="s7-link" href="{{ H7 }}/#maschine">{{ M.beleg.link }} {{ pfeil | safe }}</a></p>
     </div>
   </section>
 
