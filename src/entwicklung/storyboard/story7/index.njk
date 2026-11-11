@@ -249,6 +249,8 @@ p { margin: 0; }
 .s7-maschine svg [fill="#3d3a37"] { fill: var(--s7-text); }
 .s7-maschine svg [fill="#6f6a64"] { fill: var(--s7-grau); }
 .s7-maschine svg text { font-family: var(--s7-schrift-text); }
+.s7-maschine svg .s7-kern { fill: var(--s7-auf-akzent); }
+.s7-maschine svg g.s7-kern { fill: none; stroke: var(--s7-auf-akzent); }
 
 /* ---------- So läuft die Maschine ---------- */
 .s7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.2rem; margin-top: 3rem; }
@@ -280,6 +282,7 @@ p { margin: 0; }
 .s7-dash__kachel { padding: .4rem .5rem .3rem; border-radius: 7px; background: var(--s7-flaeche); font-size: .7rem; font-weight: 600; color: var(--s7-tinte); }
 .s7-dash__kachel svg { width: 100%; height: 1.2rem; margin-top: .2rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.4; }
 .s7-dash__kachel--an { background: var(--s7-akzent); color: var(--s7-auf-akzent); }
+.s7-dash__kachel--an svg { stroke: var(--s7-auf-akzent); }
 .s7-dash__empf { margin: 0 .5rem .5rem; padding: .4rem .55rem; border: 1px solid var(--s7-linie); border-radius: 7px; font-size: .7rem; line-height: 1.35; color: var(--s7-text); }
 .s7-dash__empf b { color: var(--s7-tinte); }
 
@@ -365,30 +368,30 @@ p { margin: 0; }
 .s7-stil--apple .s7-schritt__nr { font-size: 1rem; color: #86868b; }
 .s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: var(--s7-akzent-verlauf); }
 
-/* Farbakzente für Apple-klar (Farbproben): kräftiger Verlauf für Wort und Komplett, zarte Flächen als eigene kühle Tönungen */
-.s7-farbe--cyanblau {
-  --s7-wort-verlauf: linear-gradient(100deg, #00b8f0 0%, #1f8bff 45%, #2f55ff 100%);
-  --s7-akzent: #dcf3fd; --s7-akzent-verlauf: linear-gradient(100deg, #d9f4fd, #dfe6ff); --s7-akzent-fill: url(#s7v-cyanblau);
-  --s7-komplett-grund: linear-gradient(140deg, #00a6e0 0%, #1f6bff 60%, #2f45e6 100%); --s7-komplett-text: #e6f3ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #1f5bff;
-}
+/* Farbakzente für Apple-klar (Farbproben): Farbe immer vollflächig mit weißer Schrift, im Wort als Verlauf – keine zarten Tönungen */
 .s7-farbe--cyanviolett {
-  --s7-wort-verlauf: linear-gradient(100deg, #00b4ef 0%, #4f6bff 50%, #8a3ffc 100%);
-  --s7-akzent: #e1efff; --s7-akzent-verlauf: linear-gradient(100deg, #d8f3fc, #ebe2ff); --s7-akzent-fill: url(#s7v-cyanviolett);
-  --s7-komplett-grund: linear-gradient(140deg, #00a3dc 0%, #4f5bf5 50%, #7d3cf0 100%); --s7-komplett-text: #ece9ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #5a45f0;
+  --s7-wort-verlauf: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%);
+  --s7-akzent: #0b9fbd; --s7-akzent-verlauf: linear-gradient(100deg, #0b9fbd, #8613a1); --s7-akzent-fill: url(#s7v-cyanviolett); --s7-auf-akzent: #ffffff;
+  --s7-komplett-grund: linear-gradient(140deg, #0b9fbd 0%, #8613a1 100%); --s7-komplett-text: #efe6f4; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #8613a1;
 }
 .s7-farbe--magentaviolett {
-  --s7-wort-verlauf: linear-gradient(100deg, #d6247f 0%, #a238e0 50%, #6c3cff 100%);
-  --s7-akzent: #ece4fb; --s7-akzent-verlauf: linear-gradient(100deg, #efe3f7, #e7e3ff); --s7-akzent-fill: url(#s7v-magentaviolett);
-  --s7-komplett-grund: linear-gradient(140deg, #c41f78 0%, #8a33d6 55%, #5b3cf0 100%); --s7-komplett-text: #f3e8ff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #7a35e0;
+  --s7-wort-verlauf: linear-gradient(100deg, #c51f5d 0%, #8613a1 100%);
+  --s7-akzent: #c51f5d; --s7-akzent-verlauf: linear-gradient(100deg, #c51f5d, #8613a1); --s7-akzent-fill: url(#s7v-magentaviolett); --s7-auf-akzent: #ffffff;
+  --s7-komplett-grund: linear-gradient(140deg, #c51f5d 0%, #8613a1 100%); --s7-komplett-text: #f6e7ef; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #8613a1;
+}
+.s7-farbe--infrarot {
+  --s7-wort-verlauf: linear-gradient(100deg, #ff2d55 0%, #5e2bff 100%);
+  --s7-akzent: #ff2d55; --s7-akzent-verlauf: linear-gradient(100deg, #ff2d55, #5e2bff); --s7-akzent-fill: url(#s7v-infrarot); --s7-auf-akzent: #ffffff;
+  --s7-komplett-grund: linear-gradient(140deg, #ff2d55 0%, #5e2bff 100%); --s7-komplett-text: #fde9f0; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #5e2bff;
 }
 /* Flächen-Test (Farbproben) */
-.fp-kacheln { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+.fp-kacheln { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
 .fp-k { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 11rem; padding: 1.6rem; border-radius: var(--s7-rund); }
 .fp-k b { display: block; font-size: .85rem; font-weight: 600; }
 .fp-k small { display: block; margin-top: .2rem; font-size: .85rem; opacity: .8; }
 .fp-k--voll { background: var(--s7-komplett-grund); color: #fff; }
 .fp-k--zart { background: var(--s7-akzent-verlauf); color: var(--s7-tinte); }
-.fp-k--text { background: #fff; color: var(--s7-tinte); }
+.fp-k--text { background: #fff; border: 1px solid var(--s7-linie); color: var(--s7-tinte); }
 .fp-k__gross { font-family: var(--s7-schrift-titel); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
 @media (max-width: 760px) { .fp-kacheln { grid-template-columns: minmax(0, 1fr); } }
 
@@ -439,9 +442,9 @@ p { margin: 0; }
 {#- Verläufe für Grafiken (fill: url(#…)) – einmal je Seite -#}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
   <linearGradient id="s7v-pastell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e2ff"/><stop offset="1" stop-color="#ecdbff"/></linearGradient>
-  <linearGradient id="s7v-cyanblau" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4f2fd"/><stop offset="1" stop-color="#dbe4ff"/></linearGradient>
-  <linearGradient id="s7v-cyanviolett" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4f1fb"/><stop offset="1" stop-color="#e8deff"/></linearGradient>
-  <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eee0f6"/><stop offset="1" stop-color="#e3defe"/></linearGradient>
+  <linearGradient id="s7v-cyanviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
+  <linearGradient id="s7v-infrarot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff2d55"/><stop offset="1" stop-color="#5e2bff"/></linearGradient>
+  <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
 <div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
@@ -533,13 +536,12 @@ p { margin: 0; }
   </section>
   <div class="s7-stil s7-stil--apple s7-farbe--{{ f.id }}">
     {{ held(false) }}
-    <section class="s7-band s7-band--akzent">
+    <section class="s7-band">
       <div class="s7-wrap">
         <p class="s7-kicker">Flächen-Test</p>
         <h2 class="s7-h2">So wirkt die Farbe als Fläche.</h2>
         <div class="fp-kacheln">
-          <div class="fp-k fp-k--voll"><span class="fp-k__gross">ab 1.800 €</span><span><b>Kräftig</b><small>Komplett-Paket, hervorgehobene Flächen</small></span></div>
-          <div class="fp-k fp-k--zart"><span class="fp-k__gross">Leads</span><span><b>Zart</b><small>Kern der Maschine, Leads, gewählte Pills</small></span></div>
+          <div class="fp-k fp-k--voll"><span class="fp-k__gross">ab 1.800 €</span><span><b>Kräftig</b><small>Komplett-Paket, Kern der Maschine, Leads, gewählte Pills</small></span></div>
           <div class="fp-k fp-k--text"><span class="fp-k__gross s7-wort">vor deinem Vertrieb.</span><span><b>Als Schrift</b><small>Das hervorgehobene Wort</small></span></div>
         </div>
       </div>
