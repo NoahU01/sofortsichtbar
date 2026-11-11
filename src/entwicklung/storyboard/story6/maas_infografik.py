@@ -452,87 +452,130 @@ LINKEDIN_WEG = [("target", "Fokus-Kunden festlegen", "gemeinsam"), ("users", "Ne
 
 
 def entwurf_rollup3():
+    """Version 3: Blick in die Maschine. Hauptpunkt: das Ökosystem aus Baustein 1 (Kanäle mit sauberen Profilen und gefülltem
+    Content-Kalender, Bestandskunden-Mailings → Zielgruppen → Landingpages; Add-on Termine vor- und nachbereiten).
+    Dann LinkedIn als Prozesspfeile (wir/du), Bausteine 3 und 4 klein, Nutzen."""
     W, H, m = 300, 600, 22
     o = [t(m, 22, "MARKETING AS A SERVICE · SOFORT SICHTBAR", 4.8, 700, INK, extra=' letter-spacing="0.8"')]
     o.append(t(m, 42, "Ein Blick in", 16, 700, font=LORA))
-    o.append(f'<rect x="{m - 1.3}" y="{47}" width="{112}" height="{19}" rx="2" fill="{GELB}"/>')
+    o.append(f'<rect x="{m - 1.3}" y="47" width="112" height="19" rx="2" fill="{GELB}"/>')
     o.append(t(m, 61.5, "die Maschine.", 16, 700, font=LORA))
     o.append(zeilen(m, 80, "So läuft dein Vertrieb mit Baustein 1 und 2 – Woche für Woche. Paid Ads verstärken, die Website schließt die Lücke.", 70, 4.3, 6.2))
 
-    # 1 · Landingpage als Mittelpunkt
+    # 1 · Das Ökosystem (Hauptpunkt)
     y = 98
-    o.append(sektion(m, W, y, "1", "BAUSTEIN 1 · KERNPAKET", "Für jede Zielgruppe eine Landingpage."))
-    lx, ly, lw, lh = 178, y + 32, 100, 116
-    o.append(f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" rx="4" fill="#fff" stroke="{INK}" stroke-width=".7"/>')
-    o.append(f'<path d="M{lx} {ly + 8} H{lx + lw}" stroke="{INK}" stroke-width=".4"/>')
-    for i in range(3):
-        o.append(f'<circle cx="{lx + 5 + i * 4}" cy="{ly + 4}" r="1.1" fill="{LINIE}"/>')
-    o.append(f'<rect x="{lx + 5}" y="{ly + 13}" width="{lw - 10}" height="26" rx="2.5" fill="{GELB}"/>')
-    o.append(t(lx + 9, ly + 20, "LANDINGPAGE", 2.6, 700, INK, extra=' letter-spacing="0.5"'))
-    o.append(t(lx + 9, ly + 29, "Junge Familien", 6, 700, font=LORA))
-    o.append(t(lx + 9, ly + 35, "mit deinem Logo und Kontakt", 3, 400))
-    for j, (icon, txt) in enumerate([("clipboard-list", "Checkliste zum Download"), ("mic-vocal", "Podcast-Folge"), ("calendar", "Termin direkt buchen")]):
-        yy = ly + 47 + j * 13
-        o.append(f'<rect x="{lx + 5}" y="{yy}" width="{lw - 10}" height="10" rx="2" fill="{HELL}"/>')
-        o.append(ico(icon, lx + 8, yy + 2.3, 5.4))
-        o.append(t(lx + 16, yy + 6.6, txt, 3.4, 600))
-    o.append(t(lx + 5, ly + lh - 5, "Echte Anfrage – direkt bei dir.", 3.2, 700))
-    for j, (icon, titel, text) in enumerate(EINSATZ):
-        yy = ly + 4 + j * 38
-        o.append(ico(icon, m, yy - 4, 9))
-        o.append(t(m + 13, yy + 3, titel, 5.2, 700, font=LORA))
-        o.append(zeilen(m + 13, yy + 11, text, 40, 3.6, 5.1))
-        o.append(f'<path d="M{m + 150} {yy + 1} H{lx - 2}" fill="none" stroke="{INK}" stroke-width=".5" marker-end="url(#ig-pf)"/>')
+    o.append(sektion(m, W, y, "1", "BAUSTEIN 1 · KERNPAKET", "Ein Ökosystem, das für dich läuft.",
+                     "Saubere Profile, ein gefüllter Content-Kalender und Mailings an deinen Bestand – alles auf deine Zielgruppen ausgerichtet."))
+    cw, gap = (W - 2 * m - 3 * 5) / 4, 5
+    # Content-Kalender über den drei Kanälen
+    ky = y + 44
+    kb = 3 * cw + 2 * gap
+    o.append(t(m, ky, "CONTENT-KALENDER · GEFÜLLT", 2.9, 700, GRAU, extra=' letter-spacing="0.5"'))
+    for i in range(14):
+        zx = m + i * (kb / 14)
+        o.append(f'<rect x="{zx:.1f}" y="{ky + 2.5}" width="{kb / 14 - 1.2:.1f}" height="5" rx="1" fill="{INK if i % 3 == 0 else (GELB if i % 3 == 1 else LINIE)}"/>')
+    # Kanäle
+    kanaele = [("in", "LinkedIn"), ("f", "Facebook"), ("ig", "Instagram")]
+    cy = ky + 13
+    ch = 48
+    for i in range(4):
+        x = m + i * (cw + gap)
+        mail = i == 3
+        o.append(f'<rect x="{x}" y="{cy}" width="{cw}" height="{ch}" rx="3" fill="{INK if mail else "#fff"}" stroke="{INK}" stroke-width=".6"/>')
+        if mail:
+            o.append(ico("mail", x + 5, cy + 4.5, 8, GELB))
+            o.append(t(x + 5, cy + 18, "BESTANDSKUNDEN", 2.6, 700, GELB, extra=' letter-spacing="0.4"'))
+            o.append(t(x + 5, cy + 24, "Mailings", 4.4, 700, "#fff", font=LORA))
+            pkt = ["per E-Mail", "gern auch per Post"]
+        else:
+            kurz, name = kanaele[i]
+            o.append(f'<rect x="{x + 5}" y="{cy + 4.5}" width="8" height="8" rx="2" fill="{INK}"/>')
+            o.append(t(x + 9, cy + 10, kurz, 3.6, 700, "#fff", "middle"))
+            o.append(t(x + 5, cy + 24, name, 4.4, 700, font=LORA))
+            pkt = ["Profil sauber", "Postings laufen"]
+        for j, p_ in enumerate(pkt):
+            yy = cy + 34 + j * 5.6
+            o.append(f'<path d="M{x + 5} {yy - 1.5} l1.4 1.4 l2.8 -2.8" fill="none" stroke="{GELB if mail else INK}" stroke-width=".55" stroke-linecap="round" stroke-linejoin="round"/>')
+            o.append(t(x + 10.5, yy, p_, 3.3, 500, "#fff" if mail else INK))
+        # Pfeil nach unten zu den Zielgruppen
+        o.append(f'<path d="M{x + cw / 2} {cy + ch + 1} V{cy + ch + 9}" fill="none" stroke="{INK}" stroke-width=".5" marker-end="url(#ig-pf)"/>')
+    # Zielgruppen-Band
+    zy = cy + ch + 13
+    o.append(f'<rect x="{m}" y="{zy}" width="{W - 2 * m}" height="13" rx="6.5" fill="{HELL}"/>')
+    o.append(t(m + 6, zy + 8.4, "DEINE ZIELGRUPPEN", 2.9, 700, GRAU, extra=' letter-spacing="0.5"'))
+    for j, z in enumerate(["Junge Familien", "Ärzte und Zahnärzte", "Private Bauherren"]):
+        o.append(t(m + 62 + j * 62, zy + 8.6, z, 3.8, 700))
+    # Landingpages je Zielgruppe + Add-on
+    ly = zy + 22
+    lw = 52
+    for j, z in enumerate(["Junge Familien", "Ärzte", "Bauherren"]):
+        x = m + j * (lw + 5)
+        o.append(f'<path d="M{m + 62 + j * 62 + 8} {zy + 13.5} V{ly - 1.5}" fill="none" stroke="{INK}" stroke-width=".45" marker-end="url(#ig-pf)"/>' if False else "")
+        o.append(f'<rect x="{x}" y="{ly}" width="{lw}" height="58" rx="3" fill="#fff" stroke="{INK}" stroke-width=".6"/>')
+        o.append(f'<rect x="{x + 3}" y="{ly + 3}" width="{lw - 6}" height="14" rx="1.6" fill="{GELB}"/>')
+        o.append(t(x + 5.5, ly + 8, "LANDINGPAGE", 2.2, 700, INK, extra=' letter-spacing="0.3"'))
+        o.append(t(x + 5.5, ly + 13.8, z, 3.9, 700, font=LORA))
+        for k, (icon, txt) in enumerate([("clipboard-list", "Checkliste"), ("mic-vocal", "Podcast"), ("calendar", "Termin buchen")]):
+            yy = ly + 23 + k * 10.5
+            o.append(ico(icon, x + 4, yy, 4.6))
+            o.append(t(x + 10.5, yy + 3.6, txt, 3.2, 500))
+    o.append(t(m, ly + 67, "Wer dich sieht oder dein Mailing bekommt, findet hier mehr – und meldet sich direkt bei dir.", 3.5, 600))
+    # Add-on
+    ax = m + 3 * (lw + 5) + 2
+    aw = W - m - ax
+    o.append(f'<rect x="{ax}" y="{ly}" width="{aw}" height="58" rx="3" fill="#fff" stroke="{INK}" stroke-width=".6" stroke-dasharray="2 1.6"/>')
+    o.append(t(ax + 5, ly + 7, "ADD-ON IM ALLTAG", 2.8, 700, GRAU, extra=' letter-spacing="0.5"'))
+    o.append(t(ax + 5, ly + 15, "Termine vor- und", 4.6, 700, font=LORA))
+    o.append(t(ax + 5, ly + 20.5, "nachbereiten", 4.6, 700, font=LORA))
+    o.append(zeilen(ax + 5, ly + 30, "Vorher den Link zur Einstimmung, nachher zum Thema aus dem Gespräch.", 34, 3.2, 4.4))
 
-    # 2 · LinkedIn als aktiver Vertriebskanal
-    y = 262
+    # 2 · LinkedIn als Prozesspfeile
+    y = ly + 80
     o.append(sektion(m, W, y, "2", "BAUSTEIN 2 · LINKEDIN POWER PACKAGE", "LinkedIn als aktiver Vertriebskanal.",
                      "Mit dem Sales Navigator wissen wir, wen du gewinnen willst – und wann der richtige Moment für ein Gespräch ist."))
-    ty = y + 52
+    py, ph = y + 40, 30
     sw = (W - 2 * m) / 6
-    o.append(f'<path d="M{m + sw / 2} {ty} H{W - m - sw / 2}" stroke="{INK}" stroke-width=".5" stroke-dasharray="1.6 1.4"/>')
     for i, (icon, titel, wer) in enumerate(LINKEDIN_WEG):
-        x = m + i * sw + sw / 2
-        letzter = i == 5
-        o.append(f'<circle cx="{x}" cy="{ty}" r="8" fill="{GELB if letzter else "#fff"}" stroke="{INK}" stroke-width=".6"/>')
-        o.append(ico(icon, x - 4.5, ty - 4.5, 9))
-        o.append(t(x, ty + 15, str(i + 1), 3, 700, GRAU, "middle"))
-        for k, z in enumerate(umbruch(titel, 13)):
-            o.append(t(x, ty + 22 + k * 4.6, z, 3.7, 700, anchor="middle"))
-        farbe = INK if wer == "du" else "#fff"
-        bw = len(wer) * 1.9 + 7
-        o.append(f'<rect x="{x - bw / 2}" y="{ty + 37}" width="{bw}" height="6" rx="3" fill="{farbe}" stroke="{INK}" stroke-width=".4"/>')
-        o.append(t(x, ty + 41.2, wer, 3, 700, "#fff" if wer == "du" else INK, "middle"))
-    o.append(zeilen(m, ty + 54, "Wir werten regelmäßig aus, wer von deinen Fokus-Kunden etwas gepostet hat, und liefern dir den Link mit einem Antwortvorschlag. Den Kommentar schreibst du selbst – du entscheidest über Ton und Zungenschlag. Nach dem dritten Kommentar folgt die Einladung zum Gespräch.", 66, 3.8, 5.4))
+        x0 = m + i * sw
+        spitze, kerbe = (5 if i < 5 else 0), (5 if i > 0 else 0)
+        dunkel = wer == "du"
+        fill = INK if dunkel else (GELB if wer == "gemeinsam" else HELL)
+        d = f"M{x0} {py} H{x0 + sw - spitze + (1.2 if i < 5 else 0)} L{x0 + sw + (1.2 if i < 5 else 0)} {py + ph / 2} L{x0 + sw - spitze + (1.2 if i < 5 else 0)} {py + ph} H{x0} L{x0 + kerbe} {py + ph / 2} Z"
+        o.append(f'<path d="{d}" fill="{fill}"/>')
+        tc = "#fff" if dunkel else INK
+        o.append(t(x0 + kerbe + 3.5, py + 7, str(i + 1), 3, 700, GELB if dunkel else GRAU))
+        for k, z in enumerate(umbruch(titel, 12)):
+            o.append(t(x0 + kerbe + 3.5, py + 13.5 + k * 4.4, z, 3.5, 700, tc))
+    lg = py + ph + 7
+    for j, (fill, txt) in enumerate([(GELB, "gemeinsam"), (HELL, "wir"), (INK, "du")]):
+        x = m + j * 32
+        o.append(f'<rect x="{x}" y="{lg - 3}" width="5" height="3.6" rx="1" fill="{fill}" stroke="{INK if fill == HELL else "none"}" stroke-width=".3"/>')
+        o.append(t(x + 7, lg, txt, 3.2, 600))
+    o.append(zeilen(m, lg + 9, "Wir werten regelmäßig aus, wer von deinen Fokus-Kunden etwas gepostet hat, und liefern dir den Link mit einem Antwortvorschlag. Den Kommentar schreibst du selbst – du entscheidest über Ton und Zungenschlag. Nach dem dritten Kommentar folgt die Einladung zum Gespräch.", 68, 3.6, 5.1))
 
-    # 3 · Verstärken und abrunden
-    y = 400
-    o.append(sektion(m, W, y, "3", "BAUSTEIN 3 UND 4", "Verstärken und abrunden."))
+    # 3 · Bausteine 3 und 4 – klein
+    y = lg + 38
+    o.append(f'<rect x="{m}" y="{y}" width="{W - 2 * m}" height=".6" fill="{INK}"/>')
+    o.append(t(m, y + 7, "BAUSTEIN 3 UND 4 · VERSTÄRKEN UND ABRUNDEN", 2.9, 700, INK, extra=' letter-spacing="0.5"'))
     kw = (W - 2 * m - 8) / 2
-    karten = [("trending-up", "BAUSTEIN 3 · PAID ADS", "Mehr Tempo.",
-               "Mehr Menschen aus denselben Zielgruppen sehen dich. Was in Baustein 1 und 2 läuft, läuft mit mehr Schwung."),
-              ("app-window", "BAUSTEIN 4 · WEBSITE", "Die Lücke schließen.",
-               "Die Landingpages zeigen deine Themen, die Website zeigt deine Agentur – ordentlich, schnell und auffindbar in Google und KI-Systemen.")]
-    for i, (icon, label, titel, text) in enumerate(karten):
+    for i, (icon, titel, text) in enumerate([("trending-up", "Paid Ads: mehr Tempo.", "Mehr Menschen aus denselben Zielgruppen sehen dich."),
+                                             ("app-window", "Website: die Lücke schließen.", "Deine Agentur, ordentlich dargestellt und auffindbar.")]):
         x = m + i * (kw + 8)
-        yy = y + 30
-        o.append(f'<rect x="{x}" y="{yy}" width="{kw}" height="62" rx="4" fill="{HELL}"/>')
-        o.append(ico(icon, x + 6, yy + 6, 9))
-        o.append(t(x + 6, yy + 23, label, 2.9, 700, GRAU, extra=' letter-spacing="0.4"'))
-        o.append(t(x + 6, yy + 32, titel, 6.4, 700, font=LORA))
-        o.append(zeilen(x + 6, yy + 40, text, 34, 3.6, 5.1))
+        o.append(ico(icon, x, y + 11, 7))
+        o.append(t(x + 10, y + 16, titel, 4.4, 700, font=LORA))
+        o.append(t(x + 10, y + 21.5, text, 3.2, 400, TEXT2))
 
-    # Abschluss: was du davon hast
-    y = 504
-    o.append(f'<rect x="{m}" y="{y}" width="{W - 2 * m}" height="58" rx="5" fill="{INK}"/>')
-    o.append(t(m + 8, y + 11, "WAS DU DAVON HAST", 3, 700, GELB, extra=' letter-spacing="0.6"'))
-    o.append(t(m + 8, y + 23, "Mehr Gespräche mit den Richtigen.", 7.6, 700, "#fff", font=LORA))
-    for j, z in enumerate(["Du weißt, wen du gewinnen willst – und wann du ihn ansprichst.",
-                           "Jede Zielgruppe hat ihre Seite: zum Finden, Verschicken, Vor- und Nachbereiten.",
+    # Nutzen
+    y = y + 36
+    o.append(f'<rect x="{m}" y="{y}" width="{W - 2 * m}" height="52" rx="5" fill="{INK}"/>')
+    o.append(t(m + 8, y + 10, "WAS DU DAVON HAST", 3, 700, GELB, extra=' letter-spacing="0.6"'))
+    o.append(t(m + 8, y + 21, "Mehr Gespräche mit den Richtigen.", 7.2, 700, "#fff", font=LORA))
+    for j, z in enumerate(["Deine Kanäle laufen – ohne dass du dir Gedanken machen musst.",
+                           "Du weißt, wen du gewinnen willst – und wann du ihn ansprichst.",
                            "Du führst die Gespräche. Den Rest übernimmt die Maschine."]):
-        yy = y + 33 + j * 7.5
+        yy = y + 30 + j * 7
         o.append(f'<path d="M{m + 8} {yy - 1.6} l1.6 1.6 l3.2 -3.2" fill="none" stroke="{GELB}" stroke-width=".6" stroke-linecap="round" stroke-linejoin="round"/>')
-        o.append(t(m + 15, yy, z, 3.7, 500, "#fff"))
+        o.append(t(m + 15, yy, z, 3.6, 500, "#fff"))
     o.append(t(m, H - 5, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 3, 500, GRAU))
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Roll-up Version 3: ein Blick in die Maschine")
 
