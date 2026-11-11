@@ -78,7 +78,7 @@ def quer():
              f"V{c + hh} H{x_kurve} C{x_kurve - 100} {c + hh} {x_flach + 130} {c + hm} {x_flach} {c + hm} H0 Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
     # Unser Teil trägt den Namen: „sofort sichtbar“ im Kern; Lagen ohne Paketnamen
-    o.append(logo(28, c, 180, "ek2q"))
+    o.append(logo(28, c, 150, "ek2q"))
     for i in range(3):
         o.append(f'<circle cx="{x_kurve - 30 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
     # Messpunkt: feine Linie an der Mündung
@@ -112,7 +112,7 @@ def hoch():
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
              f"H{c + hh} V{y_kurve} C{c + hh} {y_kurve - 70} {c + hm} {y_flach + 90} {c + hm} {y_flach} V{y_oben} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
-    o.append(logo(c - 56, y_oben + 34, 112, "ek2h"))
+    o.append(logo(c - 48, y_oben + 34, 96, "ek2h"))
     for i in range(3):
         o.append(f'<circle cx="{c}" cy="{y_kurve - 30 + i * 15}" r="4" class="ek2-kern-p"/>')
     # Messpunkt

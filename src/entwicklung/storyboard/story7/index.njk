@@ -12,6 +12,8 @@ seiten:
     titel: "Stilproben"
   - slug: "farbproben"
     titel: "Farbproben"
+  - slug: "marketing-as-a-service"
+    titel: "Marketing as a Service"
 permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
 ---
 {#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
@@ -21,6 +23,9 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
     Inhalte: story7.11tydata.json → s7 · Grafik: maschine_holen.py · Schriften: assets/fonts (OFL, selbst gehostet).
     Eigenständige Seiten (layout: false), alles in src/entwicklung/. -#}
 {%- set S = s7 -%}
+{%- set H7 = "/entwicklung/storyboard/story7" -%}
+{#- Echte Seiten (Startseite und Unterseiten) tragen Stil, Farbschalter und Hauptmenü; Stil- und Farbproben nicht -#}
+{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" -%}
 {%- set B6 = "/entwicklung/storyboard/story6" -%}
 {%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
@@ -93,6 +98,22 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
   </section>
 {%- endmacro -%}
 
+{%- macro kontakt() -%}
+  <section class="s7-band s7-band--tinte" id="kontakt">
+    <div class="s7-wrap s7-kontakt">
+      <div>
+        <h2 class="s7-h2">{{ S.kontakt.h2 }} <span class="s7-wort s7-nowrap">{{ S.kontakt.h2_akzent }}</span></h2>
+        <p class="s7-lead">{{ S.kontakt.t }}</p>
+      </div>
+      <div class="s7-kontakt__wege">
+        <a class="s7-knopf" href="{{ B6 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+        <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
+        <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}
+
 {%- macro pakete(mitIds=true) -%}
   <section class="s7-band"{% if mitIds %} id="pakete"{% endif %}>
     <div class="s7-wrap">
@@ -110,7 +131,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
           <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
           <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
           <span></span>
-          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ B6 }}/marketing-as-a-service/{% else %}#kontakt{% endif %}">{{ p.knopf }}</a>
+          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ H7 }}/marketing-as-a-service/{% else %}#kontakt{% endif %}">{{ p.knopf }}</a>
         </article>
         {%- endfor %}
       </div>
@@ -371,6 +392,59 @@ p { margin: 0; }
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
+
+/* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
+.mx7-teilung { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.mx7-teil { padding: clamp(1.8rem, 3vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-teil--wir { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.s7-stil .mx7-teil h3, .s7-stil .mx7-kern h3, .s7-stil .mx7-karte h3 { font-size: 1.7rem; line-height: 1.2; }
+.s7-stil .mx7-teil--wir h3 { color: #fff; }
+.mx7-haken { list-style: none; margin: 1rem 0 0; padding: 0; }
+.mx7-haken li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: 1rem; line-height: 1.45; }
+.mx7-haken li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.mx7-teil--wir .mx7-haken li { color: #fff; }
+.mx7-monat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.mx7-monat li { padding-top: 1.2rem; border-top: 2px solid var(--s7-tinte); }
+.mx7-monat__nr { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.s7-stil .mx7-monat h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.mx7-monat p { margin-top: .6rem; text-wrap: pretty; }
+.mx7-art { color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.mx7-kern .mx7-art, .mx7-karte .mx7-art { margin-bottom: .4rem; }
+.mx7-preis { margin-top: 1rem; color: var(--s7-grau); font-size: .95rem; }
+.mx7-preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; }
+.mx7-kurz { margin-top: 1rem; text-wrap: pretty; }
+.mx7-kern { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 4vw, 3.6rem); margin-top: 3rem; padding: clamp(1.8rem, 3vw, 2.8rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-kern { background: var(--s7-tinte); color: #d2d2d7; }
+.s7-stil .mx7-kern h3, .mx7-kern .mx7-preis b, .mx7-kern .mx7-haken li { color: #fff; }
+.mx7-kern .mx7-art, .mx7-kern .mx7-preis { color: #a1a1a6; }
+.mx7-kern > div + div { padding-left: clamp(2rem, 4vw, 3.6rem); border-left: 1px solid #3a3a3c; }
+.mx7-kern .mx7-haken { margin-top: .2rem; }
+.mx7-erg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); gap: 0 1.2rem; margin-top: 1.2rem; }
+.mx7-karte { display: grid; grid-row: span 6; grid-template-rows: subgrid; padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-zusatz { color: var(--s7-grau); font-size: .9rem; }
+.mx7-karte .mx7-haken { margin-top: 1rem; padding-top: .6rem; border-top: 1px solid var(--s7-linie); }
+.mx7-fuss { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: 1.6rem; color: var(--s7-grau); font-size: .95rem; }
+.mx7-team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(1.2rem, 2.4vw, 2rem); margin-top: 3rem; }
+.mx7-team__g1 { grid-column: 1 / span 4; }
+.mx7-team__g2 { grid-column: 5; }
+.mx7-team { grid-template-rows: repeat(4, auto); }
+.mx7-profil { display: grid; grid-row: 2 / span 3; grid-template-rows: subgrid; }
+.s7-stil .mx7-profil h3 { font-size: 1.3rem; line-height: 1.2; hyphens: manual; }
+.mx7-profil__stelle { margin: .4rem 0 .8rem; color: var(--s7-grau); font-size: .9rem; line-height: 1.4; }
+.mx7-profil p:last-child { font-size: 1rem; text-wrap: pretty; }
+@media (max-width: 1000px) {
+  .mx7-teilung, .mx7-kern, .mx7-erg { grid-template-columns: minmax(0, 1fr); }
+  .mx7-kern > div + div { padding-left: 0; padding-top: 1.6rem; border-left: 0; border-top: 1px solid #3a3a3c; }
+  .mx7-erg { grid-template-rows: none; gap: 1.2rem; }
+  .mx7-karte { grid-row: auto; grid-template-rows: none; }
+  .mx7-monat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mx7-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .mx7-team .s7-gruppe { display: none; }
+  .mx7-team { grid-template-rows: none; }
+  .mx7-profil { grid-row: auto; grid-template-rows: none; }
+}
+@media (max-width: 600px) { .mx7-monat, .mx7-team { grid-template-columns: minmax(0, 1fr); } }
+
 /* ===================================================================================
    STILRICHTUNGEN – jede setzt die Stellschrauben neu, dazu wenige eigene Regeln
    =================================================================================== */
@@ -477,10 +551,10 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}Grundstory „Die digitale Maschine“ · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B) · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
-<div class="s7-stil{% if not s.slug %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
-<header class="s7-kopf{% if s.slug %} s7-kopf--nur-marke{% endif %}">
+<div class="s7-stil{% if istSeite %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
+<header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
       <a href="/entwicklung/storyboard/story7/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
@@ -495,12 +569,13 @@ p { margin: 0; }
         </div>
       </div>
     </div>
-    {%- if not s.slug %}
+    {%- if istSeite %}
+    {#- Hauptmenü: echte Unterseiten; „Pakete“ und „Über uns“ springen zur Startseite, bis sie eigene Seiten haben -#}
     <nav class="s7-nav" aria-label="Hauptnavigation">
-      <a href="#maschine">So funktioniert es</a>
-      <a href="#pakete">Pakete</a>
-      <a href="#zielgruppen">Zielgruppen</a>
-      <a href="#ueber-uns">Über uns</a>
+      <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
+      <a href="/vertriebsstrecken">Vertriebsstrecken</a>
+      <a href="{{ H7 }}/#pakete">Pakete</a>
+      <a href="{{ H7 }}/#ueber-uns">Über uns</a>
     </nav>
     {%- endif %}
     <a class="s7-knopf" href="#kontakt">Termin auswählen</a>
@@ -580,6 +655,110 @@ p { margin: 0; }
   </div>
   {%- endfor %}
 </main>
+{%- elif s.slug == "marketing-as-a-service" %}
+{#- Unterseite Weg B · Sicht der Vertriebsleitung: Was übernehmt ihr, was bleibt bei mir, wie läuft es, was kostet es, wer arbeitet daran.
+    Bausteine wie auf der Startseite, Farbe je Abschnitt an genau einer Stelle. Inhalte: s7.maas -#}
+{%- set M = S.maas %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ M.held.kicker }}</p>
+      <h1>{{ M.held.h1 }} <span class="s7-wort">{{ M.held.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ M.held.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ M.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#bausteine">{{ M.held.knopf2 }}</a>
+      </div>
+      <figure class="s7-maschine">{{ erklaerbild() }}</figure>
+    </div>
+  </section>
+
+  {%- set T = M.teilung %}
+  <section class="s7-band s7-band--akzent" id="aufteilung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ T.kicker }}</p>
+      <h2 class="s7-h2">{{ T.h2 }}<br><span class="s7-wort">{{ T.h2_akzent }}</span></h2>
+      <div class="mx7-teilung">
+        {%- for x in [[T.wir, "wir"], [T.du, "du"]] %}
+        <div class="mx7-teil mx7-teil--{{ x[1] }}">
+          <h3>{{ x[0].titel }}</h3>
+          <ul class="mx7-haken">{% for y in x[0].punkte %}<li>{{ y }}</li>{% endfor %}</ul>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="s7-band" id="monat">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ M.monat.kicker }}</p>
+      <h2 class="s7-h2">{{ M.monat.h2 }}</h2>
+      <ol class="mx7-monat">
+        {%- for a in M.monat.liste %}
+        <li><span class="mx7-monat__nr">0{{ loop.index }}</span><h3>{{ a.titel }}</h3><p>{{ a.text }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set BS = M.bausteine %}{%- set K = BS.liste[0] %}
+  <section class="s7-band s7-band--flaeche" id="bausteine">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ BS.kicker }}</p>
+      <h2 class="s7-h2">{{ BS.h2 }}</h2>
+      <p class="s7-lead">{{ BS.lead }}</p>
+      <article class="mx7-kern">
+        <div>
+          <p class="mx7-art">{{ K.art }}</p>
+          <h3>{{ K.name }}</h3>
+          <p class="mx7-preis"><b>{{ K.preis }}</b> {{ K.einheit }}</p>
+          <p class="mx7-kurz">{{ K.kurz }}</p>
+        </div>
+        {%- for g in K.gruppen %}
+        <div>
+          <p class="mx7-art">{{ g.titel }}</p>
+          <ul class="mx7-haken">{% for y in g.punkte %}<li>{{ y }}</li>{% endfor %}</ul>
+        </div>
+        {%- endfor %}
+      </article>
+      <div class="mx7-erg">
+        {%- for b in BS.liste %}{% if not loop.first %}
+        <article class="mx7-karte">
+          <p class="mx7-art">{{ b.art }}</p>
+          <h3>{{ b.name }}</h3>
+          <p class="mx7-preis"><b>{{ b.preis }}</b> {{ b.einheit }}</p>
+          <p class="mx7-zusatz">{{ b.zusatz }}</p>
+          <p class="mx7-kurz">{{ b.kurz }}</p>
+          <ul class="mx7-haken">{% for y in b.punkte %}<li>{{ y }}</li>{% endfor %}</ul>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <p class="mx7-fuss"><span>{{ BS.hinweis }}</span><a class="s7-link" href="{{ B6 }}/assets/maas/{{ BS.pdf_datei }}" target="_blank" rel="noopener">{{ BS.pdf }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {%- set TM = M.team %}
+  <section class="s7-band" id="team">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ TM.kicker }}</p>
+      <h2 class="s7-h2">{{ TM.h2 }}<br><span class="s7-wort">{{ TM.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ TM.lead }}</p>
+      <div class="mx7-team">
+        <p class="s7-gruppe mx7-team__g1">{{ TM.gruppen[0] }}</p>
+        <p class="s7-gruppe mx7-team__g2">{{ TM.gruppen[1] }}</p>
+        {%- for x in TM.liste %}
+        <article class="mx7-profil">
+          <h3>{{ x.titel | replace("Werbekampagnen", "Werbe&shy;kampagnen") | safe }}</h3>
+          <p class="mx7-profil__stelle">{{ x.stelle }}</p>
+          <p>{{ x.text }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {{ kontakt() }}
+</main>
 {%- else %}
 <main>
   {{ held() }}
@@ -619,20 +798,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <!-- Kontakt -->
-  <section class="s7-band s7-band--tinte" id="kontakt">
-    <div class="s7-wrap s7-kontakt">
-      <div>
-        <h2 class="s7-h2">{{ S.kontakt.h2 }} <span class="s7-wort s7-nowrap">{{ S.kontakt.h2_akzent }}</span></h2>
-        <p class="s7-lead">{{ S.kontakt.t }}</p>
-      </div>
-      <div class="s7-kontakt__wege">
-        <a class="s7-knopf" href="{{ B6 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
-        <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
-        <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
-      </div>
-    </div>
-  </section>
+  {{ kontakt() }}
 </main>
 {%- endif %}
 
