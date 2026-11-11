@@ -2,7 +2,7 @@
 
 A  Querformat DIN A3 (420 × 297): Strategie oben · Maschine waagerecht mit Messpunkten · Stufentexte · Monatsrhythmus unten
 B  Hochformat DIN A3 (297 × 420) und Roll-up 100 × 200 cm (gleiche Komposition, Seitenverhältnis 1 : 2)
-C  Explosionszeichnung DIN A3 quer: der Trichter in seine vier Bausteine zerlegt, mit Beschriftungen; Vertrieb kleiner rechts
+B2 Hochformat DIN A3 mit drei Sektionen (Strategie · Marketing und Vertrieb · Steuerung), verdichtet aus Roll-up V2
 
 Inhalte wie auf der Seite Marketing as a Service (ohne Preise, ohne Team). Farben: Tinte, Grau, Gelb als Fläche/Marker.
 Schriften: Lora (Überschriften), Poppins (Text). Alle drei aus einer Quelle (BAUSTEINE, STUFEN, MONAT, FRAGEN).
@@ -85,9 +85,20 @@ def pfeilkopf():
             f'<path d="M1 1 L8 5 L1 9" fill="none" stroke="{INK}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>')
 
 
+def logo(w):
+    """sofort-sichtbar-Logo (wie im Seitenkopf, logo-dunkel.svg) oben rechts, als eingebettetes Bild – steht so in SVG, PDF und PNG."""
+    import base64, os
+    pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "img", "logo-dunkel.svg")
+    daten = base64.b64encode(open(pfad, "rb").read()).decode()
+    lw = 46 if w >= 400 else 40
+    lh = lw * 40 / 78
+    return (f'<image x="{w - 20 - lw}" y="8" width="{lw}" height="{lh:.1f}" href="data:image/svg+xml;base64,{daten}" '
+            f'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="data:image/svg+xml;base64,{daten}"/>')
+
+
 def svg_rahmen(w, h, inhalt, label):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" class="ig-svg" role="img" aria-label="{label}">'
-            f'<rect width="{w}" height="{h}" fill="#fff"/>{pfeilkopf()}{inhalt}</svg>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {w} {h}" class="ig-svg" role="img" aria-label="{label}">'
+            f'<rect width="{w}" height="{h}" fill="#fff"/>{pfeilkopf()}{inhalt}{logo(w)}</svg>')
 
 
 def kopf(x, y, size, breite_marker=None):
@@ -272,65 +283,6 @@ def entwurf_b(H=420, W=297):
     o.append(monat_band(m, ym, W - 2 * m, 36 * s, s))
     o.append(t(m, H - (8 if not roll else 20), "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 3 * s, 500, GRAU))
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Hochformat")
-
-
-# ---------------------------------------------------------------------------- C · Explosionszeichnung
-def entwurf_c():
-    """Explosionszeichnung: Trichter in seine Lagen zerlegt (oben nach oben, unten nach unten), Beschriftung links
-    mit kurzen waagerechten Hinweislinien; Vertrieb und Kundenbetreuung kompakt rechts; Monatsrhythmus unten."""
-    W, H, m = 420, 297, 18
-    o = [kopf(m, 22, 11)]
-    o.append(zeilen(250, 34, "Was in der Maschine steckt: vier Bausteine, Lage für Lage. Jede Lage macht den Trichter größer – und schiebt mehr in deinen Vertrieb.", 62, 3.7, 5.6))
-    c, xm, xo, xe = 152, 150, 292, 306
-    mund = [16, 26, 36, 46]
-    hals = [5, 9, 13, 17]
-    gap = 12
-    o.append(punkte_vor(xm - 12, xm - 4, c - 70, c + 70, 34, 1.0))
-    o.append(f'<path d="{trichter_pfad(xm, xo, xe, c, mund[0], hals[0], 60)}" fill="{GELB}"/>')
-    for k in (1, 2, 3):
-        dy = k * gap
-        for s_ in (-1, 1):
-            o.append(f'<path d="{band_pfad(xm, xo, xe, c, (mund[k], hals[k]), (mund[k - 1], hals[k - 1]), 60, s_, s_ * dy)}" '
-                     f'fill="{FARBEN[k]}" stroke="{INK}" stroke-width=".25"/>')
-            # Explosionsrichtung als kleiner Pfeil an der Öffnung
-        o.append(f'<path d="M{xm + 8} {c - mund[k - 1] - (k - 1) * gap - 1.5} V{c - mund[k - 1] - dy + 1.5}" stroke="{GRAU}" stroke-width=".3" stroke-dasharray="1 1"/>')
-    # Beschriftung links, auf Höhe der oberen Lage
-    for k in (3, 2, 1):
-        nr, name, icon, vers, pkt = BAUSTEINE[k]
-        yb = c - (mund[k] + mund[k - 1]) / 2 - k * gap
-        o.append(f'<path d="M{xm - 16} {yb} H{xm + 3}" stroke="{INK}" stroke-width=".3"/><circle cx="{xm + 3}" cy="{yb}" r=".9" fill="{INK}"/>')
-        o.append(t(xm - 18, yb - 4.5, f"BAUSTEIN {nr}", 2.7, 700, GRAU, "end", extra=' letter-spacing="0.4"'))
-        o.append(t(xm - 18, yb + 1.5, name, 4.3, 700, anchor="end", font=LORA))
-        o.append(t(xm - 18, yb + 7, " · ".join(pkt), 2.9, 400, TEXT2, "end"))
-    nr, name, icon, vers, pkt = BAUSTEINE[0]
-    o.append(ico(icon, xm + 6, c - 7, 5))
-    o.append(t(xm + 13, c - 3, "Baustein 1", 3.2, 700))
-    o.append(t(xm + 6, c + 5, "Kernpaket", 5, 700))
-    o.append(f'<path d="M{xm - 16} {c} H{xm + 3}" stroke="{INK}" stroke-width=".3"/>')
-    o.append(t(xm - 18, c - 4.5, "BAUSTEIN 1 · HERZSTÜCK", 2.7, 700, INK, "end", extra=' letter-spacing="0.4"'))
-    o.append(t(xm - 18, c + 1.5, name, 4.3, 700, anchor="end", font=LORA))
-    o.append(t(xm - 18, c + 7, " · ".join(pkt), 2.9, 400, TEXT2, "end"))
-    for i in range(3):
-        o.append(f'<circle cx="{xo - 8 + i * 6}" cy="{c + (i - 1) * 1.5}" r="1.1" fill="{INK}"/>')
-    # rechts: Vertrieb und Kundenbetreuung
-    A_ = 17
-    xv1, xb1 = 360, W - m
-    o.append(f'<path d="M{xe} {c - A_} H{xv1 - 7} L{xv1} {c} L{xv1 - 7} {c + A_} H{xe} Z" fill="#fff" stroke="{INK}" stroke-width=".6" stroke-linejoin="round"/>')
-    o.append(t(xe + 6, c - 2, "Vertrieb", 5.4, 700, font=LORA))
-    o.append(t(xe + 6, c + 4.5, "Termin › Beratung", 2.9, 500))
-    o.append(t(xe + 6, c + 8.5, "› Abschluss", 2.9, 500))
-    o.append(f'<path d="M{xv1 + 2} {c - A_} H{xb1 - 4} Q{xb1} {c - A_} {xb1} {c - A_ + 4} V{c + A_ - 4} Q{xb1} {c + A_} {xb1 - 4} {c + A_} H{xv1 + 2} L{xv1 + 8} {c} Z" fill="{INK}"/>')
-    o.append(ico("heart-handshake", xv1 + 13, c - 10, 7, GELB))
-    o.append(t(xv1 + 12, c + 3, "Kunden-", 4.4, 700, "#fff", font=LORA))
-    o.append(t(xv1 + 12, c + 8.5, "betreuung", 4.4, 700, "#fff", font=LORA))
-    for x, (_, _, _, mp), anc in zip([xe, xv1 - 20, xb1 - 8], STUFEN, ("middle", "middle", "end")):
-        o.append(f'<circle cx="{x}" cy="{c + A_ + 6}" r="3" fill="{GELB}" stroke="{INK}" stroke-width=".5"/><circle cx="{x}" cy="{c + A_ + 6}" r="1" fill="{INK}"/>')
-        o.append(t(x + (6 if anc == "end" else 0), c + A_ + 15, mp, 3.1, 700, anchor=anc))
-    o.append(t(xe, c - A_ - 8, "DEIN VERTRIEB – WIR DOCKEN AN", 2.7, 700, GRAU, extra=' letter-spacing="0.4"'))
-    o.append(t(xm, c - mund[3] - 3 * gap - 8, "UNSER SCHWERPUNKT: DIE BAUSTEINE", 2.7, 700, INK, extra=' letter-spacing="0.4"'))
-    o.append(monat_band(m, 246, W - 2 * m, 28))
-    o.append(t(m, H - 6, "Marketing as a Service · sofort sichtbar · Fundament: Strategie – wohin will deine Agentur, wen will sie gewinnen?", 2.9, 500, GRAU))
-    return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Explosionszeichnung")
 
 
 # ---------------------------------------------------------------------------- Roll-up, Version 2: drei Sektionen
@@ -578,8 +530,144 @@ def entwurf_rollup3():
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Roll-up Version 3: ein Blick in die Maschine")
 
 
-ENTWUERFE = {"a": (entwurf_a, 420, 297), "b": (entwurf_b, 297, 420), "rollup": (lambda: entwurf_b(H=600, W=300), 1000, 2000),
-             "rollup2": (entwurf_rollup2, 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000), "c": (entwurf_c, 420, 297)}
+# ---------------------------------------------------------------------------- B2: Hochformat A3 mit drei Sektionen (verdichtet aus Roll-up V2)
+STUFEN_KURZ = [("Interessenten gewinnen.", "Deine Zielgruppen nehmen dich regelmäßig wahr – daraus entstehen echte Anfragen."),
+               ("Abschließen.", "Terminierung, Beratung, Abschluss – wie du es kennst. Nur mit mehr Gesprächen."),
+               ("Kunden halten.", "Wer regelmäßig von dir hört, bleibt – und bringt neue Anlässe mit.")]
+
+
+def sektion_kompakt(m, W, y, nr, label, titel, sub=""):
+    o = f'<rect x="{m}" y="{y}" width="{W - 2 * m}" height=".6" fill="{INK}"/>'
+    o += t(m, y + 12, nr, 10, 700, INK)
+    o += t(m + 18, y + 6.5, label, 2.8, 700, INK, extra=' letter-spacing="0.5"')
+    o += t(m + 18, y + 14.5, titel, 7.4, 700, font=LORA)
+    if sub:
+        o += t(m + 18, y + 20.5, sub, 3.3, 400, TEXT2)
+    return o
+
+
+def entwurf_b2():
+    W, H, m = 297, 420, 18
+    o = [kopf(m, 18, 12)]
+    o.append(zeilen(m + 150, 34, "Vertrieb läuft in drei Stufen. Wir optimieren die erste – damit aus regelmäßiger Wahrnehmung echte Anfragen werden, die direkt in deinen Vertrieb laufen.", 48, 3.5, 5))
+
+    # 01 · Strategie – eine Zeile mit dem Auswahlpfad
+    y = 62
+    o.append(sektion_kompakt(m, W, y, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?"))
+    ys = y + 29
+    sw = (W - 2 * m - 2 * 8) / 3
+    for i, (kopf_, werte) in enumerate(STRATEGIE):
+        x = m + i * (sw + 8)
+        o.append(t(x, ys, kopf_.upper(), 2.7, 700, GRAU, extra=' letter-spacing="0.4"'))
+        for j, w_ in enumerate(werte[:3]):
+            yy = ys + 3 + j * 8
+            an = j == 0
+            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="6.4" rx="3.2" fill="{GELB if an else "#fff"}" stroke="{GELB if an else LINIE}" stroke-width=".45"/>')
+            o.append(t(x + 3.5, yy + 4.5, w_, 3.2, 600 if an else 400))
+        if i < 2:
+            xa = x + sw + 1.8
+            o.append(f'<path d="M{xa} {ys + 6.2} l3.2 0 m-1.5 -1.5 l1.5 1.5 l-1.5 1.5" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
+
+    # 02 · Marketing und Vertrieb – kompakter Trichter, ein Messpunkt
+    y = 128
+    o.append(sektion_kompakt(m, W, y, "02", "MARKETING UND VERTRIEB", "Drei Stufen zum Vertriebserfolg."))
+    gx, gw = m, 96
+    cx = gx + gw / 2
+    A_ = 21
+    mund = [14, 22, 30, 38]
+    hals = [6, 11, 16, A_]
+    yt0 = y + 27
+    yk, yh = yt0 + 50, yt0 + 60
+    o.append(punkte_vor(cx - 36, cx + 36, yt0 - 5.5, yt0 - 1.5, 26, .75))
+    for k in (3, 2, 1, 0):
+        hm, ha = mund[k], hals[k]
+        d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 20} {cx - ha} {yk - 20} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
+             f"C{cx + ha} {yk - 20} {cx + hm} {yt0 + 20} {cx + hm} {yt0} Z")
+        o.append(f'<path d="{d}" fill="{FARBEN[k]}" stroke="#fff" stroke-width=".7"/>')
+    for k, nr in ((3, "4"), (2, "3"), (1, "2")):
+        x = cx - (mund[k] + mund[k - 1]) / 2
+        o.append(f'<circle cx="{x}" cy="{yt0 + 5.5}" r="2.4" fill="#fff" stroke="{INK}" stroke-width=".35"/>')
+        o.append(t(x, yt0 + 6.5, nr, 2.8, 700, anchor="middle"))
+    o.append(f'<circle cx="{cx}" cy="{yt0 + 5.5}" r="2.4" fill="{INK}"/>')
+    o.append(t(cx, yt0 + 6.5, "1", 2.8, 700, GELB, "middle"))
+    o.append(t(cx, yt0 + 14, "Kernpaket", 3.4, 700, anchor="middle"))
+    for i in range(3):
+        o.append(f'<circle cx="{cx + (i - 1) * 1.6}" cy="{yk - 7 + i * 3.6}" r="1.05" fill="{INK}"/>')
+    ym_ = yh - 2.5
+    o.append(f'<circle cx="{cx + A_ + 7}" cy="{ym_}" r="4" fill="{GELB}" stroke="{INK}" stroke-width=".5"/><circle cx="{cx + A_ + 7}" cy="{ym_}" r="1.4" fill="{INK}"/>')
+    o.append(f'<path d="M{cx + A_} {ym_} H{cx + A_ + 3}" stroke="{INK}" stroke-width=".45"/>')
+    yv1 = yh + 30
+    o.append(f'<path d="M{cx - A_} {yh} H{cx + A_} V{yv1 - 7} L{cx} {yv1} L{cx - A_} {yv1 - 7} Z" fill="#fff" stroke="{INK}" stroke-width=".55" stroke-linejoin="round"/>')
+    o.append(ico("handshake", cx - 3.5, yh + 3, 7))
+    o.append(t(cx, yh + 14.5, "Vertrieb", 4.8, 700, anchor="middle", font=LORA))
+    o.append(t(cx, yh + 19.5, "Termin · Beratung · Abschluss", 2.6, 500, anchor="middle"))
+    yb0, yb1 = yv1 + 1.5, yv1 + 26
+    o.append(f'<path d="M{cx - A_} {yb0} L{cx} {yb0 + 7} L{cx + A_} {yb0} V{yb1 - 3} Q{cx + A_} {yb1} {cx + A_ - 3} {yb1} H{cx - A_ + 3} Q{cx - A_} {yb1} {cx - A_} {yb1 - 3} Z" fill="{INK}"/>')
+    o.append(ico("heart-handshake", cx - 3.5, yb0 + 8, 7, GELB))
+    o.append(t(cx, yb0 + 20, "Kundenbetreuung", 4, 700, "#fff", "middle", font=LORA))
+    o.append(f'<path d="M{cx - A_} {yb1 - 8} H{gx + 1.5} V{yt0 - 8} H{cx - 40} V{yt0 - 1}" fill="none" stroke="{INK}" stroke-width=".4" marker-end="url(#ig-pf)"/>')
+    tx = gx + gw + 12
+    n = int((W - m - tx) / 1.6)
+    # Stufe 1 mit Legende der Bausteine (zweispaltig), dann Messpunkt auf Höhe des Ausgangs, dann Stufe 2 und 3
+    claim, text = STUFEN_KURZ[0]
+    yy = yt0 + 1
+    o.append(t(tx, yy, "STUFE 1 · MARKETING", 2.7, 700, INK, extra=' letter-spacing="0.4"'))
+    o.append(t(tx, yy + 7.5, claim, 5.4, 700, font=LORA))
+    o.append(zeilen(tx, yy + 13.5, text, n, 3.3, 4.6))
+    by0 = yy + 13.5 + len(umbruch(text, n)) * 4.6 + 2
+    halb = (W - m - tx) / 2
+    for j, (nr, name_b, icon, vers, _) in enumerate(BAUSTEINE):
+        bx = tx + (j % 2) * halb
+        by = by0 + (j // 2) * 6
+        o.append(f'<circle cx="{bx + 2.3}" cy="{by}" r="2.3" fill="{INK if nr == "1" else "#fff"}" stroke="{INK}" stroke-width=".35"/>')
+        o.append(t(bx + 2.3, by + 1, nr, 2.6, 700, GELB if nr == "1" else INK, "middle"))
+        o.append(t(bx + 6.5, by + 1.1, name_b.replace(" sofort sichtbar", ""), 3.1, 700))
+    o.append(t(tx, ym_ - 1.2, "MESSPUNKT", 2.4, 700, GRAU, extra=' letter-spacing="0.4"'))
+    o.append(t(tx, ym_ + 3.8, "Leads: echte Anfragen", 4, 700))
+    for i, (yy, nr, name) in enumerate([(yh + 13, 2, "VERTRIEB"), (yb0 + 8, 3, "KUNDENBETREUUNG")]):
+        claim, text = STUFEN_KURZ[nr - 1]
+        o.append(t(tx, yy, f"STUFE {nr} · {name}", 2.7, 700, GRAU, extra=' letter-spacing="0.4"'))
+        o.append(t(tx, yy + 7.5, claim, 5.4, 700, font=LORA))
+        o.append(zeilen(tx, yy + 13.5, text, n, 3.3, 4.6))
+    yr = yb1 + 7
+    o.append(f'<rect x="{m}" y="{yr - 4}" width="{W - 2 * m}" height="8" rx="4" fill="{GELB}"/>')
+    o.append(t(W / 2, yr + 1.2, "↑  " + RUECK, 3.2, 600, anchor="middle"))
+
+    # 03 · Steuerung – Dashboard flach
+    y = yr + 9
+    o.append(sektion_kompakt(m, W, y, "03", "STEUERUNG", "Funktioniert es?", "Wo müssen wir nachsteuern? Jeden Monat im Report und im Betreuungscall."))
+    dx, dy, dw, dh = m, y + 26, W - 2 * m, 60
+    o.append(f'<rect x="{dx}" y="{dy}" width="{dw}" height="{dh}" rx="3.5" fill="#fff" stroke="{INK}" stroke-width=".55"/>')
+    o.append(f'<path d="M{dx} {dy + 7} H{dx + dw}" stroke="{INK}" stroke-width=".35"/>')
+    for i in range(3):
+        o.append(f'<circle cx="{dx + 4.5 + i * 3.5}" cy="{dy + 3.5}" r=".95" fill="{LINIE}"/>')
+    o.append(t(dx + 17, dy + 4.7, "Analytics-Dashboard", 2.9, 700))
+    kw, kh = 54, 22
+    for i, (name, frage) in enumerate(STEUERUNG_KACHELN):
+        kx = dx + 4 + (i % 2) * (kw + 3)
+        ky = dy + 10 + (i // 2) * (kh + 3)
+        lead = name == "Leads"
+        o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="2" fill="{GELB if lead else HELL}"/>')
+        o.append(t(kx + 3, ky + 5.2, name, 3.1, 700))
+        o.append(zeilen(kx + 3, ky + 10, frage, 32, 2.5, 3.2, INK if lead else TEXT2))
+        pts = " ".join(f"{kx + 3 + j * (kw - 6) / 6:.1f},{ky + kh - 2 - v:.1f}" for j, v in enumerate([0.6, 2, 1.4, 3, 2.3, 3.6, 4.6]))
+        o.append(f'<polyline points="{pts}" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
+    ex = dx + 4 + 2 * kw + 3 + 7
+    ew = dx + dw - 4 - ex
+    o.append(t(ex, dy + 12, "EMPFEHLUNGEN", 2.5, 700, GRAU, extra=' letter-spacing="0.4"'))
+    for j, (bereich, was) in enumerate(STEUERUNG_EMPF):
+        ey = dy + 15 + j * 12
+        o.append(f'<rect x="{ex}" y="{ey}" width="{ew}" height="8" rx="1.6" fill="#fff" stroke="{LINIE}" stroke-width=".4"/>')
+        o.append(t(ex + 2.5, ey + 5.2, bereich + ":", 2.8, 700))
+        o.append(t(ex + 2.5 + len(bereich) * 1.75 + 3, ey + 5.2, was, 2.6, 400, TEXT2))
+    o.append(t(ex, dy + dh - 3, "Übernehmen – nach acht Wochen nachgeprüft", 2.5, 600))
+    o.append(t(m, dy + dh + 6, "Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.", 3, 500, TEXT2))
+    o.append(t(m, H - 6, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 2.7, 500, GRAU))
+    return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Hochformat mit drei Sektionen")
+
+
+ENTWUERFE = {"a": (entwurf_a, 420, 297), "b": (entwurf_b, 297, 420), "b2": (entwurf_b2, 297, 420),
+             "rollup2": (entwurf_rollup2, 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000)}
 
 
 # ---------------------------------------------------------------------------- Export
