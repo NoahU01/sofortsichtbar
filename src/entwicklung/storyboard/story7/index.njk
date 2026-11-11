@@ -64,7 +64,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
             <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an ziel">Junge Familien</i><i class="an">Bauherren</i><i class="mehr">+ weitere</i></div></div>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[0].nr }} · {{ L[0].label }}</p>
-          <h3>{{ L[0].h }}</h3>
+          <h3>{{ L[0].h | replace('|', '<br>') | safe }}</h3>
           <p class="s7-ablauf__t">{{ L[0].t }}</p>
           <a class="s7-link" href="{{ B6 }}/strategiekompass/">{{ L[0].link }} {{ pfeil | safe }}</a>
         </li>
@@ -74,18 +74,18 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
             <div class="s7-mini__strecke"><ul><li>Landingpage</li><li>Postings</li><li>Kundenmailing</li></ul><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="s7-mini__lead ziel"><b>Neuer Lead</b><span>Familie M.</span><span>Rückruf heute</span></div></div>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[1].nr }} · {{ L[1].label }}</p>
-          <h3>{{ L[1].h }}</h3>
+          <h3>{{ L[1].h | replace('|', '<br>') | safe }}</h3>
           <p class="s7-ablauf__t">{{ L[1].t }}</p>
           <a class="s7-link" href="/vertriebsstrecken">{{ L[1].link }} {{ pfeil | safe }}</a>
         </li>
         <li class="s7-ablauf__schritt">
           <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
-            <p class="s7-mini__kopf">Leads je Zielgruppe</p>
-            <div class="s7-mini__balken"><span>Junge Familien</span><i class="ziel" style="width: 82%"></i><span>Bauherren</span><i style="width: 30%"></i></div>
-            <p class="s7-mini__empf"><b>Empfehlung:</b> Bauherren – Einstieg der Landingpage schärfen</p>
+            <p class="s7-mini__kopf">Dashboard</p>
+            <div class="s7-mini__kacheln"><div><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div class="ziel"><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div></div>
+            <p class="s7-mini__empf"><b>Empfehlung:</b> Bauherren – Abschnitt umstellen, der kaum gelesen wird</p>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[2].nr }} · {{ L[2].label }}</p>
-          <h3>{{ L[2].h }}</h3>
+          <h3>{{ L[2].h | replace('|', '<br>') | safe }}</h3>
           <p class="s7-ablauf__t">{{ L[2].t }}</p>
         </li>
       </ol>
@@ -294,6 +294,12 @@ p { margin: 0; }
 .s7-mini__balken { display: grid; grid-template-columns: 6.4rem 1fr; align-items: center; gap: .55rem .6rem; }
 .s7-mini__balken i { display: block; height: .6rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
 .s7-mini__empf { padding: .5rem .65rem; border: 1px solid var(--s7-linie); border-radius: 8px; }
+.s7-mini__kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.s7-mini__kacheln > div { display: grid; gap: .3rem; padding: .5rem .6rem .45rem; border: 1px solid var(--s7-linie); border-radius: 8px; }
+.s7-mini__kacheln b { font-weight: 600; }
+.s7-mini__kacheln svg { width: 100%; height: .9rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.s7-mini__kacheln > div.ziel { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.s7-mini__kacheln > div.ziel svg { stroke: var(--s7-auf-akzent); }
 /* Farbe als roter Faden: in jedem Bild nur das Ergebnis des Schritts in der Akzentfarbe */
 .s7-mini i.ziel, .s7-mini__lead.ziel, .s7-mini__balken i.ziel { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
 .s7-mini__lead.ziel { color: color-mix(in srgb, var(--s7-auf-akzent) 85%, transparent); }
@@ -301,7 +307,7 @@ p { margin: 0; }
 .s7-ablauf__schritt:not(:last-child) .s7-ablauf__bild::after { content: ""; position: absolute; top: 50%; right: calc(-1 * clamp(2rem, 4vw, 3.6rem) / 2 - .55rem); width: 1.1rem; height: 1.1rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: translateY(-50%) rotate(45deg); }
 .s7-ablauf__nr { margin-top: 1.6rem; color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
 .s7-stil .s7-ablauf h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
-.s7-ablauf__t { margin-top: .6rem; font-size: 1.02rem; line-height: 1.55; }
+.s7-ablauf__t { margin-top: .6rem; font-size: 1.02rem; line-height: 1.55; text-wrap: pretty; }
 .s7-ablauf .s7-link { margin-top: 1rem; align-self: start; }
 
 /* ---------- Zielgruppen: Bild + Liste ---------- */

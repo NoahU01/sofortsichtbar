@@ -16,22 +16,22 @@
         {
           "nr": "01",
           "label": "Strategie",
-          "h": "Du weißt, wo du wachsen willst.",
+          "h": "Du weißt, wo du|wachsen willst.",
           "t": "Segment, Sparte, Zielgruppe: Der Strategiekompass zeigt, welche Zielgruppen bei dir Umsatz bewegen.",
           "link": "Kompass starten"
         },
         {
           "nr": "02",
           "label": "Marketing und Vertrieb",
-          "h": "Deine Zielgruppen nehmen dich wahr.",
-          "t": "Je Zielgruppe Landingpage, Postings und Kundenmailings. Leads laufen direkt in deinen Vertrieb.",
+          "h": "Deine Zielgruppen|nehmen dich wahr.",
+          "t": "Je Zielgruppe Landingpage, Postings und Kundenmailings. Die Leads landen direkt bei dir im Vertrieb.",
           "link": "Zielgruppenpakete ansehen"
         },
         {
           "nr": "03",
           "label": "Steuerung",
-          "h": "Du siehst, ob es funktioniert.",
-          "t": "Im Dashboard zählt ein Messpunkt: Leads. Dazu Empfehlungen, was als Nächstes wirkt.",
+          "h": "Du siehst,|was funktioniert.",
+          "t": "Das Dashboard misst Landingpages, Postings und Mailings. Daraus folgt, was als Nächstes wirkt.",
           "link": ""
         }
       ]
