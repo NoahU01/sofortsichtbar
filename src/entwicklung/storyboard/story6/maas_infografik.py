@@ -101,12 +101,12 @@ def svg_rahmen(w, h, inhalt, label):
             f'<rect width="{w}" height="{h}" fill="#fff"/>{pfeilkopf()}{inhalt}{logo(w)}</svg>')
 
 
-def kopf(x, y, size, breite_marker=None):
+def kopf(x, y, size, breite_marker=None, marker=GELB):
     breite_marker = breite_marker or size * 10.4
     """Kicker + H1 mit gelbem Marker auf „vor deinem Vertrieb.“ (ein Highlight wie im empiria-CD)"""
     o = t(x, y, "MARKETING AS A SERVICE · SOFORT SICHTBAR", size * .3, 700, INK, extra=' letter-spacing="0.8"')
     o += t(x, y + size * 1.25, "Die digitale Maschine", size, 700, font=LORA)
-    o += f'<rect x="{x - size * .08}" y="{y + size * 1.55}" width="{breite_marker}" height="{size * 1.18}" rx="{size * .12}" fill="{GELB}"/>'
+    o += f'<rect x="{x - size * .08}" y="{y + size * 1.55}" width="{breite_marker}" height="{size * 1.18}" rx="{size * .12}" fill="{marker}"/>'
     o += t(x, y + size * 2.45, "vor deinem Vertrieb.", size, 700, font=LORA)
     return o
 
@@ -309,9 +309,14 @@ STEUERUNG_EMPF = [("Landingpage", "Abschnitt umstellen, der kaum gelesen wird"),
                   ("SEO", "Seite für einen gesuchten Begriff ausbauen")]
 
 
-def entwurf_rollup2():
+def entwurf_rollup2(ss=False):
+    """ss=True: Version 2.1 in den Farben von sofort sichtbar (Blau → Violett), hell; Inhalt und Schrift unverändert."""
     W, H, m = 300, 600, 22
-    o = [kopf(m, 22, 16)]
+    if ss:
+        FL, ST, AD, TST, LAGEN = "url(#ss-hell)", "url(#ss-voll)", "#b98cf0", "#fff", ["url(#ss-voll)", "#dcd3ec", "#e8e2f3", "#f3effa"]
+    else:
+        FL, ST, AD, TST, LAGEN = GELB, GELB, GELB, INK, FARBEN
+    o = [kopf(m, 22, 16, marker=FL)]
     o.append(zeilen(m, 84, "Vertrieb läuft in drei Stufen. Wir optimieren die erste – damit aus regelmäßiger Wahrnehmung echte Anfragen werden, die direkt in deinen Vertrieb laufen.", 70, 4.3, 6.2))
 
     # 01 · Strategie
@@ -325,7 +330,7 @@ def entwurf_rollup2():
         for j, w_ in enumerate(werte):
             yy = ys + 4 + j * 10.5
             an = j == 0
-            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="8.4" rx="4.2" fill="{GELB if an else "#fff"}" stroke="{GELB if an else LINIE}" stroke-width=".5"/>')
+            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="8.4" rx="4.2" fill="{FL if an else "#fff"}" stroke="{("#c9b6ec" if ss else GELB) if an else LINIE}" stroke-width=".5"/>')
             o.append(t(x + 4.5, yy + 5.8, w_, 3.8, 600 if an else 400, INK))
         if i < 2:
             xa = x + sw + 2.5
@@ -346,19 +351,19 @@ def entwurf_rollup2():
         hm, ha = mund[k], hals[k]
         d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 28} {cx - ha} {yk - 28} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
              f"C{cx + ha} {yk - 28} {cx + hm} {yt0 + 28} {cx + hm} {yt0} Z")
-        o.append(f'<path d="{d}" fill="{FARBEN[k]}" stroke="#fff" stroke-width=".8"/>')
+        o.append(f'<path d="{d}" fill="{LAGEN[k]}" stroke="#fff" stroke-width=".8"/>')
     for k, nr in ((3, "4"), (2, "3"), (1, "2")):
         x = cx - (mund[k] + mund[k - 1]) / 2
         o.append(f'<circle cx="{x}" cy="{yt0 + 7}" r="3" fill="#fff" stroke="{INK}" stroke-width=".4"/>')
         o.append(t(x, yt0 + 8.2, nr, 3.4, 700, anchor="middle"))
     o.append(f'<circle cx="{cx}" cy="{yt0 + 7}" r="3" fill="{INK}"/>')
-    o.append(t(cx, yt0 + 8.2, "1", 3.4, 700, GELB, "middle"))
-    o.append(t(cx, yt0 + 18, "Kernpaket", 4.2, 700, anchor="middle"))
+    o.append(t(cx, yt0 + 8.2, "1", 3.4, 700, AD if ss else GELB, "middle"))
+    o.append(t(cx, yt0 + 18, "Kernpaket", 4.2, 700, TST, anchor="middle"))
     for i in range(3):
-        o.append(f'<circle cx="{cx + (i - 1) * 2}" cy="{yk - 8 + i * 4.5}" r="1.3" fill="{INK}"/>')
+        o.append(f'<circle cx="{cx + (i - 1) * 2}" cy="{yk - 8 + i * 4.5}" r="1.3" fill="{TST}"/>')
     # der eine Messpunkt: am Trichterausgang, groß
     ym_ = yh - 3
-    o.append(f'<circle cx="{cx + A_ + 9}" cy="{ym_}" r="5" fill="{GELB}" stroke="{INK}" stroke-width=".6"/><circle cx="{cx + A_ + 9}" cy="{ym_}" r="1.7" fill="{INK}"/>')
+    o.append(f'<circle cx="{cx + A_ + 9}" cy="{ym_}" r="5" fill="{ST}" stroke="{INK if not ss else "none"}" stroke-width=".6"/><circle cx="{cx + A_ + 9}" cy="{ym_}" r="1.7" fill="{TST if ss else INK}"/>')
     o.append(f'<path d="M{cx + A_} {ym_} H{cx + A_ + 4}" stroke="{INK}" stroke-width=".5"/>')
     yv1 = yh + 40
     o.append(f'<path d="M{cx - A_} {yh} H{cx + A_} V{yv1 - 9} L{cx} {yv1} L{cx - A_} {yv1 - 9} Z" fill="#fff" stroke="{INK}" stroke-width=".6" stroke-linejoin="round"/>')
@@ -368,7 +373,7 @@ def entwurf_rollup2():
         o.append(t(cx, yh + 25.5 + i * 4.4, st, 3.4, 500, anchor="middle"))
     yb0, yb1 = yv1 + 2, yv1 + 34
     o.append(f'<path d="M{cx - A_} {yb0} L{cx} {yb0 + 9} L{cx + A_} {yb0} V{yb1 - 4} Q{cx + A_} {yb1} {cx + A_ - 4} {yb1} H{cx - A_ + 4} Q{cx - A_} {yb1} {cx - A_} {yb1 - 4} Z" fill="{INK}"/>')
-    o.append(ico("heart-handshake", cx - 4.5, yb0 + 10, 9, GELB))
+    o.append(ico("heart-handshake", cx - 4.5, yb0 + 10, 9, AD))
     o.append(t(cx, yb0 + 26, "Kundenbetreuung", 5, 700, "#fff", "middle", font=LORA))
     o.append(f'<path d="M{cx - A_} {yb1 - 10} H{gx + 2} V{yt0 - 10} H{cx - 50} V{yt0 - 1}" fill="none" stroke="{INK}" stroke-width=".45" marker-end="url(#ig-pf)"/>')
     tx = gx + gw + 14
@@ -385,7 +390,7 @@ def entwurf_rollup2():
             for j, (nr, name_b, icon, vers, _) in enumerate(BAUSTEINE):
                 by = ye + 4 + j * 7
                 o.append(f'<circle cx="{tx + 2.8}" cy="{by}" r="2.8" fill="{INK if nr == "1" else "#fff"}" stroke="{INK}" stroke-width=".4"/>')
-                o.append(t(tx + 2.8, by + 1.15, nr, 3.1, 700, GELB if nr == "1" else INK, "middle"))
+                o.append(t(tx + 2.8, by + 1.15, nr, 3.1, 700, AD if nr == "1" else INK, "middle"))
                 o.append(ico(icon, tx + 8, by - 2.4, 4.8))
                 o.append(t(tx + 15, by + 1.3, name_b, 3.6, 700))
             ye += 4 + 4 * 7
@@ -394,8 +399,8 @@ def entwurf_rollup2():
     o.append(t(tx, ym_ - 1.5, "MESSPUNKT", 2.8, 700, GRAU, extra=' letter-spacing="0.5"'))
     o.append(t(tx, ym_ + 4.5, "Leads: echte Anfragen", 4.6, 700))
     yr = yb1 + 10
-    o.append(f'<rect x="{m}" y="{yr - 5}" width="{W - 2 * m}" height="10" rx="5" fill="{GELB}"/>')
-    o.append(t(W / 2, yr + 1.4, "↑  " + RUECK, 3.7, 600, anchor="middle"))
+    o.append(f'<rect x="{m}" y="{yr - 5}" width="{W - 2 * m}" height="10" rx="5" fill="{ST}"/>')
+    o.append(t(W / 2, yr + 1.4, "↑  " + RUECK, 3.7, 600, TST, anchor="middle"))
 
     # 03 · Steuerung: Analytics-Dashboard (Noahs Dashboard) – vier Wirkungsfragen + Empfehlungen
     y = yr + 12
@@ -413,9 +418,9 @@ def entwurf_rollup2():
         kx = kx0 + (i % 2) * (kw + 4)
         ky = ky0 + (i // 2) * (kh + 4)
         lead = name == "Leads"
-        o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="2.5" fill="{GELB if lead else HELL}"/>')
+        o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="2.5" fill="{FL if lead else HELL}"/>')
         if lead:
-            o.append(f'<circle cx="{kx + 5}" cy="{ky + 5.5}" r="2.4" fill="{GELB}" stroke="{INK}" stroke-width=".45"/><circle cx="{kx + 5}" cy="{ky + 5.5}" r=".8" fill="{INK}"/>')
+            o.append(f'<circle cx="{kx + 5}" cy="{ky + 5.5}" r="2.4" fill="{ST}" stroke="{INK if not ss else "none"}" stroke-width=".45"/><circle cx="{kx + 5}" cy="{ky + 5.5}" r=".8" fill="{TST if ss else INK}"/>')
         o.append(t(kx + (10 if lead else 4), ky + 6.8, name, 3.6, 700))
         o.append(t(kx + 4, ky + 12.5, frage, 2.9, 400, INK if lead else TEXT2))
         pts = " ".join(f"{kx + 4 + j * (kw - 8) / 6:.1f},{ky + kh - 2.5 - v:.1f}" for j, v in enumerate([1, 3, 2, 4.5, 3.5, 5.5, 7]))
@@ -432,7 +437,9 @@ def entwurf_rollup2():
     o.append(t(ex, dy + dh - 4, "Übernehmen – nach acht Wochen nachgeprüft", 2.8, 600, INK))
     o.append(t(m, dy + dh + 8, "Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.", 3.4, 500, TEXT2))
     o.append(t(m, H - 5, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 3, 500, GRAU))
-    return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Roll-up Version 2")
+    defs = ('<defs><linearGradient id="ss-voll" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f55c8"/><stop offset=".55" stop-color="#8324b9"/><stop offset="1" stop-color="#a23edb"/></linearGradient>'
+            '<linearGradient id="ss-hell" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f55c8" stop-opacity=".16"/><stop offset="1" stop-color="#a23edb" stop-opacity=".22"/></linearGradient></defs>') if ss else ""
+    return svg_rahmen(W, H, defs + "".join(o), "Infografik Marketing as a Service, Roll-up Version 2" + (".1 in den Farben von sofort sichtbar" if ss else ""))
 
 
 # ---------------------------------------------------------------------------- Roll-up, Version 3: ein Blick in die Maschine
@@ -667,7 +674,7 @@ def entwurf_b2():
 
 
 ENTWUERFE = {"a": (entwurf_a, 420, 297), "b": (entwurf_b, 297, 420), "b2": (entwurf_b2, 297, 420),
-             "rollup2": (entwurf_rollup2, 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000)}
+             "rollup2": (entwurf_rollup2, 1000, 2000), "rollup21": (lambda: entwurf_rollup2(ss=True), 1000, 2000), "rollup3": (entwurf_rollup3, 1000, 2000)}
 
 
 # ---------------------------------------------------------------------------- Export
