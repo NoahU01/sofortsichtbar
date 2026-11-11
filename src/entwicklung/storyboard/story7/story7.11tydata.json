@@ -230,10 +230,10 @@
           "swatch": "linear-gradient(100deg,#c51f5d,#8613a1)"
         },
         {
-          "id": "rotpink",
-          "name": "Rot → Pink",
-          "satz": "Unser Vorschlag: ein klares Rot #FF2A3D in ein leuchtendes Pink #FF4FA8. Zwei Töne, kein Violett, kein Cyan – warm, wach und eindeutig anders als die beiden Verläufe darüber.",
-          "swatch": "linear-gradient(100deg,#ff2a3d,#ff4fa8)",
+          "id": "smaragdkobalt",
+          "name": "Smaragd → Kobalt",
+          "satz": "Unser Vorschlag von der anderen Seite des Farbkreises: Smaragdgrün #00B37A in Kobaltblau #2A44FF. Frisch, klar, technisch – weit weg von Violett und Magenta.",
+          "swatch": "linear-gradient(in oklab 100deg,#00b37a,#2a44ff)",
           "nr": "3"
         }
       ]
