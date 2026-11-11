@@ -402,8 +402,7 @@ def entwurf_b(H=420, W=297):
 STRATEGIE = [("Segment", ["Privatkunden", "Firmenkunden"]),
              ("Sparte", ["Leben", "Kranken", "Schaden/Unfall", "Kfz"]),
              ("Zielgruppe", ["Junge Familien", "Berufseinsteiger", "Private Bauherren", "Ärzte und Zahnärzte",
-                             "Handwerksbetriebe", "Landwirte", "Gründer & Freelancer", "Vereine"])]
-ZG_ALLE = 29   # Strategiekompass: 29 Zielgruppen
+                             "Immobilienmakler", "Landwirte", "Gründer & Freelancer", "Vereine"])]
 
 
 def textbreite(s, fs, fett=False):
@@ -438,7 +437,7 @@ def strategie_pfad(x, y, w, fs, FL=GELB, RAND=GELB, senkrecht=False, zg=8):
     o = []
     pf = fs * 1.6
     daten = [(n, (w_[:zg] if n == "Zielgruppe" else w_)) for n, w_ in STRATEGIE]
-    mehr = f"+ {ZG_ALLE - zg} weitere"
+    mehr = "+ weitere"   # keine Zahl nennen (Daniel, 11.11.2026)
     if senkrecht:
         yy = y
         for i, (name, werte) in enumerate(daten):
