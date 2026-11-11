@@ -34,7 +34,15 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- macro erklaerbild(detail=false) -%}
 {%- set E = S.erklaerbild -%}
 {%- if detail %}
-<div class="ek2" role="img" aria-label="Unser Teil der Maschine: ein Trichter aus Lagen. Im Kern sofort sichtbar, das Kernpaket ab 1.800 Euro im Monat. Darum die Ergänzungen LinkedIn Power Package für 850 Euro im Monat, Paid Ads für 1.000 Euro im Monat je Kanal und Website-Entwicklung für 5.000 Euro einmalig. An der Mündung der Messpunkt Leads, danach dein Vertrieb, der daraus Kunden macht.">{{ S.ek_zoom_quer | safe }}{{ S.ek_zoom_hoch | safe }}</div>
+{#- Schnitt durch die Maschine: quer als Grafik, am Handy als Liste derselben Lagen (Quelle: erklaerbild.py SCHNITT) -#}
+<div class="ek2 ek2--schnitt" role="img" aria-label="Schnitt durch die Maschine: {% for z in S.maas.schnitt %}{{ z.name }} ({{ z.marke }}): {{ z.text }}. {% endfor %}An der Mündung der Messpunkt Leads, danach dein Vertrieb, der daraus Kunden macht.">{{ S.ek_schnitt_quer | safe }}</div>
+<div class="mx7-schnitt" aria-hidden="true">
+  {%- for z in S.maas.schnitt %}
+  <div class="mx7-schnitt__lage mx7-schnitt__lage--{{ loop.index }}"><p><b>{{ z.name }}</b><span>{{ z.marke }}</span></p><p>{{ z.text }}</p></div>
+  {%- endfor %}
+  <p class="mx7-schnitt__mess">Messpunkt: Leads</p>
+  <div class="mx7-schnitt__vertrieb"><b>Dein Vertrieb</b><span>macht daraus Kunden</span></div>
+</div>
 {%- else %}<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten. Ein Trichter aus Lagen mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Termin, Beratung, Abschluss, dann Kundenbetreuung. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
 <p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
 {%- endif %}
@@ -460,8 +468,22 @@ p { margin: 0; }
 .mx7-beleg cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
 .mx7-beleg__link { margin-top: 2rem; }
 /* Grafik: Zielgruppen als Pillen */
-.ek2-pille { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 1.4; }
-.ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
+.mx7-held .s7-lead { max-width: 46rem; }
+/* Schnitt durch die Maschine: quer als Grafik, unter 820px als Liste */
+.mx7-schnitt { display: none; gap: 2px; max-width: 36rem; margin: 0 auto; }
+.mx7-schnitt__lage { display: grid; gap: .2rem; padding: 1rem 1.1rem; background: var(--s7-lage-1); color: var(--s7-tinte); font-size: .95rem; line-height: 1.45; }
+.mx7-schnitt__lage p:first-child { display: flex; justify-content: space-between; gap: 1rem; }
+.mx7-schnitt__lage span { color: var(--s7-grau); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.mx7-schnitt__lage--1 { order: 4; border-radius: 0 0 12px 12px; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.mx7-schnitt__lage--1 span { color: inherit; }
+.mx7-schnitt__lage--2 { order: 3; }
+.mx7-schnitt__lage--3 { order: 2; background: var(--s7-lage-2); }
+.mx7-schnitt__lage--4 { order: 1; border-radius: 12px 12px 0 0; background: var(--s7-lage-3); }
+.mx7-schnitt__mess { order: 5; margin: .8rem 0 .5rem; color: var(--s7-tinte); font-size: .9rem; font-weight: 700; text-align: center; }
+.mx7-schnitt__mess::before { content: "↓ "; }
+.mx7-schnitt__vertrieb { order: 6; display: grid; gap: .1rem; padding: 1rem; border-radius: 12px; background: var(--s7-tinte); color: #fff; text-align: center; }
+.mx7-schnitt__vertrieb span { color: #a1a1a6; font-size: .9rem; }
+@media (max-width: 1100px) { .ek2--schnitt { display: none; } .mx7-schnitt { display: grid; text-align: left; } }
 
 /* Pop-ups: hell und ruhig, Grundschrift */
 .mx7-d { width: min(100% - 2rem, 46rem); max-height: 86vh; padding: clamp(1.6rem, 4vw, 2.6rem); border: 0; border-radius: var(--s7-rund); background: #fff; color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: 1rem; line-height: 1.6; text-align: left; }
@@ -714,7 +736,7 @@ p { margin: 0; }
     Je Abschnitt eine Stelle, an der das Auge zuerst landet. Inhalte: s7.maas -#}
 {%- set M = S.maas %}
 <main>
-  <section class="s7-held">
+  <section class="s7-held mx7-held">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ M.held.kicker }}</p>
       <h1>{{ M.held.h1 }} <span class="s7-wort">{{ M.held.h1_akzent }}</span></h1>

@@ -148,102 +148,66 @@ def svg(w, h, inhalt, klasse, name):
 # Preise stehen bei den Bausteinen, nicht in der Grafik (keine Doppelung).
 # Die ausführliche Fassung mit Strategie und Steuerung ist verworfen („nimmt der Grafik die Genialität“).
 # ---------------------------------------------------------------------------------------------
-MUND_Z = [60, 98, 136, 174]
-HALS_Z = [20, 28, 36, 44]
 
 
-ZG = ["Junge Familien", "Private Bauherren", "Ärzte und Zahnärzte", "Inhabergeführte Firmen"]
-LAGEN_LANG = ["Kernpaket", "LinkedIn Power Package", "Paid Ads", "Website-Entwicklung"]
+# Schnitt durch die Maschine (Daniel, 12.11.2026: „erklärt nicht, was passiert“):
+# der Trichter flach und breit wie auf der Startseite, aber aufgeschnitten – jede Lage ist eine Zeile mit dem,
+# was darin passiert. Kern unten (Basis, Farbe), darüber die Ergänzungen. Eine Quelle für Grafik (quer) und Liste (Handy).
+SCHNITT = [  # innen → außen
+    {"klasse": "ek2-kern", "name": "Kernpaket", "marke": "Die Basis",
+     "text": ["Fünf Landingpages, laufende Postings je Zielgruppe,", "Dashboard, monatlicher Report und Betreuungscall"]},
+    {"klasse": "ek2-l2", "name": "LinkedIn Power Package", "marke": "dazu buchbar",
+     "text": ["Vier Postings im Monat, Netzwerkaufbau und Direktansprache"]},
+    {"klasse": "ek2-l3", "name": "Paid Ads", "marke": "dazu buchbar",
+     "text": ["Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert"]},
+    {"klasse": "ek2-l4", "name": "Website-Entwicklung", "marke": "dazu buchbar",
+     "text": ["Neue Website, gefunden in Google und KI-Systemen"]},
+]
 
 
-def pille(x, y, s, groesse, mehr=False):
-    b = len(s) * groesse * 0.56 + 28
-    k = "ek2-pille ek2-pille--mehr" if mehr else "ek2-pille"
-    h = groesse + 18
-    return (f'<rect x="{x}" y="{y}" width="{b:.0f}" height="{h}" rx="{h / 2}" class="{k}"/>'
-            + text(x + b / 2, y + h / 2 + groesse * 0.36, s, "ek2-grau" if mehr else "ek2-t", groesse, 600, "middle")), b
-
-
-def zoom_quer():
-    """Zielgruppen hinein → Trichter (Lagen mit Namen) → Leads → dein Vertrieb. Preise stehen bei den Bausteinen, nicht hier."""
-    W, H, c = 1120, 380, 200
-    xt = 250                                   # Beginn des Trichters
-    x_flach, x_kurve, x_hals = xt + 250, xt + 520, xt + 590
+def schnitt_quer():
+    W = 1120
+    hz = [108, 64, 64, 64]                    # Zeilenhöhe innen → außen
+    unten = sum(hz)
+    hals = [28, 40, 52, 64]                   # Höhe an der Mündung (von unten gemessen)
+    x_flach, x_kurve, x_hals = 640, 860, 900
+    oben = []                                 # Oberkante je Lage
+    y = unten
+    for h in hz:
+        y -= h; oben.append(y)
     o = []
-    # Zielgruppen
-    o.append(text(0, 20, "Deine Zielgruppen", "ek2-t", 15, 700))
-    hp, abst = 33, 14
-    y = c - (5 * hp + 4 * abst) / 2
-    for s in ZG:
-        o.append(pille(0, y, s, 15)[0]); y += hp + abst
-    o.append(pille(0, y, "+ weitere", 15, True)[0])
-    o.append(f'<path d="M{xt - 44} {c} H{xt - 14}" class="ek2-linie" marker-end="url(#ek2-pfeil-zquer)"/>')
-    # Trichter
-    o.append(text(xt, 20, "sofort sichtbar – deine Maschine", "ek2-t", 15, 700))
     for k in (3, 2, 1, 0):
-        hm, hh = MUND_Z[k], HALS_Z[k]
-        d = (f"M{xt} {c - hm} H{x_flach} C{x_flach + 140} {c - hm} {x_kurve - 100} {c - hh} {x_kurve} {c - hh} H{x_hals} "
-             f"V{c + hh} H{x_kurve} C{x_kurve - 100} {c + hh} {x_flach + 140} {c + hm} {x_flach} {c + hm} H{xt} Z")
-        o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
-    for k in (1, 2, 3):
-        o.append(text(xt + 24, c - (MUND_Z[k] + MUND_Z[k - 1]) / 2 + 5.5, LAGEN_LANG[k], "ek2-t", 15, 700))
-    o.append(text(xt + 24, c + 7, LAGEN_LANG[0], "ek2-kern-t", 20, 700))
+        yo, ym = oben[k], unten - hals[k]
+        d = (f"M0 {yo} H{x_flach} C{x_flach + 120} {yo} {x_kurve - 110} {ym} {x_kurve} {ym} H{x_hals} "
+             f"V{unten} H0 Z")
+        o.append(f'<path d="{d}" class="{SCHNITT[k]["klasse"]} ek2-lage"/>')
+    for k, z in enumerate(SCHNITT):
+        yo = oben[k]
+        kern = k == 0
+        kt = "ek2-kern-t" if kern else "ek2-t"
+        o.append(text(28, yo + (36 if kern else 27), z["name"], kt, 20 if kern else 17, 700))
+        o.append(text(x_flach - 20, yo + (36 if kern else 27), z["marke"], kt if kern else "ek2-grau", 13, 600, "end"))
+        for n, zeile in enumerate(z["text"]):
+            o.append(text(28, yo + (62 if kern else 50) + n * 21, zeile, kt, 15, 500))
     for i in range(3):
-        o.append(f'<circle cx="{x_kurve - 34 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
+        o.append(f'<circle cx="{x_kurve - 40 + i * 16}" cy="{unten - 14}" r="4" class="ek2-kern-p"/>')
     xm = x_hals + LUECKE / 2
-    o.append(f'<path d="M{xm} {c - HALS_Z[3]} V{c - HALS_Z[3] - 34}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(xm, c - HALS_Z[3] - 42, TX["messpunkt"], "ek2-t", 15, 700, "middle"))
+    y0 = unten - hals[3]
+    o.append(f'<path d="M{xm} {y0} V{y0 - 34}" class="ek2-linie ek2-linie--fein"/>')
+    o.append(text(xm, y0 - 42, TX["messpunkt"], "ek2-t", 15, 700, "middle"))
     xv = x_hals + LUECKE
-    y0, y1 = c - HALS_Z[3], c + HALS_Z[3]
-    o.append(f'<path d="M{xv} {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{y1 - 16} Q{W} {y1} {W - 16} {y1} H{xv} Z" class="ek2-band"/>')
-    o.append(text(xv + 26, c - 3, "Dein Vertrieb", "ek2-band-t", 20, 700))
-    o.append(text(xv + 26, c + 21, "macht daraus Kunden", "ek2-band-s", 15))
-    return svg(W, H, "".join(o), "ek2-svg--quer", "zquer")
-
-
-def zoom_hoch():
-    W, c = 340, 170
-    o = []
-    o.append(text(c, 16, "Deine Zielgruppen", "ek2-t", 13, 700, "middle"))
-    reihen = [[("Junge Familien", False), ("Private Bauherren", False)], [("Ärzte und Zahnärzte", False), ("+ weitere", True)]]
-    y = 30
-    for r in reihen:
-        breiten = [len(s) * 13 * 0.56 + 28 for s, _ in r]
-        x = c - (sum(breiten) + 8 * (len(r) - 1)) / 2
-        for (s, m), b in zip(r, breiten):
-            o.append(pille(x, y, s, 13, m)[0]); x += b + 8
-        y += 39
-    o.append(f'<path d="M{c} {y + 2} V{y + 24}" class="ek2-linie" marker-end="url(#ek2-pfeil-zhoch)"/>')
-    y_oben = y + 36
-    y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
-    for k in (3, 2, 1, 0):
-        hm, hh = MUND_H[k], HALS[k]
-        d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
-             f"H{c + hh} V{y_kurve} C{c + hh} {y_kurve - 70} {c + hm} {y_flach + 90} {c + hm} {y_flach} V{y_oben} Z")
-        o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
-    ym = (y_oben + y_flach) / 2
-    for k, kurz in ((1, "LinkedIn"), (2, "Paid Ads"), (3, "Website")):
-        xk = c - (MUND_H[k] + MUND_H[k - 1]) / 2 + 4.5
-        o.append(text(xk, ym, kurz, "ek2-t", 12, 600, "middle", f' transform="rotate(-90 {xk} {ym})"'))
-    o.append(text(c, y_oben + 44, "Kernpaket", "ek2-kern-t", 16, 700, "middle"))
-    for i in range(3):
-        o.append(f'<circle cx="{c}" cy="{y_kurve - 30 + i * 15}" r="4" class="ek2-kern-p"/>')
-    o.append(f'<path d="M{c + HALS[3]} {y_hals - 14} H{c + HALS[3] + 22}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(c + HALS[3] + 28, y_hals - 18, "Messpunkt:", "ek2-t", gewicht=700))
-    o.append(text(c + HALS[3] + 28, y_hals - 2, "Leads", "ek2-t", gewicht=700))
-    yb = y_hals + LUECKE
-    o.append(f'<rect x="50" y="{yb}" width="{W - 100}" height="80" rx="16" class="ek2-band"/>')
-    o.append(text(c, yb + 38, "Dein Vertrieb", "ek2-band-t", T_GROSS, 700, "middle"))
-    o.append(text(c, yb + 59, "macht daraus Kunden", "ek2-band-s", anker="middle"))
-    return svg(W, yb + 88, "".join(o), "ek2-svg--hoch", "zhoch")
+    o.append(f'<path d="M{xv} {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{unten - 16} Q{W} {unten} {W - 16} {unten} H{xv} Z" class="ek2-band"/>')
+    o.append(text(xv + 22, y0 + 28, "Dein Vertrieb", "ek2-band-t", 18, 700))
+    o.append(text(xv + 22, y0 + 49, "macht daraus Kunden", "ek2-band-s", 14))
+    return svg(W, unten + 2, "".join(o), "ek2-svg--quer", "schnitt")
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["ek_quer"] = quer()
     d["s7"]["ek_hoch"] = hoch()
-    d["s7"]["ek_zoom_quer"] = zoom_quer()
-    d["s7"]["ek_zoom_hoch"] = zoom_hoch()
+    d["s7"]["ek_schnitt_quer"] = schnitt_quer()
+    d["s7"]["maas"]["schnitt"] = [{"name": z["name"], "marke": z["marke"], "text": " ".join(z["text"]).replace(", Dashboard", ", Dashboard")} for z in SCHNITT]
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
     print("Erklärbild quer und hochkant geschrieben")
