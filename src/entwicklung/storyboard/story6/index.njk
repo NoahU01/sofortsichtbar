@@ -337,6 +337,7 @@ html body .e2-alt.maas .mx-kern__links > .mx-preis { margin-top: 1rem !important
 html body .e2-alt.maas .mx-kern__kurz { margin: 1.4rem 0 2rem !important; max-width: 30rem; font-size: 1rem; line-height: 1.6; color: #cfcac3; }
 .mx-kern .mx-mehr { color: #fff400; }
 .mx-kern__rechts { padding: 2.6rem 2.6rem 2.4rem; border-left: 1px solid rgba(255,255,255,.12); }
+html body .e2-alt.maas .mx-label.mx-label--zwei { margin-top: 1.8rem !important; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,.12); }
 html body .e2-alt.maas .mx-label { margin: 0 0 1rem !important; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9b958e; }
 .mx-haken { list-style: none; margin: 0; padding: 0; }
 .mx-haken li { position: relative; padding: .85rem 0 .85rem 2rem; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 1rem; line-height: 1.4; color: #fff; }
@@ -1146,8 +1147,10 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
           <button type="button" class="mx-mehr" data-maas-auf="maas-{{ K.id }}">Alle Leistungen →</button>
         </div>
         <div class="mx-kern__rechts">
-          <p class="mx-label">Enthalten</p>
-          <ul class="mx-haken">{% for x in K.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          {%- for g in K.punkte_gruppen %}
+          <p class="mx-label{% if not loop.first %} mx-label--zwei{% endif %}">{{ g.titel }}</p>
+          <ul class="mx-haken">{% for x in g.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          {%- endfor %}
         </div>
         {{ fenster(K) }}
       </article>

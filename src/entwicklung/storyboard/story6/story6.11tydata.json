@@ -24,9 +24,9 @@
         "punkte": [
           "Fünf Landingpages",
           "Laufende Postings je Zielgruppenthema",
+          "Laufende Optimierung",
           "Zentrales Dashboard",
           "Monatlicher Report",
-          "Laufende Optimierung",
           "Monatlicher Betreuungscall"
         ],
         "intro": [
@@ -68,6 +68,24 @@
                 "titel": "Monatlicher Betreuungscall",
                 "text": "Ein fester Termin, in dem wir Ergebnisse besprechen, Prioritäten festlegen und die nächsten Schritte gemeinsam planen."
               }
+            ]
+          }
+        ],
+        "punkte_gruppen": [
+          {
+            "titel": "Damit du gesehen wirst",
+            "punkte": [
+              "Fünf Landingpages",
+              "Laufende Postings je Zielgruppenthema",
+              "Laufende Optimierung"
+            ]
+          },
+          {
+            "titel": "Damit du steuern kannst",
+            "punkte": [
+              "Zentrales Dashboard",
+              "Monatlicher Report",
+              "Monatlicher Betreuungscall"
             ]
           }
         ]
