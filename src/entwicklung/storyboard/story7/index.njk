@@ -134,7 +134,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
 <style>
 /* ---------- Schriften (selbst gehostet, OFL) ---------- */
-{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Manrope", "manrope", [400, 500, 700, 800]], ["Plus Jakarta Sans", "plus-jakarta-sans", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
+{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Plus Jakarta Sans", "plus-jakarta-sans", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-ext-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 {%- endfor %}{% endfor %}
@@ -362,33 +362,7 @@ p { margin: 0; }
 .s7-stil--apple .s7-schritt__nr { font-size: 1rem; color: #86868b; }
 .s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: linear-gradient(100deg, #dfe6ff, #eddcff); }
 
-/* 2 · Signal: Weiß + eine kräftige Volltonfarbe auf Flächen, flach, plakative Schrift */
-.s7-stil--signal {
-  --s7-schrift-titel: "Manrope", system-ui, sans-serif;
-  --s7-schrift-text: "Manrope", system-ui, sans-serif;
-  --s7-titel-gewicht: 800; --s7-titel-abstand: -0.035em;
-  --s7-h1: clamp(3.1rem, 8vw, 7rem); --s7-h1-hoehe: .96;
-  --s7-h2: clamp(2.4rem, 5.4vw, 4.4rem); --s7-h2-hoehe: 1.0;
-  --s7-grund: #ffffff; --s7-flaeche: #f2f2ee; --s7-tinte: #111111; --s7-text: #2b2b2b; --s7-grau: #6b6b66; --s7-linie: #dcdcd5;
-  --s7-akzent: #c4f04d; --s7-akzent-fill: #c4f04d; --s7-auf-akzent: #111111;
-  --s7-wort: #111111;
-  --s7-knopf-grund: #111111; --s7-knopf-text: #ffffff;
-  --s7-buehne: #f2f2ee; --s7-band-akzent: #c4f04d; --s7-karte: #ffffff;
-  --s7-schatten: none;
-  --s7-komplett-grund: #c4f04d; --s7-komplett-text: #111111; --s7-komplett-titel: #111111; --s7-komplett-haken: #111111;
-  --s7-lage-1: #dcdcd5; --s7-lage-2: #e7e7e1; --s7-lage-3: #f2f2ee;
-  --s7-rund: 12px; --s7-rund-knopf: 12px;
-}
-.s7-stil--signal .s7-wort { box-shadow: inset 0 -.14em 0 #c4f04d; }
-.s7-stil--signal .s7-kicker { color: #111; }
-.s7-stil--signal .s7-held .s7-lead { margin-top: 2rem; }
-.s7-stil--signal .s7-paket { border: 2px solid #111; }
-.s7-stil--signal .s7-paket--komplett { border-color: #111; }
-.s7-stil--signal .s7-paket--komplett .s7-knopf { border-color: #111; background: #111; color: #fff; }
-.s7-stil--signal .s7-schritt__nr { color: #111; }
-.s7-stil--signal .s7-band--akzent .s7-kicker { color: #111; }
-
-/* 3 · Produktbühne: hell, Einstieg und Maschine auf zarten Verlaufsflächen, schwebende Karten */
+/* 2 · Produktbühne: hell, Einstieg und Maschine auf zarten Verlaufsflächen, schwebende Karten */
 .s7-stil--buehne {
   --s7-schrift-titel: "Plus Jakarta Sans", system-ui, sans-serif;
   --s7-schrift-text: "Plus Jakarta Sans", system-ui, sans-serif;
