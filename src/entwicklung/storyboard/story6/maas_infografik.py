@@ -224,18 +224,9 @@ def entwurf_a2():
 
     # 01 · Strategie: der Auswahlpfad senkrecht
     o.append(kopf_(x1, w1, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?"))
-    yy = y0 + 40
-    for i, (kopf_name, werte) in enumerate(STRATEGIE):
-        o.append(t(x1, yy, kopf_name.upper(), 2.6, 700, GRAU, extra=' letter-spacing="0.5"'))
-        for j, w_ in enumerate(werte[:3]):
-            py = yy + 3 + j * 8.5
-            an = j == 0
-            o.append(f'<rect x="{x1}" y="{py}" width="{w1}" height="6.8" rx="3.4" fill="{GELB if an else "#fff"}" stroke="{GELB if an else LINIE}" stroke-width=".45"/>')
-            o.append(t(x1 + 4, py + 4.8, w_, 3.3, 600 if an else 400))
-        yy += 3 + len(werte[:3]) * 8.5
-        if i < 2:
-            o.append(f'<path d="M{x1 + 8} {yy + 1} v4.5 m-1.6 -1.6 l1.6 1.6 l1.6 -1.6" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
-            yy += 14
+    s_, h_ = strategie_pfad(x1, y0 + 38, w1, 3.0, senkrecht=True)
+    o.append(s_)
+    yy = y0 + 38 + h_
     o.append(zeilen(x1, yy + 6, "Daraus leiten wir alles Weitere ab: Themen, Landingpages, Kanäle.", int(w1 / 1.55), 3, 4.2, TEXT2))
 
     # 02 · Marketing und Vertrieb: Trichter senkrecht, Texte rechts
@@ -408,9 +399,72 @@ def entwurf_b(H=420, W=297):
 
 
 # ---------------------------------------------------------------------------- Roll-up, Version 2: drei Sektionen
-STRATEGIE = [("Segment", ["Privatkunden", "Gewerbekunden"]),
+STRATEGIE = [("Segment", ["Privatkunden", "Firmenkunden"]),
              ("Sparte", ["Leben", "Kranken", "Schaden/Unfall", "Kfz"]),
-             ("Zielgruppe", ["Junge Familien", "Ärzte und Zahnärzte", "Private Bauherren", "Landwirte"])]
+             ("Zielgruppe", ["Junge Familien", "Berufseinsteiger", "Private Bauherren", "Ärzte und Zahnärzte",
+                             "Handwerksbetriebe", "Landwirte", "Gründer & Freelancer", "Vereine"])]
+ZG_ALLE = 29   # Strategiekompass: 29 Zielgruppen
+
+
+def textbreite(s, fs, fett=False):
+    """grobe Breite in mm für Poppins (Mittel aus Messungen)"""
+    return len(s) * fs * (.6 if fett else .56)
+
+
+def pills(x, y, w, werte, fs, an=0, mehr=None, FL=GELB, RAND=GELB):
+    """Pills so breit wie ihr Text, mit Umbruch in der Breite w; die erste ist gewählt. Rückgabe: (svg, Höhe)."""
+    ph, pad, gap = fs * 2.05, fs * 1.05, fs * .55
+    o, cx, cy, rechts = [], x, y, x
+    eintraege = [(v, i == an, False) for i, v in enumerate(werte)] + ([(mehr, False, True)] if mehr else [])
+    for v, gewaehlt, extra in eintraege:
+        pw = textbreite(v, fs, gewaehlt) + 2 * pad
+        if cx > x and cx + pw > x + w + .01:
+            cx, cy = x, cy + ph + gap
+        if extra:
+            o.append(f'<rect x="{cx:.1f}" y="{cy:.1f}" width="{pw:.1f}" height="{ph:.1f}" rx="{ph / 2:.1f}" fill="#fff" stroke="{GRAU}" stroke-width="{fs * .11:.2f}" stroke-dasharray="{fs * .35:.2f} {fs * .3:.2f}"/>')
+            o.append(t(cx + pad, cy + ph * .68, v, fs, 500, GRAU))
+        else:
+            o.append(f'<rect x="{cx:.1f}" y="{cy:.1f}" width="{pw:.1f}" height="{ph:.1f}" rx="{ph / 2:.1f}" fill="{FL if gewaehlt else "#fff"}" stroke="{RAND if gewaehlt else LINIE}" stroke-width="{fs * .13:.2f}"/>')
+            o.append(t(cx + pad, cy + ph * .68, v, fs, 600 if gewaehlt else 400))
+        rechts = max(rechts, cx + pw)
+        cx += pw + gap
+    pills.rechts = rechts
+    return "".join(o), cy + ph - y
+
+
+def strategie_pfad(x, y, w, fs, FL=GELB, RAND=GELB, senkrecht=False, zg=8):
+    """Segment → Sparte → Zielgruppe: alle vier Sparten, acht Zielgruppen und der Hinweis auf weitere.
+    waagerecht: drei Spalten (schmal · mittel · breit) mit Pfeilen; senkrecht: untereinander mit Pfeilen nach unten."""
+    o = []
+    pf = fs * 1.6
+    daten = [(n, (w_[:zg] if n == "Zielgruppe" else w_)) for n, w_ in STRATEGIE]
+    mehr = f"+ {ZG_ALLE - zg} weitere"
+    if senkrecht:
+        yy = y
+        for i, (name, werte) in enumerate(daten):
+            o.append(t(x, yy, name.upper(), fs * .8, 700, GRAU, extra=' letter-spacing="0.5"'))
+            s, h = pills(x, yy + fs * .9, w, werte, fs, mehr=mehr if i == 2 else None, FL=FL, RAND=RAND)
+            o.append(s)
+            yy += fs * .9 + h
+            if i < 2:
+                o.append(f'<path d="M{x + fs * 2} {yy + fs * 1.4} v{pf} m{-fs * .5} {-fs * .5} l{fs * .5} {fs * .5} l{fs * .5} {-fs * .5}" fill="none" stroke="{INK}" stroke-width="{fs * .13:.2f}" stroke-linecap="round" stroke-linejoin="round"/>')
+                yy += fs * 3.4 + pf
+        return "".join(o), yy - y
+    # Segment und Sparte so breit wie nötig (Sparte zweizeilig), Zielgruppe bekommt den Rest
+    breiten = [w * .16, w * .26, None]
+    xx, hmax = x, 0
+    for i, (name, werte) in enumerate(daten):
+        sw = breiten[i] if breiten[i] else x + w - xx
+        o.append(t(xx, y, name.upper(), fs * .8, 700, GRAU, extra=' letter-spacing="0.5"'))
+        s, h = pills(xx, y + fs * .9, sw, werte, fs, mehr=mehr if i == 2 else None, FL=FL, RAND=RAND)
+        o.append(s)
+        hmax = max(hmax, fs * .9 + h)
+        if i < 2:
+            xx = pills.rechts
+            ym = y + fs * .9 + fs * 1.02
+            o.append(f'<path d="M{xx + fs * 1.2} {ym} h{pf} m{-fs * .5} {-fs * .5} l{fs * .5} {fs * .5} l{-fs * .5} {fs * .5}" fill="none" stroke="{INK}" stroke-width="{fs * .13:.2f}" stroke-linecap="round" stroke-linejoin="round"/>')
+            xx += pf + fs * 2.6
+    return "".join(o), hmax
 STEUERUNG = ["Funktioniert, was wir tun?", "Wo müssen wir nachsteuern?", "Wo liegen Möglichkeiten zur Optimierung?"]
 
 
@@ -453,19 +507,8 @@ def entwurf_rollup2(ss=False):
     # 01 · Strategie – kompakt: Kopf und ein Auswahlpfad
     y = 108
     o.append(sektion_kompakt(m, W, y, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?"))
-    ys = y + 31
-    sw = (W - 2 * m - 2 * 9) / 3
-    for i, (kopf_, werte) in enumerate(STRATEGIE):
-        x = m + i * (sw + 9)
-        o.append(t(x, ys, kopf_.upper(), 2.7, 700, GRAU, extra=' letter-spacing="0.5"'))
-        for j, w_ in enumerate(werte[:2]):
-            yy = ys + 3 + j * 8.5
-            an = j == 0
-            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="6.8" rx="3.4" fill="{FL if an else "#fff"}" stroke="{("#c9b6ec" if ss else GELB) if an else LINIE}" stroke-width=".45"/>')
-            o.append(t(x + 4, yy + 4.8, w_, 3.3, 600 if an else 400, INK))
-        if i < 2:
-            xa = x + sw + 2
-            o.append(f'<path d="M{xa} {ys + 6.4} l3.6 0 m-1.6 -1.6 l1.6 1.6 l-1.6 1.6" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
+    s_, h_ = strategie_pfad(m, y + 31, W - 2 * m, 3.3, FL, "#c9b6ec" if ss else GELB)
+    o.append(s_)
 
     # 02 · Marketing und Vertrieb – der Hauptteil
     y = 184
@@ -724,19 +767,8 @@ def entwurf_b2():
     # 01 · Strategie – eine Zeile mit dem Auswahlpfad
     y = 62
     o.append(sektion_kompakt(m, W, y, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?"))
-    ys = y + 29
-    sw = (W - 2 * m - 2 * 8) / 3
-    for i, (kopf_, werte) in enumerate(STRATEGIE):
-        x = m + i * (sw + 8)
-        o.append(t(x, ys, kopf_.upper(), 2.7, 700, GRAU, extra=' letter-spacing="0.4"'))
-        for j, w_ in enumerate(werte[:3]):
-            yy = ys + 3 + j * 8
-            an = j == 0
-            o.append(f'<rect x="{x}" y="{yy}" width="{sw}" height="6.4" rx="3.2" fill="{GELB if an else "#fff"}" stroke="{GELB if an else LINIE}" stroke-width=".45"/>')
-            o.append(t(x + 3.5, yy + 4.5, w_, 3.2, 600 if an else 400))
-        if i < 2:
-            xa = x + sw + 1.8
-            o.append(f'<path d="M{xa} {ys + 6.2} l3.2 0 m-1.5 -1.5 l1.5 1.5 l-1.5 1.5" fill="none" stroke="{INK}" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round"/>')
+    s_, h_ = strategie_pfad(m, y + 29, W - 2 * m, 3.1)
+    o.append(s_)
 
     # 02 · Marketing und Vertrieb – kompakter Trichter, ein Messpunkt
     y = 138
@@ -828,6 +860,100 @@ def entwurf_b2():
     o.append(t(m, dy + dh + 5.5, "Empfehlungen übernehmen wir und prüfen sie nach acht Wochen nach. Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.", 2.8, 500, TEXT2))
     o.append(t(m, H - 6, "Marketing as a Service · sofort sichtbar · ein festes Team, ein Ansprechpartner", 2.7, 500, GRAU))
     return svg_rahmen(W, H, "".join(o), "Infografik Marketing as a Service, Hochformat mit drei Sektionen")
+
+
+
+# ---- Überblick für das Angebots-PDF (A4 hoch, Seite 2): die drei Sektionen aus Roll-up V2, nur die Funktionsweise ----
+# gezeichnet im Maß der PDF-Seite: 174 mm breit (A4 minus 2 × 18 mm Rand); Schrift: Poppins 3,0 mm Text, 2,3 mm Kicker, Lora 4,4 mm Titel
+def ueberblick_pdf(ss=False):
+    W, m = 174, 0
+    o = []
+
+    def kopf_(y, nr, label, titel, sub=""):
+        r = f'<rect x="0" y="{y}" width="{W}" height=".5" fill="{INK}"/>'
+        r += t(0, y + 10, nr, 8, 700, INK)
+        r += t(14, y + 5.2, label, 2.3, 700, INK, extra=' letter-spacing="0.4"')
+        r += t(14, y + 11, titel, 4.4, 700, font=LORA)
+        if sub:
+            r += t(14, y + 15.6, sub, 2.9, 400, TEXT2)
+        return r
+
+    # 01 · Strategie
+    o.append(kopf_(0, "01", "STRATEGIE", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen? Daraus leiten wir alles ab."))
+    s_, h_ = strategie_pfad(0, 23.5, W, 2.5, zg=5)
+    o.append(s_)
+
+    # 02 · Marketing und Vertrieb – Trichter, ein Messpunkt, drei Stufen
+    y = 42
+    o.append(kopf_(y, "02", "MARKETING UND VERTRIEB", "Drei Stufen zum Vertriebserfolg."))
+    gw = 64
+    cx = gw / 2 + 2
+    A_ = 13.5
+    mund, hals = [9, 14, 19.5, 25], [4, 7, 10.5, A_]
+    yt0 = y + 23
+    yk, yh = yt0 + 28, yt0 + 34
+    o.append(punkte_vor(cx - 24, cx + 24, yt0 - 4, yt0 - 1, 20, .6))
+    for k in (3, 2, 1, 0):
+        hm, ha = mund[k], hals[k]
+        d = (f"M{cx - hm} {yt0} C{cx - hm} {yt0 + 12} {cx - ha} {yk - 12} {cx - ha} {yk} V{yh} H{cx + ha} V{yk} "
+             f"C{cx + ha} {yk - 12} {cx + hm} {yt0 + 12} {cx + hm} {yt0} Z")
+        o.append(f'<path d="{d}" fill="{FARBEN[k]}" stroke="#fff" stroke-width=".5"/>')
+    o.append(t(cx, yt0 + 6.5, "Marketing", 2.6, 700, anchor="middle"))
+    for i in range(3):
+        o.append(f'<circle cx="{cx + (i - 1) * 1.1}" cy="{yk - 7 + i * 2.6}" r=".75" fill="{INK}"/>')
+    ym_ = yh - 2
+    o.append(f'<circle cx="{cx + A_ + 5.5}" cy="{ym_}" r="3" fill="{GELB}" stroke="{INK}" stroke-width=".4"/><circle cx="{cx + A_ + 5.5}" cy="{ym_}" r="1.05" fill="{INK}"/>')
+    o.append(f'<path d="M{cx + A_} {ym_} H{cx + A_ + 2.5}" stroke="{INK}" stroke-width=".4"/>')
+    yv1 = yh + 23
+    o.append(f'<path d="M{cx - A_} {yh} H{cx + A_} V{yv1 - 5} L{cx} {yv1} L{cx - A_} {yv1 - 5} Z" fill="#fff" stroke="{INK}" stroke-width=".45" stroke-linejoin="round"/>')
+    o.append(ico("handshake", cx - 2.6, yh + 2.6, 5.2))
+    o.append(t(cx, yh + 12, "Vertrieb", 3.4, 700, anchor="middle", font=LORA))
+    yb0, yb1 = yv1 + 1.2, yv1 + 17
+    o.append(f'<path d="M{cx - A_} {yb0} L{cx} {yb0 + 5} L{cx + A_} {yb0} V{yb1 - 2.5} Q{cx + A_} {yb1} {cx + A_ - 2.5} {yb1} H{cx - A_ + 2.5} Q{cx - A_} {yb1} {cx - A_} {yb1 - 2.5} Z" fill="{INK}"/>')
+    o.append(ico("heart-handshake", cx - 2.6, yb0 + 5.4, 5.2, GELB))
+    o.append(t(cx, yb0 + 13.6, "Kundenbetreuung", 2.6, 700, "#fff", "middle", font=LORA))
+    o.append(f'<path d="M{cx - A_} {yb1 - 6} H1 V{yt0 - 6} H{cx - 27} V{yt0 - .8}" fill="none" stroke="{INK}" stroke-width=".35" marker-end="url(#ig-pf)"/>')
+    tx = gw + 12
+    n = 58   # Zeichen je Zeile bei 2,9 mm Poppins (Umbrüche geprüft: keine Einzelwörter)
+    stufen = [(yt0 + 1, 1, "MARKETING · UNSER SCHWERPUNKT", INK), (yh + 9, 2, "VERTRIEB", GRAU), (yb0 + 6, 3, "KUNDENBETREUUNG", GRAU)]
+    ende = 0
+    for yy, nr, name, farbe in stufen:
+        claim, text = STUFEN_KURZ[nr - 1]
+        o.append(t(tx, yy, f"STUFE {nr} · {name}", 2.2, 700, farbe, extra=' letter-spacing="0.4"'))
+        o.append(t(tx, yy + 5.6, claim, 4.4, 700, font=LORA))
+        o.append(zeilen(tx, yy + 10.4, text, n, 2.9, 4.1))
+        ende = yy + 10.4 + (len(umbruch(text, n)) - 1) * 4.1
+    o.append(t(tx, ym_ - 1, "MESSPUNKT", 2.2, 700, GRAU, extra=' letter-spacing="0.4"'))
+    o.append(t(tx, ym_ + 3.4, "Leads: echte Anfragen", 3.2, 700))
+    yr = max(yb1, ende + 1) + 6
+    o.append(f'<rect x="0" y="{yr - 3.4}" width="{W}" height="6.8" rx="3.4" fill="{GELB}"/>')
+    o.append(t(W / 2, yr + 1, "↑  " + RUECK, 2.8, 600, anchor="middle"))
+
+    # 03 · Steuerung – Dashboard als eine Reihe
+    y = yr + 7.5
+    o.append(kopf_(y, "03", "STEUERUNG", "Funktioniert es?", "Wo müssen wir nachsteuern? Jeden Monat im Report und im Betreuungscall."))
+    dx, dy, dw, dh = 0, y + 20.5, W, 22
+    o.append(f'<rect x="{dx}" y="{dy}" width="{dw}" height="{dh}" rx="2.6" fill="#fff" stroke="{INK}" stroke-width=".45"/>')
+    o.append(f'<path d="M{dx} {dy + 5.6} H{dx + dw}" stroke="{INK}" stroke-width=".3"/>')
+    for i in range(3):
+        o.append(f'<circle cx="{dx + 3.6 + i * 2.8}" cy="{dy + 2.8}" r=".75" fill="{LINIE}"/>')
+    o.append(t(dx + 13, dy + 3.8, "Analytics-Dashboard", 2.3, 700))
+    kw, kh = (dw - 6 - 3 * 2.5) / 4, 13
+    for i, (name, frage) in enumerate(STEUERUNG_KACHELN):
+        kx, ky = dx + 3 + i * (kw + 2.5), dy + 8
+        lead = name == "Leads"
+        o.append(f'<rect x="{kx}" y="{ky}" width="{kw}" height="{kh}" rx="1.6" fill="{GELB if lead else HELL}"/>')
+        o.append(t(kx + 2.5, ky + 4.6, name, 2.8, 700))
+        pts = " ".join(f"{kx + 2.5 + j * (kw - 5) / 6:.1f},{ky + kh - 2 - v:.1f}" for j, v in enumerate([0.5, 1.8, 1.2, 2.8, 2.1, 3.6, 4.8]))
+        o.append(f'<polyline points="{pts}" fill="none" stroke="{INK}" stroke-width=".4" stroke-linecap="round" stroke-linejoin="round"/>')
+    o.append(t(0, dy + dh + 5.6, "Daraus Empfehlungen für Landingpages, LinkedIn und Suche – übernommen und nach acht Wochen nachgeprüft.", 2.9, 400, TEXT2))
+    H = dy + dh + 7
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 {W} {H + 1}" width="{W}mm" height="{H + 1}mm" role="img" '
+           f'aria-label="Marketing as a Service im Überblick: Strategie, Marketing und Vertrieb, Steuerung">{pfeilkopf()}{"".join(o)}</svg>')
+    if ss:
+        from maas_strukturbild import ss_faerben
+        svg = ss_faerben(svg)
+    return svg
 
 
 ENTWUERFE = {"a": (entwurf_a, 420, 297), "a2": (entwurf_a2, 420, 297), "b2": (entwurf_b2, 297, 420),
