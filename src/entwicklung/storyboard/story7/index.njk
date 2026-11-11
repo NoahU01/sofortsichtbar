@@ -1,281 +1,48 @@
 ---
 layout: false
 eleventyExcludeFromCollections: true
-permalink: /entwicklung/storyboard/story7/index.html
+pagination:
+  data: seiten
+  size: 1
+  alias: s
+seiten:
+  - slug: ""
+    titel: "Startseite"
+  - slug: "stilproben"
+    titel: "Stilproben"
+permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
 ---
-{#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint).
-    Arbeitslook: bewusst neutral. Der Stil hängt ausschließlich an den Stellschrauben unter :root –
-    eine Stilrichtung wird später nur dort gesetzt, nicht in den Bausteinen.
-    Inhalte: story7.11tydata.json → s7 · Grafik: maschine_holen.py (aus story6/maas_strukturbild.py).
-    Eigenständige Seite (layout: false), alles in src/entwicklung/. -#}
+{#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
+    und die Stilproben (drei Richtungen auf denselben Bausteinen).
+    Der Stil hängt ausschließlich an den Stellschrauben (:root = Arbeitslook; .s7-stil--… = eine Richtung).
+    Bausteine (Einstieg, Schritte, Pakete …) als Makros – Startseite und Stilproben nutzen dieselben.
+    Inhalte: story7.11tydata.json → s7 · Grafik: maschine_holen.py · Schriften: assets/fonts (OFL, selbst gehostet).
+    Eigenständige Seiten (layout: false), alles in src/entwicklung/. -#}
 {%- set S = s7 -%}
 {%- set B6 = "/entwicklung/storyboard/story6" -%}
+{%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Homepage-Story 7 · Die digitale Maschine – Entwicklung</title>
-<meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
-<style>
-/* ===================================================================================
-   STELLSCHRAUBEN – nur hier wird der Stil gesetzt (Arbeitslook: neutral, Platzhalter)
-   =================================================================================== */
-:root {
-  --s7-schrift-titel: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --s7-schrift-text: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --s7-titel-gewicht: 700;
-  --s7-titel-abstand: -0.02em;
-  --s7-grund: #ffffff;          /* Seitenhintergrund */
-  --s7-flaeche: #f4f4f3;        /* helle Fläche (Bänder, Karten) */
-  --s7-tinte: #181818;          /* Überschriften, dunkle Flächen */
-  --s7-text: #3b3b3b;           /* Fließtext */
-  --s7-grau: #7a7a7a;           /* Kicker, Nebeninfos */
-  --s7-linie: #e2e2df;          /* Trennlinien, Rahmen */
-  --s7-akzent: #c9d4e3;         /* Markierung (Kern des Trichters, Leads, Auswahl) */
-  --s7-akzent-zart: #e9eef5;    /* zarte Akzentfläche */
-  --s7-auf-akzent: #181818;     /* Schrift auf dem Akzent */
-  --s7-lage-1: #dededb; --s7-lage-2: #e9e9e7; --s7-lage-3: #f2f2f1;   /* Lagen des Trichters */
-  --s7-rund: 18px;              /* Rundung Karten */
-  --s7-rund-knopf: 999px;       /* Rundung Knöpfe */
-  --s7-band: clamp(4.5rem, 9vw, 7.5rem);   /* Abstand oben/unten je Band */
-}
 
-/* ---------- Grundlagen ---------- */
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--s7-grund); color: var(--s7-text); font: 400 1.0625rem/1.6 var(--s7-schrift-text); -webkit-font-smoothing: antialiased; }
-img, svg { display: block; max-width: 100%; }
-img { height: auto; }
-a { color: inherit; }
-h1, h2, h3 { margin: 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-weight: var(--s7-titel-gewicht); letter-spacing: var(--s7-titel-abstand); text-wrap: balance; }
-p { margin: 0; }
-.s7-wrap { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
-.s7-band { padding: var(--s7-band) 0; }
-.s7-band--flaeche { background: var(--s7-flaeche); }
-.s7-band--tinte { background: var(--s7-tinte); color: #e9e9e9; }
-.s7-band--tinte h2, .s7-band--tinte h3 { color: #fff; }
-.s7-kicker { margin-bottom: 1rem; color: var(--s7-grau); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.s7-h2 { max-width: 22ch; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.12; }
-.s7-lead { max-width: 40rem; margin-top: 1.2rem; font-size: 1.15rem; line-height: 1.6; }
-.s7-knopf { display: inline-flex; align-items: center; gap: .6rem; padding: .95rem 1.5rem; border: 2px solid var(--s7-tinte); border-radius: var(--s7-rund-knopf); background: var(--s7-tinte); color: #fff; font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform .15s ease; }
-.s7-knopf:hover { transform: translateY(-2px); }
-.s7-knopf--rand { background: transparent; color: var(--s7-tinte); }
-.s7-pfeil { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.s7-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
-.s7-link:hover { text-decoration: underline; }
-
-/* ---------- Entwicklungsleiste + Kopf ---------- */
-.s7-dev { background: #111; color: #bbb; font-size: 12.5px; }
-.s7-dev .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem 0; }
-.s7-dev b { color: #fff; font-weight: 600; }
-.s7-dev a { color: #fff; }
-.s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
-.s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
-.s7-marke { display: flex; align-items: center; gap: .35rem; }
-.s7-marke img { height: 2.4rem; width: auto; }
-.s7-nav { display: flex; gap: 1.8rem; margin-left: auto; }
-.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; }
-.s7-nav a:hover { color: var(--s7-tinte); }
-.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
-.s7-dd { position: relative; }
-.s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
-.s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
-.s7-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; }
-.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem; max-height: calc(100vh - 140px); overflow-y: auto; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
-.s7-dd__panel[hidden] { display: none; }
-.s7-dd__hinweis { margin: 0 0 .5rem; padding: .7rem .8rem; border-radius: 10px; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .78rem; line-height: 1.45; }
-.s7-dd__gruppe { margin: .7rem .8rem .2rem; color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.s7-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: var(--s7-tinte); font-size: .9rem; text-decoration: none; }
-.s7-dd__panel a:hover { background: var(--s7-flaeche); }
-.s7-dd__panel a[aria-current="page"] { font-weight: 600; background: var(--s7-flaeche); }
-
-/* ---------- 1 · Einstieg ---------- */
-.s7-held { padding: clamp(3.5rem, 7vw, 6rem) 0 0; }
-.s7-held h1 { max-width: 16ch; font-size: clamp(2.6rem, 6.6vw, 5.6rem); line-height: 1.04; letter-spacing: calc(var(--s7-titel-abstand) * 1.6); }
-.s7-held .s7-lead { font-size: clamp(1.15rem, 1.7vw, 1.35rem); max-width: 36rem; }
-.s7-held__knoepfe { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
-.s7-maschine { margin: clamp(3rem, 6vw, 4.5rem) 0 0; padding: clamp(1.2rem, 3vw, 2.6rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); }
-.s7-maschine__bild { overflow-x: auto; }
-.s7-maschine__bild svg { width: 100%; min-width: 640px; height: auto; }
-.s7-maschine__fuss { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; align-items: baseline; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); }
-.s7-maschine__fuss .s7-kicker { margin: 0; }
-.s7-maschine__fuss p { flex: 1 1 28rem; color: var(--s7-text); font-size: 1rem; }
-/* Farben der Grafik an die Stellschrauben koppeln (CSS schlägt die Attribute der Grafik) */
-.s7-maschine svg [fill="#fff400"] { fill: var(--s7-akzent); }
-.s7-maschine svg [stroke="#fff400"] { stroke: var(--s7-akzent); }
-.s7-maschine svg [fill="#dcd8d2"] { fill: var(--s7-lage-1); }
-.s7-maschine svg [fill="#e8e5e0"] { fill: var(--s7-lage-2); }
-.s7-maschine svg [fill="#f3f1ee"] { fill: var(--s7-lage-3); }
-.s7-maschine svg [fill="#1a1817"] { fill: var(--s7-tinte); }
-.s7-maschine svg [stroke="#1a1817"] { stroke: var(--s7-tinte); }
-.s7-maschine svg [fill="#3d3a37"] { fill: var(--s7-text); }
-.s7-maschine svg [fill="#6f6a64"] { fill: var(--s7-grau); }
-.s7-maschine svg text { font-family: var(--s7-schrift-text); }
-
-/* ---------- 2 · So läuft die Maschine ---------- */
-.s7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.2rem; margin-top: 3rem; }
-.s7-schritt { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.8rem 1.6rem; border-radius: var(--s7-rund); background: var(--s7-grund); }
-.s7-schritt__nr { font: 700 2.4rem/1 var(--s7-schrift-text); color: var(--s7-tinte); }
-.s7-schritt__label { margin-top: 1rem; color: var(--s7-grau); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.s7-schritt h3 { margin-top: .35rem; font-size: 1.4rem; line-height: 1.25; }
-.s7-schritt__t { margin-top: .6rem; font-size: 1rem; line-height: 1.55; }
-.s7-schritt__bild { margin-top: 1.4rem; padding: 1.1rem; border-radius: calc(var(--s7-rund) * .7); background: var(--s7-flaeche); }
-.s7-schritt__link { margin-top: 1.2rem; align-self: end; }
-/* Mini-Bild 01: Auswahlpfad */
-.s7-pfad { display: grid; gap: .55rem; }
-.s7-pfad__zeile { display: grid; grid-template-columns: 5.4rem 1fr; align-items: center; gap: .5rem; }
-.s7-pfad__zeile > span { color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.s7-pillen { display: flex; flex-wrap: wrap; gap: .3rem; }
-.s7-pille { font-style: normal; padding: .22rem .6rem; border: 1px solid var(--s7-linie); border-radius: 99px; background: #fff; font-size: .78rem; line-height: 1.3; white-space: nowrap; }
-.s7-pille--an { border-color: var(--s7-akzent); background: var(--s7-akzent); color: var(--s7-auf-akzent); font-weight: 600; }
-.s7-pille--mehr { border-style: dashed; color: var(--s7-grau); background: transparent; }
-/* Mini-Bild 02: Strecke → Vertrieb */
-.s7-strecke { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; }
-.s7-strecke__teile { display: grid; gap: .35rem; }
-.s7-strecke__teile span { padding: .45rem .6rem; border-radius: 8px; background: #fff; font-size: .8rem; font-weight: 500; }
-.s7-strecke__pfeil { color: var(--s7-tinte); }
-.s7-strecke__ziel { padding: .7rem .7rem; border-radius: 10px; background: var(--s7-tinte); color: #fff; font-size: .8rem; line-height: 1.35; }
-.s7-strecke__ziel b { display: block; margin-bottom: .2rem; padding: .15rem .45rem; border-radius: 99px; width: max-content; background: var(--s7-akzent); color: var(--s7-auf-akzent); font-size: .7rem; }
-/* Mini-Bild 03: Dashboard */
-.s7-dash { border: 1px solid var(--s7-linie); border-radius: 10px; background: #fff; overflow: hidden; }
-.s7-dash__kopf { display: flex; gap: .3rem; align-items: center; padding: .4rem .6rem; border-bottom: 1px solid var(--s7-linie); font-size: .68rem; font-weight: 600; color: var(--s7-tinte); }
-.s7-dash__kopf i { width: .4rem; height: .4rem; border-radius: 50%; background: var(--s7-linie); }
-.s7-dash__kopf i:last-of-type { margin-right: .4rem; }
-.s7-dash__kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; padding: .5rem; }
-.s7-dash__kachel { padding: .4rem .5rem .3rem; border-radius: 7px; background: var(--s7-flaeche); font-size: .7rem; font-weight: 600; color: var(--s7-tinte); }
-.s7-dash__kachel svg { width: 100%; height: 1.2rem; margin-top: .2rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.4; }
-.s7-dash__kachel--an { background: var(--s7-akzent); color: var(--s7-auf-akzent); }
-.s7-dash__empf { margin: 0 .5rem .5rem; padding: .4rem .55rem; border: 1px solid var(--s7-linie); border-radius: 7px; font-size: .7rem; line-height: 1.35; color: var(--s7-text); }
-.s7-dash__empf b { color: var(--s7-tinte); }
-
-/* ---------- 3 · Pakete ---------- */
-.s7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
-.s7-gruppe { grid-row: 1; display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; color: var(--s7-tinte); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.s7-gruppe::after { content: ""; flex: 1; height: 2px; background: var(--s7-tinte); }
-.s7-gruppe--a { grid-column: 1 / span 2; }
-.s7-gruppe--b { grid-column: 3; }
-.s7-paket { display: grid; grid-row: 2 / span 7; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.8rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: var(--s7-grund); }
-.s7-paket--komplett { border-color: var(--s7-tinte); background: var(--s7-tinte); color: #e9e9e9; }
-.s7-paket--komplett h3, .s7-paket--komplett .s7-paket__preis b { color: #fff; }
-.s7-paket h3 { font-size: 1.7rem; line-height: 1.2; }
-.s7-paket__fuer { margin-top: .5rem; font-size: 1rem; line-height: 1.5; }
-.s7-paket__preis { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .9rem; }
-.s7-paket--komplett .s7-paket__preis { border-top-color: rgba(255,255,255,.18); color: #aaa; }
-.s7-paket__preis span { display: block; margin-top: .15rem; }
-.s7-paket__preis b { display: block; color: var(--s7-tinte); font-size: 1.9rem; font-weight: 700; line-height: 1.15; }
-.s7-paket__preis b.s7-offen { display: inline-block; margin-bottom: .2rem; padding: .1rem .7rem; border: 1.5px dashed var(--s7-grau); border-radius: 8px; color: var(--s7-grau); font-size: 1.2rem; }
-.s7-paket__vorspann { margin-top: 1.2rem; font-size: .88rem; font-weight: 600; color: var(--s7-tinte); min-height: 1.3em; }
-.s7-paket--komplett .s7-paket__vorspann { color: #fff; }
-.s7-paket ul { list-style: none; margin: .5rem 0 0; padding: 0; }
-.s7-paket li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: .98rem; line-height: 1.45; }
-.s7-paket li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
-.s7-paket--komplett li::before { color: var(--s7-akzent); }
-.s7-paket .s7-knopf { margin-top: 1.4rem; align-self: end; justify-content: center; }
-.s7-paket--komplett .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
-.s7-pakete__fuss { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; }
-
-/* ---------- 4 · Zielgruppen ---------- */
-.s7-zg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
-.s7-zg__karte { display: block; border-radius: var(--s7-rund); background: var(--s7-grund); overflow: hidden; text-decoration: none; transition: transform .2s ease; }
-.s7-zg__karte:hover { transform: translateY(-4px); }
-.s7-zg__karte img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.s7-zg__text { padding: 1.1rem 1.3rem 1.3rem; }
-.s7-zg__text h3 { font-size: 1.2rem; line-height: 1.3; }
-.s7-zg__text p { margin-top: .3rem; color: var(--s7-grau); font-size: .92rem; }
-.s7-zg__text p b { color: var(--s7-text); font-weight: 500; }
-.s7-zg__fuss { margin-top: 2rem; }
-
-/* ---------- 5 · Vertrauen ---------- */
-.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-.s7-team { display: flex; gap: 1.4rem; margin-top: 2.2rem; }
-.s7-team figure { margin: 0; text-align: center; }
-.s7-team img { width: 5.2rem; height: 5.2rem; border-radius: 50%; object-fit: cover; background: var(--s7-flaeche); }
-.s7-team figcaption { margin-top: .5rem; color: var(--s7-tinte); font-size: .85rem; font-weight: 600; }
-.s7-zitat { margin: 0; padding: 2.4rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); }
-.s7-zitat p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: var(--s7-titel-gewicht); line-height: 1.3; letter-spacing: var(--s7-titel-abstand); }
-.s7-zitat cite { display: block; margin-top: 1.2rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
-
-/* ---------- 6 · Kontakt ---------- */
-.s7-kontakt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: end; }
-.s7-kontakt .s7-lead { color: #cfcfcf; }
-.s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
-.s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
-.s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
-.s7-fuss { padding: 2rem 0; border-top: 1px solid #2a2a2a; background: var(--s7-tinte); color: #888; font-size: .85rem; }
-.s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-.s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
-
-/* ---------- Mobil ---------- */
-@media (max-width: 1000px) {
-  .s7-nav { display: none; }
-  .s7-kopf .s7-knopf { margin-left: auto; }
-  .s7-schritte, .s7-pakete { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
-  .s7-schritt, .s7-paket { grid-row: auto; grid-template-rows: none; }
-  .s7-gruppe { grid-row: auto; grid-column: 1; margin: 1rem 0 .2rem; }
-  .s7-gruppe--b { order: 3; }
-  .s7-paket--komplett { order: 4; }
-  .s7-zg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .s7-vertrauen, .s7-kontakt { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 600px) {
-  .s7-zg { grid-template-columns: minmax(0, 1fr); }
-  .s7-kopf .s7-knopf { display: none; }
-  .s7-team img { width: 4.4rem; height: 4.4rem; }
-}
-</style>
-</head>
-<body>
-
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter, die Stilproben folgen</span><a href="{{ B6 }}/story-varianten/">← Story-Varianten</a></div></div>
-
-<header class="s7-kopf">
-  <div class="s7-wrap">
-    <div class="s7-marke">
-      <a href="/entwicklung/storyboard/story7/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
-      <div class="s7-dd" data-s7-dd>
-        <button type="button" class="s7-dd__auf" aria-expanded="false" aria-controls="s7-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
-        <div class="s7-dd__panel" id="s7-dd-panel" hidden>
-          {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
-          {%- if c.typ == "hinweis" %}<p class="s7-dd__hinweis">{{ c.text }}</p>
-          {%- elif c.typ == "gruppe" %}<p class="s7-dd__gruppe">{{ c.label }}</p>
-          {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
-          {%- endfor %}{% endif %}{% endfor %}
-        </div>
-      </div>
-    </div>
-    <nav class="s7-nav" aria-label="Hauptnavigation">
-      <a href="#maschine">So funktioniert es</a>
-      <a href="#pakete">Pakete</a>
-      <a href="#zielgruppen">Zielgruppen</a>
-      <a href="#ueber-uns">Über uns</a>
-    </nav>
-    <a class="s7-knopf" href="#kontakt">Termin auswählen</a>
-  </div>
-</header>
-
-<main>
-
-  <!-- 1 · Einstieg: der Mehrwert im ersten Bild -->
+{#- ======================= Bausteine ======================= -#}
+{%- macro held(mitIds=true) -%}
   <section class="s7-held">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ S.hero.kicker }}</p>
-      <h1>{{ S.hero.h1 }}</h1>
+      <h1>{{ S.hero.h1 }} <span class="s7-wort">{{ S.hero.h1_akzent }}</span></h1>
       <p class="s7-lead">{{ S.hero.lead }}</p>
       <div class="s7-held__knoepfe">
         <a class="s7-knopf" href="#kontakt">{{ S.hero.knopf }} {{ pfeil | safe }}</a>
         <a class="s7-knopf s7-knopf--rand" href="{{ B6 }}/strategiekompass/">{{ S.hero.knopf2 }}</a>
       </div>
-      <figure class="s7-maschine" id="maschine-bild">
+      <figure class="s7-maschine">
         <div class="s7-maschine__bild">{{ S.maschine | safe }}</div>
       </figure>
     </div>
   </section>
+{%- endmacro -%}
 
-  <!-- 2 · So läuft die Maschine: Strategie · Marketing und Vertrieb · Steuerung -->
-  <section class="s7-band s7-band--flaeche" id="maschine" style="margin-top: var(--s7-band)">
+{%- macro schritte(mitIds=true) -%}
+  <section class="s7-band s7-band--akzent"{% if mitIds %} id="maschine"{% endif %}>
     <div class="s7-wrap">
       <p class="s7-kicker">{{ S.schritte.kicker }}</p>
       <h2 class="s7-h2">{{ S.schritte.h2 }}</h2>
@@ -330,9 +97,10 @@ p { margin: 0; }
       </div>
     </div>
   </section>
+{%- endmacro -%}
 
-  <!-- 3 · Pakete: die Weiche – Fokus und Team (Weg A), Komplett (Weg B) -->
-  <section class="s7-band" id="pakete">
+{%- macro pakete(mitIds=true) -%}
+  <section class="s7-band"{% if mitIds %} id="pakete"{% endif %}>
     <div class="s7-wrap">
       <p class="s7-kicker">{{ S.pakete.kicker }}</p>
       <h2 class="s7-h2">{{ S.pakete.h2 }}</h2>
@@ -355,8 +123,421 @@ p { margin: 0; }
       <p class="s7-pakete__fuss">{{ S.pakete.fuss }}</p>
     </div>
   </section>
+{%- endmacro -%}
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if s.slug %}{{ s.titel }} · {% endif %}Homepage-Story 7 · Die digitale Maschine – Entwicklung</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
+<style>
+/* ---------- Schriften (selbst gehostet, OFL) ---------- */
+{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Manrope", "manrope", [400, 500, 700, 800]], ["Plus Jakarta Sans", "plus-jakarta-sans", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
+@font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-ext-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+{%- endfor %}{% endfor %}
 
-  <!-- 4 · Zielgruppen -->
+/* ===================================================================================
+   STELLSCHRAUBEN – :root ist der Arbeitslook (neutral, Platzhalter).
+   Eine Stilrichtung setzt nur diese Werte neu (siehe .s7-stil--… weiter unten).
+   =================================================================================== */
+:root, .s7-stil {
+  --s7-schrift-titel: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-schrift-text: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-titel-gewicht: 700;
+  --s7-titel-abstand: -0.02em;
+  --s7-h1: clamp(2.6rem, 6.6vw, 5.6rem);   --s7-h1-hoehe: 1.04;
+  --s7-h2: clamp(2rem, 4.2vw, 3.2rem);     --s7-h2-hoehe: 1.12;
+  --s7-text-groesse: 1.0625rem;
+  --s7-grund: #ffffff;          /* Seitenhintergrund */
+  --s7-flaeche: #f4f4f3;        /* helle Fläche */
+  --s7-tinte: #181818;          /* Überschriften, dunkle Flächen */
+  --s7-text: #3b3b3b;           /* Fließtext */
+  --s7-grau: #7a7a7a;           /* Kicker, Nebeninfos */
+  --s7-linie: #e2e2df;          /* Trennlinien, Rahmen */
+  --s7-akzent: #c9d4e3;         /* Markierung: Auswahl, Leads, Kern des Trichters */
+  --s7-akzent-fill: var(--s7-akzent);   /* dieselbe Markierung in Grafiken (darf url(#…) sein) */
+  --s7-auf-akzent: #181818;     /* Schrift auf dem Akzent */
+  --s7-wort: var(--s7-tinte);   /* hervorgehobenes Wort der Hauptüberschrift */
+  --s7-wort-verlauf: none;      /* … oder als Verlauf */
+  --s7-knopf-grund: var(--s7-tinte); --s7-knopf-text: #ffffff;
+  --s7-buehne: var(--s7-flaeche);      /* Fläche hinter der Maschine */
+  --s7-band-akzent: var(--s7-flaeche); /* Band „So läuft die Maschine“ */
+  --s7-karte: var(--s7-grund);         /* Karten auf Bändern */
+  --s7-schatten: none;                 /* Karten-Schatten */
+  --s7-komplett-grund: var(--s7-tinte); --s7-komplett-text: #e9e9e9; --s7-komplett-titel: #ffffff; --s7-komplett-haken: var(--s7-akzent); --s7-komplett-knopf-text: var(--s7-tinte);
+  --s7-lage-1: #dededb; --s7-lage-2: #e9e9e7; --s7-lage-3: #f2f2f1;   /* Lagen des Trichters */
+  --s7-rund: 18px;              /* Rundung Karten */
+  --s7-rund-knopf: 999px;       /* Rundung Knöpfe */
+  --s7-band: clamp(4.5rem, 9vw, 7.5rem);   /* Abstand oben/unten je Band */
+}
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #3b3b3b; font: 400 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+p { margin: 0; }
+.s7-stil { background: var(--s7-grund); color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: var(--s7-text-groesse); line-height: 1.6; }
+.s7-stil h1, .s7-stil h2, .s7-stil h3 { margin: 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-weight: var(--s7-titel-gewicht); letter-spacing: var(--s7-titel-abstand); text-wrap: balance; }
+.s7-wrap { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+.s7-band { padding: var(--s7-band) 0; }
+.s7-band--flaeche { background: var(--s7-flaeche); }
+.s7-band--akzent { background: var(--s7-band-akzent); }
+.s7-band--tinte { background: var(--s7-tinte); color: #e9e9e9; }
+.s7-stil .s7-band--tinte h2 { color: #fff; }
+.s7-kicker { margin-bottom: 1rem; color: var(--s7-grau); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.s7-stil .s7-h2 { max-width: 22ch; font-size: var(--s7-h2); line-height: var(--s7-h2-hoehe); }
+.s7-lead { max-width: 40rem; margin-top: 1.2rem; font-size: 1.15rem; line-height: 1.6; }
+.s7-knopf { display: inline-flex; align-items: center; gap: .6rem; padding: .95rem 1.5rem; border: 2px solid var(--s7-knopf-grund); border-radius: var(--s7-rund-knopf); background: var(--s7-knopf-grund); color: var(--s7-knopf-text); font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform .15s ease; }
+.s7-knopf:hover { transform: translateY(-2px); }
+.s7-knopf--rand { background: transparent; border-color: var(--s7-tinte); color: var(--s7-tinte); }
+.s7-pfeil { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.s7-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
+.s7-link:hover { text-decoration: underline; }
+.s7-wort { color: var(--s7-wort); background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- Entwicklungsleiste + Kopf ---------- */
+.s7-dev { background: #111; color: #bbb; font-size: 12.5px; }
+.s7-dev .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem 0; }
+.s7-dev b { color: #fff; font-weight: 600; }
+.s7-dev a { color: #fff; margin-left: 1rem; }
+.s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
+.s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
+.s7-marke { display: flex; align-items: center; gap: .35rem; }
+.s7-marke img { height: 2.4rem; width: auto; }
+.s7-nav { display: flex; gap: 1.8rem; margin-left: auto; }
+.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; }
+.s7-nav a:hover { color: var(--s7-tinte); }
+.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
+.s7-kopf--nur-marke .s7-knopf { margin-left: auto; }
+.s7-dd { position: relative; }
+.s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
+.s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
+.s7-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; }
+.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem; max-height: calc(100vh - 140px); overflow-y: auto; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-dd__panel[hidden] { display: none; }
+.s7-dd__hinweis { margin: 0 0 .5rem; padding: .7rem .8rem; border-radius: 10px; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .78rem; line-height: 1.45; }
+.s7-dd__gruppe { margin: .7rem .8rem .2rem; color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.s7-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: var(--s7-tinte); font-size: .9rem; text-decoration: none; }
+.s7-dd__panel a:hover { background: var(--s7-flaeche); }
+.s7-dd__panel a[aria-current="page"] { font-weight: 600; background: var(--s7-flaeche); }
+
+/* ---------- Einstieg ---------- */
+.s7-held { padding: clamp(3.5rem, 7vw, 6rem) 0 calc(var(--s7-band) * .7); }
+.s7-stil .s7-held h1 { max-width: 16ch; font-size: var(--s7-h1); line-height: var(--s7-h1-hoehe); letter-spacing: calc(var(--s7-titel-abstand) * 1.6); }
+.s7-held .s7-lead { font-size: clamp(1.15rem, 1.7vw, 1.35rem); max-width: 36rem; }
+.s7-held__knoepfe { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+.s7-maschine { margin: clamp(3rem, 6vw, 4.5rem) 0 0; padding: clamp(1.2rem, 3vw, 2.6rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-buehne); }
+.s7-maschine__bild { overflow-x: auto; }
+.s7-maschine__bild svg { width: 100%; min-width: 640px; height: auto; }
+/* Farben der Grafik an die Stellschrauben koppeln (CSS schlägt die Attribute der Grafik) */
+.s7-maschine svg [fill="#fff400"] { fill: var(--s7-akzent-fill); }
+.s7-maschine svg [stroke="#fff400"] { stroke: var(--s7-akzent); }
+.s7-maschine svg [fill="#dcd8d2"] { fill: var(--s7-lage-1); }
+.s7-maschine svg [fill="#e8e5e0"] { fill: var(--s7-lage-2); }
+.s7-maschine svg [fill="#f3f1ee"] { fill: var(--s7-lage-3); }
+.s7-maschine svg [fill="#1a1817"] { fill: var(--s7-tinte); }
+.s7-maschine svg [stroke="#1a1817"] { stroke: var(--s7-tinte); }
+.s7-maschine svg [fill="#3d3a37"] { fill: var(--s7-text); }
+.s7-maschine svg [fill="#6f6a64"] { fill: var(--s7-grau); }
+.s7-maschine svg text { font-family: var(--s7-schrift-text); }
+
+/* ---------- So läuft die Maschine ---------- */
+.s7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.s7-schritt { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 1.8rem 1.8rem 1.6rem; border-radius: var(--s7-rund); background: var(--s7-karte); box-shadow: var(--s7-schatten); }
+.s7-schritt__nr { font: 700 2.4rem/1 var(--s7-schrift-titel); color: var(--s7-tinte); }
+.s7-schritt__label { margin-top: 1rem; color: var(--s7-grau); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.s7-stil .s7-schritt h3 { margin-top: .35rem; font-size: 1.4rem; line-height: 1.25; }
+.s7-schritt__t { margin-top: .6rem; font-size: 1rem; line-height: 1.55; }
+.s7-schritt__bild { margin-top: 1.4rem; padding: 1.1rem; border-radius: calc(var(--s7-rund) * .7); background: var(--s7-flaeche); }
+.s7-schritt__link { margin-top: 1.2rem; align-self: end; }
+.s7-pfad { display: grid; gap: .55rem; }
+.s7-pfad__zeile { display: grid; grid-template-columns: 5.4rem 1fr; align-items: center; gap: .5rem; }
+.s7-pfad__zeile > span { color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.s7-pillen { display: flex; flex-wrap: wrap; gap: .3rem; }
+.s7-pille { font-style: normal; padding: .22rem .6rem; border: 1px solid var(--s7-linie); border-radius: 99px; background: #fff; font-size: .78rem; line-height: 1.3; white-space: nowrap; }
+.s7-pille--an { border-color: transparent; background: var(--s7-akzent); color: var(--s7-auf-akzent); font-weight: 600; }
+.s7-pille--mehr { border-style: dashed; color: var(--s7-grau); background: transparent; }
+.s7-strecke { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; }
+.s7-strecke__teile { display: grid; gap: .35rem; }
+.s7-strecke__teile span { padding: .45rem .6rem; border-radius: 8px; background: #fff; font-size: .8rem; font-weight: 500; }
+.s7-strecke__pfeil { color: var(--s7-tinte); }
+.s7-strecke__ziel { padding: .7rem .7rem; border-radius: 10px; background: var(--s7-tinte); color: #fff; font-size: .8rem; line-height: 1.35; }
+.s7-strecke__ziel b { display: block; margin-bottom: .2rem; padding: .15rem .45rem; border-radius: 99px; width: max-content; background: var(--s7-akzent); color: var(--s7-auf-akzent); font-size: .7rem; }
+.s7-dash { border: 1px solid var(--s7-linie); border-radius: 10px; background: #fff; overflow: hidden; }
+.s7-dash__kopf { display: flex; gap: .3rem; align-items: center; padding: .4rem .6rem; border-bottom: 1px solid var(--s7-linie); font-size: .68rem; font-weight: 600; color: var(--s7-tinte); }
+.s7-dash__kopf i { width: .4rem; height: .4rem; border-radius: 50%; background: var(--s7-linie); }
+.s7-dash__kopf i:last-of-type { margin-right: .4rem; }
+.s7-dash__kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; padding: .5rem; }
+.s7-dash__kachel { padding: .4rem .5rem .3rem; border-radius: 7px; background: var(--s7-flaeche); font-size: .7rem; font-weight: 600; color: var(--s7-tinte); }
+.s7-dash__kachel svg { width: 100%; height: 1.2rem; margin-top: .2rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.4; }
+.s7-dash__kachel--an { background: var(--s7-akzent); color: var(--s7-auf-akzent); }
+.s7-dash__empf { margin: 0 .5rem .5rem; padding: .4rem .55rem; border: 1px solid var(--s7-linie); border-radius: 7px; font-size: .7rem; line-height: 1.35; color: var(--s7-text); }
+.s7-dash__empf b { color: var(--s7-tinte); }
+
+/* ---------- Pakete ---------- */
+.s7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.s7-gruppe { grid-row: 1; display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; color: var(--s7-tinte); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.s7-gruppe::after { content: ""; flex: 1; height: 2px; background: var(--s7-tinte); }
+.s7-gruppe--a { grid-column: 1 / span 2; }
+.s7-gruppe--b { grid-column: 3; }
+.s7-paket { display: grid; grid-row: 2 / span 7; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.8rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: var(--s7-karte); box-shadow: var(--s7-schatten); }
+.s7-paket--komplett { border-color: transparent; background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.s7-stil .s7-paket--komplett h3, .s7-paket--komplett .s7-paket__preis b { color: var(--s7-komplett-titel); }
+.s7-stil .s7-paket h3 { font-size: 1.7rem; line-height: 1.2; }
+.s7-paket__fuer { margin-top: .5rem; font-size: 1rem; line-height: 1.5; }
+.s7-paket__preis { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .9rem; }
+.s7-paket--komplett .s7-paket__preis { border-top-color: color-mix(in srgb, var(--s7-komplett-text) 25%, transparent); color: color-mix(in srgb, var(--s7-komplett-text) 75%, transparent); }
+.s7-paket__preis span { display: block; margin-top: .15rem; }
+.s7-paket__preis b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.9rem; font-weight: 700; line-height: 1.15; }
+.s7-paket__preis b.s7-offen { display: inline-block; padding: .1rem .7rem; border: 1.5px dashed var(--s7-grau); border-radius: 8px; color: var(--s7-grau); font-size: 1.2rem; }
+.s7-paket__vorspann { margin-top: 1.2rem; font-size: .88rem; font-weight: 600; color: var(--s7-tinte); min-height: 1.3em; }
+.s7-paket--komplett .s7-paket__vorspann { color: var(--s7-komplett-titel); }
+.s7-paket ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+.s7-paket li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: .98rem; line-height: 1.45; }
+.s7-paket li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.s7-paket--komplett li::before { color: var(--s7-komplett-haken); }
+.s7-paket .s7-knopf { margin-top: 1.4rem; align-self: end; justify-content: center; }
+.s7-paket--komplett .s7-knopf { border-color: var(--s7-komplett-titel); background: var(--s7-komplett-titel); color: var(--s7-komplett-knopf-text); }
+.s7-pakete__fuss { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; }
+
+/* ---------- Zielgruppen · Vertrauen · Kontakt (nur Startseite) ---------- */
+.s7-zg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.s7-zg__karte { display: block; border-radius: var(--s7-rund); background: var(--s7-karte); box-shadow: var(--s7-schatten); overflow: hidden; text-decoration: none; transition: transform .2s ease; }
+.s7-zg__karte:hover { transform: translateY(-4px); }
+.s7-zg__karte img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.s7-zg__text { padding: 1.1rem 1.3rem 1.3rem; }
+.s7-stil .s7-zg__text h3 { font-size: 1.2rem; line-height: 1.3; }
+.s7-zg__text p { margin-top: .3rem; color: var(--s7-grau); font-size: .92rem; }
+.s7-zg__text p b { color: var(--s7-text); font-weight: 500; }
+.s7-zg__fuss { margin-top: 2rem; }
+.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.s7-team { display: flex; gap: 1.4rem; margin-top: 2.2rem; }
+.s7-team figure { margin: 0; text-align: center; }
+.s7-team img { width: 5.2rem; height: 5.2rem; border-radius: 50%; object-fit: cover; background: var(--s7-flaeche); }
+.s7-team figcaption { margin-top: .5rem; color: var(--s7-tinte); font-size: .85rem; font-weight: 600; }
+.s7-zitat { margin: 0; padding: 2.4rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); }
+.s7-zitat p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: var(--s7-titel-gewicht); line-height: 1.3; letter-spacing: var(--s7-titel-abstand); }
+.s7-zitat cite { display: block; margin-top: 1.2rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
+.s7-kontakt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: end; }
+.s7-kontakt .s7-lead { color: #cfcfcf; }
+.s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
+.s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
+.s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
+.s7-fuss { padding: 2rem 0; border-top: 1px solid #2a2a2a; background: var(--s7-tinte); color: #888; font-size: .85rem; }
+.s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
+
+/* ===================================================================================
+   STILRICHTUNGEN – jede setzt die Stellschrauben neu, dazu wenige eigene Regeln
+   =================================================================================== */
+
+/* 1 · Apple-klar: Weiß/Hellgrau, sehr große Grotesk, Verlauf nur punktuell */
+.s7-stil--apple {
+  --s7-schrift-titel: "Inter Tight", "Inter", system-ui, sans-serif;
+  --s7-schrift-text: "Inter", system-ui, sans-serif;
+  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.025em;
+  --s7-h1: clamp(3rem, 7.6vw, 6.6rem); --s7-h1-hoehe: 1.0;
+  --s7-h2: clamp(2.3rem, 5vw, 4rem);   --s7-h2-hoehe: 1.05;
+  --s7-grund: #ffffff; --s7-flaeche: #f5f5f7; --s7-tinte: #1d1d1f; --s7-text: #424245; --s7-grau: #86868b; --s7-linie: #e5e5ea;
+  --s7-akzent: #e3e8ff; --s7-akzent-fill: url(#s7v-pastell); --s7-auf-akzent: #1d1d1f;
+  --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #2f6bff 0%, #7b3fe4 55%, #b44ce0 100%);
+  --s7-knopf-grund: #1d1d1f; --s7-knopf-text: #ffffff;
+  --s7-buehne: #f5f5f7; --s7-band-akzent: #f5f5f7; --s7-karte: #ffffff;
+  --s7-schatten: none;
+  --s7-komplett-grund: #1d1d1f; --s7-komplett-text: #d2d2d7; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #9d8cff;
+  --s7-lage-1: #e4e4e9; --s7-lage-2: #ececf0; --s7-lage-3: #f4f4f7;
+  --s7-rund: 24px;
+}
+.s7-stil--apple .s7-held { text-align: center; }
+.s7-stil--apple .s7-held h1, .s7-stil--apple .s7-held .s7-lead { margin-left: auto; margin-right: auto; }
+.s7-stil--apple .s7-held__knoepfe { justify-content: center; }
+.s7-stil--apple .s7-held .s7-lead { color: #6e6e73; }
+.s7-stil--apple .s7-kicker { letter-spacing: .02em; text-transform: none; font-size: 1rem; font-weight: 600; color: #6e6e73; }
+.s7-stil--apple .s7-schritt__nr { font-size: 1rem; color: #86868b; }
+.s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: linear-gradient(100deg, #dfe6ff, #eddcff); }
+
+/* 2 · Signal: Weiß + eine kräftige Volltonfarbe auf Flächen, flach, plakative Schrift */
+.s7-stil--signal {
+  --s7-schrift-titel: "Manrope", system-ui, sans-serif;
+  --s7-schrift-text: "Manrope", system-ui, sans-serif;
+  --s7-titel-gewicht: 800; --s7-titel-abstand: -0.035em;
+  --s7-h1: clamp(3.1rem, 8vw, 7rem); --s7-h1-hoehe: .96;
+  --s7-h2: clamp(2.4rem, 5.4vw, 4.4rem); --s7-h2-hoehe: 1.0;
+  --s7-grund: #ffffff; --s7-flaeche: #f2f2ee; --s7-tinte: #111111; --s7-text: #2b2b2b; --s7-grau: #6b6b66; --s7-linie: #dcdcd5;
+  --s7-akzent: #c4f04d; --s7-akzent-fill: #c4f04d; --s7-auf-akzent: #111111;
+  --s7-wort: #111111;
+  --s7-knopf-grund: #111111; --s7-knopf-text: #ffffff;
+  --s7-buehne: #f2f2ee; --s7-band-akzent: #c4f04d; --s7-karte: #ffffff;
+  --s7-schatten: none;
+  --s7-komplett-grund: #c4f04d; --s7-komplett-text: #111111; --s7-komplett-titel: #111111; --s7-komplett-haken: #111111;
+  --s7-lage-1: #dcdcd5; --s7-lage-2: #e7e7e1; --s7-lage-3: #f2f2ee;
+  --s7-rund: 12px; --s7-rund-knopf: 12px;
+}
+.s7-stil--signal .s7-wort { box-shadow: inset 0 -.14em 0 #c4f04d; }
+.s7-stil--signal .s7-kicker { color: #111; }
+.s7-stil--signal .s7-held .s7-lead { margin-top: 2rem; }
+.s7-stil--signal .s7-paket { border: 2px solid #111; }
+.s7-stil--signal .s7-paket--komplett { border-color: #111; }
+.s7-stil--signal .s7-paket--komplett .s7-knopf { border-color: #111; background: #111; color: #fff; }
+.s7-stil--signal .s7-schritt__nr { color: #111; }
+.s7-stil--signal .s7-band--akzent .s7-kicker { color: #111; }
+
+/* 3 · Produktbühne: hell, Einstieg und Maschine auf zarten Verlaufsflächen, schwebende Karten */
+.s7-stil--buehne {
+  --s7-schrift-titel: "Plus Jakarta Sans", system-ui, sans-serif;
+  --s7-schrift-text: "Plus Jakarta Sans", system-ui, sans-serif;
+  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.03em;
+  --s7-h1: clamp(2.9rem, 7vw, 6rem); --s7-h1-hoehe: 1.02;
+  --s7-h2: clamp(2.2rem, 4.8vw, 3.8rem); --s7-h2-hoehe: 1.06;
+  --s7-grund: #fbfbfd; --s7-flaeche: #f3f4f9; --s7-tinte: #15163a; --s7-text: #44465f; --s7-grau: #7b7d95; --s7-linie: #e4e5ef;
+  --s7-akzent: #e1e5ff; --s7-akzent-fill: url(#s7v-pastell); --s7-auf-akzent: #15163a;
+  --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #3b5bff 0%, #7b3fe4 60%, #b44ce0 100%);
+  --s7-knopf-grund: #15163a; --s7-knopf-text: #ffffff;
+  --s7-buehne: #ffffff; --s7-band-akzent: #f3f4f9; --s7-karte: #ffffff;
+  --s7-schatten: 0 1px 2px rgba(21,22,58,.06), 0 12px 32px rgba(21,22,58,.08);
+  --s7-komplett-grund: linear-gradient(140deg, #3b5bff 0%, #6a3fe0 55%, #a443d6 100%); --s7-komplett-text: #e9e8ff; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #3b2fd6;
+  --s7-lage-1: #e3e5f1; --s7-lage-2: #eceef6; --s7-lage-3: #f4f5fa;
+  --s7-rund: 20px;
+}
+.s7-stil--buehne .s7-held { background:
+  radial-gradient(38rem 26rem at 88% 8%, rgba(164,67,214,.16), transparent 70%),
+  radial-gradient(42rem 28rem at 8% 92%, rgba(59,91,255,.16), transparent 70%),
+  radial-gradient(30rem 22rem at 55% 60%, rgba(56,189,248,.10), transparent 70%), #fbfbfd; }
+.s7-stil--buehne .s7-maschine { box-shadow: 0 1px 2px rgba(21,22,58,.06), 0 30px 60px rgba(21,22,58,.12); }
+.s7-stil--buehne .s7-kicker { color: #5b4be0; }
+.s7-stil--buehne .s7-paket--komplett { box-shadow: 0 30px 60px rgba(90,63,224,.28); }
+.s7-stil--buehne .s7-pille--an, .s7-stil--buehne .s7-dash__kachel--an, .s7-stil--buehne .s7-strecke__ziel b { background: linear-gradient(100deg, #dde4ff, #ecdcff); }
+.s7-stil--buehne .s7-schritt__nr { background: linear-gradient(100deg, #3b5bff, #a443d6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* ---------- Stilproben-Seite: Steckbriefe ---------- */
+.sp-kopf { padding: clamp(3rem, 6vw, 5rem) 0 3rem; border-bottom: 1px solid #e2e2df; }
+.sp-kopf h1 { max-width: 18ch; font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 1.04; letter-spacing: -0.03em; }
+.sp-massstab { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem 2rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+.sp-massstab li { padding-top: .7rem; border-top: 1px solid #e2e2df; font-size: .95rem; line-height: 1.45; }
+.sp-sprung { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+.sp-sprung a { padding: .55rem 1rem; border: 1.5px solid #181818; border-radius: 99px; color: #181818; font-weight: 600; font-size: .92rem; text-decoration: none; }
+.sp-brief { position: relative; z-index: 2; background: #111; color: #cfcfcf; }
+.sp-brief .s7-wrap { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1rem 2.4rem; align-items: center; padding: 1.6rem 0; }
+.sp-brief__nr { color: #fff; font: 700 2.6rem/1 system-ui, sans-serif; }
+.sp-brief h2 { margin: 0; color: #fff; font: 700 1.5rem/1.2 system-ui, sans-serif; }
+.sp-brief p { margin-top: .3rem; font-size: .95rem; line-height: 1.5; }
+.sp-brief dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .25rem 1rem; margin: .8rem 0 0; font-size: .85rem; }
+.sp-brief dt { color: #8a8a8a; }
+.sp-brief dd { margin: 0; color: #e9e9e9; }
+.sp-farben { display: flex; gap: .5rem; }
+.sp-farben i { width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); }
+.sp-ende { padding: 4rem 0 5rem; background: #f4f4f3; }
+.sp-ende h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -0.02em; }
+.sp-ende p { max-width: 40rem; margin-top: .8rem; }
+
+/* ---------- Mobil ---------- */
+@media (max-width: 1000px) {
+  .s7-nav { display: none; }
+  .s7-kopf .s7-knopf { margin-left: auto; }
+  .s7-schritte, .s7-pakete { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
+  .s7-schritt, .s7-paket { grid-row: auto; grid-template-rows: none; }
+  .s7-gruppe { grid-row: auto; grid-column: 1; margin: 1rem 0 .2rem; }
+  .s7-gruppe--b { order: 3; }
+  .s7-paket--komplett { order: 4; }
+  .s7-zg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .s7-vertrauen, .s7-kontakt { grid-template-columns: minmax(0, 1fr); }
+  .sp-massstab { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sp-brief .s7-wrap { grid-template-columns: auto minmax(0, 1fr); }
+  .sp-farben { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .s7-zg, .sp-massstab { grid-template-columns: minmax(0, 1fr); }
+  .s7-kopf .s7-knopf { display: none; }
+  .s7-team img { width: 4.4rem; height: 4.4rem; }
+}
+</style>
+</head>
+<body>
+{#- Verläufe für Grafiken (fill: url(#…)) – einmal je Seite -#}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="s7v-pastell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e2ff"/><stop offset="1" stop-color="#ecdbff"/></linearGradient>
+</defs></svg>
+
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: drei Richtungen auf denselben Bausteinen{% else %}Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter{% endif %}</span><span>{% if s.slug == "stilproben" %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% else %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+
+<div class="s7-stil">
+<header class="s7-kopf{% if s.slug == "stilproben" %} s7-kopf--nur-marke{% endif %}">
+  <div class="s7-wrap">
+    <div class="s7-marke">
+      <a href="/entwicklung/storyboard/story7/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+      <div class="s7-dd" data-s7-dd>
+        <button type="button" class="s7-dd__auf" aria-expanded="false" aria-controls="s7-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
+        <div class="s7-dd__panel" id="s7-dd-panel" hidden>
+          {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
+          {%- if c.typ == "hinweis" %}<p class="s7-dd__hinweis">{{ c.text }}</p>
+          {%- elif c.typ == "gruppe" %}<p class="s7-dd__gruppe">{{ c.label }}</p>
+          {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
+          {%- endfor %}{% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+    {%- if s.slug != "stilproben" %}
+    <nav class="s7-nav" aria-label="Hauptnavigation">
+      <a href="#maschine">So funktioniert es</a>
+      <a href="#pakete">Pakete</a>
+      <a href="#zielgruppen">Zielgruppen</a>
+      <a href="#ueber-uns">Über uns</a>
+    </nav>
+    {%- endif %}
+    <a class="s7-knopf" href="#kontakt">Termin auswählen</a>
+  </div>
+</header>
+
+{%- if s.slug == "stilproben" %}
+{%- set SP = S.stilproben %}
+<main>
+  <section class="sp-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Stilproben · zur Auswahl</p>
+      <h1>{{ SP.h1 }} <span class="s7-wort">{{ SP.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ SP.lead }}</p>
+      <ul class="sp-massstab">{% for m in SP.massstab %}<li>{{ m }}</li>{% endfor %}</ul>
+      <nav class="sp-sprung" aria-label="Zu den Richtungen">{% for st in SP.stile %}<a href="#stil-{{ st.id }}">{{ st.nr }} · {{ st.name }}</a>{% endfor %}</nav>
+    </div>
+  </section>
+  {%- for st in SP.stile %}
+  <section class="sp-brief" id="stil-{{ st.id }}">
+    <div class="s7-wrap">
+      <span class="sp-brief__nr">{{ st.nr }}</span>
+      <div>
+        <h2>{{ st.name }}</h2>
+        <p>{{ st.satz }}</p>
+        <dl><dt>Schrift</dt><dd>{{ st.schrift }}</dd><dt>Farbe</dt><dd>{{ st.farbe }}</dd><dt>Vorbilder</dt><dd>{{ st.vorbilder }}</dd><dt>Risiko</dt><dd>{{ st.risiko }}</dd></dl>
+      </div>
+      <div class="sp-farben" aria-hidden="true">{% for f in st.swatches %}<i style="background: {{ f }}"></i>{% endfor %}</div>
+    </div>
+  </section>
+  <div class="s7-stil s7-stil--{{ st.id }}">
+    {{ held(false) }}
+    {{ schritte(false) }}
+    {{ pakete(false) }}
+  </div>
+  {%- endfor %}
+  <section class="sp-ende">
+    <div class="s7-wrap">
+      <h2>Welche Richtung trägt?</h2>
+      <p>Eine wählen – oder Teile kombinieren, etwa Schrift aus der einen, Farbe aus der anderen. Die Startseite übernimmt den gewählten Stil über die Stellschrauben.</p>
+    </div>
+  </section>
+</main>
+{%- else %}
+<main>
+  {{ held() }}
+  {{ schritte() }}
+  {{ pakete() }}
+
+  <!-- Zielgruppen -->
   <section class="s7-band s7-band--flaeche" id="zielgruppen">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ S.zielgruppen.kicker }}</p>
@@ -374,7 +555,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <!-- 5 · Vertrauen -->
+  <!-- Vertrauen -->
   <section class="s7-band" id="ueber-uns">
     <div class="s7-wrap s7-vertrauen">
       <div>
@@ -391,7 +572,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  <!-- 6 · Kontakt -->
+  <!-- Kontakt -->
   <section class="s7-band s7-band--tinte" id="kontakt">
     <div class="s7-wrap s7-kontakt">
       <div>
@@ -406,8 +587,10 @@ p { margin: 0; }
     </div>
   </section>
 </main>
+{%- endif %}
 
 <footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung">Datenschutz</a><a href="/impressum">Impressum</a></span></div></footer>
+</div>
 
 <script>
 (function () {
