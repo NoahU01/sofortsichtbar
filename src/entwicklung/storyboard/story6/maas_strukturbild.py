@@ -141,3 +141,83 @@ def svg():
 
 if __name__ == "__main__":
     print(svg())
+
+
+# ---------------------------------------------------------------------------
+# Marketing-Grafik (erste Ebene der Seite): liegender Trichter aus geschachtelten Schichten (Kern = Kernpaket,
+# außen die Ergänzungen) mündet in die Vertriebs-Pipeline (Qualifizierung · Vertrieb · Kundenbetreuung).
+# Darunter je Stufe: Anspruch · was passiert · was du davon hast. Rückweg von Stufe 4 zu Stufe 1 als ruhige Linie.
+# Das technische Bild (svg()) bleibt als Arbeitsgrundlage erhalten.
+
+STUFEN_TEXT = [
+    ("Marketing", "Gesehen werden.", ["Deine Zielgruppen nehmen dich regelmäßig wahr –", "auf den Kanälen, die sie nutzen. Jede Ergänzung", "macht den Trichter größer."], "Echte Anfragen aus deinen Zielgruppen"),
+    ("Qualifizierung", "Die Richtigen finden.", ["Wer passt, bekommt einen Termin.", "Wer noch nicht so weit ist,", "bleibt warm, bis er es ist."], "Termine, die sich lohnen"),
+    ("Vertrieb", "Abschließen.", ["Analyse, Konzept, Beratung –", "dein Vertrieb, wie du ihn kennst.", "Nur mit mehr Gesprächen."], "Mehr Abschlüsse"),
+    ("Kundenbetreuung", "Kunden halten.", ["Wer regelmäßig von dir hört,", "bleibt – und bringt neue", "Anlässe mit."], "Kunden, die bleiben"),
+]
+
+
+def marketing_svg():
+    o = []
+    c = 196                      # Mittellinie von Trichter und Pipeline
+    hals_x, hals_ende, n = 372, 474, 30   # Kegel endet bei hals_x, danach das Rohr bis hals_ende (Halbhöhe n)
+    mund_x = 34
+    # Kegel von außen nach innen: (Halbhöhe an der Öffnung, Füllung, Beschriftung)
+    schichten = [(158, "#f3f1ee", "Paid Ads"), (124, "#e8e5e0", "Website"), (92, "#dcd8d2", "LinkedIn"), (60, GELB, "")]
+
+    def trichter(h):
+        return (f"M{mund_x} {c - h} L{hals_x} {c - n} Q{hals_x + 14} {c - n} {hals_x + 28} {c - n} H{hals_ende} "
+                f"V{c + n} H{hals_x + 28} Q{hals_x + 14} {c + n} {hals_x} {c + n} L{mund_x} {c + h} Z")
+    # Klammern oben
+    o.append(t(0, 16, "UNSER SCHWERPUNKT", 10.5, 700, INK, extra=' letter-spacing="1.6"'))
+    o.append(f'<rect x="150" y="10" width="300" height="2.5" fill="{INK}"/>')
+    o.append(t(494, 16, "DEIN VERTRIEB – WIR DOCKEN AN", 10.5, 700, GRAU, extra=' letter-spacing="1.6"'))
+    o.append(f'<rect x="742" y="10" width="458" height="1.5" fill="{LINIE}"/>')
+    # Aufmerksamkeit: Punkte vor der Öffnung
+    import random
+    rnd = random.Random(7)
+    for _ in range(26):
+        x = rnd.uniform(0, 26); y = rnd.uniform(c - 140, c + 140)
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rnd.uniform(2.2, 3.6):.1f}" fill="#cfcac3"/>')
+    # Schichten
+    for h, fill, label in schichten:
+        o.append(f'<path d="{trichter(h)}" fill="{fill}" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>')
+    for h, fill, label in schichten[:-1]:
+        o.append(t(mund_x + 14, c - h + 22, "+ " + label, 12, 600, INK))
+    o.append(t(mund_x + 18, c - 5, "Kernpaket", 16, 700))
+    o.append(t(mund_x + 18, c + 15, "sofort sichtbar", 12.5, 400))
+    # Pipeline: drei Pfeilsegmente
+    neck_h = n + 12
+    seg = [(hals_ende + 18, 742, "filter", "Qualifizierung"), (742, 970, "handshake", "Vertrieb"), (970, 1200, "heart-handshake", "Kundenbetreuung")]
+    for i, (x0, x1, icon, name) in enumerate(seg):
+        spitze = 0 if i == 2 else 22
+        einkerb = 0 if i == 0 else 22
+        d = (f"M{x0} {c - neck_h - 14} H{x1 - spitze} L{x1} {c} L{x1 - spitze} {c + neck_h + 14} H{x0} "
+             f"L{x0 + einkerb} {c} Z") if i < 2 else (f"M{x0} {c - neck_h - 14} H{x1 - 14} Q{x1} {c - neck_h - 14} {x1} {c - neck_h} "
+                                                       f"V{c + neck_h} Q{x1} {c + neck_h + 14} {x1 - 14} {c + neck_h + 14} H{x0} L{x0 + einkerb} {c} Z")
+        o.append(f'<path d="{d}" fill="{INK if i == 2 else "#fff"}" stroke="{INK}" stroke-width="2" stroke-linejoin="round"/>')
+        tx = x0 + (34 if i else 22)
+        o.append(ico(icon, tx, c - 13, 26, GELB if i == 2 else INK))
+        o.append(t(tx + 36, c + 6, name, 16, 700, "#fff" if i == 2 else INK, font=LORA))
+    # Leads im Hals
+    for i, x in enumerate([404, 428, 452]):
+        o.append(f'<circle cx="{x}" cy="{c + (i - 1) * 9}" r="4.5" fill="{INK}"/>')
+    # Texte je Stufe – gleiche Höhe in allen Spalten
+    spalten = [(0, 440), (494, 720), (764, 950), (994, 1200)]
+    for (x0, x1), (name, claim, zeilen, erg), nr in zip(spalten, STUFEN_TEXT, range(1, 5)):
+        y = 418
+        o.append(t(x0, y, f"STUFE {nr} · {name.upper()}", 10.5, 700, INK if nr == 1 else GRAU, extra=' letter-spacing="1.4"'))
+        o.append(t(x0, y + 34, claim, 23, 700, font=LORA))
+        for j, z in enumerate(zeilen):
+            o.append(t(x0, y + 62 + j * 19, z, 13, 400, "#3d3a37"))
+        o.append(f'<rect x="{x0}" y="{y + 128}" width="{min(x1 - x0, 210)}" height="1.2" fill="{LINIE}"/>')
+        o.append(t(x0, y + 150, erg, 13.5, 700))
+    # Rückweg 4 → 1
+    o.append(f'<path d="M1097 592 V624 H220 V598" fill="none" stroke="{INK}" stroke-width="1.6" marker-end="url(#mb-pfeil)"/>')
+    o.append(f'<rect x="420" y="607" width="480" height="34" rx="17" fill="{GELB}"/>')
+    o.append(t(660, 629, "Sichtbarkeit pflegt auch deinen Bestand – und bringt neue Anlässe.", 12.5, 600, anchor="middle"))
+    defs = (f'<defs><marker id="mb-pfeil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+            f'<path d="M1 1 L8 5 L1 9" fill="none" stroke="{INK}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 1210 652" class="mx-strukturbild" role="img" '
+            f'aria-label="Die digitale Maschine: ein Trichter aus Kernpaket und Ergänzungen mündet in deinen Vertrieb – Qualifizierung, Vertrieb, Kundenbetreuung">'
+            + defs + "".join(o) + '</svg>')

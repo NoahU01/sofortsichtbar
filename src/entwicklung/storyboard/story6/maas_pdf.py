@@ -129,9 +129,18 @@ def stufen_seite(M, nr, n):
     return seite(
         kopf(T) + '<div class="rand" style="padding-top:9mm">' + kicker(W["kicker"])
         + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:220mm">{ST["lead"]}</p>'
+        + f'<div class="sbild sbild--m">{M["maschine"]}</div>'
+        + '</div>', nr, n, klasse="seite--quer")
+
+
+def detail_seite(M, nr, n):
+    """Arbeitsgrundlage: der Ablauf im Detail (technisches Strukturbild) auf einer Querseite."""
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:9mm">' + kicker("Arbeitsgrundlage")
+        + '<h2>Der Ablauf im Detail.</h2><p class="lead" style="max-width:220mm">Mit diesem Bild klären wir im Auftakt, welche Kanäle wir nutzen, '
+          'wer Interessenten qualifiziert und wie wir sie warmhalten, bis sie abschlussbereit sind.</p>'
         + f'<div class="sbild">{M["strukturbild"]}</div>'
-        + f'<div class="sbild__fuss"><span class="sbild__leg sbild__leg--wir">übernehmen wir</span><span class="sbild__leg">dein Vertrieb – wir docken an</span>'
-        + f'<p><b>{ST["fundament"]["label"]}:</b> {ST["fundament"]["text"]}</p></div>'
+        + '<div class="sbild__fuss"><span class="sbild__leg sbild__leg--wir">übernehmen wir</span><span class="sbild__leg">dein Vertrieb – wir docken an</span><p></p></div>'
         + '</div>', nr, n, klasse="seite--quer")
 
 
@@ -222,6 +231,8 @@ CSS_TEAM = """
 .seite--quer h2 { font-size: 21pt; }
 .seite--quer .lead { margin-top: 2.5mm; font-size: 9.6pt; }
 .sbild { margin-top: 5mm; }
+.sbild--m { margin-top: 8mm; padding: 0 10mm; }
+.sbild__fuss--m { display: block; margin-top: 2mm; }
 .sbild svg { display: block; width: 100%; height: auto; }
 .sbild__fuss { display: grid; grid-template-columns: auto auto 1fr; gap: 6mm; align-items: start; margin-top: 3mm; font-size: 7.6pt; }
 .sbild__leg { display: flex; align-items: center; gap: 2mm; white-space: nowrap; color: #6f6a64; }
@@ -351,7 +362,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 6 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 7 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -369,9 +380,9 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 5, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 6, n)
 
-    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), ablauf_seite(M, 4, n), s2], 6
+    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), detail_seite(M, 4, n), ablauf_seite(M, 5, n), s2], 7
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
@@ -452,15 +463,15 @@ def drucken(html, datei, praefix, meta):
     print(f"{r.stdout.strip()}\n{pdf}  ({meta['seiten']} Seiten, {meta['groesse']})\nSeitenbilder: {seiten_dir}")
 
 
-def bild_png(svg):
-    """Strukturbild als PNG zum Herunterladen (2-fache Auflösung, Schriften aus dem empiria-Repo)."""
-    src = os.path.join(BUILD, "strukturbild.html")
+def bild_png(svg, datei, hoehe):
+    """Bild als PNG zum Herunterladen (2-fache Auflösung, Schriften aus dem empiria-Repo)."""
+    src = os.path.join(BUILD, datei + ".html")
     open(src, "w", encoding="utf-8").write(
         '<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="assets/fonts/fonts.local.css">'
         '<style>html,body{margin:0;background:#fff}div{padding:48px;width:1218px}svg{width:1218px;height:auto;display:block}</style></head>'
         f'<body><div>{svg}</div></body></html>')
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=2",
-                    "--window-size=1314,652", "--virtual-time-budget=4000", f"--screenshot={os.path.join(ZIEL, 'strukturbild.png')}",
+                    f"--window-size=1314,{hoehe}", "--virtual-time-budget=4000", f"--screenshot={os.path.join(ZIEL, datei + '.png')}",
                     "file://" + src], capture_output=True, timeout=120)
 
 
@@ -475,8 +486,10 @@ def main():
     svg = kopfbild("MarketingEcoSystem (MES)")
     open(os.path.join(ZIEL, "kopfbild.svg"), "w", encoding="utf-8").write(
         svg if svg.startswith("<svg") and 'xmlns=' in svg else svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"', 1))
-    M["strukturbild"] = maas_strukturbild.svg()
-    bild_png(M["strukturbild"])
+    M["strukturbild"] = maas_strukturbild.svg()            # Ablauf im Detail (Arbeitsgrundlage)
+    M["maschine"] = maas_strukturbild.marketing_svg()       # Marketing-Grafik (erste Ebene)
+    bild_png(M["strukturbild"], "strukturbild", 652)
+    bild_png(M["maschine"], "maschine", 748)
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")

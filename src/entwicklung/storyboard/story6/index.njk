@@ -295,13 +295,20 @@ html body .maas-d .mx-weg__uebergabe { margin: 1rem 0 !important; color: #1a1817
 /* Strukturbild (erste Ebene): weißer Rahmen auf Hellgrau, auf schmalen Bildschirmen seitlich wischbar */
 .mx-bild { margin: 3rem 0 0; }
 .mx-bild__rahmen { padding: 2.4rem 2.6rem 2rem; border-radius: 22px; background: #fff; overflow-x: auto; }
-.mx-bild__rahmen svg { display: block; width: 100%; height: auto; min-width: 56rem; }
+.mx-bild__rahmen svg { display: block; width: 100%; height: auto; min-width: 52rem; }
 .mx-bild__fuss { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.6rem; margin-top: 1rem; font-size: .85rem; color: #6f6a64; }
 .mx-bild__leg { display: inline-flex; align-items: center; gap: .5rem; }
 .mx-bild__leg::before { content: ""; width: .9rem; height: .9rem; border-radius: 4px; border: 1.5px solid #1a1817; background: #fff; }
 .mx-bild__leg--wir::before { background: #fff400; border-color: #fff400; }
 .mx-bild__wisch { display: none; }
 .mx-bild__dl { margin-left: auto; font-weight: 600; color: #1a1817; text-decoration: none; }
+.mx-bild__detail { padding: 0; border: 0; background: none; cursor: pointer; font: 600 .85rem/1.4 var(--font-sans, Poppins, sans-serif); color: #1a1817; }
+.mx-bild__detail:hover { text-decoration: underline; }
+.mx-detail { margin-top: 1.4rem; overflow-x: auto; }
+.mx-detail svg { display: block; width: 100%; height: auto; min-width: 52rem; }
+.maas-d__hinweis a { color: #1a1817; font-weight: 600; }
+.mx-detail__fuss { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.6rem; }
+.mx-detail__fuss a { margin-left: auto; }
 .mx-bild__dl:hover { text-decoration: underline; }
 @media (max-width: 900px) { .mx-bild__rahmen { padding: 1.6rem; } .mx-bild__wisch { display: inline; } .mx-bild__dl { margin-left: 0; } }
 
@@ -1039,14 +1046,21 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <h2 class="h-serif">{{ W.h2 }}</h2>
       <p class="mx-lead">{{ ST.lead }}</p>
       <figure class="mx-bild">
-        <div class="mx-bild__rahmen">{{ M.strukturbild | safe }}</div>
+        <div class="mx-bild__rahmen">{{ M.maschine | safe }}</div>
         <figcaption class="mx-bild__fuss">
-          <span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span>
-          <span class="mx-bild__leg">dein Vertrieb – wir docken an</span>
           <span class="mx-bild__wisch">Seitlich wischen</span>
-          <a class="mx-bild__dl" href="{{ A }}/maas/strukturbild.png" download>Bild herunterladen (PNG)</a>
+          <button type="button" class="mx-bild__detail" data-maas-auf="maas-detail">Ablauf im Detail ansehen →</button>
+          <a class="mx-bild__dl" href="{{ A }}/maas/maschine.png" download>Bild herunterladen (PNG)</a>
         </figcaption>
       </figure>
+      <dialog class="e2-dialog maas-d maas-d--weit" id="maas-detail" aria-labelledby="maas-detail-t">
+        <button type="button" class="e2-dialog__zu" aria-label="Schließen">×</button>
+        <p class="maas-d__meta">Arbeitsgrundlage</p>
+        <h3 id="maas-detail-t">Der Ablauf im Detail.</h3>
+        <p>Mit diesem Bild klären wir im Auftakt, welche Kanäle wir nutzen, wer Interessenten qualifiziert und wie wir sie warmhalten, bis sie abschlussbereit sind.</p>
+        <div class="mx-detail">{{ M.strukturbild | safe }}</div>
+        <p class="maas-d__hinweis mx-detail__fuss"><span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span><span class="mx-bild__leg">dein Vertrieb – wir docken an</span><a href="{{ A }}/maas/strukturbild.png" download>Bild herunterladen (PNG)</a></p>
+      </dialog>
       <div class="mx-fundament">
         <div><p class="mx-fundament__label">{{ ST.fundament.label }}</p><p class="mx-fundament__text">{{ ST.fundament.text }}</p></div>
         <button type="button" class="mx-fundament__knopf" data-maas-auf="maas-weg">{{ ST.fundament.knopf }} →</button>
