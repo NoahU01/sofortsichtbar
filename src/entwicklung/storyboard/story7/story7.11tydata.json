@@ -148,7 +148,7 @@
     },
     "vertrauen": {
       "kicker": "Über uns",
-      "h2": "Seit 2012 im Versicherungsvertrieb.",
+      "h2": "Seit 2012 im Versicherungs­vertrieb.",
       "t": "Wir begleiten Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Vertriebsstrecke.",
       "zitat": "Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.",
       "quelle": "Leitung unserer Pilotagentur",
@@ -205,9 +205,9 @@
       ]
     },
     "farbproben": {
-      "h1": "Drei Farben.",
+      "h1": "Zwei Farben.",
       "h1_akzent": "Ein Akzent.",
-      "lead": "Apple-klar, dreimal – nur der Farbakzent wechselt. Farbe steht nur an festen Stellen und immer vollflächig: im hervorgehobenen Wort als Verlauf, im Kern der Maschine, bei Leads und Auswahl, im Komplett-Paket. Keine zarten Tönungen.",
+      "lead": "Apple-klar mit den beiden Farbakzenten, die im Rennen sind. Farbe steht nur an festen Stellen und immer vollflächig: im hervorgehobenen Wort als Verlauf, im Kern der Maschine, bei Leads und Auswahl, im Komplett-Paket. Auf der Startseite lassen sich beide oben mit dem Schalter 1 · 2 umstellen.",
       "stellen": [
         "Hervorgehobenes Wort der Hauptüberschrift",
         "Kern der Maschine",
@@ -228,13 +228,6 @@
           "name": "Magenta → Violett",
           "satz": "Magenta #C51F5D aus dem CD in Violett #8613A1. Die wärmste und mutigste der drei.",
           "swatch": "linear-gradient(100deg,#c51f5d,#8613a1)"
-        },
-        {
-          "id": "smaragdkobalt",
-          "name": "Smaragd → Kobalt",
-          "satz": "Unser Vorschlag von der anderen Seite des Farbkreises: Smaragdgrün #00B37A in Kobaltblau #2A44FF. Frisch, klar, technisch – weit weg von Violett und Magenta.",
-          "swatch": "linear-gradient(in oklab 100deg,#00b37a,#2a44ff)",
-          "nr": "3"
         }
       ]
     }

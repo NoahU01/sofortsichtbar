@@ -209,6 +209,9 @@ p { margin: 0; }
 .s7-dev .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem 0; }
 .s7-dev b { color: #fff; font-weight: 600; }
 .s7-dev a { color: #fff; margin-left: 1rem; }
+.s7-schalter { display: inline-flex; align-items: center; gap: .3rem; margin-left: .4rem; }
+.s7-schalter button { width: 1.6rem; height: 1.3rem; padding: 0; border: 1px solid #555; border-radius: 6px; background: transparent; color: #ddd; font: 600 11px/1 system-ui, sans-serif; cursor: pointer; }
+.s7-schalter button[aria-pressed="true"] { border-color: #fff; background: #fff; color: #111; }
 .s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
 .s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
 .s7-marke { display: flex; align-items: center; gap: .35rem; }
@@ -379,11 +382,6 @@ p { margin: 0; }
   --s7-akzent: #c51f5d; --s7-akzent-verlauf: linear-gradient(100deg, #c51f5d, #8613a1); --s7-akzent-fill: url(#s7v-magentaviolett); --s7-auf-akzent: #ffffff;
   --s7-komplett-grund: linear-gradient(140deg, #c51f5d 0%, #8613a1 100%); --s7-komplett-text: #f6e7ef; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #8613a1;
 }
-.s7-farbe--smaragdkobalt {
-  --s7-wort-verlauf: linear-gradient(in oklab 100deg, #00b37a 0%, #2a44ff 100%);
-  --s7-akzent: #00a874; --s7-akzent-verlauf: linear-gradient(in oklab 100deg, #00a874, #2a44ff); --s7-akzent-fill: url(#s7v-smaragdkobalt); --s7-auf-akzent: #ffffff;
-  --s7-komplett-grund: linear-gradient(in oklab 140deg, #00a874 0%, #2a44ff 100%); --s7-komplett-text: #e3f6f0; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #1f3fe6;
-}
 /* Flächen-Test (Farbproben) */
 .fp-kacheln { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
 .fp-k { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 11rem; padding: 1.6rem; border-radius: var(--s7-rund); }
@@ -443,13 +441,12 @@ p { margin: 0; }
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
   <linearGradient id="s7v-pastell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e2ff"/><stop offset="1" stop-color="#ecdbff"/></linearGradient>
   <linearGradient id="s7v-cyanviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
-  <linearGradient id="s7v-smaragdkobalt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00a874"/><stop offset=".5" stop-color="#0090c6"/><stop offset="1" stop-color="#2a44ff"/></linearGradient>
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}Grundstory „Die digitale Maschine“ · Arbeitslook: Farben und Schriften sind Platzhalter{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}Grundstory „Die digitale Maschine“ · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
-<div class="s7-stil">
+<div class="s7-stil{% if not s.slug %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if s.slug %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
@@ -611,6 +608,22 @@ p { margin: 0; }
 <footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung">Datenschutz</a><a href="/impressum">Impressum</a></span></div></footer>
 </div>
 
+<script>
+/* Farbschalter 1 · 2 (nur Entwicklung): setzt die Farbklasse der Seite, merkt sich die Wahl im Browser */
+(function () {
+  var seite = document.getElementById("s7-seite"), knoepfe = document.querySelectorAll(".s7-schalter [data-farbe]");
+  if (!seite || !knoepfe.length) return;
+  function setze(f) {
+    seite.classList.remove("s7-farbe--cyanviolett", "s7-farbe--magentaviolett");
+    seite.classList.add("s7-farbe--" + f);
+    knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.farbe === f ? "true" : "false"); });
+    try { localStorage.setItem("s7-farbe", f); } catch (e) {}
+  }
+  var gemerkt = null; try { gemerkt = localStorage.getItem("s7-farbe"); } catch (e) {}
+  if (gemerkt === "cyanviolett" || gemerkt === "magentaviolett") setze(gemerkt);
+  knoepfe.forEach(function (k) { k.addEventListener("click", function () { setze(k.dataset.farbe); }); });
+})();
+</script>
 <script>
 (function () {
   var dd = document.querySelector("[data-s7-dd]"); if (!dd) return;
