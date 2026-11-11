@@ -39,21 +39,18 @@ def quer():
     x_flach, x_kurve, x_hals = 170, 400, 470
     o = []
     # Klammern oben
-    o.append(text(0, 22, "Hier setzen wir an", "ek2-t", K, 600))
-    o.append(f'<path d="M162 17 H{x_hals}" class="ek2-linie"/>')
-    o.append(text(x_hals + 30, 22, "Dein Vertrieb – wir docken an", "ek2-grau", K, 600))
-    o.append(f'<path d="M{x_hals + 262} 17 H{W}" class="ek2-linie ek2-linie--grau"/>')
+    # Klammern: aktiv und für alle Pakete gültig (Daniel, 11.11.2026)
+    o.append(text(0, 22, "Marketing – bringt dir echte Anfragen", "ek2-t", K, 600))
+    o.append(f'<path d="M296 17 H{x_hals - 14}" class="ek2-linie"/>')
+    o.append(text(x_hals + 30, 22, "Dein Vertrieb – macht daraus Kunden", "ek2-t", K, 600))
+    o.append(f'<path d="M{x_hals + 322} 17 H{W}" class="ek2-linie"/>')
     # Trichter aus Lagen (außen zuerst)
     for k in (3, 2, 1, 0):
         hm, hh = MUND[k], HALS[k]
         d = (f"M0 {c - hm} H{x_flach} C{x_flach + 130} {c - hm} {x_kurve - 100} {c - hh} {x_kurve} {c - hh} H{x_hals} "
              f"V{c + hh} H{x_kurve} C{x_kurve - 100} {c + hh} {x_flach + 130} {c + hm} {x_flach} {c + hm} H0 Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
-    # Namen in den oberen Lagen (flacher Teil)
-    for k in (3, 2, 1):
-        y = c - (MUND[k] + MUND[k - 1]) / 2 + 5.2
-        o.append(text(16, y, LAGEN[k][1], "ek2-t", K))
-    o.append(text(16, c + 5.5, "Kernpaket", "ek2-kern-t", K, 700))
+    # Lagen bewusst ohne Namen: die Grafik gilt für Fokus, Team und Komplett gleichermaßen
     for i in range(3):
         o.append(f'<circle cx="{x_kurve - 30 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
     # Messpunkt: feine Linie an der Mündung
@@ -76,28 +73,25 @@ def quer():
 
 
 def hoch():
-    W, H, c = 340, 640, 170
+    W, H, c = 340, 670, 170
     y_flach, y_kurve, y_hals = 150, 330, 380
     y_oben = 64
     o = []
-    o.append(text(c, 24, "Hier setzen wir an", "ek2-t", gewicht=600, anker="middle"))
+    o.append(text(c, 24, "Marketing – bringt dir echte Anfragen", "ek2-t", gewicht=600, anker="middle"))
     for k in (3, 2, 1, 0):
         hm, hh = MUND[k], HALS[k]
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
              f"H{c + hh} V{y_kurve} C{c + hh} {y_kurve - 70} {c + hm} {y_flach + 90} {c + hm} {y_flach} V{y_oben} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
-    # Namen senkrecht in den linken Lagen, Kern waagerecht
-    for k in (3, 2, 1):
-        x = c - (MUND[k] + MUND[k - 1]) / 2 + 4.5
-        o.append(text(x, y_oben + 52, LAGEN[k][1], "ek2-t", anker="middle", extra=f' transform="rotate(-90 {x} {y_oben + 52})"'))
-    o.append(text(c, y_oben + 40, "Kernpaket", "ek2-kern-t", gewicht=700, anker="middle"))
     for i in range(3):
         o.append(f'<circle cx="{c}" cy="{y_kurve - 30 + i * 15}" r="4" class="ek2-kern-p"/>')
     # Messpunkt
     o.append(f'<path d="M{c + HALS[3]} {y_hals - 14} H{c + HALS[3] + 22}" class="ek2-linie ek2-linie--fein"/>')
     o.append(text(c + HALS[3] + 28, y_hals - 18, "Messpunkt:", "ek2-t", gewicht=700))
     o.append(text(c + HALS[3] + 28, y_hals - 2, "Anfragen", "ek2-t", gewicht=700))
-    # Band (gleich breit gestaltet, untereinander)
+    # Band (gleich breit gestaltet, untereinander), davor die Klammer zum Vertrieb
+    o.append(text(c, y_hals + 32, "Dein Vertrieb – macht daraus Kunden", "ek2-t", gewicht=600, anker="middle"))
+    y_hals += 30
     x0, x1 = 50, W - 50
     o.append(f'<path d="M{x0} {y_hals + 14} H{x1} V{y_hals + 84} L{c} {y_hals + 100} L{x0} {y_hals + 84} Z" class="ek2-band"/>')
     yk = y_hals + 108
