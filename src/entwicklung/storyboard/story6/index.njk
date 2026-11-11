@@ -308,7 +308,7 @@ html body .maas-d .mx-weg__uebergabe { margin: 1rem 0 !important; color: #1a1817
 .mx-detail svg { display: block; width: 100%; height: auto; min-width: 52rem; }
 .maas-d__hinweis a { color: #1a1817; font-weight: 600; }
 .mx-detail__fuss { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.6rem; }
-.mx-detail__fuss a { margin-left: auto; }
+.mx-detail__fuss a:first-of-type { margin-left: auto; }
 .mx-bild__dl:hover { text-decoration: underline; }
 @media (max-width: 900px) { .mx-bild__rahmen { padding: 1.6rem; } .mx-bild__wisch { display: inline; } .mx-bild__dl { margin-left: 0; } }
 
@@ -1059,7 +1059,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
         <h3 id="maas-detail-t">Der Ablauf im Detail.</h3>
         <p>Mit diesem Bild klären wir im Auftakt, welche Kanäle wir nutzen, wer Interessenten qualifiziert und wie wir sie warmhalten, bis sie abschlussbereit sind.</p>
         <div class="mx-detail">{{ M.strukturbild | safe }}</div>
-        <p class="maas-d__hinweis mx-detail__fuss"><span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span><span class="mx-bild__leg">dein Vertrieb – wir docken an</span><a href="{{ A }}/maas/strukturbild.png" download>Bild herunterladen (PNG)</a></p>
+        <p class="maas-d__hinweis mx-detail__fuss"><span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span><span class="mx-bild__leg">dein Vertrieb – wir docken an</span><a href="{{ A }}/maas/strukturbild.png" download>Bild (PNG)</a><a class="mx-detail__pdf" href="{{ A }}/maas/{{ M.pdf_ablauf.datei }}" target="_blank" rel="noopener">Arbeitsgrundlage als PDF</a></p>
       </dialog>
       <div class="mx-fundament">
         <div><p class="mx-fundament__label">{{ ST.fundament.label }}</p><p class="mx-fundament__text">{{ ST.fundament.text }}</p></div>

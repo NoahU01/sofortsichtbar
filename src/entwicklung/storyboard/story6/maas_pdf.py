@@ -362,7 +362,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 7 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 6 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -380,9 +380,9 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 6, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 5, n)
 
-    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), detail_seite(M, 4, n), ablauf_seite(M, 5, n), s2], 7
+    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), ablauf_seite(M, 4, n), s2], 6
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
@@ -491,6 +491,14 @@ def main():
     bild_png(M["strukturbild"], "strukturbild", 652)
     bild_png(M["maschine"], "maschine", 748)
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
+    # Arbeitsgrundlage als eigenes PDF (nicht im Angebots-PDF): Ablauf im Detail, A4 quer
+    M.setdefault("pdf_ablauf", {"datei": "marketing-as-a-service-ablauf.pdf"})
+    drucken(dokument(f"Ablauf im Detail – {T}", [detail_seite(M, 1, 1)], extra_css=mt.CSS + CSS + CSS_TEAM),
+            M["pdf_ablauf"]["datei"], "marketing-as-a-service-ablauf", M["pdf_ablauf"])
+    for i in (1, 2):   # Vorschaubilder braucht das Arbeits-PDF nicht
+        f = os.path.join(ZIEL, f"marketing-as-a-service-ablauf-{i}.png")
+        if os.path.exists(f):
+            os.remove(f)
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")
 
