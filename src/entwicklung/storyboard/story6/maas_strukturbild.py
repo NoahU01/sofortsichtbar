@@ -157,7 +157,7 @@ STUFEN_TEXT = [
 
 # Bausteine im Trichter: (Nr, Name, Icon) – von innen (Kern) nach außen
 BAUSTEINE = [("1", "Kernpaket sofort sichtbar", "layout-dashboard"), ("2", "LinkedIn Power Package", "handshake"),
-             ("3", "Website-Entwicklung", "app-window"), ("4", "Paid Ads", "trending-up")]
+             ("3", "Paid Ads", "trending-up"), ("4", "Website-Entwicklung", "app-window")]
 
 
 def marketing_svg():
