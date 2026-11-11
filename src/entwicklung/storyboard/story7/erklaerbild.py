@@ -157,11 +157,11 @@ SCHNITT = [  # innen → außen
     {"klasse": "ek2-kern", "name": "Kernpaket", "marke": "Die Basis",
      "text": ["Fünf Landingpages, laufende Postings je Zielgruppe,", "Dashboard, monatlicher Report und Betreuungscall"]},
     {"klasse": "ek2-l2", "name": "LinkedIn Power Package", "marke": "dazu buchbar",
-     "text": ["Dein Profil als aktiver Vertriebskanal – mit Netzwerkaufbau und Direktansprache"]},
+     "text": ["Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal"]},
     {"klasse": "ek2-l3", "name": "Paid Ads", "marke": "dazu buchbar",
      "text": ["Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert"]},
     {"klasse": "ek2-l4", "name": "Website-Entwicklung", "marke": "dazu buchbar",
-     "text": ["Eine echte Website für deine Agentur – nach außen sauber positioniert"]},
+     "text": ["Deine Versicherungsagentur sauber positioniert"]},
 ]
 
 
@@ -169,7 +169,7 @@ def schnitt_quer():
     """Ganzer Trichter: obere Hälfte dick (dort steht, was in jeder Lage passiert), untere Hälfte dünn."""
     W = 1120
     hoch = [90, 154, 218, 282]               # Abstand der Oberkante von der Mitte, innen → außen
-    tief = [18, 30, 42, 54]                  # Abstand der Unterkante von der Mitte
+    tief = [30, 54, 78, 102]                 # Abstand der Unterkante von der Mitte (dünner als oben, aber als Trichter lesbar)
     hals = [14, 20, 26, 32]                  # halbe Höhe an der Mündung
     c = hoch[3]
     x_flach, x_kurve, x_hals = 640, 860, 900
@@ -183,8 +183,9 @@ def schnitt_quer():
         yo = c - hoch[k]
         kern = k == 0
         kt = "ek2-kern-t" if kern else "ek2-t"
-        o.append(text(28, yo + (34 if kern else 27), z["name"], kt, 20 if kern else 17, 700))
-        o.append(text(x_flach - 20, yo + (34 if kern else 27), z["marke"], kt if kern else "ek2-grau", 13, 600, "end"))
+        # Etikett direkt hinter dem Namen – keine zweite Spalte, in die die Sätze hineinlaufen
+        o.append(f'<text x="28" y="{yo + (34 if kern else 27)}" class="{kt}" font-size="{20 if kern else 17}" font-weight="700">{z["name"]}'
+                 f'<tspan class="{kt if kern else "ek2-grau"}" font-size="13" font-weight="600" dx="12">{z["marke"]}</tspan></text>')
         for n, zeile in enumerate(z["text"]):
             o.append(text(28, yo + (59 if kern else 50) + n * 21, zeile, kt, 15, 500))
     for i in range(3):
