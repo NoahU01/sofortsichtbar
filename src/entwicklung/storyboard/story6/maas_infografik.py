@@ -487,9 +487,9 @@ def entwurf_rollup2():
 EINSATZ = [("megaphone", "Wahrgenommen werden", "Laufende Postings auf LinkedIn, Facebook und Instagram. Wer dich sieht, findet hier mehr."),
            ("mail", "Mailings verschicken", "Per E-Mail, gern auch per Post: Du schickst den Link – deine Kunden landen auf der Seite."),
            ("calendar", "Termine vor- und nachbereiten", "Vorher zur Einstimmung mit Checkliste und Podcast, nachher zum Thema aus dem Gespräch.")]
-LINKEDIN_WEG = [("target", "Wunschkontakte festlegen", "gemeinsam"), ("users", "Netzwerk gezielt aufbauen", "wir"),
-                ("eye", "Ihre Postings verfolgen", "wir"), ("message-circle", "Dreimal kommentieren", "du"),
-                ("message-square-text", "„Lass uns sprechen“", "du"), ("calendar", "Chat und Termin", "du")]
+LINKEDIN_WEG = [("target", "Fokus-Kunden festlegen", "gemeinsam"), ("users", "Netzwerk gezielt aufbauen", "wir"),
+                ("eye", "Ihre Postings auswerten", "wir"), ("message-square-text", "Antwortvorschlag mit Link", "wir"),
+                ("message-circle", "Kommentieren in deinem Ton", "du"), ("calendar", "Nach dem dritten: Termin", "du")]
 
 
 def entwurf_rollup3():
@@ -542,9 +542,9 @@ def entwurf_rollup3():
             o.append(t(x, ty + 22 + k * 4.6, z, 3.7, 700, anchor="middle"))
         farbe = INK if wer == "du" else "#fff"
         bw = len(wer) * 1.9 + 7
-        o.append(f'<rect x="{x - bw / 2}" y="{ty + 33}" width="{bw}" height="6" rx="3" fill="{farbe}" stroke="{INK}" stroke-width=".4"/>')
-        o.append(t(x, ty + 37.2, wer, 3, 700, "#fff" if wer == "du" else INK, "middle"))
-    o.append(zeilen(m, ty + 52, "Wir bauen dein Netzwerk in der Zielgruppe auf, werten aus, wer gerade etwas veröffentlicht, und liefern dir Anlass und Vorschlag. Kommentar und Nachricht kommen von dir persönlich – nach dem dritten Kommentar folgt die Einladung zum Gespräch.", 66, 3.8, 5.4))
+        o.append(f'<rect x="{x - bw / 2}" y="{ty + 37}" width="{bw}" height="6" rx="3" fill="{farbe}" stroke="{INK}" stroke-width=".4"/>')
+        o.append(t(x, ty + 41.2, wer, 3, 700, "#fff" if wer == "du" else INK, "middle"))
+    o.append(zeilen(m, ty + 54, "Wir werten regelmäßig aus, wer von deinen Fokus-Kunden etwas gepostet hat, und liefern dir den Link mit einem Antwortvorschlag. Den Kommentar schreibst du selbst – du entscheidest über Ton und Zungenschlag. Nach dem dritten Kommentar folgt die Einladung zum Gespräch.", 66, 3.8, 5.4))
 
     # 3 · Verstärken und abrunden
     y = 400
