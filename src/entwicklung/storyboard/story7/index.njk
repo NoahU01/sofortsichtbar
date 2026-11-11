@@ -348,16 +348,19 @@ p { margin: 0; }
 
 /* ---------- Zielgruppen · Vertrauen · Kontakt (nur Startseite) ---------- */
 .s7-zg__fuss { margin-top: 2rem; }
-.s7-stil .s7-vertrauen .s7-h2 { max-width: none; font-size: clamp(2rem, 3.2vw, 2.75rem); }
+.s7-stil .s7-vertrauen .s7-h2 { max-width: none; }
 
-.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: stretch; }
+.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4rem); align-items: stretch; }
 .s7-vertrauen__text { padding: 1rem 0; }
-.s7-vertrauen__namen { margin-top: 1.6rem; color: var(--s7-tinte); font-size: .95rem; font-weight: 600; }
-.s7-zitat { margin: 2.6rem 0 0; padding: 1.6rem 0 0; border-top: 1px solid var(--s7-linie); }
-.s7-zitat p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.35rem, 2.2vw, 1.75rem); font-weight: var(--s7-titel-gewicht); line-height: 1.3; letter-spacing: var(--s7-titel-abstand); text-wrap: balance; }
-.s7-zitat cite { display: block; margin-top: .9rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
+
+.s7-zitat { margin: 2rem 0 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--s7-tinte); }
+.s7-zitat p { color: var(--s7-tinte); font-size: 1.15rem; line-height: 1.6; }
+.s7-zitat cite { display: block; margin-top: .5rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
 /* Gruppenbild in eigenem Rahmen: so hoch wie die Textspalte, das Bild steht unten auf der Kante und füllt die Breite (Schnittkanten = Rahmenkante) */
-.s7-vertrauen__bild { display: flex; align-items: flex-end; margin: 0; padding-top: 1.5rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+.s7-vertrauen__bild { display: flex; flex-direction: column; justify-content: space-between; margin: 0; padding-top: 1.4rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+.s7-vertrauen__bild figcaption { padding: 0 1.6rem; color: var(--s7-grau); font-size: .9rem; }
+.s7-nowrap { white-space: nowrap; }
+@media (max-width: 600px) { .s7-vertrauen__bild figcaption { padding: 0 1rem; font-size: .8rem; } }
 .s7-vertrauen__bild img { display: block; width: 107%; max-width: none; margin-right: -7%; mix-blend-mode: multiply; } /* helle Reste im Foto verschmelzen mit der Fläche */
 .s7-kontakt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: end; }
 .s7-kontakt .s7-lead { color: #cfcfcf; }
@@ -608,12 +611,11 @@ p { margin: 0; }
     <div class="s7-wrap s7-vertrauen">
       <div class="s7-vertrauen__text">
         <p class="s7-kicker">{{ S.vertrauen.kicker }}</p>
-        <h2 class="s7-h2">{{ S.vertrauen.h2 }}</h2>
+        <h2 class="s7-h2">{{ S.vertrauen.h2 }}<br><span class="s7-wort">{{ S.vertrauen.h2_akzent }}</span></h2>
         <p class="s7-lead">{{ S.vertrauen.t }}</p>
-        <p class="s7-vertrauen__namen">{{ S.vertrauen.namen }}</p>
         <blockquote class="s7-zitat"><p>„{{ S.vertrauen.zitat }}“</p><cite>{{ S.vertrauen.quelle }}</cite></blockquote>
       </div>
-      <figure class="s7-vertrauen__bild"><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"></figure>
+      <figure class="s7-vertrauen__bild"><figcaption>{{ S.vertrauen.namen }}</figcaption><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"></figure>
     </div>
   </section>
 
@@ -621,7 +623,7 @@ p { margin: 0; }
   <section class="s7-band s7-band--tinte" id="kontakt">
     <div class="s7-wrap s7-kontakt">
       <div>
-        <h2 class="s7-h2">{{ S.kontakt.h2 }}</h2>
+        <h2 class="s7-h2">{{ S.kontakt.h2 }} <span class="s7-wort s7-nowrap">{{ S.kontakt.h2_akzent }}</span></h2>
         <p class="s7-lead">{{ S.kontakt.t }}</p>
       </div>
       <div class="s7-kontakt__wege">
