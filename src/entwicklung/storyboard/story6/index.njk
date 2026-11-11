@@ -169,7 +169,7 @@ html body.e2 main .aa__quelle { margin-top: 3rem; color: #6f6a64; font-size: .85
    Farben: Tinte #1a1817, Grau #6f6a64, Gelb nur als Fläche, Häkchen auf Schwarz und Icons auf Schwarz.
    Gleichartige Karten: gemeinsames Raster (subgrid) – Titel, Preise, Linien und Knöpfe auf gleicher Höhe. */
 .maas .container { max-width: 76rem; }
-html body .e2-alt.maas h2 { max-width: 30ch; font-size: clamp(2.1rem, 4.2vw, 3.4rem) !important; line-height: 1.15 !important; }
+html body .e2-alt.maas h2 { text-wrap: balance; max-width: 30ch; font-size: clamp(2.1rem, 4.2vw, 3.4rem) !important; line-height: 1.15 !important; }
 html body .e2-alt.maas .mx-lead { margin-top: 1.2rem !important; max-width: 44rem; font-size: 1.12rem; line-height: 1.62; color: #3d3a37; }
 .mx-band { padding: 6rem 0; background: #fff; }
 .mx-band--gelb { background: #fff400; }
@@ -195,6 +195,46 @@ html body .e2-alt.maas .mx-held .hl { white-space: nowrap; }
 .mx-fakten dt { font: 700 1.5rem/1.1 var(--font-sans, Poppins, sans-serif); color: #1a1817; }
 .mx-fakten dd { margin: .35rem 0 0; font-size: .88rem; color: #6f6a64; }
 .mx-held__bild img { display: block; width: 100%; height: auto; }
+
+/* Der Weg (hellgrau): Phasen als Blöcke, Zeilen im festen Raster Nr · Frage · Wir · Du; Verkaufen schwarz; Übergabe gelb */
+.mx-weg { margin-top: 3rem; }
+.mx-weg__kopf, .mx-weg__schritt { display: grid; grid-template-columns: 2.6rem minmax(0, 1.05fr) minmax(0, 1.6fr) minmax(0, 1fr); column-gap: 2rem; }
+.mx-weg__kopf { padding: 0 2rem .8rem; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6f6a64; }
+.mx-weg__block { padding: .6rem 2rem; border-radius: 22px; background: #fff; }
+.mx-weg__block + .mx-weg__block { margin-top: 1rem; }
+html body .e2-alt.maas .mx-weg__phase { display: flex; align-items: baseline; gap: .8rem; margin: 1.1rem 0 .4rem !important; }
+.mx-weg__phase b { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #1a1817; }
+.mx-weg__phase span { font-size: .85rem; color: #6f6a64; }
+.mx-weg__schritt { align-items: start; padding: 1.2rem 0; border-top: 1px solid #ece9e5; }
+.mx-weg__nr { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 2px solid #1a1817; border-radius: 50%; font: 600 .9rem/1 var(--font-sans, Poppins, sans-serif); color: #1a1817; }
+html body .e2-alt.maas .mx-weg__schritt h3 { margin: .25rem 0 0; font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.3; }
+html body .e2-alt.maas .mx-weg__wir, html body .e2-alt.maas .mx-weg__du { margin: .3rem 0 0 !important; font-size: .95rem; line-height: 1.55; color: #3d3a37; }
+html body .e2-alt.maas .mx-weg__du { color: #1a1817; font-weight: 500; }
+.mx-weg__mobil { display: none; }
+.mx-weg__block--dunkel { background: #1a1817; }
+.mx-weg__block--dunkel .mx-weg__phase b { color: #fff400; }
+.mx-weg__block--dunkel .mx-weg__phase span { color: #cfcac3; }
+.mx-weg__block--dunkel .mx-weg__schritt { border-top-color: rgba(255,255,255,.14); }
+.mx-weg__block--dunkel .mx-weg__nr { border-color: #fff400; color: #fff400; }
+html body .e2-alt.maas .mx-weg__block--dunkel h3 { color: #fff; }
+html body .e2-alt.maas .mx-weg__block--dunkel .mx-weg__wir { color: #cfcac3; }
+html body .e2-alt.maas .mx-weg__block--dunkel .mx-weg__du { color: #fff; }
+html body .e2-alt.maas .mx-weg__uebergabe { text-wrap: pretty; display: flex; align-items: baseline; gap: 1rem; margin: 1rem 0 !important; padding: 1.1rem 2rem; border-radius: 14px; background: #fff400; font-size: 1rem; line-height: 1.5; color: #1a1817; }
+.mx-weg__uebergabe b { flex: 0 0 auto; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+html body .e2-alt.maas .mx-weg__fuss { margin-top: 1.6rem !important; }
+.mx-weg__fuss a { display: inline; text-wrap: pretty; font-weight: 600; color: #1a1817; text-decoration: none; }
+.mx-weg__fuss a:hover { text-decoration: underline; }
+.mx-weg__fuss .e2-pfeil { display: inline-block; vertical-align: -.2em; margin-left: .3rem; width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; }
+@media (max-width: 900px) {
+  .mx-weg__kopf { display: none; }
+  .mx-weg__schritt { grid-template-columns: 2.6rem minmax(0, 1fr); row-gap: .2rem; }
+  .mx-weg__schritt > p { grid-column: 2; }
+  .mx-weg__block { padding: .4rem 1.4rem; }
+  .mx-weg__mobil { display: block; margin-top: .5rem; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6f6a64; }
+  .mx-weg__block--dunkel .mx-weg__mobil { color: #9b958e; }
+  html body .e2-alt.maas .mx-weg__du:empty { display: none; }
+  html body .e2-alt.maas .mx-weg__uebergabe { flex-direction: column; gap: .3rem; padding: 1.1rem 1.4rem; }
+}
 
 /* 2 · So arbeiten wir (gelb): nummerierte Schritte mit gestrichelter Linie wie auf der Volksfest-Seite */
 .mx-ablauf { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.4rem; margin: 3rem 0 0; padding: 0; position: relative; }
@@ -922,11 +962,42 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     </div>
   </section>
 
+  <!-- ===== Der Weg (hellgrau): sechs Schritte aus der Homepage-Story, Szene 05 – die Grundstory von Marketing as a Service ===== -->
+  {%- set W = M.weg %}
+  <section class="mx-band mx-band--hell" id="weg">
+    <div class="container">
+      <p class="kicker">{{ W.kicker }}</p>
+      <h2 class="h-serif">{{ W.h2 }}</h2>
+      <p class="mx-lead">{{ W.lead }}</p>
+      <div class="mx-weg">
+        <div class="mx-weg__kopf" aria-hidden="true"><span></span>{% for s in W.spalten %}<span>{{ s }}</span>{% endfor %}</div>
+        {%- for ph in W.phasen %}
+        {%- if loop.index == 2 %}
+        <p class="mx-weg__uebergabe"><b>{{ W.uebergabe.label }}</b>{{ W.uebergabe.text }}</p>
+        {%- endif %}
+        <div class="mx-weg__block{% if ph.dunkel %} mx-weg__block--dunkel{% endif %}">
+          <p class="mx-weg__phase"><b>{{ ph.name }}</b><span>{{ ph.hinweis }}</span></p>
+          {%- for s in ph.schritte %}
+          <div class="mx-weg__schritt">
+            <span class="mx-weg__nr">{{ s.nr }}</span>
+            <h3>{{ s.frage }}</h3>
+            <p class="mx-weg__wir"><span class="mx-weg__mobil">{{ W.spalten[1] }}</span>{{ s.wir }}</p>
+            <p class="mx-weg__du">{% if s.du %}<span class="mx-weg__mobil">{{ W.spalten[2] }}</span>{{ s.du }}{% endif %}</p>
+          </div>
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+      </div>
+      <p class="mx-weg__fuss"><a href="#bausteine">{{ W.fuss }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
   <!-- ===== 2 · So arbeiten wir (gelb) ===== -->
   <section class="mx-band mx-band--gelb" id="ablauf">
     <div class="container">
       <p class="kicker">So arbeiten wir</p>
       <h2 class="h-serif">Jeden Monat ein Stück besser.</h2>
+      <p class="mx-lead">{{ M.ablauf_lead }}</p>
       <ol class="mx-ablauf">
         {%- for a in M.ablauf %}
         <li><span class="mx-ablauf__nr">{{ loop.index }}</span>{{ ico(a.ico, "mx-ablauf__ico") }}<h3>{{ a.titel }}</h3><p>{{ a.text }}</p></li>

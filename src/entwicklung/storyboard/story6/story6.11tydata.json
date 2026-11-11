@@ -5,7 +5,7 @@
     "hinweis_preise": "Alle Preise zzgl. Umsatzsteuer in gesetzlicher Höhe.",
     "pdf": {
       "datei": "marketing-as-a-service.pdf",
-      "seiten": 20,
+      "seiten": 21,
       "groesse": "0,7 MB"
     },
     "bausteine": [
@@ -539,6 +539,82 @@
       "Ein fester Ansprechpartner",
       "Ein Dashboard für alles",
       "Ohne Suche und Einarbeitung"
-    ]
+    ],
+    "weg": {
+      "_quelle": "Sechs Schritte aus der Homepage-Story, Szene 05 „Der Weg“ (Daniels Skizze). Inhalte je Schritt aus dem Leistungsumfang von Marketing as a Service; Schritt 5 (Landingpages vor/nach dem Termin) ist eine Ableitung aus den Landingpages im Kernpaket.",
+      "kicker": "Strategisches Marketing",
+      "h2": "Die digitale Maschine vor deinem Vertrieb.",
+      "lead": "Wir gehen mit dir den ganzen Weg – von deinen Zielen bis zum Abschluss – und richten dein digitales Marketing darauf aus, dass du sie erreichst. Dein Vertrieb bleibt, wie er ist. Er bekommt mehr Anfragen aus den richtigen Zielgruppen.",
+      "spalten": [
+        "Deine Frage",
+        "Was wir übernehmen",
+        "Was du machst"
+      ],
+      "phasen": [
+        {
+          "name": "Aufstellen",
+          "hinweis": "Einmal sauber aufsetzen",
+          "dunkel": false,
+          "schritte": [
+            {
+              "nr": "1",
+              "frage": "Welche Ziele willst du erreichen?",
+              "wir": "Im Auftakt legen wir mit dir deine Vertriebsziele fest – und prüfen sie in jedem monatlichen Call.",
+              "du": ""
+            },
+            {
+              "nr": "2",
+              "frage": "Mit welchen Zielgruppen?",
+              "wir": "Wir leiten ab, welche Zielgruppen dich zu diesen Zielen bringen, und richten das ganze Marketing darauf aus.",
+              "du": ""
+            },
+            {
+              "nr": "3",
+              "frage": "Wie wirst du regelmäßig wahrgenommen?",
+              "wir": "Landingpages und laufende Postings je Zielgruppe. Mit LinkedIn und Paid Ads erreichst du noch mehr Menschen aus denselben Zielgruppen.",
+              "du": ""
+            }
+          ]
+        },
+        {
+          "name": "Verkaufen",
+          "hinweis": "Hier bist du gefragt",
+          "dunkel": true,
+          "schritte": [
+            {
+              "nr": "4",
+              "frage": "Wie kommst du ins Gespräch?",
+              "wir": "Anfragen kommen direkt bei dir an – auf Wunsch über dein eingebundenes Terminierungstool. Auf LinkedIn liefern wir dir Anlässe für die Direktansprache.",
+              "du": "Nachfassen, telefonieren, sicherstellen, dass die Termine stattfinden."
+            },
+            {
+              "nr": "5",
+              "frage": "Wie kommst du zum Abschluss?",
+              "wir": "Landingpages, die du vor dem Termin zur Einstimmung und danach statt einer Broschüre schickst.",
+              "du": "Beraten und abschließen – so, wie du es kennst."
+            }
+          ]
+        },
+        {
+          "name": "Steuern",
+          "hinweis": "Jeden Monat",
+          "dunkel": false,
+          "schritte": [
+            {
+              "nr": "6",
+              "frage": "Funktioniert es? Was optimieren wir?",
+              "wir": "Dashboard, monatlicher Report und Betreuungscall: Wir prüfen jeden Schritt mit dir und verbessern, was nicht trägt.",
+              "du": "Mit uns Prioritäten festlegen."
+            }
+          ]
+        }
+      ],
+      "uebergabe": {
+        "label": "Übergabe",
+        "text": "Echte Anfragen aus deiner Zielgruppe: Menschen, die selbst anrufen oder ein Formular ausfüllen. Keine gekauften Adressen."
+      },
+      "fuss": "Was wir dafür konkret übernehmen, zeigen die Bausteine."
+    },
+    "ablauf_lead": "Jeden Monat gehen wir den Weg mit dir durch: Funktioniert es? Was optimieren wir?"
   }
 }

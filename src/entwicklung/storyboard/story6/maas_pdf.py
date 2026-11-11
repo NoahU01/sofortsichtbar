@@ -121,6 +121,26 @@ def team_seite(M, nr, n):
         + f'<div class="immer"><span>Immer dabei</span>{immer}</div></div>', nr, n, hell_fuss=True, klasse="seite--schwarz")
 
 
+def weg_seite(M, nr, n):
+    """Die Grundstory: der Weg in sechs Schritten (Homepage-Story, Szene 05) – Aufstellen grau, Übergabe gelb, Verkaufen schwarz, Steuern grau."""
+    W = M["weg"]
+    def zeile(s):
+        return (f'<div class="wg__z"><span class="wg__nr">{s["nr"]}</span><h3>{s["frage"]}</h3>'
+                f'<p class="wg__wir">{s["wir"]}</p><p class="wg__du">{s["du"]}</p></div>')
+    bloecke = ""
+    for i, ph in enumerate(W["phasen"]):
+        if i == 1:
+            bloecke += f'<p class="wg__ueb"><b>{W["uebergabe"]["label"]}</b>{W["uebergabe"]["text"]}</p>'
+        bloecke += (f'<div class="wg__block{" wg__block--dunkel" if ph["dunkel"] else ""}">'
+                    f'<p class="wg__phase"><b>{ph["name"]}</b><span>{ph["hinweis"]}</span></p>'
+                    + "".join(zeile(s) for s in ph["schritte"]) + '</div>')
+    kopfzeile = '<div class="wg__z wg__kopf"><span></span>' + "".join(f"<span>{s}</span>" for s in W["spalten"]) + '</div>'
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:14mm">' + kicker(W["kicker"])
+        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:160mm">{W["lead"]}</p>'
+        + f'<div class="wg">{kopfzeile}{bloecke}</div></div>', nr, n)
+
+
 def ablauf_seite(M, nr, n):
     """So arbeiten wir (gelb): der Monatsablauf als nummerierter Zeitstrahl mit Icons – wie auf der Seite."""
     schritte = "".join(
@@ -129,8 +149,7 @@ def ablauf_seite(M, nr, n):
     return seite(
         kopf(T) + '<div class="rand wachsen mitte">' + kicker("So arbeiten wir")
         + '<h2>Jeden Monat ein Stück besser.</h2>'
-        + '<p class="lead" style="max-width:150mm">Laufende Betreuung heißt bei uns: umsetzen, messen, besprechen, verbessern – '
-          'in einem festen Rhythmus, mit einem festen Ansprechpartner.</p>'
+        + f'<p class="lead" style="max-width:150mm">{M["ablauf_lead"]}</p>'
         + f'<ol class="ab">{schritte}</ol></div>', nr, n, klasse="seite--gelb")
 
 
@@ -183,6 +202,29 @@ def posting_seiten(PR, nr, n):
 
 
 CSS_TEAM = """
+/* Der Weg: Raster Nr · Frage · Wir · Du; Aufstellen/Steuern grau, Verkaufen schwarz, Übergabe gelb */
+.wg { margin-top: 7mm; }
+.wg__z { display: grid; grid-template-columns: 8mm 42mm 1fr 40mm; column-gap: 5mm; align-items: start; }
+.wg__kopf { padding: 0 5mm 2mm; font-size: 6.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
+.wg__block { padding: 1mm 5mm 1mm; border-radius: 3.5mm; background: #f3f1ee; }
+.wg__block + .wg__block { margin-top: 2.5mm; }
+.wg__phase { display: flex; align-items: baseline; gap: 2.5mm; margin: 3mm 0 1mm; }
+.wg__phase b { font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.wg__phase span { font-size: 7.8pt; color: #8a847c; }
+.wg__block .wg__z { padding: 3mm 0; border-top: 1px solid #dcd8d1; }
+.wg__nr { display: grid; place-items: center; width: 6.4mm; height: 6.4mm; border: 1.4px solid #1a1817; border-radius: 50%; font-size: 7.4pt; font-weight: 600; }
+.wg h3 { font-size: 10.5pt; line-height: 1.25; margin-top: .6mm; }
+.wg__wir, .wg__du { font-size: 8.2pt; line-height: 1.5; color: #3d3a37; margin-top: .4mm; }
+.wg__du { color: #1a1817; font-weight: 600; }
+.wg__block--dunkel { background: #1a1817; color: #fff; }
+.wg__block--dunkel .wg__phase b { color: #fff400; }
+.wg__block--dunkel .wg__phase span { color: #cfcac3; }
+.wg__block--dunkel .wg__z { border-top-color: rgba(255,255,255,.16); }
+.wg__block--dunkel .wg__nr { border-color: #fff400; color: #fff400; }
+.wg__block--dunkel h3, .wg__block--dunkel .wg__du { color: #fff; }
+.wg__block--dunkel .wg__wir { color: #cfcac3; }
+.wg__ueb { display: flex; gap: 4mm; align-items: baseline; margin: 2.5mm 0; padding: 3.5mm 5mm; border-radius: 3.5mm; background: #fff400; font-size: 8.6pt; line-height: 1.5; }
+.wg__ueb b { flex: 0 0 auto; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 /* Kennzeile je Baustein: Icon · Preis groß (Poppins Bold) · das Wichtigste mit Häkchen */
 .kz { display: grid; grid-template-columns: 20mm 50mm 1fr; gap: 6mm; align-items: start; margin-top: 7mm; padding: 6mm 7mm; border-radius: 4.5mm; background: #f3f1ee; }
 .kz__ico svg { width: 16mm; height: 16mm; }
@@ -259,7 +301,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 4 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 5 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -277,9 +319,9 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 3, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 4, n)
 
-    seiten, nr = [s1, ablauf_seite(M, 2, n), s2], 4
+    seiten, nr = [s1, weg_seite(M, 2, n), ablauf_seite(M, 3, n), s2], 5
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
