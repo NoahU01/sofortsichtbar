@@ -457,11 +457,12 @@ html body .e2-alt.maas .ig-entwurf h2 { margin-top: 0; }
 .ig-bild--b, .ig-bild--b2, .ig-bild--rollup { max-width: 44rem; }
 .ig-bild--rollup { max-width: none; }
 .ig-paar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2.4rem; }
+.ig-paar--zwei { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .ig-paar .ig-dl { flex-direction: column; align-items: flex-start; gap: .5rem; }
 .ig-paar .ig-bild { margin-top: .8rem; }
 html body .e2-alt.maas .ig-paar__label { margin: 0 !important; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6f6a64; }
 @media (max-width: 1000px) { .ig-paar { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 640px) { .ig-paar { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) { .ig-paar, .ig-paar--zwei { grid-template-columns: minmax(0, 1fr); } }
 .ig-dl { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.2rem !important; font-size: .9rem; }
 .ig-dl a { font-weight: 600; color: #1a1817; text-decoration: none; }
 .ig-dl a:first-child { padding: .55rem 1rem; border-radius: 999px; background: #1a1817; color: #fff; }
@@ -1274,9 +1275,9 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   </div></section>
 
   {%- for e in [
-    ["a", "Entwurf A · Querformat · DIN A3", "Die ganze Geschichte in drei Ebenen.", "Oben das Fundament Strategie mit den sechs Fragen, in der Mitte die Maschine waagerecht – Trichter aus vier Bausteinen, Vertrieb, Kundenbetreuung – mit gelben Messpunkten im Fluss, unten der Monatsrhythmus. Für den Tisch, den Bildschirm und Videokonferenzen.", "PDF · A3 quer"],
-    ["b", "Entwurf B · Hochformat · DIN A3 · Variante 1", "Von oben nach unten erzählt.", "Strategie als Kopf, der Trichter senkrecht, die Texte rechts auf Höhe ihrer Stufe, Messpunkte direkt am Text, Monatsrhythmus als Fuß. Die Vorlage für Wandposter, Roll-up und Handy.", "PDF · A3 hoch"],
-    ["b2", "Entwurf B · Hochformat · DIN A3 · Variante 2", "Drei Sektionen auf A3.", "Der Aufbau aus Roll-up Version 2, verdichtet auf A3: 01 Strategie als Auswahlpfad, 02 Marketing und Vertrieb mit kompaktem Trichter und einem Messpunkt, 03 Steuerung mit dem Analytics-Dashboard.", "PDF · A3 hoch"],
+    ["a", "Entwurf A · Querformat · DIN A3 · Variante 1", "Drei Stufen zum Vertriebserfolg.", "Nur der Kern aus Sektion 02: die Maschine waagerecht – Trichter aus vier Bausteinen, Vertrieb, Kundenbetreuung, Rückweg –, ein Messpunkt (Leads: echte Anfragen) als Linie am Trichterausgang, darunter die drei Stufen. Für den Tisch, den Bildschirm und Videokonferenzen.", "PDF · A3 quer"],
+    ["a2", "Entwurf A · Querformat · DIN A3 · Variante 2", "Drei Sektionen nebeneinander.", "Der Aufbau der Roll-ups im Querformat: 01 Strategie als Auswahlpfad, 02 Marketing und Vertrieb mit Trichter und dem einen Messpunkt als breiteste Spalte, 03 Steuerung mit dem Analytics-Dashboard.", "PDF · A3 quer"],
+    ["b", "Entwurf B · Hochformat · DIN A3 · zwei Varianten", "Von oben nach unten erzählt.", "Variante 1: Strategie als Kopf, der Trichter senkrecht, die Texte rechts auf Höhe ihrer Stufe, Monatsrhythmus als Fuß. Variante 2: der Aufbau aus Roll-up Version 2 auf A3 – 01 Strategie, 02 Marketing und Vertrieb, 03 Steuerung. In beiden ein Messpunkt: Leads, als Linie vom Trichterausgang zum Text.", "PDF · A3 hoch", [["b", "Variante 1 · Strategie, Trichter, Monatsrhythmus"], ["b2", "Variante 2 · drei Sektionen"]]],
     ["rollup", "Roll-up · 100 × 200 cm · drei Versionen", "Version 2, 2.1 und 3 nebeneinander.", "Version 2 ordnet alles in drei Sektionen: 01 Strategie – wo willst du wachsen? (Segment, Sparte, Zielgruppe), 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg, 03 Steuerung – funktioniert es? mit dem Dashboard. Version 2.1 ist Version 2 in den Farben von sofort sichtbar (Blau und Violett, hell, Inhalt unverändert). Version 3 schaut in die Maschine hinein: das Ökosystem aus Baustein 1 als Hauptpunkt (saubere Profile, gefüllter Content-Kalender, Bestandskunden-Mailings, Landingpages je Zielgruppe, Termine vor- und nachbereiten), LinkedIn als aktiver Vertriebskanal in sechs Schritten, Paid Ads und Website als kurze Zeile.", "PDF · 100 × 200 cm"]
   ] %}
   <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="entwurf-{{ e[0] }}">
@@ -1284,9 +1285,9 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <p class="kicker">{{ e[1] }}</p>
       <h2 class="h-serif">{{ e[2] }}</h2>
       <p class="mx-lead">{{ e[3] }}</p>
-      {%- if e[0] == "rollup" %}
-      <div class="ig-paar">
-        {%- for k in [["rollup2", "Version 2 · drei Sektionen"], ["rollup21", "Version 2.1 · Farben sofort sichtbar"], ["rollup3", "Version 3 · Blick in die Maschine"]] %}
+      {%- if e[0] == "rollup" or e[5] %}
+      <div class="ig-paar{% if e[5] %} ig-paar--zwei{% endif %}">
+        {%- for k in (e[5] or [["rollup2", "Version 2 · drei Sektionen"], ["rollup21", "Version 2.1 · Farben sofort sichtbar"], ["rollup3", "Version 3 · Blick in die Maschine"]]) %}
         <div><p class="ig-paar__label">{{ k[1] }}</p><div class="ig-bild ig-bild--rollup">{{ IG[k[0]] | safe }}</div>{{ dl(k[0], e[4]) }}</div>
         {%- endfor %}
       </div>
