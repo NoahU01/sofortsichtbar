@@ -426,7 +426,11 @@ html body .e2-alt.maas .ig-entwurf h2 { margin-top: 0; }
 .ig-bild { margin-top: 2.4rem; border: 1px solid #e4e0db; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px rgba(26,24,23,.08); }
 .ig-bild svg { display: block; width: 100%; height: auto; }
 .ig-bild--b, .ig-bild--rollup { max-width: 44rem; }
-.ig-bild--rollup { max-width: 30rem; }
+.ig-bild--rollup { max-width: none; }
+.ig-paar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.4rem; margin-top: 2.4rem; max-width: 62rem; }
+.ig-paar .ig-bild { margin-top: .8rem; }
+html body .e2-alt.maas .ig-paar__label { margin: 0 !important; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6f6a64; }
+@media (max-width: 760px) { .ig-paar { grid-template-columns: minmax(0, 1fr); } }
 .ig-dl { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.2rem !important; font-size: .9rem; }
 .ig-dl a { font-weight: 600; color: #1a1817; text-decoration: none; }
 .ig-dl a:first-child { padding: .55rem 1rem; border-radius: 999px; background: #1a1817; color: #fff; }
@@ -1240,7 +1244,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   {%- for e in [
     ["a", "Entwurf A · Querformat · DIN A3", "Die ganze Geschichte in drei Ebenen.", "Oben das Fundament Strategie mit den sechs Fragen, in der Mitte die Maschine waagerecht – Trichter aus vier Bausteinen, Vertrieb, Kundenbetreuung – mit gelben Messpunkten im Fluss, unten der Monatsrhythmus. Für den Tisch, den Bildschirm und Videokonferenzen.", "PDF · A3 quer"],
     ["b", "Entwurf B · Hochformat · DIN A3", "Von oben nach unten erzählt.", "Strategie als Kopf, der Trichter senkrecht, die Texte rechts auf Höhe ihrer Stufe, Messpunkte direkt am Text, Monatsrhythmus als Fuß. Die Vorlage für Wandposter, Roll-up und Handy.", "PDF · A3 hoch"],
-    ["rollup", "Entwurf B als Roll-up · 100 × 200 cm", "Dieselbe Komposition im Roll-up-Format.", "Seitenverhältnis 1 : 2, Überschrift im oberen Drittel. Die Schrift wirkt hier klein, ist auf 100 × 200 cm aber gut zwölf Millimeter hoch.", "PDF · 100 × 200 cm"],
+    ["rollup", "Roll-up · 100 × 200 cm · zwei Versionen", "Links Version 1, rechts Version 2.", "Version 2 ordnet alles in drei Sektionen: 01 Strategie – wo willst du wachsen? (Segment, Sparte, Zielgruppe), 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg, 03 Steuerung – funktioniert es? mit dem Dashboard. Ohne schwarzes Strategie-Band und ohne den gelben Kasten „So arbeiten wir“.", "PDF · 100 × 200 cm"],
     ["c", "Entwurf C · Explosionszeichnung · DIN A3 quer", "Was in der Maschine steckt.", "Wie eine technische Zeichnung, die ein Gerät in seine Teile zerlegt: Die vier Bausteine werden als Lagen auseinandergezogen und links beschriftet. Rechts kompakt Vertrieb und Kundenbetreuung mit Messpunkten, unten der Monatsrhythmus.", "PDF · A3 quer"]
   ] %}
   <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="entwurf-{{ e[0] }}">
@@ -1248,8 +1252,16 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <p class="kicker">{{ e[1] }}</p>
       <h2 class="h-serif">{{ e[2] }}</h2>
       <p class="mx-lead">{{ e[3] }}</p>
+      {%- if e[0] == "rollup" %}
+      <div class="ig-paar">
+        {%- for k in [["rollup", "Version 1"], ["rollup2", "Version 2 · drei Sektionen"]] %}
+        <div><p class="ig-paar__label">{{ k[1] }}</p><div class="ig-bild ig-bild--rollup">{{ IG[k[0]] | safe }}</div>{{ dl(k[0], e[4]) }}</div>
+        {%- endfor %}
+      </div>
+      {%- else %}
       <div class="ig-bild ig-bild--{{ e[0] }}">{{ IG[e[0]] | safe }}</div>
       {{ dl(e[0], e[4]) }}
+      {%- endif %}
     </div>
   </section>
   {%- endfor %}
