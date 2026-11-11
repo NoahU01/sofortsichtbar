@@ -31,10 +31,13 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
 
 {#- ======================= Bausteine ======================= -#}
-{%- macro erklaerbild() -%}
+{%- macro erklaerbild(detail=false) -%}
 {%- set E = S.erklaerbild -%}
-<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten. Ein Trichter aus Lagen mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Termin, Beratung, Abschluss, dann Kundenbetreuung. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
+{%- if detail %}
+<div class="ek2 ek2--detail" role="img" aria-label="Marketing as a Service im Detail: Strategie – wo willst du wachsen? Dann der Trichter aus Kernpaket, LinkedIn, Paid Ads und Website mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb und Kundenbetreuung machst du. Danach die Steuerung – funktioniert es? Jeden Monat steuern wir mit Dashboard, Report und Betreuungscall nach.">{{ S.ek_detail_quer | safe }}{{ S.ek_detail_hoch | safe }}</div>
+{%- else %}<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten. Ein Trichter aus Lagen mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Termin, Beratung, Abschluss, dann Kundenbetreuung. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
 <p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
+{%- endif %}
 {%- endmacro -%}
 
 {%- macro held(mitIds=true) -%}
@@ -394,56 +397,108 @@ p { margin: 0; }
 
 
 /* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
-.mx7-teilung { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
-.mx7-teil { padding: clamp(1.8rem, 3vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
-.mx7-teil--wir { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
-.s7-stil .mx7-teil h3, .s7-stil .mx7-kern h3, .s7-stil .mx7-karte h3 { font-size: 1.7rem; line-height: 1.2; }
-.s7-stil .mx7-teil--wir h3 { color: #fff; }
-.mx7-haken { list-style: none; margin: 1rem 0 0; padding: 0; }
-.mx7-haken li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: 1rem; line-height: 1.45; }
-.mx7-haken li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
-.mx7-teil--wir .mx7-haken li { color: #fff; }
-.mx7-monat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
-.mx7-monat li { padding-top: 1.2rem; border-top: 2px solid var(--s7-tinte); }
-.mx7-monat__nr { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
-.s7-stil .mx7-monat h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
-.mx7-monat p { margin-top: .6rem; text-wrap: pretty; }
+/* Ausführliche Maschine: quer erst ab 1100px, darunter hochkant (mehr Inhalt, sonst zu kleine Schrift) */
+.ek2-kasten { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 2; }
+@media (max-width: 1100px) { .ek2--detail .ek2-svg--quer { display: none !important; } .ek2--detail .ek2-svg--hoch { display: block !important; } }
+
+/* Kreislauf: vier Schritte mit Ausschnitten, Bogen „Nächster Monat“ darüber */
+.mx7-kreis { --g: clamp(1.6rem, 3vw, 2.6rem); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: var(--g); margin: 0; padding: 0; list-style: none; }
+.mx7-kreis__schritt { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+.mx7-kreis__bild { position: relative; display: grid; align-items: center; min-height: 12.5rem; padding: 1.4rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-kreis__schritt:not(:last-child) .mx7-kreis__bild::after { content: ""; position: absolute; top: 50%; right: calc(-1 * var(--g) / 2 - .5rem); width: 1rem; height: 1rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: translateY(-50%) rotate(45deg); }
+.mx7-kreis__zurueck { --g: clamp(1.6rem, 3vw, 2.6rem); position: relative; height: 2.2rem; margin: 3.4rem calc((100% - 3 * var(--g)) / 8) .9rem; border: 2px solid var(--s7-tinte); border-bottom: 0; border-radius: 14px 14px 0 0; }
+.mx7-kreis__zurueck::after { content: ""; position: absolute; left: -.42rem; bottom: .15rem; width: .7rem; height: .7rem; border-right: 2px solid var(--s7-tinte); border-bottom: 2px solid var(--s7-tinte); transform: rotate(45deg); }
+.mx7-kreis__zurueck span { position: absolute; left: 50%; top: 0; padding: 0 .9rem; background: var(--s7-band-akzent); color: var(--s7-tinte); font-size: .95rem; font-weight: 600; white-space: nowrap; transform: translate(-50%, -55%); }
+.mx7-rolle { justify-self: start; margin-top: 1.4rem; padding: .2rem .75rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .85rem; font-weight: 600; }
+.mx7-rolle--du { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.s7-stil .mx7-kreis h3 { margin-top: .7rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.mx7-kreis__t { margin-top: .5rem; text-wrap: pretty; }
+/* Ausschnitte (gleiche Bildsprache wie s7-mini auf der Startseite) */
+.mx7-mliste { display: grid; margin: 0; padding: 0; list-style: none; }
+.mx7-mliste li { display: flex; justify-content: space-between; gap: .6rem; padding: .5rem 0; border-bottom: 1px solid var(--s7-linie); font-weight: 500; }
+.mx7-mliste li:last-child { border-bottom: 0; }
+.mx7-mliste em { color: var(--s7-grau); font-style: normal; white-space: nowrap; }
+.mx7-mlead { display: grid; gap: .15rem; padding: .65rem .75rem; border: 1px solid var(--s7-linie); border-radius: 10px; }
+.mx7-mlead b { font-weight: 700; }
+.mx7-mlead span { color: var(--s7-grau); }
+.mx7-mpost { display: grid; gap: .3rem; padding: .7rem .75rem; border-radius: 10px; background: var(--s7-grund); }
+.mx7-mpost b { font-weight: 700; }
+.mx7-mbrowser { display: grid; gap: .5rem; justify-items: start; padding: .6rem .75rem .8rem; border-radius: 10px; background: var(--s7-grund); }
+.mx7-mbrowser > span { display: flex; gap: .25rem; margin-bottom: .2rem; }
+.mx7-mbrowser > span i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--s7-linie); }
+.mx7-mbrowser b { font-family: var(--s7-schrift-titel); font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
+.mx7-mbrowser em { display: block; width: 100%; height: .45rem; border-radius: 99px; background: var(--s7-linie); }
+.mx7-mbrowser em + em { width: 70%; }
+
+/* Bausteine */
 .mx7-art { color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
 .mx7-kern .mx7-art, .mx7-karte .mx7-art { margin-bottom: .4rem; }
+.s7-stil .mx7-kern h3, .s7-stil .mx7-karte h3 { font-size: 1.7rem; line-height: 1.2; }
 .mx7-preis { margin-top: 1rem; color: var(--s7-grau); font-size: .95rem; }
-.mx7-preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; }
+.mx7-preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
 .mx7-kurz { margin-top: 1rem; text-wrap: pretty; }
-.mx7-kern { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 4vw, 3.6rem); margin-top: 3rem; padding: clamp(1.8rem, 3vw, 2.8rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
-.mx7-kern { background: var(--s7-tinte); color: #d2d2d7; }
+.mx7-haken { list-style: none; margin: 0; padding: 0; }
+.mx7-haken li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: 1rem; line-height: 1.45; }
+.mx7-haken li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.mx7-kern { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 4vw, 3.6rem); margin-top: 3rem; padding: clamp(1.8rem, 3vw, 2.8rem); border-radius: var(--s7-rund); background: var(--s7-tinte); color: #d2d2d7; }
 .s7-stil .mx7-kern h3, .mx7-kern .mx7-preis b, .mx7-kern .mx7-haken li { color: #fff; }
 .mx7-kern .mx7-art, .mx7-kern .mx7-preis { color: #a1a1a6; }
 .mx7-kern > div + div { padding-left: clamp(2rem, 4vw, 3.6rem); border-left: 1px solid #3a3a3c; }
-.mx7-kern .mx7-haken { margin-top: .2rem; }
-.mx7-erg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); gap: 0 1.2rem; margin-top: 1.2rem; }
-.mx7-karte { display: grid; grid-row: span 6; grid-template-rows: subgrid; padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-kern > div + div .mx7-art { margin-bottom: .6rem; }
+.mx7-erg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(8, auto); gap: 0 1.2rem; margin-top: 1.2rem; }
+.mx7-karte { display: grid; grid-row: span 8; grid-template-rows: subgrid; padding: 1rem 1rem clamp(1.4rem, 2.4vw, 2rem); border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-karte > :not(.mx7-karte__bild):not(dialog) { margin-inline: clamp(.6rem, 1.4vw, 1.2rem); }
+.mx7-karte__bild { display: grid; align-items: center; min-height: 10rem; margin-bottom: 1.4rem; padding: 1.2rem; border-radius: calc(var(--s7-rund) - 8px); background: var(--s7-flaeche); }
 .mx7-zusatz { color: var(--s7-grau); font-size: .9rem; }
-.mx7-karte .mx7-haken { margin-top: 1rem; padding-top: .6rem; border-top: 1px solid var(--s7-linie); }
+.mx7-karte__punkte { margin-top: 1rem; padding-top: .6rem; border-top: 1px solid var(--s7-linie); }
+.mx7-mehr { justify-self: start; align-self: end; display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.4rem; padding: 0; border: 0; background: none; color: var(--s7-tinte); font: inherit; font-weight: 600; cursor: pointer; }
+.mx7-mehr:hover { text-decoration: underline; }
+.mx7-mehr--hell { color: #fff; }
 .mx7-fuss { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: 1.6rem; color: var(--s7-grau); font-size: .95rem; }
-.mx7-team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(1.2rem, 2.4vw, 2rem); margin-top: 3rem; }
+
+/* Team: fünf gleich breite Karten, Zeilen über subgrid auf gleicher Höhe */
+.mx7-team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); gap: 0 1rem; margin-top: 3rem; }
 .mx7-team__g1 { grid-column: 1 / span 4; }
 .mx7-team__g2 { grid-column: 5; }
-.mx7-team { grid-template-rows: repeat(4, auto); }
-.mx7-profil { display: grid; grid-row: 2 / span 3; grid-template-rows: subgrid; }
-.s7-stil .mx7-profil h3 { font-size: 1.3rem; line-height: 1.2; hyphens: manual; }
-.mx7-profil__stelle { margin: .4rem 0 .8rem; color: var(--s7-grau); font-size: .9rem; line-height: 1.4; }
-.mx7-profil p:last-child { font-size: 1rem; text-wrap: pretty; }
+.mx7-profil { display: grid; grid-row: 2 / span 4; grid-template-rows: subgrid; row-gap: 0; padding: 1.5rem 1.3rem 1.4rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-stil .mx7-profil h3 { font-size: 1.3rem; line-height: 1.2; }
+.mx7-profil__stelle { margin-top: .4rem; color: var(--s7-grau); font-size: .9rem; line-height: 1.4; }
+.mx7-profil__t { margin-top: .8rem; font-size: 1rem; text-wrap: pretty; }
+
+/* Pop-ups: hell und ruhig, Grundschrift */
+.mx7-d { width: min(100% - 2rem, 46rem); max-height: 86vh; padding: clamp(1.6rem, 4vw, 2.6rem); border: 0; border-radius: var(--s7-rund); background: #fff; color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: 1rem; line-height: 1.6; text-align: left; }
+.mx7-d__zu:focus { outline: none; }
+.mx7-d__zu:focus-visible { background: var(--s7-linie); }
+.mx7-d::backdrop { background: rgba(0, 0, 0, .35); backdrop-filter: blur(4px); }
+.mx7-d__zu { position: absolute; top: 1rem; right: 1rem; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.mx7-d__meta { color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.s7-stil .mx7-d h3 { margin: .3rem 2.5rem 1.2rem 0; font-size: 1.7rem; line-height: 1.2; }
+.mx7-d > p + p { margin-top: .8rem; }
+.mx7-d > .mx7-d__stelle { margin-top: -.8rem; margin-bottom: 1rem; color: var(--s7-grau); }
+.mx7-d > .mx7-d__label { margin: 1.8rem 0 .4rem; color: var(--s7-tinte); font-weight: 700; }
+.mx7-d__punkt { padding: .8rem 0; border-top: 1px solid var(--s7-linie); }
+.mx7-d__punkt b { color: var(--s7-tinte); }
+.mx7-d__punkt p { margin-top: .2rem; }
+.mx7-d ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.mx7-d li { margin: .25rem 0; }
+.mx7-d__hinweis { margin-top: 1.6rem !important; color: var(--s7-grau); font-size: .9rem; }
+
+@media (max-width: 1100px) {
+  .mx7-kreis { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(8, auto); }
+  .mx7-kreis__t { padding-bottom: 2.4rem; }
+  .mx7-kreis__schritt .mx7-kreis__bild::after, .mx7-kreis__zurueck { display: none; }
+  .mx7-kreis { margin-top: 3rem; }
+}
 @media (max-width: 1000px) {
-  .mx7-teilung, .mx7-kern, .mx7-erg { grid-template-columns: minmax(0, 1fr); }
+  .mx7-kern, .mx7-erg { grid-template-columns: minmax(0, 1fr); }
   .mx7-kern > div + div { padding-left: 0; padding-top: 1.6rem; border-left: 0; border-top: 1px solid #3a3a3c; }
   .mx7-erg { grid-template-rows: none; gap: 1.2rem; }
   .mx7-karte { grid-row: auto; grid-template-rows: none; }
-  .mx7-monat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .mx7-team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .mx7-team { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; gap: 1rem; }
   .mx7-team .s7-gruppe { display: none; }
-  .mx7-team { grid-template-rows: none; }
-  .mx7-profil { grid-row: auto; grid-template-rows: none; }
+  .mx7-profil { grid-row: auto; grid-template-rows: auto auto 1fr auto; }
 }
-@media (max-width: 600px) { .mx7-monat, .mx7-team { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .mx7-kreis, .mx7-team { grid-template-columns: minmax(0, 1fr); } .mx7-kreis { grid-template-rows: none; } .mx7-kreis__schritt { grid-row: auto; grid-template-rows: none; } }
 
 /* ===================================================================================
    STILRICHTUNGEN – jede setzt die Stellschrauben neu, dazu wenige eigene Regeln
@@ -656,9 +711,11 @@ p { margin: 0; }
   {%- endfor %}
 </main>
 {%- elif s.slug == "marketing-as-a-service" %}
-{#- Unterseite Weg B · Sicht der Vertriebsleitung: Was übernehmt ihr, was bleibt bei mir, wie läuft es, was kostet es, wer arbeitet daran.
-    Bausteine wie auf der Startseite, Farbe je Abschnitt an genau einer Stelle. Inhalte: s7.maas -#}
+{#- Unterseite Weg B · Sicht der Vertriebsleitung (Daniel, 12.11.2026): ausführliche Maschine oben (Strategie davor, Lagen mit Namen, Steuerung danach),
+    Kreislauf mit Ausschnitten aus dem echten Produkt (Bildsprache der Startseite, keine Icons), Bausteine mit Ausschnitten und Pop-ups,
+    Team mit Rollenprofilen. Farbe je Abschnitt an genau einer Stelle. Inhalte: s7.maas -#}
 {%- set M = S.maas %}
+{%- macro schliessen() -%}<button type="button" class="mx7-d__zu" aria-label="Schließen">×</button>{%- endmacro -%}
 <main>
   <section class="s7-held">
     <div class="s7-wrap">
@@ -669,40 +726,70 @@ p { margin: 0; }
         <a class="s7-knopf" href="#kontakt">{{ M.held.knopf }} {{ pfeil | safe }}</a>
         <a class="s7-knopf s7-knopf--rand" href="#bausteine">{{ M.held.knopf2 }}</a>
       </div>
-      <figure class="s7-maschine">{{ erklaerbild() }}</figure>
+      <figure class="s7-maschine">{{ erklaerbild(true) }}</figure>
     </div>
   </section>
 
-  {%- set T = M.teilung %}
-  <section class="s7-band s7-band--akzent" id="aufteilung">
+  {%- set MO = M.monat %}{%- set L = MO.liste %}
+  <section class="s7-band s7-band--akzent" id="so-arbeiten-wir">
     <div class="s7-wrap">
-      <p class="s7-kicker">{{ T.kicker }}</p>
-      <h2 class="s7-h2">{{ T.h2 }}<br><span class="s7-wort">{{ T.h2_akzent }}</span></h2>
-      <div class="mx7-teilung">
-        {%- for x in [[T.wir, "wir"], [T.du, "du"]] %}
-        <div class="mx7-teil mx7-teil--{{ x[1] }}">
-          <h3>{{ x[0].titel }}</h3>
-          <ul class="mx7-haken">{% for y in x[0].punkte %}<li>{{ y }}</li>{% endfor %}</ul>
-        </div>
-        {%- endfor %}
-      </div>
-    </div>
-  </section>
-
-  <section class="s7-band" id="monat">
-    <div class="s7-wrap">
-      <p class="s7-kicker">{{ M.monat.kicker }}</p>
-      <h2 class="s7-h2">{{ M.monat.h2 }}</h2>
-      <ol class="mx7-monat">
-        {%- for a in M.monat.liste %}
-        <li><span class="mx7-monat__nr">0{{ loop.index }}</span><h3>{{ a.titel }}</h3><p>{{ a.text }}</p></li>
-        {%- endfor %}
+      <p class="s7-kicker">{{ MO.kicker }}</p>
+      <h2 class="s7-h2">{{ MO.h2 }}</h2>
+      <p class="s7-lead">{{ MO.lead }}</p>
+      <div class="mx7-kreis__zurueck" aria-hidden="true"><span>{{ MO.zurueck }}</span></div>
+      <ol class="mx7-kreis">
+        <li class="mx7-kreis__schritt">
+          <div class="mx7-kreis__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Diese Woche</p>
+            <ul class="mx7-mliste"><li><span>Landingpage Junge Familien</span><em>aktualisiert</em></li><li><span>Posting Bauherren</span><em>veröffentlicht</em></li><li><span>Posting Junge Familien</span><em>geplant</em></li></ul>
+          </div></div>
+          <p class="mx7-rolle">{{ MO.rollen[L[0].rolle] }}</p><h3>{{ L[0].titel }}</h3><p class="mx7-kreis__t">{{ L[0].text }}</p>
+        </li>
+        <li class="mx7-kreis__schritt">
+          <div class="mx7-kreis__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Neue Leads</p>
+            <div class="s7-mini__lead ziel"><b>Familie M. · Junge Familien</b><span>Rückruf heute</span></div>
+            <div class="mx7-mlead"><b>Herr K. · Bauherren</b><span>Termin gebucht: Donnerstag, 10:00 Uhr</span></div>
+          </div></div>
+          <p class="mx7-rolle mx7-rolle--du">{{ MO.rollen[L[1].rolle] }}</p><h3>{{ L[1].titel }}</h3><p class="mx7-kreis__t">{{ L[1].text }}</p>
+        </li>
+        <li class="mx7-kreis__schritt">
+          <div class="mx7-kreis__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Report November</p>
+            <div class="s7-mini__kacheln"><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div></div>
+            <p class="s7-mini__empf"><b>Betreuungscall:</b> Prioritäten für Dezember</p>
+          </div></div>
+          <p class="mx7-rolle">{{ MO.rollen[L[2].rolle] }}</p><h3>{{ L[2].titel }}</h3><p class="mx7-kreis__t">{{ L[2].text }}</p>
+        </li>
+        <li class="mx7-kreis__schritt">
+          <div class="mx7-kreis__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Empfehlungen</p>
+            <ul class="mx7-mliste"><li><span>Bauherren: Abschnitt umstellen</span><em>erledigt</em></li><li><span>Junge Familien: neues Posting-Thema</span><em>in Arbeit</em></li></ul>
+          </div></div>
+          <p class="mx7-rolle">{{ MO.rollen[L[3].rolle] }}</p><h3>{{ L[3].titel }}</h3><p class="mx7-kreis__t">{{ L[3].text }}</p>
+        </li>
       </ol>
     </div>
   </section>
 
   {%- set BS = M.bausteine %}{%- set K = BS.liste[0] %}
-  <section class="s7-band s7-band--flaeche" id="bausteine">
+  {%- macro bfenster(b) -%}
+  {%- set F = b.fenster %}
+  <dialog class="mx7-d" id="mx7-{{ b.id }}" aria-labelledby="mx7-{{ b.id }}-t">
+    {{ schliessen() }}
+    <p class="mx7-d__meta">{{ F.meta }}</p>
+    <h3 id="mx7-{{ b.id }}-t">{{ F.titel }}</h3>
+    {%- for x in F.intro %}<p>{{ x }}</p>{% endfor %}
+    {%- for g in F.gruppen %}
+    <p class="mx7-d__label">{{ g.label }}</p>
+    {%- for l in g.leistungen %}
+    <div class="mx7-d__punkt"><b>{{ l.titel }}</b>{% if l.text %}<p>{{ l.text }}</p>{% endif %}{% if l.liste %}<ul>{% for x in l.liste %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}</div>
+    {%- endfor %}
+    {%- endfor %}
+    {%- if F.hinweis %}<p class="mx7-d__hinweis">{{ F.hinweis }}</p>{% endif %}
+  </dialog>
+  {%- endmacro %}
+  <section class="s7-band" id="bausteine">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ BS.kicker }}</p>
       <h2 class="s7-h2">{{ BS.h2 }}</h2>
@@ -713,6 +800,7 @@ p { margin: 0; }
           <h3>{{ K.name }}</h3>
           <p class="mx7-preis"><b>{{ K.preis }}</b> {{ K.einheit }}</p>
           <p class="mx7-kurz">{{ K.kurz }}</p>
+          <button type="button" class="mx7-mehr mx7-mehr--hell" data-mx7-auf="mx7-{{ K.id }}">Alle Leistungen {{ pfeil | safe }}</button>
         </div>
         {%- for g in K.gruppen %}
         <div>
@@ -720,16 +808,32 @@ p { margin: 0; }
           <ul class="mx7-haken">{% for y in g.punkte %}<li>{{ y }}</li>{% endfor %}</ul>
         </div>
         {%- endfor %}
+        {{ bfenster(K) }}
       </article>
       <div class="mx7-erg">
         {%- for b in BS.liste %}{% if not loop.first %}
         <article class="mx7-karte">
+          <div class="mx7-karte__bild" aria-hidden="true"><div class="s7-mini">
+          {%- if b.id == "linkedin" %}
+            <p class="s7-mini__kopf">LinkedIn · Beitrag</p>
+            <div class="mx7-mpost"><b>Deine Agentur</b><span>Drei Fragen, die Bauherren vor der Unterschrift klären sollten.</span></div>
+            <div><i class="an">Anlass für die Direktansprache</i></div>
+          {%- elif b.id == "paid-ads" %}
+            <p class="s7-mini__kopf">Anzeige · Junge Familien</p>
+            <div class="mx7-mpost"><b>Gut abgesichert ins Familienleben</b><span>In 30 Minuten wissen, was wirklich wichtig ist.</span></div>
+            <div><i class="an">Termin auswählen</i></div>
+          {%- else %}
+            <div class="mx7-mbrowser"><span><i></i><i></i><i></i></span><b>Versicherung, die mitwächst.</b><em></em><em></em><i class="an">Termin auswählen</i></div>
+          {%- endif %}
+          </div></div>
           <p class="mx7-art">{{ b.art }}</p>
           <h3>{{ b.name }}</h3>
           <p class="mx7-preis"><b>{{ b.preis }}</b> {{ b.einheit }}</p>
           <p class="mx7-zusatz">{{ b.zusatz }}</p>
           <p class="mx7-kurz">{{ b.kurz }}</p>
-          <ul class="mx7-haken">{% for y in b.punkte %}<li>{{ y }}</li>{% endfor %}</ul>
+          <ul class="mx7-haken mx7-karte__punkte">{% for y in b.punkte %}<li>{{ y }}</li>{% endfor %}</ul>
+          <button type="button" class="mx7-mehr" data-mx7-auf="mx7-{{ b.id }}">Alle Leistungen {{ pfeil | safe }}</button>
+          {{ bfenster(b) }}
         </article>
         {%- endif %}{% endfor %}
       </div>
@@ -738,7 +842,7 @@ p { margin: 0; }
   </section>
 
   {%- set TM = M.team %}
-  <section class="s7-band" id="team">
+  <section class="s7-band s7-band--flaeche" id="team">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ TM.kicker }}</p>
       <h2 class="s7-h2">{{ TM.h2 }}<br><span class="s7-wort">{{ TM.h2_akzent }}</span></h2>
@@ -747,10 +851,24 @@ p { margin: 0; }
         <p class="s7-gruppe mx7-team__g1">{{ TM.gruppen[0] }}</p>
         <p class="s7-gruppe mx7-team__g2">{{ TM.gruppen[1] }}</p>
         {%- for x in TM.liste %}
+        {%- set F = x.fenster %}{% set wo = TM.gruppen[0] if x.gruppe == "kern" else TM.gruppen[1] %}
         <article class="mx7-profil">
-          <h3>{{ x.titel | replace("Werbekampagnen", "Werbe&shy;kampagnen") | safe }}</h3>
+          <h3>{{ x.titel }}</h3>
           <p class="mx7-profil__stelle">{{ x.stelle }}</p>
-          <p>{{ x.text }}</p>
+          <p class="mx7-profil__t">{{ x.text }}</p>
+          <button type="button" class="mx7-mehr" data-mx7-auf="mx7-profil-{{ loop.index }}">Rollenprofil {{ pfeil | safe }}</button>
+          <dialog class="mx7-d" id="mx7-profil-{{ loop.index }}" aria-labelledby="mx7-profil-{{ loop.index }}-t">
+            {{ schliessen() }}
+            <p class="mx7-d__meta">Rollenprofil · {{ wo }}</p>
+            <h3 id="mx7-profil-{{ loop.index }}-t">{{ x.titel }}</h3>
+            <p class="mx7-d__stelle">{{ x.stelle }}</p>
+            <p>{{ F.einleitung }}</p>
+            {%- for t2 in [["Aufgaben", F.aufgaben], ["Anforderungen", F.anforderungen], ["Ausbildung und Erfahrung", F.ausbildung]] %}
+            <p class="mx7-d__label">{{ t2[0] }}</p>
+            <ul class="mx7-d__ul">{% for y in t2[1] %}<li>{{ y }}</li>{% endfor %}</ul>
+            {%- endfor %}
+            <p class="mx7-d__hinweis">{{ TM.fenster_hinweis }}</p>
+          </dialog>
         </article>
         {%- endfor %}
       </div>
@@ -759,6 +877,18 @@ p { margin: 0; }
 
   {{ kontakt() }}
 </main>
+<script>
+/* Pop-ups: Knopf öffnet, Kreuz, Escape oder Klick daneben schließt */
+(function () {
+  document.querySelectorAll("[data-mx7-auf]").forEach(function (k) {
+    k.addEventListener("click", function () { var d = document.getElementById(k.getAttribute("data-mx7-auf")); if (d) d.showModal(); });
+  });
+  document.querySelectorAll(".mx7-d").forEach(function (d) {
+    d.querySelector(".mx7-d__zu").addEventListener("click", function () { d.close(); });
+    d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
+  });
+})();
+</script>
 {%- else %}
 <main>
   {{ held() }}
