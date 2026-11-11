@@ -29,8 +29,8 @@ HALS = [20, 27, 34, 40]    # halbe Höhe je Lage an der Mündung (außen = halbe
 
 # Texte der Grafik – kein Begriff doppelt (Daniel, 11.11.2026: nicht „Anfragen“, sondern Interessenten/Leads)
 TX = {
-    "marketing": "Marketing – gewinnt Interessenten aus deinen Zielgruppen",
-    "vertrieb": "Dein Vertrieb – macht daraus Kunden",
+    "marketing": "Marketing – wir gewinnen Interessenten",
+    "vertrieb": "Vertrieb – du machst daraus Kunden",
     "kern": "sofort sichtbar",
     "messpunkt": "Messpunkt: Leads",
     "vertrieb_unter": "Termin · Beratung · Abschluss",
@@ -68,8 +68,9 @@ def quer():
     for i in range(3):
         o.append(f'<circle cx="{x_kurve - 30 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
     # Messpunkt: feine Linie an der Mündung
-    o.append(f'<path d="M{x_hals} {c - HALS[3]} V{c - HALS[3] - 34}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(x_hals, c - HALS[3] - 42, TX["messpunkt"], "ek2-t", K, 700, "middle"))
+    xm = x_hals + LUECKE / 2   # genau in der Mitte der Lücke zwischen Trichter und Vertrieb
+    o.append(f'<path d="M{xm} {c - HALS[3]} V{c - HALS[3] - 34}" class="ek2-linie ek2-linie--fein"/>')
+    o.append(text(xm, c - HALS[3] - 42, TX["messpunkt"], "ek2-t", K, 700, "middle"))
     # Prozessband: so hoch wie die Mündung, zwei gleich gestaltete Abschnitte
     y0, y1 = c - HALS[3], c + HALS[3]
     xv = x_hals + LUECKE
@@ -91,8 +92,7 @@ def hoch():
     y_oben = 98
     y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
     o = []
-    o.append(text(c, 24, "Marketing – gewinnt Interessenten", "ek2-t", gewicht=600, anker="middle"))
-    o.append(text(c, 42, "aus deinen Zielgruppen", "ek2-t", gewicht=600, anker="middle"))
+    o.append(text(c, 30, TX["marketing"], "ek2-t", gewicht=600, anker="middle"))
     for k in (3, 2, 1, 0):
         hm, hh = MUND[k], HALS[k]
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
