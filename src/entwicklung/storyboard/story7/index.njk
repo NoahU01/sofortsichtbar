@@ -391,7 +391,7 @@ p { margin: 0; }
 .s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
 .s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
 .s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
-.s7-fuss { padding: 2rem 0; border-top: 1px solid #2a2a2a; background: var(--s7-tinte); color: #888; font-size: .85rem; }
+.s7-fuss { padding: 2rem 0; background: var(--s7-tinte); color: #888; font-size: .85rem; }
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
@@ -606,7 +606,7 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B) · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
