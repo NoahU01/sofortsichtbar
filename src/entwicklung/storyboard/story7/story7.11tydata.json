@@ -230,10 +230,10 @@
           "swatch": "linear-gradient(100deg,#c51f5d,#8613a1)"
         },
         {
-          "id": "titan",
-          "name": "Titan",
-          "satz": "Unser Vorschlag, bewusst anders: keine Buntfarbe, sondern ein metallischer Verlauf von Graphit über Titan-Grau. Der Akzent entsteht über Glanz und Tiefe – eigenständig in einem Markt, der fast nur Blau und Rot kennt.",
-          "swatch": "linear-gradient(110deg,#1d1d1f,#8e8e95 55%,#3a3a3e)",
+          "id": "rotpink",
+          "name": "Rot → Pink",
+          "satz": "Unser Vorschlag: ein klares Rot #FF2A3D in ein leuchtendes Pink #FF4FA8. Zwei Töne, kein Violett, kein Cyan – warm, wach und eindeutig anders als die beiden Verläufe darüber.",
+          "swatch": "linear-gradient(100deg,#ff2a3d,#ff4fa8)",
           "nr": "3"
         }
       ]
