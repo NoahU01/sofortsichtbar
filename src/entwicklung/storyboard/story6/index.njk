@@ -292,6 +292,19 @@ html body .maas-d .mx-weg__uebergabe { margin: 1rem 0 !important; color: #1a1817
   .mx-fundament { flex-direction: column; align-items: flex-start; padding: 1.6rem 1.5rem; }
 }
 
+/* Strukturbild (erste Ebene): weißer Rahmen auf Hellgrau, auf schmalen Bildschirmen seitlich wischbar */
+.mx-bild { margin: 3rem 0 0; }
+.mx-bild__rahmen { padding: 2.4rem 2.6rem 2rem; border-radius: 22px; background: #fff; overflow-x: auto; }
+.mx-bild__rahmen svg { display: block; width: 100%; height: auto; min-width: 56rem; }
+.mx-bild__fuss { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.6rem; margin-top: 1rem; font-size: .85rem; color: #6f6a64; }
+.mx-bild__leg { display: inline-flex; align-items: center; gap: .5rem; }
+.mx-bild__leg::before { content: ""; width: .9rem; height: .9rem; border-radius: 4px; border: 1.5px solid #1a1817; background: #fff; }
+.mx-bild__leg--wir::before { background: #fff400; border-color: #fff400; }
+.mx-bild__wisch { display: none; }
+.mx-bild__dl { margin-left: auto; font-weight: 600; color: #1a1817; text-decoration: none; }
+.mx-bild__dl:hover { text-decoration: underline; }
+@media (max-width: 900px) { .mx-bild__rahmen { padding: 1.6rem; } .mx-bild__wisch { display: inline; } .mx-bild__dl { margin-left: 0; } }
+
 /* 2 · So arbeiten wir (gelb): nummerierte Schritte mit gestrichelter Linie wie auf der Volksfest-Seite */
 .mx-ablauf { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.4rem; margin: 3rem 0 0; padding: 0; position: relative; }
 .mx-ablauf li:not(:last-child)::after { content: ""; position: absolute; top: 1.2rem; left: 2.9rem; right: -1.9rem; border-top: 2px dashed rgba(26,24,23,.45); }
@@ -1025,22 +1038,15 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
       <p class="kicker">{{ W.kicker }}</p>
       <h2 class="h-serif">{{ W.h2 }}</h2>
       <p class="mx-lead">{{ ST.lead }}</p>
-      <div class="mx-stufen">
-        <p class="mx-stufen__klammer mx-stufen__klammer--wir">{{ ST.klammer_wir }}</p>
-        <p class="mx-stufen__klammer">{{ ST.klammer_du }}</p>
-        {%- for s in ST.liste %}
-        <article class="mx-stufe{% if s.schwerpunkt %} mx-stufe--wir{% endif %}">
-          <div class="mx-stufe__kopf"><span>Stufe {{ s.nr }}</span>{{ ico(s.ico, "mx-stufe__ico") }}</div>
-          <h3>{{ s.titel }}</h3>
-          <p class="mx-stufe__text">{{ s.text }}</p>
-          <div class="mx-stufe__extra">
-            {%- if s.schwerpunkt %}<p class="mx-stufe__label">Mit den Bausteinen</p><ul class="mx-stufe__wege mx-stufe__bs">{% for b in M.bausteine %}<li><a href="#bausteine">{{ b.name if b.id != "kern" else "Kernpaket" }}</a></li>{% endfor %}</ul>{% endif %}
-            {%- if s.wege %}<p class="mx-stufe__label">Zwei Wege</p><ul class="mx-stufe__wege">{% for x in s.wege %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
-          </div>
-          <p class="mx-stufe__ergebnis"><span>Ergebnis</span>{{ s.ergebnis }}</p>
-        </article>
-        {%- endfor %}
-      </div>
+      <figure class="mx-bild">
+        <div class="mx-bild__rahmen">{{ M.strukturbild | safe }}</div>
+        <figcaption class="mx-bild__fuss">
+          <span class="mx-bild__leg mx-bild__leg--wir">übernehmen wir</span>
+          <span class="mx-bild__leg">dein Vertrieb – wir docken an</span>
+          <span class="mx-bild__wisch">Seitlich wischen</span>
+          <a class="mx-bild__dl" href="{{ A }}/maas/strukturbild.png" download>Bild herunterladen (PNG)</a>
+        </figcaption>
+      </figure>
       <div class="mx-fundament">
         <div><p class="mx-fundament__label">{{ ST.fundament.label }}</p><p class="mx-fundament__text">{{ ST.fundament.text }}</p></div>
         <button type="button" class="mx-fundament__knopf" data-maas-auf="maas-weg">{{ ST.fundament.knopf }} →</button>

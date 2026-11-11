@@ -23,6 +23,8 @@ PDF2 = os.path.join(EMPIRIA, "werkzeuge", "pdf2")
 sys.path.insert(0, PDF2)
 from lib import titelseite, kopfbild, seite, kopf, kicker, punkte, dokument, ico  # noqa: E402
 import _marketing_teile as mt  # noqa: E402
+sys.path.insert(0, HERE)
+import maas_strukturbild  # noqa: E402
 
 DATEN = os.path.join(HERE, "story6.11tydata.json")
 ZIEL = os.path.join(HERE, "assets", "maas")
@@ -122,26 +124,15 @@ def team_seite(M, nr, n):
 
 
 def stufen_seite(M, nr, n):
-    """Erste Ebene: die vier Stufen (Marketing · Qualifizierung · Vertrieb · Kundenbetreuung), Stufe 1 gelb als Schwerpunkt;
-    darunter das Fundament Strategie als schwarzer Kasten mit Verweis auf die sechs Fragen der nächsten Seite."""
+    """Erste Ebene: das Strukturbild (vier Stufen, Entscheidungen, Rückweg) auf einer Querseite, darunter das Fundament Strategie."""
     ST, W = M["stufen"], M["weg"]
-    def karte(s):
-        extra = ""
-        if s.get("schwerpunkt"):
-            extra = '<span class="sf__label">Mit den Bausteinen</span><ul>' + "".join(
-                f'<li>{b["name"] if b["id"] != "kern" else "Kernpaket"}</li>' for b in M["bausteine"]) + '</ul>'
-        if s.get("wege"):
-            extra = '<span class="sf__label">Zwei Wege</span><ul>' + "".join(f"<li>{x}</li>" for x in s["wege"]) + '</ul>'
-        return (f'<div class="sf{" sf--wir" if s.get("schwerpunkt") else ""}"><div class="sf__kopf"><span>Stufe {s["nr"]}</span>{ico(s["ico"], strich=1.4)}</div>'
-                f'<h3>{s["titel"]}</h3><p>{s["text"]}</p><div class="sf__extra">{extra}</div>'
-                f'<p class="sf__erg"><span>Ergebnis</span>{s["ergebnis"]}</p></div>')
     return seite(
-        kopf(T) + '<div class="rand" style="padding-top:14mm">' + kicker(W["kicker"])
-        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:160mm">{ST["lead"]}</p>'
-        + f'<div class="sfk"><span class="sfk--wir">{ST["klammer_wir"]}</span><span>{ST["klammer_du"]}</span></div>'
-        + '<div class="sfg">' + "".join(karte(s) for s in ST["liste"]) + '</div>'
-        + f'<div class="kasten fund"><p class="label">{ST["fundament"]["label"]}</p><p>{ST["fundament"]["text"]} Die sechs Fragen stehen auf der nächsten Seite.</p></div>'
-        + '</div>', nr, n)
+        kopf(T) + '<div class="rand" style="padding-top:9mm">' + kicker(W["kicker"])
+        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:220mm">{ST["lead"]}</p>'
+        + f'<div class="sbild">{M["strukturbild"]}</div>'
+        + f'<div class="sbild__fuss"><span class="sbild__leg sbild__leg--wir">übernehmen wir</span><span class="sbild__leg">dein Vertrieb – wir docken an</span>'
+        + f'<p><b>{ST["fundament"]["label"]}:</b> {ST["fundament"]["text"]}</p></div>'
+        + '</div>', nr, n, klasse="seite--quer")
 
 
 def weg_seite(M, nr, n):
@@ -225,6 +216,19 @@ def posting_seiten(PR, nr, n):
 
 
 CSS_TEAM = """
+/* Querseite für das Strukturbild (benannte Seite) */
+@page quer { size: 297mm 210mm; margin: 0; }
+.seite--quer { page: quer; width: 297mm; height: 210mm; }
+.seite--quer h2 { font-size: 21pt; }
+.seite--quer .lead { margin-top: 2.5mm; font-size: 9.6pt; }
+.sbild { margin-top: 5mm; }
+.sbild svg { display: block; width: 100%; height: auto; }
+.sbild__fuss { display: grid; grid-template-columns: auto auto 1fr; gap: 6mm; align-items: start; margin-top: 3mm; font-size: 7.6pt; }
+.sbild__leg { display: flex; align-items: center; gap: 2mm; white-space: nowrap; color: #6f6a64; }
+.sbild__leg::before { content: ""; width: 3.6mm; height: 3.6mm; border-radius: 1mm; border: 1.2px solid #1a1817; background: #fff; }
+.sbild__leg--wir::before { background: #fff400; border-color: #fff400; }
+.sbild__fuss p { font-size: 7.6pt; line-height: 1.5; color: #3d3a37; }
+.sbild__fuss b { color: #1a1817; }
 /* Vier Stufen */
 .sfk { display: grid; grid-template-columns: 1fr 3fr; gap: 3mm; margin-top: 8mm; font-size: 6.6pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
 .sfk span { display: flex; align-items: center; gap: 2mm; }
@@ -448,6 +452,18 @@ def drucken(html, datei, praefix, meta):
     print(f"{r.stdout.strip()}\n{pdf}  ({meta['seiten']} Seiten, {meta['groesse']})\nSeitenbilder: {seiten_dir}")
 
 
+def bild_png(svg):
+    """Strukturbild als PNG zum Herunterladen (2-fache Auflösung, Schriften aus dem empiria-Repo)."""
+    src = os.path.join(BUILD, "strukturbild.html")
+    open(src, "w", encoding="utf-8").write(
+        '<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="assets/fonts/fonts.local.css">'
+        '<style>html,body{margin:0;background:#fff}div{padding:48px;width:1218px}svg{width:1218px;height:auto;display:block}</style></head>'
+        f'<body><div>{svg}</div></body></html>')
+    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=2",
+                    "--window-size=1314,652", "--virtual-time-budget=4000", f"--screenshot={os.path.join(ZIEL, 'strukturbild.png')}",
+                    "file://" + src], capture_output=True, timeout=120)
+
+
 def main():
     d = json.load(open(DATEN, encoding="utf-8"))
     M = d["maas"]
@@ -459,6 +475,8 @@ def main():
     svg = kopfbild("MarketingEcoSystem (MES)")
     open(os.path.join(ZIEL, "kopfbild.svg"), "w", encoding="utf-8").write(
         svg if svg.startswith("<svg") and 'xmlns=' in svg else svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"', 1))
+    M["strukturbild"] = maas_strukturbild.svg()
+    bild_png(M["strukturbild"])
     drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
     json.dump(d, open(DATEN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(DATEN, "a").write("\n")
