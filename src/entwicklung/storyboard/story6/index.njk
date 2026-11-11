@@ -29,6 +29,8 @@ seiten:
     titel: "Anspracheanlässe"
   - slug: "marketing-as-a-service"
     titel: "Marketing as a Service"
+  - slug: "maas-infografik"
+    titel: "Infografik Marketing as a Service"
   - slug: "ueber-uns"
     titel: "Über uns"
     h1: 'Über uns. <span class="hl">Aus dem Vertrieb.</span>'
@@ -416,6 +418,20 @@ html body .maas-d .maas-d__hinweis { margin: 1rem 0 0 !important; padding-top: .
   .mx-kern__links, .mx-kern__rechts, .mx-karte { padding: 1.8rem 1.5rem; }
   .mx-immer { padding: 1.2rem 1.4rem; }
 }
+
+/* Infografik-Entwürfe */
+.ig-entwurf { padding: 5rem 0; background: #fff; }
+.ig-entwurf--hell { background: #f4f3f0; }
+html body .e2-alt.maas .ig-entwurf h2 { margin-top: 0; }
+.ig-bild { margin-top: 2.4rem; border: 1px solid #e4e0db; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px rgba(26,24,23,.08); }
+.ig-bild svg { display: block; width: 100%; height: auto; }
+.ig-bild--b, .ig-bild--rollup { max-width: 44rem; }
+.ig-bild--rollup { max-width: 30rem; }
+.ig-dl { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; margin-top: 1.2rem !important; font-size: .9rem; }
+.ig-dl a { font-weight: 600; color: #1a1817; text-decoration: none; }
+.ig-dl a:first-child { padding: .55rem 1rem; border-radius: 999px; background: #1a1817; color: #fff; }
+.ig-dl a:not(:first-child):hover { text-decoration: underline; }
+.ig-dl { align-items: center; }
 
 /* Zielgruppenpakete: Verzeichnis in zwei Spalten. Je Ebene eine Schrift, zwei Größen, zwei Farben. */
 .zp-kopf { padding-bottom: 3.5rem !important; }
@@ -1205,6 +1221,40 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   });
 })();
 </script>
+{% elif s.slug == "maas-infografik" %}
+{#- Interne Entwurfsseite (Entwicklungsmenü, Strategie sofort sichtbar): drei Darstellungsweisen der Infografik
+    Marketing as a Service zum Vergleich. Bilder aus maas_infografik.py (SVG in story6.11tydata.json → maas.infografik),
+    Downloads (PDF im echten DIN-Format, PNG, SVG) unter assets/maas/infografik/. -#}
+{%- set IG = maas.infografik -%}
+{%- set D = A + "/maas/infografik/" -%}
+{%- macro dl(k, pdf_label) -%}
+<p class="ig-dl"><a href="{{ D }}{{ k }}.pdf" target="_blank" rel="noopener">{{ pdf_label }}</a><a href="{{ D }}{{ k }}.png" download>PNG</a><a href="{{ D }}{{ k }}.svg" download>SVG für PowerPoint</a><a href="{{ D }}{{ k }}.svg" target="_blank" rel="noopener">Groß öffnen und zoomen</a></p>
+{%- endmacro -%}
+<main>
+<div class="e2-alt e2-seite--sofort-sichtbar maas">
+  <section class="e2-kopf zp-kopf"><div class="e2-wrap">
+    <h1>Die digitale Maschine. <span class="hl">Auf einen Blick.</span></h1>
+    <p class="zp-kopf__lead">Drei Entwürfe für die Infografik zu Marketing as a Service – zum Vergleichen und Entscheiden. Gleicher Inhalt, drei Darstellungsweisen. Intern, nicht auf der Startseite.</p>
+  </div></section>
+
+  {%- for e in [
+    ["a", "Entwurf A · Querformat · DIN A3", "Die ganze Geschichte in drei Ebenen.", "Oben das Fundament Strategie mit den sechs Fragen, in der Mitte die Maschine waagerecht – Trichter aus vier Bausteinen, Vertrieb, Kundenbetreuung – mit gelben Messpunkten im Fluss, unten der Monatsrhythmus. Für den Tisch, den Bildschirm und Videokonferenzen.", "PDF · A3 quer"],
+    ["b", "Entwurf B · Hochformat · DIN A3", "Von oben nach unten erzählt.", "Strategie als Kopf, der Trichter senkrecht, die Texte rechts auf Höhe ihrer Stufe, Messpunkte direkt am Text, Monatsrhythmus als Fuß. Die Vorlage für Wandposter, Roll-up und Handy.", "PDF · A3 hoch"],
+    ["rollup", "Entwurf B als Roll-up · 100 × 200 cm", "Dieselbe Komposition im Roll-up-Format.", "Seitenverhältnis 1 : 2, Überschrift im oberen Drittel. Die Schrift wirkt hier klein, ist auf 100 × 200 cm aber gut zwölf Millimeter hoch.", "PDF · 100 × 200 cm"],
+    ["c", "Entwurf C · Explosionszeichnung · DIN A3 quer", "Was in der Maschine steckt.", "Wie eine technische Zeichnung, die ein Gerät in seine Teile zerlegt: Die vier Bausteine werden als Lagen auseinandergezogen und links beschriftet. Rechts kompakt Vertrieb und Kundenbetreuung mit Messpunkten, unten der Monatsrhythmus.", "PDF · A3 quer"]
+  ] %}
+  <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="entwurf-{{ e[0] }}">
+    <div class="container">
+      <p class="kicker">{{ e[1] }}</p>
+      <h2 class="h-serif">{{ e[2] }}</h2>
+      <p class="mx-lead">{{ e[3] }}</p>
+      <div class="ig-bild ig-bild--{{ e[0] }}">{{ IG[e[0]] | safe }}</div>
+      {{ dl(e[0], e[4]) }}
+    </div>
+  </section>
+  {%- endfor %}
+</div>
+</main>
 {% elif s.slug == "kontakt" %}
 <main>
   <section class="kontakt-standalone s6-ks s6-ks--seite">
