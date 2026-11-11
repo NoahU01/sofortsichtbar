@@ -28,7 +28,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {#- ======================= Bausteine ======================= -#}
 {%- macro erklaerbild() -%}
 {%- set E = S.erklaerbild -%}
-<div class="ek2" role="img" aria-label="Die digitale Maschine: Das Kernpaket bildet den Kern eines Trichters, LinkedIn, Paid Ads und Website machen ihn breiter. An der Mündung entstehen echte Anfragen – der Messpunkt. Sie laufen in deinen Vertrieb und in die Kundenbetreuung. Sichtbarkeit pflegt den Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
+<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten. Ein Trichter aus Lagen mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Termin, Beratung, Abschluss, dann Kundenbetreuung. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
 <p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
 {%- endmacro -%}
 
@@ -61,7 +61,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
           <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
             <div class="s7-mini__zeile"><span>Segment</span><div><i class="an">Privatkunden</i><i>Firmenkunden</i></div></div>
             <div class="s7-mini__zeile"><span>Sparte</span><div><i class="an">Leben</i><i>Kranken</i><i>Schaden/Unfall</i><i>Kfz</i></div></div>
-            <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an">Junge Familien</i><i>Bauherren</i><i class="mehr">+ weitere</i></div></div>
+            <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an ziel">Junge Familien</i><i>Bauherren</i><i class="mehr">+ weitere</i></div></div>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[0].nr }} · {{ L[0].label }}</p>
           <h3>{{ L[0].h }}</h3>
@@ -71,7 +71,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
         <li class="s7-ablauf__schritt">
           <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
             <p class="s7-mini__kopf">Vertriebsstrecke · Junge Familien</p>
-            <div class="s7-mini__strecke"><ul><li>Landingpage</li><li>Postings</li><li>Kundenmailing</li></ul><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="s7-mini__lead"><b>Neuer Lead</b><span>Familie M.</span><span>Rückruf heute</span></div></div>
+            <div class="s7-mini__strecke"><ul><li>Landingpage</li><li>Postings</li><li>Kundenmailing</li></ul><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="s7-mini__lead ziel"><b>Neuer Lead</b><span>Familie M.</span><span>Rückruf heute</span></div></div>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[1].nr }} · {{ L[1].label }}</p>
           <h3>{{ L[1].h }}</h3>
@@ -81,7 +81,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
         <li class="s7-ablauf__schritt">
           <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
             <p class="s7-mini__kopf">Leads je Zielgruppe</p>
-            <div class="s7-mini__balken"><span>Bauherren</span><i style="width: 86%"></i><span>Junge Familien</span><i style="width: 58%"></i><span>Gründer</span><i style="width: 34%"></i></div>
+            <div class="s7-mini__balken"><span>Bauherren</span><i class="ziel" style="width: 86%"></i><span>Junge Familien</span><i style="width: 58%"></i><span>Gründer</span><i style="width: 34%"></i></div>
             <p class="s7-mini__empf"><b>Empfehlung:</b> Schwerpunkt Bauherren verstärken</p>
           </div></div>
           <p class="s7-ablauf__nr">{{ L[2].nr }} · {{ L[2].label }}</p>
@@ -276,8 +276,8 @@ p { margin: 0; }
 /* ---------- Ablauf: Strategie → Maschine → Steuerung ---------- */
 .s7-ablauf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); column-gap: clamp(2rem, 4vw, 3.6rem); margin: 3.2rem 0 0; padding: 0; list-style: none; }
 .s7-ablauf__schritt { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
-.s7-ablauf__bild { position: relative; display: grid; align-items: center; min-height: 12.5rem; padding: 1.4rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
-.s7-mini { display: grid; gap: .7rem; font-size: .78rem; line-height: 1.3; color: var(--s7-tinte); }
+.s7-ablauf__bild { position: relative; display: grid; align-items: center; min-height: 14rem; padding: 1.7rem 1.6rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-mini { display: grid; gap: .8rem; font-size: .85rem; line-height: 1.3; color: var(--s7-tinte); }
 .s7-mini__kopf { color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .s7-mini__zeile { display: grid; grid-template-columns: 5.2rem 1fr; align-items: center; gap: .5rem; }
 .s7-mini__zeile > span { color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
@@ -292,8 +292,12 @@ p { margin: 0; }
 .s7-mini__lead { display: grid; gap: .15rem; padding: .7rem .75rem; border-radius: 10px; background: var(--s7-tinte); color: #c7c7cc; }
 .s7-mini__lead b { color: #fff; font-weight: 700; }
 .s7-mini__balken { display: grid; grid-template-columns: 6.4rem 1fr; align-items: center; gap: .55rem .6rem; }
-.s7-mini__balken i { display: block; height: .55rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
+.s7-mini__balken i { display: block; height: .6rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
 .s7-mini__empf { padding: .5rem .65rem; border: 1px solid var(--s7-linie); border-radius: 8px; }
+/* Farbe als roter Faden: in jedem Bild nur das Ergebnis des Schritts in der Akzentfarbe */
+.s7-mini i.ziel, .s7-mini__lead.ziel, .s7-mini__balken i.ziel { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.s7-mini__lead.ziel { color: color-mix(in srgb, var(--s7-auf-akzent) 85%, transparent); }
+.s7-mini__lead.ziel b { color: var(--s7-auf-akzent); }
 .s7-ablauf__schritt:not(:last-child) .s7-ablauf__bild::after { content: ""; position: absolute; top: 50%; right: calc(-1 * clamp(2rem, 4vw, 3.6rem) / 2 - .55rem); width: 1.1rem; height: 1.1rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: translateY(-50%) rotate(45deg); }
 .s7-ablauf__nr { margin-top: 1.6rem; color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
 .s7-stil .s7-ablauf h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }

@@ -3,16 +3,15 @@
     "hero": {
       "kicker": "Für Versicherungsagenturen und Maklerbüros",
       "h1": "Die digitale Maschine",
-      "lead": "Mehr echte Anfragen aus den Zielgruppen, die du gewinnen willst. Planbar, messbar, in Tagen gestartet.",
+      "lead": "Mehr Interessenten aus den Zielgruppen, die du gewinnen willst. Planbar, messbar, in Tagen gestartet.",
       "knopf": "Termin auswählen",
       "knopf2": "Wo willst du wachsen? Kompass starten",
       "h1_akzent": "vor deinem Vertrieb."
     },
     "maschine_kicker": "So sieht sie aus",
-    "maschine_text": "Vier Bausteine füllen den Trichter. Was unten herauskommt, sind echte Anfragen – sie laufen direkt in deinen Vertrieb und in die Kundenbetreuung.",
     "schritte": {
       "kicker": "So läuft die Maschine",
-      "h2": "Vom Ziel bis zur Anfrage. Durchgängig.",
+      "h2": "Vom Ziel bis zum Lead. Durchgängig.",
       "liste": [
         {
           "nr": "01",
@@ -25,14 +24,14 @@
           "nr": "02",
           "label": "Marketing und Vertrieb",
           "h": "Deine Zielgruppen nehmen dich wahr.",
-          "t": "Je Zielgruppe Landingpage, Postings und Kundenmailings. Anfragen laufen direkt in deinen Vertrieb.",
+          "t": "Je Zielgruppe Landingpage, Postings und Kundenmailings. Leads laufen direkt in deinen Vertrieb.",
           "link": "Zielgruppenpakete ansehen"
         },
         {
           "nr": "03",
           "label": "Steuerung",
           "h": "Du siehst, ob es funktioniert.",
-          "t": "Im Dashboard zählt ein Messpunkt: echte Anfragen. Dazu Empfehlungen, was als Nächstes wirkt.",
+          "t": "Im Dashboard zählt ein Messpunkt: Leads. Dazu Empfehlungen, was als Nächstes wirkt.",
           "link": ""
         }
       ]
@@ -40,7 +39,7 @@
     "pakete": {
       "kicker": "Pakete",
       "h2": "Du bedienst sie. Oder wir.",
-      "lead": "Gleiches Ergebnis: echte Anfragen in deinem Vertrieb. Der Unterschied ist, wer die Maschine bedient.",
+      "lead": "Gleiches Ergebnis: Leads für deinen Vertrieb. Der Unterschied ist, wer die Maschine bedient.",
       "gruppen": [
         [
           "Mit deinem Team",
@@ -318,7 +317,6 @@
         "Anzeigen"
       ],
       "messpunkt": "Messpunkt",
-      "anfragen": "Echte Anfragen",
       "vertrieb": "Dein Vertrieb",
       "vertrieb_klein": "Termin · Beratung · Abschluss",
       "kunden": "Kunden, die bleiben",
