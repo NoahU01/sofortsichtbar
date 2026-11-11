@@ -28,22 +28,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {#- ======================= Bausteine ======================= -#}
 {%- macro erklaerbild() -%}
 {%- set E = S.erklaerbild -%}
-<div class="ek" role="img" aria-label="Die digitale Maschine: Landingpages, Postings, Mailings, LinkedIn und Anzeigen füllen einen Trichter. Heraus kommen echte Anfragen – sie laufen in deinen Vertrieb und werden zu Kunden, die bleiben. Sichtbarkeit pflegt den Bestand und bringt neue Anlässe.">
-  <p class="ek__klammer ek__klammer--wir">{{ E.wir }}</p>
-  <p class="ek__klammer ek__klammer--du">{{ E.du }}</p>
-  <ul class="ek__kanaele">{% for k in E.kanaele %}<li>{{ k }}</li>{% endfor %}</ul>
-  <div class="ek__trichter">
-    <svg class="ek__form ek__form--quer" viewBox="0 0 300 200" preserveAspectRatio="none"><path d="M0 0 C150 0 170 82 300 86 V114 C170 118 150 200 0 200 Z"/></svg>
-    <svg class="ek__form ek__form--hoch" viewBox="0 0 200 160" preserveAspectRatio="none"><path d="M0 0 H200 C200 80 116 100 114 160 H86 C84 100 0 80 0 0 Z"/></svg>
-    <span class="ek__punkte" aria-hidden="true"><i></i><i></i><i></i></span>
-  </div>
-  <div class="ek__anfragen"><small>{{ E.messpunkt }}</small><b>{{ E.anfragen }}</b></div>
-  <svg class="ek__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-  <div class="ek__karte ek__karte--vertrieb"><b>{{ E.vertrieb }}</b><small>{{ E.vertrieb_klein }}</small></div>
-  <svg class="ek__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-  <div class="ek__karte ek__karte--kunden"><b>{{ E.kunden }}</b><small>{{ E.kunden_klein }}</small></div>
-  <div class="ek__rueck"><span>↑ {{ E.rueck }}</span></div>
-</div>
+<div class="ek2" role="img" aria-label="Die digitale Maschine: Das Kernpaket bildet den Kern eines Trichters, LinkedIn, Paid Ads und Website machen ihn breiter. An der Mündung entstehen echte Anfragen – der Messpunkt. Sie laufen in deinen Vertrieb und in die Kundenbetreuung. Sichtbarkeit pflegt den Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
 <p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
 {%- endmacro -%}
 
@@ -278,57 +263,29 @@ p { margin: 0; }
 .s7-maschine svg .s7-kern { fill: var(--s7-auf-akzent); }
 .s7-maschine svg g.s7-kern { fill: none; stroke: var(--s7-auf-akzent); }
 
-/* ---------- Erklärbild „Die digitale Maschine“ (Startseite): quer ab 820px, darunter hochkant ---------- */
-.ek { display: grid; grid-template-columns: 8.6rem minmax(7rem, 1.25fr) auto 2.2rem minmax(9.5rem, 1fr) 2.2rem minmax(9.5rem, 1fr); grid-template-rows: auto auto auto; align-items: center; column-gap: 0; text-align: left; }
-.ek__klammer { grid-row: 1; display: flex; align-items: center; gap: .8rem; margin-bottom: 1.6rem; font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
-.ek__klammer::after { content: ""; flex: 1; height: 2px; border-radius: 2px; }
-.ek__klammer--wir { grid-column: 1 / 4; color: var(--s7-tinte); margin-right: 1.2rem; }
-.ek__klammer--wir::after { background: var(--s7-tinte); }
-.ek__klammer--du { grid-column: 5 / 8; color: var(--s7-grau); }
-.ek__klammer--du::after { background: var(--s7-linie); }
-.ek__kanaele { grid-row: 2; grid-column: 1; display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; position: relative; z-index: 1; }
-.ek__kanaele li { padding: .5rem .8rem; border-radius: 10px; background: #fff; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; line-height: 1.2; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
-.ek__trichter { grid-row: 2; grid-column: 2; position: relative; align-self: stretch; margin-left: -.4rem; }
-.ek__form { display: block; width: 100%; height: 100%; }
-.ek__form path { fill: var(--s7-akzent-fill); }
-.ek__form--hoch path { fill: var(--s7-akzent-fill-hoch); }
-.ek__form--hoch { display: none; }
-.ek__punkte { position: absolute; right: 12%; top: 50%; display: flex; gap: .35rem; transform: translateY(-50%); }
-.ek__punkte i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--s7-auf-akzent); opacity: .9; }
-.ek__anfragen { grid-row: 2; grid-column: 3; display: grid; justify-items: center; gap: .35rem; margin-left: -.2rem; }
-.ek__anfragen small { color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.ek__anfragen b { padding: .75rem 1.1rem; border-radius: 99px; background: var(--s7-akzent-ende); color: var(--s7-auf-akzent); font-family: var(--s7-schrift-titel); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
-.ek__pfeil { grid-row: 2; width: 1.5rem; height: 1.5rem; justify-self: center; fill: none; stroke: var(--s7-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.ek__karte { grid-row: 2; display: grid; gap: .3rem; padding: 1.3rem 1.3rem 1.2rem; border-radius: calc(var(--s7-rund) * .7); }
-.ek__karte b { font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
-.ek__karte small { font-size: .85rem; line-height: 1.4; }
-.ek__karte--vertrieb { grid-column: 5; background: #fff; border: 1.5px solid var(--s7-tinte); color: var(--s7-tinte); }
-.ek__karte--vertrieb small { color: var(--s7-grau); }
-.ek__karte--kunden { grid-column: 7; background: var(--s7-tinte); color: #fff; }
-.ek__karte--kunden small { color: #b9b9be; }
-.ek__rueck { grid-row: 3; grid-column: 1 / 8; position: relative; height: 3rem; margin: 1.1rem 4.3rem 0 4.3rem; border: 1.5px solid var(--s7-tinte); border-top: 0; border-radius: 0 0 14px 14px; text-align: center; }
-.ek__rueck::before { content: ""; position: absolute; left: -.42rem; top: -.55rem; border: .4rem solid transparent; border-bottom: .55rem solid var(--s7-tinte); border-top: 0; }
-.ek__rueck span { position: relative; top: 100%; display: inline-block; padding: .45rem 1rem; border-radius: 99px; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); font-size: .85rem; font-weight: 600; transform: translateY(-50%); }
-.ek__mehr { margin-top: 2.4rem; text-align: center; }
-@media (max-width: 820px) {
-  .ek { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; justify-items: center; text-align: center; }
-  .ek > * { grid-column: 1 !important; grid-row: auto !important; }
-  .ek__klammer--du { display: none; }
-  .ek__klammer--wir { margin: 0 0 1rem; }
-  .ek__klammer--wir::after { display: none; }
-  .ek__kanaele { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
-  .ek__kanaele li { padding: .4rem .7rem; font-size: .85rem; }
-  .ek__trichter { width: min(100%, 17rem); height: 8.5rem; margin: .6rem 0 0; }
-  .ek__form--quer { display: none; }
-  .ek__form--hoch { display: block; }
-  .ek__punkte { right: auto; left: 50%; top: 52%; flex-direction: column; transform: translateX(-50%); }
-  .ek__anfragen { margin: .6rem 0 0; }
-  .ek__pfeil { transform: rotate(90deg); margin: .6rem 0; }
-  .ek__karte { width: min(100%, 17rem); text-align: center; }
-  .ek__rueck { width: min(100%, 19rem); height: auto; margin: 1.2rem 0 0; border: 0; }
-  .ek__rueck::before { display: none; }
-  .ek__rueck span { top: 0; transform: none; }
-}
+/* ---------- Erklärbild „Die digitale Maschine“ (erklaerbild.py): zwei Formen, ein Highlight; quer ab 820px, darunter hochkant ---------- */
+.ek2 svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ek2-svg--hoch { display: none !important; max-width: 23rem; margin: 0 auto; }
+.ek2 text { font-family: var(--s7-schrift-text); }
+.ek2-t { fill: var(--s7-tinte); }
+.ek2-grau { fill: var(--s7-grau); }
+.ek2-lage { stroke: var(--s7-grund); stroke-width: 2; }
+.ek2-l2, .ek2-l2-h { fill: var(--s7-lage-1); }
+.ek2-l3, .ek2-l3-h { fill: var(--s7-lage-2); }
+.ek2-l4, .ek2-l4-h { fill: var(--s7-lage-3); }
+.ek2-kern { fill: var(--s7-akzent-fill); }
+.ek2-kern-h { fill: var(--s7-akzent-fill-hoch); }
+.ek2-kern-t, .ek2-kern-p { fill: var(--s7-auf-akzent); }
+.ek2-band { fill: var(--s7-tinte); }
+.ek2-band-t { fill: #ffffff; }
+.ek2-band-s { fill: #a1a1a6; }
+.ek2-linie { fill: none; stroke: var(--s7-tinte); stroke-width: 2; }
+.ek2-linie--grau { stroke: var(--s7-linie); }
+.ek2-linie--fein { stroke-width: 1.4; }
+.ek2-pfeilkopf { fill: none; stroke: var(--s7-tinte); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ek2-grund { fill: var(--s7-buehne); }
+.ek__mehr { margin-top: 2.2rem; text-align: center; }
+@media (max-width: 820px) { .ek2-svg--quer { display: none !important; } .ek2-svg--hoch { display: block !important; } }
 
 /* ---------- So läuft die Maschine ---------- */
 .s7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: 1.2rem; margin-top: 3rem; }
@@ -432,10 +389,10 @@ p { margin: 0; }
   --s7-akzent: #e3e8ff; --s7-akzent-fill: url(#s7v-pastell); --s7-akzent-verlauf: linear-gradient(100deg, #dfe6ff, #eddcff); --s7-auf-akzent: #1d1d1f;
   --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #2f6bff 0%, #7b3fe4 55%, #b44ce0 100%);
   --s7-knopf-grund: #1d1d1f; --s7-knopf-text: #ffffff;
-  --s7-buehne: #f5f5f7; --s7-band-akzent: #f5f5f7; --s7-karte: #ffffff;
+  --s7-buehne: #ffffff; --s7-band-akzent: #f5f5f7; --s7-karte: #ffffff;
   --s7-schatten: none;
   --s7-komplett-grund: #1d1d1f; --s7-komplett-text: #d2d2d7; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #9d8cff;
-  --s7-lage-1: #e4e4e9; --s7-lage-2: #ececf0; --s7-lage-3: #f4f4f7;
+  --s7-lage-1: #d5d5db; --s7-lage-2: #e1e1e6; --s7-lage-3: #ececf0;
   --s7-rund: 24px;
 }
 .s7-stil--apple .s7-held { text-align: center; }
