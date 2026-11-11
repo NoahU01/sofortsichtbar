@@ -134,7 +134,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 <link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
 <style>
 /* ---------- Schriften (selbst gehostet, OFL) ---------- */
-{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Plus Jakarta Sans", "plus-jakarta-sans", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
+{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]], ["Archivo", "archivo", [400, 500, 600, 700, 800]], ["Bricolage Grotesque", "bricolage-grotesque", [400, 500, 600, 700, 800]]] %}{% for w in f[2] %}
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-ext-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 {%- endfor %}{% endfor %}
@@ -362,32 +362,70 @@ p { margin: 0; }
 .s7-stil--apple .s7-schritt__nr { font-size: 1rem; color: #86868b; }
 .s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: linear-gradient(100deg, #dfe6ff, #eddcff); }
 
-/* 2 · Produktbühne: hell, Einstieg und Maschine auf zarten Verlaufsflächen, schwebende Karten */
-.s7-stil--buehne {
-  --s7-schrift-titel: "Plus Jakarta Sans", system-ui, sans-serif;
-  --s7-schrift-text: "Plus Jakarta Sans", system-ui, sans-serif;
-  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.03em;
-  --s7-h1: clamp(2.9rem, 7vw, 6rem); --s7-h1-hoehe: 1.02;
-  --s7-h2: clamp(2.2rem, 4.8vw, 3.8rem); --s7-h2-hoehe: 1.06;
-  --s7-grund: #fbfbfd; --s7-flaeche: #f3f4f9; --s7-tinte: #15163a; --s7-text: #44465f; --s7-grau: #7b7d95; --s7-linie: #e4e5ef;
-  --s7-akzent: #e1e5ff; --s7-akzent-fill: url(#s7v-pastell); --s7-auf-akzent: #15163a;
-  --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #3b5bff 0%, #7b3fe4 60%, #b44ce0 100%);
-  --s7-knopf-grund: #15163a; --s7-knopf-text: #ffffff;
-  --s7-buehne: #ffffff; --s7-band-akzent: #f3f4f9; --s7-karte: #ffffff;
-  --s7-schatten: 0 1px 2px rgba(21,22,58,.06), 0 12px 32px rgba(21,22,58,.08);
-  --s7-komplett-grund: linear-gradient(140deg, #3b5bff 0%, #6a3fe0 55%, #a443d6 100%); --s7-komplett-text: #e9e8ff; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #3b2fd6;
-  --s7-lage-1: #e3e5f1; --s7-lage-2: #eceef6; --s7-lage-3: #f4f5fa;
-  --s7-rund: 20px;
+/* 2 · Raster: Schweizer Grafik – linksbündig, feine Linien statt Karten, eckig, Ultramarin als Vollton */
+.s7-stil--raster {
+  --s7-schrift-titel: "Archivo", system-ui, sans-serif;
+  --s7-schrift-text: "Archivo", system-ui, sans-serif;
+  --s7-titel-gewicht: 600; --s7-titel-abstand: -0.03em;
+  --s7-h1: clamp(3rem, 7.8vw, 6.8rem); --s7-h1-hoehe: .98;
+  --s7-h2: clamp(2.3rem, 5vw, 4.1rem); --s7-h2-hoehe: 1.02;
+  --s7-grund: #f7f6f2; --s7-flaeche: #eeede7; --s7-tinte: #141414; --s7-text: #2e2e2c; --s7-grau: #737069; --s7-linie: #141414;
+  --s7-akzent: #2b3bff; --s7-akzent-fill: #c9cdff; --s7-auf-akzent: #ffffff;
+  --s7-wort: #2b3bff;
+  --s7-knopf-grund: #2b3bff; --s7-knopf-text: #ffffff;
+  --s7-buehne: transparent; --s7-band-akzent: #f7f6f2; --s7-karte: transparent;
+  --s7-schatten: none;
+  --s7-komplett-grund: #2b3bff; --s7-komplett-text: #e4e6ff; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #2b3bff;
+  --s7-lage-1: #dddcd5; --s7-lage-2: #e7e6e0; --s7-lage-3: #f0efea;
+  --s7-rund: 0px; --s7-rund-knopf: 0px;
 }
-.s7-stil--buehne .s7-held { background:
-  radial-gradient(38rem 26rem at 88% 8%, rgba(164,67,214,.16), transparent 70%),
-  radial-gradient(42rem 28rem at 8% 92%, rgba(59,91,255,.16), transparent 70%),
-  radial-gradient(30rem 22rem at 55% 60%, rgba(56,189,248,.10), transparent 70%), #fbfbfd; }
-.s7-stil--buehne .s7-maschine { box-shadow: 0 1px 2px rgba(21,22,58,.06), 0 30px 60px rgba(21,22,58,.12); }
-.s7-stil--buehne .s7-kicker { color: #5b4be0; }
-.s7-stil--buehne .s7-paket--komplett { box-shadow: 0 30px 60px rgba(90,63,224,.28); }
-.s7-stil--buehne .s7-pille--an, .s7-stil--buehne .s7-dash__kachel--an, .s7-stil--buehne .s7-strecke__ziel b { background: linear-gradient(100deg, #dde4ff, #ecdcff); }
-.s7-stil--buehne .s7-schritt__nr { background: linear-gradient(100deg, #3b5bff, #a443d6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.s7-stil--raster .s7-kicker { color: #141414; font-weight: 600; letter-spacing: .08em; }
+.s7-stil--raster .s7-kicker::before { content: ""; display: inline-block; width: .55rem; height: .55rem; margin-right: .6rem; background: #2b3bff; vertical-align: .05em; }
+.s7-stil--raster .s7-band, .s7-stil--raster .s7-held { border-top: 1px solid #141414; }
+.s7-stil--raster .s7-maschine { padding: 2rem 0 0; border-top: 1px solid #141414; }
+.s7-stil--raster .s7-schritte, .s7-stil--raster .s7-pakete { column-gap: 0; }
+.s7-stil--raster .s7-schritt { padding: 1.6rem 1.6rem 1.4rem 0; border-top: 1px solid #141414; }
+.s7-stil--raster .s7-schritt + .s7-schritt { padding-left: 1.6rem; border-left: 1px solid #141414; }
+.s7-stil--raster .s7-schritt__nr { color: #2b3bff; font-size: 3.4rem; font-weight: 600; letter-spacing: -0.04em; }
+.s7-stil--raster .s7-schritt__bild { background: #eeede7; }
+.s7-stil--raster .s7-pille, .s7-stil--raster .s7-strecke__teile span, .s7-stil--raster .s7-strecke__ziel, .s7-stil--raster .s7-dash, .s7-stil--raster .s7-dash__kachel, .s7-stil--raster .s7-dash__empf, .s7-stil--raster .s7-strecke__ziel b { border-radius: 0; }
+.s7-stil--raster .s7-pille--an, .s7-stil--raster .s7-dash__kachel--an { background: #2b3bff; color: #fff; }
+.s7-stil--raster .s7-dash__kachel--an svg { stroke: #fff; }
+.s7-stil--raster .s7-strecke__ziel b { background: #2b3bff; color: #fff; }
+.s7-stil--raster .s7-gruppe::after { height: 1px; }
+.s7-stil--raster .s7-gruppe--a { padding-right: 1.6rem; }
+.s7-stil--raster .s7-gruppe--b { padding-left: 1.6rem; }
+.s7-stil--raster .s7-paket { border: 0; border-top: 1px solid #141414; padding: 1.8rem 1.6rem 1.6rem 0; }
+.s7-stil--raster .s7-paket + .s7-paket { padding-left: 1.6rem; border-left: 1px solid #141414; }
+.s7-stil--raster .s7-paket--komplett { padding: 1.8rem 1.6rem 1.6rem !important; border: 0; }
+.s7-stil--raster .s7-paket__preis { border-top-color: #cfcdc6; }
+.s7-stil--raster .s7-knopf--rand { border-color: #141414; color: #141414; }
+@media (max-width: 1000px) { .s7-stil--raster .s7-schritt + .s7-schritt, .s7-stil--raster .s7-paket + .s7-paket { padding-left: 0; border-left: 0; } .s7-stil--raster .s7-gruppe--a, .s7-stil--raster .s7-gruppe--b { padding: 0; } .s7-stil--raster .s7-paket--komplett { margin-top: .6rem; } }
+
+/* 3 · Warm: Creme, große Rundungen, Schrift mit Charakter, Petrol als Akzent, Mint als Fläche */
+.s7-stil--warm {
+  --s7-schrift-titel: "Bricolage Grotesque", system-ui, sans-serif;
+  --s7-schrift-text: "Bricolage Grotesque", system-ui, sans-serif;
+  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.03em;
+  --s7-h1: clamp(3rem, 7.4vw, 6.4rem); --s7-h1-hoehe: 1.0;
+  --s7-h2: clamp(2.3rem, 5vw, 4rem); --s7-h2-hoehe: 1.04;
+  --s7-text-groesse: 1.08rem;
+  --s7-grund: #fbf7f1; --s7-flaeche: #f3ece2; --s7-tinte: #23201d; --s7-text: #4a443e; --s7-grau: #8a8178; --s7-linie: #e6ddd0;
+  --s7-akzent: #cfeee5; --s7-akzent-fill: #bfe6da; --s7-auf-akzent: #0b4f49;
+  --s7-wort: #0f6e66;
+  --s7-knopf-grund: #0f6e66; --s7-knopf-text: #ffffff;
+  --s7-buehne: #ffffff; --s7-band-akzent: #e3f3ee; --s7-karte: #ffffff;
+  --s7-schatten: none;
+  --s7-komplett-grund: #0f6e66; --s7-komplett-text: #d5ece7; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #bfe6da; --s7-komplett-knopf-text: #0f6e66;
+  --s7-lage-1: #e8dfd2; --s7-lage-2: #efe8dd; --s7-lage-3: #f6f1e9;
+  --s7-rund: 32px;
+}
+.s7-stil--warm .s7-kicker { color: #0f6e66; letter-spacing: .04em; text-transform: none; font-size: 1rem; font-weight: 600; }
+.s7-stil--warm .s7-schritt__nr { display: inline-grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 50%; background: #e3f3ee; color: #0f6e66; font-size: 1.2rem; }
+.s7-stil--warm .s7-paket { border-color: #e6ddd0; }
+.s7-stil--warm .s7-gruppe { color: #0f6e66; }
+.s7-stil--warm .s7-gruppe::after { background: #bfe6da; }
+.s7-stil--warm .s7-knopf--rand { border-color: #0f6e66; color: #0f6e66; }
 
 /* ---------- Stilproben-Seite: Steckbriefe ---------- */
 .sp-kopf { padding: clamp(3rem, 6vw, 5rem) 0 3rem; border-bottom: 1px solid #e2e2df; }
