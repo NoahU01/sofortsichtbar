@@ -25,6 +25,7 @@ from lib import titelseite, kopfbild, seite, kopf, kicker, punkte, dokument, ico
 import _marketing_teile as mt  # noqa: E402
 sys.path.insert(0, HERE)
 import maas_strukturbild  # noqa: E402
+import maas_infografik  # noqa: E402
 
 DATEN = os.path.join(HERE, "story6.11tydata.json")
 ZIEL = os.path.join(HERE, "assets", "maas")
@@ -151,6 +152,16 @@ def hoch_seite(M, nr, n):
         + f'<div class="hs">{zellen}</div></div>', nr, n)
 
 
+def ueberblick_seite(M, nr, n):
+    """Überblick vor der großen Maschine: die drei Sektionen aus Roll-up V2 (Strategie · Marketing und Vertrieb · Steuerung), nur die Funktionsweise."""
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:9mm">' + kicker("Strategisches Marketing · Überblick")
+        + '<h2>Das Ganze <span class="hl">auf einen Blick.</span></h2>'
+        + '<p class="lead" style="max-width:165mm">Erst klären wir, wo du wachsen willst. Dann bringt dein Marketing echte Anfragen in deinen Vertrieb. '
+          'Und jeden Monat prüfen wir, ob es funktioniert.</p>'
+        + f'<div class="ueb">{M["ueberblick"]}</div></div>', nr, n)
+
+
 def stufen_seite(M, nr, n):
     """Erste Ebene: das Strukturbild (vier Stufen, Entscheidungen, Rückweg) auf einer Querseite, darunter das Fundament Strategie."""
     ST, W = M["stufen"], M["weg"]
@@ -271,6 +282,9 @@ CSS_TEAM = """
 .hs__erg { margin-top: 3.5mm; font-size: 9pt; font-weight: 600; }
 .hs__erg span { display: block; font-size: 6.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
 .hs__rueck { align-self: flex-start; white-space: nowrap; padding: 1.8mm 4mm; border-radius: 9mm; background: #fff400; font-size: 8.4pt; font-weight: 600; }
+/* Überblick (Seite 2) */
+.ueb { margin-top: 6mm; }
+.ueb svg { display: block; width: 174mm; height: auto; }
 /* Querseite für das Strukturbild (benannte Seite) */
 @page quer { size: 297mm 210mm; margin: 0; }
 .seite--quer { page: quer; width: 297mm; height: 210mm; }
@@ -428,7 +442,7 @@ def bauen(M):
         + f'<div class="uebersicht">{zeilen}</div>'
         + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 6, n)
 
-    seiten, nr = [s1, hoch_seite(M, 2, n), stufen_seite(M, 3, n), weg_seite(M, 4, n), ablauf_seite(M, 5, n), s2], 7
+    seiten, nr = [s1, ueberblick_seite(M, 2, n), hoch_seite(M, 3, n), weg_seite(M, 4, n), ablauf_seite(M, 5, n), s2], 7
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
@@ -573,9 +587,9 @@ def main():
     bild_png(M["maschine"], "maschine", 748)
     bild_png(M["maschine_ss"], "maschine-ss", 748)
     bild_png(M["strukturbild_ss"], "strukturbild-ss", 652)
-    drucken(bauen(M), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
+    drucken(bauen(dict(M, ueberblick=maas_infografik.ueberblick_pdf())), M["pdf"]["datei"], "marketing-as-a-service", M["pdf"])
     # gleiche Inhalte in den Farben von sofort sichtbar (Download auf Seite 2.0)
-    M_ss = dict(M, maschine=M["maschine_ss"], strukturbild=M["strukturbild_ss"])
+    M_ss = dict(M, maschine=M["maschine_ss"], strukturbild=M["strukturbild_ss"], ueberblick=maas_infografik.ueberblick_pdf(ss=True))
     M.setdefault("pdf_ss", {"datei": "marketing-as-a-service-ss.pdf"})
     drucken(ss_html(bauen(M_ss)), M["pdf_ss"]["datei"], "marketing-as-a-service-ss", M["pdf_ss"])
     # Arbeitsgrundlage als eigenes PDF (nicht im Angebots-PDF): Ablauf im Detail, A4 quer
