@@ -233,3 +233,78 @@ def marketing_svg():
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 1210 652" class="mx-strukturbild" role="img" '
             f'aria-label="Die digitale Maschine: ein Trichter aus vier Bausteinen mündet in deinen Vertrieb und die Kundenbetreuung">'
             + defs + "".join(o) + '</svg>')
+
+
+# ---------------------------------------------------------------------------
+# Hochformat-Variante fürs PDF: dieselbe Logik senkrecht, gezeichnet in Millimetern (1 Einheit = 1 mm),
+# damit Beschriftungen auf Papier mindestens 8 pt groß sind. Vier Zeilen: Trichter · Vertrieb · Kundenbetreuung · Rückweg.
+HOCH_B = 70                      # Breite der Grafikspalte in mm
+HOCH_ZEILEN = [86, 48, 48, 12]   # Höhen der Zeilen in mm
+
+
+def hoch_teile():
+    cx, A = 39.0, 18.0            # Mitte und halbe Breite der Prozesspfeile (= Trichter-Ausgang mit allen Bausteinen)
+    W = HOCH_B
+    pt = 0.3528                   # 1 pt in mm
+    teile = []
+
+    def svgw(h, inhalt):
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {h}" width="{W}mm" height="{h}mm" style="display:block">'
+                f'<defs><marker id="hp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">'
+                f'<path d="M1 1 L8 5 L1 9" fill="none" stroke="{INK}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
+                f'{inhalt}</svg>')
+
+    linie = f'stroke="{INK}" stroke-width="0.45" fill="none"'
+    # Zeile 1: Trichter von oben nach unten
+    h1 = HOCH_ZEILEN[0]
+    schicht = [(14, 6, GELB), (20.5, 10, "#dcd8d2"), (27, 14, "#e8e5e0"), (33.5, A, "#f3f1ee")]   # (halbe Breite oben, unten)
+    y0, yk, y1 = 8, 62, h1
+
+    def kegel(hm, ha):
+        return (f"M{cx - hm} {y0} C{cx - hm} {y0 + 14} {cx - ha} {yk - 26} {cx - ha} {yk} V{y1} H{cx + ha} V{yk} "
+                f"C{cx + ha} {yk - 26} {cx + hm} {y0 + 14} {cx + hm} {y0} Z")
+    o = []
+    import random
+    rnd = random.Random(3)
+    for _ in range(22):
+        o.append(f'<circle cx="{rnd.uniform(cx - 32, cx + 32):.1f}" cy="{rnd.uniform(1, 5.5):.1f}" r="{rnd.uniform(.5, .85):.2f}" fill="#cfcac3"/>')
+    for hm, ha, f in reversed(schicht):
+        o.append(f'<path d="{kegel(hm, ha)}" fill="{f}" stroke="#fff" stroke-width="0.7" stroke-linejoin="round"/>')
+    # Nummern der Bausteine in ihren Schichten (links), Kern mittig
+    for nr, x in (("4", cx - 30.25), ("3", cx - 23.75), ("2", cx - 17.25)):
+        o.append(f'<circle cx="{x}" cy="{y0 + 6}" r="2.3" fill="#fff" stroke="{INK}" stroke-width="0.35"/>')
+        o.append(t(x, y0 + 7.05, nr, 8.5 * pt, 700, anchor="middle"))
+    o.append(f'<circle cx="{cx}" cy="{y0 + 6}" r="2.3" fill="{INK}"/>')
+    o.append(t(cx, y0 + 7.05, "1", 8.5 * pt, 700, GELB, "middle"))
+    o.append(t(cx, y0 + 16, "Kernpaket", 9.5 * pt, 700, anchor="middle"))
+    for i, y in enumerate([72, 77.5, 83]):
+        o.append(f'<circle cx="{cx + (i - 1) * 1.6}" cy="{y}" r="1.1" fill="{INK}"/>')
+    # Rückweg: linke Kante nach oben, oben in die Öffnung
+    o.append(f'<path d="M1 {h1} V3 H{cx - 35}" {linie} marker-end="url(#hp)"/>')
+    teile.append(svgw(h1, "".join(o)))
+
+    # Zeile 2: Vertrieb (Pfeil nach unten, weiß)
+    h2 = HOCH_ZEILEN[1]
+    o = [f'<path d="M{cx - A} 0 H{cx + A} V{h2 - 9} L{cx} {h2} L{cx - A} {h2 - 9} Z" fill="#fff" stroke="{INK}" stroke-width="0.6" stroke-linejoin="round"/>']
+    o.append(ico("handshake", cx - 3.6, 4.5, 7.2))
+    o.append(t(cx, 18, "Vertrieb", 12 * pt, 700, anchor="middle", font=LORA))
+    for i, s in enumerate(["Terminierung", "Beratung", "Abschluss"]):
+        o.append(t(cx, 24.5 + i * 4.6, s, 8.5 * pt, 500, anchor="middle"))
+    o.append(f'<path d="M1 0 V{h2}" {linie}/>')
+    teile.append(svgw(h2, "".join(o)))
+
+    # Zeile 3: Kundenbetreuung (schwarz, oben eingekerbt)
+    h3 = HOCH_ZEILEN[2]
+    o = [f'<path d="M{cx - A} 1.5 L{cx} 10 L{cx + A} 1.5 V{h3 - 3} Q{cx + A} {h3} {cx + A - 3} {h3} H{cx - A + 3} Q{cx - A} {h3} {cx - A} {h3 - 3} Z" '
+         f'fill="{INK}" stroke="{INK}" stroke-width="0.6" stroke-linejoin="round"/>']
+    o.append(ico("heart-handshake", cx - 3.6, 13, 7.2, GELB))
+    o.append(t(cx, 27, "Kunden-", 11 * pt, 700, "#fff", "middle", font=LORA))
+    o.append(t(cx, 31.6, "betreuung", 11 * pt, 700, "#fff", "middle", font=LORA))
+    o.append(f'<path d="M1 0 V{h3}" {linie}/>')
+    teile.append(svgw(h3, "".join(o)))
+
+    # Zeile 4: Rückweg unten herum
+    h4 = HOCH_ZEILEN[3]
+    o = [f'<path d="M{cx} 0 V6 H1 V0" {linie}/>']
+    teile.append(svgw(h4, "".join(o)))
+    return teile

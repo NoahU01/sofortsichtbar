@@ -123,6 +123,34 @@ def team_seite(M, nr, n):
         + f'<div class="immer"><span>Immer dabei</span>{immer}</div></div>', nr, n, hell_fuss=True, klasse="seite--schwarz")
 
 
+def hoch_seite(M, nr, n):
+    """Die digitale Maschine im Hochformat: links die senkrechte Grafik (Trichter · Vertrieb · Kundenbetreuung · Rückweg),
+    rechts je Stufe der Text auf Höhe seines Grafikteils."""
+    ST, W = M["stufen"], M["weg"]
+    teile = maas_strukturbild.hoch_teile()
+    texte = maas_strukturbild.STUFEN_TEXT
+    nummern = maas_strukturbild.BAUSTEINE
+    zellen = ""
+    for i, (svg, h) in enumerate(zip(teile, maas_strukturbild.HOCH_ZEILEN)):
+        if i < 3:
+            name, claim, zeilen, erg = texte[i]
+            legende = ""
+            if i == 0:
+                legende = '<ul class="hs__bs">' + "".join(
+                    f'<li><span class="hs__nr{" hs__nr--kern" if nr == "1" else ""}">{nr}</span>{ico(icon, strich=1.5)}{name}</li>'
+                    for nr, name, icon in nummern) + '</ul>'
+            text = (f'<p class="hs__stufe{" hs__stufe--wir" if i == 0 else ""}">Stufe {i + 1} · {name}'
+                    f'{" · unser Schwerpunkt" if i == 0 else ""}</p><h3>{claim}</h3><p class="hs__text">{" ".join(zeilen)}</p>'
+                    f'{legende}<p class="hs__erg"><span>Ergebnis</span>{erg}</p>')
+        else:
+            text = '<p class="hs__rueck">Sichtbarkeit pflegt deinen Bestand und bringt neue Anlässe.</p>'
+        zellen += f'<div class="hs__bild" style="height:{h}mm">{svg}</div><div class="hs__zelle{" hs__zelle--rueck" if i == 3 else ""}" style="height:{h}mm">{text}</div>'
+    return seite(
+        kopf(T) + '<div class="rand" style="padding-top:12mm">' + kicker(W["kicker"])
+        + f'<h2>{W["h2"]}</h2><p class="lead" style="max-width:165mm">{ST["lead"]}</p>'
+        + f'<div class="hs">{zellen}</div></div>', nr, n)
+
+
 def stufen_seite(M, nr, n):
     """Erste Ebene: das Strukturbild (vier Stufen, Entscheidungen, Rückweg) auf einer Querseite, darunter das Fundament Strategie."""
     ST, W = M["stufen"], M["weg"]
@@ -225,6 +253,24 @@ def posting_seiten(PR, nr, n):
 
 
 CSS_TEAM = """
+/* Hochformat: Grafikspalte 70 mm, Textspalte daneben; jede Stufe auf Höhe ihres Grafikteils */
+.hs { display: grid; grid-template-columns: 70mm 1fr; column-gap: 9mm; margin-top: 7mm; }
+.hs__bild { overflow: visible; }
+.hs__zelle { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 6mm; border-top: 1px solid #dcd8d1; }
+.hs__zelle:nth-child(2) { border-top: 0; padding-top: 3mm; }
+.hs__zelle--rueck { justify-content: center; padding-top: 0; border-top: 0; }
+.hs__stufe { font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
+.hs__stufe--wir { color: #1a1817; }
+.hs h3 { margin-top: 1.6mm; font-size: 14pt; }
+.hs__text { text-wrap: pretty; margin-top: 1.8mm; font-size: 9pt; line-height: 1.55; color: #3d3a37; }
+.hs__bs { list-style: none; display: grid; gap: 1.6mm; margin-top: 3.5mm; }
+.hs__bs li { display: flex; align-items: center; gap: 2.2mm; font-size: 8.6pt; font-weight: 600; }
+.hs__bs svg { width: 4mm; height: 4mm; }
+.hs__nr { display: grid; place-items: center; width: 4.6mm; height: 4.6mm; border: 1px solid #1a1817; border-radius: 50%; font-size: 7pt; font-weight: 700; }
+.hs__nr--kern { background: #1a1817; color: #fff400; }
+.hs__erg { margin-top: 3.5mm; font-size: 9pt; font-weight: 600; }
+.hs__erg span { display: block; font-size: 6.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a847c; }
+.hs__rueck { align-self: flex-start; white-space: nowrap; padding: 1.8mm 4mm; border-radius: 9mm; background: #fff400; font-size: 8.4pt; font-weight: 600; }
 /* Querseite für das Strukturbild (benannte Seite) */
 @page quer { size: 297mm 210mm; margin: 0; }
 .seite--quer { page: quer; width: 297mm; height: 210mm; }
@@ -362,7 +408,7 @@ CSS_TEAM = """
 def bauen(M):
     B = M["bausteine"]
     PR = M["profile"]
-    n = 6 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
+    n = 7 + sum(len(teile_von(b)) for b in B) + 2 + len(PR["liste"]) + 2
 
     s1 = seite(titelseite(
         "Angebot", 'Marketing<br><span class="hl">as a Service.</span>', M["lead"], kopfbild("MarketingEcoSystem (MES)"),
@@ -380,9 +426,9 @@ def bauen(M):
         + '<p class="lead" style="max-width:150mm">Das Kernpaket „sofort sichtbar“ ist die Basis der Zusammenarbeit. '
           'Die Ergänzungen buchst du dazu, wenn du sie brauchst.</p>'
         + f'<div class="uebersicht">{zeilen}</div>'
-        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 5, n)
+        + f'<p class="notiz">{M["hinweis_preise"]} Paid Ads je Werbekanal, Werbebudget nicht enthalten.</p></div>', 6, n)
 
-    seiten, nr = [s1, stufen_seite(M, 2, n), weg_seite(M, 3, n), ablauf_seite(M, 4, n), s2], 6
+    seiten, nr = [s1, hoch_seite(M, 2, n), stufen_seite(M, 3, n), weg_seite(M, 4, n), ablauf_seite(M, 5, n), s2], 7
     for b in B:
         k = kapitel(b, nr, n)
         seiten += k
