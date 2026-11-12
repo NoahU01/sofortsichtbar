@@ -363,7 +363,7 @@ p { margin: 0; }
 .s7-menue nav a[aria-current="page"] { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
 .s7-menue .s7-knopf { margin-top: 1.4rem; }
 body.s7-menue-offen { overflow: hidden; }
-@media (max-width: 1280px) {
+@media (max-width: 1279px) {
   .s7-nav { display: none; }
   .s7-burger { display: block; }
   .s7-kopf .s7-kopf__termin { margin-left: auto; }
@@ -2001,7 +2001,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   k.addEventListener("click", function () { setze(m.hidden); });
   m.addEventListener("click", function (e) { if (e.target.closest("a")) setze(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) { setze(false); k.focus(); } });
-  window.addEventListener("resize", function () { if (window.innerWidth > 1280 && !m.hidden) setze(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1279 && !m.hidden) setze(false); });
 })();
 </script>
 <script>
