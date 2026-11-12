@@ -575,26 +575,31 @@ p { margin: 0; }
   .pr7-zelle { font-size: .85rem; }
 }
 
-/* ---------- Kontakt und Termin (ks7-): großzügig wie die übrigen Seiten – links Überschrift, worum es geht, eure Gesichter;
-   rechts der Kalender ohne eigenen Rahmen und verkleinert (zoom), damit Cal.com dreispaltig bleibt und alles auf einen Bildschirm passt ---------- */
-.ks7 { padding: clamp(2.5rem, 5vw, 4.5rem) 0 var(--s7-band); }
-.ks7__raster { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-.s7-stil .ks7__h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); line-height: 1.02; letter-spacing: calc(var(--s7-titel-abstand) * 1.4); }
-.ks7__lead { margin-top: 1.2rem; font-size: 1.15rem; line-height: 1.55; }
-.ks7__ablauf { margin: 1.8rem 0 0; padding: 0; list-style: none; counter-reset: k; }
-.ks7__ablauf li { position: relative; padding: .7rem 0 .7rem 2rem; border-top: 1px solid var(--s7-linie); counter-increment: k; color: var(--s7-tinte); line-height: 1.45; }
-.ks7__ablauf li:last-child { border-bottom: 1px solid var(--s7-linie); }
-.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: .7rem; color: var(--s7-grau); font-weight: 700; }
-.ks7__team { display: flex; align-items: center; gap: 1rem; margin-top: 1.8rem; color: var(--s7-text); line-height: 1.4; }
-.ks7__team span { display: flex; flex: none; }
-.ks7__team img { width: 3.2rem; height: 3.2rem; border: 2px solid var(--s7-grund); border-radius: 50%; object-fit: cover; }
-.ks7__team img + img { margin-left: -.9rem; }
-.ks7__wege { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; margin-top: 1rem; }
+/* ---------- Kontakt und Termin (ks7-): System der übrigen Seiten – zentrierter Kopf, darunter eine Bühne mit allem, was zum Termin gehört.
+   Links auf der Bühne: wer, worum es geht, direkte Wege; rechts der Kalender (Cal.com, leicht verkleinert, bleibt dreispaltig) ---------- */
+.ks7 { padding: clamp(1.6rem, 3vw, 2.6rem) 0 var(--s7-band); }
+.ks7__kopf { text-align: center; }
+.s7-stil .ks7__h1 { font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.05; letter-spacing: calc(var(--s7-titel-abstand) * 1.4); }
+.ks7__lead { max-width: 48rem; margin: .7rem auto 0; text-wrap: balance; color: #6e6e73; font-size: 1.15rem; }
+.ks7__buehne { display: grid; grid-template-columns: 19rem minmax(0, 1fr); gap: clamp(1.6rem, 3vw, 2.8rem); align-items: start; margin-top: clamp(1.4rem, 2.4vw, 2rem); padding: clamp(1.2rem, 2.2vw, 1.8rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); }
+.ks7__wir { padding-top: .4rem; }
+.ks7__team { display: grid; gap: .8rem; color: var(--s7-tinte); font-size: 1.05rem; font-weight: 600; line-height: 1.4; }
+.ks7__team span { display: flex; }
+.ks7__team img { width: 3.6rem; height: 3.6rem; border: 3px solid var(--s7-flaeche); border-radius: 50%; object-fit: cover; }
+.ks7__team img + img { margin-left: -1rem; }
+.ks7__titel { margin-top: 1.4rem; color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.ks7__ablauf { margin: .5rem 0 0; padding: 0; list-style: none; counter-reset: k; }
+.ks7__ablauf li { position: relative; padding: .55rem 0 .55rem 1.6rem; border-top: 1px solid var(--s7-linie); counter-increment: k; color: var(--s7-tinte); font-size: .95rem; line-height: 1.4; }
+.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: .55rem; color: var(--s7-grau); font-weight: 700; }
+.ks7__wege { display: grid; gap: .3rem; margin-top: .5rem; }
 .ks7__wege a { color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
 .ks7__wege a:hover { text-decoration: underline; }
-.ks7__kalender { zoom: .8; }
+.ks7__kalender { zoom: .86; }
 .ks7__kalender > div { width: 100%; min-height: 36rem; }
-@media (max-width: 1100px) { .ks7__raster { grid-template-columns: minmax(0, 1fr); } .ks7__kalender { zoom: 1; } }
+@media (max-width: 1100px) {
+  .ks7__buehne { grid-template-columns: minmax(0, 1fr); }
+  .ks7__kalender { order: -1; zoom: 1; }
+}
 
 /* ---------- Strategiekompass (ko7-): Konfigurator im Story-7-Stil, Farbe nur in der Zusammenfassung (das Ergebnis) ---------- */
 .ko7-held { padding-bottom: 1rem; }
@@ -1154,16 +1159,22 @@ p { margin: 0; }
 {%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
 <main>
   <section class="ks7">
-    <div class="s7-wrap ks7__raster">
-      <div class="ks7__text">
+    <div class="s7-wrap">
+      <header class="ks7__kopf">
         <p class="s7-kicker">{{ KS.kicker }}</p>
-        <h1 class="ks7__h1">{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
+        <h1 class="ks7__h1">{{ KS.h1 }} <span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
         <p class="ks7__lead">{{ KS.lead }}</p>
-        <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
-        <p class="ks7__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
-        <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+      </header>
+      <div class="ks7__buehne">
+        <div class="ks7__wir">
+          <p class="ks7__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
+          <p class="ks7__titel">{{ KS.ablauf_titel }}</p>
+          <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
+          <p class="ks7__titel">{{ KS.direkt }}</p>
+          <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        </div>
+        <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
       </div>
-      <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
     </div>
   </section>
 </main>
