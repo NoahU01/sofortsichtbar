@@ -167,7 +167,7 @@ svg.vs { display: inline-block; overflow: visible; }
 .gesichter span { display: flex; }
 .gesichter img { width: 16mm; height: 16mm; border: 0.8mm solid #1d1d1f; border-radius: 50%; object-fit: cover; }
 .gesichter img + img { margin-left: -4mm; }
-.wege { position: absolute; left: 18mm; right: 18mm; bottom: 24mm; display: grid; gap: 2mm; padding-top: 6mm; border-top: 0.3mm solid #3a3a3c; }
+.wege { position: absolute; left: 18mm; right: 18mm; bottom: 24mm; display: grid; gap: 2mm; }
 .wege b { color: #fff; font-family: "Inter Tight"; font-weight: 700; font-size: 22pt; letter-spacing: -0.02em; line-height: 1.15; }
 
 /* ===== v2 (12.11.2026) ===== */
@@ -219,6 +219,28 @@ svg.vs { display: inline-block; overflow: visible; }
 .bs-gruppe { margin-top: 6mm; padding-bottom: 2mm; border-bottom: 0.6mm solid #1d1d1f; font-weight: 600; }
 .bs-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8mm; }
 .bs-liste .leistung { border-bottom: 0.3mm solid #e5e5ea; }
+.web-mock { position: relative; width: 132mm; height: 40mm; align-self: flex-end; }
+.wm-fenster { position: absolute; left: 0; top: 9mm; width: 112mm; height: 44mm; border-radius: 2.5mm 2.5mm 0 0; background: #fff; box-shadow: 0 1.5mm 5mm rgba(0,0,0,.10); overflow: hidden; }
+.wm-leiste { display: flex; align-items: center; gap: 1mm; height: 4.6mm; padding: 0 2.5mm; border-bottom: .25mm solid #e5e5ea; font-size: 5pt; color: #6e6e73; }
+.wm-leiste i { width: 1.4mm; height: 1.4mm; border-radius: 50%; background: #d2d2d7; }
+.wm-leiste span { margin-left: 3mm; padding: .4mm 3mm; border-radius: 2mm; background: #f5f5f7; }
+.wm-nav { display: flex; align-items: center; gap: 2.6mm; padding: 2.4mm 4mm; font-size: 6pt; }
+.wm-nav b { margin-right: auto; font-family: "Inter Tight"; font-weight: 700; font-size: 7pt; }
+.wm-nav span { width: 7mm; height: .9mm; border-radius: 1mm; background: #d2d2d7; }
+.wm-nav em, .wm-held em, .wm-handy em { font-style: normal; padding: .8mm 2.4mm; border-radius: 3mm; background: #1d1d1f; color: #fff; font-size: 5pt; font-weight: 600; }
+.wm-held { display: grid; grid-template-columns: 1.15fr 1fr; gap: 4mm; padding: 2mm 4mm 0; }
+.wm-h { font-family: "Inter Tight"; font-weight: 700; font-size: 10pt; line-height: 1.05; letter-spacing: -0.02em; }
+.wm-z { display: block; height: 1mm; margin-top: 1.4mm; border-radius: 1mm; background: #e5e5ea; }
+.wm-z.kurz { width: 70%; }
+.wm-held em { display: inline-block; margin-top: 2.4mm; }
+.wm-foto { height: 15mm; border-radius: 1.8mm; background: linear-gradient(135deg, #d2d2d7, #ececf0); }
+.wm-kacheln { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; padding: 3mm 4mm; }
+.wm-kacheln div { padding: 2mm; border-radius: 1.6mm; background: #f5f5f7; font-size: 5.5pt; }
+.wm-kacheln span { display: block; height: .9mm; margin-top: 1.2mm; border-radius: 1mm; background: #d2d2d7; }
+.wm-handy { position: absolute; right: 0; top: 4mm; width: 26mm; height: 48mm; padding: 6mm 2.4mm 0; border: .9mm solid #1d1d1f; border-bottom: 0; border-radius: 4mm 4mm 0 0; background: #fff; box-shadow: 0 1.5mm 5mm rgba(0,0,0,.12); overflow: hidden; }
+.wm-handy .wm-h { font-size: 7pt; }
+.wm-handy .wm-foto { height: 11mm; margin-top: 2.2mm; }
+.wm-handy em { display: inline-block; margin-top: 2mm; }
 .anzeige-mock { width: 110mm; padding: 4mm; border-radius: 4mm; background: #fff; box-shadow: 0 2mm 6mm rgba(0,0,0,.12); margin-bottom: 8mm; }
 .anzeige-mock .bild { height: 16mm; border-radius: 2.5mm; background: linear-gradient(120deg, #0b9fbd, #8613a1); }
 .anzeige-mock b { display: block; margin-top: 3mm; font-size: 10pt; }
@@ -387,7 +409,12 @@ def bauen():
     # 6 · Bausteine im Detail: Bildfläche, Preis groß, Leistungen in zwei Spalten
     bilder = {"kern": f'<img src="file://{imgL}/pages/vertriebsstrecken-hero-2.webp" alt="">',
               "linkedin": f'<img src="file://{imgL}/preview-postings.png" alt="" style="width:78%">',
-              "website": f'<img src="file://{imgL}/preview-landingpages.png" alt="" style="width:80%">',
+              # Website-Entwicklung: stilisierte eigene Homepage der Agentur (kein Beispiel aus den Landingpages)
+              "website": ('<div class="web-mock"><div class="wm-fenster"><p class="wm-leiste"><i></i><i></i><i></i><span>deine-agentur.de</span></p>'
+                          '<div class="wm-nav"><b>Deine Agentur</b><span></span><span></span><span></span><span></span><em>Termin</em></div>'
+                          '<div class="wm-held"><div><p class="wm-h">Deine Versicherungs&shy;agentur vor Ort.</p><span class="wm-z"></span><span class="wm-z kurz"></span><em>Beratung vereinbaren</em></div><div class="wm-foto"></div></div>'
+                          '<div class="wm-kacheln"><div><b>Privat</b><span></span></div><div><b>Gewerbe</b><span></span></div><div><b>Über uns</b><span></span></div></div></div>'
+                          '<div class="wm-handy"><p class="wm-h">Deine Versicherungs&shy;agentur vor Ort.</p><span class="wm-z"></span><span class="wm-z kurz"></span><div class="wm-foto"></div><em>Beratung</em></div></div>'),
               "paid-ads": '<div class="anzeige-mock"><div class="bild"></div><b>Gut abgesichert ins Familienleben</b>'
                           '<span class="klein">Gesponsert · In 30 Minuten wissen, was wirklich wichtig ist.</span><br><span class="knopf">Mehr erfahren</span></div>'}
     for i, b in enumerate(BS["liste"]):
