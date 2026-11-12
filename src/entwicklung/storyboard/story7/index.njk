@@ -829,6 +829,8 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-blatt figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.2rem; margin-top: 1rem; font-size: .95rem; }
 .ig7-blatt figcaption span { margin-right: auto; color: var(--s7-grau); font-weight: 600; }
 .ig7-blatt--rollup figcaption span { width: 100%; }
+.ig7-kontext-titel { margin-top: 3.4rem; color: var(--s7-grau); font-weight: 600; }
+.ig7-kontext { display: block; width: 100%; max-width: 62rem; margin-top: 1rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.10); }
 .ig7-alt { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
 .ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
 .ig7-alt__links { margin-top: 1.6rem; }
@@ -1458,14 +1460,31 @@ body.s7-menue-offen { overflow: hidden; }
   </section>
   {%- endif %}
   {%- endfor %}
+  {%- set DS = A7 + "/deckblatt/system/" %}
+  {%- set DT = [["maas", "Marketing as a Service"], ["maschine", "Grundstory"], ["team", "Mit deinem Team"]] %}
+  {%- for sy in [["s2", "Deckblatt-System dunkel", "Fällt in der Download-Sektion sofort auf."], ["s1", "Deckblatt-System hell", "Ruhiger, nah an den weißen Seiten der Website."]] %}
+  <section class="s7-band{% if loop.first %} s7-band--flaeche{% endif %}" id="deckblatt-{{ sy[0] }}">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Deckblätter als Lead-Magnet · {{ sy[1] }}</p>
+      <h2 class="s7-h2">Eine Vorlage. Jedes Thema.</h2>
+      <p class="s7-lead">Gleich bleiben Art des Dokuments, Logo, Titel mit Verlauf am Ende und die Karte „Was dich erwartet“ mit drei Punkten. Je Thema wechseln nur Titel, Satz und Inhalt. {{ sy[2] }}</p>
+      <div class="ig7-reihe ig7-reihe--drei">
+        {%- for d in DT %}
+        <figure class="ig7-blatt"><a href="{{ DS }}{{ sy[0] }}-{{ d[0] }}.pdf?v=sys1" target="_blank" rel="noopener"><img src="{{ DS }}{{ sy[0] }}-{{ d[0] }}.png?v=sys1" alt="{{ sy[1] }}: {{ d[1] }}" loading="lazy"></a><figcaption><span>{{ d[1] }}</span></figcaption></figure>
+        {%- endfor %}
+      </div>
+      <p class="ig7-kontext-titel">So wirkt es in der Download-Sektion der Website</p>
+      <img class="ig7-kontext" src="{{ DS }}kontext-{{ sy[0] }}.jpg?v=sys1" alt="Download-Sektion mit {{ sy[1] }}" loading="lazy">
+    </div>
+  </section>
+  {%- endfor %}
   <section class="s7-band" id="deckblatt">
     <div class="s7-wrap">
-      <p class="s7-kicker">Zur Auswahl · PDF Marketing as a Service</p>
-      <h2 class="s7-h2">Deckblatt.</h2>
-      <p class="s7-lead">D – dunkel wie die Kontaktseite am Ende des PDFs, unten die drei Versprechen. C – Titel auf Weiß, unten das dunkle Band. Nächster Schritt: ein Deckblatt-System, das für alle Themen trägt.</p>
+      <p class="s7-kicker">Bisherige Einzelvarianten</p>
+      <h2 class="s7-h2">D und C.</h2>
       <div class="ig7-reihe ig7-reihe--drei">
         {%- for k in ["d", "c"] %}
-        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}h4" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
+        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v=dc" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
         {%- endfor %}
       </div>
     </div>
