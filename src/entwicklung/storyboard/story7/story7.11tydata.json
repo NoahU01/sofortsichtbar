@@ -1118,58 +1118,40 @@
         "kicker": "Für Vertriebsleiter im Versicherungsvertrieb",
         "h1": "Mehr Umsatz für deine Region.",
         "h1_akzent": "Büro für Büro.",
-        "lead": "Dein Ergebnis hängt davon ab, dass deine Agenturen und Büros neue Kunden gewinnen. Wir geben ihnen fertige digitale Vertriebsstrecken an die Hand – sofort einsetzbar, ohne Projekt.",
+        "lead": "Jedes Büro in deiner Region bekommt seine eigene digitale Maschine für neue Kunden. Wir führen sie ein, begleiten die Umsetzung – und besprechen mit dir jeden Monat, was wirkt.",
         "knopf": "Termin auswählen",
         "knopf2": "So führen wir es ein"
       },
       "problem": {
         "kicker": "Die Ausgangslage",
-        "h2": "Ideen gibt es genug. Was fehlt, ist die Anwendbarkeit.",
+        "h2": "Deine Region wächst, wenn deine Büros wachsen.",
         "absaetze": [
-          "Du bist verantwortlich für den Vertriebserfolg deiner Region. Dein Ergebnis hängt davon ab, dass deine Vertriebseinheiten aktiv sind, neue Gesprächsanlässe schaffen und Neugeschäft gewinnen.",
-          "Was oft fehlt, sind Lösungen, die dein Vertrieb sofort einsetzen kann – ohne interne Projekte und ohne lange Umsetzungsphasen."
-        ],
-        "bild": "pages/vertrieb-2.webp",
-        "bild_alt": "Vertriebsleiter und Agenturinhaberin im Gespräch"
+          "Dein Ergebnis entsteht in vielen einzelnen Agenturen und Büros. Jedes kämpft für sich: wenig Zeit, wenig Erfahrung mit digitaler Neukundengewinnung – und Programme aus der Zentrale kommen als Konzept an, nicht als Werkzeug.",
+          "Was fehlt, ist etwas, das jedes Büro sofort einsetzt. Und für dich die Sicht, welches Büro wo steht."
+        ]
       },
       "loesung": {
         "kicker": "Unsere Lösung",
-        "h2": "Fertig entwickelt.",
-        "h2_akzent": "Sofort nutzbar.",
-        "lead": "Jede Vertriebseinheit bekommt vollständig vorbereitete digitale Vertriebsstrecken für ihre Zielgruppen – Postings, Landingpage und Kundenmailing.",
+        "h2": "Jedes Büro bekommt",
+        "h2_akzent": "seine Maschine.",
+        "lead": "Fertige Vertriebsstrecken für die Zielgruppen jedes Büros – Postings, Landingpage und Kundenmailing. Die Leads landen direkt im jeweiligen Büro.",
         "link": "Alle Vertriebsstrecken ansehen"
       },
       "einfuehrung": {
-        "kicker": "So führen wir es ein",
-        "h2": "Kein Konzept. Direkt im Einsatz.",
-        "lead": "Alles ist fertig vorbereitet. Wir klären letzte Details und starten direkt mit der Umsetzung in deiner Region.",
+        "kicker": "So begleiten wir dich",
+        "h2": "Von der Tagung bis zum Ergebnis.",
         "liste": [
           {
-            "titel": "Einführung mit sofortiger Umsetzung",
-            "punkte": [
-              "Einführung zum Beispiel auf einer Regionaltagung",
-              "Keine Impulse, sondern direkte Anwendung",
-              "Deine Vertriebseinheiten arbeiten sofort mit den Lösungen",
-              "Verbindliche erste Schritte – strukturiert und begleitet"
-            ]
+            "titel": "Einführung",
+            "text": "Wir stellen das System auf deiner Regionaltagung vor. Die Büros starten direkt – ohne Projektphase."
           },
           {
-            "titel": "Fertige Lösungen für jede Einheit",
-            "punkte": [
-              "Zugeschnitten auf die Zielgruppen jeder Einheit",
-              "Keine Projektphase danach",
-              "Keine zusätzliche Vorbereitung",
-              "Sofort einsetzbar im Vertriebsalltag"
-            ]
+            "titel": "Umsetzung in den Büros",
+            "text": "Jedes Büro wählt seine Zielgruppen und bekommt fertige Strecken. Wir begleiten mit Calls und Anwendergruppen, bis es läuft."
           },
           {
-            "titel": "Begleitung, bis es läuft",
-            "punkte": [
-              "Begleitung auch nach der Einführung",
-              "Regelmäßige Calls und Austausch in Anwendergruppen",
-              "Schnelle Klärung von Fragen",
-              "Was gut funktioniert, wird sichtbar und übernommen"
-            ]
+            "titel": "Strategie-Sparring mit dir",
+            "text": "Jeden Monat schauen wir gemeinsam ins Dashboard: welches Büro wo steht, was läuft, was nicht – und was wir anpassen."
           }
         ]
       },
@@ -1178,7 +1160,14 @@
         "quelle": "Daniel Ströbel · Gründer von sofort sichtbar",
         "bild": "pages/daniel-image-bw.webp",
         "bild_alt": "Daniel Ströbel"
+      },
+      "kontakt": {
+        "h2": "Lass uns über deine",
+        "h2_akzent": "Region sprechen.",
+        "t": "In 45 Minuten klären wir, welche Zielgruppen in deinen Büros Umsatz bewegen und wie die Einführung abläuft."
       }
-    }
+    },
+    "ek_region_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 440\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-rquer\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><rect x=\"0\" y=\"145\" width=\"230\" height=\"90\" rx=\"16\" class=\"ek2-kasten\"/><text x=\"24\" y=\"187.0\" class=\"ek2-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Strategie-Sparring</text><text x=\"24\" y=\"211.0\" class=\"ek2-grau\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Du und wir, jeden Monat</text><path d=\"M238 190 H300\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-rquer)\"/><text x=\"320\" y=\"65\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Büro A</text><path d=\"M392 27 H459 C499 27 534 49 564 49 H602 V71 H564 C534 71 499 93 459 93 H392 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M392 34 H459 C499 34 534 51 564 51 H602 V69 H564 C534 69 499 86 459 86 H392 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M392 41 H459 C499 41 534 53 564 53 H602 V67 H564 C534 67 499 79 459 79 H392 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M392 48 H459 C499 48 534 55 564 55 H602 V65 H564 C534 65 499 72 459 72 H392 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M606 60 H640\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"650\" y=\"65\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Leads</text><text x=\"320\" y=\"155\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Büro B</text><path d=\"M392 117 H459 C499 117 534 139 564 139 H602 V161 H564 C534 161 499 183 459 183 H392 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M392 124 H459 C499 124 534 141 564 141 H602 V159 H564 C534 159 499 176 459 176 H392 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M392 131 H459 C499 131 534 143 564 143 H602 V157 H564 C534 157 499 169 459 169 H392 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M392 138 H459 C499 138 534 145 564 145 H602 V155 H564 C534 155 499 162 459 162 H392 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M606 150 H640\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"650\" y=\"155\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Leads</text><text x=\"320\" y=\"245\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Büro C</text><path d=\"M392 207 H459 C499 207 534 229 564 229 H602 V251 H564 C534 251 499 273 459 273 H392 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M392 214 H459 C499 214 534 231 564 231 H602 V249 H564 C534 249 499 266 459 266 H392 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M392 221 H459 C499 221 534 233 564 233 H602 V247 H564 C534 247 499 259 459 259 H392 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M392 228 H459 C499 228 534 235 564 235 H602 V245 H564 C534 245 499 252 459 252 H392 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M606 240 H640\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"650\" y=\"245\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Leads</text><rect x=\"320\" y=\"290\" width=\"286\" height=\"34\" rx=\"17\" class=\"ek2-pille ek2-pille--mehr\"/><text x=\"463\" y=\"312\" class=\"ek2-grau\" font-size=\"14\" font-weight=\"600\" text-anchor=\"middle\">+ weitere Büros</text><path d=\"M700 60 C760 60 760 190 820 190\" class=\"ek2-linie ek2-linie--fein\"/><path d=\"M700 150 C760 150 760 190 820 190\" class=\"ek2-linie ek2-linie--fein\"/><path d=\"M700 240 C760 240 760 190 820 190\" class=\"ek2-linie ek2-linie--fein\"/><path d=\"M820 190 H842\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-rquer)\"/><rect x=\"850\" y=\"135\" width=\"270\" height=\"110\" rx=\"18\" class=\"ek2-ziel\"/><text x=\"876\" y=\"186\" class=\"ek2-ziel-t\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\">Mehr Umsatz</text><text x=\"876\" y=\"212\" class=\"ek2-ziel-t\" font-size=\"16\" font-weight=\"500\" text-anchor=\"start\">in deiner Region</text><path d=\"M985.0 245 V410 H115 V243\" class=\"ek2-linie ek2-linie--fein\" marker-end=\"url(#ek2-pfeil-rquer)\"/><rect x=\"230.0\" y=\"397\" width=\"660\" height=\"26\" class=\"ek2-grund\"/><text x=\"560.0\" y=\"415\" class=\"ek2-t\" font-size=\"14\" font-weight=\"600\" text-anchor=\"middle\">Rückmeldung aus dem Dashboard: welches Büro wo steht, was läuft, was wir anpassen</text></svg>",
+    "ek_region_hoch": "<svg class=\"ek2-svg ek2-svg--hoch\" viewBox=\"0 0 340 568\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-rhoch\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><rect x=\"40\" y=\"0\" width=\"260\" height=\"80\" rx=\"16\" class=\"ek2-kasten\"/><text x=\"170.0\" y=\"37.0\" class=\"ek2-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Strategie-Sparring</text><text x=\"170.0\" y=\"61.0\" class=\"ek2-grau\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Du und wir, jeden Monat</text><path d=\"M170 88 V118\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-rhoch)\"/><text x=\"40\" y=\"155\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Büro A</text><path d=\"M118 117 H166 C206 117 211 139 241 139 H268 V161 H241 C211 161 206 183 166 183 H118 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M118 124 H166 C206 124 211 141 241 141 H268 V159 H241 C211 159 206 176 166 176 H118 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M118 131 H166 C206 131 211 143 241 143 H268 V157 H241 C211 157 206 169 166 169 H118 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M118 138 H166 C206 138 211 145 241 145 H268 V155 H241 C211 155 206 162 166 162 H118 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"40\" y=\"217\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Büro B</text><path d=\"M118 179 H166 C206 179 211 201 241 201 H268 V223 H241 C211 223 206 245 166 245 H118 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M118 186 H166 C206 186 211 203 241 203 H268 V221 H241 C211 221 206 238 166 238 H118 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M118 193 H166 C206 193 211 205 241 205 H268 V219 H241 C211 219 206 231 166 231 H118 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M118 200 H166 C206 200 211 207 241 207 H268 V217 H241 C211 217 206 224 166 224 H118 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"40\" y=\"279\" class=\"ek2-t\" font-size=\"14\" font-weight=\"700\" text-anchor=\"start\">Büro C</text><path d=\"M118 241 H166 C206 241 211 263 241 263 H268 V285 H241 C211 285 206 307 166 307 H118 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M118 248 H166 C206 248 211 265 241 265 H268 V283 H241 C211 283 206 300 166 300 H118 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M118 255 H166 C206 255 211 267 241 267 H268 V281 H241 C211 281 206 293 166 293 H118 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M118 262 H166 C206 262 211 269 241 269 H268 V279 H241 C211 279 206 286 166 286 H118 Z\" class=\"ek2-kern ek2-lage\"/><rect x=\"40\" y=\"314\" width=\"228\" height=\"32\" rx=\"16\" class=\"ek2-pille ek2-pille--mehr\"/><text x=\"154\" y=\"335\" class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">+ weitere Büros</text><path d=\"M170 366 V394\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-rhoch)\"/><rect x=\"40\" y=\"406\" width=\"260\" height=\"84\" rx=\"16\" class=\"ek2-ziel\"/><text x=\"170\" y=\"444\" class=\"ek2-ziel-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\">Mehr Umsatz</text><text x=\"170\" y=\"466\" class=\"ek2-ziel-t\" font-size=\"14\" font-weight=\"500\" text-anchor=\"middle\">in deiner Region</text><path d=\"M40 448 H16 V40 H34\" class=\"ek2-linie ek2-linie--fein\" marker-end=\"url(#ek2-pfeil-rhoch)\"/><text x=\"170\" y=\"522\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Jeden Monat Rückmeldung:</text><text x=\"170\" y=\"540\" class=\"ek2-t\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">welches Büro wo steht, was läuft,</text><text x=\"170\" y=\"558\" class=\"ek2-t\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">was wir anpassen</text></svg>"
   }
 }

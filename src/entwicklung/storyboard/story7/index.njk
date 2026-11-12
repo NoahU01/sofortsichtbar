@@ -195,12 +195,13 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 </a></li>
 {%- endmacro -%}
 
-{%- macro kontaktBand() -%}
+{%- macro kontaktBand(K=null) -%}
+{%- set KB = K or S.kontakt %}
   <section class="s7-band s7-band--tinte" id="kontakt">
     <div class="s7-wrap s7-kontakt">
       <div>
-        <h2 class="s7-h2">{{ S.kontakt.h2 }} <span class="s7-wort s7-nowrap">{{ S.kontakt.h2_akzent }}</span></h2>
-        <p class="s7-lead">{{ S.kontakt.t }}</p>
+        <h2 class="s7-h2">{{ KB.h2 }} <span class="s7-wort s7-nowrap">{{ KB.h2_akzent }}</span></h2>
+        <p class="s7-lead">{{ KB.t }}</p>
       </div>
       <div class="s7-kontakt__wege">
         {%- if s.slug %}{#- Unterseiten: Gesichter zum Termin (auf der Startseite steht das Gruppenbild direkt darüber) -#}
@@ -508,20 +509,32 @@ p { margin: 0; }
 
 
 /* ---------- Für Vertriebsleiter (vl7-) ---------- */
-.vl7-problem { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-.s7-stil .vl7-h2 { max-width: 18ch; }
+/* Regionsgrafik: Kasten wie neben der Maschine, Ziel als Farbfläche (das Ergebnis), Pille gestrichelt für weitere Büros */
+.ek2-kasten { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 2; }
+.ek2-pille { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 1.4; }
+.ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
+.ek2-ziel { fill: var(--s7-akzent-fill); }
+.ek2-ziel-t { fill: var(--s7-auf-akzent); }
+.vl7-problem { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.s7-stil .vl7-h2 { max-width: 16ch; }
+.vl7-problem .s7-lead:first-child { margin-top: 2.2rem; }
 .vl7-problem .s7-lead + .s7-lead { margin-top: .9rem; }
-.vl7-problem__bild { margin: 0; border-radius: var(--s7-rund); overflow: hidden; }
-.vl7-problem__bild img { display: block; width: 100%; }
-.vl7-link { margin-top: 1.6rem; }
 .vl7-loesung .vs7-weg { background: var(--s7-flaeche); }
+.vl7-link { margin-top: 1.6rem; }
+.vl7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.vl7-schritte li { padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.vl7-schritte span { color: var(--s7-grau); font-weight: 600; }
+.s7-stil .vl7-schritte h3 { margin-top: .5rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.vl7-schritte p { margin-top: .6rem; text-wrap: pretty; }
+.vl7-schritte--sparring { background: var(--s7-komplett-grund) !important; color: #fff; }
+.s7-stil .vl7-schritte--sparring h3, .vl7-schritte--sparring span { color: #fff; }
 .vl7-zitat { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; max-width: 60rem; }
-.vl7-zitat__bild { margin: 0; border-radius: 50%; background: var(--s7-flaeche); overflow: hidden; aspect-ratio: 1; }
-.vl7-zitat__bild img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; mix-blend-mode: multiply; }
+.vl7-zitat__bild { display: flex; align-items: flex-end; justify-content: center; margin: 0; border-radius: 50%; background: var(--s7-flaeche); overflow: hidden; aspect-ratio: 1; }
+.vl7-zitat__bild img { display: block; width: 84%; height: auto; mix-blend-mode: multiply; } /* Kopf mit Luft zum Kreisrand, Schultern laufen unten aus */
 .vl7-zitat blockquote { margin: 0; }
 .vl7-zitat blockquote p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; text-wrap: balance; }
 .vl7-zitat cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
-@media (max-width: 1000px) { .vl7-problem { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1000px) { .vl7-problem, .vl7-schritte { grid-template-columns: minmax(0, 1fr); } .vl7-problem .s7-lead:first-child { margin-top: 0; } }
 @media (max-width: 600px) { .vl7-zitat { grid-template-columns: minmax(0, 1fr); } .vl7-zitat__bild { width: 9rem; } }
 
 /* ---------- Preise (pr7-) ---------- */
@@ -1009,8 +1022,9 @@ p { margin: 0; }
 </header>
 
 {%- if s.slug == "vertriebsleiter" %}
-{#- Unterseite Für Vertriebsleiter (Story A): Führungskräfte der Versicherer verhelfen den Büros ihrer Region zu mehr Umsatz.
-    Kein Marketing as a Service. Inhalte: s7.vl (aus vertriebsleiter.json), Bausteine: Drei Wege wie auf Vertriebsstrecken. -#}
+{#- Unterseite Für Vertriebsleiter (Story A, überarbeitet 12.11.2026): jedes Büro der Region bekommt seine Maschine,
+    die Summe ist der Umsatz der Region; Einführung, Begleitung und monatliches Strategie-Sparring mit Rückmeldung.
+    Kein Marketing as a Service. Grafik: erklaerbild.py region_quer/region_hoch. Inhalte: s7.vl -#}
 {%- set VL = S.vl %}
 <main>
   <section class="s7-held">
@@ -1022,6 +1036,7 @@ p { margin: 0; }
         <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ VL.held.knopf }} {{ pfeil | safe }}</a>
         <a class="s7-knopf s7-knopf--rand" href="#einfuehrung">{{ VL.held.knopf2 }}</a>
       </div>
+      <figure class="s7-maschine"><div class="ek2" role="img" aria-label="Deine Region: Im Strategie-Sparring legen wir mit dir fest, wie es losgeht. Jedes Büro bekommt seine eigene Maschine, die Leads aller Büros ergeben mehr Umsatz in deiner Region. Jeden Monat Rückmeldung aus dem Dashboard: welches Büro wo steht, was läuft, was wir anpassen.">{{ S.ek_region_quer | safe }}{{ S.ek_region_hoch | safe }}</div></figure>
     </div>
   </section>
 
@@ -1031,9 +1046,8 @@ p { margin: 0; }
       <div>
         <p class="s7-kicker">{{ PB.kicker }}</p>
         <h2 class="s7-h2 vl7-h2">{{ PB.h2 }}</h2>
-        {%- for x in PB.absaetze %}<p class="s7-lead">{{ x }}</p>{% endfor %}
       </div>
-      <figure class="vl7-problem__bild"><img src="/assets/img/{{ PB.bild }}" alt="{{ PB.bild_alt }}" width="800" height="537" loading="lazy"></figure>
+      <div>{% for x in PB.absaetze %}<p class="s7-lead">{{ x }}</p>{% endfor %}</div>
     </div>
   </section>
 
@@ -1061,12 +1075,11 @@ p { margin: 0; }
     <div class="s7-wrap">
       <p class="s7-kicker">{{ EF.kicker }}</p>
       <h2 class="s7-h2">{{ EF.h2 }}</h2>
-      <p class="s7-lead">{{ EF.lead }}</p>
-      <div class="zg7-wer">
+      <ol class="vl7-schritte">
         {%- for x in EF.liste %}
-        <article class="zg7-wer__karte"><h3>{{ x.titel }}</h3><ul>{% for y in x.punkte %}<li>{{ y }}</li>{% endfor %}</ul></article>
+        <li{% if loop.last %} class="vl7-schritte--sparring"{% endif %}><span>0{{ loop.index }}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>
         {%- endfor %}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -1078,7 +1091,7 @@ p { margin: 0; }
     </div>
   </section>
 
-  {{ kontaktBand() }}
+  {{ kontaktBand(VL.kontakt) }}
 </main>
 {%- elif s.slug == "preise" %}
 {#- Unterseite Preise: Pakete (Baustein der Startseite), Vergleich Fokus · Team · Komplett, Ergänzungen mit Preisen.
