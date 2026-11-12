@@ -62,9 +62,9 @@ body {{ margin: 0; }}
   padding: var(--rand) var(--rand) 0; background: #fff; color: #1d1d1f; font: 400 var(--text)/1.5 "Inter"; }}
 """ + r"""
 /* Größen je Format: H1 · H2 · Text · Klein · Rand */
-.a3-quer { --h1: 50pt; --h2: 19pt; --text: 11pt; --klein: 8.5pt; --rand: 18mm; }
-.a3-hoch { --h1: 54pt; --h2: 19pt; --text: 11pt; --klein: 8.5pt; --rand: 18mm; }
-.rollup  { --h1: 64pt; --h2: 24pt; --text: 13.5pt; --klein: 10.5pt; --rand: 22mm; --logo: 11mm; }
+.a3-quer { --h1: 42pt; --h2: 15pt; --text: 9pt; --klein: 7pt; --rand: 20mm; }
+.a3-hoch { --h1: 42pt; --h2: 15pt; --text: 9pt; --klein: 7pt; --rand: 20mm; }
+.rollup  { --h1: 60pt; --h2: 21pt; --text: 12pt; --klein: 9.5pt; --rand: 24mm; --logo: 11mm; }
 .rollup .mini, .rollup .chip { font-size: 10.5pt; }
 p { margin: 0; }
 b { font-weight: 600; }
@@ -85,11 +85,18 @@ svg.vs { display: inline-block; overflow: visible; }
 .logo { display: block; height: var(--logo, 9mm); margin-top: calc(var(--klein) * 0.087); }
 .kopf .lead { margin-top: 5mm; max-width: 150mm; font-size: calc(var(--text) * 1.18); line-height: 1.45; }
 .a3-quer .kopf .lead { max-width: none; }
+.a3-hoch .kopf .lead { max-width: 210mm; }
+.buehne.schnitt svg { width: 86%; margin: 0 auto; }
+.a3-hoch .buehne.schnitt svg { width: 80%; }
+.a3-quer .gg-fragen { display: flex; flex-wrap: wrap; align-content: center; gap: 1.8mm; }
+.a3-hoch .dash .kacheln svg { height: 4mm; }
+.a3-hoch .dash .kacheln > div { padding: 2.4mm 3mm; }
+.a3-quer .band, .a3-hoch .band { padding-top: 10mm; padding-bottom: 11mm; }
 
 /* Bühne mit Grafik der Website */
 .buehne { border-radius: 6mm; background: #f5f5f7; }
 .buehne svg { display: block; width: 100%; height: auto; overflow: visible; }
-.buehne svg.ek2-svg--hoch { display: block !important; width: 128mm; margin: 0 auto; }
+.buehne svg.ek2-svg--hoch { display: block !important; width: 140mm; margin: 0 auto; }
 .ek2-kern-h { fill: url(#s7v-cyanviolett-h); }
 .ek2-l2-h { fill: #d5d5db; } .ek2-l3-h { fill: #e1e1e6; } .ek2-l4-h { fill: #ececf0; }
 
@@ -126,25 +133,25 @@ svg.vs { display: inline-block; overflow: visible; }
 .empf { padding: 1.6mm 2mm; border: 0.3mm solid #d2d2d7; border-radius: 1.8mm; background: #fff; }
 
 /* Gesamtlogik Marketing as a Service (wie Kopf der Website) */
-.gg { padding: 6mm 7mm 5mm; border-radius: 6mm; background: #f5f5f7; }
+.gg { padding: 9mm 10mm 8mm; border-radius: 6mm; background: #f5f5f7; }
 .gg-klammer { padding-bottom: 2.5mm; border-bottom: 0.6mm solid #1d1d1f; font-weight: 600; }
-.gg-spalten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; column-gap: 9mm; margin-top: 5mm; }
+.gg-spalten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; column-gap: 13mm; margin-top: 6mm; }
 .gg-sp { position: relative; display: grid; grid-row: span 3; grid-template-rows: subgrid; }
-.gg-sp:not(:last-child)::after { content: ""; position: absolute; top: 60%; right: -5.6mm; width: 2.4mm; height: 2.4mm; border-top: 0.6mm solid #1d1d1f; border-right: 0.6mm solid #1d1d1f; transform: rotate(45deg); }
+.gg-sp:not(:last-child)::after { content: ""; position: absolute; top: 60%; right: -7.6mm; width: 2.4mm; height: 2.4mm; border-top: 0.6mm solid #1d1d1f; border-right: 0.6mm solid #1d1d1f; transform: rotate(45deg); }
 .gg-titel { display: flex; align-items: center; gap: 2mm; font-family: "Inter Tight"; font-size: var(--h2); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
 .gg-titel span { display: inline-grid; place-items: center; flex: none; width: 1.25em; height: 1.25em; border-radius: 50%; background: #1d1d1f; color: #fff; font-family: "Inter"; font-size: .5em; letter-spacing: 0; }
 .gg-sub { margin-top: 1.2mm; color: #6e6e73; }
-.gg-inhalt { display: grid; align-content: center; gap: 1.5mm; margin-top: 3.5mm; padding: 3.5mm 4mm; border-radius: 4mm; background: #fff; }
+.gg-inhalt { display: grid; align-content: center; gap: 1.5mm; margin-top: 4.5mm; padding: 5mm 5.5mm; border-radius: 4mm; background: #fff; }
 .gg-fragen { justify-items: start; }
 .gg-fragen .chip { white-space: normal; }
-.gg-trichter svg { display: block; width: 100%; height: auto; max-height: 30mm; }
+.gg-trichter svg { display: block; width: 100%; height: auto; max-height: 26mm; }
 .gg-trichter p { margin-top: 1mm; font-size: var(--klein); font-weight: 600; text-align: right; }
-.gg-zurueck { position: relative; height: 7mm; margin: 2.5mm 16.5% 0; border: 0.6mm solid #1d1d1f; border-top: 0; border-radius: 0 0 3.5mm 3.5mm; }
+.gg-zurueck { position: relative; height: 7mm; margin: 4mm 16.5% 0; border: 0.6mm solid #1d1d1f; border-top: 0; border-radius: 0 0 3.5mm 3.5mm; }
 .gg-zurueck::before { content: ""; position: absolute; left: -1.25mm; top: -.4mm; width: 1.9mm; height: 1.9mm; border-left: 0.6mm solid #1d1d1f; border-top: 0.6mm solid #1d1d1f; transform: rotate(45deg); }
 .gg-zurueck span { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 52%); padding: 0 3mm; background: #f5f5f7; font-size: var(--klein); font-weight: 600; white-space: nowrap; }
 
 /* Abschnitte */
-.abschnitt h2 { margin-bottom: 4mm; }
+.abschnitt h2 { margin-bottom: 6mm; }
 .abschnitt .kicker { margin-bottom: 2mm; }
 .wochen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 6mm; }
 .woche .w { font-weight: 600; }
@@ -163,7 +170,8 @@ svg.vs { display: inline-block; overflow: visible; }
 .zitat + .klein { margin-top: 2mm; color: #6e6e73; }
 
 /* Kontaktband (dunkel, bis zur Kante) */
-.band { margin: auto calc(-1 * var(--rand)) 0; padding: 10mm var(--rand) 11mm; background: #1d1d1f; color: #d2d2d7; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12mm; align-items: end; }
+.blatt > :nth-last-child(2) { margin-bottom: 14mm; }
+.band { margin: auto calc(-1 * var(--rand)) 0; padding: 12mm var(--rand) 13mm; background: #1d1d1f; color: #d2d2d7; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12mm; align-items: end; }
 .band h2 { color: #fff; }
 .band .t { margin-top: 2.5mm; color: #a1a1a6; }
 .band .wege { display: grid; gap: 1.2mm; color: #fff; font-weight: 600; }
@@ -172,13 +180,88 @@ svg.vs { display: inline-block; overflow: visible; }
 .band .team span { display: flex; }
 .band .team img { width: 9mm; height: 9mm; border-radius: 50%; object-fit: cover; margin-left: -2mm; border: 0.5mm solid #1d1d1f; filter: grayscale(1); }
 .band .team img:first-child { margin-left: 0; }
+/* Ausführliche Grundstory: 01 Strategie · 02 drei Stufen am Trichter · 03 Steuerung */
+.teil { padding-top: 5mm; border-top: 0.6mm solid #1d1d1f; }
+.teil-kopf { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 6mm; align-items: start; }
+.teil-kopf .nr { font-family: "Inter Tight"; font-weight: 700; font-size: calc(var(--h2) * 2.2); line-height: .85; letter-spacing: -0.03em; }
+.teil-kopf .kicker { margin-bottom: 1.6mm; }
+.teil-kopf .sub { margin-top: 1.2mm; color: #6e6e73; }
+.teil-inhalt { margin-top: 6mm; }
+.a3-hoch .teil-inhalt { margin-top: 4.5mm; }
+.a3-hoch .notiz { margin-top: 3.5mm; }
+.a3-hoch .dash-inhalt { padding: 4mm; }
+.a3-hoch .dash .lbl { margin: 3.5mm 0 1.6mm; }
+.a3-hoch .pfad .chip { padding: .6mm 1.7mm; }
+.a3-hoch .dash .kacheln svg { height: 3.5mm; margin-top: 1.5mm; }
+.a3-hoch .dash .empfs div { padding: 2mm 3mm; }
+.a3-hoch .dash-kopf { padding: 2mm 4mm; }
+.a3-hoch .teil { padding-top: 4mm; }
+.a3-hoch .pfad .chips { gap: 1.3mm; }
+.a3-hoch .stufen-quer { margin-top: 5mm; row-gap: 3mm; }
+.a3-hoch.kurz .band { padding-top: 8mm; padding-bottom: 9mm; }
+.kurz .band .wege { grid-template-columns: auto auto; column-gap: 10mm; align-items: end; }
+.kurz .band .team { grid-row: span 2; flex-direction: column; align-items: flex-start; margin: 0; max-width: 40mm; }
+.stufen .texte { min-height: 0; }
+.stufe.mess { margin-top: auto; padding-top: 1.6mm; }
+.pfad { display: grid; grid-template-columns: auto auto auto auto minmax(0, 1fr); column-gap: 5mm; align-items: start; }
+.pfad .pf { padding-top: 6.5mm; font-size: calc(var(--text) * 1.4); line-height: 1; }
+.pfad .lbl { margin-bottom: 2mm; color: #6e6e73; font-size: calc(var(--klein) * .9); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pfad .chips { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+.pfad .chips.spalte { flex-direction: column; align-items: flex-start; }
+.pfad.senkrecht { grid-template-columns: minmax(0, 1fr); row-gap: 3mm; }
+.pfad.senkrecht .pf { padding: 0 0 0 3mm; }
+.notiz { margin-top: 5mm; color: #6e6e73; font-size: var(--klein); }
+.stufen { display: grid; grid-template-columns: var(--tr, 64mm) minmax(0, 1fr); column-gap: 12mm; }
+.stufen .grafik svg { display: block !important; width: 100%; height: auto; overflow: visible; }
+.stufen .texte { position: relative; }
+.stufen .texte { display: flex; flex-direction: column; gap: 4mm; }
+.stufe.mess { margin-top: auto; }
+.stufe.s2 { margin-top: 5mm; }
+.stufe.s3 { margin-top: auto; }
+.stufe .kicker { margin-bottom: 1.4mm; }
+.stufe h3 { font-size: var(--h2); }
+.stufe p.t { margin-top: 1.4mm; color: #424245; }
+.stufe ul { margin: 3mm 0 0; padding: 0; list-style: none; display: grid; gap: 1.6mm; }
+.stufe li { padding-left: 4mm; position: relative; color: #424245; }
+.stufe li::before { content: ""; position: absolute; left: 0; top: .55em; width: 1.8mm; height: 1.8mm; border-radius: 50%; background: linear-gradient(100deg, #0b9fbd, #8613a1); }
+.stufe li b { color: #1d1d1f; }
+.stufe.mess { padding-top: 1.6mm; border-top: 0.4mm dashed #1d1d1f; }
+.stufe.mess b { font-family: "Inter Tight"; font-size: var(--h2); font-weight: 700; letter-spacing: -0.02em; }
+.dash { border: 0.5mm solid #1d1d1f; border-radius: 5mm; overflow: hidden; }
+.dash-kopf { display: flex; align-items: center; gap: 1.4mm; padding: 2.6mm 5mm; border-bottom: 0.3mm solid #d2d2d7; font-weight: 600; font-size: var(--klein); }
+.dash-kopf i { width: 2mm; height: 2mm; border-radius: 50%; background: #d2d2d7; }
+.dash-kopf span { margin-left: 2mm; }
+.dash-inhalt { padding: 5mm; }
+.dash .kacheln { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3mm; }
+.dash .kacheln > div { padding: 3mm 3.5mm; background: #f5f5f7; border-color: transparent; font-size: var(--text); }
+.dash .kacheln > div.ziel { background: linear-gradient(100deg, #0b9fbd, #8613a1); }
+.rollup .pfad, .a3-hoch .pfad { grid-template-columns: auto auto minmax(0, 1fr); }
+.rollup .pfad .pf2, .a3-hoch .pfad .pf2 { display: none; }
+.rollup .pfad .zg, .a3-hoch .pfad .zg { grid-column: 1 / -1; margin-top: 4mm; }
+.dash .kacheln svg { height: 5mm; margin-top: 2mm; }
+.dash .lbl { margin: 5mm 0 2mm; color: #6e6e73; font-size: calc(var(--klein) * .9); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.dash .empfs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3mm; }
+.dash .empfs div { padding: 2.6mm 3.5mm; border: 0.3mm solid #d2d2d7; border-radius: 2.4mm; font-size: var(--klein); line-height: 1.35; }
+.dash .empfs b { display: block; font-size: var(--text); }
+.a3-quer .dash .kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.a3-quer .dash .empfs { grid-template-columns: minmax(0, 1fr); }
+.stufen-quer { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 9mm; row-gap: 4mm; margin-top: 6mm; }
+.stufen-quer .s1 { grid-row: span 2; }
+.stufen-quer .mess { grid-column: 2 / 4; grid-row: 1; padding-bottom: 3mm; border-bottom: 0.3mm solid #d2d2d7; }
+.stufen-quer .s2 { grid-column: 2; grid-row: 2; }
+.stufen-quer .s3 { grid-column: 3; grid-row: 2; }
+.stufen-quer .stufe.mess, .stufen-quer .stufe.s2, .stufen-quer .stufe.s3 { margin-top: 0; }
+.stufen-quer .stufe.mess { padding-top: 0; border-top: 0; }
+.drei-spalten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.75fr) minmax(0, .95fr); column-gap: 12mm; }
+
 .a3-quer .band { padding-top: 7mm; padding-bottom: 8mm; }
 .a3-quer .band .wege { grid-template-columns: auto auto; column-gap: 10mm; align-items: end; }
 .a3-quer .band .team { grid-row: span 2; flex-direction: column; align-items: flex-start; margin: 0; max-width: 40mm; }
 /* A3 hoch: größere kleine Bilder, mehr Luft */
-.a3-hoch .schritt .bild { padding: 6mm 5mm; min-height: 64mm; }
-.a3-hoch { --text: 11.5pt; }
+.a3-hoch .schritt .bild { padding: 7mm 6mm; min-height: 92mm; }
+
 .a3-hoch .mini, .a3-hoch .chip { font-size: 9.5pt; }
+.a3-hoch .schritt .mini, .a3-hoch .schritt .chip { font-size: 10.5pt; }
 """
 
 
@@ -249,13 +332,81 @@ def wochen(S, senkrecht=False):
     return f'<div class="wochen{" senkrecht" if senkrecht else ""}">{w}</div>'
 
 
+ZG = ["Junge Familien", "Berufseinsteiger", "Private Bauherren", "Ärzte und Zahnärzte", "Immobilienmakler", "Landwirte", "Gründer & Freelancer", "Vereine"]
+
+
+def teil_kopf(nr, kicker, h2, sub):
+    return (f'<div class="teil-kopf"><p class="nr">{nr}</p><div><p class="kicker">{e(kicker)}</p><h2>{e(h2)}</h2>'
+            f'<p class="sub">{e(sub)}</p></div></div>')
+
+
+def pfad(senkrecht=False):
+    seg = '<i class="chip an">Privatkunden</i><i class="chip">Firmenkunden</i>'
+    sp = '<i class="chip an">Leben</i><i class="chip">Kranken</i><i class="chip">Schaden/Unfall</i><i class="chip">Kfz</i>'
+    zg = '<i class="chip ziel">Junge Familien</i>' + "".join(f'<i class="chip">{e(z)}</i>' for z in ZG[1:]) + '<i class="chip mehr">+ weitere</i>'
+    pf = '<p class="pf">↓</p>' if senkrecht else '<p class="pf">›</p>'
+    pf2 = pf.replace('class="pf"', 'class="pf pf2"')
+    return (f'<div class="pfad{" senkrecht" if senkrecht else ""}"><div><p class="lbl">Segment</p><div class="chips">{seg}</div></div>{pf}'
+            f'<div><p class="lbl">Sparte</p><div class="chips">{sp}</div></div>{pf2}'
+            f'<div class="zg"><p class="lbl">Zielgruppe</p><div class="chips">{zg}</div></div></div>')
+
+
+def stufen_teil(S, tr, quer=False):
+    st = (
+        '<div class="stufe s1"><p class="kicker">Stufe 1 · Marketing</p><h3>Interessenten gewinnen.</h3>'
+        '<p class="t">Deine Zielgruppen nehmen dich regelmäßig wahr – daraus entstehen Leads.</p>'
+        '<ul><li><b>Landingpage</b> – je Zielgruppe, gebaut für Leads</li><li><b>Postings</b> – erscheinen automatisch auf deinen Kanälen</li>'
+        '<li><b>Kundenmailing</b> – aktiviert deinen Bestand</li></ul></div>'
+        '<div class="stufe mess"><p class="kicker">Messpunkt</p><b>Leads: echte Anfragen</b></div>'
+        '<div class="stufe s2"><p class="kicker">Stufe 2 · Vertrieb</p><h3>Abschließen.</h3>'
+        '<p class="t">Termin, Beratung, Abschluss – wie du es kennst. Nur mit mehr Gesprächen.</p></div>'
+        '<div class="stufe s3"><p class="kicker">Stufe 3 · Kundenbetreuung</p><h3>Kunden halten.</h3>'
+        '<p class="t">Wer regelmäßig von dir hört, bleibt – und bringt neue Anlässe mit.</p></div>')
+    if quer:  # Trichter quer, darunter die Stufen in Spalten unter dem passenden Teil der Grafik
+        return (f'<div class="buehne" style="padding:5mm 48mm 4mm">{S["ek_quer"]}</div>'
+                f'<div class="stufen-quer">{st}</div>')
+    return f'<div class="stufen" style="--tr:{tr}"><div class="grafik">{S["ek_hoch"]}</div><div class="texte">{st}</div></div>'
+
+
+def dashboard():
+    k = (f'<div class="kacheln"><div>Aufmerksamkeit{AUF}</div><div>Verweildauer{AB}</div><div>Google{AUF}</div>'
+         f'<div class="ziel">Leads{AUF}</div></div>')
+    em = ('<div class="empfs"><div><b>Landingpage</b>Abschnitt umstellen, der kaum gelesen wird</div>'
+          '<div><b>LinkedIn</b>Thema verstärken, das Leads bringt</div><div><b>Google</b>Seite für einen gesuchten Begriff ausbauen</div></div>')
+    return (f'<div class="dash"><p class="dash-kopf"><i></i><i></i><i></i><span>Dashboard</span></p>'
+            f'<div class="dash-inhalt">{k}<p class="lbl">Empfehlungen</p>{em}</div></div>')
+
+
+def detail(S, logo, img6, fmt):
+    H = S["hero"]
+    k1 = teil_kopf("01", "Strategie", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?")
+    k2 = teil_kopf("02", "Marketing und Vertrieb", "Drei Stufen zum Vertriebserfolg.", "Die Maschine arbeitet vor deinem Vertrieb – gemessen wird an Leads.")
+    k3 = teil_kopf("03", "Steuerung", "Funktioniert es?", "Das Dashboard misst Landingpages, Postings und Mailings. Daraus folgt, was als Nächstes wirkt.")
+    notiz1 = '<p class="notiz">Daraus leitet sich alles Weitere ab: Themen, Landingpages, Kanäle.</p>'
+    notiz3 = '<p class="notiz">Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.</p>'
+    if fmt == "a3-quer":
+        kopf_ = kopf_hoch(H["kicker"], e(H["h1"]), H["h1_akzent"], H["lead"], logo, br_akzent=False)
+        body = (f'<div class="drei-spalten" style="margin-top:10mm">'
+                f'<div class="teil">{k1}<div class="teil-inhalt">{pfad(senkrecht=True)}{notiz1}</div></div>'
+                f'<div class="teil">{k2}<div class="teil-inhalt">{stufen_teil(S, "64mm")}</div></div>'
+                f'<div class="teil">{k3}<div class="teil-inhalt">{dashboard()}{notiz3}</div></div></div>')
+    else:
+        tr = "36mm" if fmt == "a3-hoch" else "66mm"
+        gap = "5mm" if fmt == "a3-hoch" else "10mm"
+        kopf_ = kopf_hoch(H["kicker"], e(H["h1"]) if fmt == "a3-hoch" else "Die digitale<br>Maschine", H["h1_akzent"], H["lead"], logo)
+        body = (f'<div class="teil" style="margin-top:{gap}">{k1}<div class="teil-inhalt">{pfad()}{notiz1}</div></div>'
+                f'<div class="teil" style="margin-top:{gap}">{k2}<div class="teil-inhalt">{stufen_teil(S, tr, quer=(fmt == "a3-hoch"))}</div></div>'
+                f'<div class="teil" style="margin-top:{gap}">{k3}<div class="teil-inhalt">{dashboard()}{notiz3}</div></div>')
+    return kopf_ + body + band(S, img6)
+
+
 def blaetter(S, logo, img6):
     H, M = S["hero"], S["maas"]
     out = {}
     # ---------- Grundstory: die Maschine ----------
     out[("maschine", "a3-quer")] = (
         kopf_hoch(H["kicker"], e(H["h1"]), H["h1_akzent"], H["lead"], logo, br_akzent=False)
-        + f'<div class="buehne" style="margin-top:8mm;padding:8mm 26mm 7mm">{S["ek_quer"]}</div>'
+        + f'<div class="buehne" style="margin-top:9mm;padding:9mm 16mm 8mm">{S["ek_quer"]}</div>'
         + f'<div style="margin-top:8mm">{schritte(S, mit_bild=False)}</div>'
         + band(S, img6))
     out[("maschine", "a3-hoch")] = (
@@ -274,23 +425,25 @@ def blaetter(S, logo, img6):
     out[("maas", "a3-quer")] = (
         kopf_hoch(MH["kicker"], e(MH["h1"]), MH["h1_akzent"], MH["lead"], logo, br_akzent=False)
         + f'<div style="margin-top:7mm">{gesamtlogik(S)}</div>'
-        + '<div style="display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);column-gap:12mm;margin-top:8mm">'
-        + f'<div class="abschnitt"><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne" style="padding:4mm 5mm">{S["ek_schnitt_quer"]}</div></div>'
+        + '<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14mm;margin-top:9mm">'
+        + f'<div class="abschnitt"><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne schnitt" style="padding:5mm 6mm">{S["ek_schnitt_quer"]}</div></div>'
         + f'<div class="abschnitt"><h2>{e(M["start"]["h2"])}</h2>{wochen(S, senkrecht=True)}</div></div>'
         + band(S, img6))
     out[("maas", "a3-hoch")] = (
         kopf_hoch(MH["kicker"], e(MH["h1"]), MH["h1_akzent"], MH["lead"], logo)
         + f'<div style="margin-top:8mm">{gesamtlogik(S)}</div>'
-        + f'<div class="abschnitt" style="margin-top:8mm"><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne" style="padding:4mm 6mm">{S["ek_schnitt_quer"]}</div></div>'
+        + f'<div class="abschnitt" style="margin-top:8mm"><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne schnitt" style="padding:6mm 6mm">{S["ek_schnitt_quer"]}</div></div>'
         + f'<div class="abschnitt" style="margin-top:8mm"><h2>{e(M["start"]["h2"])}</h2>{wochen(S)}</div>'
         + band(S, img6))
     out[("maas", "rollup")] = (
         kopf_hoch(MH["kicker"], "Wir bedienen<br>die Maschine.", MH["h1_akzent"], MH["lead"], logo)
         + f'<div style="margin-top:15mm">{gesamtlogik(S)}</div>'
-        + f'<div class="abschnitt" style="margin-top:15mm"><p class="kicker">Was in der Maschine steckt</p><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne" style="padding:9mm 8mm">{S["ek_schnitt_quer"]}</div></div>'
+        + f'<div class="abschnitt" style="margin-top:15mm"><p class="kicker">Was in der Maschine steckt</p><h2>Ein Kernpaket. Drei Ergänzungen.</h2><div class="buehne schnitt" style="padding:9mm 8mm">{S["ek_schnitt_quer"]}</div></div>'
         + f'<div class="abschnitt" style="margin-top:15mm"><p class="kicker">{e(M["start"]["kicker"])}</p><h2>{e(M["start"]["h2"])}</h2>{wochen(S)}</div>'
         + f'<div style="margin-top:15mm">{beleg}</div>'
         + band(S, img6))
+    for fmt in FORMATE:
+        out[("maschine-ausfuehrlich", fmt)] = detail(S, logo, img6, fmt)
     return out
 
 
@@ -305,7 +458,7 @@ def main():
         h = os.path.join(tmp, name + ".html")
         open(h, "w", encoding="utf-8").write(
             f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{css(fmt)}</style></head><body>{SVG_CSS}{VERLAUF_H}'
-            f'<div class="blatt {fmt}">{inhalt}</div>{VERLAUF_JS}</body></html>')
+            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
         pdf = os.path.join(ZIEL, name + ".pdf")
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
                         "--virtual-time-budget=6000", f"--print-to-pdf={pdf}", "file://" + h], check=True, capture_output=True)
