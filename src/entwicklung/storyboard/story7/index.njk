@@ -203,6 +203,9 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
         <p class="s7-lead">{{ S.kontakt.t }}</p>
       </div>
       <div class="s7-kontakt__wege">
+        {%- if s.slug %}{#- Unterseiten: Gesichter zum Termin (auf der Startseite steht das Gruppenbild direkt darüber) -#}
+        <p class="s7-kontakt__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480" loading="lazy">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
+        {%- endif %}
         <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
         <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
         <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
@@ -494,6 +497,10 @@ p { margin: 0; }
 .s7-kontakt .s7-lead { max-width: 30rem; color: #cfcfcf; text-wrap: balance; }
 .s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
 .s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
+.s7-kontakt__team { display: flex; align-items: center; gap: .9rem; max-width: 20rem; margin-bottom: .6rem; color: #cfcfcf; font-size: .9rem; line-height: 1.4; }
+.s7-kontakt__team span { display: flex; flex: none; }
+.s7-kontakt__team img { width: 2.9rem; height: 2.9rem; border: 2px solid var(--s7-tinte); border-radius: 50%; object-fit: cover; }
+.s7-kontakt__team img + img { margin-left: -.8rem; }
 .s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
 .s7-fuss { padding: 2rem 0; background: var(--s7-tinte); color: #888; font-size: .85rem; }
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
