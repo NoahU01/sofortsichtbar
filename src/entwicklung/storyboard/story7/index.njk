@@ -823,6 +823,7 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-reihe--zwei { grid-template-columns: 2.83fr 1.41fr; max-width: 62rem; }
 .ig7-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 62rem; }
 .ig7-reihe--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 62rem; align-items: start; }
+.ig7-reihe--vier { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
 .ig7-blatt { margin: 0; }
 .ig7-blatt img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.10), 0 10px 28px rgba(0,0,0,.08); }
 .ig7-blatt figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.2rem; margin-top: 1rem; font-size: .95rem; }
@@ -831,7 +832,7 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-alt { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
 .ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
 .ig7-alt__links { margin-top: 1.6rem; }
-@media (max-width: 900px) { .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
+@media (max-width: 900px) { .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
 
 /* ---------- Unterseite Mit deinem Team (mt7-) · Weg A ---------- */
 .mt7-aufgaben { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
@@ -1461,10 +1462,10 @@ body.s7-menue-offen { overflow: hidden; }
     <div class="s7-wrap">
       <p class="s7-kicker">Zur Auswahl · PDF Marketing as a Service</p>
       <h2 class="s7-h2">Deckblatt.</h2>
-      <p class="s7-lead">B – Titel oben, unten der Schnitt durch die Maschine: Kernpaket und Ergänzungen als Bild des Angebots, angeschnitten wie ein Titelfoto. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern, ohne Gesichter.</p>
-      <div class="ig7-reihe ig7-reihe--drei">
-        {%- for k in ["b", "c"] %}
-        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}c2" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
+      <p class="s7-lead">D – dunkel wie die Kontaktseite am Ende des PDFs, so rahmen Deckblatt und letzte Seite das Dokument; unten die drei Versprechen. E – auf Weiß, der Trichter aus dem Kopf der Website als Symbol auf der grauen Bühne. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern, ohne Gesichter. B – Titel oben, unten der angeschnittene Schnitt durch die Maschine.</p>
+      <div class="ig7-reihe ig7-reihe--vier">
+        {%- for k in ["d", "e", "c", "b"] %}
+        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}d3" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
         {%- endfor %}
       </div>
     </div>
