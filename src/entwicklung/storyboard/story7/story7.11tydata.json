@@ -753,12 +753,12 @@
         },
         {
           "name": "Vertriebsstrecken",
-          "zusatz": "mit 20 Zielgruppenseiten",
+          "zusatz": "Übersicht · 20 Zielgruppenseiten folgen",
           "frage": "Welche Zielgruppen gibt es, und was läuft je Zielgruppe?",
           "von": "Menü, Startseite (Zielgruppen, Schritt 02), Postings zu einer Zielgruppe",
           "zu": "Zielgruppenseite → Termin",
-          "stand": "alt",
-          "link": "/vertriebsstrecken",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/vertriebsstrecken/",
           "unter": {
             "name": "20 Zielgruppenseiten",
             "frage": "Was bekomme ich für genau diese Zielgruppe?",
@@ -843,6 +843,61 @@
         }
       ],
       "stufe2": "Danach: Über uns als eigene Seite, Ablauf im Detail."
+    },
+    "vs": {
+      "_hinweis": "Zielgruppen, Filter (privat/gewerbe) und Anlässe kommen aus src/_data/vertriebsstrecken.json, Bilder aus zielgruppen.json (Style Elegant). Hier nur Texte der Seite.",
+      "held": {
+        "kicker": "Vertriebsstrecken",
+        "h1": "Jede Zielgruppe.",
+        "h1_akzent": "Eine fertige Strecke.",
+        "lead": "Landingpage, Postings und Kundenmailing – abgestimmt auf eine Zielgruppe und die Anlässe, zu denen sie Beratung braucht.",
+        "knopf": "Termin auswählen",
+        "knopf2": "Zu den Zielgruppen",
+        "bild": "pages/bauherren.webp",
+        "bild_alt": "Vertriebsstrecke Private Bauherren: Posting, Landingpage und Kundenmailing"
+      },
+      "teile": {
+        "kicker": "Was in jeder Strecke steckt",
+        "h2": "Drei Wege zur Zielgruppe.",
+        "h2_akzent": "Ein Ziel: Leads.",
+        "liste": [
+          {
+            "titel": "Postings",
+            "text": "Laufend auf deinen Kanälen. Die Zielgruppe nimmt dich regelmäßig wahr – mit Themen, die sie gerade beschäftigen."
+          },
+          {
+            "titel": "Landingpage",
+            "text": "Eine Seite je Zielgruppe, in deinem Look. Mit Kontaktformular und auf Wunsch deiner Terminbuchung."
+          },
+          {
+            "titel": "Kundenmailing",
+            "text": "Für deinen Bestand. Bringt Kunden mit dem passenden Anlass zurück ins Gespräch."
+          }
+        ]
+      },
+      "liste": {
+        "kicker": "Die Zielgruppen",
+        "h2": "Wähle, wen du gewinnen willst.",
+        "lead": "Jede Strecke ist fertig und startet in Tagen. Wie viele du startest, entscheidest du.",
+        "gruppen": [
+          [
+            "privat",
+            "Privatkunden"
+          ],
+          [
+            "gewerbe",
+            "Firmenkunden"
+          ]
+        ],
+        "anlass": "Anlass"
+      },
+      "kompass": {
+        "text": "Du weißt noch nicht, welche Zielgruppen zu deinen Zielen passen?",
+        "link": "Strategiekompass starten"
+      },
+      "bild_korrektur": {
+        "cyber-firmen": "zielgruppen/cyber-firmen-style-1.webp"
+      }
     }
   }
 }
