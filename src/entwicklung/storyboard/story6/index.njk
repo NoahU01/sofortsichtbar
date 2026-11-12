@@ -33,7 +33,7 @@ seiten:
     titel: "Marketing as a Service 2.0"
     farbe: "ss"
   - slug: "maas-infografik"
-    titel: "Infografik Marketing as a Service"
+    titel: "Infografik sofort sichtbar"
   - slug: "story-varianten"
     titel: "Story-Varianten"
   - slug: "ueber-uns"
@@ -1270,44 +1270,26 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 })();
 </script>
 {% elif s.slug == "maas-infografik" %}
-{#- Interne Entwurfsseite (Entwicklungsmenü, Strategie sofort sichtbar): drei Darstellungsweisen der Infografik
-    Marketing as a Service zum Vergleich. Bilder aus maas_infografik.py (SVG in story6.11tydata.json → maas.infografik),
-    Downloads (PDF im echten DIN-Format, PNG, SVG) unter assets/maas/infografik/. -#}
+{#- Infografik sofort sichtbar (Daniel, 12.11.2026): One-Pager zur Homepage-Logik von Story 7 – A3 hoch, A3 quer, Roll-up.
+    Begonnen wird mit dem Trichter (Grundstory) und Marketing as a Service; „Mit deinem Team“ folgt.
+    Die alten Entwürfe A, A2, B2 und Roll-up 2/2.1 sind entfernt; „Blick in die Maschine“ bleibt als Erinnerung. -#}
 {%- set IG = maas.infografik -%}
 {%- set D = A + "/maas/infografik/" -%}
-{%- macro dl(k, pdf_label) -%}
-<p class="ig-dl"><a href="{{ D }}{{ k }}.pdf" target="_blank" rel="noopener">{{ pdf_label }}</a><a href="{{ D }}{{ k }}.png" download>PNG</a><a href="{{ D }}{{ k }}.svg" download>SVG für PowerPoint</a><a href="{{ D }}{{ k }}.svg" target="_blank" rel="noopener">Groß öffnen und zoomen</a></p>
-{%- endmacro -%}
 <main>
 <div class="e2-alt e2-seite--sofort-sichtbar maas">
   <section class="e2-kopf zp-kopf"><div class="e2-wrap">
-    <h1>Die digitale Maschine. <span class="hl">Auf einen Blick.</span></h1>
-    <p class="zp-kopf__lead">Drei Entwürfe für die Infografik zu Marketing as a Service – zum Vergleichen und Entscheiden. Gleicher Inhalt, drei Darstellungsweisen. Intern, nicht auf der Startseite.</p>
+    <h1>Infografik sofort sichtbar. <span class="hl">One-Pager.</span></h1>
+    <p class="zp-kopf__lead">One-Pager zur Logik der neuen Homepage: die Grundstory mit dem Trichter und Marketing as a Service – als DIN A3 hoch, DIN A3 quer und Roll-up. Die neuen Fassungen entstehen gerade.</p>
   </div></section>
-
-  {%- for e in [
-    ["a", "Entwurf A · Querformat · DIN A3 · zwei Varianten", "Quer erzählt.", "Variante 1: nur der Kern aus Sektion 02 – die Maschine waagerecht mit Trichter aus vier Bausteinen, Vertrieb, Kundenbetreuung und Rückweg, ein Messpunkt (Leads: echte Anfragen) als Linie am Trichterausgang, darunter die drei Stufen. Variante 2: der Aufbau der Roll-ups nebeneinander – 01 Strategie, 02 Marketing und Vertrieb als breiteste Spalte, 03 Steuerung. Für den Tisch, den Bildschirm und Videokonferenzen.", "PDF · A3 quer", [["a", "Variante 1 · drei Stufen zum Vertriebserfolg"], ["a2", "Variante 2 · drei Sektionen"]]],
-    ["b2", "Entwurf B · Hochformat · DIN A3", "Drei Sektionen auf A3.", "Der Aufbau aus Roll-up Version 2 auf A3: 01 Strategie als Auswahlpfad, 02 Marketing und Vertrieb mit Trichter und dem einen Messpunkt (Leads: echte Anfragen) als Linie zum Text, 03 Steuerung mit dem Analytics-Dashboard.", "PDF · A3 hoch"],
-    ["rollup", "Roll-up · 100 × 200 cm · drei Versionen", "Version 2, 2.1 und 3 nebeneinander.", "Version 2 ordnet alles in drei Sektionen: 01 Strategie – wo willst du wachsen? (Segment, Sparte, Zielgruppe), 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg, 03 Steuerung – funktioniert es? mit dem Dashboard. Version 2.1 ist Version 2 in den Farben von sofort sichtbar (Blau und Violett, hell, Inhalt unverändert). Version 3 schaut in die Maschine hinein: das Ökosystem aus Baustein 1 als Hauptpunkt (saubere Profile, gefüllter Content-Kalender, Bestandskunden-Mailings, Landingpages je Zielgruppe, Termine vor- und nachbereiten), LinkedIn als aktiver Vertriebskanal in sechs Schritten, Paid Ads und Website als kurze Zeile.", "PDF · 100 × 200 cm"]
-  ] %}
-  <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="entwurf-{{ e[0] }}">
+  <section class="ig-entwurf ig-entwurf--hell" id="erinnerung">
     <div class="container">
-      <p class="kicker">{{ e[1] }}</p>
-      <h2 class="h-serif">{{ e[2] }}</h2>
-      <p class="mx-lead">{{ e[3] }}</p>
-      {%- if e[0] == "rollup" or e[5] %}
-      <div class="ig-paar{% if e[5] %} ig-paar--zwei{% endif %}">
-        {%- for k in (e[5] or [["rollup2", "Version 2 · drei Sektionen"], ["rollup21", "Version 2.1 · Farben sofort sichtbar"], ["rollup3", "Version 3 · Blick in die Maschine"]]) %}
-        <div><p class="ig-paar__label">{{ k[1] }}</p><div class="ig-bild ig-bild--rollup">{{ IG[k[0]] | safe }}</div>{{ dl(k[0], e[4]) }}</div>
-        {%- endfor %}
-      </div>
-      {%- else %}
-      <div class="ig-bild ig-bild--{{ e[0] }}">{{ IG[e[0]] | safe }}</div>
-      {{ dl(e[0], e[4]) }}
-      {%- endif %}
+      <p class="kicker">Erinnerung · inhaltlich noch nicht passend</p>
+      <h2 class="h-serif">Blick in die Maschine.</h2>
+      <p class="mx-lead">Roll-up Version 3 aus dem alten Stand: das Ökosystem aus dem Kernpaket und LinkedIn als aktiver Vertriebskanal. Bleibt als Gedankenstütze für eine spätere Detailseite.</p>
+      <div class="ig-paar"><div><div class="ig-bild ig-bild--rollup">{{ IG.rollup3 | safe }}</div>
+      <p class="ig-dl"><a href="{{ D }}rollup3.pdf" target="_blank" rel="noopener">PDF · 100 × 200 cm</a><a href="{{ D }}rollup3.png" download>PNG</a></p></div></div>
     </div>
   </section>
-  {%- endfor %}
 </div>
 </main>
 {% elif s.slug == "story-varianten" %}
