@@ -12,6 +12,8 @@ seiten:
     titel: "Stilproben"
   - slug: "farbproben"
     titel: "Farbproben"
+  - slug: "mit-deinem-team"
+    titel: "Mit deinem Team"
   - slug: "marketing-as-a-service"
     titel: "Marketing as a Service"
   - slug: "seitenplan"
@@ -232,7 +234,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
           <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
           <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
           <span></span>
-          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ H7 }}/marketing-as-a-service/{% else %}#kontakt{% endif %}">{{ p.knopf }}</a>
+          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ H7 }}/marketing-as-a-service/{% else %}{{ H7 }}/mit-deinem-team/{% endif %}">{{ p.knopf }}</a>
         </article>
         {%- endfor %}
       </div>
@@ -336,16 +338,16 @@ p { margin: 0; }
 .s7-schalter button[aria-pressed="true"] { border-color: #fff; background: #fff; color: #111; }
 .s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
 .s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
-.s7-marke { display: flex; align-items: center; gap: .35rem; }
+.s7-marke { display: flex; flex: none; align-items: center; gap: .35rem; }
 .s7-marke img { height: 2.4rem; width: auto; }
-.s7-nav { display: flex; gap: 1.8rem; margin-left: auto; }
-.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; }
+.s7-nav { display: flex; gap: clamp(1.1rem, 1.6vw, 1.8rem); margin-left: auto; }
+.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; white-space: nowrap; }
 .s7-nav a:hover { color: var(--s7-tinte); }
 .s7-nav a[aria-current="page"] { color: var(--s7-tinte); font-weight: 600; }
-@media (max-width: 1200px) { .s7-nav { gap: 1.2rem; } .s7-nav a { font-size: .9rem; } }
-.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
+@media (max-width: 1500px) { .s7-nav { gap: 1.15rem; } .s7-nav a { font-size: .9rem; } }
+.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; white-space: nowrap; }
 .s7-kopf--nur-marke .s7-knopf { margin-left: auto; }
-/* Menüknopf und Menüfläche für schmale Bildschirme (unter 1200px): zwei Striche, die zum Kreuz werden; Fläche weiß, große Punkte */
+/* Menüknopf und Menüfläche für schmale Bildschirme (unter 1280px): zwei Striche, die zum Kreuz werden; Fläche weiß, große Punkte */
 .s7-burger { display: none; position: relative; width: 2.6rem; height: 2.6rem; margin-left: .2rem; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
 .s7-burger span { position: absolute; left: .7rem; right: .7rem; height: 2px; border-radius: 2px; background: var(--s7-tinte); transition: transform .25s ease, top .25s ease; }
 .s7-burger span:first-child { top: 1.05rem; }
@@ -361,7 +363,7 @@ p { margin: 0; }
 .s7-menue nav a[aria-current="page"] { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
 .s7-menue .s7-knopf { margin-top: 1.4rem; }
 body.s7-menue-offen { overflow: hidden; }
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .s7-nav { display: none; }
   .s7-burger { display: block; }
   .s7-kopf .s7-kopf__termin { margin-left: auto; }
@@ -814,6 +816,55 @@ body.s7-menue-offen { overflow: hidden; }
   .mk7__zurueck span::before { content: "↻ "; }
 }
 
+/* ---------- Unterseite Mit deinem Team (mt7-) · Weg A ---------- */
+.mt7-aufgaben { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
+.mt7-aufgaben li { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .4rem .6rem; border: 1px solid var(--s7-linie); border-radius: 8px; font-weight: 500; }
+.mt7-aufgaben li:first-child { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.mt7-aufgaben i { display: grid; place-items: center; flex: none; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-size: .62rem; font-weight: 700; }
+.mt7-stufe { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--s7-linie); }
+.mt7-stufe:first-of-type { border-top: 0; padding-top: 0; }
+.mt7-stufe--breit { grid-template-columns: minmax(0, 1fr); }
+.mt7-stufe--breit .mt7-stufe__text { max-width: 40rem; }
+.mt7-stufe .s7-ablauf__nr { margin-top: 0; }
+.s7-stil .mt7-stufe h3 { margin-top: .4rem; font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.15; }
+.mt7-stufe__text > p:not(.s7-ablauf__nr) { margin-top: .8rem; font-size: 1.05rem; line-height: 1.6; text-wrap: pretty; }
+.mt7-stufe__text .s7-link { display: inline-flex; margin-top: 1.1rem; }
+.mt7-stufe__bild { display: grid; align-items: center; min-height: 15rem; padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mt7-stufe__bild .s7-mini { max-width: 26rem; width: 100%; margin: 0 auto; font-size: .95rem; }
+.mt7-teile { margin-top: 0; }
+.mt7-teile .vs7-weg { min-height: 24rem; }
+.mt7-teile .vs7-weg img { width: 150%; margin-top: auto; padding-top: 1.6rem; margin-bottom: -6%; }
+.mt7-teilung { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.mt7-teilung > div { padding: clamp(1.8rem, 3.4vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-flaeche); }
+.mt7-teilung__titel { margin-bottom: .8rem; padding-bottom: .8rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.mt7-teilung > .mt7-teilung__team { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.mt7-teilung__team .mt7-teilung__titel { border-color: color-mix(in srgb, #fff 45%, transparent); color: #fff; }
+.mt7-teilung__team .mx7-haken li { color: #fff; }
+.mt7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.mt7-pakete .s7-paket { grid-row: span 7; }
+.s7-pakete__fuss .s7-link { margin-left: .4rem; }
+/* Dritte Spalte: der Weg B als Weiche – gleicher Aufbau wie die Pakete, ruhige graue Fläche statt Verlauf */
+.s7-paket.mt7-b { border-color: transparent; background: var(--s7-flaeche); box-shadow: none; }
+/* Stufe 1: das Ergebnis des Kompasses als Karte (wie auf der Kompass-Seite) */
+.mt7-stufe__bild--frei { padding: 0; background: none; }
+.mt7-strategie { width: 100%; padding: clamp(1.8rem, 3.4vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-komplett-grund); color: color-mix(in srgb, #fff 85%, transparent); font-size: 1.08rem; line-height: 1.5; }
+.mt7-strategie__kopf { color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 700; letter-spacing: -0.02em; }
+.mt7-strategie__satz { margin-top: .7rem; }
+.mt7-strategie b { color: #fff; font-weight: 600; }
+.mt7-strategie__titel { margin-top: 1.1rem; color: #fff; font-size: .8rem; font-weight: 600; }
+.mt7-strategie ul { margin: .3rem 0 0; padding: 0; list-style: none; }
+.mt7-strategie li { padding: .5rem 0; border-top: 1px solid color-mix(in srgb, #fff 30%, transparent); color: #fff; }
+/* Stufe 3: Leads je Zielgruppe und Empfehlung aus dem Report */
+.mt7-report__balken { display: grid; grid-template-columns: 8.5rem 1fr; align-items: center; gap: .7rem .8rem; }
+.mt7-report__balken i { display: block; height: .7rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
+.mt7-report__balken i.ziel { background: var(--s7-akzent-verlauf); }
+@media (max-width: 1000px) {
+  .mt7-stufe { grid-template-columns: minmax(0, 1fr); }
+  .mt7-teilung, .mt7-pakete { grid-template-columns: minmax(0, 1fr); }
+  .mt7-pakete .s7-paket { grid-row: auto; grid-template-rows: none; margin-bottom: 1.2rem; }
+}
+@media (max-width: 760px) { .mt7-teile .vs7-weg { min-height: 0; } .mt7-teile .vs7-weg img { width: 110%; } }
+
 /* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
 /* Bausteine: links die Basis als Farbfläche (dort landet das Auge), rechts „dazu buchbar“ als ruhige Liste – keine verschachtelten Kästen */
 .mx7-bs { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.2rem; margin-top: 3rem; }
@@ -1037,7 +1088,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -1058,8 +1109,8 @@ body.s7-menue-offen { overflow: hidden; }
     </div>
     {%- if istSeite %}
     {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
-        Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1200px, Knopf mit zwei Strichen) -#}
-    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false], ["vertriebsleiter/", "Für Vertriebsleiter", s.slug == "vertriebsleiter"]] %}
+        Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1280px, Knopf mit zwei Strichen) -#}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Mit deinem Team", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false], ["vertriebsleiter/", "Für Vertriebsleiter", s.slug == "vertriebsleiter"]] %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
     </nav>
@@ -1547,6 +1598,173 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   });
 });
 </script>
+{%- elif s.slug == "mit-deinem-team" %}
+{#- Unterseite Weg A (Daniel, 12.11.2026): das klassische sofort sichtbar, jetzt mit allen drei Stufen –
+    Ziel setzen (Kompass / Strategietool Pro) · Zielgruppenpakete · Dashboard mit Reporting. Der Leiter der Agentur
+    bekommt alles fertig, sein Team setzt selbst um. Gleiches System wie Weg B (Kopf mit Gesamtlogik), andere Rolle. Inhalte: s7.weg_a -#}
+{%- set W = S.weg_a %}{% set KP = W.kopf %}
+{%- set mkompass -%}<div class="s7-mini">
+  <div class="s7-mini__zeile"><span>Segment</span><div><i class="an">Privatkunden</i><i>Firmenkunden</i></div></div>
+  <div class="s7-mini__zeile"><span>Sparte</span><div><i class="an">Leben</i><i>Kranken</i><i>Kfz</i></div></div>
+  <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an ziel">Junge Familien</i><i class="an">Bauherren</i><i class="mehr">+ weitere</i></div></div>
+</div>{%- endset %}
+{%- set mdash -%}<div class="s7-mini">
+  <div class="s7-mini__kacheln"><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,12 24,10 36,9 48,7 60,5"/></svg></div></div>
+  <ul class="mt7-aufgaben">{% for a in KP.aufgaben %}<li><span>{{ a[0] }}</span><i>{{ a[1] }}</i></li>{% endfor %}</ul>
+</div>{%- endset %}
+<main>
+  <section class="s7-held mx7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ W.held.kicker }}</p>
+      <h1>{{ W.held.h1 }} <span class="s7-wort">{{ W.held.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ W.held.lead }}</p>
+      {#- Gleiche Gesamtlogik wie bei Marketing as a Service, hier bedient dein Team die Maschine -#}
+      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.spalten[0].sub }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: {{ KP.spalten[2].sub }} {{ KP.zurueck }}.">
+        <p class="mk7__klammer">{{ KP.klammer }}</p>
+        <div class="mk7__spalten">
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
+            <div class="mk7__inhalt">{{ mkompass | safe }}</div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
+            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
+            <div class="mk7__inhalt">{{ mdash | safe }}</div>
+          </div>
+        </div>
+        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
+      </div>
+      <div class="s7-held__knoepfe mk7__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ W.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#pakete">{{ W.held.knopf2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  {%- set ST = W.stufen %}{% set L = ST.liste %}
+  <section class="s7-band s7-band--flaeche" id="stufen">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ST.kicker }}</p>
+      <h2 class="s7-h2">{{ ST.h2 }} <span class="s7-wort">{{ ST.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ ST.lead }}</p>
+      <div class="mt7-stufe">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[0].nr }} · {{ L[0].label }}</p>
+          <h3>{{ L[0].h }}</h3>
+          <p>{{ L[0].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/strategiekompass/">{{ L[0].link }} {{ pfeil | safe }}</a>
+        </div>
+        {%- set SG = ST.strategie %}
+        <div class="mt7-stufe__bild mt7-stufe__bild--frei" aria-hidden="true"><div class="mt7-strategie">
+          <p class="mt7-strategie__kopf">{{ SG.kopf }}</p>
+          <p class="mt7-strategie__satz">{{ SG.satz | safe }}</p>
+          <p class="mt7-strategie__titel">{{ SG.titel }}</p>
+          <ul>{% for z in SG.liste %}<li>{{ z }}</li>{% endfor %}</ul>
+        </div></div>
+      </div>
+      <div class="mt7-stufe mt7-stufe--breit">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[1].nr }} · {{ L[1].label }}</p>
+          <h3>{{ L[1].h }}</h3>
+          <p>{{ L[1].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ L[1].link }} {{ pfeil | safe }}</a>
+        </div>
+        <div class="vs7-wege mt7-teile">
+          {%- for x in L[1].teile %}
+          <article class="vs7-weg"><h3>{{ x.name }}</h3><p>{{ x.t }}</p><img src="/assets/img/{{ x.bild }}.png" alt="" width="900" height="494" loading="lazy"></article>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="mt7-stufe">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[2].nr }} · {{ L[2].label }}</p>
+          <h3>{{ L[2].h }}</h3>
+          <p>{{ L[2].t }}</p>
+        </div>
+        {%- set RP = ST.report %}
+        <div class="mt7-stufe__bild" aria-hidden="true"><div class="s7-mini mt7-report">
+          <p class="s7-mini__kopf">{{ RP.kopf }}</p>
+          <div class="mt7-report__balken">{% for x in RP.balken %}<span>{{ x[0] }}</span><i{% if loop.first %} class="ziel"{% endif %} style="width:{{ x[1] }}%"></i>{% endfor %}</div>
+          <p class="s7-mini__empf"><b>Empfehlung:</b> {{ RP.empf }}</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  {%- set AU = W.aufteilung %}
+  <section class="s7-band" id="aufteilung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ AU.kicker }}</p>
+      <h2 class="s7-h2">{{ AU.h2 }}</h2>
+      <p class="s7-lead">{{ AU.lead }}</p>
+      <div class="mt7-teilung">
+        <div><p class="mt7-teilung__titel">{{ AU.wir_titel }}</p><ul class="mx7-haken">{% for y in AU.wir %}<li>{{ y }}</li>{% endfor %}</ul></div>
+        <div class="mt7-teilung__team"><p class="mt7-teilung__titel">{{ AU.team_titel }}</p><ul class="mx7-haken">{% for y in AU.team %}<li>{{ y }}</li>{% endfor %}</ul></div>
+      </div>
+    </div>
+  </section>
+
+  {%- set SR = W.start %}
+  <section class="s7-band s7-band--flaeche" id="start">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ SR.kicker }}</p>
+      <h2 class="s7-h2">{{ SR.h2 }}</h2>
+      <p class="s7-lead">{{ SR.lead }}</p>
+      <ol class="mx7-zeit mt7-zeit">
+        {%- for x in SR.liste %}
+        <li class="mx7-zeit__schritt{% if loop.last %} mx7-zeit__schritt--ziel{% endif %}">
+          <p class="mx7-zeit__wann">{{ x.wann }}</p>
+          <span class="mx7-zeit__punkt" aria-hidden="true"></span>
+          <h3>{{ x.titel }}</h3>
+          <p class="mx7-zeit__t">{{ x.text }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set PK = W.pakete %}
+  <section class="s7-band" id="pakete">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ PK.kicker }}</p>
+      <h2 class="s7-h2">{{ PK.h2 }}</h2>
+      <p class="s7-lead">{{ PK.lead }}</p>
+      <div class="mt7-pakete">
+        {%- for p in S.pakete.liste %}{% if p.id != "komplett" %}
+        <article class="s7-paket s7-paket--{{ p.id }}">
+          <h3>{{ p.name }}</h3>
+          <p class="s7-paket__fuer">{{ p.fuer }}</p>
+          <p class="s7-paket__preis">{% if p.preis %}<b>{{ p.preis }}</b><span>{{ p.einheit }}</span>{% else %}<b>Auf Anfrage</b><span>monatlich</span>{% endif %}</p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/kontakt/">{{ p.knopf }}</a>
+        </article>
+        {%- endif %}{% endfor %}
+        {%- for p in S.pakete.liste %}{% if p.id == "komplett" %}
+        <article class="s7-paket mt7-b">
+          <h3>{{ PK.b_name }}</h3>
+          <p class="s7-paket__fuer">{{ PK.b_text }}</p>
+          <p class="s7-paket__preis"><b>{{ p.preis }}</b><span>{{ p.einheit }}</span></p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/marketing-as-a-service/">{{ PK.b_link }}</a>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <p class="s7-pakete__fuss">{{ S.pakete.fuss }} <a class="s7-link" href="{{ H7 }}/preise/">{{ PK.preise_link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
 {%- elif s.slug == "marketing-as-a-service" %}
 {#- Unterseite Weg B · neu gedacht (Daniel, 12.11.2026): beantwortet, was die Startseite offen lässt –
     Was bekomme ich (Trichter herangezoomt, jede Lage mit Preis) · Was kostet es (Basis + dazu buchbar) ·
@@ -1783,7 +2001,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   k.addEventListener("click", function () { setze(m.hidden); });
   m.addEventListener("click", function (e) { if (e.target.closest("a")) setze(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) { setze(false); k.focus(); } });
-  window.addEventListener("resize", function () { if (window.innerWidth > 1200 && !m.hidden) setze(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1280 && !m.hidden) setze(false); });
 })();
 </script>
 <script>
