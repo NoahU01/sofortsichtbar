@@ -1281,7 +1281,7 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
     <h1>Infografik sofort sichtbar. <span class="hl">One-Pager.</span></h1>
     <p class="zp-kopf__lead">One-Pager zur Logik der neuen Homepage: die Grundstory mit dem Trichter und Marketing as a Service – als DIN A3 hoch, DIN A3 quer und Roll-up. Gestaltet im Look von Story 7; „Mit deinem Team“ folgt.</p>
   </div></section>
-  {%- set OP = "/entwicklung/storyboard/story7/assets/onepager/" %}{%- set OPV = "?v=6d13aa1d" %}
+  {%- set OP = "/entwicklung/storyboard/story7/assets/onepager/" %}{%- set OPV = "?v=307f64d2" %}
   {%- for g in [["maschine-ausfuehrlich-druck", "Die Grundstory ausführlich zum Ausdrucken", "Die digitale Maschine vor deinem Vertrieb.", "Wie die ausführliche Fassung, ohne Kontaktband, Gesichter und Kontaktdaten – unten rechts nur die Adresse. Für den Drucker zu Hause, DIN A3 quer und hoch."], ["maschine-ausfuehrlich", "Die Grundstory ausführlich", "Die digitale Maschine vor deinem Vertrieb.", "Die ausführliche Fassung in drei Teilen: 01 Strategie – wo willst du wachsen? (Segment, Sparte, Zielgruppe) · 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg am Trichter mit Messpunkt Leads · 03 Steuerung – funktioniert es? mit Dashboard und Empfehlungen."], ["maschine", "Die Grundstory kompakt", "Die digitale Maschine vor deinem Vertrieb.", "Trichter der Startseite mit Messpunkt Leads, Vertrieb und Kundenbetreuung; darunter die drei Schritte Strategie, Marketing und Vertrieb, Steuerung."], ["maas", "Marketing as a Service", "Wir bedienen die Maschine. Du verkaufst.", "Gesamtlogik wie im Kopf der Website (Wir fragen · Wir setzen um · Wir werten aus), Schnitt durch die Maschine mit Kernpaket und Ergänzungen, der 30-Tage-Plan."]] %}
   <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="op-{{ g[0] }}">
     <div class="container">
@@ -1302,6 +1302,18 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   .op-reihe img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }
   @media (max-width: 900px) { .op-reihe { grid-template-columns: minmax(0, 1fr); } }
   </style>
+  <section class="ig-entwurf ig-entwurf--hell" id="op-detail">
+    <div class="container">
+      <p class="kicker">One-Pager · Detailstufe</p>
+      <h2 class="h-serif">Vom ersten Kontakt zum Kunden.</h2>
+      <p class="mx-lead">Die zweite Seite nach der Grundstory kompakt – hineingezoomt in Marketing und Vertrieb: vier Kanäle (LinkedIn, Instagram und Facebook, Landingpage, Mailings und Newsletter), der Messpunkt Leads, dann Qualifizierung und Terminierung mit den beiden Prüffragen, Beratung, Abschluss und Kundenbetreuung.</p>
+      <div class="op-reihe op-reihe--eins">
+        <div><p class="ig-paar__label">DIN A3 quer</p><a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" alt="One-Pager Detailstufe, DIN A3 quer" loading="lazy"></a>
+        <p class="ig-dl"><a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a href="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" download>PNG</a><a href="{{ OP }}maschine-mit-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF mit Grundstory kompakt (2 Seiten)</a></p></div>
+      </div>
+      <style>.op-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 60rem; }</style>
+    </div>
+  </section>
   <section class="ig-entwurf" id="rollups-gelb-alt">
     <div class="container">
       <p class="kicker">Alter Stand · empiria-Gelb</p>

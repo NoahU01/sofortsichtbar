@@ -25,6 +25,7 @@ import subprocess
 import tempfile
 
 from maas_pdf7 import SVG_CSS, VERLAUF_JS as _VJ
+from ablauf_detail import svg as ablauf_svg
 
 # Verlaufswörter als SVG-Text; beim Roll-up ist das Blatt gezoomt – Maße von getBoundingClientRect durch den Zoom teilen
 VERLAUF_JS = _VJ.replace("const r = s.getBoundingClientRect(),",
@@ -293,7 +294,9 @@ svg.vs { display: inline-block; overflow: visible; }
 .druck { padding-bottom: var(--rand); }
 .druck .verteilt { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 12mm; }
 .druck.a3-quer .verteilt { justify-content: flex-start; }
-.druck.a3-quer .verteilt > .drei-spalten { flex: 1; }
+.druck.a3-quer .verteilt > .ablauf-buehne svg { display: block; width: 100%; height: auto; overflow: visible; }
+.druck.a3-quer .verteilt > .ablauf-buehne { margin-top: 2mm; }
+.drei-spalten { flex: 1; }
 .fuss-url { text-align: right; color: #1d1d1f; font-size: var(--text); font-weight: 600; line-height: 1; }
 .drei-spalten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.75fr) minmax(0, .95fr); column-gap: 12mm; }
 
@@ -496,6 +499,12 @@ def blaetter(S, logo, img6):
         out[("maschine-ausfuehrlich", fmt)] = detail(S, logo, img6, fmt)
     for fmt in ("a3-quer", "a3-hoch"):
         out[("maschine-ausfuehrlich-druck", fmt)] = detail(S, logo, img6, fmt, druck=True)
+    # Detailstufe: zweite Seite nach der Grundstory kompakt
+    out[("maschine-detail", "a3-quer")] = (
+        kopf_hoch("Die digitale Maschine im Detail", "Vom ersten Kontakt", "zum Kunden.",
+                  "Was in Marketing und Vertrieb passiert: über welche Kanäle Leads entstehen und wie dein Vertrieb sie zum Abschluss führt.",
+                  logo, br_akzent=False)
+        + f'<div class="verteilt"><div class="ablauf-buehne">{ablauf_svg()}</div></div><p class="fuss-url">sofortsichtbar.de</p>')
     return out
 
 
@@ -510,12 +519,14 @@ def main():
         h = os.path.join(tmp, name + ".html")
         open(h, "w", encoding="utf-8").write(
             f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{css(fmt)}</style></head><body>{SVG_CSS}{VERLAUF_H}'
-            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}{" druck" if g.endswith("-druck") else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
+            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}{" druck" if g.endswith("-druck") or g == "maschine-detail" else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
         pdf = os.path.join(ZIEL, name + ".pdf")
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
                         "--virtual-time-budget=6000", f"--print-to-pdf={pdf}", "file://" + h], check=True, capture_output=True)
         subprocess.run(["pdftoppm", "-r", "40", "-scale-to", "1600", "-png", "-singlefile", pdf, os.path.join(ZIEL, name)], check=True)
         print(name, subprocess.run(["pdfinfo", pdf], capture_output=True, text=True).stdout.split("Page size:")[1].split("\n")[0].strip())
+    subprocess.run(["pdfunite", os.path.join(ZIEL, "maschine-a3-quer.pdf"), os.path.join(ZIEL, "maschine-detail-a3-quer.pdf"),
+                    os.path.join(ZIEL, "maschine-mit-detail-a3-quer.pdf")], check=True)
     print("HTML:", tmp)
 
 
