@@ -863,13 +863,28 @@
           "erledigt": true
         },
         {
-          "titel": "Mit deinem Team",
-          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen.",
+          "titel": "Kontakt kompakt",
+          "text": "Kalender auf einem Bildschirm, Teamfotos im Kontaktband der Unterseiten.",
+          "erledigt": true
+        },
+        {
+          "titel": "Für Vertriebsleiter",
+          "text": "Story A mit Regionsgrafik, Begleitung und Strategie-Sparring.",
+          "erledigt": true
+        },
+        {
+          "titel": "Kopf Marketing as a Service",
+          "text": "Kopf zu groß – Trichter erst nach Scrollen sichtbar.",
           "erledigt": false
         },
         {
-          "titel": "Häufige Fragen überarbeiten",
-          "text": "Fragen der alten Kontaktseite auf das neue Modell bringen.",
+          "titel": "PDF Marketing as a Service",
+          "text": "Deckblatt, Farben, Grafiken und Tabelle auf den neuen Stand; Pakete und Rollen bleiben.",
+          "erledigt": false
+        },
+        {
+          "titel": "Logik-Durchgang",
+          "text": "Alle Seiten auf Schlüssigkeit prüfen.",
           "erledigt": false
         },
         {
@@ -878,8 +893,13 @@
           "erledigt": false
         },
         {
-          "titel": "PDF angleichen",
-          "text": "Wenn Marketing as a Service steht.",
+          "titel": "Häufige Fragen",
+          "text": "Aus Daniels Entwurf übernehmen (neues Modell).",
+          "erledigt": false
+        },
+        {
+          "titel": "Mit deinem Team und Preise",
+          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen.",
           "erledigt": false
         }
       ],
