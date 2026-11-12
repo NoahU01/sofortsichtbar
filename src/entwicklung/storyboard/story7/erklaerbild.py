@@ -288,12 +288,29 @@ def region_hoch():
     o.append(text(c, yb + 148, "welche Agentur wo steht – und was wir anpassen", "ek2-t", 13, 500, "middle"))
     return svg(W, yb + 158, "".join(o), "ek2-svg--hoch", "rhoch")
 
+def kopf_trichter():
+    """Kleiner Trichter für den Kopf von Marketing as a Service (Spalte „Wir setzen um“): Form wie auf der Startseite, Kern mit Logo."""
+    W, H, c = 360, 250, 125
+    x_flach, x_kurve, x_hals = 100, 270, 330
+    o = []
+    for k in (3, 2, 1, 0):
+        hm, hh = MUND[k], HALS[k]
+        d = (f"M0 {c - hm} H{x_flach} C{x_flach + 90} {c - hm} {x_kurve - 70} {c - hh} {x_kurve} {c - hh} H{x_hals} "
+             f"V{c + hh} H{x_kurve} C{x_kurve - 70} {c + hh} {x_flach + 90} {c + hm} {x_flach} {c + hm} H0 Z")
+        o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
+    o.append(logo(16, c, 130, "ek2kt"))
+    for i in range(3):
+        o.append(f'<circle cx="{x_kurve - 22 + i * 12}" cy="{c}" r="3.5" class="ek2-kern-p"/>')
+    o.append(f'<path d="M{x_hals + 6} {c} H{W - 6}" class="ek2-linie" marker-end="url(#ek2-pfeil-kt)"/>')
+    return svg(W, H, "".join(o), "ek2-svg--kt", "kt")
+
 if __name__ == "__main__":
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["ek_quer"] = quer()
     d["s7"]["ek_hoch"] = hoch()
     d["s7"]["ek_schnitt_quer"] = schnitt_quer()
+    d["s7"]["ek_kopf_trichter"] = kopf_trichter()
     d["s7"]["ek_region_quer"] = region_quer()
     d["s7"]["ek_region_hoch"] = region_hoch()
     d["s7"]["maas"]["schnitt"] = [{"name": z["name"], "marke": z["marke"], "text": " ".join(z["text"]).replace(", Dashboard", ", Dashboard")} for z in SCHNITT]

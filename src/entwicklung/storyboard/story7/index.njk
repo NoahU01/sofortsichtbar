@@ -785,6 +785,35 @@ body.s7-menue-offen { overflow: hidden; }
   .sp7-neben, .sp7-schritte { grid-template-columns: minmax(0, 1fr); }
 }
 
+/* ---------- Kopf Marketing as a Service (mk7-): Gesamtlogik als eine Arbeit – Klammer, drei Spalten, Rücklauf ---------- */
+.mk7 { margin-top: clamp(1.8rem, 3.5vw, 2.6rem); padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.6rem) clamp(1.2rem, 2.4vw, 1.8rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); text-align: left; }
+.mk7__knoepfe { margin-top: 2rem; }
+.mk7__klammer { padding-bottom: .7rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-weight: 600; }
+.mk7__spalten { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; column-gap: clamp(2rem, 4vw, 3.4rem); row-gap: 0; margin-top: 1.4rem; }
+.mk7__spalte { position: relative; display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; } /* Titel, Untertitel und Fläche je Spalte auf gleicher Höhe */
+.mk7__spalte:not(:last-child)::after { content: ""; position: absolute; top: 58%; right: calc(-1 * clamp(2rem, 4vw, 3.4rem) / 2 - .45rem); width: .9rem; height: .9rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: rotate(45deg); }
+.mk7__titel { display: flex; align-items: center; gap: .55rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.mk7__titel span { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-family: var(--s7-schrift-text); font-size: .8rem; letter-spacing: 0; }
+.mk7__sub { margin-top: .3rem; color: var(--s7-grau); font-size: .95rem; line-height: 1.4; }
+.mk7__inhalt { display: grid; align-content: center; flex: 1; min-height: 9rem; margin-top: .9rem; padding: 1rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mk7__fragen { gap: .4rem; justify-items: start; }
+.mk7__fragen i { max-width: 100%; padding: .38rem .8rem; border-radius: 1.2rem !important; text-wrap: balance; border: 1px solid var(--s7-linie); border-radius: 99px; color: var(--s7-tinte); font-size: .92rem; font-style: normal; font-weight: 500; }
+.mk7__trichter .ek2 svg { width: 100%; max-width: 17rem; height: auto; margin: 0 auto; }
+.mk7__trichter p { margin-top: .4rem; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; text-align: right; }
+.mk7__zurueck { position: relative; height: 2.6rem; margin: .6rem calc((100% - 2 * clamp(2rem, 4vw, 3.4rem)) / 6) 0; border: 2px solid var(--s7-tinte); border-top: 0; border-radius: 0 0 14px 14px; }
+.mk7__zurueck::before { content: ""; position: absolute; left: -.42rem; top: -.1rem; width: .7rem; height: .7rem; border-left: 2px solid var(--s7-tinte); border-top: 2px solid var(--s7-tinte); transform: rotate(45deg); }
+.mk7__zurueck span { position: absolute; left: 50%; bottom: 0; padding: 0 1rem; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .95rem; font-weight: 600; white-space: nowrap; transform: translate(-50%, 55%); }
+.ek2-svg--kt { display: block; }
+@media (max-width: 1100px) {
+  .mk7__spalten { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 2rem; }
+  .mk7__spalte { grid-row: auto; grid-template-rows: none; }
+  .mk7__spalte:not(:last-child)::after { top: auto; bottom: -1.45rem; right: auto; left: 50%; transform: translateX(-50%) rotate(135deg); }
+  .mk7__zurueck { height: auto; margin: 1.6rem 0 0; border: 0; text-align: center; }
+  .mk7__zurueck::before { display: none; }
+  .mk7__zurueck span { position: static; display: inline-block; padding: 0; white-space: normal; transform: none; background: none; }
+  .mk7__zurueck span::before { content: "↻ "; }
+}
+
 /* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
 /* Bausteine: links die Basis als Farbfläche (dort landet das Auge), rechts „dazu buchbar“ als ruhige Liste – keine verschachtelten Kästen */
 .mx7-bs { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.2rem; margin-top: 3rem; }
@@ -850,6 +879,7 @@ body.s7-menue-offen { overflow: hidden; }
 .mx7-beleg__link { margin-top: 2rem; }
 /* Grafik: Zielgruppen als Pillen */
 .mx7-held .s7-lead { max-width: 46rem; }
+.s7-held.mx7-held { padding-top: clamp(2.4rem, 4.5vw, 3.6rem); }
 /* Schnitt durch die Maschine: quer als Grafik, unter 820px als Liste */
 .mx7-schnitt { display: none; gap: 2px; max-width: 36rem; margin: 0 auto; }
 .mx7-schnitt__lage { display: grid; gap: .2rem; padding: 1rem 1.1rem; background: var(--s7-lage-1); color: var(--s7-tinte); font-size: .95rem; line-height: 1.45; }
@@ -1529,11 +1559,37 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s7-kicker">{{ M.held.kicker }}</p>
       <h1>{{ M.held.h1 }} <span class="s7-wort">{{ M.held.h1_akzent }}</span></h1>
       <p class="s7-lead">{{ M.held.lead }}</p>
-      <div class="s7-held__knoepfe">
-        <a class="s7-knopf" href="#kontakt">{{ M.held.knopf }} {{ pfeil | safe }}</a>
+      {%- set KP = M.kopf %}
+      {#- Gesamtlogik statt großem Trichter (Daniel, 12.11.2026): eine Klammer über allem, drei Spalten mit echten Inhalten
+          (Fragen · Trichter · Auswertung), Rücklauf in den monatlichen Austausch. Vorbild: Infografik Roll-up 2 / A3 quer 2 -#}
+      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.fragen | join(' ') }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: Dashboard und Empfehlung. {{ KP.zurueck }}.">
+        <p class="mk7__klammer">{{ KP.klammer }}</p>
+        <div class="mk7__spalten">
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
+            <div class="mk7__inhalt mk7__fragen">{% for f in KP.fragen %}<i>„{{ f }}“</i>{% endfor %}</div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
+            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
+            <div class="mk7__inhalt"><div class="s7-mini">
+              <div class="s7-mini__kacheln"><div><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div></div>
+              <p class="s7-mini__empf"><b>Empfehlung:</b> {{ KP.empf }}</p>
+            </div></div>
+          </div>
+        </div>
+        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
+      </div>
+      <div class="s7-held__knoepfe mk7__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ M.held.knopf }} {{ pfeil | safe }}</a>
         <a class="s7-knopf s7-knopf--rand" href="#bausteine">{{ M.held.knopf2 }}</a>
       </div>
-      <figure class="s7-maschine">{{ erklaerbild(true) }}</figure>
     </div>
   </section>
 
