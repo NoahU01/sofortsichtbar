@@ -1279,9 +1279,30 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 <div class="e2-alt e2-seite--sofort-sichtbar maas">
   <section class="e2-kopf zp-kopf"><div class="e2-wrap">
     <h1>Infografik sofort sichtbar. <span class="hl">One-Pager.</span></h1>
-    <p class="zp-kopf__lead">One-Pager zur Logik der neuen Homepage: die Grundstory mit dem Trichter und Marketing as a Service – als DIN A3 hoch, DIN A3 quer und Roll-up. Die neuen Fassungen entstehen gerade.</p>
+    <p class="zp-kopf__lead">One-Pager zur Logik der neuen Homepage: die Grundstory mit dem Trichter und Marketing as a Service – als DIN A3 hoch, DIN A3 quer und Roll-up. Gestaltet im Look von Story 7; „Mit deinem Team“ folgt.</p>
   </div></section>
-  <section class="ig-entwurf ig-entwurf--hell" id="erinnerung">
+  {%- set OP = "/entwicklung/storyboard/story7/assets/onepager/" %}
+  {%- for g in [["maschine", "Die Grundstory", "Die digitale Maschine vor deinem Vertrieb.", "Trichter der Startseite mit Messpunkt Leads, Vertrieb und Kundenbetreuung; darunter die drei Schritte Strategie, Marketing und Vertrieb, Steuerung."], ["maas", "Marketing as a Service", "Wir bedienen die Maschine. Du verkaufst.", "Gesamtlogik wie im Kopf der Website (Wir fragen · Wir setzen um · Wir werten aus), Schnitt durch die Maschine mit Kernpaket und Ergänzungen, der 30-Tage-Plan."]] %}
+  <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="op-{{ g[0] }}">
+    <div class="container">
+      <p class="kicker">One-Pager · {{ g[1] }}</p>
+      <h2 class="h-serif">{{ g[2] }}</h2>
+      <p class="mx-lead">{{ g[3] }} Im Look der Homepage, Grafiken direkt von der Website.</p>
+      <div class="op-reihe">
+        {%- for f in [["a3-quer", "DIN A3 quer"], ["a3-hoch", "DIN A3 hoch"], ["rollup", "Roll-up 100 × 200 cm"]] %}
+        <div class="op-reihe__{{ f[0] }}"><p class="ig-paar__label">{{ f[1] }}</p><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf" target="_blank" rel="noopener"><img src="{{ OP }}{{ g[0] }}-{{ f[0] }}.png" alt="One-Pager {{ g[1] }}, {{ f[1] }}" loading="lazy"></a>
+        <p class="ig-dl"><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf" target="_blank" rel="noopener">PDF</a><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.png" download>PNG</a></p></div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endfor %}
+  <style>
+  .op-reihe { display: grid; grid-template-columns: 2.1fr 1.05fr .74fr; gap: 1.6rem; align-items: start; margin-top: 2rem; }
+  .op-reihe img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }
+  @media (max-width: 900px) { .op-reihe { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+  <section class="ig-entwurf" id="erinnerung">
     <div class="container">
       <p class="kicker">Erinnerung · inhaltlich noch nicht passend</p>
       <h2 class="h-serif">Blick in die Maschine.</h2>
