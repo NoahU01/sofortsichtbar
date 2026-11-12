@@ -1110,7 +1110,7 @@ body.s7-menue-offen { overflow: hidden; }
     {%- if istSeite %}
     {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
         Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1280px, Knopf mit zwei Strichen) -#}
-    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Mit deinem Team", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false], ["vertriebsleiter/", "Für Vertriebsleiter", s.slug == "vertriebsleiter"]] %}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Mit deinem Team", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
     </nav>

@@ -46,10 +46,6 @@
           "href": "/entwicklung/storyboard/story6/marketing-as-a-service/"
         },
         {
-          "label": "Infografik Marketing as a Service",
-          "href": "/entwicklung/storyboard/story6/maas-infografik/"
-        },
-        {
           "typ": "gruppe",
           "label": "Kampagnen"
         },
@@ -62,28 +58,42 @@
           "label": "Storyboard"
         },
         {
-          "label": "Homepage-Story 7 · Die digitale Maschine",
-          "href": "/entwicklung/storyboard/story7/"
+          "label": "Homepage-Story 2.0",
+          "href": "/entwicklung/storyboard/story-2-0/",
+          "children": [
+            {
+              "label": "Homepage-Story 7 · Die digitale Maschine",
+              "href": "/entwicklung/storyboard/story7/"
+            },
+            {
+              "label": "Stilproben",
+              "href": "/entwicklung/storyboard/story7/stilproben/"
+            },
+            {
+              "label": "Farbproben",
+              "href": "/entwicklung/storyboard/story7/farbproben/"
+            },
+            {
+              "label": "Marketing as a Service",
+              "href": "/entwicklung/storyboard/story7/marketing-as-a-service/"
+            },
+            {
+              "label": "Seitenplan",
+              "href": "/entwicklung/storyboard/story7/seitenplan/"
+            },
+            {
+              "label": "Story-Varianten",
+              "href": "/entwicklung/storyboard/story6/story-varianten/"
+            },
+            {
+              "label": "Infografik Marketing as a Service",
+              "href": "/entwicklung/storyboard/story6/maas-infografik/"
+            }
+          ]
         },
         {
-          "label": "Homepage-Story 7 · Stilproben",
-          "href": "/entwicklung/storyboard/story7/stilproben/"
-        },
-        {
-          "label": "Homepage-Story 7 · Farbproben",
-          "href": "/entwicklung/storyboard/story7/farbproben/"
-        },
-        {
-          "label": "Homepage-Story 7 · Marketing as a Service",
-          "href": "/entwicklung/storyboard/story7/marketing-as-a-service/"
-        },
-        {
-          "label": "Homepage-Story 7 · Seitenplan",
-          "href": "/entwicklung/storyboard/story7/seitenplan/"
-        },
-        {
-          "label": "Story-Varianten",
-          "href": "/entwicklung/storyboard/story6/story-varianten/"
+          "label": "Für Vertriebsleiter",
+          "href": "/entwicklung/storyboard/story7/vertriebsleiter/"
         },
         {
           "label": "Homepage-Story-Archiv",

@@ -820,11 +820,11 @@
           "name": "Für Vertriebsleiter",
           "zusatz": "nur Story A · Führungskräfte der Versicherer",
           "frage": "Wie helfe ich den Büros meiner Region zu mehr Umsatz – ohne Projekt?",
-          "von": "Menü, Direktansprache, Regionaltagung",
+          "von": "Direktansprache, Regionaltagung (nicht im Menü; im Entwicklungsmenü unter Storyboard)",
           "zu": "Vertriebsstrecken, Termin",
           "stand": "gebaut",
           "link": "/entwicklung/storyboard/story7/vertriebsleiter/",
-          "offen": "Entscheidung Daniel: bleibt die Seite im Menü?"
+          "offen": "Gehen wir gemeinsam durch – bis dahin nicht im Menü"
         },
         {
           "name": "Über uns",

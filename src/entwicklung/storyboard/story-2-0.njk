@@ -1,0 +1,33 @@
+---
+title: "Homepage-Story 2.0 – Entwicklung"
+permalink: /entwicklung/storyboard/story-2-0/index.html
+devHeadline: "Homepage-Story 2.0"
+devIntro: "Die aktive Homepage-Story mit allen Arbeitsständen: Story 7 „Die digitale Maschine“, Proben, Unterseiten, Seitenplan, Story-Varianten und Infografik."
+eintraege:
+  - label: "Homepage-Story 7 · Die digitale Maschine"
+    href: "/entwicklung/storyboard/story7/"
+  - label: "Stilproben"
+    href: "/entwicklung/storyboard/story7/stilproben/"
+  - label: "Farbproben"
+    href: "/entwicklung/storyboard/story7/farbproben/"
+  - label: "Marketing as a Service"
+    href: "/entwicklung/storyboard/story7/marketing-as-a-service/"
+  - label: "Seitenplan"
+    href: "/entwicklung/storyboard/story7/seitenplan/"
+  - label: "Story-Varianten"
+    href: "/entwicklung/storyboard/story6/story-varianten/"
+  - label: "Infografik Marketing as a Service"
+    href: "/entwicklung/storyboard/story6/maas-infografik/"
+---
+<ul class="archiv-liste">
+  {%- for a in eintraege %}
+  <li><a href="{{ a.href }}">{{ a.label }}</a></li>
+  {%- endfor %}
+</ul>
+<style>
+.archiv-liste { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+.archiv-liste li { border-top: 1px solid rgba(255,255,255,.18); }
+.archiv-liste li:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
+.archiv-liste a { display: block; padding: .9rem 0; color: #fff; font-weight: 600; text-decoration: none; }
+.archiv-liste a:hover { text-decoration: underline; }
+</style>
