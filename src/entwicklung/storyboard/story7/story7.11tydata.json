@@ -772,8 +772,8 @@
           "frage": "Wo will ich wachsen – mit welchen Zielgruppen?",
           "von": "Startseite (zweiter Knopf im Kopf, Schritt 01)",
           "zu": "Termin",
-          "stand": "entwurf",
-          "link": "/entwicklung/storyboard/story6/strategiekompass/"
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/strategiekompass/"
         },
         {
           "name": "Über uns",
@@ -922,6 +922,14 @@
       "fragen_h2": "So nutzt du die Strecke.",
       "weitere": "Weitere Zielgruppen",
       "alle": "Alle Vertriebsstrecken"
+    },
+    "kompass": {
+      "kicker": "Strategiekompass",
+      "h1": "Wo willst du wachsen?",
+      "h1_akzent": "Drei Fragen genügen.",
+      "lead": "Wähle Kundengruppe, Sparten und Schwerpunkt. Der Kompass zeigt dir, mit welchen Zielgruppen du deine Ziele erreichst.",
+      "knopf": "Auswahl im Termin besprechen",
+      "hinweis": "Im Termin prüfen wir deine Auswahl – und welcher Weg zu dir passt."
     }
   }
 }

@@ -81,20 +81,22 @@ function qList(){
       ${op?details(r):''}</div>`}).join('')}</div>
     ${res.length>10?`<p class="more"><button class="textlink" data-all>${S.all?'Nur die besten 10 zeigen':`Alle ${res.length} Zielgruppen zeigen`}</button></p>`:''}`;
 }
+/* Einstellungen der einbindenden Seite (Story 7): ohne eigenen Kopf, ohne Preis, eigenes Ziel. Story 6 nutzt die Vorgaben. */
+const CFG = Object.assign({ kopf: true, preis: true, ziel: '/entwicklung/storyboard/story6/kontakt/', knopf: 'Weiter mit sofort sichtbar', hinweis: '' }, window.KOMPASS_CFG || {});
 function summary(){
   const p=pkg(), s=sel();
   return `<div class="summary"><h3>Deine Strategie</h3><p class="satz">${satz()}</p>
     <div class="lbl">Ausgewählte Zielgruppen</div>
     ${s.length?`<ul>${s.map(id=>`<li>${esc(ZG[id].name)}<small>${ZG[id].status==='Vertriebsstrecke'?'':'auf Anfrage'}</small></li>`).join('')}</ul>`:'<p style="color:var(--ink-2);font-size:14px;margin:0">Noch keine Zielgruppe ausgewählt.</p>'}
-    <div class="price"><span>${p?`Paket ${p[0]} · ${p[1]}`:'Kein Paket'}</span>${p?`<b>ab ${p[2]} € <small>/ Monat</small></b>`:''}</div>
-    <button class="btn" data-go ${p?'':'disabled'}>Weiter mit sofort sichtbar</button>
-    <p class="fine">Bei jährlicher Zahlung · Mindestlaufzeit 3 Monate je Strecke</p></div>`;
+    ${CFG.preis?`<div class="price"><span>${p?`Paket ${p[0]} · ${p[1]}`:'Kein Paket'}</span>${p?`<b>ab ${p[2]} € <small>/ Monat</small></b>`:''}</div>`:'<div class="price-leer"></div>'}
+    <button class="btn" data-go ${p?'':'disabled'}>${CFG.knopf}</button>
+    <p class="fine">${CFG.preis?'Bei jährlicher Zahlung · Mindestlaufzeit 3 Monate je Strecke':CFG.hinweis}</p></div>`;
 }
 
 /* ---------- G: Konfigurator (apple.com „Kaufen“) ---------- */
 function vG(){
   return `<div class="g"><div>
-    <div class="hero"><div class="eyebrow">Strategiekompass</div><h1>Finde die Zielgruppen, die dein Büro <span class="hl">wachsen lassen.</span></h1></div>
+    ${CFG.kopf?'<div class="hero"><div class="eyebrow">Strategiekompass</div><h1>Finde die Zielgruppen, die dein Büro <span class="hl">wachsen lassen.</span></h1></div>':''}
     <section class="q"><h2>Wen willst du erreichen?</h2><p class="sub">Wähle eine Option.</p>${qSeg()}</section>
     <section class="q"><h2>Wo willst du wachsen?</h2><p class="sub">Wähle eine oder mehrere Sparten.</p>${qSp()}</section>
     <section class="q"><h2>Worauf legst du den Schwerpunkt?</h2><p class="sub">Gleiche Zielgruppen, anderer Blick.</p>${qLens()}</section>
@@ -117,7 +119,7 @@ $('#app').addEventListener('click',e=>{
   else if(d.pick){toggle(d.pick);}
   else if(d.open){S.open=S.open===d.open?null:d.open;}
   else if(d.all!==undefined){S.all=!S.all;}
-  else if(d.go!==undefined){location.href='/entwicklung/storyboard/story6/kontakt/';return;}
+  else if(d.go!==undefined){location.href=CFG.ziel;return;}
   render();
 });
 $('#app').addEventListener('change',e=>{if(e.target.dataset.scen!==undefined){S.scen[+e.target.dataset.scen]=+e.target.value;render();}});
