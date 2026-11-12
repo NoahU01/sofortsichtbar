@@ -294,7 +294,7 @@ svg.vs { display: inline-block; overflow: visible; }
 .druck .verteilt { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 12mm; }
 .druck.a3-quer .verteilt { justify-content: flex-start; }
 .druck.a3-quer .verteilt > .drei-spalten { flex: 1; }
-.fuss-url { padding-top: 3.5mm; border-top: 0.3mm solid #d2d2d7; text-align: right; color: #1d1d1f; font-size: var(--text); font-weight: 600; line-height: 1; }
+.fuss-url { text-align: right; color: #1d1d1f; font-size: var(--text); font-weight: 600; line-height: 1; }
 .drei-spalten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.75fr) minmax(0, .95fr); column-gap: 12mm; }
 
 .a3-quer .band { padding-top: 7mm; padding-bottom: 8mm; }
