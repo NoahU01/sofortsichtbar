@@ -710,6 +710,139 @@
         }
       ]
     },
-    "ek_schnitt_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 386\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-schnitt\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><path d=\"M0 0 H640 C760 0 750 250 860 250 H900 V314 H860 C750 314 760 384 640 384 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 64 H640 C760 64 750 256 860 256 H900 V308 H860 C750 308 760 360 640 360 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 128 H640 C760 128 750 262 860 262 H900 V302 H860 C750 302 760 336 640 336 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 192 H640 C760 192 750 268 860 268 H900 V296 H860 C750 296 760 312 640 312 H0 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"28\" y=\"226\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\">Kernpaket<tspan class=\"ek2-kern-t\" font-size=\"13\" font-weight=\"600\" dx=\"12\">Die Basis</tspan></text><text x=\"28\" y=\"251\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Fünf Landingpages, laufende Postings je Zielgruppe,</text><text x=\"28\" y=\"272\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Dashboard, monatlicher Report und Betreuungscall</text><text x=\"28\" y=\"155\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">LinkedIn Power Package<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"178\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal</text><text x=\"28\" y=\"91\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Paid Ads<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"114\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert</text><text x=\"28\" y=\"27\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Website-Entwicklung<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"50\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Deine Versicherungsagentur sauber positioniert</text><circle cx=\"820\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"836\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"852\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><path d=\"M906.0 250 V216\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"906.0\" y=\"208\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\">Messpunkt: Leads</text><path d=\"M912 250 H1104 Q1120 250 1120 266 V298 Q1120 314 1104 314 H912 Z\" class=\"ek2-band\"/><text x=\"934\" y=\"279\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"start\">Dein Vertrieb</text><text x=\"934\" y=\"300\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">macht daraus Kunden</text></svg>"
+    "ek_schnitt_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 386\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-schnitt\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><path d=\"M0 0 H640 C760 0 750 250 860 250 H900 V314 H860 C750 314 760 384 640 384 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 64 H640 C760 64 750 256 860 256 H900 V308 H860 C750 308 760 360 640 360 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 128 H640 C760 128 750 262 860 262 H900 V302 H860 C750 302 760 336 640 336 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 192 H640 C760 192 750 268 860 268 H900 V296 H860 C750 296 760 312 640 312 H0 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"28\" y=\"226\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\">Kernpaket<tspan class=\"ek2-kern-t\" font-size=\"13\" font-weight=\"600\" dx=\"12\">Die Basis</tspan></text><text x=\"28\" y=\"251\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Fünf Landingpages, laufende Postings je Zielgruppe,</text><text x=\"28\" y=\"272\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Dashboard, monatlicher Report und Betreuungscall</text><text x=\"28\" y=\"155\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">LinkedIn Power Package<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"178\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal</text><text x=\"28\" y=\"91\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Paid Ads<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"114\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert</text><text x=\"28\" y=\"27\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Website-Entwicklung<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"50\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Deine Versicherungsagentur sauber positioniert</text><circle cx=\"820\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"836\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"852\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><path d=\"M906.0 250 V216\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"906.0\" y=\"208\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\">Messpunkt: Leads</text><path d=\"M912 250 H1104 Q1120 250 1120 266 V298 Q1120 314 1104 314 H912 Z\" class=\"ek2-band\"/><text x=\"934\" y=\"279\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"start\">Dein Vertrieb</text><text x=\"934\" y=\"300\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">macht daraus Kunden</text></svg>",
+    "seitenplan": {
+      "_stand": "12.11.2026 – Vorschlag Claude nach Gespräch mit Daniel",
+      "kicker": "Seitenplan",
+      "h1": "Alle Seiten auf einen Blick.",
+      "lead": "Welche Seiten es gibt, welche Frage jede beantwortet, woher Besucher kommen und wohin sie weitergehen. Grundlage für die Reihenfolge, in der wir bauen.",
+      "staende": {
+        "gebaut": "neu gebaut",
+        "alt": "live im alten Look",
+        "entwurf": "Entwurf in Story 6",
+        "fehlt": "fehlt",
+        "stufe2": "Stufe 2"
+      },
+      "start": {
+        "name": "Startseite",
+        "frage": "Was ist sofort sichtbar, und was habe ich davon?",
+        "von": "Google, Empfehlung, LinkedIn-Profile",
+        "zu": "Pakete → Weg A oder B, Termin",
+        "stand": "gebaut",
+        "link": "/entwicklung/storyboard/story7/"
+      },
+      "ebene": [
+        {
+          "name": "Marketing as a Service",
+          "zusatz": "Weg B",
+          "frage": "Was bekomme ich, wenn ihr es übernehmt – und was kostet es?",
+          "von": "Startseite (Paket Komplett), Postings, Anzeigen",
+          "zu": "Termin, PDF",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/marketing-as-a-service/"
+        },
+        {
+          "name": "Mit deinem Team",
+          "zusatz": "Weg A · Fokus und Team",
+          "frage": "Wie setze ich es mit meinem Team selbst um?",
+          "von": "Startseite (Pakete Fokus und Team)",
+          "zu": "Termin",
+          "stand": "fehlt",
+          "link": "",
+          "offen": "Braucht von Daniel: Unterschied Fokus/Team, Preise"
+        },
+        {
+          "name": "Vertriebsstrecken",
+          "zusatz": "mit 20 Zielgruppenseiten",
+          "frage": "Welche Zielgruppen gibt es, und was läuft je Zielgruppe?",
+          "von": "Menü, Startseite (Zielgruppen, Schritt 02), Postings zu einer Zielgruppe",
+          "zu": "Zielgruppenseite → Termin",
+          "stand": "alt",
+          "link": "/vertriebsstrecken",
+          "unter": {
+            "name": "20 Zielgruppenseiten",
+            "frage": "Was bekomme ich für genau diese Zielgruppe?",
+            "link": "/zielgruppen/bauherren/",
+            "hinweis": "eine gemeinsame Vorlage – ein Umbau bringt alle 20 in den neuen Look"
+          }
+        },
+        {
+          "name": "Strategiekompass",
+          "zusatz": "",
+          "frage": "Wo will ich wachsen – mit welchen Zielgruppen?",
+          "von": "Startseite (zweiter Knopf im Kopf, Schritt 01)",
+          "zu": "Termin",
+          "stand": "entwurf",
+          "link": "/entwicklung/storyboard/story6/strategiekompass/"
+        },
+        {
+          "name": "Über uns",
+          "zusatz": "bis dahin Abschnitt auf der Startseite",
+          "frage": "Wer steckt dahinter, und warum kann ich euch vertrauen?",
+          "von": "Menü, LinkedIn-Profile, Empfehlung",
+          "zu": "Termin",
+          "stand": "stufe2",
+          "link": "/entwicklung/storyboard/story7/#ueber-uns"
+        },
+        {
+          "name": "Ablauf im Detail",
+          "zusatz": "Strategie · Maschine · Steuerung",
+          "frage": "Wie greift alles ineinander – vom Ziel bis zur Auswertung?",
+          "von": "Startseite (Link unter der Grafik), Workshop",
+          "zu": "PDF, Termin",
+          "stand": "stufe2",
+          "link": "/entwicklung/storyboard/story6/maas-infografik/"
+        }
+      ],
+      "immer": {
+        "name": "Kontakt und Termin",
+        "frage": "Wie komme ich ins Gespräch?",
+        "von": "jede Seite",
+        "stand": "alt",
+        "link": "/kontakt"
+      },
+      "entfallen": [
+        {
+          "name": "Pricing",
+          "link": "/pricing",
+          "ersatz": "Pakete auf der Startseite"
+        },
+        {
+          "name": "Für Vertriebsleiter",
+          "link": "/vetriebsleiter",
+          "ersatz": "Marketing as a Service"
+        }
+      ],
+      "dokumente": [
+        {
+          "name": "PDF Marketing as a Service",
+          "stand": "alt",
+          "hinweis": "zieht seine Inhalte aus der Seite – erst angleichen, wenn sie steht"
+        }
+      ],
+      "reihenfolge": [
+        {
+          "titel": "Seitenplan festlegen",
+          "text": "Diese Seite gemeinsam prüfen: fehlt eine Seite, ist eine zu viel?"
+        },
+        {
+          "titel": "Vertriebsstrecken und Zielgruppenseiten",
+          "text": "Eine Vorlage, 20 Seiten im neuen Look – das meistverlinkte Ziel aus Postings."
+        },
+        {
+          "titel": "Mit deinem Team",
+          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen."
+        },
+        {
+          "titel": "Strategiekompass",
+          "text": "Aus dem Entwurf in Story 6 in den neuen Look."
+        },
+        {
+          "titel": "PDF angleichen",
+          "text": "Wenn Marketing as a Service steht."
+        }
+      ],
+      "stufe2": "Danach: Über uns als eigene Seite, Ablauf im Detail."
+    }
   }
 }

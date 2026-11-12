@@ -14,6 +14,8 @@ seiten:
     titel: "Farbproben"
   - slug: "marketing-as-a-service"
     titel: "Marketing as a Service"
+  - slug: "seitenplan"
+    titel: "Seitenplan"
 permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
 ---
 {#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
@@ -25,7 +27,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- set S = s7 -%}
 {%- set H7 = "/entwicklung/storyboard/story7" -%}
 {#- Echte Seiten (Startseite und Unterseiten) tragen Stil, Farbschalter und Hauptmenü; Stil- und Farbproben nicht -#}
-{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" -%}
+{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" -%}
 {%- set B6 = "/entwicklung/storyboard/story6" -%}
 {%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
@@ -405,6 +407,62 @@ p { margin: 0; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
 
+/* ---------- Seitenplan (sp7-) ---------- */
+.s7-stil .sp7-h1 { font-size: var(--s7-h2); line-height: var(--s7-h2-hoehe); }
+.sp7-legende { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+.sp7-stand { justify-self: start; display: inline-block; padding: .15rem .65rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .8rem; font-weight: 600; }
+.sp7-stand--gebaut, .sp7-karte--gebaut .sp7-stand { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.sp7-stand--fehlt, .sp7-karte--fehlt .sp7-stand { border-style: dashed; }
+.sp7-stand--stufe2, .sp7-karte--stufe2 .sp7-stand { border-color: var(--s7-grau); color: var(--s7-grau); }
+.sp7-baum { margin-top: 3rem; }
+.sp7-wurzel { position: relative; display: flex; justify-content: center; padding-bottom: 2.4rem; }
+.sp7-wurzel .sp7-karte { width: min(100%, 26rem); }
+.sp7-wurzel::after { content: ""; position: absolute; left: 50%; bottom: 0; height: 2.4rem; border-left: 2px solid var(--s7-tinte); }
+.sp7-ebene { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; padding-top: 2rem; }
+.sp7-ast { position: relative; display: grid; align-content: start; gap: .8rem; }
+.sp7-ast::before { content: ""; position: absolute; left: 50%; top: -2rem; height: 2rem; border-left: 2px solid var(--s7-tinte); }
+.sp7-ast::after { content: ""; position: absolute; left: -.5rem; right: -.5rem; top: -2rem; border-top: 2px solid var(--s7-tinte); }
+.sp7-ast:first-child::after { left: 50%; }
+.sp7-ast:last-child::after { right: 50%; }
+.sp7-karte { display: grid; align-content: start; gap: .5rem; padding: 1.2rem 1.1rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: var(--s7-karte); font-size: .92rem; line-height: 1.45; }
+.sp7-karte--fehlt { border-style: dashed; border-color: var(--s7-grau); }
+.sp7-karte--stufe2 { background: var(--s7-flaeche); }
+.s7-stil .sp7-karte h3 { font-size: 1.2rem; line-height: 1.2; }
+.sp7-karte h3 a, .sp7-unter h4 a { text-decoration: none; }
+.sp7-karte h3 a:hover, .sp7-unter h4 a:hover { text-decoration: underline; }
+.sp7-zusatz { color: var(--s7-grau); font-size: .85rem; }
+.sp7-frage { color: var(--s7-tinte); font-weight: 500; }
+.sp7-karte dl { display: grid; gap: .1rem; margin: .2rem 0 0; }
+.sp7-karte dt { color: var(--s7-grau); font-size: .78rem; font-weight: 600; }
+.sp7-karte dd { margin: 0 0 .35rem; }
+.sp7-offen { padding: .5rem .6rem; border-radius: 8px; background: var(--s7-flaeche); font-size: .85rem; }
+.sp7-unter { display: grid; gap: .35rem; margin-left: 1rem; padding: .9rem 1rem; border-left: 2px solid var(--s7-tinte); background: var(--s7-flaeche); border-radius: 0 12px 12px 0; font-size: .88rem; line-height: 1.45; }
+.sp7-unter h4 { margin: 0; color: var(--s7-tinte); font-size: 1rem; }
+.sp7-immer { display: flex; justify-content: center; margin-top: 2.4rem; }
+.sp7-immer .sp7-karte { width: min(100%, 26rem); }
+.sp7-neben { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 3.4rem; }
+.s7-stil .sp7-h2 { font-size: 1.4rem; }
+.sp7-liste { margin: .8rem 0 0; padding: 0; list-style: none; }
+.sp7-liste li { display: grid; gap: .1rem; padding: .7rem 0; border-top: 1px solid var(--s7-linie); }
+.sp7-liste a, .sp7-liste b { color: var(--s7-tinte); font-weight: 600; }
+.sp7-liste span { color: var(--s7-grau); font-size: .92rem; }
+.sp7-schritte { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.6rem; margin: 2.6rem 0 0; padding: 0; list-style: none; }
+.sp7-schritte li { padding-top: 1rem; border-top: 2px solid var(--s7-tinte); }
+.sp7-schritte span { color: var(--s7-grau); font-weight: 600; }
+.s7-stil .sp7-schritte h3 { margin-top: .3rem; font-size: 1.25rem; line-height: 1.25; }
+.sp7-schritte p { margin-top: .4rem; font-size: .95rem; }
+.sp7-fuss { margin-top: 2rem; color: var(--s7-grau); }
+@media (max-width: 1100px) {
+  .sp7-ebene { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
+  .sp7-wurzel { padding-bottom: 1.4rem; }
+  .sp7-schritte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .sp7-ebene { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
+  .sp7-neben, .sp7-schritte { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
 /* Bausteine: links die Basis als Farbfläche (dort landet das Auge), rechts „dazu buchbar“ als ruhige Liste – keine verschachtelten Kästen */
 .mx7-bs { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.2rem; margin-top: 3rem; }
@@ -630,9 +688,9 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
-<div class="s7-stil{% if istSeite %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
+<div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
@@ -733,6 +791,66 @@ p { margin: 0; }
     {{ pakete(false) }}
   </div>
   {%- endfor %}
+</main>
+{%- elif s.slug == "seitenplan" %}
+{#- Seitenplan (Entwicklung): alle Seiten als Baum – je Seite Frage, Herkunft, Ziel, Stand. Ein Highlight: der Stand „neu gebaut“. Inhalte: s7.seitenplan -#}
+{%- set P = S.seitenplan %}
+{%- macro karte(x, klasse="") -%}
+<article class="sp7-karte sp7-karte--{{ x.stand }} {{ klasse }}">
+  <p class="sp7-stand">{{ P.staende[x.stand] }}</p>
+  <h3>{% if x.link %}<a href="{{ x.link }}">{{ x.name }}</a>{% else %}{{ x.name }}{% endif %}</h3>
+  {%- if x.zusatz %}<p class="sp7-zusatz">{{ x.zusatz }}</p>{% endif %}
+  <p class="sp7-frage">„{{ x.frage }}“</p>
+  <dl>
+    <dt>Kommt von</dt><dd>{{ x.von }}</dd>
+    {%- if x.zu %}<dt>Führt zu</dt><dd>{{ x.zu }}</dd>{% endif %}
+  </dl>
+  {%- if x.offen %}<p class="sp7-offen">{{ x.offen }}</p>{% endif %}
+</article>
+{%- endmacro -%}
+<main>
+  <section class="s7-band sp7">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ P.kicker }}</p>
+      <h1 class="sp7-h1">{{ P.h1 }}</h1>
+      <p class="s7-lead">{{ P.lead }}</p>
+      <p class="sp7-legende">{% for k, v in P.staende %}<span class="sp7-stand sp7-stand--{{ k }}">{{ v }}</span>{% endfor %}</p>
+
+      <div class="sp7-baum">
+        <div class="sp7-wurzel">{{ karte(P.start) }}</div>
+        <div class="sp7-ebene">
+          {%- for x in P.ebene %}
+          <div class="sp7-ast">
+            {{ karte(x) }}
+            {%- if x.unter %}
+            <article class="sp7-unter"><h4><a href="{{ x.unter.link }}">{{ x.unter.name }}</a></h4><p class="sp7-frage">„{{ x.unter.frage }}“</p><p class="sp7-zusatz">{{ x.unter.hinweis }}</p></article>
+            {%- endif %}
+          </div>
+          {%- endfor %}
+        </div>
+        <div class="sp7-immer">{{ karte(P.immer) }}</div>
+      </div>
+
+      <div class="sp7-neben">
+        <div>
+          <h2 class="sp7-h2">Entfällt</h2>
+          <ul class="sp7-liste">{% for x in P.entfallen %}<li><a href="{{ x.link }}">{{ x.name }}</a><span>→ Umleitung auf {{ x.ersatz }}</span></li>{% endfor %}</ul>
+        </div>
+        <div>
+          <h2 class="sp7-h2">Dokumente</h2>
+          <ul class="sp7-liste">{% for x in P.dokumente %}<li><b>{{ x.name }}</b><span>{{ P.staende[x.stand] }} – {{ x.hinweis }}</span></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Vorgehen</p>
+      <h2 class="s7-h2">In dieser Reihenfolge bauen wir.</h2>
+      <ol class="sp7-schritte">{% for x in P.reihenfolge %}<li><span>{{ loop.index }}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>{% endfor %}</ol>
+      <p class="sp7-fuss">{{ P.stufe2 }}</p>
+    </div>
+  </section>
 </main>
 {%- elif s.slug == "marketing-as-a-service" %}
 {#- Unterseite Weg B · neu gedacht (Daniel, 12.11.2026): beantwortet, was die Startseite offen lässt –
