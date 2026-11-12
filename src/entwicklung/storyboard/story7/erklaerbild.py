@@ -215,53 +215,54 @@ def kasten(x, y, b, h, titel, unter, K, G, anker="start"):
     return "".join(o)
 
 
-MINI_MUND = [12, 19, 26, 33]
-MINI_HALS = [5, 7, 9, 11]
+MINI_MUND = [14, 22, 30, 38]
+MINI_HALS = [6, 9, 12, 15]
 
 
-def mini_trichter(x, c, b=190):
-    xf, xk, xh = x + b * .32, x + b * .82, x + b
+def mini_trichter(x, c, b=380):
+    """Trichter der Startseite im Kleinen – gleiche Lagen, gleiche Farben."""
+    xf, xk, xh = x + b * .38, x + b * .86, x + b
     o = []
     for k in (3, 2, 1, 0):
         hm, hh = MINI_MUND[k], MINI_HALS[k]
-        o.append(f'<path d="M{x} {c - hm} H{xf:.0f} C{xf + 40:.0f} {c - hm} {xk - 30:.0f} {c - hh} {xk:.0f} {c - hh} H{xh:.0f} V{c + hh} '
-                 f'H{xk:.0f} C{xk - 30:.0f} {c + hh} {xf + 40:.0f} {c + hm} {xf:.0f} {c + hm} H{x} Z" class="{LAGEN[k][0]} ek2-lage"/>')
+        o.append(f'<path d="M{x} {c - hm} H{xf:.0f} C{xf + 70:.0f} {c - hm} {xk - 50:.0f} {c - hh} {xk:.0f} {c - hh} H{xh:.0f} V{c + hh} '
+                 f'H{xk:.0f} C{xk - 50:.0f} {c + hh} {xf + 70:.0f} {c + hm} {xf:.0f} {c + hm} H{x} Z" class="{LAGEN[k][0]} ek2-lage"/>')
     return "".join(o)
 
 
-RG = {"sparring": ("Strategie-Sparring", "Du und wir, jeden Monat"), "ziel": ("Mehr Umsatz", "in deiner Region"),
-      "einfuehrung": "Einführung und Begleitung", "leads": "Leads",
-      "zurueck": "Rückmeldung aus dem Dashboard: welches Büro wo steht, was läuft, was wir anpassen",
-      "bueros": ["Büro A", "Büro B", "Büro C"], "weitere": "+ weitere Büros"}
+# Regionsgrafik „Für Vertriebsleiter“ (überarbeitet 12.11.2026): nur die Formen des Erklärbilds –
+# Klammer mit Linie, Trichter aus Lagen, dunkles Band, dünne Rücklauflinie mit Text. Keine Kästen, keine Pillen.
+RG = {"klammer_links": "Jede Agentur – fertige Vertriebsstrecken für ihre Zielgruppen",
+      "klammer_rechts": "Deine Region",
+      "agenturen": ["Agentur 1", "Agentur 2", "Agentur 3"], "weitere": "… und alle weiteren Agenturen deiner Region",
+      "band": ("Mehr Neugeschäft", "in deiner Region"), "messpunkt": "Leads je Agentur",
+      "zurueck": "Jeden Monat im Dashboard und im Sparring: welche Agentur wo steht – und was wir anpassen"}
 
 
 def region_quer():
-    W, H = 1120, 440
+    W, H = 1120, 470
+    ys = [96, 196, 296]
+    xl, xt, b = 0, 130, 420                     # Beschriftung, Beginn der Trichter, Länge
+    xm = xt + b                                  # Mündungen
+    xv = xm + 90                                 # Band
     o = []
-    ys = [60, 150, 240]                          # Mitten der Büros
-    c = 190                                      # Mitte des Ganzen
-    # Strategie-Sparring links
-    o.append(kasten(0, c - 45, 230, 90, *RG["sparring"], 15, 20))
-    o.append(f'<path d="M238 {c} H300" class="ek2-linie" marker-end="url(#ek2-pfeil-rquer)"/>')
-    # Büros mit kleinen Trichtern
-    for y, name in zip(ys, RG["bueros"]):
-        o.append(text(320, y + 5, name, "ek2-t", 15, 700))
-        o.append(mini_trichter(392, y, 210))
-        o.append(f'<path d="M606 {y} H640" class="ek2-linie ek2-linie--fein"/>')
-        o.append(text(650, y + 5, RG["leads"], "ek2-t", 14, 700))
-    o.append(f'<rect x="320" y="{ys[-1] + 50}" width="286" height="34" rx="17" class="ek2-pille ek2-pille--mehr"/>')
-    o.append(text(463, ys[-1] + 72, RG["weitere"], "ek2-grau", 14, 600, "middle"))
-    # Leads laufen zusammen
-    for y in ys:
-        o.append(f'<path d="M700 {y} C760 {y} 760 {c} 820 {c}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(f'<path d="M820 {c} H842" class="ek2-linie" marker-end="url(#ek2-pfeil-rquer)"/>')
-    # Ziel: Umsatz der Region
-    o.append(f'<rect x="850" y="{c - 55}" width="{W - 850}" height="110" rx="18" class="ek2-ziel"/>')
-    o.append(text(876, c - 4, RG["ziel"][0], "ek2-ziel-t", 24, 700))
-    o.append(text(876, c + 22, RG["ziel"][1], "ek2-ziel-t", 16, 500))
-    # Rückmeldung: vom Ziel zurück zum Sparring
-    yr = 410
-    o.append(f'<path d="M{(850 + W) / 2} {c + 55} V{yr} H115 V{c + 53}" class="ek2-linie ek2-linie--fein" marker-end="url(#ek2-pfeil-rquer)"/>')
+    o.append(text(xt, 20, RG["klammer_links"], "ek2-t", 15, 600))
+    o.append(f'<path d="M{xt} 34 H{xm}" class="ek2-linie"/>')
+    o.append(text(xv, 20, RG["klammer_rechts"], "ek2-t", 15, 600))
+    o.append(f'<path d="M{xv} 34 H{W}" class="ek2-linie"/>')
+    for y, name in zip(ys, RG["agenturen"]):
+        o.append(text(xl, y + 5, name, "ek2-t", 15, 700))
+        o.append(mini_trichter(xt, y, b))
+        o.append(f'<path d="M{xm} {y} C{xm + 50} {y} {xv - 50} 196 {xv} 196" class="ek2-linie ek2-linie--fein"/>')
+    o.append(text(xt, ys[-1] + 66, RG["weitere"], "ek2-grau", 14, 500))
+    # Band: wie Vertrieb im Erklärbild, so hoch wie die drei Agenturen zusammen
+    y0, y1 = 196 - 52, 196 + 52
+    o.append(f'<path d="M{xv} {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{y1 - 16} Q{W} {y1} {W - 16} {y1} H{xv} Z" class="ek2-band"/>')
+    o.append(text(xv + 30, 192, RG["band"][0], "ek2-band-t", 24, 700))
+    o.append(text(xv + 30, 220, RG["band"][1], "ek2-band-s", 16))
+    # Rücklauf: vom Band zurück zu den Agenturen
+    yr = H - 22
+    o.append(f'<path d="M{(xv + W) / 2} {y1} V{yr} H60 V{ys[-1] + 20}" class="ek2-linie ek2-linie--fein" marker-end="url(#ek2-pfeil-rquer)"/>')
     o.append(f'<rect x="{W / 2 - 330}" y="{yr - 13}" width="660" height="26" class="ek2-grund"/>')
     o.append(text(W / 2, yr + 5, RG["zurueck"], "ek2-t", 14, 600, "middle"))
     return svg(W, H, "".join(o), "ek2-svg--quer", "rquer")
@@ -270,27 +271,22 @@ def region_quer():
 def region_hoch():
     W, c = 340, 170
     o = []
-    o.append(kasten(40, 0, 260, 80, *RG["sparring"], T_KLEIN, T_GROSS, "middle"))
-    o.append(f'<path d="M{c} 88 V118" class="ek2-linie" marker-end="url(#ek2-pfeil-rhoch)"/>')
-    y = 150
-    ys = []
-    for name in RG["bueros"]:
-        o.append(text(40, y + 5, name, "ek2-t", 14, 700))
-        o.append(mini_trichter(118, y, 150))
-        ys.append(y); y += 62
-    o.append(f'<rect x="40" y="{y - 22}" width="228" height="32" rx="16" class="ek2-pille ek2-pille--mehr"/>')
-    o.append(text(154, y - 1, RG["weitere"], "ek2-grau", 13, 600, "middle"))
-    y += 30
-    o.append(f'<path d="M{c} {y} V{y + 28}" class="ek2-linie" marker-end="url(#ek2-pfeil-rhoch)"/>')
-    yz = y + 40
-    o.append(f'<rect x="40" y="{yz}" width="260" height="84" rx="16" class="ek2-ziel"/>')
-    o.append(text(c, yz + 38, RG["ziel"][0], "ek2-ziel-t", 20, 700, "middle"))
-    o.append(text(c, yz + 60, RG["ziel"][1], "ek2-ziel-t", 14, 500, "middle"))
-    o.append(f'<path d="M40 {yz + 42} H16 V40 H34" class="ek2-linie ek2-linie--fein" marker-end="url(#ek2-pfeil-rhoch)"/>')
-    o.append(text(c, yz + 116, "Jeden Monat Rückmeldung:", "ek2-t", 13, 600, "middle"))
-    o.append(text(c, yz + 134, "welches Büro wo steht, was läuft,", "ek2-t", 13, 500, "middle"))
-    o.append(text(c, yz + 152, "was wir anpassen", "ek2-t", 13, 500, "middle"))
-    return svg(W, yz + 162, "".join(o), "ek2-svg--hoch", "rhoch")
+    o.append(text(c, 16, "Jede Agentur – fertige", "ek2-t", 13, 600, "middle"))
+    o.append(text(c, 33, "Vertriebsstrecken für ihre Zielgruppen", "ek2-t", 13, 600, "middle"))
+    y = 80
+    for name in RG["agenturen"]:
+        o.append(text(0, y + 5, name, "ek2-t", 13, 700))
+        o.append(mini_trichter(90, y, 230))
+        y += 92
+    o.append(text(90, y - 30, "… und alle weiteren", "ek2-grau", 12, 500))
+    o.append(f'<path d="M{c} {y - 10} V{y + 16}" class="ek2-linie" marker-end="url(#ek2-pfeil-rhoch)"/>')
+    yb = y + 28
+    o.append(f'<rect x="30" y="{yb}" width="{W - 60}" height="96" rx="16" class="ek2-band"/>')
+    o.append(text(c, yb + 44, RG["band"][0], "ek2-band-t", 20, 700, "middle"))
+    o.append(text(c, yb + 68, RG["band"][1], "ek2-band-s", 14, 500, "middle"))
+    o.append(text(c, yb + 130, "Jeden Monat im Dashboard und im Sparring:", "ek2-t", 13, 600, "middle"))
+    o.append(text(c, yb + 148, "welche Agentur wo steht – und was wir anpassen", "ek2-t", 13, 500, "middle"))
+    return svg(W, yb + 158, "".join(o), "ek2-svg--hoch", "rhoch")
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story7.11tydata.json")

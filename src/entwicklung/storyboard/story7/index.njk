@@ -521,8 +521,9 @@ p { margin: 0; }
 .ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
 .ek2-ziel { fill: var(--s7-akzent-fill); }
 .ek2-ziel-t { fill: var(--s7-auf-akzent); }
-.vl7-problem { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-.s7-stil .vl7-h2 { max-width: 16ch; }
+.s7-stil .s7-held .vl7-h1 { max-width: none; font-size: clamp(2.6rem, 6vw, 5.2rem); }
+.vl7-problem { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.s7-stil .vl7-h2 { max-width: 18ch; }
 .vl7-problem .s7-lead:first-child { margin-top: 2.2rem; }
 .vl7-problem .s7-lead + .s7-lead { margin-top: .9rem; }
 .vl7-loesung .vs7-weg { background: var(--s7-flaeche); }
@@ -1035,13 +1036,13 @@ p { margin: 0; }
   <section class="s7-held">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ VL.held.kicker }}</p>
-      <h1>{{ VL.held.h1 }}<br><span class="s7-wort">{{ VL.held.h1_akzent }}</span></h1>
+      <h1 class="vl7-h1">{{ VL.held.h1 }}<br><span class="s7-wort">{{ VL.held.h1_akzent }}</span></h1>
       <p class="s7-lead vs7-lead">{{ VL.held.lead }}</p>
       <div class="s7-held__knoepfe">
         <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ VL.held.knopf }} {{ pfeil | safe }}</a>
         <a class="s7-knopf s7-knopf--rand" href="#einfuehrung">{{ VL.held.knopf2 }}</a>
       </div>
-      <figure class="s7-maschine"><div class="ek2" role="img" aria-label="Deine Region: Im Strategie-Sparring legen wir mit dir fest, wie es losgeht. Jedes Büro bekommt seine eigene Maschine, die Leads aller Büros ergeben mehr Umsatz in deiner Region. Jeden Monat Rückmeldung aus dem Dashboard: welches Büro wo steht, was läuft, was wir anpassen.">{{ S.ek_region_quer | safe }}{{ S.ek_region_hoch | safe }}</div></figure>
+      <figure class="s7-maschine"><div class="ek2" role="img" aria-label="Jede Agentur deiner Region bekommt fertige Vertriebsstrecken für ihre Zielgruppen. Die Leads jeder Agentur sind messbar und ergeben zusammen mehr Neugeschäft in deiner Region. Jeden Monat im Dashboard und im Sparring: welche Agentur wo steht und was wir anpassen.">{{ S.ek_region_quer | safe }}{{ S.ek_region_hoch | safe }}</div></figure>
     </div>
   </section>
 
