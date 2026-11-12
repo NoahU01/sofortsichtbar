@@ -14,6 +14,14 @@
         <p class="nav__dropdown-hinweis">{{ child.text }}</p>
       {% elif child.typ == "gruppe" %}
         <span class="nav__dropdown-gruppe">{{ child.label }}</span>
+      {% elif child.children %}
+        <div class="nav__unter">
+          <a class="nav__dropdown-link nav__unter-auf" href="{{ child.href }}"
+             {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}><span class="nav__unter-pfeil" aria-hidden="true">‹</span>{{ child.label }}</a>
+          <div class="nav__unter-panel">
+            {% for u in child.children %}<a class="nav__dropdown-link" href="{{ u.href }}" {% if u.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ u.label }}</a>{% endfor %}
+          </div>
+        </div>
       {% else %}
         <a class="nav__dropdown-link" href="{{ child.href }}"
            {% if child.href | isCurrentPath(page.url) %}aria-current="page"{% endif %}>{{ child.label }}</a>

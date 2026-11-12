@@ -148,6 +148,30 @@
 }
 .nav__dropdown-link[aria-current="page"] { color: var(--color-grey-400); }
 
+/* Zweite Ebene im Entwicklungsmenü (z. B. Homepage-Story-Archiv): Kasten öffnet seitlich, Brücke über die Lücke */
+.nav__unter { position: relative; }
+.nav__unter-pfeil { margin-right: 0.5rem; }
+.nav__unter-panel {
+  display: none;
+  position: absolute;
+  right: calc(100% + 0.6rem);
+  top: -0.5rem;
+  z-index: 1002;
+  min-width: 19rem;
+  padding: 0.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-grey-600);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.45);
+}
+.nav__unter-panel::before { content: ""; position: absolute; right: -1.2rem; top: 0; bottom: 0; width: 1.2rem; }
+.nav__unter:hover .nav__unter-panel,
+.nav__unter:focus-within .nav__unter-panel { display: flex; flex-flow: column; }
+@media (max-width: 991px) {
+  .nav__menu .nav__unter-panel { position: static; display: flex; flex-flow: column; min-width: 0; padding: 0; border: 0; box-shadow: none; }
+  .nav__menu .nav__unter-pfeil { display: none; }
+}
+
 @media (min-width: 992px) {
   .nav__dropdown-panel {
     position: absolute;

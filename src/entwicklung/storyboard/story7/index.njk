@@ -254,13 +254,21 @@ p { margin: 0; }
 .s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
 .s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
 .s7-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; }
-.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem; max-height: calc(100vh - 140px); overflow-y: auto; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem;  padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
 .s7-dd__panel[hidden] { display: none; }
 .s7-dd__hinweis { margin: 0 0 .5rem; padding: .7rem .8rem; border-radius: 10px; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .78rem; line-height: 1.45; }
 .s7-dd__gruppe { margin: .7rem .8rem .2rem; color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .s7-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: var(--s7-tinte); font-size: .9rem; text-decoration: none; }
 .s7-dd__panel a:hover { background: var(--s7-flaeche); }
 .s7-dd__panel a[aria-current="page"] { font-weight: 600; background: var(--s7-flaeche); }
+/* Zweite Ebene im Entwicklungsmenü: Kasten öffnet nach rechts (Hover, Tastatur); Brücke über die Lücke */
+.s7-unter { position: relative; }
+.s7-unter > a { display: flex !important; justify-content: space-between; align-items: center; }
+.s7-unter__pfeil { margin-left: .8rem; font-size: 1.1rem; line-height: 1; }
+.s7-unter__panel { display: none; position: absolute; left: calc(100% + .7rem); top: -.7rem; z-index: 90; width: 20rem; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-unter__panel::before { content: ""; position: absolute; left: -1.5rem; top: 0; bottom: 0; width: 1.5rem; }
+.s7-unter:hover .s7-unter__panel, .s7-unter:focus-within .s7-unter__panel { display: block; }
+.s7-unter:hover > a { background: var(--s7-flaeche); }
 
 /* ---------- Einstieg ---------- */
 .s7-held { padding: clamp(3.5rem, 7vw, 6rem) 0 calc(var(--s7-band) * .7); }
@@ -701,6 +709,7 @@ p { margin: 0; }
           {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
           {%- if c.typ == "hinweis" %}<p class="s7-dd__hinweis">{{ c.text }}</p>
           {%- elif c.typ == "gruppe" %}<p class="s7-dd__gruppe">{{ c.label }}</p>
+          {%- elif c.children %}<div class="s7-unter"><a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}<span class="s7-unter__pfeil" aria-hidden="true">›</span></a><div class="s7-unter__panel">{% for u in c.children %}<a href="{{ u.href }}"{% if u.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ u.label }}</a>{% endfor %}</div></div>
           {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
           {%- endfor %}{% endif %}{% endfor %}
         </div>
