@@ -1302,6 +1302,18 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   .op-reihe img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }
   @media (max-width: 900px) { .op-reihe { grid-template-columns: minmax(0, 1fr); } }
   </style>
+  <section class="ig-entwurf" id="deckblatt">
+    <div class="container">
+      <p class="kicker">Zur Auswahl · PDF Marketing as a Service</p>
+      <h2 class="h-serif">Drei Deckblätter.</h2>
+      <p class="mx-lead">Statt der vollflächigen Farbe: A – oben die graue Bühne mit der Maschine der Startseite, darunter der Titel. B – Titel oben, unten der Schnitt durch die Maschine, der aus dem Blatt läuft. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern.</p>
+      <div class="ig-paar">
+        {%- for k in ["a", "b", "c"] %}
+        <div><p class="ig-paar__label">Variante {{ k | upper }}</p><a href="/entwicklung/storyboard/story7/assets/deckblatt/deckblatt-{{ k }}.pdf" target="_blank" rel="noopener"><img class="ig-alt-bild" src="/entwicklung/storyboard/story7/assets/deckblatt/deckblatt-{{ k }}.png" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a></div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
   <section class="ig-entwurf ig-entwurf--hell" id="op-detail">
     <div class="container">
       <p class="kicker">One-Pager · Detailstufe</p>
