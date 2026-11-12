@@ -421,42 +421,40 @@ p { margin: 0; }
 .vs7-lead { max-width: 44rem !important; }
 .vs7-held__bild { margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: clamp(.5rem, 1.5vw, 1.2rem) clamp(.5rem, 2vw, 2rem) 0; border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); overflow: hidden; }
 .vs7-held__bild img { display: block; width: 100%; margin: -8% auto 0; } /* oberer Rand des Bilds ist durchsichtig */ /* Bild steht unten auf der Kante der Bühne */
-.vs7-teile { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(3, auto); column-gap: clamp(1.4rem, 3vw, 2.4rem); margin: 3.2rem 0 0; padding: 0; list-style: none; }
-.vs7-teile > li { position: relative; display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
-.vs7-teile__bild { position: relative; display: grid; align-items: center; min-height: 11rem; padding: 1.3rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
-.vs7-teile > li:nth-child(3) .vs7-teile__bild::after { content: ""; position: absolute; top: 50%; right: calc(-1 * clamp(1.4rem, 3vw, 2.4rem) / 2 - .5rem); width: 1rem; height: 1rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: translateY(-50%) rotate(45deg); }
-.s7-stil .vs7-teile h3 { margin-top: 1.4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
-.vs7-teile p { margin-top: .5rem; text-wrap: pretty; }
-.vs7-mpost { display: grid; gap: .3rem; padding: .7rem .75rem; border: 1px solid var(--s7-linie); border-radius: 10px; }
-.vs7-mpost b { font-weight: 700; }
-.vs7-mbrowser { display: grid; gap: .5rem; justify-items: start; padding: .6rem .75rem .8rem; border: 1px solid var(--s7-linie); border-radius: 10px; }
-.vs7-mbrowser > span { display: flex; gap: .25rem; margin-bottom: .2rem; }
-.vs7-mbrowser > span i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--s7-linie); }
-.vs7-mbrowser b { font-family: var(--s7-schrift-titel); font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
-.vs7-mbrowser em { display: block; width: 100%; height: .4rem; border-radius: 99px; background: var(--s7-linie); }
-.vs7-mbrowser em + em { width: 70%; }
-.vs7-gruppe { margin: 3.2rem 0 1.2rem; }
-.vs7-raster { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
-.vs7-kachel { display: flex; flex-direction: column; gap: .3rem; height: 100%; padding: .8rem .8rem 1.1rem; border: 1px solid var(--s7-linie); border-radius: 18px; color: var(--s7-tinte); text-decoration: none; transition: transform .15s ease, border-color .15s ease; }
-.vs7-kachel:hover { transform: translateY(-3px); border-color: var(--s7-tinte); }
-.vs7-kachel__bild { display: block; margin-bottom: .6rem; padding: .8rem .6rem .4rem; border-radius: 12px; background: var(--s7-flaeche); }
-.vs7-kachel__bild img { width: 100%; }
-.vs7-kachel b { padding: 0 .3rem; font-size: 1.02rem; font-weight: 600; line-height: 1.3; }
-.vs7-kachel__anlass { padding: 0 .3rem; color: var(--s7-grau); font-size: .85rem; line-height: 1.4; }
+/* Drei Wege: gleich hohe Kacheln, echtes Bild läuft über rechte und untere Kante (Anschnitt) */
+.vs7-wege { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.vs7-weg { position: relative; display: flex; flex-direction: column; min-height: 27rem; padding: clamp(1.8rem, 3vw, 2.4rem) clamp(1.6rem, 2.6vw, 2.2rem) 0; border-radius: var(--s7-rund); background: var(--s7-karte); overflow: hidden; }
+.s7-stil .vs7-weg h3 { font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.15; }
+.vs7-weg p { margin-top: .6rem; max-width: 22rem; text-wrap: pretty; }
+.vs7-weg img { width: 175%; max-width: none; margin: 1.6rem 0 -10% 0; align-self: flex-start; }
+/* Zielgruppen: Wisch-Reihen mit großen Karten */
+.vs7-reihe { margin-top: 3rem; }
+.vs7-reihe__kopf { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; }
+.vs7-reihe__kopf .vs7-gruppe { flex: 1; margin: 0; }
+.vs7-reihe__pfeile { display: flex; gap: .5rem; }
+.vs7-reihe__pfeile button { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; padding: 0 0 .15rem; border: 0; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.vs7-reihe__pfeile button:hover { background: var(--s7-linie); }
+.vs7-reihe__pfeile button:focus { outline: none; }
+.vs7-reihe__pfeile button:focus-visible { background: var(--s7-linie); }
+.vs7-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(16.5rem, 23vw, 20rem); gap: 1rem; margin: 0 calc(50% - 50vw) 0 0; padding: 0 1.25rem .5rem 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.vs7-scroller::-webkit-scrollbar { display: none; }
+.vs7-scroller li { scroll-snap-align: start; }
+.vs7-karte { position: relative; display: flex; flex-direction: column; height: 20rem; padding: 1.6rem 1.5rem 0; border-radius: var(--s7-rund); background: var(--s7-flaeche); color: var(--s7-tinte); text-decoration: none; overflow: hidden; }
+.vs7-karte__anlass { color: var(--s7-grau); font-size: .9rem; font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.vs7-karte b { margin-top: .35rem; font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2vw, 1.75rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+.vs7-karte img { width: 170%; max-width: none; margin: auto 0 -14% 0; transform-origin: left bottom; transition: transform .3s ease; }
+.vs7-karte:hover img { transform: scale(1.03); }
 .vs7-kompass { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; margin-top: 3rem; padding: 1.4rem 1.8rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); color: var(--s7-tinte); font-weight: 600; }
 @media (max-width: 1100px) {
-  .vs7-raster { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .vs7-teile { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); }
-  .vs7-teile p { padding-bottom: 2.2rem; }
-  .vs7-teile > li:nth-child(3) .vs7-teile__bild::after { display: none; }
+}
+@media (max-width: 760px) {
+  .vs7-wege { grid-template-columns: minmax(0, 1fr); }
+  .vs7-weg { min-height: 0; }
+  .vs7-weg img { width: 115%; margin: 1.6rem 0 -8% 0; }
 }
 @media (max-width: 600px) {
-  .vs7-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
-  .vs7-kachel { padding: .6rem .6rem .9rem; }
-  .vs7-kachel b { font-size: .95rem; }
-  .vs7-kachel__anlass { font-size: .78rem; }
-  .vs7-teile { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
-  .vs7-teile > li { grid-row: auto; grid-template-rows: none; }
+  .vs7-scroller { grid-auto-columns: 78%; }
+  .vs7-karte { height: 19rem; }
 }
 
 /* ---------- Seitenplan (sp7-) ---------- */
@@ -929,34 +927,15 @@ p { margin: 0; }
     <div class="s7-wrap">
       <p class="s7-kicker">{{ T.kicker }}</p>
       <h2 class="s7-h2">{{ T.h2 }}<br><span class="s7-wort">{{ T.h2_akzent }}</span></h2>
-      <ol class="vs7-teile">
-        <li>
-          <div class="vs7-teile__bild" aria-hidden="true"><div class="s7-mini">
-            <p class="s7-mini__kopf">Posting · Private Bauherren</p>
-            <div class="vs7-mpost"><b>Deine Agentur</b><span>Hausbau ist emotional. Diese drei Fragen solltest du vor der Unterschrift klären.</span></div>
-          </div></div>
-          <h3>{{ T.liste[0].titel }}</h3><p>{{ T.liste[0].text }}</p>
-        </li>
-        <li>
-          <div class="vs7-teile__bild" aria-hidden="true"><div class="s7-mini">
-            <div class="vs7-mbrowser"><span><i></i><i></i><i></i></span><b>Absicherung für dein Eigenheim.</b><em></em><em></em><i class="an">Termin auswählen</i></div>
-          </div></div>
-          <h3>{{ T.liste[1].titel }}</h3><p>{{ T.liste[1].text }}</p>
-        </li>
-        <li>
-          <div class="vs7-teile__bild" aria-hidden="true"><div class="s7-mini">
-            <p class="s7-mini__kopf">Kundenmailing · Bestand</p>
-            <div class="vs7-mpost"><b>Beim Hausbau geht es nicht nur um Wände</b><span>Hallo Familie M., ihr steht vor einer der größten Entscheidungen eures Lebens …</span></div>
-          </div></div>
-          <h3>{{ T.liste[2].titel }}</h3><p>{{ T.liste[2].text }}</p>
-        </li>
-        <li class="vs7-teile__ziel">
-          <div class="vs7-teile__bild" aria-hidden="true"><div class="s7-mini">
-            <div class="s7-mini__lead ziel"><b>Neuer Lead</b><span>Familie M. · Private Bauherren</span><span>Rückruf heute</span></div>
-          </div></div>
-          <h3>Leads</h3><p>Direkt in deinen Vertrieb – du fasst nach und berätst.</p>
-        </li>
-      </ol>
+      <div class="vs7-wege">
+        {%- for x in T.liste %}
+        <article class="vs7-weg">
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          <img src="/assets/img/{{ x.bild }}" alt="" width="{{ x.b }}" height="{{ x.h }}" loading="lazy">
+        </article>
+        {%- endfor %}
+      </div>
     </div>
   </section>
 
@@ -967,20 +946,25 @@ p { margin: 0; }
       <h2 class="s7-h2">{{ L.h2 }}</h2>
       <p class="s7-lead">{{ L.lead }}</p>
       {%- for g in L.gruppen %}
-      <p class="s7-gruppe vs7-gruppe">{{ g[1] }}</p>
-      <ul class="vs7-raster">
-        {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == g[0] %}
-        {%- set slug = z.href | replace("/zielgruppen/", "") %}
-        {%- set bild = "" %}{% for x in zielgruppen %}{% if x.slug == slug %}{% for st in x.styles %}{% if st.name == "Elegant" %}{% set bild = st.image %}{% endif %}{% endfor %}{% if not bild %}{% set bild = x.styles[0].image %}{% endif %}{% endif %}{% endfor %}
-        {%- if V.bild_korrektur[slug] %}{% set bild = V.bild_korrektur[slug] %}{% endif %}
-        <li><a class="vs7-kachel" href="{{ z.href }}">
-          <span class="vs7-kachel__bild"><img src="/assets/img/{{ bild }}" alt="" width="868" height="446" loading="lazy"></span>
-          <b>{{ z.label }}</b>
-          {%- set an = [] %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == z.href %}{% set an = (an.push(a.label), an) %}{% endif %}{% endfor %}
-          {%- if an.length %}<span class="vs7-kachel__anlass">{{ L.anlass }}: {{ an | join(" · ") }}</span>{% endif %}
-        </a></li>
-        {%- endif %}{% endfor %}
-      </ul>
+      <div class="vs7-reihe" data-vs7-reihe>
+        <div class="vs7-reihe__kopf">
+          <p class="s7-gruppe vs7-gruppe">{{ g[1] }}</p>
+          <span class="vs7-reihe__pfeile"><button type="button" data-richtung="-1" aria-label="{{ L.zurueck }}">‹</button><button type="button" data-richtung="1" aria-label="{{ L.weiter }}">›</button></span>
+        </div>
+        <ul class="vs7-scroller">
+          {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == g[0] %}
+          {%- set slug = z.href | replace("/zielgruppen/", "") %}
+          {%- set bild = "" %}{% for x in zielgruppen %}{% if x.slug == slug %}{% for st in x.styles %}{% if st.name == "Elegant" %}{% set bild = st.image %}{% endif %}{% endfor %}{% if not bild %}{% set bild = x.styles[0].image %}{% endif %}{% endif %}{% endfor %}
+          {%- if V.bild_korrektur[slug] %}{% set bild = V.bild_korrektur[slug] %}{% endif %}
+          {%- set an = "" %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == z.href and not an %}{% set an = a.label %}{% endif %}{% endfor %}
+          <li><a class="vs7-karte" href="{{ z.href }}">
+            <span class="vs7-karte__anlass">{{ an or "Vertriebsstrecke" }}</span>
+            <b>{{ z.label }}</b>
+            <img src="/assets/img/{{ bild }}" alt="" width="868" height="446" loading="lazy">
+          </a></li>
+          {%- endif %}{% endfor %}
+        </ul>
+      </div>
       {%- endfor %}
       <p class="vs7-kompass"><span>{{ V.kompass.text }}</span><a class="s7-link" href="{{ B6 }}/strategiekompass/">{{ V.kompass.link }} {{ pfeil | safe }}</a></p>
     </div>
@@ -988,6 +972,15 @@ p { margin: 0; }
 
   {{ kontakt() }}
 </main>
+<script>
+/* Wisch-Reihen: Pfeile blättern um zwei Karten */
+document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
+  var s = r.querySelector(".vs7-scroller");
+  r.querySelectorAll("[data-richtung]").forEach(function (k) {
+    k.addEventListener("click", function () { var w = s.querySelector("li").offsetWidth + 16; s.scrollBy({ left: Number(k.dataset.richtung) * w * 2, behavior: "smooth" }); });
+  });
+});
+</script>
 {%- elif s.slug == "marketing-as-a-service" %}
 {#- Unterseite Weg B · neu gedacht (Daniel, 12.11.2026): beantwortet, was die Startseite offen lässt –
     Was bekomme ich (Trichter herangezoomt, jede Lage mit Preis) · Was kostet es (Basis + dazu buchbar) ·

@@ -863,15 +863,24 @@
         "liste": [
           {
             "titel": "Postings",
-            "text": "Laufend auf deinen Kanälen. Die Zielgruppe nimmt dich regelmäßig wahr – mit Themen, die sie gerade beschäftigen."
+            "text": "Laufend auf deinen Kanälen – mit Themen, die deine Zielgruppe gerade beschäftigen.",
+            "bild": "preview-postings.png",
+            "b": 746,
+            "h": 375
           },
           {
             "titel": "Landingpage",
-            "text": "Eine Seite je Zielgruppe, in deinem Look. Mit Kontaktformular und auf Wunsch deiner Terminbuchung."
+            "text": "Eine Seite je Zielgruppe, in deinem Look – mit Kontaktformular und Terminbuchung.",
+            "bild": "preview-landingpages.png",
+            "b": 900,
+            "h": 494
           },
           {
             "titel": "Kundenmailing",
-            "text": "Für deinen Bestand. Bringt Kunden mit dem passenden Anlass zurück ins Gespräch."
+            "text": "Für deinen Bestand – bringt Kunden mit dem passenden Anlass zurück ins Gespräch.",
+            "bild": "preview-funnel.png",
+            "b": 687,
+            "h": 351
           }
         ]
       },
@@ -889,7 +898,9 @@
             "Firmenkunden"
           ]
         ],
-        "anlass": "Anlass"
+        "anlass": "Anlass",
+        "zurueck": "Zurück",
+        "weiter": "Weiter"
       },
       "kompass": {
         "text": "Du weißt noch nicht, welche Zielgruppen zu deinen Zielen passen?",
