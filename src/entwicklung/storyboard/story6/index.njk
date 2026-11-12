@@ -1302,13 +1302,18 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
   .op-reihe img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }
   @media (max-width: 900px) { .op-reihe { grid-template-columns: minmax(0, 1fr); } }
   </style>
-  <section class="ig-entwurf" id="erinnerung">
+  <section class="ig-entwurf" id="rollups-gelb-alt">
     <div class="container">
-      <p class="kicker">Erinnerung · inhaltlich noch nicht passend</p>
-      <h2 class="h-serif">Blick in die Maschine.</h2>
-      <p class="mx-lead">Roll-up Version 3 aus dem alten Stand: das Ökosystem aus dem Kernpaket und LinkedIn als aktiver Vertriebskanal. Bleibt als Gedankenstütze für eine spätere Detailseite.</p>
-      <div class="ig-paar"><div><div class="ig-bild ig-bild--rollup">{{ IG.rollup3 | safe }}</div>
-      <p class="ig-dl"><a href="{{ D }}rollup3.pdf" target="_blank" rel="noopener">PDF · 100 × 200 cm</a><a href="{{ D }}rollup3.png" download>PNG</a></p></div></div>
+      <p class="kicker">Alter Stand · empiria-Gelb</p>
+      <h2 class="h-serif">Roll-ups gelb alt.</h2>
+      <p class="mx-lead">Die früheren Roll-ups (100 × 200 cm) zum Nachschlagen: Version 2 mit drei Sektionen, Version 2.1 in den Farben von sofort sichtbar, Version 3 „Blick in die Maschine“.</p>
+      <div class="ig-paar">
+        {%- for k in [["rollup2", "Version 2 · drei Sektionen"], ["rollup21", "Version 2.1 · Farben sofort sichtbar"], ["rollup3", "Version 3 · Blick in die Maschine"]] %}
+        <div><p class="ig-paar__label">{{ k[1] }}</p><a href="{{ D }}{{ k[0] }}.pdf" target="_blank" rel="noopener"><img class="ig-alt-bild" src="{{ D }}{{ k[0] }}.png" alt="Roll-up {{ k[1] }}" loading="lazy"></a>
+        <p class="ig-dl"><a href="{{ D }}{{ k[0] }}.pdf" target="_blank" rel="noopener">PDF</a><a href="{{ D }}{{ k[0] }}.png" download>PNG</a><a href="{{ D }}{{ k[0] }}.svg" download>SVG</a></p></div>
+        {%- endfor %}
+      </div>
+      <style>.ig-alt-bild { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }</style>
     </div>
   </section>
 </div>
