@@ -2,7 +2,7 @@
 """PDF „Marketing as a Service“ im Look von Homepage-Story 7 (Daniel, 12.11.2026: Seitenfolge freigegeben).
 
 SCHRIFTSYSTEM (fest, vor dem Bauen festgelegt – Vorbild ist die Website Story 7, nicht empiria):
-  Inter Tight 700  – Überschriften in genau zwei Größen: H1 44 pt (Deckblatt und Kontakt), H2 22 pt (alle übrigen Seiten, auch große Zahlen und Posting-Titel)
+  Inter Tight 700  – Überschriften in genau zwei Größen: H1 44 pt (Deckblatt und Kontakt; Deckblatt nach dem dunklen Deckblatt-System), H2 22 pt (alle übrigen Seiten, auch große Zahlen und Posting-Titel)
   Inter 400/600    – Text 10 pt (Regular, Hervorhebung SemiBold); Klein 8 pt für Kicker, Nebeninfos, Fußzeile
   Farben           – Tinte #1d1d1f, Grau #6e6e73; Verlauf Cyan → Violett höchstens einmal je Seite (ein Wort der Überschrift oder eine Fläche).
                      Ausnahme Stellenanzeigen: Sie zeigen, wie der Kunde postet (Entwürfe in seinem Namen) – dort kräftige Verläufe in
@@ -171,14 +171,20 @@ svg.vs { display: inline-block; overflow: visible; }
 .wege b { color: #fff; font-family: "Inter Tight"; font-weight: 700; font-size: 22pt; letter-spacing: -0.02em; line-height: 1.15; }
 
 /* ===== v2 (12.11.2026) ===== */
-/* Deckblatt: vollflächig im Verlauf */
-.cover { background: linear-gradient(150deg, #0b9fbd 0%, #3f4fb5 55%, #8613a1 100%); color: #fff; }
-.cover .logo { height: 12mm; }
-.cover h1 { position: absolute; left: 18mm; right: 18mm; bottom: 74mm; color: #fff; }
-.cover .unter { position: absolute; left: 18mm; right: 40mm; bottom: 52mm; font-size: 10pt; color: rgba(255,255,255,.9); }
-.cover .fuss { position: absolute; left: 18mm; right: 18mm; bottom: 18mm; display: flex; justify-content: space-between; padding-top: 4mm; border-top: 0.3mm solid rgba(255,255,255,.5); font-size: 8pt; font-weight: 600; color: rgba(255,255,255,.9); }
-.cover .gross { position: absolute; right: -40mm; top: 30mm; width: 170mm; height: 170mm; border-radius: 50%; border: 0.4mm solid rgba(255,255,255,.35); }
-.cover .gross + .gross { right: -10mm; top: 60mm; width: 110mm; height: 110mm; }
+/* Deckblatt: dunkles Deckblatt-System (Daniel, 12.11.2026) – eine Vorlage für alle Themen: Art · Logo · Titel mit Verlauf · Karte „Was dich erwartet“ */
+.cover { display: flex; flex-direction: column; background: #1d1d1f; color: #fff; }
+.cover .c-kopf { display: flex; justify-content: space-between; align-items: flex-start; }
+.cover .logo { height: 11mm; }
+.cover .c-art { display: inline-block; padding: 1.6mm 3.6mm; border-radius: 5mm; background: rgba(255,255,255,.12); color: #fff; font-size: 8pt; font-weight: 600; line-height: 1; }
+.cover h1 { margin-top: 52mm; color: #fff; }
+.cover .c-satz { margin-top: 7mm; max-width: 130mm; color: #a1a1a6; font-size: 10pt; }
+.cover .c-karte { margin-top: auto; padding: 9mm 10mm; border-radius: 6mm; background: #2c2c2e; }
+.cover .c-karte .lbl { color: #a1a1a6; font-size: 8pt; font-weight: 600; }
+.cover .c-karte ol { margin: 4mm 0 0; padding: 0; list-style: none; }
+.cover .c-karte li { display: grid; grid-template-columns: 10mm 1fr; align-items: baseline; padding: 3.4mm 0; border-top: .3mm solid rgba(255,255,255,.14); font-size: 10pt; font-weight: 600; line-height: 1.3; }
+.cover .c-karte li span { color: #a1a1a6; }
+.cover .c-karte .meta { display: flex; justify-content: space-between; margin-top: 5mm; color: #a1a1a6; font-size: 8pt; font-weight: 600; }
+.cover .c-karte .meta b { color: #fff; font-weight: 600; }
 /* Grundgrafik (wie Website): Klammer, drei Spalten, Rücklauf */
 .gg { margin-top: 7mm; padding: 6mm; border-radius: 5mm; background: #f5f5f7; }
 .gg-klammer { padding-bottom: 2.5mm; border-bottom: 0.5mm solid #1d1d1f; font-weight: 600; }
@@ -326,12 +332,16 @@ def bauen():
     spark_ab = '<svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg>'
     s = []
 
-    # 1 · Deckblatt – vollflächig, schlicht
+    # 1 · Deckblatt – dunkles Deckblatt-System: je Thema wechseln nur Art, Titel, Satz und die drei Punkte
     s.append(seite(
-        f'<img class="logo" src="{logo_hell}" alt="sofort sichtbar">'
-        '<h1>Marketing<br>as a Service.</h1>'
-        '<p class="unter">Deine strategische Marketingabteilung – für Versicherungsagenturen und Maklerbüros.</p>'
-        '<div class="fuss"><span>sofort sichtbar</span><span>Angebot und Leistungen</span></div>', "voll cover"))
+        f'<div class="c-kopf"><span class="c-art">Angebot und Leistungen</span><img class="logo" src="{logo_hell}" alt="sofort sichtbar"></div>'
+        f'<h1>Marketing<br>{grad("as a Service.")}</h1>'
+        '<p class="c-satz">Deine strategische Marketingabteilung – für Versicherungsagenturen und Maklerbüros.</p>'
+        '<div class="c-karte"><p class="lbl">Was dich erwartet</p><ol>'
+        '<li><span>01</span>Das Kernpaket und drei Ergänzungen – mit Preisen</li>'
+        '<li><span>02</span>Der 30-Tage-Plan vom Auftakt bis zum ersten Report</li>'
+        '<li><span>03</span>Fünf Stellenbeschreibungen mit fertigen Anzeigen</li></ol>'
+        f'<p class="meta"><span>PDF · {e(M["download"]["meta"][1])}</span><b>sofortsichtbar.de</b></p></div>', "voll cover"))
 
     # 2 · Grundgrafik (wie Website-Kopf)
     KP = M["kopf"]
