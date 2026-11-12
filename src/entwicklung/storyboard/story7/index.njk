@@ -1462,10 +1462,10 @@ body.s7-menue-offen { overflow: hidden; }
     <div class="s7-wrap">
       <p class="s7-kicker">Zur Auswahl · PDF Marketing as a Service</p>
       <h2 class="s7-h2">Deckblatt.</h2>
-      <p class="s7-lead">D – dunkel wie die Kontaktseite am Ende des PDFs, so rahmen Deckblatt und letzte Seite das Dokument; unten die drei Versprechen. E – auf Weiß, der Trichter aus dem Kopf der Website als Symbol auf der grauen Bühne. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern, ohne Gesichter. B – Titel oben, unten der angeschnittene Schnitt durch die Maschine.</p>
+      <p class="s7-lead">H und G – das „o“ aus dem Logo ist ein Kippschalter, und der Punkt sitzt rechts: Der Schalter ist an. Als Titelmotiv groß gezogen, die Spur im Verlauf – einschalten, sofort sichtbar. H dunkel wie die Kontaktseite am Ende des PDFs, G auf Weiß. D – dunkel mit den drei Versprechen. C – Titel auf Weiß, unten das dunkle Band.</p>
       <div class="ig7-reihe ig7-reihe--vier">
-        {%- for k in ["d", "e", "c", "b"] %}
-        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}d3" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
+        {%- for k in ["h", "g", "d", "c"] %}
+        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}h4" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
         {%- endfor %}
       </div>
     </div>
