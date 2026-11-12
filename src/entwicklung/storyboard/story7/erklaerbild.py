@@ -169,15 +169,15 @@ def schnitt_quer():
     """Ganzer Trichter: obere Hälfte dick (dort steht, was in jeder Lage passiert), untere Hälfte dünn."""
     W = 1120
     hoch = [90, 154, 218, 282]               # Abstand der Oberkante von der Mitte, innen → außen
-    tief = [30, 54, 78, 102]                 # Abstand der Unterkante von der Mitte (dünner als oben, aber als Trichter lesbar)
+    tief = [34, 74, 114, 154]                # Abstand der Unterkante von der Mitte: gut halb so dick wie oben, damit die Form als Trichter liest
     hals = [14, 20, 26, 32]                  # halbe Höhe an der Mündung
     c = hoch[3]
-    x_flach, x_kurve, x_hals = 640, 860, 900
+    x_flach, x_kurve, x_hals = 610, 880, 910
     o = []
     for k in (3, 2, 1, 0):
         yo, yu, h = c - hoch[k], c + tief[k], hals[k]
-        d = (f"M0 {yo} H{x_flach} C{x_flach + 120} {yo} {x_kurve - 110} {c - h} {x_kurve} {c - h} H{x_hals} "
-             f"V{c + h} H{x_kurve} C{x_kurve - 110} {c + h} {x_flach + 120} {yu} {x_flach} {yu} H0 Z")
+        d = (f"M0 {yo} H{x_flach} C{x_flach + 150} {yo} {x_kurve - 130} {c - h} {x_kurve} {c - h} H{x_hals} "
+             f"V{c + h} H{x_kurve} C{x_kurve - 130} {c + h} {x_flach + 150} {yu} {x_flach} {yu} H0 Z")
         o.append(f'<path d="{d}" class="{SCHNITT[k]["klasse"]} ek2-lage"/>')
     for k, z in enumerate(SCHNITT):
         yo = c - hoch[k]
