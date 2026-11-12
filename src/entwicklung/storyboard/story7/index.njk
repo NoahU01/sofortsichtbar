@@ -22,6 +22,8 @@ seiten:
     titel: "Strategiekompass"
   - slug: "kontakt"
     titel: "Kontakt"
+  - slug: "preise"
+    titel: "Preise"
   - slug: "zielgruppen/anwalte-und-kanzleiinhaber"
     titel: "Kanzleiinhaber"
     zg: "anwalte-und-kanzleiinhaber"
@@ -496,6 +498,44 @@ p { margin: 0; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
 
+/* ---------- Preise (pr7-) ---------- */
+.pr7-held { padding-bottom: 0; }
+.pr7-offen { display: inline-block; margin-top: 1.2rem; padding: .5rem .9rem; border: 1.5px dashed var(--s7-grau); border-radius: 10px; color: var(--s7-text); font-size: .95rem; }
+.pr7-tabelle { margin-top: 2.4rem; padding: clamp(1.2rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.pr7-kopf, .pr7-zeile { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: center; }
+.pr7-kopf { position: sticky; top: 72px; z-index: 2; padding: .8rem 0 1rem; background: var(--s7-karte); border-bottom: 2px solid var(--s7-tinte); }
+.pr7-kopf b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; text-align: center; }
+.pr7-kopf b.pr7-komplett { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+.pr7-gruppe { margin: 1.8rem 0 .3rem; color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.pr7-zeile { padding: .85rem 0; border-bottom: 1px solid var(--s7-linie); }
+.pr7-zeile > span:first-child { color: var(--s7-tinte); }
+.pr7-zelle { text-align: center; font-size: .95rem; line-height: 1.35; }
+.pr7-zelle--offen { color: var(--s7-grau); font-style: italic; }
+.pr7-ja { display: inline-block; width: .8rem; height: .42rem; border-left: 2px solid var(--s7-tinte); border-bottom: 2px solid var(--s7-tinte); transform: translateY(-2px) rotate(-45deg); }
+.pr7-nein { color: var(--s7-grau); font-style: normal; }
+.pr7-zeile--preis { border-bottom: 0; padding-top: 1.4rem; }
+.pr7-zeile--preis b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; }
+.pr7-zeile--preis .pr7-zelle--offen b { color: var(--s7-grau); font-size: 1.1rem; }
+.pr7-zeile--preis small { color: var(--s7-grau); font-size: .85rem; }
+.pr7-erg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }
+.pr7-erg__karte { display: flex; flex-direction: column; padding: clamp(1.6rem, 2.6vw, 2.2rem); border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); }
+.s7-stil .pr7-erg__karte h3 { font-size: 1.5rem; line-height: 1.2; }
+.pr7-erg__karte > p:not(.pr7-erg__preis) { margin-top: .6rem; text-wrap: pretty; }
+.pr7-erg__preis { display: grid; margin-top: auto; padding-top: 1.4rem; }
+.pr7-erg__preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.pr7-erg__preis span { color: var(--s7-grau); font-size: .9rem; }
+.pr7-fuss { margin-top: 1.6rem; }
+.pr7-hinweise { margin: 1.4rem 0 0; padding: 0; list-style: none; color: var(--s7-grau); font-size: .95rem; }
+.pr7-hinweise li { margin-top: .3rem; }
+@media (max-width: 1000px) { .pr7-erg { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) {
+  .pr7-kopf, .pr7-zeile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+  .pr7-kopf > span:first-child { display: none; }
+  .pr7-zeile > span:first-child { grid-column: 1 / -1; font-weight: 600; }
+  .pr7-kopf b { font-size: 1.05rem; }
+  .pr7-zelle { font-size: .85rem; }
+}
+
 /* ---------- Kontakt und Termin (ks7-) ---------- */
 .ks7-held { padding-bottom: 2.5rem; }
 .ks7 { padding-bottom: var(--s7-band); }
@@ -622,13 +662,13 @@ p { margin: 0; }
 .sp7-wurzel { position: relative; display: flex; justify-content: center; padding-bottom: 2.4rem; }
 .sp7-wurzel .sp7-karte { width: min(100%, 26rem); }
 .sp7-wurzel::after { content: ""; position: absolute; left: 50%; bottom: 0; height: 2.4rem; border-left: 2px solid var(--s7-tinte); }
-.sp7-ebene { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; padding-top: 2rem; }
+.sp7-ebene { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .8rem; padding-top: 2rem; }
 .sp7-ast { position: relative; display: grid; align-content: start; gap: .8rem; }
 .sp7-ast::before { content: ""; position: absolute; left: 50%; top: -2rem; height: 2rem; border-left: 2px solid var(--s7-tinte); }
-.sp7-ast::after { content: ""; position: absolute; left: -.5rem; right: -.5rem; top: -2rem; border-top: 2px solid var(--s7-tinte); }
+.sp7-ast::after { content: ""; position: absolute; left: -.4rem; right: -.4rem; top: -2rem; border-top: 2px solid var(--s7-tinte); }
 .sp7-ast:first-child::after { left: 50%; }
 .sp7-ast:last-child::after { right: 50%; }
-.sp7-karte { display: grid; align-content: start; gap: .5rem; padding: 1.2rem 1.1rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: var(--s7-karte); font-size: .92rem; line-height: 1.45; }
+.sp7-karte { display: grid; align-content: start; gap: .5rem; padding: 1.1rem .9rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: var(--s7-karte); font-size: .92rem; line-height: 1.45; }
 .sp7-karte--fehlt { border-style: dashed; border-color: var(--s7-grau); }
 .sp7-karte--stufe2 { background: var(--s7-flaeche); }
 .s7-stil .sp7-karte h3 { font-size: 1.2rem; line-height: 1.2; }
@@ -650,12 +690,19 @@ p { margin: 0; }
 .sp7-liste li { display: grid; gap: .1rem; padding: .7rem 0; border-top: 1px solid var(--s7-linie); }
 .sp7-liste a, .sp7-liste b { color: var(--s7-tinte); font-weight: 600; }
 .sp7-liste span { color: var(--s7-grau); font-size: .92rem; }
-.sp7-schritte { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.6rem; margin: 2.6rem 0 0; padding: 0; list-style: none; }
+.sp7-schritte { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem 1.6rem; margin: 2.6rem 0 0; padding: 0; list-style: none; }
 .sp7-schritte li { padding-top: 1rem; border-top: 2px solid var(--s7-tinte); }
 .sp7-schritte span { color: var(--s7-grau); font-weight: 600; }
 .s7-stil .sp7-schritte h3 { margin-top: .3rem; font-size: 1.25rem; line-height: 1.25; }
 .sp7-schritte p { margin-top: .4rem; font-size: .95rem; }
+.sp7-schritte--erledigt { border-top-color: var(--s7-linie) !important; }
+.sp7-schritte--erledigt h3, .sp7-schritte--erledigt p { color: var(--s7-grau) !important; }
 .sp7-fuss { margin-top: 2rem; color: var(--s7-grau); }
+@media (max-width: 1300px) {
+  .sp7-ebene { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
+  .sp7-wurzel { padding-bottom: 1.4rem; }
+}
 @media (max-width: 1100px) {
   .sp7-ebene { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.4rem; }
   .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
@@ -892,7 +939,7 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -917,7 +964,7 @@ p { margin: 0; }
       <a href="{{ H7 }}/strategiekompass/"{% if s.slug == "strategiekompass" %} aria-current="page"{% endif %}>Strategiekompass</a>
       <a href="{{ H7 }}/vertriebsstrecken/"{% if s.slug == "vertriebsstrecken" or s.zg %} aria-current="page"{% endif %}>Vertriebsstrecken</a>
       <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
-      <a href="{{ H7 }}/#pakete">Pakete</a>
+      <a href="{{ H7 }}/preise/"{% if s.slug == "preise" %} aria-current="page"{% endif %}>Preise</a>
       <a href="{{ H7 }}/#ueber-uns">Über uns</a>
     </nav>
     {%- endif %}
@@ -925,7 +972,65 @@ p { margin: 0; }
   </div>
 </header>
 
-{%- if s.slug == "kontakt" %}
+{%- if s.slug == "preise" %}
+{#- Unterseite Preise: Pakete (Baustein der Startseite), Vergleich Fokus · Team · Komplett, Ergänzungen mit Preisen.
+    Was noch nicht feststeht, steht sichtbar als „offen“ – nichts erfunden. Inhalte: s7.preise, s7.pakete, s7.maas.bausteine -#}
+{%- set PR = S.preise %}{%- set VG = PR.vergleich %}
+<main>
+  <section class="s7-held pr7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ PR.kicker }}</p>
+      <h1 class="zg7-h1">{{ PR.h1 }}<br><span class="s7-wort">{{ PR.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ PR.lead }}</p>
+    </div>
+  </section>
+  {{ pakete(false) }}
+
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VG.kicker }}</p>
+      <h2 class="s7-h2">{{ VG.h2 }}</h2>
+      <p class="pr7-offen">{{ VG.offen_hinweis }}</p>
+      <div class="pr7-tabelle" role="table" aria-label="{{ VG.h2 }}">
+        <div class="pr7-kopf" role="row"><span role="columnheader"></span>{% for c in VG.spalten %}<b role="columnheader"{% if loop.last %} class="pr7-komplett"{% endif %}>{{ c }}</b>{% endfor %}</div>
+        {%- for g in VG.gruppen %}
+        <p class="pr7-gruppe">{{ g.titel }}</p>
+        {%- for z in g.zeilen %}
+        <div class="pr7-zeile" role="row">
+          <span role="rowheader">{{ z[0] }}</span>
+          {%- for c in z.slice(1) %}
+          <span role="cell" class="pr7-zelle{% if c == 'offen' %} pr7-zelle--offen{% endif %}">{% if c == "ja" %}<i class="pr7-ja" aria-label="enthalten"></i>{% elif c == "nein" %}<i class="pr7-nein" aria-label="nicht enthalten">–</i>{% else %}{{ c }}{% endif %}</span>
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+        {%- endfor %}
+        <div class="pr7-zeile pr7-zeile--preis" role="row"><span role="rowheader">Preis</span>{% for c in VG.preis %}<span role="cell" class="pr7-zelle{% if c == 'offen' %} pr7-zelle--offen{% endif %}"><b>{{ c }}</b>{% if c != 'offen' %}<small>{{ VG.preis_einheit }}</small>{% endif %}</span>{% endfor %}</div>
+      </div>
+    </div>
+  </section>
+
+  {%- set EG = PR.ergaenzungen %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ EG.kicker }}</p>
+      <h2 class="s7-h2">{{ EG.h2 }}</h2>
+      <div class="pr7-erg">
+        {%- for b in S.maas.bausteine.liste %}{% if not loop.first %}
+        <article class="pr7-erg__karte">
+          <h3>{{ b.name }}</h3>
+          <p>{{ b.kurz }}</p>
+          <p class="pr7-erg__preis"><b>{{ b.preis }}</b><span>{{ b.einheit }}</span>{% if b.zusatz %}<span>{{ b.zusatz }}</span>{% endif %}</p>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <p class="pr7-fuss"><a class="s7-link" href="{{ H7 }}/marketing-as-a-service/#bausteine">{{ EG.link }} {{ pfeil | safe }}</a></p>
+      <ul class="pr7-hinweise">{% for x in PR.fuss %}<li>{{ x }}</li>{% endfor %}</ul>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- elif s.slug == "kontakt" %}
 {#- Unterseite Kontakt und Termin: ein Ziel – der Termin. Links, worum es geht und die direkten Wege; rechts der Kalender (Cal.com, hell).
     Entwicklungsseite: Kalender lädt ohne Einwilligungsabfrage. Vor dem Weg nach main die Einwilligung wie in partials/cal-embed.njk einbauen. -#}
 {%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
@@ -1110,7 +1215,7 @@ p { margin: 0; }
     <div class="s7-wrap">
       <p class="s7-kicker">Vorgehen</p>
       <h2 class="s7-h2">In dieser Reihenfolge bauen wir.</h2>
-      <ol class="sp7-schritte">{% for x in P.reihenfolge %}<li><span>{{ loop.index }}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>{% endfor %}</ol>
+      <ol class="sp7-schritte">{% for x in P.reihenfolge %}<li{% if x.erledigt %} class="sp7-schritte--erledigt"{% endif %}><span>{{ loop.index }}{% if x.erledigt %} · erledigt{% endif %}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>{% endfor %}</ol>
       <p class="sp7-fuss">{{ P.stufe2 }}</p>
     </div>
   </section>

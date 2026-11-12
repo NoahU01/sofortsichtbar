@@ -727,7 +727,7 @@
         "name": "Startseite",
         "frage": "Was ist sofort sichtbar, und was habe ich davon?",
         "von": "Google, Empfehlung, LinkedIn-Profile",
-        "zu": "Pakete → Weg A oder B, Termin",
+        "zu": "Strategiekompass, Vertriebsstrecken, Preise → Weg A oder B, Termin",
         "stand": "gebaut",
         "link": "/entwicklung/storyboard/story7/"
       },
@@ -753,7 +753,7 @@
         },
         {
           "name": "Vertriebsstrecken",
-          "zusatz": "Übersicht · 20 Zielgruppenseiten folgen",
+          "zusatz": "mit 20 Zielgruppenseiten",
           "frage": "Welche Zielgruppen gibt es, und was läuft je Zielgruppe?",
           "von": "Menü, Startseite (Zielgruppen, Schritt 02), Postings zu einer Zielgruppe",
           "zu": "Zielgruppenseite → Termin",
@@ -763,7 +763,7 @@
             "name": "20 Zielgruppenseiten",
             "frage": "Was bekomme ich für genau diese Zielgruppe?",
             "link": "/entwicklung/storyboard/story7/zielgruppen/bauherren/",
-            "hinweis": "eine gemeinsame Vorlage – gezeigt an den Privaten Bauherren"
+            "hinweis": "eine gemeinsame Vorlage – alle 20 im neuen Look"
           }
         },
         {
@@ -774,6 +774,16 @@
           "zu": "Termin",
           "stand": "gebaut",
           "link": "/entwicklung/storyboard/story7/strategiekompass/"
+        },
+        {
+          "name": "Preise",
+          "zusatz": "Fokus · Team · Komplett im Vergleich",
+          "frage": "Was kostet es, und was steckt in welchem Paket?",
+          "von": "Menü, Startseite (Pakete), Marketing as a Service",
+          "zu": "Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/preise/",
+          "offen": "Braucht von Daniel: Preise und Umfang Fokus/Team"
         },
         {
           "name": "Über uns",
@@ -805,7 +815,7 @@
         {
           "name": "Pricing",
           "link": "/pricing",
-          "ersatz": "Pakete auf der Startseite"
+          "ersatz": "die neue Seite Preise"
         },
         {
           "name": "Für Vertriebsleiter",
@@ -823,26 +833,51 @@
       "reihenfolge": [
         {
           "titel": "Seitenplan festlegen",
-          "text": "Diese Seite gemeinsam prüfen: fehlt eine Seite, ist eine zu viel?"
+          "text": "Seiten, Aufgaben und Reihenfolge abgestimmt.",
+          "erledigt": true
         },
         {
           "titel": "Vertriebsstrecken und Zielgruppenseiten",
-          "text": "Eine Vorlage, 20 Seiten im neuen Look – das meistverlinkte Ziel aus Postings."
-        },
-        {
-          "titel": "Mit deinem Team",
-          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen."
+          "text": "Übersicht und Vorlage für alle 20 Zielgruppen gebaut.",
+          "erledigt": true
         },
         {
           "titel": "Strategiekompass",
-          "text": "Aus dem Entwurf in Story 6 in den neuen Look."
+          "text": "Konfigurator im neuen Look, ohne Preisblock.",
+          "erledigt": true
+        },
+        {
+          "titel": "Kontakt und Termin",
+          "text": "Kalender hell, 45 Minuten Kennenlernen.",
+          "erledigt": true
+        },
+        {
+          "titel": "Preise",
+          "text": "Vergleich Fokus · Team · Komplett gebaut – Preise und Umfang von Fokus und Team fehlen noch.",
+          "erledigt": true
+        },
+        {
+          "titel": "Mit deinem Team",
+          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen.",
+          "erledigt": false
+        },
+        {
+          "titel": "Häufige Fragen überarbeiten",
+          "text": "Fragen der alten Kontaktseite auf das neue Modell bringen.",
+          "erledigt": false
+        },
+        {
+          "titel": "Handy und Tablet",
+          "text": "Menü unter 1000 Pixel, letzter Durchgang über alle Seiten.",
+          "erledigt": false
         },
         {
           "titel": "PDF angleichen",
-          "text": "Wenn Marketing as a Service steht."
+          "text": "Wenn Marketing as a Service steht.",
+          "erledigt": false
         }
       ],
-      "stufe2": "Danach: Über uns als eigene Seite, Ablauf im Detail."
+      "stufe2": "Danach: Über uns als eigene Seite, Ablauf im Detail. Vor dem Weg nach main: Einwilligung vor dem Kalender einbauen."
     },
     "vs": {
       "_hinweis": "Zielgruppen, Filter (privat/gewerbe) und Anlässe kommen aus src/_data/vertriebsstrecken.json, Bilder aus zielgruppen.json (Style Elegant). Hier nur Texte der Seite.",
@@ -944,6 +979,132 @@
       ],
       "direkt": "Lieber direkt?",
       "team": "Kerstin Christ · Daniel Ströbel · Noah Hermanns"
+    },
+    "preise": {
+      "_hinweis": "Fokus/Team: Inhalte aus s7.pakete, Preise offen (Daniel liefert). Komplett: Angebot A-00062 (s7.maas.bausteine). Zellen „offen“ = noch nicht festgelegt, nichts erfunden.",
+      "kicker": "Preise",
+      "h1": "Was es kostet.",
+      "h1_akzent": "Du wählst den Weg.",
+      "lead": "Mit deinem Team bedienst du die Maschine selbst, bei Marketing as a Service übernehmen wir.",
+      "vergleich": {
+        "kicker": "Im Vergleich",
+        "h2": "Was in jedem Paket steckt.",
+        "offen_hinweis": "Preise und Umfang von Fokus und Team werden gerade festgelegt. Felder mit „offen“ folgen.",
+        "spalten": [
+          "Fokus",
+          "Team",
+          "Komplett"
+        ],
+        "gruppen": [
+          {
+            "titel": "Grundlage",
+            "zeilen": [
+              [
+                "Wer bedient die Maschine",
+                "Du",
+                "Dein Team",
+                "Wir"
+              ],
+              [
+                "Strategiekompass: Ziele und Zielgruppen festlegen",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Vertriebsstrecken für deine Zielgruppen",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Strategietool Pro",
+                "nein",
+                "ja",
+                "offen"
+              ]
+            ]
+          },
+          {
+            "titel": "Umsetzung",
+            "zeilen": [
+              [
+                "Postings",
+                "automatisch veröffentlicht",
+                "automatisch veröffentlicht",
+                "laufend erstellt und veröffentlicht"
+              ],
+              [
+                "Landingpages",
+                "je Vertriebs­strecke",
+                "je Vertriebs­strecke",
+                "fünf, laufend betreut"
+              ],
+              [
+                "Aufgaben ans Team verteilen",
+                "nein",
+                "ja",
+                "übernehmen wir"
+              ],
+              [
+                "Mehrere Nutzer und Standorte",
+                "nein",
+                "ja",
+                "offen"
+              ]
+            ]
+          },
+          {
+            "titel": "Steuerung",
+            "zeilen": [
+              [
+                "Dashboard",
+                "Aufgaben, Erinnerungen, Auswertung",
+                "Aufgaben, Erinnerungen, Auswertung",
+                "zentral, von uns gesteuert"
+              ],
+              [
+                "Empfehlungen und Optimierung",
+                "nein",
+                "ja",
+                "laufend"
+              ],
+              [
+                "Performance-Reporting",
+                "nein",
+                "monatlich",
+                "monatlich"
+              ],
+              [
+                "Betreuungscall",
+                "nein",
+                "nein",
+                "monatlich"
+              ],
+              [
+                "Fester Ansprechpartner",
+                "nein",
+                "nein",
+                "ja"
+              ]
+            ]
+          }
+        ],
+        "preis": [
+          "offen",
+          "offen",
+          "ab 1.800 €"
+        ],
+        "preis_einheit": "pro Monat"
+      },
+      "ergaenzungen": {
+        "kicker": "Dazu buchbar",
+        "h2": "Ergänzungen zu Marketing as a Service.",
+        "link": "Alle Leistungen ansehen"
+      },
+      "fuss": [
+        "Alle Preise zzgl. Umsatzsteuer. Paid Ads je Werbekanal, Werbebudget nicht enthalten."
+      ]
     }
   }
 }
