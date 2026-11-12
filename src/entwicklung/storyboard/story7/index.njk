@@ -536,24 +536,29 @@ p { margin: 0; }
   .pr7-zelle { font-size: .85rem; }
 }
 
-/* ---------- Kontakt und Termin (ks7-) ---------- */
-.ks7-held { padding-bottom: 2.5rem; }
-.ks7 { padding-bottom: var(--s7-band); }
-.ks7__raster { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
-.ks7__titel { color: var(--s7-tinte); font-weight: 700; }
-.ks7__ablauf { margin: .8rem 0 0; padding: 0; list-style: none; counter-reset: k; }
-.ks7__ablauf li { position: relative; padding: .8rem 0 .8rem 2.4rem; border-top: 1px solid var(--s7-linie); counter-increment: k; line-height: 1.45; }
-.ks7__ablauf li:last-child { border-bottom: 1px solid var(--s7-linie); }
-.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: .78rem; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .85rem; font-weight: 700; }
-.ks7__team { margin: 2.2rem 0 2rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+/* ---------- Kontakt und Termin (ks7-): kompakt – Kopfzeile und Kalender in voller Breite auf einem Bildschirm (Cal.com zeigt ab ~900px drei Spalten) ---------- */
+.ks7 { padding: clamp(1.4rem, 2.6vw, 2.2rem) 0 var(--s7-band); }
+.ks7__kopf { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.4rem clamp(2rem, 5vw, 4rem); align-items: end; }
+.s7-stil .ks7__h1 { font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.1; }
+.ks7 .s7-kicker { margin-bottom: .5rem; }
+.ks7__lead { margin-top: .5rem; font-size: 1.05rem; }
+.ks7__ablauf { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin: .7rem 0 0; padding: 0; list-style: none; counter-reset: k; color: var(--s7-tinte); font-size: .95rem; }
+.ks7__ablauf li { counter-increment: k; }
+.ks7__ablauf li::before { content: counter(k) " "; margin-right: .35rem; color: var(--s7-grau); font-weight: 700; }
+.ks7__wir { display: grid; grid-template-columns: 13rem auto; gap: 1rem; align-items: end; }
+.ks7__team { margin: 0; border-radius: 16px; background: var(--s7-flaeche); overflow: hidden; }
 .ks7__team img { display: block; width: 100%; mix-blend-mode: multiply; }
-.ks7__team figcaption { padding: .8rem 1.2rem 1rem; color: var(--s7-grau); font-size: .9rem; }
-.ks7__wege { display: grid; gap: .4rem; margin-top: .6rem; }
-.ks7__wege a { color: var(--s7-tinte); font-size: 1.1rem; text-decoration: none; }
+.ks7__team figcaption { padding: .4rem .8rem .55rem; color: var(--s7-grau); font-size: .78rem; }
+.ks7__wege { display: grid; gap: .3rem; }
+.ks7__wege a { color: var(--s7-tinte); text-decoration: none; white-space: nowrap; }
 .ks7__wege a:hover { text-decoration: underline; }
-.ks7__kalender { min-height: 40rem; padding: 1rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: #fff; }
-.ks7__kalender > div { width: 100%; min-height: 38rem; }
-@media (max-width: 1000px) { .ks7__raster { grid-template-columns: minmax(0, 1fr); } .ks7__kalender { order: -1; } }
+.ks7__kalender { margin-top: 1.2rem; padding: .6rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: #fff; }
+.ks7__kalender > div { width: 100%; min-height: 33rem; }
+@media (max-width: 1000px) {
+  .ks7__kopf { grid-template-columns: minmax(0, 1fr); }
+  .ks7__ablauf { display: grid; }
+}
+@media (max-width: 600px) { .ks7__wir { grid-template-columns: 8.5rem auto; } .ks7__team figcaption { display: none; } .ks7__wege a { font-size: .95rem; } }
 
 /* ---------- Strategiekompass (ko7-): Konfigurator im Story-7-Stil, Farbe nur in der Zusammenfassung (das Ergebnis) ---------- */
 .ko7-held { padding-bottom: 1rem; }
@@ -1035,21 +1040,19 @@ p { margin: 0; }
     Entwicklungsseite: Kalender lädt ohne Einwilligungsabfrage. Vor dem Weg nach main die Einwilligung wie in partials/cal-embed.njk einbauen. -#}
 {%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
 <main>
-  <section class="s7-held ks7-held">
-    <div class="s7-wrap">
-      <p class="s7-kicker">{{ KS.kicker }}</p>
-      <h1>{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
-      <p class="s7-lead vs7-lead">{{ KS.lead }}</p>
-    </div>
-  </section>
   <section class="ks7">
-    <div class="s7-wrap ks7__raster">
-      <div class="ks7__links">
-        <p class="ks7__titel">{{ KS.ablauf_titel }}</p>
-        <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
-        <figure class="ks7__team"><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"><figcaption>{{ KS.team }}</figcaption></figure>
-        <p class="ks7__titel">{{ KS.direkt }}</p>
-        <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    <div class="s7-wrap">
+      <div class="ks7__kopf">
+        <div>
+          <p class="s7-kicker">{{ KS.kicker }}</p>
+          <h1 class="ks7__h1">{{ KS.h1 }} <span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
+          <p class="ks7__lead">{{ KS.lead }}</p>
+          <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
+        </div>
+        <div class="ks7__wir">
+          <figure class="ks7__team"><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"><figcaption>{{ KS.team }}</figcaption></figure>
+          <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        </div>
       </div>
       <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
     </div>
