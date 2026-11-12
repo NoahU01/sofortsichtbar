@@ -38,24 +38,12 @@
           "label": "Strategie sofort sichtbar"
         },
         {
-          "label": "Strategie und Zielbild",
-          "href": "/entwicklung/strategie-zielbild"
-        },
-        {
-          "label": "Meilensteine",
-          "href": "/entwicklung/meilensteine/fein"
-        },
-        {
           "label": "Anspracheanlässe",
           "href": "/entwicklung/storyboard/story6/anspracheanlaesse/"
         },
         {
           "label": "Marketing as a Service",
           "href": "/entwicklung/storyboard/story6/marketing-as-a-service/"
-        },
-        {
-          "label": "Marketing as a Service 2.0",
-          "href": "/entwicklung/storyboard/story6/marketing-as-a-service-2/"
         },
         {
           "label": "Infografik Marketing as a Service",
@@ -72,34 +60,6 @@
         {
           "typ": "gruppe",
           "label": "Storyboard"
-        },
-        {
-          "label": "Homepage-Story",
-          "href": "/entwicklung/storyboard/homepage"
-        },
-        {
-          "label": "Homepage-Story 2 · Geschichte",
-          "href": "/entwicklung/storyboard/geschichte"
-        },
-        {
-          "label": "Homepage-Story 3 · Positionierung",
-          "href": "/entwicklung/storyboard/positionierung"
-        },
-        {
-          "label": "Homepage-Story 4 · Direkt",
-          "href": "/entwicklung/storyboard/direkt"
-        },
-        {
-          "label": "Homepage-Story 5 · Klarer Kern",
-          "href": "/entwicklung/storyboard/klarer-kern"
-        },
-        {
-          "label": "Homepage-Story 5 · Klarer Kern hell",
-          "href": "/entwicklung/storyboard/klarer-kern-hell"
-        },
-        {
-          "label": "Homepage-Story 6 · empiria-Stil",
-          "href": "/entwicklung/storyboard/story6/"
         },
         {
           "label": "Homepage-Story 7 · Die digitale Maschine",
@@ -124,6 +84,10 @@
         {
           "label": "Story-Varianten",
           "href": "/entwicklung/storyboard/story6/story-varianten/"
+        },
+        {
+          "label": "Homepage-Story-Archiv",
+          "href": "/entwicklung/storyboard/archiv/"
         }
       ]
     }
