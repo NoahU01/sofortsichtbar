@@ -582,28 +582,28 @@ p { margin: 0; }
   .pr7-zelle { font-size: .85rem; }
 }
 
-/* ---------- Kontakt und Termin (ks7-): die Kraft des schwarzen Kontaktbands – ganze Fläche dunkel, links Überschrift mit Verlauf,
-   eure Gesichter, worum es geht; rechts der Kalender im dunklen Modus, auf die Fläche eingefärbt, ohne Rahmen (kein Kasten im Kasten) ---------- */
-.ks7 { padding: clamp(2.4rem, 4.5vw, 4rem) 0 clamp(3rem, 6vw, 5rem); background: var(--s7-tinte); color: #d2d2d7; }
-.ks7__raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-.ks7__kicker { margin-bottom: .9rem; color: #a1a1a6; font-size: 1rem; font-weight: 600; }
-.s7-stil .ks7__h1 { color: #fff; font-size: clamp(2.4rem, 3.6vw, 3.25rem); line-height: 1.04; letter-spacing: calc(var(--s7-titel-abstand) * 1.4); }
-.ks7__lead { margin-top: 1rem; color: #d2d2d7; font-size: 1.1rem; line-height: 1.55; }
-.ks7__team { display: flex; align-items: center; gap: 1rem; margin-top: 1.8rem; color: #fff; font-weight: 600; line-height: 1.4; }
+/* ---------- Kontakt und Termin (ks7-): dunkle Fläche wie das Kontaktband. Oben kompakt: links Überschrift, rechts Satz, Gesichter, Wege;
+   darunter die drei Punkte in einer Reihe; der Kalender in voller Breite OHNE Verkleinerung – Cal.com bleibt erst ab ~1000px dreispaltig
+   und flach (570px); zoom verhält sich in Safari anders (Kalender stapelt sich), deshalb nicht verwenden ---------- */
+.ks7 { padding: clamp(1.6rem, 3vw, 2.4rem) 0 clamp(2.4rem, 5vw, 4rem); background: var(--s7-tinte); color: #d2d2d7; }
+.ks7__kopf { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.6rem clamp(2rem, 5vw, 4.5rem); align-items: end; }
+.ks7__kicker { margin-bottom: .8rem; color: #a1a1a6; font-size: 1rem; font-weight: 600; }
+.s7-stil .ks7__h1 { color: #fff; font-size: clamp(2.6rem, 4.4vw, 3.9rem); line-height: 1.02; letter-spacing: calc(var(--s7-titel-abstand) * 1.5); }
+.ks7__lead { color: #d2d2d7; font-size: 1.1rem; line-height: 1.55; }
+.ks7__team { display: flex; align-items: center; gap: .9rem; margin-top: 1rem; color: #fff; font-weight: 600; line-height: 1.4; }
 .ks7__team span { display: flex; flex: none; }
-.ks7__team img { width: 3.4rem; height: 3.4rem; border: 3px solid var(--s7-tinte); border-radius: 50%; object-fit: cover; }
-.ks7__team img + img { margin-left: -1rem; }
-.ks7__ablauf { margin: 1.6rem 0 0; padding: 0; list-style: none; counter-reset: k; }
-.ks7__ablauf li { position: relative; padding: .6rem 0 .6rem 1.7rem; border-top: 1px solid #3a3a3c; counter-increment: k; color: #d2d2d7; font-size: .97rem; line-height: 1.45; }
-.ks7__ablauf li:last-child { border-bottom: 1px solid #3a3a3c; }
-.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: .6rem; color: #86868b; font-weight: 700; }
-.ks7__wege { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; margin-top: 1.4rem; }
+.ks7__team img { width: 3rem; height: 3rem; border: 3px solid var(--s7-tinte); border-radius: 50%; object-fit: cover; }
+.ks7__team img + img { margin-left: -.9rem; }
+.ks7__wege { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin-top: .9rem; }
 .ks7__wege a { color: #fff; font-weight: 600; text-decoration: none; }
 .ks7__wege a:hover { text-decoration: underline; }
-.ks7__kalender { zoom: .82; }
-.ks7__kalender > div { width: 100%; min-height: 36rem; }
-.s7-stil:has(.ks7) .s7-fuss { border-top: 1px solid #2c2c2e; }
-@media (max-width: 1100px) { .ks7__raster { grid-template-columns: minmax(0, 1fr); } .ks7__kalender { zoom: 1; } }
+.ks7__ablauf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin: 1.4rem 0 0; padding: .9rem 0 0; border-top: 1px solid #3a3a3c; list-style: none; counter-reset: k; }
+.ks7__ablauf li { position: relative; padding-left: 1.6rem; counter-increment: k; color: #d2d2d7; font-size: .95rem; line-height: 1.45; }
+.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: 0; color: #86868b; font-weight: 700; }
+.ks7__kalender { max-width: 66rem; margin: .8rem 0 0 -2.05rem; } /* Cal.com zentriert in seinem Rahmen – bei ~1000px füllt der Kalender ihn, linke Kante = Überschrift */
+.ks7__kalender > div { width: 100%; min-height: 35.5rem; }
+@media (max-width: 1100px) { .ks7__kalender { margin-left: 0; } }
+@media (max-width: 1000px) { .ks7__kopf, .ks7__ablauf { grid-template-columns: minmax(0, 1fr); } .ks7__ablauf { gap: .6rem; } }
 
 /* ---------- Strategiekompass (ko7-): Konfigurator im Story-7-Stil, Farbe nur in der Zusammenfassung (das Ergebnis) ---------- */
 .ko7-held { padding-bottom: 1rem; }
@@ -1163,15 +1163,19 @@ p { margin: 0; }
 {%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
 <main>
   <section class="ks7">
-    <div class="s7-wrap ks7__raster">
-      <div class="ks7__text">
-        <p class="ks7__kicker">{{ KS.kicker }}</p>
-        <h1 class="ks7__h1">{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
-        <p class="ks7__lead">{{ KS.lead }}</p>
-        <p class="ks7__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
-        <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
-        <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    <div class="s7-wrap">
+      <div class="ks7__kopf">
+        <div>
+          <p class="ks7__kicker">{{ KS.kicker }}</p>
+          <h1 class="ks7__h1">{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
+        </div>
+        <div class="ks7__rechts">
+          <p class="ks7__lead">{{ KS.lead }}</p>
+          <p class="ks7__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
+          <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        </div>
       </div>
+      <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
       <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
     </div>
   </section>
