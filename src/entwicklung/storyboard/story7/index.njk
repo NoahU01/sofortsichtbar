@@ -18,6 +18,66 @@ seiten:
     titel: "Seitenplan"
   - slug: "vertriebsstrecken"
     titel: "Vertriebsstrecken"
+  - slug: "zielgruppen/anwalte-und-kanzleiinhaber"
+    titel: "Kanzleiinhaber"
+    zg: "anwalte-und-kanzleiinhaber"
+  - slug: "zielgruppen/arzte"
+    titel: "Ärzte und Zahnärzte"
+    zg: "arzte"
+  - slug: "zielgruppen/bauherren"
+    titel: "Private Bauherren"
+    zg: "bauherren"
+  - slug: "zielgruppen/berufseinsteiger-im-ersten-job"
+    titel: "Berufseinsteiger"
+    zg: "berufseinsteiger-im-ersten-job"
+  - slug: "zielgruppen/cyber-firmen"
+    titel: "IT-lastige Firmen"
+    zg: "cyber-firmen"
+  - slug: "zielgruppen/digital-aktive-privatpersonen"
+    titel: "Digital aktive Personen"
+    zg: "digital-aktive-privatpersonen"
+  - slug: "zielgruppen/ferienwohnungen"
+    titel: "Vermietung von Ferienwohnungen"
+    zg: "ferienwohnungen"
+  - slug: "zielgruppen/freelancer-und-grunder"
+    titel: "Gründer & Freelancer"
+    zg: "freelancer-und-grunder"
+  - slug: "zielgruppen/getrennte-personen"
+    titel: "Getrennte Paare"
+    zg: "getrennte-personen"
+  - slug: "zielgruppen/gewerbekunden"
+    titel: "Inhabergeführte Firmen"
+    zg: "gewerbekunden"
+  - slug: "zielgruppen/hausverwalter"
+    titel: "Hausverwaltungen"
+    zg: "hausverwalter"
+  - slug: "zielgruppen/immobilienmakler"
+    titel: "Immobilienmakler"
+    zg: "immobilienmakler"
+  - slug: "zielgruppen/junge-ehepaare"
+    titel: "Junge Ehepaare"
+    zg: "junge-ehepaare"
+  - slug: "zielgruppen/kommunale-angestellte"
+    titel: "Kommunale Angestellte"
+    zg: "kommunale-angestellte"
+  - slug: "zielgruppen/landwirte"
+    titel: "Landwirte"
+    zg: "landwirte"
+  - slug: "zielgruppen/physio-und-pflege"
+    titel: "Gesundheitsnahe Heilberufe"
+    zg: "physio-und-pflege"
+  - slug: "zielgruppen/private-tierhalter-im-lokalen-umfeld"
+    titel: "Private Tierhalter"
+    zg: "private-tierhalter-im-lokalen-umfeld"
+  - slug: "zielgruppen/umzug"
+    titel: "Umzug"
+    zg: "umzug"
+  - slug: "zielgruppen/vereine"
+    titel: "Vereine"
+    zg: "vereine"
+  - slug: "zielgruppen/werdende-eltern"
+    titel: "Junge Familien"
+    zg: "werdende-eltern"
 permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
 ---
 {#- Homepage-Story 7 · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
@@ -112,6 +172,19 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
       </ol>
     </div>
   </section>
+{%- endmacro -%}
+
+{#- Karte einer Zielgruppe (Wisch-Reihe): Anlass, Name, Landingpage im Anschnitt. Daten: vertriebsstrecken.json + zielgruppen.json -#}
+{%- macro zgKarte(z) -%}
+{%- set slug = z.href | replace("/zielgruppen/", "") %}
+{%- set bild = "" %}{% for x in zielgruppen %}{% if x.slug == slug %}{% for st in x.styles %}{% if st.name == "Elegant" %}{% set bild = st.image %}{% endif %}{% endfor %}{% if not bild %}{% set bild = x.styles[0].image %}{% endif %}{% endif %}{% endfor %}
+{%- if S.vs.bild_korrektur[slug] %}{% set bild = S.vs.bild_korrektur[slug] %}{% endif %}
+{%- set an = "" %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == z.href and not an %}{% set an = a.label %}{% endif %}{% endfor %}
+<li><a class="vs7-karte" href="{{ H7 }}/zielgruppen/{{ slug }}/">
+  <span class="vs7-karte__anlass">{{ an or "Vertriebsstrecke" }}</span>
+  <b>{{ z.label }}</b>
+  <img src="/assets/img/{{ bild }}" alt="" width="868" height="446" loading="lazy">
+</a></li>
 {%- endmacro -%}
 
 {%- macro kontakt() -%}
@@ -416,6 +489,36 @@ p { margin: 0; }
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
+
+/* ---------- Zielgruppenseite (zg7-), Vorlage für alle 20 ---------- */
+.zg7-anlaesse { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem; margin: 1.4rem auto 0; max-width: 46rem; }
+.zg7-anlaesse span { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.zg7-anlaesse b { padding: .25rem .8rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; }
+.s7-stil .s7-held .zg7-h1 { max-width: 20ch; font-size: clamp(2.6rem, 6.2vw, 5.4rem); }
+.zg7-wer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.zg7-wer__karte { padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-stil .zg7-wer__karte h3 { font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.zg7-wer__karte ul { margin: 1rem 0 0; padding: 0; list-style: none; }
+.zg7-wer__karte li { padding: .6rem 0; border-top: 1px solid var(--s7-linie); line-height: 1.45; }
+.zg7-fragen { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.zg7-faq details { border-top: 1px solid var(--s7-linie); }
+.zg7-faq details:last-child { border-bottom: 1px solid var(--s7-linie); }
+.zg7-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.3rem 0; color: var(--s7-tinte); font-size: 1.15rem; font-weight: 600; cursor: pointer; list-style: none; }
+.zg7-faq summary::-webkit-details-marker { display: none; }
+.zg7-faq summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--s7-flaeche); font-size: 1.3rem; font-weight: 400; transition: transform .2s ease; }
+.zg7-faq details[open] summary::after { transform: rotate(45deg); }
+.zg7-faq__a { padding: 0 0 1.4rem; }
+.zg7-faq__a p + p, .zg7-faq__a ul { margin-top: .7rem; }
+.zg7-faq__a strong { color: var(--s7-tinte); }
+.zg7-faq__a ul { padding-left: 1.2rem; }
+.zg7-faq__a li { margin: .3rem 0; }
+.zg7-weitere .vs7-reihe { margin-top: 0; }
+.s7-stil .zg7-weitere__h2 { flex: 1; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.15; }
+.zg7-weitere .vs7-karte { background: var(--s7-karte); }
+.zg7-alle { margin-top: 1.6rem; }
+@media (max-width: 1000px) {
+  .zg7-wer, .zg7-fragen { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* ---------- Unterseite Vertriebsstrecken (vs7-) ---------- */
 .vs7-lead { max-width: 44rem !important; }
@@ -738,7 +841,7 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -761,7 +864,7 @@ p { margin: 0; }
     {#- Hauptmenü: echte Unterseiten; „Pakete“ und „Über uns“ springen zur Startseite, bis sie eigene Seiten haben -#}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
-      <a href="{{ H7 }}/vertriebsstrecken/"{% if s.slug == "vertriebsstrecken" %} aria-current="page"{% endif %}>Vertriebsstrecken</a>
+      <a href="{{ H7 }}/vertriebsstrecken/"{% if s.slug == "vertriebsstrecken" or s.zg %} aria-current="page"{% endif %}>Vertriebsstrecken</a>
       <a href="{{ H7 }}/#pakete">Pakete</a>
       <a href="{{ H7 }}/#ueber-uns">Über uns</a>
     </nav>
@@ -903,6 +1006,85 @@ p { margin: 0; }
     </div>
   </section>
 </main>
+{%- elif s.zg %}
+{#- Zielgruppenseite (Vorlage für alle 20, Seitenplan): „Was bekomme ich für genau diese Zielgruppe, und warum lohnt sie sich?“
+    Inhalte aus zielgruppen.json (intro, heroImage, infoItems, faq) und vertriebsstrecken.json (Name, Segment, Anlässe) – nichts doppelt.
+    Style-Auswahl entfällt (nur noch Elegant). -#}
+{%- set Z = null %}{% for x in zielgruppen %}{% if x.slug == s.zg %}{% set Z = x %}{% endif %}{% endfor %}
+{%- set ZV = null %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + s.zg %}{% set ZV = v %}{% endif %}{% endfor %}
+{%- set name = ZV.label if ZV else Z.name %}
+{%- set anl = [] %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == "/zielgruppen/" + s.zg %}{% set anl = (anl.push(a.label), anl) %}{% endif %}{% endfor %}
+{%- set ZT = S.zg %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ZT.kicker }}{% if ZV %} · {{ "Privatkunden" if ZV.filter == "privat" else "Firmenkunden" }}{% endif %}</p>
+      <h1 class="zg7-h1">{{ name }}.<br><span class="s7-wort">{{ ZT.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ Z.intro | replace("<p>‍</p>", "") | striptags }}</p>
+      {%- if anl.length %}<p class="zg7-anlaesse"><span>{{ ZT.anlass }}</span>{% for a in anl %}<b>{{ a }}</b>{% endfor %}</p>{% endif %}
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ ZT.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#fragen">{{ ZT.knopf2 }}</a>
+      </div>
+      <figure class="vs7-held__bild"><img src="/assets/img/{{ Z.heroImage }}" alt="Vertriebsstrecke {{ name }}: Posting, Landingpage und Kundenmailing" width="1664" height="658"></figure>
+    </div>
+  </section>
+
+  <section class="s7-band s7-band--akzent">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ZT.wer_kicker }}</p>
+      <h2 class="s7-h2">{{ ZT.wer_h2 }}</h2>
+      <div class="zg7-wer">
+        {%- for i in Z.infoItems %}
+        <article class="zg7-wer__karte"><h3>{{ i.title }}</h3>{{ i.html | replace(' role="list"', '') | safe }}</article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="s7-band" id="fragen">
+    <div class="s7-wrap zg7-fragen">
+      <div>
+        <p class="s7-kicker">{{ ZT.fragen_kicker }}</p>
+        <h2 class="s7-h2">{{ ZT.fragen_h2 }}</h2>
+      </div>
+      <div class="zg7-faq">
+        {%- for f in Z.faq %}
+        <details{% if loop.first %} open{% endif %}><summary>{{ f.question }}</summary><div class="zg7-faq__a">{{ f.answer | replace("<p>‍</p>", "") | replace(' role="list"', '') | safe }}</div></details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- if ZV %}
+  <section class="s7-band s7-band--flaeche zg7-weitere">
+    <div class="s7-wrap">
+      <div class="vs7-reihe" data-vs7-reihe>
+        <div class="vs7-reihe__kopf">
+          <h2 class="zg7-weitere__h2">{{ ZT.weitere }}</h2>
+          <span class="vs7-reihe__pfeile"><button type="button" data-richtung="-1" aria-label="Zurück">‹</button><button type="button" data-richtung="1" aria-label="Weiter">›</button></span>
+        </div>
+        <ul class="vs7-scroller">
+          {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == ZV.filter and z.href != ZV.href %}
+          {{ zgKarte(z) }}
+          {%- endif %}{% endfor %}
+        </ul>
+      </div>
+      <p class="zg7-alle"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ ZT.alle }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+  {%- endif %}
+
+  {{ kontakt() }}
+</main>
+<script>
+document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
+  var s = r.querySelector(".vs7-scroller");
+  r.querySelectorAll("[data-richtung]").forEach(function (k) {
+    k.addEventListener("click", function () { var w = s.querySelector("li").offsetWidth + 16; s.scrollBy({ left: Number(k.dataset.richtung) * w * 2, behavior: "smooth" }); });
+  });
+});
+</script>
 {%- elif s.slug == "vertriebsstrecken" %}
 {#- Unterseite Vertriebsstrecken (Seitenplan): „Welche Zielgruppen gibt es, und was läuft je Zielgruppe?“
     Muss allein funktionieren (Postings verlinken direkt). Zielgruppen, Filter und Anlässe aus vertriebsstrecken.json,
@@ -953,15 +1135,7 @@ p { margin: 0; }
         </div>
         <ul class="vs7-scroller">
           {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == g[0] %}
-          {%- set slug = z.href | replace("/zielgruppen/", "") %}
-          {%- set bild = "" %}{% for x in zielgruppen %}{% if x.slug == slug %}{% for st in x.styles %}{% if st.name == "Elegant" %}{% set bild = st.image %}{% endif %}{% endfor %}{% if not bild %}{% set bild = x.styles[0].image %}{% endif %}{% endif %}{% endfor %}
-          {%- if V.bild_korrektur[slug] %}{% set bild = V.bild_korrektur[slug] %}{% endif %}
-          {%- set an = "" %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == z.href and not an %}{% set an = a.label %}{% endif %}{% endfor %}
-          <li><a class="vs7-karte" href="{{ z.href }}">
-            <span class="vs7-karte__anlass">{{ an or "Vertriebsstrecke" }}</span>
-            <b>{{ z.label }}</b>
-            <img src="/assets/img/{{ bild }}" alt="" width="868" height="446" loading="lazy">
-          </a></li>
+          {{ zgKarte(z) }}
           {%- endif %}{% endfor %}
         </ul>
       </div>

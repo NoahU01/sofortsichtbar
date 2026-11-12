@@ -762,8 +762,8 @@
           "unter": {
             "name": "20 Zielgruppenseiten",
             "frage": "Was bekomme ich für genau diese Zielgruppe?",
-            "link": "/zielgruppen/bauherren/",
-            "hinweis": "eine gemeinsame Vorlage – ein Umbau bringt alle 20 in den neuen Look"
+            "link": "/entwicklung/storyboard/story7/zielgruppen/bauherren/",
+            "hinweis": "eine gemeinsame Vorlage – gezeigt an den Privaten Bauherren"
           }
         },
         {
@@ -909,6 +909,19 @@
       "bild_korrektur": {
         "cyber-firmen": "zielgruppen/cyber-firmen-style-1.webp"
       }
+    },
+    "zg": {
+      "kicker": "Vertriebsstrecke",
+      "h1_akzent": "Fertig für deinen Vertrieb.",
+      "anlass": "Anlass:",
+      "knopf": "Termin auswählen",
+      "knopf2": "Fragen aus dem Vertrieb",
+      "wer_kicker": "Die Zielgruppe",
+      "wer_h2": "Wen du hier erreichst.",
+      "fragen_kicker": "Fragen, die im Vertrieb zählen",
+      "fragen_h2": "So nutzt du die Strecke.",
+      "weitere": "Weitere Zielgruppen",
+      "alle": "Alle Vertriebsstrecken"
     }
   }
 }
