@@ -79,7 +79,9 @@ svg.vs { display: inline-block; overflow: visible; }
 .klein { font-size: var(--klein); }
 
 /* Kopf: Kicker und Logo auf einer Oberkante */
-.kopf { display: grid; grid-template-columns: 1fr auto; column-gap: 10mm; align-items: start; }
+.kopf { display: grid; grid-template-columns: 1fr auto; column-gap: 10mm; align-items: start; padding-bottom: var(--luft); }
+.a3-quer, .a3-hoch { --luft: 9mm; }
+.rollup { --luft: 18mm; }
 .kopf .kicker { margin-top: 0; }
 .kopf h1 { margin-top: 4mm; }
 .logo { display: block; height: var(--logo, 9mm); margin-top: calc(var(--klein) * 0.087); }
@@ -88,6 +90,15 @@ svg.vs { display: inline-block; overflow: visible; }
 .a3-hoch .kopf .lead { max-width: 210mm; }
 .buehne.schnitt svg { width: 86%; margin: 0 auto; }
 .a3-hoch .buehne.schnitt svg { width: 80%; }
+.a3-quer .buehne.schnitt svg { width: 74%; }
+.a3-quer .gg-trichter svg { max-height: 21mm; }
+.a3-quer .gg-inhalt { padding: 4mm 5mm; }
+.a3-quer .dash .kacheln > div { padding: 2mm 2.6mm; font-size: var(--klein); }
+.a3-quer .dash .kacheln svg { height: 3.5mm; margin-top: 1.2mm; }
+.a3-quer .dash .empfs { gap: 1.8mm; }
+.a3-quer .dash .empfs div { padding: 1.8mm 2.6mm; }
+.a3-quer .dash .empfs b { font-size: var(--klein); }
+.a3-quer .dash .lbl { margin: 3.5mm 0 1.6mm; }
 .a3-quer .gg-fragen { display: flex; flex-wrap: wrap; align-content: center; gap: 1.8mm; }
 .a3-hoch .dash .kacheln svg { height: 4mm; }
 .a3-hoch .dash .kacheln > div { padding: 2.4mm 3mm; }
@@ -252,16 +263,41 @@ svg.vs { display: inline-block; overflow: visible; }
 .stufen-quer .s3 { grid-column: 3; grid-row: 2; }
 .stufen-quer .stufe.mess, .stufen-quer .stufe.s2, .stufen-quer .stufe.s3 { margin-top: 0; }
 .stufen-quer .stufe.mess { padding-top: 0; border-top: 0; }
+
+.teil.red { display: grid; grid-template-columns: var(--links, 62mm) minmax(0, 1fr); column-gap: 10mm; padding-top: 5mm; }
+.teil.red .teil-kopf { display: block; }
+.teil.red .teil-kopf .nr { margin-bottom: 4mm; }
+.teil.red .teil-kopf .sub { margin-top: 2mm; max-width: 58mm; }
+.teil.red .teil-inhalt { margin-top: 1mm; }
+.rollup .teil.red { --links: 68mm; }
+.teil.red .pfad { grid-template-columns: auto auto minmax(0, 1fr); }
+.teil.red .pfad .pf2 { display: none; }
+.teil.red .pfad .zg { grid-column: 1 / -1; margin-top: 4mm; }
+.teil.red .stufen-quer { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 7mm; }
+.teil.red .stufen-quer .s1 { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 7mm; padding-bottom: 4mm; border-bottom: 0.3mm solid #d2d2d7; }
+.teil.red .stufen-quer .s1 ul { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; align-self: center; }
+.teil.red .stufen-quer .mess { grid-column: 1; grid-row: 2; padding: 0; border: 0; }
+.teil.red .stufen-quer .s2 { grid-column: 2; grid-row: 2; }
+.teil.red .stufen-quer .s3 { grid-column: 3; grid-row: 2; }
+/* Teil 3 flacher: Kennzahlen und Empfehlungen nebeneinander */
+.dash.flach .dash-inhalt { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 5mm; align-items: start; }
+.dash.flach .kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm; }
+.dash.flach .kacheln > div { padding: 2mm 2.6mm; font-size: var(--klein); }
+.dash.flach .kacheln svg { height: 3mm; margin-top: 1mm; }
+.dash.flach .lbl { margin: 0 0 1.6mm; }
+.dash.flach .empfs { grid-template-columns: minmax(0, 1fr); gap: 1.6mm; }
+.dash.flach .empfs div { padding: 1.6mm 2.6mm; }
+.dash.flach .empfs b { font-size: var(--klein); }
 .drei-spalten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.75fr) minmax(0, .95fr); column-gap: 12mm; }
 
 .a3-quer .band { padding-top: 7mm; padding-bottom: 8mm; }
 .a3-quer .band .wege { grid-template-columns: auto auto; column-gap: 10mm; align-items: end; }
 .a3-quer .band .team { grid-row: span 2; flex-direction: column; align-items: flex-start; margin: 0; max-width: 40mm; }
 /* A3 hoch: größere kleine Bilder, mehr Luft */
-.a3-hoch .schritt .bild { padding: 7mm 6mm; min-height: 92mm; }
+.a3-hoch .schritt .bild { padding: 6mm 5mm; min-height: 58mm; }
 
 .a3-hoch .mini, .a3-hoch .chip { font-size: 9.5pt; }
-.a3-hoch .schritt .mini, .a3-hoch .schritt .chip { font-size: 10.5pt; }
+.a3-hoch .schritt .mini, .a3-hoch .schritt .chip { font-size: 9.5pt; }
 """
 
 
@@ -363,16 +399,19 @@ def stufen_teil(S, tr, quer=False):
         '<div class="stufe s3"><p class="kicker">Stufe 3 · Kundenbetreuung</p><h3>Kunden halten.</h3>'
         '<p class="t">Wer regelmäßig von dir hört, bleibt – und bringt neue Anlässe mit.</p></div>')
     if quer:  # Trichter quer, darunter die Stufen in Spalten unter dem passenden Teil der Grafik
-        return (f'<div class="buehne" style="padding:5mm 48mm 4mm">{S["ek_quer"]}</div>'
+        return (f'<div class="buehne" style="padding:6mm 9mm 5mm">{S["ek_quer"]}</div>'
                 f'<div class="stufen-quer">{st}</div>')
     return f'<div class="stufen" style="--tr:{tr}"><div class="grafik">{S["ek_hoch"]}</div><div class="texte">{st}</div></div>'
 
 
-def dashboard():
+def dashboard(flach=False):
     k = (f'<div class="kacheln"><div>Aufmerksamkeit{AUF}</div><div>Verweildauer{AB}</div><div>Google{AUF}</div>'
          f'<div class="ziel">Leads{AUF}</div></div>')
     em = ('<div class="empfs"><div><b>Landingpage</b>Abschnitt umstellen, der kaum gelesen wird</div>'
           '<div><b>LinkedIn</b>Thema verstärken, das Leads bringt</div><div><b>Google</b>Seite für einen gesuchten Begriff ausbauen</div></div>')
+    if flach:
+        return (f'<div class="dash flach"><p class="dash-kopf"><i></i><i></i><i></i><span>Dashboard</span></p>'
+                f'<div class="dash-inhalt">{k}<div><p class="lbl">Empfehlungen</p>{em}</div></div></div>')
     return (f'<div class="dash"><p class="dash-kopf"><i></i><i></i><i></i><span>Dashboard</span></p>'
             f'<div class="dash-inhalt">{k}<p class="lbl">Empfehlungen</p>{em}</div></div>')
 
@@ -391,12 +430,12 @@ def detail(S, logo, img6, fmt):
                 f'<div class="teil">{k2}<div class="teil-inhalt">{stufen_teil(S, "64mm")}</div></div>'
                 f'<div class="teil">{k3}<div class="teil-inhalt">{dashboard()}{notiz3}</div></div></div>')
     else:
-        tr = "36mm" if fmt == "a3-hoch" else "66mm"
-        gap = "5mm" if fmt == "a3-hoch" else "10mm"
+        gap = "19mm" if fmt == "a3-hoch" else "24mm"
         kopf_ = kopf_hoch(H["kicker"], e(H["h1"]) if fmt == "a3-hoch" else "Die digitale<br>Maschine", H["h1_akzent"], H["lead"], logo)
-        body = (f'<div class="teil" style="margin-top:{gap}">{k1}<div class="teil-inhalt">{pfad()}{notiz1}</div></div>'
-                f'<div class="teil" style="margin-top:{gap}">{k2}<div class="teil-inhalt">{stufen_teil(S, tr, quer=(fmt == "a3-hoch"))}</div></div>'
-                f'<div class="teil" style="margin-top:{gap}">{k3}<div class="teil-inhalt">{dashboard()}{notiz3}</div></div>')
+        st = stufen_teil(S, None, quer=True) if fmt == "a3-hoch" else stufen_teil(S, "72mm")
+        body = (f'<div class="teil red">{k1}<div class="teil-inhalt">{pfad()}{notiz1}</div></div>'
+                f'<div class="teil red" style="margin-top:{gap}">{k2}<div class="teil-inhalt">{st}</div></div>'
+                f'<div class="teil red" style="margin-top:{gap}">{k3}<div class="teil-inhalt">{dashboard(flach=True)}{notiz3}</div></div>')
     return kopf_ + body + band(S, img6)
 
 
@@ -411,8 +450,8 @@ def blaetter(S, logo, img6):
         + band(S, img6))
     out[("maschine", "a3-hoch")] = (
         kopf_hoch(H["kicker"], e(H["h1"]), H["h1_akzent"], H["lead"], logo)
-        + f'<div class="buehne" style="margin-top:16mm;padding:14mm 9mm 12mm">{S["ek_quer"]}</div>'
-        + f'<div style="margin-top:18mm">{schritte(S)}</div>'
+        + f'<div class="buehne" style="margin-top:16mm;padding:18mm 12mm 16mm">{S["ek_quer"]}</div>'
+        + f'<div style="margin-top:26mm">{schritte(S)}</div>'
         + band(S, img6))
     out[("maschine", "rollup")] = (
         kopf_hoch(H["kicker"], "Die digitale<br>Maschine", H["h1_akzent"], H["lead"], logo)
