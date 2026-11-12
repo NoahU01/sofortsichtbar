@@ -288,6 +288,13 @@ svg.vs { display: inline-block; overflow: visible; }
 .dash.flach .empfs { grid-template-columns: minmax(0, 1fr); gap: 1.6mm; }
 .dash.flach .empfs div { padding: 1.6mm 2.6mm; }
 .dash.flach .empfs b { font-size: var(--klein); }
+
+/* Druckfassung: ohne Band, Adresse unten rechts bündig mit dem Logo */
+.druck { padding-bottom: var(--rand); }
+.druck .verteilt { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 12mm; }
+.druck.a3-quer .verteilt { justify-content: flex-start; }
+.druck.a3-quer .verteilt > .drei-spalten { flex: 1; }
+.fuss-url { padding-top: 3.5mm; border-top: 0.3mm solid #d2d2d7; text-align: right; color: #1d1d1f; font-size: var(--text); font-weight: 600; line-height: 1; }
 .drei-spalten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.75fr) minmax(0, .95fr); column-gap: 12mm; }
 
 .a3-quer .band { padding-top: 7mm; padding-bottom: 8mm; }
@@ -416,18 +423,19 @@ def dashboard(flach=False):
             f'<div class="dash-inhalt">{k}<p class="lbl">Empfehlungen</p>{em}</div></div>')
 
 
-def detail(S, logo, img6, fmt):
+def detail(S, logo, img6, fmt, druck=False):
     H = S["hero"]
     k1 = teil_kopf("01", "Strategie", "Wo willst du wachsen?", "Welche Ziele willst du erreichen – und mit welchen Zielgruppen?")
     k2 = teil_kopf("02", "Marketing und Vertrieb", "Drei Stufen zum Vertriebserfolg.", "Die Maschine arbeitet vor deinem Vertrieb – gemessen wird an Leads.")
     k3 = teil_kopf("03", "Steuerung", "Funktioniert es?", "Das Dashboard misst Landingpages, Postings und Mailings. Daraus folgt, was als Nächstes wirkt.")
     notiz1 = '<p class="notiz">Daraus leitet sich alles Weitere ab: Themen, Landingpages, Kanäle.</p>'
     notiz3 = '<p class="notiz">Abschlüsse liegen im System deiner Agentur – die tracken wir bewusst nicht.</p>'
+    gap = None
     if fmt == "a3-quer":
         kopf_ = kopf_hoch(H["kicker"], e(H["h1"]), H["h1_akzent"], H["lead"], logo, br_akzent=False)
         body = (f'<div class="drei-spalten" style="margin-top:10mm">'
                 f'<div class="teil">{k1}<div class="teil-inhalt">{pfad(senkrecht=True)}{notiz1}</div></div>'
-                f'<div class="teil">{k2}<div class="teil-inhalt">{stufen_teil(S, "64mm")}</div></div>'
+                f'<div class="teil">{k2}<div class="teil-inhalt">{stufen_teil(S, "76mm" if druck else "64mm")}</div></div>'
                 f'<div class="teil">{k3}<div class="teil-inhalt">{dashboard()}{notiz3}</div></div></div>')
     else:
         gap = "19mm" if fmt == "a3-hoch" else "24mm"
@@ -436,6 +444,9 @@ def detail(S, logo, img6, fmt):
         body = (f'<div class="teil red">{k1}<div class="teil-inhalt">{pfad()}{notiz1}</div></div>'
                 f'<div class="teil red" style="margin-top:{gap}">{k2}<div class="teil-inhalt">{st}</div></div>'
                 f'<div class="teil red" style="margin-top:{gap}">{k3}<div class="teil-inhalt">{dashboard(flach=True)}{notiz3}</div></div>')
+    if druck:  # zum Selbstausdrucken: kein Band, keine Gesichter, keine Kontaktdaten – nur die Adresse unten rechts
+        body = body.replace(f' style="margin-top:{gap}"', "") if fmt != "a3-quer" else body.replace('style="margin-top:10mm"', "")
+        return kopf_ + f'<div class="verteilt">{body}</div>' + '<p class="fuss-url">sofortsichtbar.de</p>'
     return kopf_ + body + band(S, img6)
 
 
@@ -483,6 +494,8 @@ def blaetter(S, logo, img6):
         + band(S, img6))
     for fmt in FORMATE:
         out[("maschine-ausfuehrlich", fmt)] = detail(S, logo, img6, fmt)
+    for fmt in ("a3-quer", "a3-hoch"):
+        out[("maschine-ausfuehrlich-druck", fmt)] = detail(S, logo, img6, fmt, druck=True)
     return out
 
 
@@ -497,7 +510,7 @@ def main():
         h = os.path.join(tmp, name + ".html")
         open(h, "w", encoding="utf-8").write(
             f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{css(fmt)}</style></head><body>{SVG_CSS}{VERLAUF_H}'
-            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
+            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}{" druck" if g.endswith("-druck") else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
         pdf = os.path.join(ZIEL, name + ".pdf")
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
                         "--virtual-time-budget=6000", f"--print-to-pdf={pdf}", "file://" + h], check=True, capture_output=True)
