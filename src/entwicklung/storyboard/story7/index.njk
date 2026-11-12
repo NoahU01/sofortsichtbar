@@ -20,6 +20,8 @@ seiten:
     titel: "Vertriebsstrecken"
   - slug: "strategiekompass"
     titel: "Strategiekompass"
+  - slug: "kontakt"
+    titel: "Kontakt"
   - slug: "zielgruppen/anwalte-und-kanzleiinhaber"
     titel: "Kanzleiinhaber"
     zg: "anwalte-und-kanzleiinhaber"
@@ -189,7 +191,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 </a></li>
 {%- endmacro -%}
 
-{%- macro kontakt() -%}
+{%- macro kontaktBand() -%}
   <section class="s7-band s7-band--tinte" id="kontakt">
     <div class="s7-wrap s7-kontakt">
       <div>
@@ -197,7 +199,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
         <p class="s7-lead">{{ S.kontakt.t }}</p>
       </div>
       <div class="s7-kontakt__wege">
-        <a class="s7-knopf" href="{{ B6 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
         <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
         <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
       </div>
@@ -325,6 +327,8 @@ p { margin: 0; }
 .s7-nav { display: flex; gap: 1.8rem; margin-left: auto; }
 .s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; }
 .s7-nav a:hover { color: var(--s7-tinte); }
+.s7-nav a[aria-current="page"] { color: var(--s7-tinte); font-weight: 600; }
+@media (max-width: 1200px) { .s7-nav { gap: 1.2rem; } .s7-nav a { font-size: .9rem; } }
 .s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
 .s7-kopf--nur-marke .s7-knopf { margin-left: auto; }
 .s7-dd { position: relative; }
@@ -491,6 +495,25 @@ p { margin: 0; }
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
+
+/* ---------- Kontakt und Termin (ks7-) ---------- */
+.ks7-held { padding-bottom: 2.5rem; }
+.ks7 { padding-bottom: var(--s7-band); }
+.ks7__raster { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.ks7__titel { color: var(--s7-tinte); font-weight: 700; }
+.ks7__ablauf { margin: .8rem 0 0; padding: 0; list-style: none; counter-reset: k; }
+.ks7__ablauf li { position: relative; padding: .8rem 0 .8rem 2.4rem; border-top: 1px solid var(--s7-linie); counter-increment: k; line-height: 1.45; }
+.ks7__ablauf li:last-child { border-bottom: 1px solid var(--s7-linie); }
+.ks7__ablauf li::before { content: counter(k); position: absolute; left: 0; top: .78rem; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .85rem; font-weight: 700; }
+.ks7__team { margin: 2.2rem 0 2rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+.ks7__team img { display: block; width: 100%; mix-blend-mode: multiply; }
+.ks7__team figcaption { padding: .8rem 1.2rem 1rem; color: var(--s7-grau); font-size: .9rem; }
+.ks7__wege { display: grid; gap: .4rem; margin-top: .6rem; }
+.ks7__wege a { color: var(--s7-tinte); font-size: 1.1rem; text-decoration: none; }
+.ks7__wege a:hover { text-decoration: underline; }
+.ks7__kalender { min-height: 40rem; padding: 1rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: #fff; }
+.ks7__kalender > div { width: 100%; min-height: 38rem; }
+@media (max-width: 1000px) { .ks7__raster { grid-template-columns: minmax(0, 1fr); } .ks7__kalender { order: -1; } }
 
 /* ---------- Strategiekompass (ko7-): Konfigurator im Story-7-Stil, Farbe nur in der Zusammenfassung (das Ergebnis) ---------- */
 .ko7-held { padding-bottom: 1rem; }
@@ -869,7 +892,7 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -891,17 +914,55 @@ p { margin: 0; }
     {%- if istSeite %}
     {#- Hauptmenü: echte Unterseiten; „Pakete“ und „Über uns“ springen zur Startseite, bis sie eigene Seiten haben -#}
     <nav class="s7-nav" aria-label="Hauptnavigation">
-      <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
+      <a href="{{ H7 }}/strategiekompass/"{% if s.slug == "strategiekompass" %} aria-current="page"{% endif %}>Strategiekompass</a>
       <a href="{{ H7 }}/vertriebsstrecken/"{% if s.slug == "vertriebsstrecken" or s.zg %} aria-current="page"{% endif %}>Vertriebsstrecken</a>
+      <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
       <a href="{{ H7 }}/#pakete">Pakete</a>
       <a href="{{ H7 }}/#ueber-uns">Über uns</a>
     </nav>
     {%- endif %}
-    <a class="s7-knopf" href="#kontakt">Termin auswählen</a>
+    <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen</a>
   </div>
 </header>
 
-{%- if s.slug == "strategiekompass" %}
+{%- if s.slug == "kontakt" %}
+{#- Unterseite Kontakt und Termin: ein Ziel – der Termin. Links, worum es geht und die direkten Wege; rechts der Kalender (Cal.com, hell).
+    Entwicklungsseite: Kalender lädt ohne Einwilligungsabfrage. Vor dem Weg nach main die Einwilligung wie in partials/cal-embed.njk einbauen. -#}
+{%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
+<main>
+  <section class="s7-held ks7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ KS.kicker }}</p>
+      <h1>{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ KS.lead }}</p>
+    </div>
+  </section>
+  <section class="ks7">
+    <div class="s7-wrap ks7__raster">
+      <div class="ks7__links">
+        <p class="ks7__titel">{{ KS.ablauf_titel }}</p>
+        <ol class="ks7__ablauf">{% for x in KS.ablauf %}<li>{{ x }}</li>{% endfor %}</ol>
+        <figure class="ks7__team"><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"><figcaption>{{ KS.team }}</figcaption></figure>
+        <p class="ks7__titel">{{ KS.direkt }}</p>
+        <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+      </div>
+      <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
+    </div>
+  </section>
+</main>
+<script>
+  (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
+    C.Cal = C.Cal || function () { var cal = C.Cal, ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) { var api = function () { p(api, arguments); }; var ns = ar[1]; api.q = api.q || [];
+        if (typeof ns === "string") { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ["initNamespace", ns]); } else { p(cal, ar); } return; }
+      p(cal, ar); };
+  })(window, "{{ C.origin }}/embed/embed.js", "init");
+  Cal("init", "{{ C.namespace }}", { origin: "{{ C.origin }}" });
+  Cal.ns["{{ C.namespace }}"]("inline", { elementOrSelector: "#cal-inline-{{ C.namespace }}", config: { layout: "month_view", theme: "light" }, calLink: "{{ C.link }}" });
+  Cal.ns["{{ C.namespace }}"]("ui", { theme: "light", cssVarsPerTheme: { light: { "cal-brand": "#1d1d1f" } }, hideEventTypeDetails: false, layout: "month_view" });
+</script>
+{%- elif s.slug == "strategiekompass" %}
 {#- Unterseite Strategiekompass: Konfigurator (Logik und Daten unverändert aus story6/assets/kompass/kompass-g.js – eine Quelle),
     im Story-7-Stil; ohne Preisblock (Pakete haben noch keine festen Preise), Weiter führt zum Kontakt. -#}
 {%- set KO = S.kompass %}
@@ -916,7 +977,7 @@ p { margin: 0; }
   <section class="ko7-app">
     <div class="s7-wrap"><div class="kg ko7" id="app"></div></div>
   </section>
-  {{ kontakt() }}
+  {{ kontaktBand() }}
 </main>
 <link rel="stylesheet" href="{{ B6 }}/assets/kompass/kompass-g.css">
 <script>window.KOMPASS_CFG = { kopf: false, preis: false, ziel: "#kontakt", knopf: {{ KO.knopf | dump | safe }}, hinweis: {{ KO.hinweis | dump | safe }} };</script>
@@ -1123,7 +1184,7 @@ p { margin: 0; }
   </section>
   {%- endif %}
 
-  {{ kontakt() }}
+  {{ kontaktBand() }}
 </main>
 <script>
 document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
@@ -1192,7 +1253,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
-  {{ kontakt() }}
+  {{ kontaktBand() }}
 </main>
 <script>
 /* Wisch-Reihen: Pfeile blättern um zwei Karten */
@@ -1329,7 +1390,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
-  {{ kontakt() }}
+  {{ kontaktBand() }}
 </main>
 <script>
 /* Pop-ups: Knopf öffnet, Kreuz, Escape oder Klick daneben schließt */
@@ -1382,7 +1443,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
-  {{ kontakt() }}
+  {{ kontaktBand() }}
 </main>
 {%- endif %}
 

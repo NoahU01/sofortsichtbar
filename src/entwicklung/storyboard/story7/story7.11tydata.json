@@ -798,8 +798,8 @@
         "name": "Kontakt und Termin",
         "frage": "Wie komme ich ins Gespräch?",
         "von": "jede Seite",
-        "stand": "alt",
-        "link": "/kontakt"
+        "stand": "gebaut",
+        "link": "/entwicklung/storyboard/story7/kontakt/"
       },
       "entfallen": [
         {
@@ -930,6 +930,20 @@
       "lead": "Wähle Kundengruppe, Sparten und Schwerpunkt. Der Kompass zeigt dir, mit welchen Zielgruppen du deine Ziele erreichst.",
       "knopf": "Auswahl im Termin besprechen",
       "hinweis": "Im Termin prüfen wir deine Auswahl – und welcher Weg zu dir passt."
+    },
+    "kontaktseite": {
+      "kicker": "Kontakt",
+      "h1": "Lass uns sprechen.",
+      "h1_akzent": "Ganz konkret.",
+      "lead": "Im Kennenlernen klären wir, wo du wachsen willst und welcher Weg zu dir passt.",
+      "ablauf_titel": "Darum geht es im Kennenlernen",
+      "ablauf": [
+        "Wo willst du wachsen – mit welchen Sparten und Zielgruppen?",
+        "Welche Vertriebsstrecken passen dazu?",
+        "Welcher Weg passt zu dir: mit deinem Team oder Marketing as a Service?"
+      ],
+      "direkt": "Lieber direkt?",
+      "team": "Kerstin Christ · Daniel Ströbel · Noah Hermanns"
     }
   }
 }
