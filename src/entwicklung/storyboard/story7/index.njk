@@ -521,7 +521,7 @@ p { margin: 0; }
 .ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
 .ek2-ziel { fill: var(--s7-akzent-fill); }
 .ek2-ziel-t { fill: var(--s7-auf-akzent); }
-.s7-stil .s7-held .vl7-h1 { max-width: none; font-size: clamp(2.6rem, 6vw, 5.2rem); }
+.s7-stil .s7-held .vl7-h1 { max-width: none; } /* gleiche Größe wie alle Seiten (--s7-h1), nur ohne Breitenbegrenzung, damit es zwei Zeilen bleiben */
 .vl7-problem { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
 .s7-stil .vl7-h2 { max-width: 18ch; }
 .vl7-problem .s7-lead:first-child { margin-top: 2.2rem; }
@@ -635,7 +635,7 @@ p { margin: 0; }
 .zg7-anlaesse { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem; margin: 1.4rem auto 0; max-width: 46rem; }
 .zg7-anlaesse span { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
 .zg7-anlaesse b { padding: .25rem .8rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; }
-.s7-stil .s7-held .zg7-h1 { max-width: 20ch; font-size: clamp(2.6rem, 6.2vw, 5.4rem); }
+.s7-stil .s7-held .zg7-h1 { max-width: none; } /* gleiche Größe wie alle Seiten (--s7-h1) */
 .zg7-wer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
 .zg7-wer__karte { padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
 .s7-stil .zg7-wer__karte h3 { font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
