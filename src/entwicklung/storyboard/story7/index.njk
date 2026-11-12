@@ -345,6 +345,28 @@ p { margin: 0; }
 @media (max-width: 1200px) { .s7-nav { gap: 1.2rem; } .s7-nav a { font-size: .9rem; } }
 .s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; }
 .s7-kopf--nur-marke .s7-knopf { margin-left: auto; }
+/* Menüknopf und Menüfläche für schmale Bildschirme (unter 1200px): zwei Striche, die zum Kreuz werden; Fläche weiß, große Punkte */
+.s7-burger { display: none; position: relative; width: 2.6rem; height: 2.6rem; margin-left: .2rem; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
+.s7-burger span { position: absolute; left: .7rem; right: .7rem; height: 2px; border-radius: 2px; background: var(--s7-tinte); transition: transform .25s ease, top .25s ease; }
+.s7-burger span:first-child { top: 1.05rem; }
+.s7-burger span:last-child { top: 1.5rem; }
+.s7-burger[aria-expanded="true"] span:first-child { top: 1.27rem; transform: rotate(45deg); }
+.s7-burger[aria-expanded="true"] span:last-child { top: 1.27rem; transform: rotate(-45deg); }
+.s7-burger:focus { outline: none; }
+.s7-burger:focus-visible { background: var(--s7-flaeche); }
+.s7-menue { position: absolute; left: 0; right: 0; top: 100%; height: calc(100vh - 72px); overflow-y: auto; background: var(--s7-grund); border-top: 1px solid var(--s7-linie); }
+.s7-menue[hidden] { display: none; }
+.s7-menue__liste { display: grid; justify-items: start; gap: .2rem; width: min(100% - 2.5rem, 76rem); margin-inline: auto; padding: 1.6rem 0 3rem; }
+.s7-menue nav a:not(.s7-knopf) { padding: .45rem 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 5vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+.s7-menue nav a[aria-current="page"] { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+.s7-menue .s7-knopf { margin-top: 1.4rem; }
+body.s7-menue-offen { overflow: hidden; }
+@media (max-width: 1200px) {
+  .s7-nav { display: none; }
+  .s7-burger { display: block; }
+  .s7-kopf .s7-kopf__termin { margin-left: auto; }
+}
+@media (max-width: 600px) { .s7-kopf .s7-kopf__termin { display: none; } .s7-burger { margin-left: auto; } }
 .s7-dd { position: relative; }
 .s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
 .s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
@@ -960,8 +982,6 @@ p { margin: 0; }
 
 /* ---------- Mobil ---------- */
 @media (max-width: 1000px) {
-  .s7-nav { display: none; }
-  .s7-kopf .s7-knopf { margin-left: auto; }
   .s7-ablauf, .s7-pakete { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
   .s7-ablauf__schritt, .s7-paket { grid-row: auto; grid-template-rows: none; }
   .s7-ablauf__schritt { margin-bottom: 2.4rem; }
@@ -979,7 +999,6 @@ p { margin: 0; }
 }
 @media (max-width: 600px) {
   .sp-massstab { grid-template-columns: minmax(0, 1fr); }
-  .s7-kopf .s7-knopf { display: none; }
 }
 </style>
 </head>
@@ -1013,18 +1032,26 @@ p { margin: 0; }
       </div>
     </div>
     {%- if istSeite %}
-    {#- Hauptmenü: echte Unterseiten; „Pakete“ und „Über uns“ springen zur Startseite, bis sie eigene Seiten haben -#}
+    {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
+        Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1200px, Knopf mit zwei Strichen) -#}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false], ["vertriebsleiter/", "Für Vertriebsleiter", s.slug == "vertriebsleiter"]] %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
-      <a href="{{ H7 }}/strategiekompass/"{% if s.slug == "strategiekompass" %} aria-current="page"{% endif %}>Strategiekompass</a>
-      <a href="{{ H7 }}/vertriebsstrecken/"{% if s.slug == "vertriebsstrecken" or s.zg %} aria-current="page"{% endif %}>Vertriebsstrecken</a>
-      <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
-      <a href="{{ H7 }}/preise/"{% if s.slug == "preise" %} aria-current="page"{% endif %}>Preise</a>
-      <a href="{{ H7 }}/#ueber-uns">Über uns</a>
-      <a href="{{ H7 }}/vertriebsleiter/"{% if s.slug == "vertriebsleiter" %} aria-current="page"{% endif %}>Für Vertriebsleiter</a>
+      {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
     </nav>
     {%- endif %}
-    <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen</a>
+    <a class="s7-knopf s7-kopf__termin" href="{{ H7 }}/kontakt/">Termin auswählen</a>
+    {%- if istSeite %}
+    <button type="button" class="s7-burger" aria-expanded="false" aria-controls="s7-menue" aria-label="Menü öffnen"><span></span><span></span></button>
+    {%- endif %}
   </div>
+  {%- if istSeite %}
+  <div class="s7-menue" id="s7-menue" hidden>
+    <nav class="s7-menue__liste" aria-label="Hauptnavigation">
+      {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
+      <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+    </nav>
+  </div>
+  {%- endif %}
 </header>
 
 {%- if s.slug == "vertriebsleiter" %}
@@ -1699,6 +1726,17 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   var gemerkt = null; try { gemerkt = localStorage.getItem("s7-farbe"); } catch (e) {}
   if (gemerkt === "cyanviolett" || gemerkt === "magentaviolett") setze(gemerkt);
   knoepfe.forEach(function (k) { k.addEventListener("click", function () { setze(k.dataset.farbe); }); });
+})();
+</script>
+<script>
+/* Menüfläche für schmale Bildschirme: Knopf öffnet/schließt, Escape und Wahl eines Punktes schließen */
+(function () {
+  var k = document.querySelector(".s7-burger"), m = document.getElementById("s7-menue"); if (!k || !m) return;
+  function setze(auf) { m.hidden = !auf; k.setAttribute("aria-expanded", auf ? "true" : "false"); k.setAttribute("aria-label", auf ? "Menü schließen" : "Menü öffnen"); document.body.classList.toggle("s7-menue-offen", auf); }
+  k.addEventListener("click", function () { setze(m.hidden); });
+  m.addEventListener("click", function (e) { if (e.target.closest("a")) setze(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) { setze(false); k.focus(); } });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1200 && !m.hidden) setze(false); });
 })();
 </script>
 <script>
