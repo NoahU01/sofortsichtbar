@@ -786,6 +786,16 @@
           "offen": "Braucht von Daniel: Preise und Umfang Fokus/Team"
         },
         {
+          "name": "Für Vertriebsleiter",
+          "zusatz": "nur Story A · Führungskräfte der Versicherer",
+          "frage": "Wie helfe ich den Büros meiner Region zu mehr Umsatz – ohne Projekt?",
+          "von": "Menü, Direktansprache, Regionaltagung",
+          "zu": "Vertriebsstrecken, Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/vertriebsleiter/",
+          "offen": "Entscheidung Daniel: bleibt die Seite im Menü?"
+        },
+        {
           "name": "Über uns",
           "zusatz": "bis dahin Abschnitt auf der Startseite",
           "frage": "Wer steckt dahinter, und warum kann ich euch vertrauen?",
@@ -816,11 +826,6 @@
           "name": "Pricing",
           "link": "/pricing",
           "ersatz": "die neue Seite Preise"
-        },
-        {
-          "name": "Für Vertriebsleiter",
-          "link": "/vetriebsleiter",
-          "ersatz": "Marketing as a Service"
         }
       ],
       "dokumente": [
@@ -1105,6 +1110,74 @@
       "fuss": [
         "Alle Preise zzgl. Umsatzsteuer. Paid Ads je Werbekanal, Werbebudget nicht enthalten."
       ]
+    },
+    "vl": {
+      "_quelle": "Inhalte aus src/_data/vertriebsleiter.json (Live-Seite /vetriebsleiter), sprachlich geglättet. Nur Story A – kein Marketing as a Service (Daniel, 12.11.2026).",
+      "held": {
+        "kicker": "Für Vertriebsleiter im Versicherungsvertrieb",
+        "h1": "Mehr Umsatz für deine Region.",
+        "h1_akzent": "Büro für Büro.",
+        "lead": "Dein Ergebnis hängt davon ab, dass deine Agenturen und Büros neue Kunden gewinnen. Wir geben ihnen fertige digitale Vertriebsstrecken an die Hand – sofort einsetzbar, ohne Projekt.",
+        "knopf": "Termin auswählen",
+        "knopf2": "So führen wir es ein"
+      },
+      "problem": {
+        "kicker": "Die Ausgangslage",
+        "h2": "Ideen gibt es genug. Was fehlt, ist die Anwendbarkeit.",
+        "absaetze": [
+          "Du bist verantwortlich für den Vertriebserfolg deiner Region. Dein Ergebnis hängt davon ab, dass deine Vertriebseinheiten aktiv sind, neue Gesprächsanlässe schaffen und Neugeschäft gewinnen.",
+          "Was oft fehlt, sind Lösungen, die dein Vertrieb sofort einsetzen kann – ohne interne Projekte und ohne lange Umsetzungsphasen."
+        ],
+        "bild": "pages/vertrieb-2.webp",
+        "bild_alt": "Vertriebsleiter und Agenturinhaberin im Gespräch"
+      },
+      "loesung": {
+        "kicker": "Unsere Lösung",
+        "h2": "Fertig entwickelt.",
+        "h2_akzent": "Sofort nutzbar.",
+        "lead": "Jede Vertriebseinheit bekommt vollständig vorbereitete digitale Vertriebsstrecken für ihre Zielgruppen – Postings, Landingpage und Kundenmailing.",
+        "link": "Alle Vertriebsstrecken ansehen"
+      },
+      "einfuehrung": {
+        "kicker": "So führen wir es ein",
+        "h2": "Kein Konzept. Direkt im Einsatz.",
+        "lead": "Alles ist fertig vorbereitet. Wir klären letzte Details und starten direkt mit der Umsetzung in deiner Region.",
+        "liste": [
+          {
+            "titel": "Einführung mit sofortiger Umsetzung",
+            "punkte": [
+              "Einführung zum Beispiel auf einer Regionaltagung",
+              "Keine Impulse, sondern direkte Anwendung",
+              "Deine Vertriebseinheiten arbeiten sofort mit den Lösungen",
+              "Verbindliche erste Schritte – strukturiert und begleitet"
+            ]
+          },
+          {
+            "titel": "Fertige Lösungen für jede Einheit",
+            "punkte": [
+              "Zugeschnitten auf die Zielgruppen jeder Einheit",
+              "Keine Projektphase danach",
+              "Keine zusätzliche Vorbereitung",
+              "Sofort einsetzbar im Vertriebsalltag"
+            ]
+          },
+          {
+            "titel": "Begleitung, bis es läuft",
+            "punkte": [
+              "Begleitung auch nach der Einführung",
+              "Regelmäßige Calls und Austausch in Anwendergruppen",
+              "Schnelle Klärung von Fragen",
+              "Was gut funktioniert, wird sichtbar und übernommen"
+            ]
+          }
+        ]
+      },
+      "zitat": {
+        "text": "Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Vertriebsstrecke von sofort sichtbar.",
+        "quelle": "Daniel Ströbel · Gründer von sofort sichtbar",
+        "bild": "pages/daniel-image-bw.webp",
+        "bild_alt": "Daniel Ströbel"
+      }
     }
   }
 }

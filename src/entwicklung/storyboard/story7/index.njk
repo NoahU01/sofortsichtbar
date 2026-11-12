@@ -24,6 +24,8 @@ seiten:
     titel: "Kontakt"
   - slug: "preise"
     titel: "Preise"
+  - slug: "vertriebsleiter"
+    titel: "Für Vertriebsleiter"
   - slug: "zielgruppen/anwalte-und-kanzleiinhaber"
     titel: "Kanzleiinhaber"
     zg: "anwalte-und-kanzleiinhaber"
@@ -498,6 +500,23 @@ p { margin: 0; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
 
+/* ---------- Für Vertriebsleiter (vl7-) ---------- */
+.vl7-problem { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.s7-stil .vl7-h2 { max-width: 18ch; }
+.vl7-problem .s7-lead + .s7-lead { margin-top: .9rem; }
+.vl7-problem__bild { margin: 0; border-radius: var(--s7-rund); overflow: hidden; }
+.vl7-problem__bild img { display: block; width: 100%; }
+.vl7-link { margin-top: 1.6rem; }
+.vl7-loesung .vs7-weg { background: var(--s7-flaeche); }
+.vl7-zitat { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; max-width: 60rem; }
+.vl7-zitat__bild { margin: 0; border-radius: 50%; background: var(--s7-flaeche); overflow: hidden; aspect-ratio: 1; }
+.vl7-zitat__bild img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; mix-blend-mode: multiply; }
+.vl7-zitat blockquote { margin: 0; }
+.vl7-zitat blockquote p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; text-wrap: balance; }
+.vl7-zitat cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
+@media (max-width: 1000px) { .vl7-problem { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .vl7-zitat { grid-template-columns: minmax(0, 1fr); } .vl7-zitat__bild { width: 9rem; } }
+
 /* ---------- Preise (pr7-) ---------- */
 .pr7-held { padding-bottom: 0; }
 .pr7-offen { display: inline-block; margin-top: 1.2rem; padding: .5rem .9rem; border: 1.5px dashed var(--s7-grau); border-radius: 10px; color: var(--s7-text); font-size: .95rem; }
@@ -667,7 +686,11 @@ p { margin: 0; }
 .sp7-wurzel { position: relative; display: flex; justify-content: center; padding-bottom: 2.4rem; }
 .sp7-wurzel .sp7-karte { width: min(100%, 26rem); }
 .sp7-wurzel::after { content: ""; position: absolute; left: 50%; bottom: 0; height: 2.4rem; border-left: 2px solid var(--s7-tinte); }
-.sp7-ebene { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .8rem; padding-top: 2rem; }
+.sp7-ebene { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: .7rem; padding-top: 2rem; } /* so viele Spalten wie Äste */
+.s7-stil .sp7-ebene .sp7-karte h3 { font-size: 1.05rem; hyphens: auto; -webkit-hyphens: auto; }
+.sp7-ebene .sp7-karte { font-size: .85rem; overflow-wrap: break-word; }
+.sp7-ast { min-width: 0; }
+.sp7-ast .sp7-karte, .sp7-ast .sp7-unter { min-width: 0; }
 .sp7-ast { position: relative; display: grid; align-content: start; gap: .8rem; }
 .sp7-ast::before { content: ""; position: absolute; left: 50%; top: -2rem; height: 2rem; border-left: 2px solid var(--s7-tinte); }
 .sp7-ast::after { content: ""; position: absolute; left: -.4rem; right: -.4rem; top: -2rem; border-top: 2px solid var(--s7-tinte); }
@@ -704,7 +727,7 @@ p { margin: 0; }
 .sp7-schritte--erledigt h3, .sp7-schritte--erledigt p { color: var(--s7-grau) !important; }
 .sp7-fuss { margin-top: 2rem; color: var(--s7-grau); }
 @media (max-width: 1300px) {
-  .sp7-ebene { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .sp7-ebene { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
   .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
   .sp7-wurzel { padding-bottom: 1.4rem; }
 }
@@ -944,7 +967,7 @@ p { margin: 0; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -971,13 +994,86 @@ p { margin: 0; }
       <a href="{{ H7 }}/marketing-as-a-service/"{% if s.slug == "marketing-as-a-service" %} aria-current="page"{% endif %}>Marketing as a Service</a>
       <a href="{{ H7 }}/preise/"{% if s.slug == "preise" %} aria-current="page"{% endif %}>Preise</a>
       <a href="{{ H7 }}/#ueber-uns">Über uns</a>
+      <a href="{{ H7 }}/vertriebsleiter/"{% if s.slug == "vertriebsleiter" %} aria-current="page"{% endif %}>Für Vertriebsleiter</a>
     </nav>
     {%- endif %}
     <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen</a>
   </div>
 </header>
 
-{%- if s.slug == "preise" %}
+{%- if s.slug == "vertriebsleiter" %}
+{#- Unterseite Für Vertriebsleiter (Story A): Führungskräfte der Versicherer verhelfen den Büros ihrer Region zu mehr Umsatz.
+    Kein Marketing as a Service. Inhalte: s7.vl (aus vertriebsleiter.json), Bausteine: Drei Wege wie auf Vertriebsstrecken. -#}
+{%- set VL = S.vl %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VL.held.kicker }}</p>
+      <h1>{{ VL.held.h1 }}<br><span class="s7-wort">{{ VL.held.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ VL.held.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ VL.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#einfuehrung">{{ VL.held.knopf2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  {%- set PB = VL.problem %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap vl7-problem">
+      <div>
+        <p class="s7-kicker">{{ PB.kicker }}</p>
+        <h2 class="s7-h2 vl7-h2">{{ PB.h2 }}</h2>
+        {%- for x in PB.absaetze %}<p class="s7-lead">{{ x }}</p>{% endfor %}
+      </div>
+      <figure class="vl7-problem__bild"><img src="/assets/img/{{ PB.bild }}" alt="{{ PB.bild_alt }}" width="800" height="537" loading="lazy"></figure>
+    </div>
+  </section>
+
+  {%- set LO = VL.loesung %}
+  <section class="s7-band vl7-loesung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ LO.kicker }}</p>
+      <h2 class="s7-h2">{{ LO.h2 }}<br><span class="s7-wort">{{ LO.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ LO.lead }}</p>
+      <div class="vs7-wege">
+        {%- for x in S.vs.teile.liste %}
+        <article class="vs7-weg">
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          <img src="/assets/img/{{ x.bild }}" alt="" width="{{ x.b }}" height="{{ x.h }}" loading="lazy">
+        </article>
+        {%- endfor %}
+      </div>
+      <p class="vl7-link"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ LO.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {%- set EF = VL.einfuehrung %}
+  <section class="s7-band s7-band--flaeche" id="einfuehrung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ EF.kicker }}</p>
+      <h2 class="s7-h2">{{ EF.h2 }}</h2>
+      <p class="s7-lead">{{ EF.lead }}</p>
+      <div class="zg7-wer">
+        {%- for x in EF.liste %}
+        <article class="zg7-wer__karte"><h3>{{ x.titel }}</h3><ul>{% for y in x.punkte %}<li>{{ y }}</li>{% endfor %}</ul></article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set ZI = VL.zitat %}
+  <section class="s7-band">
+    <div class="s7-wrap vl7-zitat">
+      <figure class="vl7-zitat__bild"><img src="/assets/img/{{ ZI.bild }}" alt="{{ ZI.bild_alt }}" width="397" height="473" loading="lazy"></figure>
+      <blockquote><p>„{{ ZI.text }}“</p><cite>{{ ZI.quelle }}</cite></blockquote>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- elif s.slug == "preise" %}
 {#- Unterseite Preise: Pakete (Baustein der Startseite), Vergleich Fokus · Team · Komplett, Ergänzungen mit Preisen.
     Was noch nicht feststeht, steht sichtbar als „offen“ – nichts erfunden. Inhalte: s7.preise, s7.pakete, s7.maas.bausteine -#}
 {%- set PR = S.preise %}{%- set VG = PR.vergleich %}
