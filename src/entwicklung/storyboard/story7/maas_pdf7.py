@@ -479,9 +479,11 @@ def main():
     vorschau = os.path.join(tmp, "seiten")
     os.makedirs(vorschau)
     subprocess.run(["pdftoppm", "-r", "60", "-png", pdf, os.path.join(vorschau, "s")], check=True)
+    import hashlib
+    stempel = hashlib.md5(open(pdf, "rb").read()).hexdigest()[:8]
     dl = d7["s7"]["maas"]["download"]
-    dl.update({"meta": ["PDF", f"{seiten} Seiten", groesse], "datei": "marketing-as-a-service.pdf",
-               "bild1": "marketing-as-a-service-1.png", "bild2": "marketing-as-a-service-2.png", "ordner": "story7"})
+    dl.update({"meta": ["PDF", f"{seiten} Seiten", groesse], "datei": "marketing-as-a-service.pdf?v=" + stempel,
+               "bild1": "marketing-as-a-service-1.png?v=" + stempel, "bild2": "marketing-as-a-service-2.png?v=" + stempel, "ordner": "story7"})
     d7["s7"]["maas"]["bausteine"]["pdf"] = f"Alle Leistungen im Detail (PDF, {seiten} Seiten)"
     json.dump(d7, open(D7, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(D7, "a").write("\n")
