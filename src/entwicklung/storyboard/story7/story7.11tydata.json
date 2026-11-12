@@ -629,7 +629,7 @@
           }
         ],
         "hinweis": "Alle Preise zzgl. Umsatzsteuer. Paid Ads je Werbekanal, Werbebudget nicht enthalten.",
-        "pdf": "Alle Leistungen im Detail (PDF, 23 Seiten)",
+        "pdf": "Alle Leistungen im Detail (PDF, 20 Seiten)",
         "pdf_datei": "marketing-as-a-service-ss.pdf",
         "h2_akzent": "Drei Ergänzungen.",
         "basis": "Die Basis",
@@ -675,13 +675,14 @@
         "lead": "Alle Bausteine mit Leistungen und Preisen – und fünf Stellenbeschreibungen mit fertigen Postings, falls du die Profile lieber selbst besetzt.",
         "meta": [
           "PDF",
-          "23 Seiten",
-          "1,0 MB"
+          "20 Seiten",
+          "0,7 MB"
         ],
         "knopf": "PDF herunterladen",
-        "datei": "marketing-as-a-service-ss.pdf",
-        "bild1": "marketing-as-a-service-ss-1.png",
-        "bild2": "marketing-as-a-service-ss-2.png"
+        "datei": "marketing-as-a-service.pdf",
+        "bild1": "marketing-as-a-service-1.png",
+        "bild2": "marketing-as-a-service-2.png",
+        "ordner": "story7"
       },
       "beleg": {
         "zitat": "Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.",
@@ -832,8 +833,8 @@
       "dokumente": [
         {
           "name": "PDF Marketing as a Service",
-          "stand": "alt",
-          "hinweis": "zieht seine Inhalte aus der Seite – erst angleichen, wenn sie steht"
+          "stand": "gebaut",
+          "hinweis": "neu im Look von Story 7, 20 Seiten – erzeugt mit story7/maas_pdf7.py aus denselben Daten wie die Website"
         }
       ],
       "reihenfolge": [
@@ -873,13 +874,13 @@
           "erledigt": true
         },
         {
-          "titel": "Kopf Marketing as a Service",
-          "text": "Kopf zu groß – Trichter erst nach Scrollen sichtbar.",
-          "erledigt": false
+          "titel": "PDF Marketing as a Service",
+          "text": "Neu im Look von Story 7: Deckblatt, Maschine, 30-Tage-Plan, Bausteine, Team, Stellen, Kontakt.",
+          "erledigt": true
         },
         {
-          "titel": "PDF Marketing as a Service",
-          "text": "Deckblatt, Farben, Grafiken und Tabelle auf den neuen Stand; Pakete und Rollen bleiben.",
+          "titel": "Kopf Marketing as a Service",
+          "text": "Kopf zu groß – Trichter erst nach Scrollen sichtbar.",
           "erledigt": false
         },
         {
