@@ -527,6 +527,13 @@ def main():
         print(name, subprocess.run(["pdfinfo", pdf], capture_output=True, text=True).stdout.split("Page size:")[1].split("\n")[0].strip())
     subprocess.run(["pdfunite", os.path.join(ZIEL, "maschine-a3-quer.pdf"), os.path.join(ZIEL, "maschine-detail-a3-quer.pdf"),
                     os.path.join(ZIEL, "maschine-mit-detail-a3-quer.pdf")], check=True)
+    # Stand für die Versionskennung auf der Infografik-Seite (Browser lädt neue Fassungen)
+    import hashlib
+    hs = hashlib.md5(b"".join(open(os.path.join(ZIEL, f), "rb").read() for f in sorted(os.listdir(ZIEL)) if f.endswith(".pdf"))).hexdigest()[:8]
+    d7 = json.load(open(D7, encoding="utf-8"))
+    d7["s7"]["onepager_stand"] = hs
+    json.dump(d7, open(D7, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    open(D7, "a").write("\n")
     print("HTML:", tmp)
 
 

@@ -1270,78 +1270,9 @@ html body.e2 main .s6-folgt p { margin-top: .8rem; }
 })();
 </script>
 {% elif s.slug == "maas-infografik" %}
-{#- Infografik sofort sichtbar (Daniel, 12.11.2026): One-Pager zur Homepage-Logik von Story 7 – A3 hoch, A3 quer, Roll-up.
-    Begonnen wird mit dem Trichter (Grundstory) und Marketing as a Service; „Mit deinem Team“ folgt.
-    Die alten Entwürfe A, A2, B2 und Roll-up 2/2.1 sind entfernt; „Blick in die Maschine“ bleibt als Erinnerung. -#}
-{%- set IG = maas.infografik -%}
-{%- set D = A + "/maas/infografik/" -%}
-<main>
-<div class="e2-alt e2-seite--sofort-sichtbar maas">
-  <section class="e2-kopf zp-kopf"><div class="e2-wrap">
-    <h1>Infografik sofort sichtbar. <span class="hl">One-Pager.</span></h1>
-    <p class="zp-kopf__lead">One-Pager zur Logik der neuen Homepage: die Grundstory mit dem Trichter und Marketing as a Service – als DIN A3 hoch, DIN A3 quer und Roll-up. Gestaltet im Look von Story 7; „Mit deinem Team“ folgt.</p>
-  </div></section>
-  {%- set OP = "/entwicklung/storyboard/story7/assets/onepager/" %}{%- set OPV = "?v=961ba4b7" %}
-  {%- for g in [["maschine-ausfuehrlich-druck", "Die Grundstory ausführlich zum Ausdrucken", "Die digitale Maschine vor deinem Vertrieb.", "Wie die ausführliche Fassung, ohne Kontaktband, Gesichter und Kontaktdaten – unten rechts nur die Adresse. Für den Drucker zu Hause, DIN A3 quer und hoch."], ["maschine-ausfuehrlich", "Die Grundstory ausführlich", "Die digitale Maschine vor deinem Vertrieb.", "Die ausführliche Fassung in drei Teilen: 01 Strategie – wo willst du wachsen? (Segment, Sparte, Zielgruppe) · 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg am Trichter mit Messpunkt Leads · 03 Steuerung – funktioniert es? mit Dashboard und Empfehlungen."], ["maschine", "Die Grundstory kompakt", "Die digitale Maschine vor deinem Vertrieb.", "Trichter der Startseite mit Messpunkt Leads, Vertrieb und Kundenbetreuung; darunter die drei Schritte Strategie, Marketing und Vertrieb, Steuerung."], ["maas", "Marketing as a Service", "Wir bedienen die Maschine. Du verkaufst.", "Gesamtlogik wie im Kopf der Website (Wir fragen · Wir setzen um · Wir werten aus), Schnitt durch die Maschine mit Kernpaket und Ergänzungen, der 30-Tage-Plan."]] %}
-  <section class="ig-entwurf{% if loop.index is even %} ig-entwurf--hell{% endif %}" id="op-{{ g[0] }}">
-    <div class="container">
-      <p class="kicker">One-Pager · {{ g[1] }}</p>
-      <h2 class="h-serif">{{ g[2] }}</h2>
-      <p class="mx-lead">{{ g[3] }} Im Look der Homepage, Grafiken direkt von der Website.</p>
-      <div class="op-reihe">
-        {%- for f in [["a3-quer", "DIN A3 quer"], ["a3-hoch", "DIN A3 hoch"], ["rollup", "Roll-up 100 × 200 cm"]] %}{% if not (f[0] == "rollup" and g[0] == "maschine-ausfuehrlich-druck") %}
-        <div class="op-reihe__{{ f[0] }}"><p class="ig-paar__label">{{ f[1] }}</p><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" alt="One-Pager {{ g[1] }}, {{ f[1] }}" loading="lazy"></a>
-        <p class="ig-dl"><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" download>PNG</a></p></div>
-        {%- endif %}{% endfor %}
-      </div>
-    </div>
-  </section>
-  {%- endfor %}
-  <style>
-  .op-reihe { display: grid; grid-template-columns: 2.1fr 1.05fr .74fr; gap: 1.6rem; align-items: start; margin-top: 2rem; }
-  .op-reihe img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }
-  @media (max-width: 900px) { .op-reihe { grid-template-columns: minmax(0, 1fr); } }
-  </style>
-  <section class="ig-entwurf" id="deckblatt">
-    <div class="container">
-      <p class="kicker">Zur Auswahl · PDF Marketing as a Service</p>
-      <h2 class="h-serif">Drei Deckblätter.</h2>
-      <p class="mx-lead">Statt der vollflächigen Farbe: A – oben die graue Bühne mit der Maschine der Startseite, darunter der Titel. B – Titel oben, unten der Schnitt durch die Maschine, der aus dem Blatt läuft. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern.</p>
-      <div class="ig-paar">
-        {%- for k in ["a", "b", "c"] %}
-        <div><p class="ig-paar__label">Variante {{ k | upper }}</p><a href="/entwicklung/storyboard/story7/assets/deckblatt/deckblatt-{{ k }}.pdf" target="_blank" rel="noopener"><img class="ig-alt-bild" src="/entwicklung/storyboard/story7/assets/deckblatt/deckblatt-{{ k }}.png" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a></div>
-        {%- endfor %}
-      </div>
-    </div>
-  </section>
-  <section class="ig-entwurf ig-entwurf--hell" id="op-detail">
-    <div class="container">
-      <p class="kicker">One-Pager · Detailstufe</p>
-      <h2 class="h-serif">Vom ersten Kontakt zum Kunden.</h2>
-      <p class="mx-lead">Die zweite Seite nach der Grundstory kompakt – hineingezoomt in Marketing und Vertrieb: vier Kanäle (LinkedIn, Instagram und Facebook, Landingpage, Mailings und Newsletter), der Messpunkt Leads, dann Qualifizierung und Terminierung mit den beiden Prüffragen, Beratung, Abschluss und Kundenbetreuung.</p>
-      <div class="op-reihe op-reihe--eins">
-        <div><p class="ig-paar__label">DIN A3 quer</p><a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" alt="One-Pager Detailstufe, DIN A3 quer" loading="lazy"></a>
-        <p class="ig-dl"><a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a href="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" download>PNG</a><a href="{{ OP }}maschine-mit-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF mit Grundstory kompakt (2 Seiten)</a></p></div>
-      </div>
-      <style>.op-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 60rem; }</style>
-    </div>
-  </section>
-  <section class="ig-entwurf" id="rollups-gelb-alt">
-    <div class="container">
-      <p class="kicker">Alter Stand · empiria-Gelb</p>
-      <h2 class="h-serif">Roll-ups gelb alt.</h2>
-      <p class="mx-lead">Die früheren Roll-ups (100 × 200 cm) zum Nachschlagen: Version 2 mit drei Sektionen, Version 2.1 in den Farben von sofort sichtbar, Version 3 „Blick in die Maschine“.</p>
-      <div class="ig-paar">
-        {%- for k in [["rollup2", "Version 2 · drei Sektionen"], ["rollup21", "Version 2.1 · Farben sofort sichtbar"], ["rollup3", "Version 3 · Blick in die Maschine"]] %}
-        <div><p class="ig-paar__label">{{ k[1] }}</p><a href="{{ D }}{{ k[0] }}.pdf" target="_blank" rel="noopener"><img class="ig-alt-bild" src="{{ D }}{{ k[0] }}.png" alt="Roll-up {{ k[1] }}" loading="lazy"></a>
-        <p class="ig-dl"><a href="{{ D }}{{ k[0] }}.pdf" target="_blank" rel="noopener">PDF</a><a href="{{ D }}{{ k[0] }}.png" download>PNG</a><a href="{{ D }}{{ k[0] }}.svg" download>SVG</a></p></div>
-        {%- endfor %}
-      </div>
-      <style>.ig-alt-bild { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); background: #fff; }</style>
-    </div>
-  </section>
-</div>
-</main>
+{#- Umgezogen (Daniel, 12.11.2026): die Infografik-Seite steht jetzt im Look von Story 7 unter /entwicklung/storyboard/story7/infografik/ -#}
+<main><div class="container" style="padding:6rem 1.5rem"><p>Diese Seite ist umgezogen: <a href="/entwicklung/storyboard/story7/infografik/">Infografik sofort sichtbar</a></p></div></main>
+<script>location.replace("/entwicklung/storyboard/story7/infografik/" + location.hash);</script>
 {% elif s.slug == "story-varianten" %}
 {#- Diskussionsgrundlage: zwei Story-Varianten für die Startseite (A sofort sichtbar · B Marketing abgeben).
     Inhalt in story6.11tydata.json → story_varianten. -#}

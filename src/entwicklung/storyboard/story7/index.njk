@@ -18,6 +18,8 @@ seiten:
     titel: "Marketing as a Service"
   - slug: "seitenplan"
     titel: "Seitenplan"
+  - slug: "infografik"
+    titel: "Infografik sofort sichtbar"
   - slug: "vertriebsstrecken"
     titel: "Vertriebsstrecken"
   - slug: "strategiekompass"
@@ -99,7 +101,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- set S = s7 -%}
 {%- set H7 = "/entwicklung/storyboard/story7" -%}
 {#- Echte Seiten (Startseite und Unterseiten) tragen Stil, Farbschalter und Hauptmenü; Stil- und Farbproben nicht -#}
-{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" -%}
+{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" and s.slug != "infografik" -%}
 {%- set B6 = "/entwicklung/storyboard/story6" -%}
 {%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
@@ -816,6 +818,21 @@ body.s7-menue-offen { overflow: hidden; }
   .mk7__zurueck span::before { content: "↻ "; }
 }
 
+/* ---------- Infografik sofort sichtbar (ig7-, Entwicklung) ---------- */
+.ig7-reihe { display: grid; grid-template-columns: 2.83fr 1.41fr 1fr; gap: 1.6rem; align-items: end; margin-top: 2.6rem; }
+.ig7-reihe--zwei { grid-template-columns: 2.83fr 1.41fr; max-width: 62rem; }
+.ig7-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 62rem; }
+.ig7-reihe--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 62rem; align-items: start; }
+.ig7-blatt { margin: 0; }
+.ig7-blatt img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.10), 0 10px 28px rgba(0,0,0,.08); }
+.ig7-blatt figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.2rem; margin-top: 1rem; font-size: .95rem; }
+.ig7-blatt figcaption span { margin-right: auto; color: var(--s7-grau); font-weight: 600; }
+.ig7-blatt--rollup figcaption span { width: 100%; }
+.ig7-alt { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
+.ig7-alt__links { margin-top: 1.6rem; }
+@media (max-width: 900px) { .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
+
 /* ---------- Unterseite Mit deinem Team (mt7-) · Weg A ---------- */
 .mt7-aufgaben { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
 .mt7-aufgaben li { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .4rem .6rem; border: 1px solid var(--s7-linie); border-radius: 8px; font-weight: 500; }
@@ -1088,9 +1105,9 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
-<div class="s7-stil{% if istSeite or s.slug == "seitenplan" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
+<div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
@@ -1388,6 +1405,81 @@ body.s7-menue-offen { overflow: hidden; }
     {{ pakete(false) }}
   </div>
   {%- endfor %}
+</main>
+{%- elif s.slug == "infografik" %}
+{#- Infografik sofort sichtbar (Entwicklung, Daniel 12.11.2026): One-Pager zur Homepage-Logik im Look von Story 7.
+    Dateien: story7/assets/onepager (onepager7.py), story7/assets/deckblatt, alter Stand story6/assets/maas/infografik/rollup3 -#}
+{%- set OP = A7 + "/onepager/" %}{% set OPV = "?v=" + S.onepager_stand %}
+{%- set Q = [["a3-quer", "DIN A3 quer"], ["a3-hoch", "DIN A3 hoch"], ["rollup", "Roll-up 100 × 200 cm"]] %}
+{%- set GR = [
+  ["maschine-ausfuehrlich-druck", "Grundstory ausführlich zum Ausdrucken", "Die digitale Maschine vor deinem Vertrieb.", "Wie die ausführliche Fassung, ohne Kontaktband, Gesichter und Kontaktdaten – unten rechts nur die Adresse. Für den Drucker zu Hause.", false],
+  ["maschine-ausfuehrlich", "Grundstory ausführlich", "Die digitale Maschine vor deinem Vertrieb.", "01 Strategie – wo willst du wachsen? · 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg mit Messpunkt Leads · 03 Steuerung – funktioniert es?", true],
+  ["maschine", "Grundstory kompakt", "Die digitale Maschine vor deinem Vertrieb.", "Trichter der Startseite mit Messpunkt Leads, Vertrieb und Kundenbetreuung; darunter die drei Schritte.", true],
+  ["maas", "Marketing as a Service", "Wir bedienen die Maschine. Du verkaufst.", "Gesamtlogik wie im Kopf der Website, Schnitt durch die Maschine mit Kernpaket und Ergänzungen, der 30-Tage-Plan.", true]
+] %}
+<main class="ig7">
+  <section class="s7-band ig7-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Infografik sofort sichtbar</p>
+      <h1 class="sp7-h1">One-Pager zur Homepage-Logik.</h1>
+      <p class="s7-lead">Die Grundstory, die Detailstufe und Marketing as a Service – als DIN A3 quer, DIN A3 hoch und Roll-up. Ein Klick auf ein Blatt öffnet das PDF.</p>
+    </div>
+  </section>
+  {%- for g in GR %}
+  <section class="s7-band{% if loop.index is odd %} s7-band--flaeche{% endif %}" id="op-{{ g[0] }}">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ g[1] }}</p>
+      <h2 class="s7-h2">{{ g[2] }}</h2>
+      <p class="s7-lead">{{ g[3] }}</p>
+      <div class="ig7-reihe{% if not g[4] %} ig7-reihe--zwei{% endif %}">
+        {%- for f in Q %}{% if g[4] or f[0] != "rollup" %}
+        <figure class="ig7-blatt ig7-blatt--{{ f[0] }}">
+          <a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" alt="{{ g[1] }}, {{ f[1] }}" loading="lazy"></a>
+          <figcaption><span>{{ f[1] }}</span><a class="s7-link" href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" download>PNG</a></figcaption>
+        </figure>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+  </section>
+  {%- if g[0] == "maschine" %}
+  <section class="s7-band" id="op-detail">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Detailstufe · Seite 2 nach der Grundstory kompakt</p>
+      <h2 class="s7-h2">Vom ersten Kontakt zum Kunden.</h2>
+      <p class="s7-lead">Hineingezoomt in Marketing und Vertrieb: vier Kanäle, der Messpunkt Leads, Qualifizierung und Terminierung, Beratung, Abschluss, Kundenbetreuung.</p>
+      <div class="ig7-reihe ig7-reihe--eins">
+        <figure class="ig7-blatt">
+          <a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" alt="Detailstufe, DIN A3 quer" loading="lazy"></a>
+          <figcaption><span>DIN A3 quer</span><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" download>PNG</a><a class="s7-link" href="{{ OP }}maschine-mit-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF mit Grundstory kompakt (2 Seiten)</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+  {%- endfor %}
+  <section class="s7-band" id="deckblatt">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Zur Auswahl · PDF Marketing as a Service</p>
+      <h2 class="s7-h2">Deckblatt.</h2>
+      <p class="s7-lead">B – Titel oben, unten der Schnitt durch die Maschine: Kernpaket und Ergänzungen als Bild des Angebots, angeschnitten wie ein Titelfoto. C – Titel auf Weiß, unten das dunkle Band wie auf den One-Pagern, ohne Gesichter.</p>
+      <div class="ig7-reihe ig7-reihe--drei">
+        {%- for k in ["b", "c"] %}
+        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf?v={{ S.onepager_stand }}" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v={{ S.onepager_stand }}c2" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="s7-band s7-band--flaeche" id="erinnerung">
+    <div class="s7-wrap ig7-alt">
+      <div>
+        <p class="s7-kicker">Alter Stand · Erinnerung</p>
+        <h2 class="s7-h2">Blick in die Maschine.</h2>
+        <p class="s7-lead">Roll-up Version 3 aus dem alten Stand: das Ökosystem aus dem Kernpaket und LinkedIn als aktiver Vertriebskanal. Bleibt als Gedankenstütze, um an dieser Idee weiterzuarbeiten.</p>
+        <p class="ig7-alt__links"><a class="s7-link" href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener">PDF · 100 × 200 cm {{ pfeil | safe }}</a></p>
+      </div>
+      <figure class="ig7-blatt"><a href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener"><img src="{{ B6 }}/assets/maas/infografik/rollup3.png" alt="Roll-up Version 3, Blick in die Maschine" loading="lazy"></a></figure>
+    </div>
+  </section>
 </main>
 {%- elif s.slug == "seitenplan" %}
 {#- Seitenplan (Entwicklung): alle Seiten als Baum – je Seite Frage, Herkunft, Ziel, Stand. Ein Highlight: der Stand „neu gebaut“. Inhalte: s7.seitenplan -#}
