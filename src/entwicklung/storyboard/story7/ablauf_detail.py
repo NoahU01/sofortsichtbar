@@ -3,7 +3,7 @@
 Zweite Seite nach der Grundstory kompakt – als würde man in die drei Phasen hineinzoomen.
 Gezeichnet als SVG in Millimetern (1 Einheit = 1 mm), Breite 380 mm (A3 quer abzüglich Rand).
 Schrift: Inter (Text 2,4 mm ≈ 6,8 pt, Titel 3 mm SemiBold), Inter Tight nur für die Phasen-Überschriften.
-Farben wie die Website: Tinte, Grau, Flächen #f5f5f7, Verlauf nur am Kern (Landingpage).
+Farben wie die Website: Tinte, Grau, Flächen #f5f5f7; Verlauf nur am Ziel: Beratungstermin (Daniel: Beratungstermine sind das oberste Ziel).
 """
 import html
 
@@ -58,8 +58,7 @@ def svg():
     H = 198
     P0, P1 = 30, 178   # Flächen der Vertriebsspalten (oben, unten)
     # Phasen-Überschriften (wie im Erklärbild der Website)
-    MX1, MX2 = 0, 168          # Marketing
-    MP = 176                   # Messpunkt
+    MX1, MX2 = 0, 176          # Marketing
     VX1, VX2 = 184, B          # Vertrieb
     o.append(text(MX1, 5, "Marketing – wir gewinnen Interessenten", 3.6, 700, INK, familie="Inter Tight"))
     o.append(f'<rect x="{MX1}" y="8" width="{MX2 - MX1}" height=".6" fill="{INK}"/>')
@@ -73,68 +72,86 @@ def svg():
         o.append(zeilen(x + w / 2, P0 + 7, umbruch(name, w + 2, 2.7), 2.7, 600, INK))
     o.append(zeilen(184 + 55, P0 + 16, umbruch("Klärung, ob die Voraussetzungen für einen zeitnahen Abschluss vorliegen (Checkliste) und ein direktes weiteres vertriebliches Vorgehen zielführend ist.", 100, 2.2), 2.2, 400, GRAU))
 
-    # Messpunkt
+    # Spalten Marketing (wie in der Vorlage untereinander): Kanal · Profil · Netzwerk/Inhalte/Kern · Wege der Landingpage · Messpunkt · Ansprache
+    KX = 0
+    C1, C2, C3, C4 = 36, 70, 105, 150
+    W1, W2, W3, W4 = 26, 30, 26, 30
+    MP = 130
+    def kanal(y, name):
+        return zeilen(KX, y, umbruch(name, 24, 2.8), 2.8, 600, INK, anker="start")
+    def pfeil_rechts(x1, y1, x2, y2, knick=None):
+        if y1 == y2:
+            return linie([(x1, y1), (x2 - .6, y2)])
+        k = knick if knick is not None else (x1 + x2) / 2
+        return linie([(x1, y1), (k, y1), (k, y2), (x2 - .6, y2)])
+
+    # Messpunkt: Personen und Kontaktwege sind bekannt
     o.append(linie([(MP, 25), (MP, P1)], gestrichelt=True, pfeil=False, farbe=INK, sw=.3))
     o.append(zeilen(MP, 16.5, ["Messpunkt: Leads"], 2.5, 700, INK))
     o.append(zeilen(MP, 21, ["Person und Kontaktweg bekannt"], 2.05, 400, GRAU))
 
-    # Kanäle (Marketing)
-    KX = 0           # Kanalname
-    C = [43, 78, 113, 148]   # Mitten der Schritte
-    W = 30           # Schrittbreite
-    def kanal(y, name):
-        return zeilen(KX, y, umbruch(name, 24, 2.8), 2.8, 600, INK, anker="start")
+    # LinkedIn – zwei Stränge: Netzwerk → Ansprache der Kontakte · Beiträge → Ansprache der Liker und Kommentierer
+    Y_P, Y_N, Y_B = 54, 46, 62
+    o.append(kanal(Y_P, "LinkedIn"))
+    o.append(kasten(C1, Y_P, W1, 11, "Profil professionell anlegen"))
+    o.append(zeilen(C2, Y_N - 8.6, ["mit Sales Navigator"], 2.05, 400, GRAU))
+    o.append(kasten(C2, Y_N, W2, 9, "Netzwerk gezielt aufbauen"))
+    o.append(kasten(C2, Y_B, W2, 9, "Beiträge veröffentlichen"))
+    o.append(pfeil_rechts(C1 + W1 / 2, Y_P, C2 - W2 / 2, Y_N, knick=52))
+    o.append(pfeil_rechts(C1 + W1 / 2, Y_P, C2 - W2 / 2, Y_B, knick=52))
+    o.append(kasten(C4, Y_N, W4, 9, "Kontakte aktiv ansprechen"))
+    o.append(kasten(C4, Y_B, W4, 11, "Liker und Kommentierer aktiv ansprechen"))
+    o.append(pfeil_rechts(C2 + W2 / 2, Y_N, C4 - W4 / 2, Y_N))
+    o.append(pfeil_rechts(C2 + W2 / 2, Y_B, C4 - W4 / 2, Y_B))
 
-    Y_LI, Y_SO, Y_LP, Y_MA = 52, 80, 120, 162
-    # LinkedIn
-    o.append(kanal(Y_LI, "LinkedIn"))
-    li = ["Profil professionell anlegen", "Netzwerk gezielt aufbauen (Sales Navigator)", "Beiträge veröffentlichen", "Kontakte, Liker und Kommentierer ansprechen"]
-    for i, s in enumerate(li):
-        o.append(kasten(C[i], Y_LI, W, 11, s))
-        if i:
-            o.append(linie([(C[i - 1] + W / 2, Y_LI), (C[i] - W / 2 - .6, Y_LI)]))
-    # Instagram und Facebook
+    # Instagram und Facebook – gleiche Spalten: Profil · Postings · Ansprache
+    Y_SO = 84
     o.append(kanal(Y_SO, "Instagram und Facebook"))
-    # gleiche Spalten wie LinkedIn: Profil · (Netzwerk) · Inhalte · Ansprache
-    so = [(0, "Profil und Seite pflegen"), (2, "Postings je Zielgruppe veröffentlichen"), (3, "Kommentare und Nachrichten aufgreifen")]
-    for k, (i, s) in enumerate(so):
-        o.append(kasten(C[i], Y_SO, W, 11, s))
-        if k:
-            o.append(linie([(C[so[k - 1][0]] + W / 2, Y_SO), (C[i] - W / 2 - .6, Y_SO)]))
-    # Landingpage (Kern) mit drei Wegen
+    o.append(kasten(C1, Y_SO, W1, 11, "Profil und Seite anlegen"))
+    o.append(kasten(C2, Y_SO, W2, 11, "Postings je Zielgruppe veröffentlichen"))
+    o.append(kasten(C4, Y_SO, W4, 11, "Kommentare und Nachrichten aufgreifen"))
+    o.append(pfeil_rechts(C1 + W1 / 2, Y_SO, C2 - W2 / 2, Y_SO))
+    o.append(pfeil_rechts(C2 + W2 / 2, Y_SO, C4 - W4 / 2, Y_SO))
+
+    # Landingpage – drei Wege
+    Y_LP = 122
     o.append(kanal(Y_LP, "Landingpage"))
-    o.append(kasten(C[0], Y_LP, W, 13, "Landingpage je Zielgruppe", "kern", 2.5, 600))
-    wege = [("Termin buchen", Y_LP - 16), ("Kontaktformular", Y_LP), ("Download", Y_LP + 16)]
+    o.append(kasten(C2, Y_LP, W2, 13, "Landingpage je Zielgruppe", "dunkel", 2.5, 600))
+    wege = [("Termin buchen", Y_LP - 14), ("Kontaktformular", Y_LP), ("Download", Y_LP + 14)]
     for s, y in wege:
-        o.append(linie([(C[0] + W / 2, Y_LP), (C[0] + W / 2 + 2.5, Y_LP), (C[0] + W / 2 + 2.5, y), (C[1] - W / 2 - .6, y)], pfeil=False))
-        o.append(kasten(C[1], y, W, 9, s))
-    # Beiträge und Postings verweisen auf die Landingpage (gestrichelt)
-    o.append(linie([(C[2], Y_SO + 5.5), (C[2], Y_LP - 30), (C[0], Y_LP - 30), (C[0], Y_LP - 7.1)], gestrichelt=True, farbe=GRAU, sw=.3))
-    o.append(linie([(C[2], Y_LI + 5.5), (C[2], Y_SO - 5.5)], gestrichelt=True, pfeil=False, farbe=GRAU, sw=.3))
-    o.append(zeilen(C[0] + 2, Y_LP - 27, ["Beiträge und Postings verlinken auf die Landingpage"], 2.05, 400, GRAU, anker="start"))
+        o.append(pfeil_rechts(C2 + W2 / 2, Y_LP, C3 - W3 / 2, y, knick=C2 + W2 / 2 + 3.5))
+        o.append(kasten(C3, y, W3, 9, s))
+
     # Mailings und Newsletter
+    Y_MA = 162
     o.append(kanal(Y_MA, "Mailings und Newsletter"))
-    o.append(kasten(C[0], Y_MA, W, 11, "Mailing an den Bestand versenden"))
-    o.append(linie([(C[0], Y_MA - 5.5), (C[0], Y_LP + 7.1)], gestrichelt=True, farbe=GRAU, sw=.3))
-    o.append(zeilen(C[0] + 2, Y_MA - 14, ["Link zur Landingpage"], 2.05, 400, GRAU, anker="start"))
+    o.append(kasten(C2, Y_MA, W2, 11, "Mailing an den Bestand versenden"))
+
+    # Inhalte führen auf die Landingpage (gestrichelte Achse in Spalte 2)
+    o.append(linie([(C2, Y_B + 4.5), (C2, Y_SO - 5.5)], gestrichelt=True, pfeil=False, farbe=GRAU, sw=.3))
+    o.append(linie([(C2, Y_SO + 5.5), (C2, Y_LP - 6.5 - .6)], gestrichelt=True, farbe=GRAU, sw=.3))
+    o.append(linie([(C2, Y_MA - 5.5), (C2, Y_LP + 6.5 + .6)], gestrichelt=True, farbe=GRAU, sw=.3))
+    o.append(zeilen(C2 - 1.6, (Y_SO + Y_LP) / 2 - 1, ["verlinken auf", "die Landingpage"], 2.05, 400, GRAU, anker="end"))
+    o.append(zeilen(C2 - 1.6, (Y_LP + Y_MA) / 2, ["Link zur", "Landingpage"], 2.05, 400, GRAU, anker="end"))
 
     # Einstiege in den Vertrieb
     EX, EW = 202, 30
-    Y_KE, Y_KL, Y_TE = 66, 104, 136
-    ein = [("Kennenlerngespräch", Y_KE), ("Klärungsgespräch", Y_KL), ("Telefonakquise", Y_TE)]
-    for s, y in ein:
+    Y_KE, Y_KL, Y_TE = Y_B, wege[0][1], wege[2][1]
+    for s, y in (("Kennenlerngespräch", Y_KE), ("Klärungsgespräch", Y_KL), ("Telefonakquise", Y_TE)):
         o.append(kasten(EX, y, EW, 9, s, "weiss"))
-    # Linien Marketing → Einstiege (über den Messpunkt)
-    o.append(linie([(C[3] + W / 2, Y_LI), (172, Y_LI), (172, Y_KE), (EX - EW / 2 - .6, Y_KE)]))
-    o.append(linie([(C[3] + W / 2, Y_SO), (172, Y_SO), (172, Y_KE)], pfeil=False))
-    o.append(linie([(C[1] + W / 2, wege[0][1]), (EX - EW / 2 - .6, Y_KL)][:1] + [(160, wege[0][1]), (160, Y_KL), (EX - EW / 2 - .6, Y_KL)]))
-    o.append(linie([(C[1] + W / 2, wege[1][1]), (164, wege[1][1]), (164, Y_TE), (EX - EW / 2 - .6, Y_TE)]))
-    o.append(linie([(C[1] + W / 2, wege[2][1]), (164, wege[2][1])], pfeil=False))
-    o.append(linie([(C[0] + W / 2, Y_MA), (164, Y_MA), (164, Y_TE)], pfeil=False))
+    L = EX - EW / 2
+    o.append(linie([(C4 + W4 / 2, Y_N), (172, Y_N), (172, Y_KE)], pfeil=False))
+    o.append(linie([(C4 + W4 / 2, Y_SO), (172, Y_SO), (172, Y_KE)], pfeil=False))
+    o.append(linie([(C4 + W4 / 2, Y_B), (L - .6, Y_KE)]))
+    o.append(linie([(C3 + W3 / 2, Y_KL), (L - .6, Y_KL)]))
+    o.append(linie([(C3 + W3 / 2, wege[1][1]), (168, wege[1][1]), (168, Y_TE)], pfeil=False))
+    o.append(linie([(C2 + W2 / 2, Y_MA), (168, Y_MA), (168, Y_TE)], pfeil=False))
+    o.append(linie([(C3 + W3 / 2, Y_TE), (L - .6, Y_TE)]))
+    C = [C2]
 
     # Prüffragen
     BUS = 221
-    F1X, F2X, FY, FW, FH = 239.5, 276, 101, 29, 25
+    F1X, F2X, FY, FW, FH = 239.5, 276, (Y_KE + Y_TE) / 2, 29, 25
     for y in (Y_KE, Y_KL, Y_TE):
         o.append(linie([(EX + EW / 2, y), (BUS, y)], pfeil=False))
     o.append(linie([(BUS, Y_KE), (BUS, Y_TE)], pfeil=False))
@@ -148,13 +165,13 @@ def svg():
     o.append(zeilen(F1X + 2, FY + FH / 2 + 7, ["Nein"], 2.3, 600, GRAU, anker="start"))
     o.append(kasten(F1X, 151, FW, 12, "Keine weiteren Aktionen", "leer"))
     # Ja 2 → Beratung → Abschluss → Kundenbetreuung
-    Y_JA, Y_NEIN = 66, 151
+    Y_JA, Y_NEIN = Y_KE, 151
     o.append(linie([(F2X + FW / 2, FY), (F2X + FW / 2 + 3.5, FY), (F2X + FW / 2 + 3.5, Y_JA), (310.6 - 11.8, Y_JA)]))
     o.append(zeilen(F2X + FW / 2 + 5, (FY + Y_JA) / 2, ["Ja"], 2.3, 700, INK, anker="start"))
     sp_m = [298 + 25.3 / 2, 326.3 + 25.3 / 2, 354.6 + 25.4 / 2]
     schritte = ["Beratungstermin", "Angebot und Abschluss", "Kunden halten und ausbauen"]
     for i, (x, s) in enumerate(zip(sp_m, schritte)):
-        o.append(kasten(x, Y_JA, 22.5, 13, s, "kern" if i == 2 else "weiss", 2.3, 600 if i == 2 else 400))
+        o.append(kasten(x, Y_JA, 22.5, 13, s, "kern" if i == 0 else "weiss", 2.3, 600 if i == 0 else 400))
         if i:
             o.append(linie([(sp_m[i - 1] + 11.25, Y_JA), (x - 11.25 - .6, Y_JA)]))
     # Nein 2 → vertrieblich warmhalten
