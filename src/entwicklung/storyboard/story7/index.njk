@@ -822,6 +822,7 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-reihe { display: grid; grid-template-columns: 2.83fr 1.41fr 1fr; gap: 1.6rem; align-items: end; margin-top: 2.6rem; }
 .ig7-reihe--zwei { grid-template-columns: 2.83fr 1.41fr; max-width: 62rem; }
 .ig7-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 62rem; }
+.ig7-reihe--paar { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
 .ig7-reihe--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 62rem; align-items: start; }
 .ig7-reihe--vier { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
 .ig7-blatt { margin: 0; }
@@ -834,7 +835,7 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-alt { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
 .ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
 .ig7-alt__links { margin-top: 1.6rem; }
-@media (max-width: 900px) { .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
+@media (max-width: 900px) { .ig7-reihe--paar { grid-template-columns: minmax(0, 1fr); } .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
 
 /* ---------- Unterseite Mit deinem Team (mt7-) · Weg A ---------- */
 .mt7-aufgaben { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
@@ -1450,10 +1451,14 @@ body.s7-menue-offen { overflow: hidden; }
       <p class="s7-kicker">Detailstufe · Seite 2 nach der Grundstory kompakt</p>
       <h2 class="s7-h2">Vom ersten Kontakt zum Kunden.</h2>
       <p class="s7-lead">Hineingezoomt in Marketing und Vertrieb: vier Kanäle, der Messpunkt Leads, Qualifizierung und Terminierung, Beratung, Abschluss, Kundenbetreuung.</p>
-      <div class="ig7-reihe ig7-reihe--eins">
+      <div class="ig7-reihe ig7-reihe--paar">
         <figure class="ig7-blatt">
           <a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" alt="Detailstufe, DIN A3 quer" loading="lazy"></a>
           <figcaption><span>DIN A3 quer</span><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" download>PNG</a><a class="s7-link" href="{{ OP }}maschine-mit-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF mit Grundstory kompakt (2 Seiten)</a></figcaption>
+        </figure>
+        <figure class="ig7-blatt">
+          <a href="{{ OP }}maschine-detail-leer-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-leer-a3-quer.png{{ OPV }}" alt="Leeres Arbeitsblatt, DIN A3 quer" loading="lazy"></a>
+          <figcaption><span>Leeres Arbeitsblatt · DIN A3 quer</span><a class="s7-link" href="{{ OP }}maschine-detail-leer-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}maschine-detail-leer-a3-quer.png{{ OPV }}" download>PNG</a></figcaption>
         </figure>
       </div>
     </div>

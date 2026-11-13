@@ -505,6 +505,12 @@ def blaetter(S, logo, img6):
                   "Was in Marketing und Vertrieb passiert: über welche Kanäle Leads entstehen und wie dein Vertrieb sie zum Abschluss führt.",
                   logo, br_akzent=False)
         + f'<div class="verteilt"><div class="ablauf-buehne">{ablauf_svg()}</div></div><p class="fuss-url">sofortsichtbar.de</p>')
+    # dasselbe als leeres Arbeitsblatt: nur Phasenlinien und die grauen Vertriebsflächen
+    out[("maschine-detail-leer", "a3-quer")] = (
+        kopf_hoch("Die digitale Maschine im Detail", "Vom ersten Kontakt", "zum Kunden.",
+                  "Was in Marketing und Vertrieb passiert: über welche Kanäle Leads entstehen und wie dein Vertrieb sie zum Abschluss führt.",
+                  logo, br_akzent=False)
+        + f'<div class="verteilt"><div class="ablauf-buehne">{ablauf_svg(leer=True)}</div></div><p class="fuss-url">sofortsichtbar.de</p>')
     return out
 
 
@@ -519,10 +525,15 @@ def main():
         h = os.path.join(tmp, name + ".html")
         open(h, "w", encoding="utf-8").write(
             f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{css(fmt)}</style></head><body>{SVG_CSS}{VERLAUF_H}'
-            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}{" druck" if g.endswith("-druck") or g == "maschine-detail" else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
+            f'<div class="blatt {fmt}{" kurz" if (g, fmt) == ("maschine-ausfuehrlich", "a3-hoch") else ""}{" druck" if g.endswith("-druck") or g.startswith("maschine-detail") else ""}">{inhalt}</div>{VERLAUF_JS}</body></html>')
         pdf = os.path.join(ZIEL, name + ".pdf")
-        subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
-                        "--virtual-time-budget=6000", f"--print-to-pdf={pdf}", "file://" + h], check=True, capture_output=True)
+        for versuch in range(4):  # Chrome bricht gelegentlich ohne Grund ab – dann erneut versuchen
+            r = subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
+                                "--virtual-time-budget=6000", f"--print-to-pdf={pdf}", "file://" + h], capture_output=True)
+            if r.returncode == 0:
+                break
+        else:
+            raise SystemExit(f"Chrome konnte {name} nicht drucken")
         subprocess.run(["pdftoppm", "-r", "40", "-scale-to", "1600", "-png", "-singlefile", pdf, os.path.join(ZIEL, name)], check=True)
         print(name, subprocess.run(["pdfinfo", pdf], capture_output=True, text=True).stdout.split("Page size:")[1].split("\n")[0].strip())
     subprocess.run(["pdfunite", os.path.join(ZIEL, "maschine-a3-quer.pdf"), os.path.join(ZIEL, "maschine-detail-a3-quer.pdf"),

@@ -53,7 +53,8 @@ def linie(pts, gestrichelt=False, pfeil=True, farbe=INK, sw=.35):
     return f'<path d="{d}" fill="none" stroke="{farbe}" stroke-width="{sw}" stroke-linejoin="round"{strich}{spitze}/>'
 
 
-def svg():
+def svg(leer=False):
+    """leer=True: Arbeitsblatt – nur Phasenlinien und die grauen Vertriebsflächen mit ihren Namen"""
     o = []
     H = 198
     P0, P1 = 30, 178   # Flächen der Vertriebsspalten (oben, unten)
@@ -70,6 +71,8 @@ def svg():
     for name, x, w in sp:
         o.append(f'<rect x="{x}" y="{P0}" width="{w}" height="{P1 - P0}" rx="2.6" fill="{FLAECHE}"/>')
         o.append(zeilen(x + w / 2, P0 + 7, umbruch(name, w + 2, 2.7), 2.7, 600, INK))
+    if leer:
+        return _rahmen(o, H)
     o.append(zeilen(184 + 55, P0 + 16, umbruch("Klärung, ob die Voraussetzungen für einen zeitnahen Abschluss vorliegen (Checkliste) und ein direktes weiteres vertriebliches Vorgehen zielführend ist.", 100, 2.2), 2.2, 400, GRAU))
 
     # Spalten Marketing (wie in der Vorlage untereinander): Kanal · Profil · Netzwerk/Inhalte/Kern · Wege der Landingpage · Messpunkt · Ansprache
@@ -186,6 +189,10 @@ def svg():
     o.append(f'<rect x="{(XR + sp_m[2]) / 2 - 52}" y="{YR - 2.5}" width="104" height="5" fill="#fff"/>')
     o.append(zeilen((XR + sp_m[2]) / 2, YR, ["Regelmäßige Präsenz pflegt deinen Bestand – und bringt neue Anlässe."], 2.4, 600, INK))
 
+    return _rahmen(o, H)
+
+
+def _rahmen(o, H):
     defs = ('<defs><linearGradient id="ad-v" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b9fbd"/>'
             '<stop offset="1" stop-color="#8613a1"/></linearGradient>'
             '<linearGradient id="ad-vh" gradientUnits="userSpaceOnUse" x1="0" y1="25" x2="0" y2="178"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>'
