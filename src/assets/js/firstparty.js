@@ -78,9 +78,22 @@
     }
   }
 
+  // Bleibt die Seite offen und läuft die Sitzung ab (30 min ohne Aktivität),
+  // beginnt mit dem nächsten Ereignis eine neue – samt session_start.
+  // Gleichzeitig zählt jedes Ereignis als Aktivität und verlängert die Sitzung.
+  function sitzungPruefen() {
+    if (!einwilligung || !sitzung) return;
+    var s = sitzungHolen();
+    if (s.id !== sitzung) {
+      sitzung = s.id;
+      warteschlange.push({ id: uuid(), name: "session_start", ts: Date.now(), url: location.href, props: {} });
+    }
+  }
+
   /* --- Senden ------------------------------------------------------------ */
   function einreihen(name, props, opt) {
     opt = opt || {};
+    if (name !== "session_start") sitzungPruefen();
     var e = {
       id: uuid(),
       name: name,
@@ -97,7 +110,6 @@
   }
 
   function paket(events) {
-    if (einwilligung && sitzung) sitzungHolen();   // Aktivität verlängert die Sitzung
     return JSON.stringify({
       consent: einwilligung,
       session_id: einwilligung ? sitzung : null,
