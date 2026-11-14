@@ -20,6 +20,8 @@ seiten:
     titel: "Seitenplan"
   - slug: "infografik"
     titel: "Infografik sofort sichtbar"
+  - slug: "mehrwerte"
+    titel: "Mehrwerte"
   - slug: "vertriebsstrecken"
     titel: "Vertriebsstrecken"
   - slug: "strategiekompass"
@@ -101,7 +103,7 @@ permalink: "/entwicklung/storyboard/story7/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- set S = s7 -%}
 {%- set H7 = "/entwicklung/storyboard/story7" -%}
 {#- Echte Seiten (Startseite und Unterseiten) tragen Stil, Farbschalter und Hauptmenü; Stil- und Farbproben nicht -#}
-{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" and s.slug != "infografik" -%}
+{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" and s.slug != "infografik" and s.slug != "mehrwerte" -%}
 {%- set B6 = "/entwicklung/storyboard/story6" -%}
 {%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
 {%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
@@ -818,6 +820,40 @@ body.s7-menue-offen { overflow: hidden; }
   .mk7__zurueck span::before { content: "↻ "; }
 }
 
+/* ---------- Mehrwerte (mw7-, Entwicklung) ---------- */
+.mw7-lead { max-width: 46rem !important; }
+.mw7-nr { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.mw7-grund { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.mw7-karte { display: flex; flex-direction: column; padding: 2rem 1.9rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-stil .mw7-karte h3, .s7-stil .mw7-weg h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.mw7-karte > p:not(.mw7-nr):not(.mw7-marke), .mw7-weg > p:not(.mw7-nr) { margin-top: .7rem; line-height: 1.55; text-wrap: pretty; }
+.mw7-karte .mx7-haken { margin-top: 1rem; }
+.mw7-karte .mx7-haken li { font-size: .95rem; }
+.mw7-karte--produkt { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.s7-stil .mw7-karte--produkt h3 { color: #fff; }
+.mw7-karte--produkt .mw7-nr { color: color-mix(in srgb, #fff 75%, transparent); }
+.mw7-marke { margin-top: auto; padding-top: 1.4rem; color: #fff; font-weight: 600; }
+.mw7-wege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.mw7-weg { display: flex; flex-direction: column; padding: 2rem 1.9rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); }
+.mw7-tool { margin-top: auto; padding: 1.4rem 1.5rem; border-radius: calc(var(--s7-rund) * .7); background: var(--s7-flaeche); }
+.mw7-weg > p + .mw7-tool { margin-top: 1.6rem; }
+.mw7-tool__name { display: flex; align-items: baseline; gap: .7rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.mw7-tool__name span { color: var(--s7-grau); font-family: var(--s7-schrift-text); font-size: .85rem; font-weight: 600; letter-spacing: 0; }
+.mw7-modus { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--s7-linie); }
+.mw7-modus b { color: var(--s7-tinte); font-weight: 600; }
+.mw7-modus p { margin-top: .25rem; font-size: .95rem; line-height: 1.5; }
+.mw7-tool__fuss { margin-top: .9rem; color: var(--s7-grau); font-size: .9rem; }
+.mw7-bezug { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); }
+.mw7-bezug .s7-link { margin-left: .4rem; }
+.mw7-weiter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; margin-top: 2.6rem; }
+.mw7-weiter__titel { padding-bottom: .8rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-weight: 700; }
+.mw7-formate { margin: 0; }
+.mw7-formate dt { margin-top: 1rem; color: var(--s7-tinte); font-weight: 600; }
+.mw7-formate dd { margin: .2rem 0 0; color: var(--s7-text); }
+.mw7-fragen ul { margin: .6rem 0 0; padding: 0; list-style: none; }
+.mw7-fragen li { padding: .8rem 0; border-bottom: 1px solid var(--s7-linie); line-height: 1.5; }
+@media (max-width: 1000px) { .mw7-grund, .mw7-wege, .mw7-weiter { grid-template-columns: minmax(0, 1fr); } }
+
 /* ---------- Infografik sofort sichtbar (ig7-, Entwicklung) ---------- */
 .ig7-reihe { display: grid; grid-template-columns: 2.83fr 1.41fr 1fr; gap: 1.6rem; align-items: end; margin-top: 2.6rem; }
 .ig7-reihe--zwei { grid-template-columns: 2.83fr 1.41fr; max-width: 62rem; }
@@ -1109,9 +1145,9 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 7</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story7/">Startseite (Arbeitslook)</a>{% endif %}{% if s.slug != "stilproben" %}<a href="/entwicklung/storyboard/story7/stilproben/">Stilproben</a>{% endif %}{% if s.slug != "farbproben" %}<a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>{% endif %}<a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
-<div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
+<div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
@@ -1409,6 +1445,97 @@ body.s7-menue-offen { overflow: hidden; }
     {{ pakete(false) }}
   </div>
   {%- endfor %}
+</main>
+{%- elif s.slug == "mehrwerte" %}
+{#- Mehrwerte (Entwicklung, Daniel 14.11.2026): Ideensammlung, wie Kunden LinkedIn und die Postings konkret im Marketing- und
+    Vertriebsprozess nutzen – Grundlage, zwei Wege, Weg in den Vertrieb, Formate. Inhalte: s7.mehrwerte -#}
+{%- set MW = S.mehrwerte %}
+<main class="mw7">
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ MW.kopf.kicker }}</p>
+      <h1 class="sp7-h1">{{ MW.kopf.h1 }} <span class="s7-wort">{{ MW.kopf.h1_akzent }}</span></h1>
+      <p class="s7-lead mw7-lead">{{ MW.kopf.lead }}</p>
+    </div>
+  </section>
+
+  {%- set G = MW.grundlage %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ G.kicker }}</p>
+      <h2 class="s7-h2">{{ G.h2 }}</h2>
+      <p class="s7-lead">{{ G.lead }}</p>
+      <ol class="mw7-grund">
+        {%- for x in G.liste %}
+        <li class="mw7-karte{% if x.produkt %} mw7-karte--produkt{% endif %}">
+          <p class="mw7-nr">{{ x.nr }}</p>
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          {%- if x.punkte | length %}<ul class="mx7-haken">{% for y in x.punkte %}<li>{{ y }}</li>{% endfor %}</ul>{% endif %}
+          {%- if x.produkt %}<p class="mw7-marke">Unser Produkt</p>{% endif %}
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set AK = MW.aktiv %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ AK.kicker }}</p>
+      <h2 class="s7-h2">{{ AK.h2 }}</h2>
+      <p class="s7-lead">{{ AK.lead }}</p>
+      <div class="mw7-wege">
+        {%- for w in AK.wege %}
+        <article class="mw7-weg">
+          <p class="mw7-nr">{{ w.label }}</p>
+          <h3>{{ w.titel }}</h3>
+          <p>{{ w.text }}</p>
+          <div class="mw7-tool">
+            <p class="mw7-tool__name"><span>Werkzeug</span>{{ w.tool.name }}</p>
+            {%- for m in w.tool.modi %}<div class="mw7-modus"><b>{{ m[0] }}</b><p>{{ m[1] }}</p></div>{% endfor %}
+            <p class="mw7-tool__fuss">{{ w.tool.einstellung }}</p>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set VT = MW.vertrieb %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VT.kicker }}</p>
+      <h2 class="s7-h2">{{ VT.h2 }}</h2>
+      <p class="s7-lead">{{ VT.lead }}</p>
+      <ol class="mx7-zeit">
+        {%- for x in VT.schritte %}
+        <li class="mx7-zeit__schritt{% if loop.last %} mx7-zeit__schritt--ziel{% endif %}">
+          <p class="mx7-zeit__wann">{{ x[0] }}</p>
+          <span class="mx7-zeit__punkt" aria-hidden="true"></span>
+          <h3>{% if loop.last %}Anschreiben{% else %}Kommentieren{% endif %}</h3>
+          <p class="mx7-zeit__t">{{ x[1] }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="mw7-bezug">{{ VT.bezug }} <a class="s7-link" href="{{ H7 }}/infografik/#op-detail">Zur Detailstufe {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {%- set WT = MW.weiter %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ WT.kicker }}</p>
+      <h2 class="s7-h2">{{ WT.h2 }}</h2>
+      <p class="s7-lead">{{ WT.lead }}</p>
+      <div class="mw7-weiter">
+        <div><p class="mw7-weiter__titel">Formate</p>
+          <dl class="mw7-formate">{% for f in WT.formate %}<dt>{{ f[0] }}</dt><dd>{{ f[1] }}</dd>{% endfor %}</dl></div>
+        <div class="mw7-fragen"><p class="mw7-weiter__titel">Offene Fragen</p>
+          <ul>{% for f in WT.fragen %}<li>{{ f }}</li>{% endfor %}</ul></div>
+      </div>
+    </div>
+  </section>
 </main>
 {%- elif s.slug == "infografik" %}
 {#- Infografik sofort sichtbar (Entwicklung, Daniel 12.11.2026): One-Pager zur Homepage-Logik im Look von Story 7.

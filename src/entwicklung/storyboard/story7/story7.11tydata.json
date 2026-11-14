@@ -1403,6 +1403,144 @@
         "b_name": "Lieber übergeben?"
       }
     },
-    "onepager_stand": "2ec47baf"
+    "onepager_stand": "2ec47baf",
+    "mehrwerte": {
+      "_quelle": "Daniel, Diktat 14.11.2026 – Ideensammlung, noch nicht eingebaut. Aussagen nicht verkürzen; Ergänzungen von Claude als offene Fragen markiert.",
+      "kopf": {
+        "kicker": "Mehrwerte · Ideensammlung",
+        "h1": "Was mache ich jetzt",
+        "h1_akzent": "ganz konkret?",
+        "lead": "Die zentrale Frage aus der Anwendung: Ich habe LinkedIn, ich habe die Postings – wie gehe ich im Marketing- und Vertriebsprozess konkret vor? Diese Erklärungen gibt es bisher nur mündlich, zuletzt im Workshop. Wir wollen die Leute direkt befähigen: mit einem klaren Vorgehen, vielleicht mit Erklärvideo."
+      },
+      "grundlage": {
+        "kicker": "Teil 1 · Die Grundlage",
+        "h2": "Drei Voraussetzungen, damit LinkedIn überhaupt funktioniert.",
+        "lead": "Was ich bei LinkedIn immer wieder sage, wird sichtbar gemacht: Grundthemen, die eingerichtet sein müssen, bevor aktive Arbeit wirkt.",
+        "liste": [
+          {
+            "nr": "01",
+            "titel": "Das Profil sauber darstellen",
+            "text": "Wir sagen genau, was man machen muss, damit das Profil überzeugt.",
+            "punkte": []
+          },
+          {
+            "nr": "02",
+            "titel": "Kontakte aufbauen",
+            "text": "Ganz konkrete Tipps, wie man die Zielgruppe auf LinkedIn findet – mit und ohne Sales Navigator.",
+            "punkte": [
+              "Welche Arten von Kontakten man will",
+              "LinkedIn passt seine Empfehlungen an die zuletzt hinzugefügten Kontakte an: Wer nur Kollegen anklickt, bekommt auch hauptsächlich Kollegen empfohlen",
+              "Wie ich meine Zielgruppe finde",
+              "Wie ich im Sales Navigator vorgehe"
+            ]
+          },
+          {
+            "nr": "03",
+            "titel": "Regelmäßig posten",
+            "text": "Decken wir über unsere Produkte ab: Die Postings je Zielgruppe laufen.",
+            "punkte": [],
+            "produkt": true
+          }
+        ]
+      },
+      "aktiv": {
+        "kicker": "Teil 2 · Aktiv werden",
+        "h2": "Zwei Wege, auf LinkedIn aktiv zu sein.",
+        "lead": "Ab hier ist die Frage: Was mache ich selbst aktiv?",
+        "wege": [
+          {
+            "label": "Weg A",
+            "titel": "Selbst posten – als Person",
+            "text": "Echte Einblicke geben, aus dem Alltag posten und sich als Person zeigen.",
+            "tool": {
+              "name": "Posting-Generator",
+              "modi": [
+                [
+                  "Ad hoc",
+                  "Ich habe gerade eine Idee oder war auf einer Veranstaltung und will dazu etwas posten – hilf mir, den Post zu machen."
+                ],
+                [
+                  "Interview-Modus",
+                  "Ich habe keine Idee: Das Tool stellt innovative Fragen, provoziert auch mal und filtert so passende Postings für mich heraus."
+                ]
+              ],
+              "einstellung": "Der Kunde stellt ein, was das Tool tun soll und in welchem Stil es Postings ausgibt."
+            }
+          },
+          {
+            "label": "Weg B",
+            "titel": "Bei anderen kommentieren – die Zielkunden im Blick",
+            "text": "Ich suche mir meine wichtigsten Zielkunden auf LinkedIn, schaue, was sie posten, und schreibe jedes Mal einen Kommentar darunter: innovativ, freundlich und modern – und so, dass er zum Diskutieren anregt und die Person am besten antworten muss.",
+            "tool": {
+              "name": "Antwortgenerator",
+              "modi": [
+                [
+                  "Direkt",
+                  "Text des Beitrags hineinkopieren und eine Standardantwort ausgeben lassen."
+                ],
+                [
+                  "Mit Rückfrage",
+                  "Das Tool fragt, in welche Richtung die Antwort gehen soll und ob etwas berücksichtigt werden soll – eintragen oder direkt generieren."
+                ]
+              ],
+              "einstellung": "Als Knopf im Posting-Generator oder als eigenes Tool."
+            }
+          }
+        ]
+      },
+      "vertrieb": {
+        "kicker": "Teil 3 · Vom Kommentar zum Gespräch",
+        "h2": "Der Weg in den Vertrieb.",
+        "lead": "Wie man mit den Kommentaren vorgeht und wie daraus ein Termin wird.",
+        "schritte": [
+          [
+            "1. Kommentar",
+            "Beim Beitrag einer Person aus der Zielgruppe kommentieren."
+          ],
+          [
+            "2. Kommentar",
+            "Beim nächsten Beitrag wieder – der Austausch beginnt."
+          ],
+          [
+            "3. Kommentar",
+            "Die Person kennt dich inzwischen."
+          ],
+          [
+            "Nachricht",
+            "Danach per LinkedIn anschreiben: „Mensch, jetzt haben wir uns schon öfters ausgetauscht, das fand ich super – lass uns doch mal telefonieren.“"
+          ]
+        ],
+        "bezug": "Passt zur Detailstufe „Vom ersten Kontakt zum Kunden“: LinkedIn-Strang „Beiträge → Liker und Kommentierer ansprechen“ und weiter ins Kennenlerngespräch."
+      },
+      "weiter": {
+        "kicker": "Teil 4 · Was wir daraus machen",
+        "h2": "Formate und offene Fragen.",
+        "lead": "Von hier aus überlegen wir weiter, was daraus wird.",
+        "formate": [
+          [
+            "Vorgehen erklären",
+            "Die drei Voraussetzungen und die zwei Wege als klare Anleitung."
+          ],
+          [
+            "Erklärvideo",
+            "Vielleicht – für das Vorgehen auf LinkedIn."
+          ],
+          [
+            "Posting-Generator",
+            "Goodie mit Ad-hoc- und Interview-Modus, Stil einstellbar."
+          ],
+          [
+            "Antwortgenerator",
+            "Knopf im Posting-Generator oder eigenes Tool."
+          ]
+        ],
+        "fragen": [
+          "Wie bauen wir den Posting-Generator? (Daniel: „Da müssen wir nur überlegen, wie wir das machen.“)",
+          "Antwortgenerator als Knopf im Posting-Generator oder als separates Tool?",
+          "Wo erhält der Kunde Anleitung, Video und Tools – im Kunden-Dashboard, auf der Website, im Termin? (offen, Claude)",
+          "Welche Pakete enthalten die Tools? (offen, Claude)"
+        ]
+      }
+    }
   }
 }
