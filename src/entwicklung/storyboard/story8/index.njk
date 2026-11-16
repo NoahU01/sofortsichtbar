@@ -210,27 +210,8 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
   </section>
 {%- endmacro -%}
 {%- macro figur(f) -%}
-{#- Personen als geometrische Büsten (Daniel, 16.11.2026: keine Stockfotos, markant, nicht alle gleich) – ohne Gesichtszüge, Kleidung in der Farbe der Seite -#}
-<svg viewBox="0 0 100 120" aria-hidden="true">
-{%- if f == "strategie" %}<path class="h" d="M29 46 C27 18 73 18 71 46 L74 88 C62 94 38 94 26 88 Z"/>{% endif %}
-{%- if f == "marketing" %}<path class="h" d="M30 50 C27 20 73 20 70 50 L71 66 C66 69 61 67 61 61 L61 42 C56 36 44 36 39 42 L39 61 C39 67 34 69 29 66 Z"/>{% endif %}
-{%- if f == "innendienst" %}<path class="h" d="M64 32 C82 36 86 62 76 76 C73 62 70 50 62 42 Z"/>{% endif %}
-<path class="k" d="M6 120 C6 92 25 79 50 79 C75 79 94 92 94 120 Z"/>
-{%- if f == "strategie" %}<path class="w" d="M41 79 L50 99 L59 79 Z"/><path class="k2" d="M38 80 L50 106 L44 120 L30 120 Z M62 80 L50 106 L56 120 L70 120 Z"/>{% endif %}
-{%- if f == "texte" %}<path class="l" d="M43 86 V101 M57 86 V101"/>{% endif %}
-{%- if f == "vertrieb" %}<path class="w" d="M40 79 L50 101 L60 79 Z"/><path class="h" d="M47 82 H53 L55 104 L50 110 L45 104 Z"/>{% endif %}
-{%- if f == "marketing" %}<path class="w" d="M41 79 L50 89 L44 94 Z M59 79 L50 89 L56 94 Z"/>{% endif %}
-<rect class="g" x="42" y="62" width="16" height="19" rx="5"/>
-<ellipse class="g" cx="50" cy="45" rx="18" ry="21"/>
-{%- if f == "strategie" %}<path class="h" d="M33 43 C33 22 67 20 68 41 C59 33 45 31 33 43 Z"/>
-{%- elif f == "texte" %}<path class="h" d="M33 43 C30 22 70 20 67 43 C63 33 40 31 33 43 Z"/><path class="h" d="M36 54 C39 70 61 70 64 54 C57 61 43 61 36 54 Z"/>
-{%- elif f == "technik" %}<g class="h"><circle cx="37" cy="31" r="8"/><circle cx="47" cy="25" r="9"/><circle cx="58" cy="26" r="9"/><circle cx="66" cy="34" r="7"/><circle cx="33" cy="39" r="5.5"/></g><path class="b" d="M36 41 h11 a2 2 0 0 1 2 2 v4 a4 4 0 0 1-4 4 h-5 a4 4 0 0 1-4-4 z M53 41 h11 v6 a4 4 0 0 1-4 4 h-5 a4 4 0 0 1-4-4 v-4 a2 2 0 0 1 2-2 z M49 44 h2"/>
-{%- elif f == "social" %}<circle class="h" cx="50" cy="20" r="9"/><path class="h" d="M33 44 C30 23 70 21 67 44 C62 32 40 31 33 44 Z"/>
-{%- elif f == "marketing" %}<path class="h" d="M33 46 C31 22 69 21 67 46 C62 33 47 30 33 46 Z"/>
-{%- elif f == "vertrieb" %}<path class="h" d="M33 44 C30 21 70 19 67 42 C60 30 48 30 40 36 C37 38 35 41 33 44 Z"/><path class="b" d="M35 42 h12 v5 a4 4 0 0 1-4 4 h-4 a4 4 0 0 1-4-4 z M53 42 h12 v5 a4 4 0 0 1-4 4 h-4 a4 4 0 0 1-4-4 z M47 44 h6"/>
-{%- elif f == "innendienst" %}<path class="h" d="M33 44 C30 22 70 21 67 44 C62 32 40 31 33 44 Z"/><path class="b" d="M31 46 C31 20 69 20 69 46 M33 52 C34 62 40 64 47 63"/><rect class="hs" x="27" y="42" width="7" height="12" rx="3"/>
-{%- endif %}
-</svg>
+{#- Personen-Grafiken aus figuren8.py (Daniel, 16.11.2026: keine Stockfotos, keine echten Bilder des Teams – moderne Team-Illustration) -#}
+{{ S.team8.figuren[f] | safe }}
 {%- endmacro -%}
 {%- macro teamBild(art) -%}
   {#- Variante 2 (Daniel, 16.11.2026): dieselben vier Stufen wie der Trichter, darunter die Menschen dahinter – wenige, als Team erkennbar.
@@ -1099,7 +1080,7 @@ body.s7-menue-offen { overflow: hidden; }
 .mw8-punkt { display: flex; flex-direction: column; }
 .mw8-bild { display: flex; align-items: flex-end; justify-content: center; height: 14rem; margin-bottom: 1.8rem; border-bottom: 1px solid #3a3a3c; }
 .mw8-bild img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
-.mw8-bild--freiheit { background: radial-gradient(closest-side at 50% 70%, #4a4a4e, transparent); }
+.mw8-bild--freiheit img { width: 92%; }
 .mw8-punkt h3 { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
 .mw8-punkt > p { margin-top: .6rem; color: #c7c7cc; font-size: 1rem; line-height: 1.55; }
 .mw8-passt { margin-top: 3rem; color: #fff; font-size: 1.05rem; font-weight: 600; }
@@ -1111,29 +1092,16 @@ body.s7-menue-offen { overflow: hidden; }
 .tm8-kopf:nth-child(4) { border-radius: 0 14px 14px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%); }
 .tm8-kopf b { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
 .tm8-kopf--wir { background: var(--s7-wort-verlauf); color: rgba(255,255,255,.85); }
-.tm8-person { display: grid; justify-items: start; gap: 1rem; margin-top: 1.6rem; padding: 0 1.2rem 0 .4rem; }
+.tm8-person { display: grid; justify-items: start; align-content: start; gap: 1rem; margin-top: 1.6rem; padding: 0 1.2rem 0 .4rem; }
 /* Personen grafisch (Daniel, 16.11.2026: keine Stockfotos, markant, unterschiedlich) – geometrische Büsten, Werkzeug der Rolle als Abzeichen */
-.tm8 .tm8-fotos { display: flex; align-items: flex-end; height: 7.6rem; margin: 0; }
-.tm8 .tm8-figur { position: relative; display: block; width: 6.2rem; margin: 0; }
-.tm8 .tm8-figur + .tm8-figur { margin-left: -1.4rem; }
+.tm8 .tm8-fotos { display: flex; align-items: flex-end; height: 8.4rem; margin: 0; }
+.tm8 .tm8-figur { position: relative; display: block; width: 7.2rem; margin: 0; }
+.tm8 .tm8-figur + .tm8-figur { margin-left: -2rem; }
 .tm8-figur > svg { display: block; width: 100%; height: auto; overflow: visible; }
-.tm8-figur > svg * { stroke: #fff; stroke-width: 1.6; stroke-linejoin: round; paint-order: stroke; }
 .tm8-figur .k { fill: var(--s7-tinte); }
-.tm8-figur .k2 { fill: #2c2c2e; }
-.tm8-figur .g { fill: #d9d9de; }
-.tm8-figur .h { fill: #3a3a3c; }
-.tm8-figur .w { fill: #fff; }
-.tm8-figur .l { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
-.tm8-figur .b { fill: none; stroke: #1d1d1f; stroke-width: 2.2; stroke-linecap: round; }
-.tm8-figur .hs { fill: #1d1d1f; }
-.tm8-person--wir .tm8-figur--1 .k { fill: #0b9fbd; }
-.tm8-person--wir .tm8-figur--2 .k { fill: #4a5fc8; }
-.tm8-person--wir .tm8-figur--3 .k { fill: #8613a1; }
 .tm8-person--ihr .tm8-figur--2 .k { fill: #48484a; }
-.tm8-person--wir .tm8-figur .k2 { fill: #087f97; }
-.tm8-person--wir .tm8-figur .g { fill: #ece6f6; }
-.tm8-person--wir .tm8-figur .h { fill: #2a1f47; }
-.tm8-person--wir .tm8-figur .b, .tm8-person--wir .tm8-figur .hs { stroke: #2a1f47; }
+.tm8-person--wir .tm8-figur .k { fill: url(#s7v-cyanviolett); }
+.tm8-figur .r { stroke: #fff; stroke-width: 2.4; paint-order: stroke; }
 .tm8 .tm8-figur .tm8-av { position: absolute; right: .2rem; bottom: .3rem; display: inline-grid; width: 2rem; height: 2rem; margin: 0; background: #fff; box-shadow: 0 0 0 3px #fff, 0 1px 6px rgba(0,0,0,.18); }
 .tm8 .tm8-figur .tm8-av svg { width: 1.05rem; height: 1.05rem; stroke: var(--s7-tinte); }
 .tm8-person--wir .tm8-figur .tm8-av svg { stroke: #7b3fe4; }
