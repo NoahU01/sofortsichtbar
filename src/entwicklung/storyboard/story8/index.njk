@@ -192,7 +192,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- endif %}</svg>
 {%- endmacro -%}
 {%- macro mehrwert(MW) -%}
-  {#- Was du bekommst (Daniel, 16.11.2026): positiv, aus Sicht der Agentur, darf provozieren – dunkles Band, je Punkt ein kleines Bild -#}
+  {#- Was du bekommst (Daniel, 16.11.2026): positiv, aus Sicht der Agentur, darf provozieren – dunkles Band, je Punkt ein echtes Produktbild, freigestellt, ohne Kästen -#}
   <section class="s7-band s7-band--tinte mw8-band" id="mehrwert">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ MW.kicker }}</p>
@@ -200,15 +200,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
       <div class="mw8">
         {%- for x in MW.punkte %}
         <article class="mw8-punkt">
-          <div class="mw8-bild" aria-hidden="true"><div class="s7-mini">
-          {%- if x[2] == "fertig" %}<p class="s7-mini__kopf">Strecke · Private Bauherren</p><ul class="mw8-liste"><li>Landingpage<i class="ziel">fertig</i></li><li>Postings<i class="ziel">fertig</i></li><li>Checkliste Hausbau<i class="ziel">fertig</i></li></ul>
-          {%- elif x[2] == "schnell" %}<p class="s7-mini__kopf">Neue Zielgruppe gewünscht</p><ul class="mw8-liste"><li>Bei der Zentrale<i class="mehr">in Abstimmung …</i></li><li>Bei sofort sichtbar<i class="ziel">live</i></li></ul>
-          {%- elif x[2] == "frisch" %}<p class="s7-mini__kopf">Dein Material · diesen Monat</p><ul class="mw8-liste"><li>Posting Bauherren<i class="ziel">neu</i></li><li>Posting Junge Familien<i class="ziel">neu</i></li><li>Landingpage Bauherren<i>verbessert</i></li></ul>
-          {%- elif x[2] == "luecke" %}<p class="s7-mini__kopf">Diese Woche · ohne dein Team</p><ul class="mw8-liste"><li>Posten<i class="ziel">läuft</i></li><li>Vernetzen<i class="ziel">läuft</i></li><li>Nachhalten<i class="ziel">läuft</i></li></ul>
-          {%- elif x[2] == "vollgas" %}<div class="s7-mini__kacheln"><div class="ziel"><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Gesprächsanlässe</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,14 12,12 24,12 36,9 48,7 60,4"/></svg></div></div><p class="s7-mini__empf"><b>Nachgeschärft:</b> Posting-Thema Bauherren verstärkt</p>
-          {%- elif x[2] == "freiheit" %}<p class="s7-mini__kopf">Was du dir sparst</p><div class="mw8-weg"><i>Einstellen</i><i>Einarbeiten</i><i>Führen</i></div><ul class="mw8-liste"><li>Beraten<i class="ziel">von überall</i></li></ul>
-          {%- endif %}
-          </div></div>
+          <div class="mw8-bild mw8-bild--{{ x[2] }}" aria-hidden="true"><img src="{{ x[3] }}" alt="" loading="lazy"></div>
           <h3>{{ x[0] }}</h3><p>{{ x[1] }}</p>
         </article>
         {%- endfor %}
@@ -218,18 +210,17 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
   </section>
 {%- endmacro -%}
 {%- macro teamBild(art) -%}
-  {#- Variante 2 (Daniel, 16.11.2026): die Stufen des Trichters als Team – Farbe = sofort sichtbar, Schwarz = deine Agentur -#}
-  {%- set T = S.team8[art] %}{% set P = S.team8.personen %}
-  <div class="tm8" role="img" aria-label="{% for sp in T.spalten %}{{ sp.titel }} – {{ sp.label }}: {% for k in sp.leute %}{{ P[k].name }}{% if not loop.last %}, {% endif %}{% endfor %}. {% endfor %}">
+  {#- Variante 2 (Daniel, 16.11.2026): dieselben vier Stufen wie der Trichter, darunter die Menschen dahinter – wenige, als Team erkennbar.
+      Farbe = sofort sichtbar, Schwarz = deine Agentur. Fotos: unser Team (Kontakt), Agentur aus dem Bild der Live-Seite -#}
+  {%- set T = S.team8.v2[art] %}
+  <div class="tm8" role="img" aria-label="{% for sp in T.spalten %}{{ sp[0] }}{% if not loop.last %}, {% endif %}{% endfor %}. {% for p in T.personen %}{{ p.name }}: {{ p.tut }} {% endfor %}">
     {%- for sp in T.spalten %}
-    <div class="tm8-spalte tm8-spalte--{{ sp.wer }}">
-      <p class="tm8-label">{{ sp.label }}</p>
-      <div class="tm8-kopf"><b>{{ sp.titel }}</b><span>{{ sp.unter }}</span></div>
-      <ul>
-        {%- for k in sp.leute %}{% set p = P[k] %}
-        <li class="tm8-person"><span class="tm8-av tm8-av--{{ p.wer }}">{{ icon(p.icon) }}</span><div><b>{{ p.name }}</b><span>{{ p.tut }}</span></div></li>
-        {%- endfor %}
-      </ul>
+    <div class="tm8-kopf tm8-kopf--{{ sp[2] }}"><b>{{ sp[0] }}</b><span>{{ sp[1] }}</span></div>
+    {%- endfor %}
+    {%- for p in T.personen %}
+    <div class="tm8-person tm8-person--{{ p.wer }}" style="grid-column: span {{ p.span }}">
+      <span class="tm8-fotos">{% for r in p.rollen %}<span class="tm8-figur"><svg viewBox="0 0 80 92" aria-hidden="true"><circle cx="40" cy="24" r="17"/><path d="M4 92 C4 61 20 48 40 48 C60 48 76 61 76 92 Z"/></svg><span class="tm8-av tm8-av--{{ p.wer }}">{{ icon(r) }}</span></span>{% endfor %}</span>
+      <div><p class="tm8-wer">{% if p.wer == "wir" %}sofort sichtbar{% else %}Deine Agentur{% endif %}</p><b>{{ p.name }}</b><span>{{ p.tut }}</span></div>
     </div>
     {%- endfor %}
   </div>
@@ -1082,30 +1073,37 @@ body.s7-menue-offen { overflow: hidden; }
 /* Was du bekommst – dunkles Band mit Bildern (mw8-) */
 .mw8-band .s7-kicker { color: #a1a1a6; }
 .mw8 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
-.mw8-punkt { display: flex; flex-direction: column; padding: 1.4rem 1.4rem 1.8rem; border-radius: var(--s7-rund); background: #2a2a2c; }
-.mw8-bild { display: grid; align-content: center; height: 12.5rem; margin-bottom: 1.6rem; padding: 1.2rem; border-radius: calc(var(--s7-rund) - 6px); background: #fff; }
+.mw8-punkt { display: flex; flex-direction: column; }
+.mw8-bild { display: flex; align-items: flex-end; justify-content: center; height: 14rem; margin-bottom: 1.8rem; border-bottom: 1px solid #3a3a3c; }
+.mw8-bild img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.mw8-bild--freiheit { background: radial-gradient(closest-side at 50% 70%, #4a4a4e, transparent); }
 .mw8-punkt h3 { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
 .mw8-punkt > p { margin-top: .6rem; color: #c7c7cc; font-size: 1rem; line-height: 1.55; }
-.mw8-passt { margin-top: 2.5rem; color: #fff; font-size: 1.05rem; font-weight: 600; }
-.mw8-liste { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
-.mw8-liste li { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .45rem .55rem .45rem .7rem; border: 1px solid var(--s7-linie); border-radius: 10px; font-weight: 500; }
-.mw8-weg { display: flex; flex-wrap: wrap; gap: .35rem; }
-.mw8-weg i { color: var(--s7-grau); text-decoration: line-through; }
-@media (max-width: 900px) { .mw8 { grid-template-columns: minmax(0, 1fr); } }
+.mw8-passt { margin-top: 3rem; color: #fff; font-size: 1.05rem; font-weight: 600; }
+@media (max-width: 900px) { .mw8 { grid-template-columns: minmax(0, 1fr); gap: 3rem; } }
 /* Variante 2: Team (tm8-) und Zusammenspiel (zs8-) */
-.tm8 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; margin-top: 3rem; text-align: left; }
-.tm8-label { margin-bottom: .6rem; color: var(--s7-grau); font-size: .85rem; font-weight: 600; }
-.tm8-kopf { display: grid; gap: .15rem; padding: 1rem 2rem 1rem 1.2rem; background: var(--s7-tinte); color: #a1a1a6; font-size: .85rem; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
-.tm8-spalte + .tm8-spalte .tm8-kopf { padding-left: 1.9rem; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); }
-.tm8-spalte:first-child .tm8-kopf { border-radius: 14px 0 0 14px; }
-.tm8-spalte:last-child .tm8-kopf { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%); border-radius: 0 14px 14px 0; }
+.tm8 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 .5rem; margin-top: 3rem; text-align: left; }
+.tm8-kopf { display: grid; gap: .15rem; padding: 1rem 2rem 1rem 1.9rem; background: var(--s7-tinte); color: #a1a1a6; font-size: .85rem; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%); }
+.tm8-kopf:first-child { padding-left: 1.2rem; border-radius: 14px 0 0 14px; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
+.tm8-kopf:nth-child(4) { border-radius: 0 14px 14px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%); }
 .tm8-kopf b { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
-.tm8-spalte--wir .tm8-kopf { background: var(--s7-wort-verlauf); color: rgba(255,255,255,.85); }
-.tm8-spalte ul { display: grid; gap: .7rem; margin: 1rem 0 0; padding: 0; list-style: none; }
-.tm8-spalte:first-child ul { grid-template-columns: 1fr 1fr; }
-.tm8-person { display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: start; padding: 1rem; border: 1px solid var(--s7-linie); border-radius: 14px; background: #fff; }
-.tm8-person b { display: block; color: var(--s7-tinte); font-weight: 600; }
-.tm8-person span:not(.tm8-av) { display: block; margin-top: .2rem; color: var(--s7-grau); font-size: .9rem; line-height: 1.4; }
+.tm8-kopf--wir { background: var(--s7-wort-verlauf); color: rgba(255,255,255,.85); }
+.tm8-person { display: grid; justify-items: start; gap: 1rem; margin-top: 1.6rem; padding: 0 1.2rem 0 .4rem; }
+/* Personen grafisch (Daniel, 16.11.2026: keine Stockfotos, keine gezeichneten Figuren) – geometrische Silhouette, Werkzeug der Rolle als Abzeichen */
+.tm8 .tm8-fotos { display: flex; align-items: flex-end; margin: 0; }
+.tm8 .tm8-figur { position: relative; display: block; width: 4.6rem; margin: 0; }
+.tm8 .tm8-figur + .tm8-figur { margin-left: -.9rem; }
+.tm8-figur svg { display: block; width: 100%; height: auto; fill: var(--s7-tinte); stroke: #fff; stroke-width: 3; paint-order: stroke; }
+.tm8-person--wir .tm8-figur svg { fill: url(#s7v-cyanviolett); }
+.tm8 .tm8-figur .tm8-av { position: absolute; right: .1rem; bottom: .2rem; display: inline-grid; width: 1.9rem; height: 1.9rem; margin: 0; box-shadow: 0 0 0 3px #fff; }
+.tm8-person--wir .tm8-figur .tm8-av { background: #fff; }
+.tm8-person--wir .tm8-figur .tm8-av svg { stroke: #7b3fe4; }
+.tm8-person--ihr .tm8-figur .tm8-av { background: #fff; }
+.tm8-person--ihr .tm8-figur .tm8-av svg { stroke: var(--s7-tinte); }
+.tm8 .tm8-figur .tm8-av svg { width: 1rem; height: 1rem; }
+.tm8-wer { color: var(--s7-grau); font-size: .85rem; font-weight: 600; }
+.tm8-person b { display: block; margin-top: .15rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.tm8-person span:not(.tm8-fotos) { display: block; margin-top: .3rem; color: var(--s7-text); line-height: 1.5; }
 .tm8-av { display: inline-grid; place-items: center; flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--s7-tinte); }
 .tm8-av--wir { background: var(--s7-wort-verlauf); }
 .tm8-av--kunde { background: #fff; border: 1.5px solid var(--s7-tinte); }
@@ -1122,8 +1120,10 @@ body.s7-menue-offen { overflow: hidden; }
 .zs8 h3 { margin-top: 1.2rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
 .zs8 p { margin-top: .4rem; color: var(--s7-text); line-height: 1.5; }
 @media (max-width: 900px) {
-  .tm8 { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
-  .tm8 .tm8-spalte .tm8-kopf { clip-path: none; border-radius: 14px; padding-left: 1.2rem; }
+  .tm8 { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .tm8 .tm8-kopf { clip-path: none; border-radius: 12px; padding: .8rem 1rem; }
+  .tm8-person { grid-column: 1 / -1 !important; grid-template-columns: auto 1fr; align-items: center; margin-top: 1.2rem; padding: 0; }
+  .tm8-fotos img { width: 4.2rem; height: 4.2rem; }
   .zs8 { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
   .zs8::before { display: none; }
   .zs8 li:not(:last-child)::after { content: ""; position: absolute; left: calc(1.6rem - 1px); top: 3.2rem; bottom: -1.6rem; border-left: 2px solid var(--s7-tinte); }
@@ -1131,7 +1131,7 @@ body.s7-menue-offen { overflow: hidden; }
   .zs8 li .tm8-av { grid-row: span 2; }
   .zs8 h3 { margin-top: .3rem; }
 }
-@media (max-width: 560px) { .tm8-spalte:first-child ul { grid-template-columns: minmax(0, 1fr); } }
+
 /* Selbst machen: Betreiben ist ausgegraut, bleibt aber lesbar – in Tinte statt Weiß */
 .ek8-paket[data-aus="betreiben"] .tr-betreiben.tr-text { filter: none; opacity: 1; }
 .ek8-paket[data-aus="betreiben"] .tr-betreiben.tr-text .ek2-kern-t { fill: var(--s7-tinte); }

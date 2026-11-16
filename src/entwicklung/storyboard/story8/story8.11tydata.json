@@ -751,17 +751,20 @@
           [
             "Keine Lücke.",
             "Niemand im Team hat Zeit fürs Marketing? Dann bleibt es liegen – bis wir es übernehmen. Wir posten, vernetzen und halten nach, auch wenn im Büro die Hütte brennt.",
-            "luecke"
+            "luecke",
+            "/assets/img/preview-postings.png"
           ],
           [
             "Vollgas.",
             "Strategie, Texte, Gestaltung und Technik arbeiten für dich. Jeden Monat wird nachgeschärft, bis jede Zielgruppe zieht.",
-            "vollgas"
+            "vollgas",
+            "/assets/img/preview-landingpages.png"
           ],
           [
             "Freiheit.",
             "Keine weitere Person, die du einstellen, einarbeiten und führen musst. Ein Grund weniger, an dein Büro gebunden zu sein – gut für alle, die digitaler beraten wollen.",
-            "freiheit"
+            "freiheit",
+            "/assets/img/pages/team-2.webp"
           ]
         ],
         "passt": "Für Agenturen ohne eigene Person fürs Marketing – und für alle, die es professionell und mit Vollgas wollen."
@@ -1439,17 +1442,20 @@
           [
             "Sofort startklar.",
             "Für 20 Zielgruppen liegen Landingpages, Postings und Checklisten fertig bereit, im Look deiner Agentur. Kein Antrag, kein Abstimmungsweg über drei Ebenen.",
-            "fertig"
+            "fertig",
+            "/assets/img/pages/vertriebsstrecken-hero-2-800.webp"
           ],
           [
             "Schnell nachgeliefert.",
             "Dir fehlt eine Zielgruppe? Wir bauen sie in wenigen Tagen. Die Zentrale hätte sie fürs nächste Jahr eingeplant.",
-            "schnell"
+            "schnell",
+            "/entwicklung/storyboard/story6/assets/img/sofort-sichtbar-mockup.webp"
           ],
           [
             "Immer frisch.",
             "Jeden Monat neues Material, und was nicht wirkt, verbessern wir. Deine Person im Team muss sich nichts ausdenken – nur loslegen.",
-            "frisch"
+            "frisch",
+            "/assets/img/preview-postings.png"
           ]
         ],
         "passt": "Für Agenturen, in denen jemand fürs Marketing da ist. Wir machen diese Person vom ersten Tag an erfolgreich."
@@ -1986,6 +1992,111 @@
             "Dein Vertrieb berät zu Wohngebäude und Bauherrenhaftpflicht."
           ]
         ]
+      },
+      "v2": {
+        "a": {
+          "spalten": [
+            [
+              "Auswählen",
+              "Fertige Strecken je Zielgruppe",
+              "wir"
+            ],
+            [
+              "Betreiben",
+              "Posten, vernetzen, nachhalten",
+              "ihr"
+            ],
+            [
+              "Vertrieb",
+              "Ansprechen · Terminieren · Beraten",
+              "ihr"
+            ],
+            [
+              "Betreuen",
+              "Bestand halten und ausbauen",
+              "ihr"
+            ]
+          ],
+          "personen": [
+            {
+              "wer": "wir",
+              "span": "1",
+              "name": "Unser Team",
+              "tut": "Strategie, Texte, Gestaltung und Technik. Baut deine Strecken – und liefert laufend nach.",
+              "rollen": [
+                "ziel",
+                "stift",
+                "code"
+              ]
+            },
+            {
+              "wer": "ihr",
+              "span": "1",
+              "name": "Deine Marketing-Person",
+              "tut": "Postet, vernetzt sich und hält nach. Mit Anleitung und Dashboard von uns.",
+              "rollen": [
+                "handy"
+              ]
+            },
+            {
+              "wer": "ihr",
+              "span": "2",
+              "name": "Dein Vertriebsteam",
+              "tut": "Spricht an, vereinbart Termine, berät und betreut den Bestand – wie bisher, nur mit mehr Anlässen.",
+              "rollen": [
+                "telefon",
+                "gespraech"
+              ]
+            }
+          ]
+        },
+        "b": {
+          "spalten": [
+            [
+              "Auswählen",
+              "Fertige Strecken je Zielgruppe",
+              "wir"
+            ],
+            [
+              "Betreiben",
+              "Posten, vernetzen, nachhalten",
+              "wir"
+            ],
+            [
+              "Vertrieb",
+              "Ansprechen · Terminieren · Beraten",
+              "ihr"
+            ],
+            [
+              "Betreuen",
+              "Bestand halten und ausbauen",
+              "ihr"
+            ]
+          ],
+          "personen": [
+            {
+              "wer": "wir",
+              "span": "2",
+              "name": "Unser Team",
+              "tut": "Strategie, Texte, Gestaltung, Technik und Social Media. Baut deine Strecken und betreibt sie für dich – jeden Monat mit einem Call.",
+              "rollen": [
+                "ziel",
+                "stift",
+                "handy"
+              ]
+            },
+            {
+              "wer": "ihr",
+              "span": "2",
+              "name": "Dein Vertriebsteam",
+              "tut": "Spricht an, vereinbart Termine, berät und betreut den Bestand. Mehr musst du nicht tun.",
+              "rollen": [
+                "telefon",
+                "gespraech"
+              ]
+            }
+          ]
+        }
       }
     }
   }
