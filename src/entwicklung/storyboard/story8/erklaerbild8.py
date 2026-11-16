@@ -30,7 +30,7 @@ TX = {
 }
 
 
-def quer():
+def quer(klammern=True):
     K, G = 15, 20
     W = 1120
     OX = 26                                   # Platz links für den Rückweg
@@ -56,7 +56,8 @@ def quer():
              f"V{c + hh} H{x_kurve} C{x_kurve - 100} {c + hh} {x_flach + 130} {c + hm} {x_flach} {c + hm} H{OX} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]} ek2-lage"/>')
     # Trennlinie der beiden Stufen, durch den Trichter
-    o.append(f'<path d="M{x_teil} {c - MUND[3]} V{c + MUND[3]}" class="ek2-teil"/>')
+    # Schnitt wie zwischen Vertrieb und Betreuen: spitz nach rechts, durch alle Lagen (weiße Fuge)
+    o.append(f'<path d="M{x_teil - 11} {c - MUND[3] - 2} L{x_teil + 11} {c} L{x_teil - 11} {c + MUND[3] + 2}" class="ek2-schnitt"/>')
     o.append(logo(OX + 26, c, 150, "ek8q"))
     for i in range(3):
         o.append(f'<circle cx="{x_kurve - 30 + i * 16}" cy="{c}" r="4" class="ek2-kern-p"/>')
@@ -72,9 +73,11 @@ def quer():
     for x, titel, unter in ((xv + 28, TX["vertrieb_band"], TX["vertrieb_unter"]), (862, TX["betreuen"], TX["betreuen_unter"])):
         o.append(text(x, c - 3, titel, "ek2-band-t", G, 700))
         o.append(text(x, c + 21, unter, "ek2-band-s", K))
-    # Pakete: welche Stufen sofort sichtbar übernimmt (Klammern unter dem Trichter)
+    # Pakete: welche Stufen sofort sichtbar übernimmt (Klammern unter dem Trichter) – nur im Detailbild
     ya, yb = c + MUND[3] + 34, c + MUND[3] + 72
-    for y, x_ende, (fett, rest) in ((ya, x_teil, TX["a"]), (yb, x_hals, TX["b"])):
+    if not klammern:
+        yb = c + MUND[3] + 2
+    for y, x_ende, (fett, rest) in (((ya, x_teil, TX["a"]), (yb, x_hals, TX["b"])) if klammern else ()):
         o.append(f'<path d="M{OX} {y - 8} V{y} H{x_ende} V{y - 8}" class="ek2-linie"/>')
         o.append(f'<text x="{x_ende + 16}" y="{y + 5}" class="ek2-t" font-size="{K}"><tspan font-weight="700">{fett}</tspan> {rest}</text>')
     # Rückweg: von Betreuen um alles herum zurück an die Öffnung des Trichters
@@ -85,7 +88,7 @@ def quer():
     return svg(W, yr + 16, "".join(o), "ek2-svg--quer", "quer")
 
 
-def hoch():
+def hoch(kopf=False):
     W, c = 340, 170
     y_oben = 140
     y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
@@ -101,7 +104,7 @@ def hoch():
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
     o.append(logo(c - 48, y_oben + 34, 96, "ek8h"))
     # Grenze Aufbauen | Betreiben, Beschriftung rechts daneben
-    o.append(f'<path d="M{c - MUND_H[3] - 4} {y_teil} H{c + MUND_H[3] + 4}" class="ek2-teil"/>')
+    o.append(f'<path d="M{c - MUND_H[3] - 4} {y_teil - 10} L{c} {y_teil + 10} L{c + MUND_H[3] + 4} {y_teil - 10}" class="ek2-schnitt"/>')
     # Beschriftung rechts neben der schmalen Stelle, dort ist neben dem Trichter Platz
     o.append(text(c + 54, y_kurve - 42, TX["betreiben"], "ek2-t", eb.T_GROSS, 700))
     o.append(text(c + 54, y_kurve - 22, "Posten, vernetzen,", "ek2-grau"))
@@ -130,7 +133,9 @@ def hoch():
 if __name__ == "__main__":
     p = os.path.join(HERE, "story8.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
-    d["s7"]["ek_quer"] = quer()
+    d["s7"]["ek_quer_detail"] = quer()
+    d["s7"]["ek_hoch_detail"] = hoch()
+    d["s7"]["ek_quer"] = quer(klammern=False)   # Kopf der Startseite: zwei Stufen, ohne Paket-Klammern
     d["s7"]["ek_hoch"] = hoch()
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
