@@ -744,21 +744,24 @@
       },
       "mehrwert": {
         "_quelle": "Daniel, 16.11.2026: niemand fürs Betreiben (sonst bricht es ab) · Vollgas · freier werden, digitaler aufstellen",
-        "kicker": "Warum Machen lassen",
+        "kicker": "Was du bekommst",
         "h2": "Die meisten Marketingideen sterben im Alltag.",
         "h2_akzent": "Deine nicht.",
         "punkte": [
           [
             "Keine Lücke.",
-            "Niemand im Team hat Zeit fürs Marketing? Wir übernehmen das Betreiben. Dann bricht nichts ab, wenn es im Büro brennt."
+            "Niemand im Team hat Zeit fürs Marketing? Dann bleibt es liegen – bis wir es übernehmen. Wir posten, vernetzen und halten nach, auch wenn im Büro die Hütte brennt.",
+            "luecke"
           ],
           [
             "Vollgas.",
-            "Wir posten, vernetzen und optimieren jeden Monat, damit jede Zielgruppe zieht."
+            "Strategie, Texte, Gestaltung und Technik arbeiten für dich. Jeden Monat wird nachgeschärft, bis jede Zielgruppe zieht.",
+            "vollgas"
           ],
           [
-            "Freier.",
-            "Eine Person weniger, die du führen musst, und ein Grund weniger, an dein Büro gebunden zu sein. Gut für alle, die digitaler beraten wollen."
+            "Freiheit.",
+            "Keine weitere Person, die du einstellen, einarbeiten und führen musst. Ein Grund weniger, an dein Büro gebunden zu sein – gut für alle, die digitaler beraten wollen.",
+            "freiheit"
           ]
         ],
         "passt": "Für Agenturen ohne eigene Person fürs Marketing – und für alle, die es professionell und mit Vollgas wollen."
@@ -1253,11 +1256,11 @@
       "held": {
         "_quelle": "Daniel, 16.11.2026: Selbst machen = nur Teil 1 des Trichters (fertige Vertriebsstrecken), Betreiben macht das Team selbst mit Unterstützung",
         "kicker": "Selbst machen",
-        "h1": "Während andere noch abstimmen,",
-        "h1_akzent": "postet dein Team schon.",
-        "lead": "Fertige Vertriebsstrecken je Zielgruppe. Ab heute, in deinem Look.",
+        "h1": "Warten auf die Zentrale?",
+        "h1_akzent": "Dein Team postet heute.",
+        "lead": "Fertige Vertriebsstrecken je Zielgruppe – für die Person in deinem Team, die sich ums Marketing kümmert.",
         "knopf": "Termin auswählen",
-        "knopf2": "Was dein Team bekommt",
+        "knopf2": "Was du bekommst",
         "bild_label": "Im Trichter kommt Auswählen von sofort sichtbar – die fertigen Strecken. Betreiben übernimmt dein Team, Vertrieb und Betreuen bleiben bei deiner Agentur."
       },
       "kopf": {
@@ -1297,7 +1300,7 @@
         "zurueck": "Das Dashboard zeigt, was wirkt – daraus folgen die nächsten Ziele"
       },
       "stufen": {
-        "kicker": "Was du bekommst",
+        "kicker": "Im Paket",
         "h2": "Drei Stufen.",
         "h2_akzent": "Alles fertig.",
         "lead": "Strategie, Umsetzung und Steuerung greifen ineinander. Dein Team muss nichts konzipieren, es arbeitet mit dem, was steht.",
@@ -1428,25 +1431,28 @@
         "b_name": "Lieber übergeben?"
       },
       "mehrwert": {
-        "_quelle": "Daniel, 16.11.2026: Agenturen mit jemandem fürs Marketing; gefrustet, dass vom Marketing des Unternehmens nichts Brauchbares kommt und neue Ideen viel zu lange dauern – darf provozieren",
-        "kicker": "Warum Selbst machen",
-        "h2": "Neue Ideen dauern bei dir Monate?",
-        "h2_akzent": "Bei uns Tage.",
+        "_quelle": "Daniel, 16.11.2026: positiv drehen, was er bekommt; Schmerz ist die Abhängigkeit vom Marketing und der Vertriebsunterstützung im Konzern – darauf hat die Agentur keinen Einfluss und wartet ewig. Darf provozieren.",
+        "kicker": "Was du bekommst",
+        "h2": "Deine Vertriebs­unterstützung.",
+        "h2_akzent": "Ohne Warteschleife.",
         "punkte": [
           [
-            "Sofort da.",
-            "Landingpages, Postings und Checklisten für 20 Zielgruppen stehen fertig, im Look deiner Agentur. Dein Team legt am ersten Tag los."
+            "Sofort startklar.",
+            "Für 20 Zielgruppen liegen Landingpages, Postings und Checklisten fertig bereit, im Look deiner Agentur. Kein Antrag, kein Abstimmungsweg über drei Ebenen.",
+            "fertig"
           ],
           [
-            "Schnell ergänzt.",
-            "Fehlt dir eine Zielgruppe, bauen wir sie in wenigen Tagen. Ohne Abstimmungsschleifen über drei Ebenen."
+            "Schnell nachgeliefert.",
+            "Dir fehlt eine Zielgruppe? Wir bauen sie in wenigen Tagen. Die Zentrale hätte sie fürs nächste Jahr eingeplant.",
+            "schnell"
           ],
           [
             "Immer frisch.",
-            "Wir liefern laufend neues Material und verbessern, was nicht wirkt. Dein Team muss sich nichts ausdenken."
+            "Jeden Monat neues Material, und was nicht wirkt, verbessern wir. Deine Person im Team muss sich nichts ausdenken – nur loslegen.",
+            "frisch"
           ]
         ],
-        "passt": "Für Agenturen, in denen sich jemand ums Marketing kümmert. Wir machen diese Person sofort erfolgreich."
+        "passt": "Für Agenturen, in denen jemand fürs Marketing da ist. Wir machen diese Person vom ersten Tag an erfolgreich."
       },
       "download": {
         "kicker": "Download",
@@ -1782,6 +1788,205 @@
     "ek_paket": {
       "selbst": "<svg class=\"ek2-svg ek2-svg--quer ek2-var\" viewBox=\"0 0 1120 400\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-v1bk\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"0\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Marketing – wir gewinnen Interessenten</text><path d=\"M0 34 H510\" class=\"ek2-linie\"/><text x=\"522\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Vertrieb – du machst daraus Kunden</text><path d=\"M522 34 H1120\" class=\"ek2-linie\"/><defs><clipPath id=\"tr1b-a\"><path d=\"M-10 -10 H252 V76 C276 146 276 246 252 316 V400 H-10 Z\"/></clipPath><clipPath id=\"tr1b-b\"><path d=\"M252 -10 H1120 V400 H252 V316 C276 246 276 146 252 76 Z\"/></clipPath></defs><g class=\"tr-aufbauen\" clip-path=\"url(#tr1b-a)\"><path d=\"M0 78 H250 C380 78 350 142 450 142 H510 V250 H450 C350 250 380 314 250 314 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 100 H250 C380 100 350 150 450 150 H510 V242 H450 C350 242 380 292 250 292 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 122 H250 C380 122 350 158 450 158 H510 V234 H450 C350 234 380 270 250 270 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 146 H250 C380 146 350 166 450 166 H510 V226 H450 C350 226 380 246 250 246 H0 Z\" class=\"ek2-kern ek2-lage\"/></g><g class=\"tr-betreiben\" clip-path=\"url(#tr1b-b)\"><path d=\"M0 78 H250 C380 78 350 142 450 142 H510 V250 H450 C350 250 380 314 250 314 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 100 H250 C380 100 350 150 450 150 H510 V242 H450 C350 242 380 292 250 292 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 122 H250 C380 122 350 158 450 158 H510 V234 H450 C350 234 380 270 250 270 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 146 H250 C380 146 350 166 450 166 H510 V226 H450 C350 226 380 246 250 246 H0 Z\" class=\"ek2-kern ek2-lage\"/></g><path d=\"M252 76 C276 146 276 246 252 316\" class=\"ek2-fuge\"/><g class=\"tr-aufbauen tr-text\"><text x=\"26\" y=\"193\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Auswählen</text><text x=\"26\" y=\"217\" class=\"ek2-kern-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Fertige Strecken je Zielgruppe</text></g><g class=\"tr-betreiben tr-text\"><text x=\"292\" y=\"193\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Betreiben</text><text x=\"292\" y=\"217\" class=\"ek2-kern-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Posten, vernetzen, nachhalten</text></g><path d=\"M516.0 142 V108\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"524.0\" y=\"118\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Messpunkt: Gesprächsanlässe</text><path d=\"M522 142 H806 L828 196 L806 250 H522 Z\" class=\"ek2-band\"/><path d=\"M818 142 H1104 Q1120 142 1120 158 V234 Q1120 250 1104 250 H818 L840 196 Z\" class=\"ek2-band\"/><text x=\"548\" y=\"193\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Vertrieb</text><text x=\"548\" y=\"217\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Ansprechen · Terminieren · Beraten</text><text x=\"866\" y=\"193\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Betreuen</text><text x=\"866\" y=\"217\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Bestand halten und ausbauen</text><path d=\"M0 336 V344 H248 V336\" class=\"ek2-linie\"/><text x=\"0\" y=\"370\" class=\"ek2-t\" font-size=\"15\"><tspan font-weight=\"700\">sofort sichtbar</tspan><tspan x=\"0\" dy=\"20\" class=\"ek2-grau\">Fertige Strecken, eingerichtet</tspan></text><path d=\"M264 336 V344 H510 V336\" class=\"ek2-linie\"/><text x=\"264\" y=\"370\" class=\"ek2-t\" font-size=\"15\"><tspan font-weight=\"700\">Dein Team</tspan><tspan x=\"264\" dy=\"20\" class=\"ek2-grau\">Mit Anleitung und Werkzeugen</tspan></text><path d=\"M522 336 V344 H1120 V336\" class=\"ek2-linie\"/><text x=\"522\" y=\"370\" class=\"ek2-t\" font-size=\"15\"><tspan font-weight=\"700\">Deine Agentur</tspan><tspan x=\"522\" dy=\"20\" class=\"ek2-grau\">Wie bisher, mit neuen Gesprächsanlässen</tspan></text></svg>",
       "lassen": "<svg class=\"ek2-svg ek2-svg--quer ek2-var\" viewBox=\"0 0 1120 400\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-v1bk\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"0\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Marketing – wir gewinnen Interessenten</text><path d=\"M0 34 H510\" class=\"ek2-linie\"/><text x=\"522\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Vertrieb – du machst daraus Kunden</text><path d=\"M522 34 H1120\" class=\"ek2-linie\"/><defs><clipPath id=\"tr1b-a\"><path d=\"M-10 -10 H252 V76 C276 146 276 246 252 316 V400 H-10 Z\"/></clipPath><clipPath id=\"tr1b-b\"><path d=\"M252 -10 H1120 V400 H252 V316 C276 246 276 146 252 76 Z\"/></clipPath></defs><g class=\"tr-aufbauen\" clip-path=\"url(#tr1b-a)\"><path d=\"M0 78 H250 C380 78 350 142 450 142 H510 V250 H450 C350 250 380 314 250 314 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 100 H250 C380 100 350 150 450 150 H510 V242 H450 C350 242 380 292 250 292 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 122 H250 C380 122 350 158 450 158 H510 V234 H450 C350 234 380 270 250 270 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 146 H250 C380 146 350 166 450 166 H510 V226 H450 C350 226 380 246 250 246 H0 Z\" class=\"ek2-kern ek2-lage\"/></g><g class=\"tr-betreiben\" clip-path=\"url(#tr1b-b)\"><path d=\"M0 78 H250 C380 78 350 142 450 142 H510 V250 H450 C350 250 380 314 250 314 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 100 H250 C380 100 350 150 450 150 H510 V242 H450 C350 242 380 292 250 292 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 122 H250 C380 122 350 158 450 158 H510 V234 H450 C350 234 380 270 250 270 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 146 H250 C380 146 350 166 450 166 H510 V226 H450 C350 226 380 246 250 246 H0 Z\" class=\"ek2-kern ek2-lage\"/></g><path d=\"M252 76 C276 146 276 246 252 316\" class=\"ek2-fuge\"/><g class=\"tr-aufbauen tr-text\"><text x=\"26\" y=\"193\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Auswählen</text><text x=\"26\" y=\"217\" class=\"ek2-kern-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Fertige Strecken je Zielgruppe</text></g><g class=\"tr-betreiben tr-text\"><text x=\"292\" y=\"193\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Betreiben</text><text x=\"292\" y=\"217\" class=\"ek2-kern-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Posten, vernetzen, nachhalten</text></g><path d=\"M516.0 142 V108\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"524.0\" y=\"118\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Messpunkt: Gesprächsanlässe</text><path d=\"M522 142 H806 L828 196 L806 250 H522 Z\" class=\"ek2-band\"/><path d=\"M818 142 H1104 Q1120 142 1120 158 V234 Q1120 250 1104 250 H818 L840 196 Z\" class=\"ek2-band\"/><text x=\"548\" y=\"193\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Vertrieb</text><text x=\"548\" y=\"217\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Ansprechen · Terminieren · Beraten</text><text x=\"866\" y=\"193\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Betreuen</text><text x=\"866\" y=\"217\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">Bestand halten und ausbauen</text><path d=\"M0 336 V344 H510 V336\" class=\"ek2-linie\"/><text x=\"0\" y=\"370\" class=\"ek2-t\" font-size=\"15\"><tspan font-weight=\"700\">sofort sichtbar</tspan><tspan x=\"0\" dy=\"20\" class=\"ek2-grau\">Fertige Strecken und laufender Betrieb</tspan></text><path d=\"M522 336 V344 H1120 V336\" class=\"ek2-linie\"/><text x=\"522\" y=\"370\" class=\"ek2-t\" font-size=\"15\"><tspan font-weight=\"700\">Deine Agentur</tspan><tspan x=\"522\" dy=\"20\" class=\"ek2-grau\">Wie bisher, mit neuen Gesprächsanlässen</tspan></text></svg>"
+    },
+    "ek_hoch_schwarz": "<svg class=\"ek2-svg ek2-svg--hoch\" viewBox=\"0 0 340 622\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-hoch\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"170\" y=\"30\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Marketing – wir gewinnen Interessenten</text><path d=\"M48 56 V152 C48 242 116 252 116 322 V372 H224 V322 C224 252 292 242 292 152 V56 Z\" class=\"ek2-l4-h ek2-lage\"/><path d=\"M66 56 V152 C66 242 124 252 124 322 V372 H216 V322 C216 252 274 242 274 152 V56 Z\" class=\"ek2-l3-h ek2-lage\"/><path d=\"M86 56 V152 C86 242 132 252 132 322 V372 H208 V322 C208 252 254 242 254 152 V56 Z\" class=\"ek2-l2-h ek2-lage\"/><path d=\"M108 56 V152 C108 242 140 252 140 322 V372 H200 V322 C200 252 232 242 232 152 V56 Z\" class=\"ek2-kern-h ek2-lage\"/><defs><clipPath id=\"h8-unten\"><path d=\"M-10 180 H44 C120 204 220 204 296 180 H350 V2000 H-10 Z\"/></clipPath></defs><path d=\"M108 56 V152 C108 242 140 252 140 322 V372 H200 V322 C200 252 232 242 232 152 V56 Z\" class=\"ek2-band\" clip-path=\"url(#h8-unten)\"/><text x=\"170\" y=\"96\" class=\"ek2-kern-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Auswählen</text><text x=\"170\" y=\"118\" class=\"ek2-kern-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Fertige Strecken</text><text x=\"170\" y=\"134\" class=\"ek2-kern-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">je Zielgruppe</text><path d=\"M44 180 C120 204 220 204 296 180\" class=\"ek2-fuge\"/><text x=\"242\" y=\"292\" class=\"ek2-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"start\">Betreiben</text><text x=\"242\" y=\"312\" class=\"ek2-grau\" font-size=\"13\" font-weight=\"500\" text-anchor=\"start\">Posten, vernetzen,</text><text x=\"242\" y=\"328\" class=\"ek2-grau\" font-size=\"13\" font-weight=\"500\" text-anchor=\"start\">nachhalten</text><path d=\"M116 350 H98\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"92\" y=\"338\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"end\">Messpunkt:</text><text x=\"92\" y=\"354\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"end\">Gesprächs-</text><text x=\"92\" y=\"370\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"end\">anlässe</text><text x=\"170\" y=\"416\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Vertrieb – du machst daraus Kunden</text><path d=\"M50 428 H290 V498 L170 514 L50 498 Z\" class=\"ek2-band\"/><path d=\"M50 522 L170 538 L290 522 V592 Q290 608 274 608 H66 Q50 608 50 592 Z\" class=\"ek2-band\"/><text x=\"170\" y=\"462\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Vertrieb</text><text x=\"170\" y=\"483\" class=\"ek2-band-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Ansprechen · Terminieren · Beraten</text><text x=\"170\" y=\"572\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Betreuen</text><text x=\"170\" y=\"593\" class=\"ek2-band-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Bestand halten und ausbauen</text></svg>",
+    "team8": {
+      "_quelle": "Daniel, 16.11.2026: Variante 2 – die Story über die Personen erzählen; Selbst machen: in der Agentur gibt es jemanden fürs Betreiben; Machen lassen: diese Person und diesen Skill stellen wir. Rollen wie im PDF (Profile).",
+      "personen": {
+        "strategie": {
+          "name": "Strategie und Steuerung",
+          "tut": "Weiß, welche Zielgruppe bei dir zieht, und plant die Strecken.",
+          "icon": "ziel",
+          "wer": "wir"
+        },
+        "texte": {
+          "name": "Texte",
+          "tut": "Schreibt Landingpages und Postings so, wie deine Kunden denken.",
+          "icon": "stift",
+          "wer": "wir"
+        },
+        "gestaltung": {
+          "name": "Gestaltung",
+          "tut": "Bringt alles in den Look deiner Agentur.",
+          "icon": "form",
+          "wer": "wir"
+        },
+        "technik": {
+          "name": "Technik",
+          "tut": "Baut schnell, sauber und rechtssicher – mit Tracking.",
+          "icon": "code",
+          "wer": "wir"
+        },
+        "betreiben_ihr": {
+          "name": "Deine Marketing-Person",
+          "tut": "Postet, vernetzt sich und hält nach. Mit Anleitung und Dashboard von uns.",
+          "icon": "handy",
+          "wer": "ihr"
+        },
+        "betreiben_wir": {
+          "name": "Social-Media-Manager",
+          "tut": "Postet, vernetzt und hält für dich nach. Jeden Monat ein Call mit dir.",
+          "icon": "handy",
+          "wer": "wir"
+        },
+        "werbung": {
+          "name": "Werbekampagnen",
+          "tut": "Macht aus Werbe-Euros Anfragen. Mit Paid Ads dazu buchbar.",
+          "icon": "werbung",
+          "wer": "wir"
+        },
+        "innendienst": {
+          "name": "Innendienst",
+          "tut": "Ruft zurück und vereinbart den Termin.",
+          "icon": "telefon",
+          "wer": "ihr"
+        },
+        "vertrieb": {
+          "name": "Vertrieb",
+          "tut": "Spricht an, berät und schließt ab.",
+          "icon": "gespraech",
+          "wer": "ihr"
+        },
+        "kunde": {
+          "name": "Familie K.",
+          "tut": "",
+          "icon": "haus",
+          "wer": "kunde"
+        }
+      },
+      "a": {
+        "spalten": [
+          {
+            "titel": "Auswählen",
+            "unter": "Fertige Strecken je Zielgruppe",
+            "wer": "wir",
+            "label": "sofort sichtbar",
+            "leute": [
+              "strategie",
+              "texte",
+              "gestaltung",
+              "technik"
+            ]
+          },
+          {
+            "titel": "Betreiben",
+            "unter": "Posten, vernetzen, nachhalten",
+            "wer": "ihr",
+            "label": "Deine Agentur",
+            "leute": [
+              "betreiben_ihr"
+            ]
+          },
+          {
+            "titel": "Vertrieb",
+            "unter": "Ansprechen · Terminieren · Beraten",
+            "wer": "ihr",
+            "label": "Deine Agentur",
+            "leute": [
+              "innendienst",
+              "vertrieb"
+            ]
+          }
+        ],
+        "kicker": "So spielt ihr zusammen",
+        "h2": "Unser Team baut.",
+        "h2_akzent": "Deins macht Termine.",
+        "lead": "Ein Beispiel aus der Strecke Private Bauherren – vom fertigen Posting bis zur Beratung.",
+        "ablauf": [
+          [
+            "texte",
+            "Fertig geliefert",
+            "Die Strecke Bauherren steht: Landingpage, Postings, Checkliste."
+          ],
+          [
+            "betreiben_ihr",
+            "Gepostet",
+            "Deine Marketing-Person postet und vernetzt sich mit Bauherren aus der Region."
+          ],
+          [
+            "kunde",
+            "Gemeldet",
+            "Familie K. lädt die Checkliste Hausbau und bittet um Rückruf."
+          ],
+          [
+            "innendienst",
+            "Terminiert",
+            "Dein Innendienst ruft an und vereinbart den Termin."
+          ],
+          [
+            "vertrieb",
+            "Beraten",
+            "Dein Vertrieb berät zu Wohngebäude und Bauherrenhaftpflicht."
+          ]
+        ]
+      },
+      "b": {
+        "spalten": [
+          {
+            "titel": "Auswählen",
+            "unter": "Fertige Strecken je Zielgruppe",
+            "wer": "wir",
+            "label": "sofort sichtbar",
+            "leute": [
+              "strategie",
+              "texte",
+              "gestaltung",
+              "technik"
+            ]
+          },
+          {
+            "titel": "Betreiben",
+            "unter": "Posten, vernetzen, nachhalten",
+            "wer": "wir",
+            "label": "sofort sichtbar",
+            "leute": [
+              "betreiben_wir",
+              "werbung"
+            ]
+          },
+          {
+            "titel": "Vertrieb",
+            "unter": "Ansprechen · Terminieren · Beraten",
+            "wer": "ihr",
+            "label": "Deine Agentur",
+            "leute": [
+              "innendienst",
+              "vertrieb"
+            ]
+          }
+        ],
+        "kicker": "So spielt ihr zusammen",
+        "h2": "Wir machen Marketing.",
+        "h2_akzent": "Du machst Termine.",
+        "lead": "Ein Beispiel aus der Strecke Private Bauherren – dein Team kommt erst ins Spiel, wenn sich jemand meldet.",
+        "ablauf": [
+          [
+            "texte",
+            "Fertig geliefert",
+            "Die Strecke Bauherren steht: Landingpage, Postings, Checkliste."
+          ],
+          [
+            "betreiben_wir",
+            "Gepostet",
+            "Unser Social-Media-Manager postet für dich und vernetzt dich mit Bauherren aus der Region."
+          ],
+          [
+            "kunde",
+            "Gemeldet",
+            "Familie K. lädt die Checkliste Hausbau und bittet um Rückruf."
+          ],
+          [
+            "innendienst",
+            "Terminiert",
+            "Dein Innendienst ruft an und vereinbart den Termin."
+          ],
+          [
+            "vertrieb",
+            "Beraten",
+            "Dein Vertrieb berät zu Wohngebäude und Bauherrenhaftpflicht."
+          ]
+        ]
+      }
     }
   }
 }

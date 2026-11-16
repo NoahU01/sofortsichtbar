@@ -88,7 +88,7 @@ def quer(klammern=True):
     return svg(W, yr + 16, "".join(o), "ek2-svg--quer", "quer")
 
 
-def hoch(kopf=False):
+def hoch(kopf=False, schwarz=False):
     """Handy: Bogen-Fuge mit großer Mündung (Form B, Daniel 16.11.2026) – Aufbauen im Kern, Betreiben rechts neben der schmalen Stelle"""
     W, c = 340, 170
     HB = [30, 38, 46, 54]            # Form B: graue Lagen an der Mündung bleiben breit
@@ -102,6 +102,10 @@ def hoch(kopf=False):
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
              f"H{c + hh} V{y_kurve} C{c + hh} {y_kurve - 70} {c + hm} {y_flach + 90} {c + hm} {y_flach} V{y_oben} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
+    if schwarz:   # Selbst machen: Betreiben liegt beim Kunden – Kern unterhalb der Fuge in Tinte, wie Vertrieb und Betreuen
+        xl, xr = c - MUND_H[3] - 4, c + MUND_H[3] + 4
+        kern = o[-1].replace(f'class="{LAGEN[0][0]}-h ek2-lage"', 'class="ek2-band" clip-path="url(#h8-unten)"')
+        o.append(f'<defs><clipPath id="h8-unten"><path d="M-10 {y_teil - 8} H{xl} C{c - 50} {y_teil + 16} {c + 50} {y_teil + 16} {xr} {y_teil - 8} H{W + 10} V2000 H-10 Z"/></clipPath></defs>' + kern)
     # Aufbauen im Kern, wie im Querformat
     o.append(text(c, y_oben + 40, TX["aufbauen"], "ek2-kern-t", eb.T_GROSS, 700, "middle"))
     o.append(text(c, y_oben + 62, "Fertige Strecken", "ek2-kern-s", anker="middle"))
@@ -135,6 +139,7 @@ if __name__ == "__main__":
     d["s7"]["ek_hoch_detail"] = hoch()
     d["s7"]["ek_quer"] = quer(klammern=False)   # Kopf der Startseite: zwei Stufen, ohne Paket-Klammern
     d["s7"]["ek_hoch"] = hoch()
+    d["s7"]["ek_hoch_schwarz"] = hoch(schwarz=True)   # Selbst machen
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
     print("Strukturbild Story 8 geschrieben")
