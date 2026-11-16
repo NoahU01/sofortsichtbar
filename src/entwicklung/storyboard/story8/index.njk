@@ -1,0 +1,2250 @@
+---
+layout: false
+eleventyExcludeFromCollections: true
+pagination:
+  data: seiten
+  size: 1
+  alias: s
+seiten:
+  - slug: ""
+    titel: "Startseite"
+  - slug: "mit-deinem-team"
+    titel: "Mit deinem Team"
+  - slug: "marketing-as-a-service"
+    titel: "Marketing as a Service"
+  - slug: "vertriebsstrecken"
+    titel: "Vertriebsstrecken"
+  - slug: "strategiekompass"
+    titel: "Strategiekompass"
+  - slug: "kontakt"
+    titel: "Kontakt"
+  - slug: "preise"
+    titel: "Preise"
+  - slug: "zielgruppen/anwalte-und-kanzleiinhaber"
+    titel: "Kanzleiinhaber"
+    zg: "anwalte-und-kanzleiinhaber"
+  - slug: "zielgruppen/arzte"
+    titel: "Ärzte und Zahnärzte"
+    zg: "arzte"
+  - slug: "zielgruppen/bauherren"
+    titel: "Private Bauherren"
+    zg: "bauherren"
+  - slug: "zielgruppen/berufseinsteiger-im-ersten-job"
+    titel: "Berufseinsteiger"
+    zg: "berufseinsteiger-im-ersten-job"
+  - slug: "zielgruppen/cyber-firmen"
+    titel: "IT-lastige Firmen"
+    zg: "cyber-firmen"
+  - slug: "zielgruppen/digital-aktive-privatpersonen"
+    titel: "Digital aktive Personen"
+    zg: "digital-aktive-privatpersonen"
+  - slug: "zielgruppen/ferienwohnungen"
+    titel: "Vermietung von Ferienwohnungen"
+    zg: "ferienwohnungen"
+  - slug: "zielgruppen/freelancer-und-grunder"
+    titel: "Gründer & Freelancer"
+    zg: "freelancer-und-grunder"
+  - slug: "zielgruppen/getrennte-personen"
+    titel: "Getrennte Paare"
+    zg: "getrennte-personen"
+  - slug: "zielgruppen/gewerbekunden"
+    titel: "Inhabergeführte Firmen"
+    zg: "gewerbekunden"
+  - slug: "zielgruppen/hausverwalter"
+    titel: "Hausverwaltungen"
+    zg: "hausverwalter"
+  - slug: "zielgruppen/immobilienmakler"
+    titel: "Immobilienmakler"
+    zg: "immobilienmakler"
+  - slug: "zielgruppen/junge-ehepaare"
+    titel: "Junge Ehepaare"
+    zg: "junge-ehepaare"
+  - slug: "zielgruppen/kommunale-angestellte"
+    titel: "Kommunale Angestellte"
+    zg: "kommunale-angestellte"
+  - slug: "zielgruppen/landwirte"
+    titel: "Landwirte"
+    zg: "landwirte"
+  - slug: "zielgruppen/physio-und-pflege"
+    titel: "Gesundheitsnahe Heilberufe"
+    zg: "physio-und-pflege"
+  - slug: "zielgruppen/private-tierhalter-im-lokalen-umfeld"
+    titel: "Private Tierhalter"
+    zg: "private-tierhalter-im-lokalen-umfeld"
+  - slug: "zielgruppen/umzug"
+    titel: "Umzug"
+    zg: "umzug"
+  - slug: "zielgruppen/vereine"
+    titel: "Vereine"
+    zg: "vereine"
+  - slug: "zielgruppen/werdende-eltern"
+    titel: "Junge Familien"
+    zg: "werdende-eltern"
+permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
+---
+{#- Homepage-Story 8 (Duplikat von Story 7, 16.11.2026: Startseite, Mit deinem Team und Marketing as a Service werden hier weiterentwickelt; Vertriebsstrecken, Kompass, Kontakt, Preise unverändert mitgenommen. Assets und Generatoren liegen weiter in story7) · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
+    und die Stilproben (drei Richtungen auf denselben Bausteinen).
+    Der Stil hängt ausschließlich an den Stellschrauben (:root = Arbeitslook; .s7-stil--… = eine Richtung).
+    Bausteine (Einstieg, Schritte, Pakete …) als Makros – Startseite und Stilproben nutzen dieselben.
+    Inhalte: story7.11tydata.json → s7 · Grafik: maschine_holen.py · Schriften: assets/fonts (OFL, selbst gehostet).
+    Eigenständige Seiten (layout: false), alles in src/entwicklung/. -#}
+{%- set S = s7 -%}
+{%- set H7 = "/entwicklung/storyboard/story8" -%}
+{#- Echte Seiten (Startseite und Unterseiten) tragen Stil, Farbschalter und Hauptmenü; Stil- und Farbproben nicht -#}
+{%- set istSeite = s.slug != "stilproben" and s.slug != "farbproben" and s.slug != "seitenplan" and s.slug != "infografik" and s.slug != "mehrwerte" -%}
+{%- set B6 = "/entwicklung/storyboard/story6" -%}
+{%- set A7 = "/entwicklung/storyboard/story7/assets" -%}
+{%- set pfeil -%}<svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>{%- endset -%}
+
+{#- ======================= Bausteine ======================= -#}
+{%- macro erklaerbild(detail=false) -%}
+{%- set E = S.erklaerbild -%}
+{%- if detail %}
+{#- Schnitt durch die Maschine: quer als Grafik, am Handy als Liste derselben Lagen (Quelle: erklaerbild.py SCHNITT) -#}
+<div class="ek2 ek2--schnitt" role="img" aria-label="Schnitt durch die Maschine: {% for z in S.maas.schnitt %}{{ z.name }} ({{ z.marke }}): {{ z.text }}. {% endfor %}An der Mündung der Messpunkt Leads, danach dein Vertrieb, der daraus Kunden macht.">{{ S.ek_schnitt_quer | safe }}</div>
+<div class="mx7-schnitt" aria-hidden="true">
+  {%- for z in S.maas.schnitt %}
+  <div class="mx7-schnitt__lage mx7-schnitt__lage--{{ loop.index }}"><p><b>{{ z.name }}</b><span>{{ z.marke }}</span></p><p>{{ z.text }}</p></div>
+  {%- endfor %}
+  <span class="mx7-schnitt__unten mx7-schnitt__unten--1"></span><span class="mx7-schnitt__unten mx7-schnitt__unten--2"></span><span class="mx7-schnitt__unten mx7-schnitt__unten--3"></span>
+  <p class="mx7-schnitt__mess">Messpunkt: Leads</p>
+  <div class="mx7-schnitt__vertrieb"><b>Dein Vertrieb</b><span>macht daraus Kunden</span></div>
+</div>
+{%- else %}<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten. Ein Trichter aus Lagen mit sofort sichtbar im Kern; an der Mündung der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Termin, Beratung, Abschluss, dann Kundenbetreuung. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
+<p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
+{%- endif %}
+{%- endmacro -%}
+
+{%- macro held(mitIds=true) -%}
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.hero.kicker }}</p>
+      <h1>{{ S.hero.h1 }} <span class="s7-wort">{{ S.hero.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ S.hero.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ S.hero.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/strategiekompass/">{{ S.hero.knopf2 }}</a>
+      </div>
+      <figure class="s7-maschine">
+        {{ erklaerbild() }}
+      </figure>
+    </div>
+  </section>
+{%- endmacro -%}
+
+{%- macro schritte(mitIds=true) -%}
+  {#- Ablauf statt drei Kästen: eine Linie Strategie → Maschine → Steuerung, eine Bildsprache (graue Linien, Tinte), Farbe nur im Trichter -#}
+  {%- set L = S.schritte.liste %}
+  <section class="s7-band s7-band--akzent"{% if mitIds %} id="maschine"{% endif %}>
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.schritte.kicker }}</p>
+      <h2 class="s7-h2">{{ S.schritte.h2 }}</h2>
+      <ol class="s7-ablauf">
+        <li class="s7-ablauf__schritt">
+          <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
+            <div class="s7-mini__zeile"><span>Segment</span><div><i class="an">Privatkunden</i><i>Firmenkunden</i></div></div>
+            <div class="s7-mini__zeile"><span>Sparte</span><div><i class="an">Leben</i><i>Kranken</i><i>Schaden/Unfall</i><i>Kfz</i></div></div>
+            <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an ziel">Junge Familien</i><i class="an">Bauherren</i><i class="mehr">+ weitere</i></div></div>
+          </div></div>
+          <p class="s7-ablauf__nr">{{ L[0].nr }} · {{ L[0].label }}</p>
+          <h3>{{ L[0].h | replace('|', '<br>') | safe }}</h3>
+          <p class="s7-ablauf__t">{{ L[0].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/strategiekompass/">{{ L[0].link }} {{ pfeil | safe }}</a>
+        </li>
+        <li class="s7-ablauf__schritt">
+          <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Vertriebsstrecke · Junge Familien</p>
+            <div class="s7-mini__strecke"><ul><li>Landingpage</li><li>Postings</li><li>Kundenmailing</li></ul><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="s7-mini__lead ziel"><b>Neuer Lead</b><span>Familie M.</span><span>Rückruf heute</span></div></div>
+          </div></div>
+          <p class="s7-ablauf__nr">{{ L[1].nr }} · {{ L[1].label }}</p>
+          <h3>{{ L[1].h | replace('|', '<br>') | safe }}</h3>
+          <p class="s7-ablauf__t">{{ L[1].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ L[1].link }} {{ pfeil | safe }}</a>
+        </li>
+        <li class="s7-ablauf__schritt">
+          <div class="s7-ablauf__bild" aria-hidden="true"><div class="s7-mini">
+            <p class="s7-mini__kopf">Dashboard</p>
+            <div class="s7-mini__kacheln"><div><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div class="ziel"><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div></div>
+            <p class="s7-mini__empf"><b>Empfehlung:</b> Bauherren – Abschnitt umstellen, der kaum gelesen wird</p>
+          </div></div>
+          <p class="s7-ablauf__nr">{{ L[2].nr }} · {{ L[2].label }}</p>
+          <h3>{{ L[2].h | replace('|', '<br>') | safe }}</h3>
+          <p class="s7-ablauf__t">{{ L[2].t }}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+{%- endmacro -%}
+
+{#- Karte einer Zielgruppe (Wisch-Reihe): Anlass, Name, Landingpage im Anschnitt. Daten: vertriebsstrecken.json + zielgruppen.json -#}
+{%- macro zgKarte(z) -%}
+{%- set slug = z.href | replace("/zielgruppen/", "") %}
+{%- set bild = "" %}{% for x in zielgruppen %}{% if x.slug == slug %}{% for st in x.styles %}{% if st.name == "Elegant" %}{% set bild = st.image %}{% endif %}{% endfor %}{% if not bild %}{% set bild = x.styles[0].image %}{% endif %}{% endif %}{% endfor %}
+{%- if S.vs.bild_korrektur[slug] %}{% set bild = S.vs.bild_korrektur[slug] %}{% endif %}
+{%- set an = "" %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == z.href and not an %}{% set an = a.label %}{% endif %}{% endfor %}
+<li><a class="vs7-karte" href="{{ H7 }}/zielgruppen/{{ slug }}/">
+  <span class="vs7-karte__anlass">{{ an or "Vertriebsstrecke" }}</span>
+  <b>{{ z.label }}</b>
+  <img src="/assets/img/{{ bild }}" alt="" width="868" height="446" loading="lazy">
+</a></li>
+{%- endmacro -%}
+
+{%- macro kontaktBand(K=null) -%}
+{%- set KB = K or S.kontakt %}
+  <section class="s7-band s7-band--tinte" id="kontakt">
+    <div class="s7-wrap s7-kontakt">
+      <div>
+        <h2 class="s7-h2">{{ KB.h2 }} <span class="s7-wort s7-nowrap">{{ KB.h2_akzent }}</span></h2>
+        <p class="s7-lead">{{ KB.t }}</p>
+      </div>
+      <div class="s7-kontakt__wege">
+        {%- if s.slug %}{#- Unterseiten: Gesichter zum Termin (auf der Startseite steht das Gruppenbild direkt darüber) -#}
+        <p class="s7-kontakt__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480" loading="lazy">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
+        {%- endif %}
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+        <a href="mailto:{{ S.kontakt.mail }}">{{ S.kontakt.mail }}</a>
+        <a href="tel:{{ S.kontakt.tel | replace(' ', '') }}">{{ S.kontakt.tel }}</a>
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}
+
+{%- macro pakete(mitIds=true) -%}
+  <section class="s7-band"{% if mitIds %} id="pakete"{% endif %}>
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ S.pakete.kicker }}</p>
+      <h2 class="s7-h2">{{ S.pakete.h2 }}</h2>
+      <p class="s7-lead">{{ S.pakete.lead }}</p>
+      <div class="s7-pakete">
+        <p class="s7-gruppe s7-gruppe--a">{{ S.pakete.gruppen[0][0] }}</p>
+        <p class="s7-gruppe s7-gruppe--b">{{ S.pakete.gruppen[1][0] }}</p>
+        {%- for p in S.pakete.liste %}
+        <article class="s7-paket s7-paket--{{ p.id }}">
+          <h3>{{ p.name }}</h3>
+          <p class="s7-paket__fuer">{{ p.fuer }}</p>
+          <p class="s7-paket__preis">{% if p.preis %}<b>{{ p.preis }}</b><span>{{ p.einheit }}</span>{% else %}<b>Auf Anfrage</b><span>monatlich</span>{% endif %}</p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf{% if p.id != "komplett" %} s7-knopf--rand{% endif %}" href="{% if p.id == "komplett" %}{{ H7 }}/marketing-as-a-service/{% else %}{{ H7 }}/mit-deinem-team/{% endif %}">{{ p.knopf }}</a>
+        </article>
+        {%- endfor %}
+      </div>
+      <p class="s7-pakete__fuss">{{ S.pakete.fuss }}</p>
+    </div>
+  </section>
+{%- endmacro -%}
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if s.slug %}{{ s.titel }} · {% endif %}Homepage-Story 8 · Die digitale Maschine – Entwicklung</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/assets/img/logos/favicon.png" type="image/png">
+<style>
+/* ---------- Schriften (selbst gehostet, OFL) ---------- */
+{%- for f in [["Inter", "inter", [400, 500, 600]], ["Inter Tight", "inter-tight", [600, 700]]] %}{% for w in f[2] %}
+@font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "{{ f[0] }}"; font-weight: {{ w }}; font-style: normal; font-display: swap; src: url("{{ A7 }}/fonts/{{ f[1] }}-latin-ext-{{ w }}-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+{%- endfor %}{% endfor %}
+
+/* ===================================================================================
+   STELLSCHRAUBEN – :root ist der Arbeitslook (neutral, Platzhalter).
+   Eine Stilrichtung setzt nur diese Werte neu (siehe .s7-stil--… weiter unten).
+   =================================================================================== */
+:root, .s7-stil {
+  --s7-schrift-titel: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-schrift-text: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --s7-titel-gewicht: 700;
+  --s7-titel-abstand: -0.02em;
+  --s7-h1: clamp(2.6rem, 6.6vw, 5.6rem);   --s7-h1-hoehe: 1.04;
+  --s7-h2: clamp(2rem, 4.2vw, 3.2rem);     --s7-h2-hoehe: 1.12;
+  --s7-text-groesse: 1.0625rem;
+  --s7-grund: #ffffff;          /* Seitenhintergrund */
+  --s7-flaeche: #f4f4f3;        /* helle Fläche */
+  --s7-tinte: #181818;          /* Überschriften, dunkle Flächen */
+  --s7-text: #3b3b3b;           /* Fließtext */
+  --s7-grau: #7a7a7a;           /* Kicker, Nebeninfos */
+  --s7-linie: #e2e2df;          /* Trennlinien, Rahmen */
+  --s7-akzent: #c9d4e3;         /* Markierung: Auswahl, Leads, Kern des Trichters */
+  --s7-akzent-fill: var(--s7-akzent);   /* dieselbe Markierung in Grafiken (darf url(#…) sein) */
+  --s7-akzent-verlauf: var(--s7-akzent); /* zarte Akzentfläche, darf ein Verlauf sein (Pills, Leads) */
+  --s7-akzent-ende: var(--s7-akzent);   /* Endfarbe des Verlaufs (dort, wo der Trichter mündet) */
+  --s7-akzent-fill-hoch: var(--s7-akzent-fill); /* Verlauf für senkrechte Grafiken (oben → unten) */
+  --s7-auf-akzent: #181818;     /* Schrift auf dem Akzent */
+  --s7-wort: var(--s7-tinte);   /* hervorgehobenes Wort der Hauptüberschrift */
+  --s7-wort-verlauf: none;      /* … oder als Verlauf */
+  --s7-knopf-grund: var(--s7-tinte); --s7-knopf-text: #ffffff;
+  --s7-buehne: var(--s7-flaeche);      /* Fläche hinter der Maschine */
+  --s7-band-akzent: var(--s7-flaeche); /* Band „So läuft die Maschine“ */
+  --s7-karte: var(--s7-grund);         /* Karten auf Bändern */
+  --s7-schatten: none;                 /* Karten-Schatten */
+  --s7-komplett-grund: var(--s7-tinte); --s7-komplett-text: #e9e9e9; --s7-komplett-titel: #ffffff; --s7-komplett-haken: var(--s7-akzent); --s7-komplett-knopf-text: var(--s7-tinte);
+  --s7-lage-1: #dededb; --s7-lage-2: #e9e9e7; --s7-lage-3: #f2f2f1;   /* Lagen des Trichters */
+  --s7-rund: 18px;              /* Rundung Karten */
+  --s7-rund-knopf: 999px;       /* Rundung Knöpfe */
+  --s7-band: clamp(4.5rem, 9vw, 7.5rem);   /* Abstand oben/unten je Band */
+}
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { display: flex; flex-direction: column; min-height: 100vh; margin: 0; background: #fff; color: #3b3b3b; font: 400 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+p { margin: 0; }
+/* Fußzeile immer am unteren Fensterrand, wenn die Seite kürzer ist als das Fenster */
+#s7-seite { display: flex; flex: 1; flex-direction: column; }
+#s7-seite > main { flex: 1; }
+#s7-seite > main:has(> .ks7:only-child) { display: flex; flex-direction: column; }
+.ks7 { flex: 1; display: flex; align-items: center; }
+.ks7 > .s7-wrap { flex: none; }
+.s7-stil { background: var(--s7-grund); color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: var(--s7-text-groesse); line-height: 1.6; }
+.s7-stil h1, .s7-stil h2, .s7-stil h3 { margin: 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-weight: var(--s7-titel-gewicht); letter-spacing: var(--s7-titel-abstand); text-wrap: balance; }
+.s7-wrap { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+.s7-band { padding: var(--s7-band) 0; }
+.s7-band--flaeche { background: var(--s7-flaeche); }
+.s7-band--akzent { background: var(--s7-band-akzent); }
+.s7-band--tinte { background: var(--s7-tinte); color: #e9e9e9; }
+.s7-stil .s7-band--tinte h2 { color: #fff; }
+.s7-kicker { margin-bottom: 1rem; color: var(--s7-grau); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.s7-stil .s7-h2 { max-width: 22ch; font-size: var(--s7-h2); line-height: var(--s7-h2-hoehe); }
+.s7-lead { max-width: 40rem; margin-top: 1.2rem; font-size: 1.15rem; line-height: 1.6; }
+.s7-knopf { display: inline-flex; align-items: center; gap: .6rem; padding: .95rem 1.5rem; border: 2px solid var(--s7-knopf-grund); border-radius: var(--s7-rund-knopf); background: var(--s7-knopf-grund); color: var(--s7-knopf-text); font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform .15s ease; }
+.s7-knopf:hover { transform: translateY(-2px); }
+.s7-knopf--rand { background: transparent; border-color: var(--s7-tinte); color: var(--s7-tinte); }
+.s7-pfeil { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.s7-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
+.s7-link:hover { text-decoration: underline; }
+.s7-wort { color: var(--s7-wort); background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- Entwicklungsleiste + Kopf ---------- */
+.s7-dev { background: #111; color: #bbb; font-size: 12.5px; }
+.s7-dev .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; padding: .45rem 0; }
+.s7-dev b { color: #fff; font-weight: 600; }
+.s7-dev a { color: #fff; margin-left: 1rem; }
+.s7-schalter { display: inline-flex; align-items: center; gap: .3rem; margin-left: .4rem; }
+.s7-schalter button { width: 1.6rem; height: 1.3rem; padding: 0; border: 1px solid #555; border-radius: 6px; background: transparent; color: #ddd; font: 600 11px/1 system-ui, sans-serif; cursor: pointer; }
+.s7-schalter button[aria-pressed="true"] { border-color: #fff; background: #fff; color: #111; }
+.s7-kopf { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--s7-grund) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--s7-linie); }
+.s7-kopf .s7-wrap { display: flex; align-items: center; gap: 2rem; height: 72px; }
+.s7-marke { display: flex; flex: none; align-items: center; gap: .35rem; }
+.s7-marke img { height: 2.4rem; width: auto; }
+.s7-nav { display: flex; gap: clamp(1.1rem, 1.6vw, 1.8rem); margin-left: auto; }
+.s7-nav a { color: var(--s7-text); font-size: .95rem; text-decoration: none; white-space: nowrap; }
+.s7-nav a:hover { color: var(--s7-tinte); }
+.s7-nav a[aria-current="page"] { color: var(--s7-tinte); font-weight: 600; }
+@media (max-width: 1500px) { .s7-nav { gap: 1.15rem; } .s7-nav a { font-size: .9rem; } }
+.s7-kopf .s7-knopf { padding: .6rem 1.1rem; font-size: .9rem; white-space: nowrap; }
+.s7-kopf--nur-marke .s7-knopf { margin-left: auto; }
+/* Menüknopf und Menüfläche für schmale Bildschirme (unter 1280px): zwei Striche, die zum Kreuz werden; Fläche weiß, große Punkte */
+.s7-burger { display: none; position: relative; width: 2.6rem; height: 2.6rem; margin-left: .2rem; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
+.s7-burger span { position: absolute; left: .7rem; right: .7rem; height: 2px; border-radius: 2px; background: var(--s7-tinte); transition: transform .25s ease, top .25s ease; }
+.s7-burger span:first-child { top: 1.05rem; }
+.s7-burger span:last-child { top: 1.5rem; }
+.s7-burger[aria-expanded="true"] span:first-child { top: 1.27rem; transform: rotate(45deg); }
+.s7-burger[aria-expanded="true"] span:last-child { top: 1.27rem; transform: rotate(-45deg); }
+.s7-burger:focus { outline: none; }
+.s7-burger:focus-visible { background: var(--s7-flaeche); }
+.s7-menue { position: absolute; left: 0; right: 0; top: 100%; height: calc(100vh - 72px); overflow-y: auto; background: var(--s7-grund); border-top: 1px solid var(--s7-linie); }
+.s7-menue[hidden] { display: none; }
+.s7-menue__liste { display: grid; justify-items: start; gap: .2rem; width: min(100% - 2.5rem, 76rem); margin-inline: auto; padding: 1.6rem 0 3rem; }
+.s7-menue nav a:not(.s7-knopf) { padding: .45rem 0; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 5vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+.s7-menue nav a[aria-current="page"] { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+.s7-menue .s7-knopf { margin-top: 1.4rem; }
+body.s7-menue-offen { overflow: hidden; }
+@media (max-width: 1279px) {
+  .s7-nav { display: none; }
+  .s7-burger { display: block; }
+  .s7-kopf .s7-kopf__termin { margin-left: auto; }
+}
+@media (max-width: 600px) { .s7-kopf .s7-kopf__termin { display: none; } .s7-burger { margin-left: auto; } }
+.s7-dd { position: relative; }
+.s7-dd__auf { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--s7-grau); cursor: pointer; }
+.s7-dd__auf:hover, .s7-dd__auf[aria-expanded="true"] { background: var(--s7-flaeche); color: var(--s7-tinte); }
+.s7-dd__auf svg { width: .7rem; height: .7rem; fill: currentColor; }
+.s7-dd__panel { position: absolute; top: calc(100% + .9rem); left: -6rem; z-index: 80; width: 21rem;  padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-dd__panel[hidden] { display: none; }
+.s7-dd__hinweis { margin: 0 0 .5rem; padding: .7rem .8rem; border-radius: 10px; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .78rem; line-height: 1.45; }
+.s7-dd__gruppe { margin: .7rem .8rem .2rem; color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.s7-dd__panel a { display: block; padding: .5rem .8rem; border-radius: 8px; color: var(--s7-tinte); font-size: .9rem; text-decoration: none; }
+.s7-dd__panel a:hover { background: var(--s7-flaeche); }
+.s7-dd__panel a[aria-current="page"] { font-weight: 600; background: var(--s7-flaeche); }
+/* Zweite Ebene im Entwicklungsmenü: Kasten öffnet nach rechts (Hover, Tastatur); Brücke über die Lücke */
+.s7-unter { position: relative; }
+.s7-unter > a { display: flex !important; justify-content: space-between; align-items: center; }
+.s7-unter__pfeil { margin-left: .8rem; font-size: 1.1rem; line-height: 1; }
+.s7-unter__panel { display: none; position: absolute; left: calc(100% + .7rem); top: -.7rem; z-index: 90; width: 20rem; padding: .7rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.s7-unter__panel::before { content: ""; position: absolute; left: -1.5rem; top: 0; bottom: 0; width: 1.5rem; }
+.s7-unter:hover .s7-unter__panel, .s7-unter:focus-within .s7-unter__panel { display: block; }
+.s7-unter:hover > a { background: var(--s7-flaeche); }
+
+/* ---------- Einstieg ---------- */
+.s7-held { padding: clamp(3.5rem, 7vw, 6rem) 0 calc(var(--s7-band) * .7); }
+.s7-stil .s7-held h1 { max-width: 16ch; font-size: var(--s7-h1); line-height: var(--s7-h1-hoehe); letter-spacing: calc(var(--s7-titel-abstand) * 1.6); }
+.s7-held .s7-lead { font-size: clamp(1.15rem, 1.7vw, 1.35rem); max-width: 36rem; }
+.s7-held__knoepfe { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+.s7-maschine { margin: clamp(3rem, 6vw, 4.5rem) 0 0; padding: clamp(1.6rem, 3.5vw, 3rem) clamp(1.2rem, 3vw, 2.8rem) clamp(1.6rem, 3vw, 2.4rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-buehne); }
+.s7-maschine__bild { overflow-x: auto; }
+.s7-maschine__bild svg { width: 100%; min-width: 640px; height: auto; }
+/* Farben der Grafik an die Stellschrauben koppeln (CSS schlägt die Attribute der Grafik) */
+.s7-maschine svg [fill="#fff400"] { fill: var(--s7-akzent-fill); }
+.s7-maschine svg [stroke="#fff400"] { stroke: var(--s7-akzent); }
+.s7-maschine svg [fill="#dcd8d2"] { fill: var(--s7-lage-1); }
+.s7-maschine svg [fill="#e8e5e0"] { fill: var(--s7-lage-2); }
+.s7-maschine svg [fill="#f3f1ee"] { fill: var(--s7-lage-3); }
+.s7-maschine svg [fill="#1a1817"] { fill: var(--s7-tinte); }
+.s7-maschine svg [stroke="#1a1817"] { stroke: var(--s7-tinte); }
+.s7-maschine svg [fill="#3d3a37"] { fill: var(--s7-text); }
+.s7-maschine svg [fill="#6f6a64"] { fill: var(--s7-grau); }
+.s7-maschine svg text { font-family: var(--s7-schrift-text); }
+.s7-maschine svg .s7-kern { fill: var(--s7-auf-akzent); }
+.s7-maschine svg g.s7-kern { fill: none; stroke: var(--s7-auf-akzent); }
+
+/* ---------- Erklärbild „Die digitale Maschine“ (erklaerbild.py): zwei Formen, ein Highlight; quer ab 820px, darunter hochkant ---------- */
+.ek2 svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ek2-svg--hoch { display: none !important; max-width: 23rem; margin: 0 auto; }
+.ek2 text { font-family: var(--s7-schrift-text); }
+.ek2-t { fill: var(--s7-tinte); }
+.ek2-grau { fill: var(--s7-grau); }
+.ek2-lage { stroke: var(--s7-grund); stroke-width: 2; }
+.ek2-l2, .ek2-l2-h { fill: var(--s7-lage-1); }
+.ek2-l3, .ek2-l3-h { fill: var(--s7-lage-2); }
+.ek2-l4, .ek2-l4-h { fill: var(--s7-lage-3); }
+.ek2-kern { fill: var(--s7-akzent-fill); }
+.ek2-kern-h { fill: var(--s7-akzent-fill-hoch); }
+.ek2-kern-t, .ek2-kern-p { fill: var(--s7-auf-akzent); }
+.ek2-band { fill: var(--s7-tinte); }
+.ek2-band-t { fill: #ffffff; }
+.ek2-band-s { fill: #a1a1a6; }
+.ek2-linie { fill: none; stroke: var(--s7-tinte); stroke-width: 2; }
+.ek2-linie--grau { stroke: var(--s7-linie); }
+.ek2-linie--fein { stroke-width: 1.4; }
+.ek2-pfeilkopf { fill: none; stroke: var(--s7-tinte); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ek2-grund { fill: var(--s7-buehne); }
+.ek__mehr { margin-top: 2.2rem; text-align: center; }
+@media (max-width: 820px) { .ek2-svg--quer { display: none !important; } .ek2-svg--hoch { display: block !important; } }
+
+/* ---------- Ablauf: Strategie → Maschine → Steuerung ---------- */
+.s7-ablauf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); column-gap: clamp(2rem, 4vw, 3.6rem); margin: 3.2rem 0 0; padding: 0; list-style: none; }
+.s7-ablauf__schritt { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+.s7-ablauf__bild { position: relative; display: grid; align-items: center; min-height: 14rem; padding: 1.7rem 1.6rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-mini { display: grid; gap: .8rem; font-size: .85rem; line-height: 1.3; color: var(--s7-tinte); }
+.s7-mini__kopf { color: var(--s7-grau); font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.s7-mini__zeile { display: grid; grid-template-columns: 5.2rem 1fr; align-items: center; gap: .5rem; }
+.s7-mini__zeile > span { color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.s7-mini__zeile > div { display: flex; flex-wrap: wrap; gap: .3rem; }
+.s7-mini i { padding: .24rem .6rem; border: 1px solid var(--s7-linie); border-radius: 99px; font-style: normal; white-space: nowrap; }
+.s7-mini i.an { border-color: var(--s7-tinte); background: var(--s7-tinte); color: #fff; font-weight: 600; }
+.s7-mini i.mehr { border-style: dashed; color: var(--s7-grau); }
+.s7-mini__strecke { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; }
+.s7-mini__strecke ul { display: grid; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.s7-mini__strecke li { padding: .42rem .6rem; border: 1px solid var(--s7-linie); border-radius: 8px; font-weight: 500; }
+.s7-mini__strecke svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: var(--s7-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.s7-mini__lead { display: grid; gap: .15rem; padding: .7rem .75rem; border-radius: 10px; background: var(--s7-tinte); color: #c7c7cc; }
+.s7-mini__lead b { color: #fff; font-weight: 700; }
+.s7-mini__balken { display: grid; grid-template-columns: 6.4rem 1fr; align-items: center; gap: .55rem .6rem; }
+.s7-mini__balken i { display: block; height: .6rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
+.s7-mini__empf { padding: .5rem .65rem; border: 1px solid var(--s7-linie); border-radius: 8px; }
+.s7-mini__kacheln { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.s7-mini__kacheln > div { display: grid; gap: .3rem; padding: .5rem .6rem .45rem; border: 1px solid var(--s7-linie); border-radius: 8px; }
+.s7-mini__kacheln b { font-weight: 600; }
+.s7-mini__kacheln svg { width: 100%; height: .9rem; fill: none; stroke: var(--s7-tinte); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.s7-mini__kacheln > div.ziel { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.s7-mini__kacheln > div.ziel svg { stroke: var(--s7-auf-akzent); }
+/* Farbe als roter Faden: in jedem Bild nur das Ergebnis des Schritts in der Akzentfarbe */
+.s7-mini i.ziel, .s7-mini__lead.ziel, .s7-mini__balken i.ziel { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.s7-mini__lead.ziel { color: color-mix(in srgb, var(--s7-auf-akzent) 85%, transparent); }
+.s7-mini__lead.ziel b { color: var(--s7-auf-akzent); }
+.s7-ablauf__schritt:not(:last-child) .s7-ablauf__bild::after { content: ""; position: absolute; top: 50%; right: calc(-1 * clamp(2rem, 4vw, 3.6rem) / 2 - .55rem); width: 1.1rem; height: 1.1rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: translateY(-50%) rotate(45deg); }
+.s7-ablauf__nr { margin-top: 1.6rem; color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.s7-stil .s7-ablauf h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.s7-ablauf__t { margin-top: .6rem; font-size: 1.02rem; line-height: 1.55; text-wrap: pretty; }
+.s7-ablauf .s7-link { margin-top: 1rem; align-self: start; }
+
+/* ---------- Zielgruppen: Bild + Liste ---------- */
+.s7-zg-bild { margin: 3rem auto 0; max-width: 56rem; }
+.s7-zg-bild img { width: 100%; }
+.s7-zg-listen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(2rem, 5vw, 4rem); margin-top: 3rem; }
+.s7-zg-listen__titel { padding-bottom: .8rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-size: .95rem; font-weight: 700; }
+.s7-zg-listen ul { margin: 0; padding: 0; list-style: none; }
+.s7-zg-listen a { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--s7-linie); text-decoration: none; }
+.s7-zg-listen b { color: var(--s7-tinte); font-weight: 600; }
+.s7-zg-listen span { color: var(--s7-grau); font-size: .92rem; text-align: right; }
+.s7-zg-listen a:hover b { text-decoration: underline; }
+
+/* ---------- Pakete ---------- */
+.s7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.s7-gruppe { grid-row: 1; display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; color: var(--s7-tinte); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.s7-gruppe::after { content: ""; flex: 1; height: 2px; background: var(--s7-tinte); }
+.s7-gruppe--a { grid-column: 1 / span 2; }
+.s7-gruppe--b { grid-column: 3; }
+.s7-paket { display: grid; grid-row: 2 / span 7; grid-template-rows: subgrid; row-gap: 0; padding: 2rem 2rem 1.8rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); background: var(--s7-karte); box-shadow: var(--s7-schatten); }
+.s7-paket--komplett { border-color: transparent; background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.s7-stil .s7-paket--komplett h3, .s7-paket--komplett .s7-paket__preis b { color: var(--s7-komplett-titel); }
+.s7-stil .s7-paket h3 { font-size: 1.7rem; line-height: 1.2; }
+.s7-paket__fuer { margin-top: .5rem; font-size: 1rem; line-height: 1.5; }
+.s7-paket__preis { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .9rem; }
+.s7-paket--komplett .s7-paket__preis { border-top-color: color-mix(in srgb, var(--s7-komplett-text) 25%, transparent); color: color-mix(in srgb, var(--s7-komplett-text) 75%, transparent); }
+.s7-paket__preis span { display: block; margin-top: .15rem; }
+.s7-paket__preis b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.9rem; font-weight: 700; line-height: 1.15; }
+.s7-paket__vorspann { margin-top: 1.2rem; font-size: .88rem; font-weight: 600; color: var(--s7-tinte); min-height: 1.3em; }
+.s7-paket--komplett .s7-paket__vorspann { color: var(--s7-komplett-titel); }
+.s7-paket ul { list-style: none; margin: .5rem 0 0; padding: 0; }
+.s7-paket li { position: relative; padding: .45rem 0 .45rem 1.6rem; font-size: .98rem; line-height: 1.45; }
+.s7-paket li::before { content: ""; position: absolute; left: .15rem; top: .85rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.s7-paket--komplett li::before { color: var(--s7-komplett-haken); }
+.s7-paket .s7-knopf { margin-top: 1.4rem; align-self: end; justify-content: center; }
+.s7-paket--komplett .s7-knopf { border-color: var(--s7-komplett-titel); background: var(--s7-komplett-titel); color: var(--s7-komplett-knopf-text); }
+.s7-pakete__fuss { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; }
+
+/* ---------- Zielgruppen · Vertrauen · Kontakt (nur Startseite) ---------- */
+.s7-zg__fuss { margin-top: 2rem; }
+.s7-stil .s7-vertrauen .s7-h2 { max-width: none; }
+
+.s7-vertrauen { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4rem); align-items: stretch; }
+.s7-vertrauen__text { padding: 1rem 0; }
+
+.s7-zitat { margin: 2rem 0 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--s7-tinte); }
+.s7-zitat p { color: var(--s7-tinte); font-size: 1.15rem; line-height: 1.6; }
+.s7-zitat cite { display: block; margin-top: .5rem; color: var(--s7-grau); font-size: .9rem; font-style: normal; }
+/* Gruppenbild in eigenem Rahmen: so hoch wie die Textspalte, das Bild steht unten auf der Kante und füllt die Breite (Schnittkanten = Rahmenkante) */
+.s7-vertrauen__bild { display: flex; flex-direction: column; justify-content: space-between; margin: 0; padding-top: 1.4rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+.s7-vertrauen__bild figcaption { padding: 0 1.6rem; color: var(--s7-grau); font-size: .9rem; }
+.s7-nowrap { white-space: nowrap; }
+@media (max-width: 600px) { .s7-vertrauen__bild figcaption { padding: 0 1rem; font-size: .8rem; } }
+.s7-vertrauen__bild img { display: block; width: 107%; max-width: none; margin-right: -7%; mix-blend-mode: multiply; } /* helle Reste im Foto verschmelzen mit der Fläche */
+.s7-kontakt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: end; }
+.s7-kontakt .s7-lead { max-width: 30rem; color: #cfcfcf; text-wrap: balance; }
+.s7-kontakt__wege { display: grid; gap: .8rem; justify-items: start; }
+.s7-kontakt__wege .s7-knopf { border-color: #fff; background: #fff; color: var(--s7-tinte); }
+.s7-kontakt__team { display: flex; align-items: center; gap: .9rem; max-width: 20rem; margin-bottom: .6rem; color: #cfcfcf; font-size: .9rem; line-height: 1.4; }
+.s7-kontakt__team span { display: flex; flex: none; }
+.s7-kontakt__team img { width: 2.9rem; height: 2.9rem; border: 2px solid var(--s7-tinte); border-radius: 50%; object-fit: cover; }
+.s7-kontakt__team img + img { margin-left: -.8rem; }
+.s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
+.s7-fuss { padding: 2rem 0; background: var(--s7-tinte); color: #888; font-size: .85rem; }
+.s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
+
+
+/* ---------- Für Vertriebsleiter (vl7-) ---------- */
+/* Regionsgrafik: Kasten wie neben der Maschine, Ziel als Farbfläche (das Ergebnis), Pille gestrichelt für weitere Büros */
+.ek2-kasten { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 2; }
+.ek2-pille { fill: var(--s7-grund); stroke: var(--s7-tinte); stroke-width: 1.4; }
+.ek2-pille--mehr { stroke: var(--s7-grau); stroke-dasharray: 4 3; }
+.ek2-ziel { fill: var(--s7-akzent-fill); }
+.ek2-ziel-t { fill: var(--s7-auf-akzent); }
+.s7-stil .s7-held .vl7-h1 { max-width: none; } /* gleiche Größe wie alle Seiten (--s7-h1), nur ohne Breitenbegrenzung, damit es zwei Zeilen bleiben */
+.vl7-problem { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.s7-stil .vl7-h2 { max-width: 18ch; }
+.vl7-problem .s7-lead:first-child { margin-top: 2.2rem; }
+.vl7-problem .s7-lead + .s7-lead { margin-top: .9rem; }
+.vl7-loesung .vs7-weg { background: var(--s7-flaeche); }
+.vl7-link { margin-top: 1.6rem; }
+.vl7-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.vl7-schritte li { padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.vl7-schritte span { color: var(--s7-grau); font-weight: 600; }
+.s7-stil .vl7-schritte h3 { margin-top: .5rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.vl7-schritte p { margin-top: .6rem; text-wrap: pretty; }
+.vl7-schritte--sparring { background: var(--s7-komplett-grund) !important; color: #fff; }
+.s7-stil .vl7-schritte--sparring h3, .vl7-schritte--sparring span { color: #fff; }
+.vl7-zitat { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; max-width: 60rem; }
+.vl7-zitat__bild { display: flex; align-items: flex-end; justify-content: center; margin: 0; border-radius: 50%; background: var(--s7-flaeche); overflow: hidden; aspect-ratio: 1; }
+.vl7-zitat__bild img { display: block; width: 84%; height: auto; mix-blend-mode: multiply; } /* Kopf mit Luft zum Kreisrand, Schultern laufen unten aus */
+.vl7-zitat blockquote { margin: 0; }
+.vl7-zitat blockquote p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; text-wrap: balance; }
+.vl7-zitat cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
+@media (max-width: 1000px) { .vl7-problem, .vl7-schritte { grid-template-columns: minmax(0, 1fr); } .vl7-problem .s7-lead:first-child { margin-top: 0; } }
+@media (max-width: 600px) { .vl7-zitat { grid-template-columns: minmax(0, 1fr); } .vl7-zitat__bild { width: 9rem; } }
+
+/* ---------- Preise (pr7-) ---------- */
+.pr7-held { padding-bottom: 0; }
+.pr7-offen { display: inline-block; margin-top: 1.2rem; padding: .5rem .9rem; border: 1.5px dashed var(--s7-grau); border-radius: 10px; color: var(--s7-text); font-size: .95rem; }
+.pr7-tabelle { margin-top: 2.4rem; padding: clamp(1.2rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.pr7-kopf, .pr7-zeile { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: center; }
+.pr7-kopf { position: sticky; top: 72px; z-index: 2; padding: .8rem 0 1rem; background: var(--s7-karte); border-bottom: 2px solid var(--s7-tinte); }
+.pr7-kopf b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; text-align: center; }
+.pr7-kopf b.pr7-komplett { color: transparent; background-image: var(--s7-wort-verlauf); -webkit-background-clip: text; background-clip: text; }
+.pr7-gruppe { margin: 1.8rem 0 .3rem; color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.pr7-zeile { padding: .85rem 0; border-bottom: 1px solid var(--s7-linie); }
+.pr7-zeile > span:first-child { color: var(--s7-tinte); }
+.pr7-zelle { text-align: center; font-size: .95rem; line-height: 1.35; }
+.pr7-zelle--offen { color: var(--s7-grau); font-style: italic; }
+.pr7-ja { display: inline-block; width: .8rem; height: .42rem; border-left: 2px solid var(--s7-tinte); border-bottom: 2px solid var(--s7-tinte); transform: translateY(-2px) rotate(-45deg); }
+.pr7-nein { color: var(--s7-grau); font-style: normal; }
+.pr7-zeile--preis { border-bottom: 0; padding-top: 1.4rem; }
+.pr7-zeile--preis b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; }
+.pr7-zeile--preis .pr7-zelle--offen b { color: var(--s7-grau); font-size: 1.1rem; }
+.pr7-zeile--preis small { color: var(--s7-grau); font-size: .85rem; }
+.pr7-erg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }
+.pr7-erg__karte { display: flex; flex-direction: column; padding: clamp(1.6rem, 2.6vw, 2.2rem); border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); }
+.s7-stil .pr7-erg__karte h3 { font-size: 1.5rem; line-height: 1.2; }
+.pr7-erg__karte > p:not(.pr7-erg__preis) { margin-top: .6rem; text-wrap: pretty; }
+.pr7-erg__preis { display: grid; margin-top: auto; padding-top: 1.4rem; }
+.pr7-erg__preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.pr7-erg__preis span { color: var(--s7-grau); font-size: .9rem; }
+.pr7-fuss { margin-top: 1.6rem; }
+.pr7-hinweise { margin: 1.4rem 0 0; padding: 0; list-style: none; color: var(--s7-grau); font-size: .95rem; }
+.pr7-hinweise li { margin-top: .3rem; }
+@media (max-width: 1000px) { .pr7-erg { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 700px) {
+  .pr7-kopf, .pr7-zeile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+  .pr7-kopf > span:first-child { display: none; }
+  .pr7-zeile > span:first-child { grid-column: 1 / -1; font-weight: 600; }
+  .pr7-kopf b { font-size: 1.05rem; }
+  .pr7-zelle { font-size: .85rem; }
+}
+
+/* ---------- Kontakt und Termin (ks7-): Aufbau der Live-Seite im Story-7-Stil – eine zentrierte Spalte (so breit, dass Cal.com
+   dreispaltig und flach bleibt, ~66rem), oben Teamfoto + Überschrift mit Satz und Kontaktwegen, darunter mit Abstand der Kalender.
+   Keine Verkleinerung (Safari), keine Doppelungen (Dauer steht im Kalender) ---------- */
+.ks7 { padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem); background: var(--s7-tinte); color: #d2d2d7; }
+.ks7__spalte { width: min(100% - 2.5rem, 66rem); margin-inline: auto; }
+.ks7__kopf { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 4vw, 3.5rem); align-items: center; padding-inline: 2.05rem; } /* Einzug = Innenrand von Cal.com, damit Kopf und Kalender eine Kante haben */
+.ks7__team { margin: 0; border-radius: var(--s7-rund); background: var(--s7-flaeche); overflow: hidden; }
+.ks7__team img { display: block; width: 100%; mix-blend-mode: multiply; }
+.s7-stil .ks7__h1 { color: #fff; font-size: clamp(2.4rem, 4.2vw, 3.6rem); line-height: 1.04; letter-spacing: calc(var(--s7-titel-abstand) * 1.4); }
+.ks7__lead { margin-top: 1.4rem; color: #d2d2d7; font-size: 1.15rem; line-height: 1.55; text-wrap: balance; }
+.ks7__wege { display: grid; gap: .3rem; margin-top: 1.4rem; }
+.ks7__wege a { color: #fff; font-weight: 600; text-decoration: none; }
+.ks7__wege a:hover { text-decoration: underline; }
+.ks7__kalender { position: relative; margin-top: clamp(2.5rem, 4vw, 3.5rem); padding-top: clamp(1.5rem, 3vw, 2rem); }
+.ks7__kalender::before { content: ""; position: absolute; top: 0; left: 2.05rem; right: 2.05rem; border-top: 1px solid #3a3a3c; } /* Linie so breit wie der Inhalt */
+.ks7__kalender > div { width: 100%; min-height: 35.5rem; }
+@media (max-width: 800px) { .ks7__kopf { grid-template-columns: minmax(0, 1fr); padding-inline: 0; } .ks7__team { max-width: 26rem; } .ks7__kalender::before { left: 0; right: 0; } }
+
+/* ---------- Strategiekompass (ko7-): Konfigurator im Story-7-Stil, Farbe nur in der Zusammenfassung (das Ergebnis) ---------- */
+.ko7-held { padding-bottom: 1rem; }
+.ko7-app { padding-bottom: var(--s7-band); }
+.kg.ko7 { --ink: var(--s7-tinte); --ink-2: var(--s7-text); --ink-3: var(--s7-grau); --line: var(--s7-linie); --line-2: var(--s7-linie); --panel: var(--s7-flaeche); --sel: var(--s7-tinte); --link: var(--s7-tinte); font-family: var(--s7-schrift-text); }
+.s7-stil .kg.ko7 :is(h2, h3) { font-family: var(--s7-schrift-titel); font-weight: 700; letter-spacing: -0.025em; }
+.s7-stil .kg.ko7 .q h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.kg.ko7 .q { padding-block: 3.4rem .5rem; }
+.kg.ko7 .q:first-child { padding-top: 1.5rem; }
+.kg.ko7 .tile { border-radius: 18px; }
+.kg.ko7 .tile b { font-size: 1.05rem; }
+.kg.ko7 .tile .ic { display: none; } /* Story 7 ohne Icons */
+.kg.ko7 .textlink { color: var(--s7-tinte); font-weight: 600; }
+.kg.ko7 .rn { font-weight: 600; }
+.kg.ko7 .g aside { top: 96px; margin-top: 1.5rem; }
+.kg.ko7 .summary { padding: 1.8rem; border-radius: var(--s7-rund); background: var(--s7-komplett-grund); color: #fff; }
+.s7-stil .kg.ko7 .summary h3 { color: #fff; font-size: 1.6rem; }
+.kg.ko7 .summary .satz { color: rgba(255, 255, 255, .85); }
+.kg.ko7 .summary .satz b { color: #fff; }
+.kg.ko7 .summary .lbl { color: rgba(255, 255, 255, .75); font-weight: 600; }
+.kg.ko7 .summary li { border-color: rgba(255, 255, 255, .3); color: #fff; }
+.kg.ko7 .summary li small { color: rgba(255, 255, 255, .75); }
+.kg.ko7 .price-leer { height: 1.4rem; }
+.kg.ko7 .summary .btn { background: #fff; color: var(--s7-komplett-knopf-text); font-weight: 600; padding: 15px 22px; }
+.kg.ko7 .summary .btn:disabled { background: rgba(255, 255, 255, .3); color: rgba(255, 255, 255, .8); }
+.kg.ko7 .summary .fine { color: rgba(255, 255, 255, .8); font-size: .85rem; line-height: 1.45; }
+
+/* ---------- Zielgruppenseite (zg7-), Vorlage für alle 20 ---------- */
+.zg7-anlaesse { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem; margin: 1.4rem auto 0; max-width: 46rem; }
+.zg7-anlaesse span { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.zg7-anlaesse b { padding: .25rem .8rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; }
+.s7-stil .s7-held .zg7-h1 { max-width: none; } /* gleiche Größe wie alle Seiten (--s7-h1) */
+.zg7-wer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.zg7-wer__karte { padding: clamp(1.6rem, 2.6vw, 2.2rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-stil .zg7-wer__karte h3 { font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.zg7-wer__karte ul { margin: 1rem 0 0; padding: 0; list-style: none; }
+.zg7-wer__karte li { padding: .6rem 0; border-top: 1px solid var(--s7-linie); line-height: 1.45; }
+.zg7-fragen { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.zg7-faq details { border-top: 1px solid var(--s7-linie); }
+.zg7-faq details:last-child { border-bottom: 1px solid var(--s7-linie); }
+.zg7-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.3rem 0; color: var(--s7-tinte); font-size: 1.15rem; font-weight: 600; cursor: pointer; list-style: none; }
+.zg7-faq summary::-webkit-details-marker { display: none; }
+.zg7-faq summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--s7-flaeche); font-size: 1.3rem; font-weight: 400; transition: transform .2s ease; }
+.zg7-faq details[open] summary::after { transform: rotate(45deg); }
+.zg7-faq__a { padding: 0 0 1.4rem; }
+.zg7-faq__a p + p, .zg7-faq__a ul { margin-top: .7rem; }
+.zg7-faq__a strong { color: var(--s7-tinte); }
+.zg7-faq__a ul { padding-left: 1.2rem; }
+.zg7-faq__a li { margin: .3rem 0; }
+.zg7-weitere .vs7-reihe { margin-top: 0; }
+.s7-stil .zg7-weitere__h2 { flex: 1; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.15; }
+.zg7-weitere .vs7-karte { background: var(--s7-karte); }
+.zg7-alle { margin-top: 1.6rem; }
+@media (max-width: 1000px) {
+  .zg7-wer, .zg7-fragen { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Unterseite Vertriebsstrecken (vs7-) ---------- */
+.vs7-lead { max-width: 44rem !important; }
+.vs7-held__bild { margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: clamp(.5rem, 1.5vw, 1.2rem) clamp(.5rem, 2vw, 2rem) 0; border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); overflow: hidden; }
+.vs7-held__bild img { display: block; width: 100%; margin: -8% auto 0; } /* oberer Rand des Bilds ist durchsichtig */ /* Bild steht unten auf der Kante der Bühne */
+/* Drei Wege: gleich hohe Kacheln, echtes Bild läuft über rechte und untere Kante (Anschnitt) */
+.vs7-wege { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.vs7-weg { position: relative; display: flex; flex-direction: column; min-height: 27rem; padding: clamp(1.8rem, 3vw, 2.4rem) clamp(1.6rem, 2.6vw, 2.2rem) 0; border-radius: var(--s7-rund); background: var(--s7-karte); overflow: hidden; }
+.s7-stil .vs7-weg h3 { font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.15; }
+.vs7-weg p { margin-top: .6rem; max-width: 22rem; text-wrap: pretty; }
+.vs7-weg img { width: 175%; max-width: none; margin: 1.6rem 0 -10% 0; align-self: flex-start; }
+/* Zielgruppen: Wisch-Reihen mit großen Karten */
+.vs7-reihe { margin-top: 3rem; }
+.vs7-reihe__kopf { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; }
+.vs7-reihe__kopf .vs7-gruppe { flex: 1; margin: 0; }
+.vs7-reihe__pfeile { display: flex; gap: .5rem; }
+.vs7-reihe__pfeile button { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; padding: 0 0 .15rem; border: 0; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.vs7-reihe__pfeile button:hover { background: var(--s7-linie); }
+.vs7-reihe__pfeile button:focus { outline: none; }
+.vs7-reihe__pfeile button:focus-visible { background: var(--s7-linie); }
+.vs7-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(16.5rem, 23vw, 20rem); gap: 1rem; margin: 0 calc(50% - 50vw) 0 0; padding: 0 1.25rem .5rem 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.vs7-scroller::-webkit-scrollbar { display: none; }
+.vs7-scroller li { scroll-snap-align: start; }
+.vs7-karte { position: relative; display: flex; flex-direction: column; height: 20rem; padding: 1.6rem 1.5rem 0; border-radius: var(--s7-rund); background: var(--s7-flaeche); color: var(--s7-tinte); text-decoration: none; overflow: hidden; }
+.vs7-karte__anlass { color: var(--s7-grau); font-size: .9rem; font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.vs7-karte b { margin-top: .35rem; font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2vw, 1.75rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+.vs7-karte img { width: 170%; max-width: none; margin: auto 0 -14% 0; transform-origin: left bottom; transition: transform .3s ease; }
+.vs7-karte:hover img { transform: scale(1.03); }
+.vs7-kompass { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; margin-top: 3rem; padding: 1.4rem 1.8rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); color: var(--s7-tinte); font-weight: 600; }
+@media (max-width: 1100px) {
+}
+@media (max-width: 760px) {
+  .vs7-wege { grid-template-columns: minmax(0, 1fr); }
+  .vs7-weg { min-height: 0; }
+  .vs7-weg img { width: 115%; margin: 1.6rem 0 -8% 0; }
+}
+@media (max-width: 600px) {
+  .vs7-scroller { grid-auto-columns: 78%; }
+  .vs7-karte { height: 19rem; }
+}
+
+/* ---------- Seitenplan (sp7-) ---------- */
+.s7-stil .sp7-h1 { font-size: var(--s7-h2); line-height: var(--s7-h2-hoehe); }
+.sp7-legende { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+.sp7-stand { justify-self: start; display: inline-block; padding: .15rem .65rem; border: 1.5px solid var(--s7-tinte); border-radius: 99px; color: var(--s7-tinte); font-size: .8rem; font-weight: 600; }
+.sp7-stand--gebaut, .sp7-karte--gebaut .sp7-stand { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.sp7-stand--fehlt, .sp7-karte--fehlt .sp7-stand { border-style: dashed; }
+.sp7-stand--stufe2, .sp7-karte--stufe2 .sp7-stand { border-color: var(--s7-grau); color: var(--s7-grau); }
+.sp7-baum { margin-top: 3rem; }
+.sp7-wurzel { position: relative; display: flex; justify-content: center; padding-bottom: 2.4rem; }
+.sp7-wurzel .sp7-karte { width: min(100%, 26rem); }
+.sp7-wurzel::after { content: ""; position: absolute; left: 50%; bottom: 0; height: 2.4rem; border-left: 2px solid var(--s7-tinte); }
+.sp7-ebene { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: .7rem; padding-top: 2rem; } /* so viele Spalten wie Äste */
+.s7-stil .sp7-ebene .sp7-karte h3 { font-size: 1.05rem; hyphens: auto; -webkit-hyphens: auto; }
+.sp7-ebene .sp7-karte { font-size: .85rem; overflow-wrap: break-word; }
+.sp7-ast { min-width: 0; }
+.sp7-ast .sp7-karte, .sp7-ast .sp7-unter { min-width: 0; }
+.sp7-ast { position: relative; display: grid; align-content: start; gap: .8rem; }
+.sp7-ast::before { content: ""; position: absolute; left: 50%; top: -2rem; height: 2rem; border-left: 2px solid var(--s7-tinte); }
+.sp7-ast::after { content: ""; position: absolute; left: -.4rem; right: -.4rem; top: -2rem; border-top: 2px solid var(--s7-tinte); }
+.sp7-ast:first-child::after { left: 50%; }
+.sp7-ast:last-child::after { right: 50%; }
+.sp7-karte { display: grid; align-content: start; gap: .5rem; padding: 1.1rem .9rem; border: 1px solid var(--s7-linie); border-radius: 16px; background: var(--s7-karte); font-size: .92rem; line-height: 1.45; }
+.sp7-karte--fehlt { border-style: dashed; border-color: var(--s7-grau); }
+.sp7-karte--stufe2 { background: var(--s7-flaeche); }
+.s7-stil .sp7-karte h3 { font-size: 1.2rem; line-height: 1.2; }
+.sp7-karte h3 a, .sp7-unter h4 a { text-decoration: none; }
+.sp7-karte h3 a:hover, .sp7-unter h4 a:hover { text-decoration: underline; }
+.sp7-zusatz { color: var(--s7-grau); font-size: .85rem; }
+.sp7-frage { color: var(--s7-tinte); font-weight: 500; }
+.sp7-karte dl { display: grid; gap: .1rem; margin: .2rem 0 0; }
+.sp7-karte dt { color: var(--s7-grau); font-size: .78rem; font-weight: 600; }
+.sp7-karte dd { margin: 0 0 .35rem; }
+.sp7-offen { padding: .5rem .6rem; border-radius: 8px; background: var(--s7-flaeche); font-size: .85rem; }
+.sp7-unter { display: grid; gap: .35rem; margin-left: 1rem; padding: .9rem 1rem; border-left: 2px solid var(--s7-tinte); background: var(--s7-flaeche); border-radius: 0 12px 12px 0; font-size: .88rem; line-height: 1.45; }
+.sp7-unter h4 { margin: 0; color: var(--s7-tinte); font-size: 1rem; }
+.sp7-immer { display: flex; justify-content: center; margin-top: 2.4rem; }
+.sp7-immer .sp7-karte { width: min(100%, 26rem); }
+.sp7-neben { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 3.4rem; }
+.s7-stil .sp7-h2 { font-size: 1.4rem; }
+.sp7-liste { margin: .8rem 0 0; padding: 0; list-style: none; }
+.sp7-liste li { display: grid; gap: .1rem; padding: .7rem 0; border-top: 1px solid var(--s7-linie); }
+.sp7-liste a, .sp7-liste b { color: var(--s7-tinte); font-weight: 600; }
+.sp7-liste span { color: var(--s7-grau); font-size: .92rem; }
+.sp7-schritte { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem 1.6rem; margin: 2.6rem 0 0; padding: 0; list-style: none; }
+.sp7-schritte li { padding-top: 1rem; border-top: 2px solid var(--s7-tinte); }
+.sp7-schritte span { color: var(--s7-grau); font-weight: 600; }
+.s7-stil .sp7-schritte h3 { margin-top: .3rem; font-size: 1.25rem; line-height: 1.25; }
+.sp7-schritte p { margin-top: .4rem; font-size: .95rem; }
+.sp7-schritte--erledigt { border-top-color: var(--s7-linie) !important; }
+.sp7-schritte--erledigt h3, .sp7-schritte--erledigt p { color: var(--s7-grau) !important; }
+.sp7-fuss { margin-top: 2rem; color: var(--s7-grau); }
+@media (max-width: 1300px) {
+  .sp7-ebene { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
+  .sp7-wurzel { padding-bottom: 1.4rem; }
+}
+@media (max-width: 1100px) {
+  .sp7-ebene { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .sp7-ast::before, .sp7-ast::after, .sp7-wurzel::after { display: none; }
+  .sp7-wurzel { padding-bottom: 1.4rem; }
+  .sp7-schritte { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .sp7-ebene { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
+  .sp7-neben, .sp7-schritte { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Kopf Marketing as a Service (mk7-): Gesamtlogik als eine Arbeit – Klammer, drei Spalten, Rücklauf ---------- */
+.mk7 { margin-top: clamp(1.8rem, 3.5vw, 2.6rem); padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.6rem) clamp(1.2rem, 2.4vw, 1.8rem); border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-flaeche); text-align: left; }
+.mk7__knoepfe { margin-top: 2rem; }
+.mk7__klammer { padding-bottom: .7rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-weight: 600; }
+.mk7__spalten { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; column-gap: clamp(2rem, 4vw, 3.4rem); row-gap: 0; margin-top: 1.4rem; }
+.mk7__spalte { position: relative; display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; } /* Titel, Untertitel und Fläche je Spalte auf gleicher Höhe */
+.mk7__spalte:not(:last-child)::after { content: ""; position: absolute; top: 58%; right: calc(-1 * clamp(2rem, 4vw, 3.4rem) / 2 - .45rem); width: .9rem; height: .9rem; border-top: 2px solid var(--s7-tinte); border-right: 2px solid var(--s7-tinte); transform: rotate(45deg); }
+.mk7__titel { display: flex; align-items: center; gap: .55rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.mk7__titel span { display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-family: var(--s7-schrift-text); font-size: .8rem; letter-spacing: 0; }
+.mk7__sub { margin-top: .3rem; color: var(--s7-grau); font-size: .95rem; line-height: 1.4; }
+.mk7__inhalt { display: grid; align-content: center; flex: 1; min-height: 9rem; margin-top: .9rem; padding: 1rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mk7__fragen { gap: .4rem; justify-items: start; }
+.mk7__fragen i { max-width: 100%; padding: .38rem .8rem; border-radius: 1.2rem !important; text-wrap: balance; border: 1px solid var(--s7-linie); border-radius: 99px; color: var(--s7-tinte); font-size: .92rem; font-style: normal; font-weight: 500; }
+.mk7__trichter .ek2 svg { width: 100%; max-width: 17rem; height: auto; margin: 0 auto; }
+.mk7__trichter p { margin-top: .4rem; color: var(--s7-tinte); font-size: .9rem; font-weight: 600; text-align: right; }
+.mk7__zurueck { position: relative; height: 2.6rem; margin: .6rem calc((100% - 2 * clamp(2rem, 4vw, 3.4rem)) / 6) 0; border: 2px solid var(--s7-tinte); border-top: 0; border-radius: 0 0 14px 14px; }
+.mk7__zurueck::before { content: ""; position: absolute; left: -.42rem; top: -.1rem; width: .7rem; height: .7rem; border-left: 2px solid var(--s7-tinte); border-top: 2px solid var(--s7-tinte); transform: rotate(45deg); }
+.mk7__zurueck span { position: absolute; left: 50%; bottom: 0; padding: 0 1rem; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: .95rem; font-weight: 600; white-space: nowrap; transform: translate(-50%, 55%); }
+.ek2-svg--kt { display: block; }
+@media (max-width: 1100px) {
+  .mk7__spalten { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 2rem; }
+  .mk7__spalte { grid-row: auto; grid-template-rows: none; }
+  .mk7__spalte:not(:last-child)::after { top: auto; bottom: -1.45rem; right: auto; left: 50%; transform: translateX(-50%) rotate(135deg); }
+  .mk7__zurueck { height: auto; margin: 1.6rem 0 0; border: 0; text-align: center; }
+  .mk7__zurueck::before { display: none; }
+  .mk7__zurueck span { position: static; display: inline-block; padding: 0; white-space: normal; transform: none; background: none; }
+  .mk7__zurueck span::before { content: "↻ "; }
+}
+
+/* ---------- Mehrwerte (mw7-, Entwicklung) ---------- */
+.mw7-lead { max-width: 46rem !important; }
+.mw7-nr { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.mw7-grund { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+.mw7-karte { display: flex; flex-direction: column; padding: 2rem 1.9rem; border-radius: var(--s7-rund); background: var(--s7-karte); }
+.s7-stil .mw7-karte h3, .s7-stil .mw7-weg h3 { margin-top: .4rem; font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.mw7-karte > p:not(.mw7-nr):not(.mw7-marke), .mw7-weg > p:not(.mw7-nr) { margin-top: .7rem; line-height: 1.55; text-wrap: pretty; }
+.mw7-karte .mx7-haken { margin-top: 1rem; }
+.mw7-karte .mx7-haken li { font-size: .95rem; }
+.mw7-karte--produkt { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.s7-stil .mw7-karte--produkt h3 { color: #fff; }
+.mw7-karte--produkt .mw7-nr { color: color-mix(in srgb, #fff 75%, transparent); }
+.mw7-marke { margin-top: auto; padding-top: 1.4rem; color: #fff; font-weight: 600; }
+.mw7-wege { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.mw7-weg { display: flex; flex-direction: column; padding: 2rem 1.9rem; border: 1px solid var(--s7-linie); border-radius: var(--s7-rund); }
+.mw7-tool { margin-top: auto; padding: 1.4rem 1.5rem; border-radius: calc(var(--s7-rund) * .7); background: var(--s7-flaeche); }
+.mw7-weg > p + .mw7-tool { margin-top: 1.6rem; }
+.mw7-tool__name { display: flex; align-items: baseline; gap: .7rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.mw7-tool__name span { color: var(--s7-grau); font-family: var(--s7-schrift-text); font-size: .85rem; font-weight: 600; letter-spacing: 0; }
+.mw7-modus { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--s7-linie); }
+.mw7-modus b { color: var(--s7-tinte); font-weight: 600; }
+.mw7-modus p { margin-top: .25rem; font-size: .95rem; line-height: 1.5; }
+.mw7-tool__fuss { margin-top: .9rem; color: var(--s7-grau); font-size: .9rem; }
+.mw7-bezug { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); }
+.mw7-bezug .s7-link { margin-left: .4rem; }
+.mw7-weiter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; margin-top: 2.6rem; }
+.mw7-weiter__titel { padding-bottom: .8rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-weight: 700; }
+.mw7-formate { margin: 0; }
+.mw7-formate dt { margin-top: 1rem; color: var(--s7-tinte); font-weight: 600; }
+.mw7-formate dd { margin: .2rem 0 0; color: var(--s7-text); }
+.mw7-fragen ul { margin: .6rem 0 0; padding: 0; list-style: none; }
+.mw7-fragen li { padding: .8rem 0; border-bottom: 1px solid var(--s7-linie); line-height: 1.5; }
+@media (max-width: 1000px) { .mw7-grund, .mw7-wege, .mw7-weiter { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Infografik sofort sichtbar (ig7-, Entwicklung) ---------- */
+.ig7-reihe { display: grid; grid-template-columns: 2.83fr 1.41fr 1fr; gap: 1.6rem; align-items: end; margin-top: 2.6rem; }
+.ig7-reihe--zwei { grid-template-columns: 2.83fr 1.41fr; max-width: 62rem; }
+.ig7-reihe--eins { grid-template-columns: minmax(0, 1fr); max-width: 62rem; }
+.ig7-reihe--paar { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.ig7-reihe--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 62rem; align-items: start; }
+.ig7-reihe--vier { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
+.ig7-blatt { margin: 0; }
+.ig7-blatt img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.10), 0 10px 28px rgba(0,0,0,.08); }
+.ig7-blatt figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.2rem; margin-top: 1rem; font-size: .95rem; }
+.ig7-blatt figcaption span { margin-right: auto; color: var(--s7-grau); font-weight: 600; }
+.ig7-blatt--rollup figcaption span { width: 100%; }
+.ig7-kontext-titel { margin-top: 3.4rem; color: var(--s7-grau); font-weight: 600; }
+.ig7-kontext { display: block; width: 100%; max-width: 62rem; margin-top: 1rem; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.10); }
+.ig7-alt { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
+.ig7-alt__links { margin-top: 1.6rem; }
+@media (max-width: 900px) { .ig7-reihe--paar { grid-template-columns: minmax(0, 1fr); } .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
+
+/* ---------- Unterseite Mit deinem Team (mt7-) · Weg A ---------- */
+.mt7-aufgaben { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
+.mt7-aufgaben li { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .4rem .6rem; border: 1px solid var(--s7-linie); border-radius: 8px; font-weight: 500; }
+.mt7-aufgaben li:first-child { border-color: transparent; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.mt7-aufgaben i { display: grid; place-items: center; flex: none; width: 1.6rem; height: 1.6rem; padding: 0; border: 0; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-size: .62rem; font-weight: 700; }
+.mt7-stufe { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--s7-linie); }
+.mt7-stufe:first-of-type { border-top: 0; padding-top: 0; }
+.mt7-stufe--breit { grid-template-columns: minmax(0, 1fr); }
+.mt7-stufe--breit .mt7-stufe__text { max-width: 40rem; }
+.mt7-stufe .s7-ablauf__nr { margin-top: 0; }
+.s7-stil .mt7-stufe h3 { margin-top: .4rem; font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.15; }
+.mt7-stufe__text > p:not(.s7-ablauf__nr) { margin-top: .8rem; font-size: 1.05rem; line-height: 1.6; text-wrap: pretty; }
+.mt7-stufe__text .s7-link { display: inline-flex; margin-top: 1.1rem; }
+.mt7-stufe__bild { display: grid; align-items: center; min-height: 15rem; padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mt7-stufe__bild .s7-mini { max-width: 26rem; width: 100%; margin: 0 auto; font-size: .95rem; }
+.mt7-teile { margin-top: 0; }
+.mt7-teile .vs7-weg { min-height: 24rem; }
+.mt7-teile .vs7-weg img { width: 150%; margin-top: auto; padding-top: 1.6rem; margin-bottom: -6%; }
+.mt7-teilung { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.mt7-teilung > div { padding: clamp(1.8rem, 3.4vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-flaeche); }
+.mt7-teilung__titel { margin-bottom: .8rem; padding-bottom: .8rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.mt7-teilung > .mt7-teilung__team { background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.mt7-teilung__team .mt7-teilung__titel { border-color: color-mix(in srgb, #fff 45%, transparent); color: #fff; }
+.mt7-teilung__team .mx7-haken li { color: #fff; }
+.mt7-pakete { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(7, auto); column-gap: 1.2rem; margin-top: 3rem; }
+.mt7-pakete .s7-paket { grid-row: span 7; }
+.s7-pakete__fuss .s7-link { margin-left: .4rem; }
+/* Dritte Spalte: der Weg B als Weiche – gleicher Aufbau wie die Pakete, ruhige graue Fläche statt Verlauf */
+.s7-paket.mt7-b { border-color: transparent; background: var(--s7-flaeche); box-shadow: none; }
+/* Stufe 1: das Ergebnis des Kompasses als Karte (wie auf der Kompass-Seite) */
+.mt7-stufe__bild--frei { padding: 0; background: none; }
+.mt7-strategie { width: 100%; padding: clamp(1.8rem, 3.4vw, 2.6rem); border-radius: var(--s7-rund); background: var(--s7-komplett-grund); color: color-mix(in srgb, #fff 85%, transparent); font-size: 1.08rem; line-height: 1.5; }
+.mt7-strategie__kopf { color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 700; letter-spacing: -0.02em; }
+.mt7-strategie__satz { margin-top: .7rem; }
+.mt7-strategie b { color: #fff; font-weight: 600; }
+.mt7-strategie__titel { margin-top: 1.1rem; color: #fff; font-size: .8rem; font-weight: 600; }
+.mt7-strategie ul { margin: .3rem 0 0; padding: 0; list-style: none; }
+.mt7-strategie li { padding: .5rem 0; border-top: 1px solid color-mix(in srgb, #fff 30%, transparent); color: #fff; }
+/* Stufe 3: Leads je Zielgruppe und Empfehlung aus dem Report */
+.mt7-report__balken { display: grid; grid-template-columns: 8.5rem 1fr; align-items: center; gap: .7rem .8rem; }
+.mt7-report__balken i { display: block; height: .7rem; padding: 0; border: 0; border-radius: 99px; background: var(--s7-tinte); }
+.mt7-report__balken i.ziel { background: var(--s7-akzent-verlauf); }
+@media (max-width: 1000px) {
+  .mt7-stufe { grid-template-columns: minmax(0, 1fr); }
+  .mt7-teilung, .mt7-pakete { grid-template-columns: minmax(0, 1fr); }
+  .mt7-pakete .s7-paket { grid-row: auto; grid-template-rows: none; margin-bottom: 1.2rem; }
+}
+@media (max-width: 760px) { .mt7-teile .vs7-weg { min-height: 0; } .mt7-teile .vs7-weg img { width: 110%; } }
+
+/* ---------- Unterseite Marketing as a Service (mx7-) ---------- */
+/* Bausteine: links die Basis als Farbfläche (dort landet das Auge), rechts „dazu buchbar“ als ruhige Liste – keine verschachtelten Kästen */
+.mx7-bs { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.2rem; margin-top: 3rem; }
+.mx7-marke { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.mx7-basis { display: flex; flex-direction: column; padding: clamp(1.8rem, 3.4vw, 3rem); border-radius: var(--s7-rund); background: var(--s7-komplett-grund); color: var(--s7-komplett-text); }
+.mx7-basis .mx7-marke { color: var(--s7-komplett-text); }
+.s7-stil .mx7-basis h3 { margin-top: .6rem; color: #fff; font-size: clamp(1.7rem, 2.4vw, 2.1rem); line-height: 1.15; }
+.mx7-basis__preis { display: flex; align-items: baseline; gap: .6rem; margin-top: 1.4rem; }
+.mx7-basis__preis b { color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(3rem, 5vw, 4.2rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
+.mx7-basis__kurz { margin-top: 1.4rem; text-wrap: pretty; }
+.mx7-basis__gruppen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.8rem; padding-top: 1.6rem; border-top: 1px solid color-mix(in srgb, #fff 30%, transparent); }
+.mx7-basis__g { margin-bottom: .3rem; color: #fff; font-weight: 600; }
+.mx7-basis .mx7-haken li { color: #fff; }
+.mx7-basis__knopf { align-self: flex-start; margin-top: auto; border-color: #fff; background: #fff; color: var(--s7-komplett-knopf-text); font: inherit; font-weight: 600; cursor: pointer; }
+.mx7-basis__gruppen + .mx7-basis__knopf { margin-top: 2rem; }
+.mx7-haken { list-style: none; margin: 0; padding: 0; }
+.mx7-haken li { position: relative; padding: .4rem 0 .4rem 1.6rem; font-size: 1rem; line-height: 1.45; }
+.mx7-haken li::before { content: ""; position: absolute; left: .15rem; top: .8rem; width: .7rem; height: .35rem; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); }
+.mx7-dazu { display: flex; flex-direction: column; padding: clamp(1.8rem, 3.4vw, 3rem); border-radius: var(--s7-rund); background: var(--s7-karte); }
+.mx7-erg { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; flex: 1; align-content: center; padding: 1.6rem 0; border-bottom: 1px solid var(--s7-linie); }
+.mx7-erg:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.mx7-dazu .mx7-marke + .mx7-erg { padding-top: 1rem; }
+.s7-stil .mx7-erg h3 { font-size: clamp(1.35rem, 1.8vw, 1.6rem); line-height: 1.2; }
+.mx7-erg__text > p { margin-top: .4rem; text-wrap: pretty; }
+.mx7-erg__punkte { color: var(--s7-grau); font-size: .92rem; }
+.mx7-erg__preis { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.mx7-erg__preis b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; white-space: nowrap; }
+.mx7-erg__preis span { color: var(--s7-grau); font-size: .9rem; }
+.mx7-mehr { display: inline-flex; align-items: center; gap: .45rem; margin-top: .8rem; padding: 0; border: 0; background: none; color: var(--s7-tinte); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.mx7-mehr:hover { text-decoration: underline; }
+.mx7-fuss { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; }
+
+/* Die ersten 30 Tage: Zeitleiste, der letzte Punkt (erster Report) in Farbe; darunter, was an dir hängt */
+.mx7-zeit { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: clamp(1.4rem, 3vw, 2.6rem); margin: 3.4rem 0 0; padding: 0; list-style: none; }
+.mx7-zeit__schritt { position: relative; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+.mx7-zeit__wann { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.05rem; font-weight: 700; }
+.mx7-zeit__punkt { position: relative; height: 2.6rem; }
+.mx7-zeit__punkt::before { content: ""; position: absolute; left: 0; right: calc(-1 * clamp(1.4rem, 3vw, 2.6rem)); top: 50%; height: 2px; background: var(--s7-tinte); }
+.mx7-zeit__schritt:last-child .mx7-zeit__punkt::before { right: 0; }
+.mx7-zeit__punkt::after { content: ""; position: absolute; left: 0; top: 50%; width: 1.1rem; height: 1.1rem; border: 2px solid var(--s7-tinte); border-radius: 50%; background: var(--s7-grund); transform: translateY(-50%); }
+.mx7-zeit__schritt--ziel .mx7-zeit__punkt::after { width: 1.5rem; height: 1.5rem; border: 0; background: var(--s7-akzent-verlauf); }
+.s7-stil .mx7-zeit h3 { font-size: clamp(1.4rem, 2vw, 1.7rem); line-height: 1.2; }
+.mx7-zeit__t { margin-top: .5rem; text-wrap: pretty; }
+.mx7-aufwand { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 2rem; margin-top: 3.4rem; padding: 1.4rem 1.8rem; border-radius: var(--s7-rund); background: var(--s7-flaeche); }
+.mx7-aufwand__titel { color: var(--s7-tinte); font-weight: 700; }
+.mx7-aufwand ul { display: flex; flex-wrap: wrap; gap: .5rem 1.8rem; margin: 0; padding: 0; list-style: none; }
+.mx7-aufwand li { position: relative; padding-left: 1.4rem; }
+.mx7-aufwand li::before { content: ""; position: absolute; left: .1rem; top: .55rem; width: .6rem; height: .3rem; border-left: 2px solid var(--s7-tinte); border-bottom: 2px solid var(--s7-tinte); transform: rotate(-45deg); }
+
+/* Download */
+.mx7-dl { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.mx7-dl__bild { position: relative; aspect-ratio: 5 / 4; }
+.mx7-dl__seite { position: absolute; width: 52%; height: auto; border-radius: 6px; box-shadow: 0 24px 50px rgba(0, 0, 0, .14); }
+.mx7-dl__seite--hinten { right: 6%; top: 4%; transform: rotate(5deg); }
+.mx7-dl__seite--vorn { left: 6%; top: 8%; transform: rotate(-4deg); }
+.mx7-dl__meta { display: flex; gap: 1.2rem; margin: 1.4rem 0 1.8rem; color: var(--s7-grau); font-size: .95rem; }
+
+/* Beleg */
+.mx7-beleg { text-align: center; }
+.mx7-beleg blockquote { max-width: 46rem; margin: 0 auto; }
+.mx7-beleg blockquote p { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; text-wrap: balance; }
+.mx7-beleg cite { display: block; margin-top: 1rem; color: var(--s7-grau); font-style: normal; }
+.mx7-beleg__link { margin-top: 2rem; }
+/* Grafik: Zielgruppen als Pillen */
+.mx7-held .s7-lead { max-width: 46rem; }
+.s7-held.mx7-held { padding-top: clamp(2.4rem, 4.5vw, 3.6rem); }
+/* Schnitt durch die Maschine: quer als Grafik, unter 820px als Liste */
+.mx7-schnitt { display: none; gap: 2px; max-width: 36rem; margin: 0 auto; }
+.mx7-schnitt__lage { display: grid; gap: .2rem; padding: 1rem 1.1rem; background: var(--s7-lage-1); color: var(--s7-tinte); font-size: .95rem; line-height: 1.45; }
+.mx7-schnitt__lage p:first-child span { margin-left: .5rem; }
+.mx7-schnitt__lage span { color: var(--s7-grau); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.mx7-schnitt__lage--1 { order: 4; background: var(--s7-akzent-verlauf); color: var(--s7-auf-akzent); }
+.mx7-schnitt__lage--1 span { color: inherit; }
+.mx7-schnitt__lage--2 { order: 3; }
+.mx7-schnitt__lage--3 { order: 2; background: var(--s7-lage-2); }
+.mx7-schnitt__lage--4 { order: 1; border-radius: 12px 12px 0 0; background: var(--s7-lage-3); }
+.mx7-schnitt__unten { display: block; height: .9rem; }
+.mx7-schnitt__unten--1 { order: 5; background: var(--s7-lage-1); }
+.mx7-schnitt__unten--2 { order: 6; background: var(--s7-lage-2); }
+.mx7-schnitt__unten--3 { order: 7; border-radius: 0 0 12px 12px; background: var(--s7-lage-3); }
+.mx7-schnitt__mess { order: 8; margin: .8rem 0 .5rem; color: var(--s7-tinte); font-size: .9rem; font-weight: 700; text-align: center; }
+.mx7-schnitt__mess::before { content: "↓ "; }
+.mx7-schnitt__vertrieb { order: 9; display: grid; gap: .1rem; padding: 1rem; border-radius: 12px; background: var(--s7-tinte); color: #fff; text-align: center; }
+.mx7-schnitt__vertrieb span { color: #a1a1a6; font-size: .9rem; }
+@media (max-width: 1100px) { .ek2--schnitt { display: none; } .mx7-schnitt { display: grid; text-align: left; } }
+
+/* Pop-ups: hell und ruhig, Grundschrift */
+.mx7-d { width: min(100% - 2rem, 46rem); max-height: 86vh; padding: clamp(1.6rem, 4vw, 2.6rem); border: 0; border-radius: var(--s7-rund); background: #fff; color: var(--s7-text); font-family: var(--s7-schrift-text); font-size: 1rem; line-height: 1.6; text-align: left; }
+.mx7-d__zu { position: absolute; top: 1rem; right: 1rem; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: var(--s7-flaeche); color: var(--s7-tinte); font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.mx7-d__zu:focus { outline: none; }
+.mx7-d__zu:focus-visible { background: var(--s7-linie); }
+.mx7-d::backdrop { background: rgba(0, 0, 0, .35); backdrop-filter: blur(4px); }
+.mx7-d__meta { color: var(--s7-grau); font-size: .9rem; font-weight: 600; }
+.s7-stil .mx7-d h3 { margin: .3rem 2.5rem 1.2rem 0; font-size: 1.7rem; line-height: 1.2; }
+.mx7-d > p + p { margin-top: .8rem; }
+.mx7-d > .mx7-d__label { margin: 1.8rem 0 .4rem; color: var(--s7-tinte); font-weight: 700; }
+.mx7-d__punkt { padding: .8rem 0; border-top: 1px solid var(--s7-linie); }
+.mx7-d__punkt b { color: var(--s7-tinte); }
+.mx7-d__punkt p { margin-top: .2rem; }
+.mx7-d ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.mx7-d li { margin: .25rem 0; }
+.mx7-d__hinweis { margin-top: 1.6rem !important; color: var(--s7-grau); font-size: .9rem; }
+
+@media (max-width: 1000px) {
+  .mx7-bs, .mx7-dl { grid-template-columns: minmax(0, 1fr); }
+  .mx7-zeit { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(8, auto); row-gap: 0; }
+  .mx7-zeit__t { padding-bottom: 2.4rem; }
+  .mx7-zeit__schritt:nth-child(2) .mx7-zeit__punkt::before { right: 0; }
+  .mx7-dl__bild { max-width: 30rem; }
+}
+@media (max-width: 600px) {
+  .mx7-zeit { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .mx7-zeit__schritt { grid-row: auto; grid-template-rows: none; }
+  .mx7-zeit__punkt { display: none; }
+  .mx7-zeit__wann { margin-bottom: .3rem; }
+  .mx7-erg { grid-template-columns: minmax(0, 1fr); }
+  .mx7-erg__preis { align-items: flex-start; text-align: left; }
+  .mx7-basis__gruppen { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ===================================================================================
+   STILRICHTUNGEN – jede setzt die Stellschrauben neu, dazu wenige eigene Regeln
+   =================================================================================== */
+
+/* 1 · Apple-klar: Weiß/Hellgrau, sehr große Grotesk, Verlauf nur punktuell */
+.s7-stil--apple {
+  --s7-schrift-titel: "Inter Tight", "Inter", system-ui, sans-serif;
+  --s7-schrift-text: "Inter", system-ui, sans-serif;
+  --s7-titel-gewicht: 700; --s7-titel-abstand: -0.025em;
+  --s7-h1: clamp(3rem, 7.6vw, 6.6rem); --s7-h1-hoehe: 1.0;
+  --s7-h2: clamp(2.3rem, 5vw, 4rem);   --s7-h2-hoehe: 1.05;
+  --s7-grund: #ffffff; --s7-flaeche: #f5f5f7; --s7-tinte: #1d1d1f; --s7-text: #424245; --s7-grau: #86868b; --s7-linie: #e5e5ea;
+  --s7-akzent: #e3e8ff; --s7-akzent-fill: url(#s7v-pastell); --s7-akzent-verlauf: linear-gradient(100deg, #dfe6ff, #eddcff); --s7-auf-akzent: #1d1d1f;
+  --s7-wort: transparent; --s7-wort-verlauf: linear-gradient(100deg, #2f6bff 0%, #7b3fe4 55%, #b44ce0 100%);
+  --s7-knopf-grund: #1d1d1f; --s7-knopf-text: #ffffff;
+  --s7-buehne: #ffffff; --s7-band-akzent: #f5f5f7; --s7-karte: #ffffff;
+  --s7-schatten: none;
+  --s7-komplett-grund: #1d1d1f; --s7-komplett-text: #d2d2d7; --s7-komplett-titel: #ffffff; --s7-komplett-haken: #9d8cff;
+  --s7-lage-1: #d5d5db; --s7-lage-2: #e1e1e6; --s7-lage-3: #ececf0;
+  --s7-rund: 24px;
+}
+.s7-stil--apple .s7-held { text-align: center; }
+.s7-stil--apple .s7-held h1, .s7-stil--apple .s7-held .s7-lead { margin-left: auto; margin-right: auto; }
+.s7-stil--apple .s7-held__knoepfe { justify-content: center; }
+.s7-stil--apple .s7-held .s7-lead { color: #6e6e73; }
+.s7-stil--apple .s7-kicker { letter-spacing: .02em; text-transform: none; font-size: 1rem; font-weight: 600; color: #6e6e73; }
+.s7-stil--apple .s7-pille--an, .s7-stil--apple .s7-dash__kachel--an, .s7-stil--apple .s7-strecke__ziel b { background: var(--s7-akzent-verlauf); }
+
+/* Farbakzente für Apple-klar (Farbproben): Farbe immer vollflächig mit weißer Schrift, im Wort als Verlauf – keine zarten Tönungen */
+.s7-farbe--cyanviolett {
+  --s7-wort-verlauf: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%);
+  --s7-akzent: #0b9fbd; --s7-akzent-verlauf: linear-gradient(100deg, #0b9fbd, #8613a1); --s7-akzent-fill: url(#s7v-cyanviolett); --s7-akzent-fill-hoch: url(#s7v-cyanviolett-h); --s7-akzent-ende: #8613a1; --s7-auf-akzent: #ffffff;
+  --s7-komplett-grund: linear-gradient(140deg, #0b9fbd 0%, #8613a1 100%); --s7-komplett-text: #efe6f4; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #8613a1;
+}
+.s7-farbe--magentaviolett {
+  --s7-wort-verlauf: linear-gradient(100deg, #c51f5d 0%, #8613a1 100%);
+  --s7-akzent: #c51f5d; --s7-akzent-verlauf: linear-gradient(100deg, #c51f5d, #8613a1); --s7-akzent-fill: url(#s7v-magentaviolett); --s7-akzent-fill-hoch: url(#s7v-magentaviolett-h); --s7-akzent-ende: #8613a1; --s7-auf-akzent: #ffffff;
+  --s7-komplett-grund: linear-gradient(140deg, #c51f5d 0%, #8613a1 100%); --s7-komplett-text: #f6e7ef; --s7-komplett-haken: #ffffff; --s7-komplett-knopf-text: #8613a1;
+}
+/* Flächen-Test (Farbproben) */
+.fp-kacheln { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+.fp-k { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 11rem; padding: 1.6rem; border-radius: var(--s7-rund); }
+.fp-k b { display: block; font-size: .85rem; font-weight: 600; }
+.fp-k small { display: block; margin-top: .2rem; font-size: .85rem; opacity: .8; }
+.fp-k--voll { background: var(--s7-komplett-grund); color: #fff; }
+.fp-k--zart { background: var(--s7-akzent-verlauf); color: var(--s7-tinte); }
+.fp-k--text { background: #fff; border: 1px solid var(--s7-linie); color: var(--s7-tinte); }
+.fp-k__gross { font-family: var(--s7-schrift-titel); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+@media (max-width: 760px) { .fp-kacheln { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Stilproben-Seite: Steckbriefe ---------- */
+.sp-kopf { padding: clamp(3rem, 6vw, 5rem) 0 3rem; border-bottom: 1px solid #e2e2df; }
+.sp-kopf h1 { max-width: 18ch; font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 1.04; letter-spacing: -0.03em; }
+.sp-massstab { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem 2rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+.sp-massstab li { padding-top: .7rem; border-top: 1px solid #e2e2df; font-size: .95rem; line-height: 1.45; }
+.sp-sprung { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+.sp-sprung a { padding: .55rem 1rem; border: 1.5px solid #181818; border-radius: 99px; color: #181818; font-weight: 600; font-size: .92rem; text-decoration: none; }
+.sp-brief { position: relative; z-index: 2; background: #111; color: #cfcfcf; }
+.sp-brief .s7-wrap { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1rem 2.4rem; align-items: center; padding: 1.6rem 0; }
+.sp-brief__nr { color: #fff; font: 700 2.6rem/1 system-ui, sans-serif; }
+.sp-brief h2 { margin: 0; color: #fff; font: 700 1.5rem/1.2 system-ui, sans-serif; }
+.sp-brief p { margin-top: .3rem; font-size: .95rem; line-height: 1.5; }
+.sp-brief dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .25rem 1rem; margin: .8rem 0 0; font-size: .85rem; }
+.sp-brief dt { color: #8a8a8a; }
+.sp-brief dd { margin: 0; color: #e9e9e9; }
+.sp-farben { display: flex; gap: .5rem; }
+.sp-farben i { width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); }
+.sp-ende { padding: 4rem 0 5rem; background: #f4f4f3; }
+.sp-ende h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -0.02em; }
+.sp-ende p { max-width: 40rem; margin-top: .8rem; }
+
+/* ---------- Mobil ---------- */
+@media (max-width: 1000px) {
+  .s7-ablauf, .s7-pakete { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
+  .s7-ablauf__schritt, .s7-paket { grid-row: auto; grid-template-rows: none; }
+  .s7-ablauf__schritt { margin-bottom: 2.4rem; }
+  .s7-ablauf__schritt:not(:last-child) .s7-ablauf__bild::after { display: none; }
+  .s7-zg-listen { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .s7-gruppe { grid-row: auto; grid-column: 1; margin: 1rem 0 .2rem; }
+  .s7-gruppe--b { order: 3; }
+  .s7-paket--komplett { order: 4; }
+  .s7-vertrauen, .s7-kontakt { grid-template-columns: minmax(0, 1fr); }
+  .s7-vertrauen__text { padding: 0; }
+
+  .sp-massstab { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sp-brief .s7-wrap { grid-template-columns: auto minmax(0, 1fr); }
+  .sp-farben { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .sp-massstab { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+{#- Verläufe für Grafiken (fill: url(#…)) – einmal je Seite -#}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="s7v-pastell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9e2ff"/><stop offset="1" stop-color="#ecdbff"/></linearGradient>
+  <linearGradient id="s7v-cyanviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
+  <linearGradient id="s7v-cyanviolett-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
+  <linearGradient id="s7v-magentaviolett-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
+  <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
+</defs></svg>
+
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 8</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · <span class="s7-schalter" role="group" aria-label="Farbe umstellen">Farbe <button type="button" data-farbe="cyanviolett" aria-pressed="true" title="Cyan → Violett">1</button><button type="button" data-farbe="magentaviolett" aria-pressed="false" title="Magenta → Violett">2</button></span>{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+
+<div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
+<header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
+  <div class="s7-wrap">
+    <div class="s7-marke">
+      <a href="{{ H7 }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+      <div class="s7-dd" data-s7-dd>
+        <button type="button" class="s7-dd__auf" aria-expanded="false" aria-controls="s7-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
+        <div class="s7-dd__panel" id="s7-dd-panel" hidden>
+          {%- for item in site.nav %}{% if item.devOnly %}{% for c in item.children %}
+          {%- if c.typ == "hinweis" %}<p class="s7-dd__hinweis">{{ c.text }}</p>
+          {%- elif c.typ == "gruppe" %}<p class="s7-dd__gruppe">{{ c.label }}</p>
+          {%- elif c.children %}<div class="s7-unter"><a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}<span class="s7-unter__pfeil" aria-hidden="true">›</span></a><div class="s7-unter__panel">{% for u in c.children %}<a href="{{ u.href }}"{% if u.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ u.label }}</a>{% endfor %}</div></div>
+          {%- else %}<a href="{{ c.href }}"{% if c.href | isCurrentPath(page.url) %} aria-current="page"{% endif %}>{{ c.label }}</a>{% endif %}
+          {%- endfor %}{% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+    {%- if istSeite %}
+    {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
+        Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1280px, Knopf mit zwei Strichen) -#}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Mit deinem Team", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
+    <nav class="s7-nav" aria-label="Hauptnavigation">
+      {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
+    </nav>
+    {%- endif %}
+    <a class="s7-knopf s7-kopf__termin" href="{{ H7 }}/kontakt/">Termin auswählen</a>
+    {%- if istSeite %}
+    <button type="button" class="s7-burger" aria-expanded="false" aria-controls="s7-menue" aria-label="Menü öffnen"><span></span><span></span></button>
+    {%- endif %}
+  </div>
+  {%- if istSeite %}
+  <div class="s7-menue" id="s7-menue" hidden>
+    <nav class="s7-menue__liste" aria-label="Hauptnavigation">
+      {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
+      <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+    </nav>
+  </div>
+  {%- endif %}
+</header>
+
+{%- if s.slug == "vertriebsleiter" %}
+{#- Unterseite Für Vertriebsleiter (Story A, überarbeitet 12.11.2026): jedes Büro der Region bekommt seine Maschine,
+    die Summe ist der Umsatz der Region; Einführung, Begleitung und monatliches Strategie-Sparring mit Rückmeldung.
+    Kein Marketing as a Service. Grafik: erklaerbild.py region_quer/region_hoch. Inhalte: s7.vl -#}
+{%- set VL = S.vl %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VL.held.kicker }}</p>
+      <h1 class="vl7-h1">{{ VL.held.h1 }}<br><span class="s7-wort">{{ VL.held.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ VL.held.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ VL.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#einfuehrung">{{ VL.held.knopf2 }}</a>
+      </div>
+      <figure class="s7-maschine"><div class="ek2" role="img" aria-label="Jede Agentur deiner Region bekommt fertige Vertriebsstrecken für ihre Zielgruppen. Die Leads jeder Agentur sind messbar und ergeben zusammen mehr Neugeschäft in deiner Region. Jeden Monat im Dashboard und im Sparring: welche Agentur wo steht und was wir anpassen.">{{ S.ek_region_quer | safe }}{{ S.ek_region_hoch | safe }}</div></figure>
+    </div>
+  </section>
+
+  {%- set PB = VL.problem %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap vl7-problem">
+      <div>
+        <p class="s7-kicker">{{ PB.kicker }}</p>
+        <h2 class="s7-h2 vl7-h2">{{ PB.h2 }}</h2>
+      </div>
+      <div>{% for x in PB.absaetze %}<p class="s7-lead">{{ x }}</p>{% endfor %}</div>
+    </div>
+  </section>
+
+  {%- set LO = VL.loesung %}
+  <section class="s7-band vl7-loesung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ LO.kicker }}</p>
+      <h2 class="s7-h2">{{ LO.h2 }}<br><span class="s7-wort">{{ LO.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ LO.lead }}</p>
+      <div class="vs7-wege">
+        {%- for x in S.vs.teile.liste %}
+        <article class="vs7-weg">
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          <img src="/assets/img/{{ x.bild }}" alt="" width="{{ x.b }}" height="{{ x.h }}" loading="lazy">
+        </article>
+        {%- endfor %}
+      </div>
+      <p class="vl7-link"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ LO.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {%- set EF = VL.einfuehrung %}
+  <section class="s7-band s7-band--flaeche" id="einfuehrung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ EF.kicker }}</p>
+      <h2 class="s7-h2">{{ EF.h2 }}</h2>
+      <ol class="vl7-schritte">
+        {%- for x in EF.liste %}
+        <li{% if loop.last %} class="vl7-schritte--sparring"{% endif %}><span>0{{ loop.index }}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set ZI = VL.zitat %}
+  <section class="s7-band">
+    <div class="s7-wrap vl7-zitat">
+      <figure class="vl7-zitat__bild"><img src="/assets/img/{{ ZI.bild }}" alt="{{ ZI.bild_alt }}" width="397" height="473" loading="lazy"></figure>
+      <blockquote><p>„{{ ZI.text }}“</p><cite>{{ ZI.quelle }}</cite></blockquote>
+    </div>
+  </section>
+
+  {{ kontaktBand(VL.kontakt) }}
+</main>
+{%- elif s.slug == "preise" %}
+{#- Unterseite Preise: Pakete (Baustein der Startseite), Vergleich Fokus · Team · Komplett, Ergänzungen mit Preisen.
+    Was noch nicht feststeht, steht sichtbar als „offen“ – nichts erfunden. Inhalte: s7.preise, s7.pakete, s7.maas.bausteine -#}
+{%- set PR = S.preise %}{%- set VG = PR.vergleich %}
+<main>
+  <section class="s7-held pr7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ PR.kicker }}</p>
+      <h1 class="zg7-h1">{{ PR.h1 }}<br><span class="s7-wort">{{ PR.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ PR.lead }}</p>
+    </div>
+  </section>
+  {{ pakete(false) }}
+
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VG.kicker }}</p>
+      <h2 class="s7-h2">{{ VG.h2 }}</h2>
+      <p class="pr7-offen">{{ VG.offen_hinweis }}</p>
+      <div class="pr7-tabelle" role="table" aria-label="{{ VG.h2 }}">
+        <div class="pr7-kopf" role="row"><span role="columnheader"></span>{% for c in VG.spalten %}<b role="columnheader"{% if loop.last %} class="pr7-komplett"{% endif %}>{{ c }}</b>{% endfor %}</div>
+        {%- for g in VG.gruppen %}
+        <p class="pr7-gruppe">{{ g.titel }}</p>
+        {%- for z in g.zeilen %}
+        <div class="pr7-zeile" role="row">
+          <span role="rowheader">{{ z[0] }}</span>
+          {%- for c in z.slice(1) %}
+          <span role="cell" class="pr7-zelle{% if c == 'offen' %} pr7-zelle--offen{% endif %}">{% if c == "ja" %}<i class="pr7-ja" aria-label="enthalten"></i>{% elif c == "nein" %}<i class="pr7-nein" aria-label="nicht enthalten">–</i>{% else %}{{ c }}{% endif %}</span>
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+        {%- endfor %}
+        <div class="pr7-zeile pr7-zeile--preis" role="row"><span role="rowheader">Preis</span>{% for c in VG.preis %}<span role="cell" class="pr7-zelle{% if c == 'offen' %} pr7-zelle--offen{% endif %}"><b>{{ c }}</b>{% if c != 'offen' %}<small>{{ VG.preis_einheit }}</small>{% endif %}</span>{% endfor %}</div>
+      </div>
+    </div>
+  </section>
+
+  {%- set EG = PR.ergaenzungen %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ EG.kicker }}</p>
+      <h2 class="s7-h2">{{ EG.h2 }}</h2>
+      <div class="pr7-erg">
+        {%- for b in S.maas.bausteine.liste %}{% if not loop.first %}
+        <article class="pr7-erg__karte">
+          <h3>{{ b.name }}</h3>
+          <p>{{ b.kurz }}</p>
+          <p class="pr7-erg__preis"><b>{{ b.preis }}</b><span>{{ b.einheit }}</span>{% if b.zusatz %}<span>{{ b.zusatz }}</span>{% endif %}</p>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <p class="pr7-fuss"><a class="s7-link" href="{{ H7 }}/marketing-as-a-service/#bausteine">{{ EG.link }} {{ pfeil | safe }}</a></p>
+      <ul class="pr7-hinweise">{% for x in PR.fuss %}<li>{{ x }}</li>{% endfor %}</ul>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- elif s.slug == "kontakt" %}
+{#- Unterseite Kontakt und Termin: ein Ziel – der Termin. Links, worum es geht und die direkten Wege; rechts der Kalender (Cal.com, hell).
+    Entwicklungsseite: Kalender lädt ohne Einwilligungsabfrage. Vor dem Weg nach main die Einwilligung wie in partials/cal-embed.njk einbauen. -#}
+{%- set KS = S.kontaktseite %}{%- set C = kontakt.cal %}
+<main>
+  <section class="ks7">
+    <div class="ks7__spalte">
+      <div class="ks7__kopf">
+        <figure class="ks7__team"><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"></figure>
+        <div class="ks7__text">
+          <h1 class="ks7__h1">{{ KS.h1 }}<br><span class="s7-wort">{{ KS.h1_akzent }}</span></h1>
+          <p class="ks7__lead">{{ KS.lead }}</p>
+          <p class="ks7__wege"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        </div>
+      </div>
+      <div class="ks7__kalender"><div id="cal-inline-{{ C.namespace }}"></div></div>
+    </div>
+  </section>
+</main>
+<script>
+  (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document;
+    C.Cal = C.Cal || function () { var cal = C.Cal, ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) { var api = function () { p(api, arguments); }; var ns = ar[1]; api.q = api.q || [];
+        if (typeof ns === "string") { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ["initNamespace", ns]); } else { p(cal, ar); } return; }
+      p(cal, ar); };
+  })(window, "{{ C.origin }}/embed/embed.js", "init");
+  Cal("init", "{{ C.namespace }}", { origin: "{{ C.origin }}" });
+  Cal.ns["{{ C.namespace }}"]("inline", { elementOrSelector: "#cal-inline-{{ C.namespace }}", config: { layout: "month_view", theme: "dark" }, calLink: "{{ C.link }}" });
+  /* Kalender verschmilzt mit der dunklen Fläche: Hintergrund = Fläche, kein Rahmen, Auswahl in Cyan */
+  Cal.ns["{{ C.namespace }}"]("ui", { theme: "dark", hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { dark: {
+    "cal-brand": "#0b9fbd", "cal-brand-emphasis": "#0b9fbd", "cal-brand-text": "#ffffff",
+    "cal-bg": "#1d1d1f", "cal-bg-muted": "#1d1d1f", "cal-bg-subtle": "#2c2c2e", "cal-bg-emphasis": "#2c2c2e",
+    "cal-border-booker": "#1d1d1f", "cal-border": "#3a3a3c", "cal-border-subtle": "#2c2c2e", "cal-border-emphasis": "#48484a",
+    "cal-text": "#d2d2d7", "cal-text-emphasis": "#ffffff", "cal-text-subtle": "#a1a1a6", "cal-text-muted": "#86868b" } } });
+</script>
+{%- elif s.slug == "strategiekompass" %}
+{#- Unterseite Strategiekompass: Konfigurator (Logik und Daten unverändert aus story6/assets/kompass/kompass-g.js – eine Quelle),
+    im Story-7-Stil; ohne Preisblock (Pakete haben noch keine festen Preise), Weiter führt zum Kontakt. -#}
+{%- set KO = S.kompass %}
+<main>
+  <section class="s7-held ko7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ KO.kicker }}</p>
+      <h1>{{ KO.h1 }}<br><span class="s7-wort">{{ KO.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ KO.lead }}</p>
+    </div>
+  </section>
+  <section class="ko7-app">
+    <div class="s7-wrap"><div class="kg ko7" id="app"></div></div>
+  </section>
+  {{ kontaktBand() }}
+</main>
+<link rel="stylesheet" href="{{ B6 }}/assets/kompass/kompass-g.css">
+<script>window.KOMPASS_CFG = { kopf: false, preis: false, ziel: "#kontakt", knopf: {{ KO.knopf | dump | safe }}, hinweis: {{ KO.hinweis | dump | safe }} };</script>
+<script src="{{ B6 }}/assets/kompass/kompass-g.js"></script>
+{%- elif s.slug == "stilproben" %}
+{%- set SP = S.stilproben %}
+<main>
+  <section class="sp-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Stilproben · zur Auswahl</p>
+      <h1>{{ SP.h1 }} <span class="s7-wort">{{ SP.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ SP.lead }}</p>
+      <ul class="sp-massstab">{% for m in SP.massstab %}<li>{{ m }}</li>{% endfor %}</ul>
+      <nav class="sp-sprung" aria-label="Zu den Richtungen">{% for st in SP.stile %}<a href="#stil-{{ st.id }}">{{ st.nr }} · {{ st.name }}</a>{% endfor %}</nav>
+    </div>
+  </section>
+  {%- for st in SP.stile %}
+  <section class="sp-brief" id="stil-{{ st.id }}">
+    <div class="s7-wrap">
+      <span class="sp-brief__nr">{{ st.nr }}</span>
+      <div>
+        <h2>{{ st.name }}</h2>
+        <p>{{ st.satz }}</p>
+        <dl><dt>Schrift</dt><dd>{{ st.schrift }}</dd><dt>Farbe</dt><dd>{{ st.farbe }}</dd><dt>Vorbilder</dt><dd>{{ st.vorbilder }}</dd><dt>Risiko</dt><dd>{{ st.risiko }}</dd></dl>
+      </div>
+      <div class="sp-farben" aria-hidden="true">{% for f in st.swatches %}<i style="background: {{ f }}"></i>{% endfor %}</div>
+    </div>
+  </section>
+  <div class="s7-stil s7-stil--{{ st.id }}">
+    {{ held(false) }}
+    {{ schritte(false) }}
+    {{ pakete(false) }}
+  </div>
+  {%- endfor %}
+  <section class="sp-ende">
+    <div class="s7-wrap">
+      <h2>Weiter mit der Farbe.</h2>
+      <p>Welcher Farbakzent zu Apple-klar passt, zeigen die <a href="/entwicklung/storyboard/story7/farbproben/">Farbproben</a>.</p>
+    </div>
+  </section>
+</main>
+{%- elif s.slug == "farbproben" %}
+{%- set FP = S.farbproben %}
+<main>
+  <section class="sp-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Farbproben · Apple-klar</p>
+      <h1>{{ FP.h1 }} <span class="s7-wort">{{ FP.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ FP.lead }}</p>
+      <ul class="sp-massstab">{% for m in FP.stellen %}<li>{{ m }}</li>{% endfor %}</ul>
+      <nav class="sp-sprung" aria-label="Zu den Farben">{% for f in FP.farben %}<a href="#farbe-{{ f.id }}">{{ f.nr }} · {{ f.name }}</a>{% endfor %}</nav>
+    </div>
+  </section>
+  {%- for f in FP.farben %}
+  <section class="sp-brief" id="farbe-{{ f.id }}">
+    <div class="s7-wrap">
+      <span class="sp-brief__nr">{{ f.nr }}</span>
+      <div><h2>{{ f.name }}</h2><p>{{ f.satz }}</p></div>
+      <div class="sp-farben" aria-hidden="true"><i style="background: {{ f.swatch }}; width: 7rem; border-radius: 99px"></i></div>
+    </div>
+  </section>
+  <div class="s7-stil s7-stil--apple s7-farbe--{{ f.id }}">
+    {{ held(false) }}
+    <section class="s7-band">
+      <div class="s7-wrap">
+        <p class="s7-kicker">Flächen-Test</p>
+        <h2 class="s7-h2">So wirkt die Farbe als Fläche.</h2>
+        <div class="fp-kacheln">
+          <div class="fp-k fp-k--voll"><span class="fp-k__gross">ab 1.800 €</span><span><b>Kräftig</b><small>Komplett-Paket, Kern der Maschine, Leads, gewählte Pills</small></span></div>
+          <div class="fp-k fp-k--text"><span class="fp-k__gross s7-wort">vor deinem Vertrieb.</span><span><b>Als Schrift</b><small>Das hervorgehobene Wort</small></span></div>
+        </div>
+      </div>
+    </section>
+    {{ pakete(false) }}
+  </div>
+  {%- endfor %}
+</main>
+{%- elif s.slug == "mehrwerte" %}
+{#- Mehrwerte (Entwicklung, Daniel 14.11.2026): Ideensammlung, wie Kunden LinkedIn und die Postings konkret im Marketing- und
+    Vertriebsprozess nutzen – Grundlage, zwei Wege, Weg in den Vertrieb, Formate. Inhalte: s7.mehrwerte -#}
+{%- set MW = S.mehrwerte %}
+<main class="mw7">
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ MW.kopf.kicker }}</p>
+      <h1 class="sp7-h1">{{ MW.kopf.h1 }} <span class="s7-wort">{{ MW.kopf.h1_akzent }}</span></h1>
+      <p class="s7-lead mw7-lead">{{ MW.kopf.lead }}</p>
+    </div>
+  </section>
+
+  {%- set G = MW.grundlage %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ G.kicker }}</p>
+      <h2 class="s7-h2">{{ G.h2 }}</h2>
+      <p class="s7-lead">{{ G.lead }}</p>
+      <ol class="mw7-grund">
+        {%- for x in G.liste %}
+        <li class="mw7-karte{% if x.produkt %} mw7-karte--produkt{% endif %}">
+          <p class="mw7-nr">{{ x.nr }}</p>
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          {%- if x.punkte | length %}<ul class="mx7-haken">{% for y in x.punkte %}<li>{{ y }}</li>{% endfor %}</ul>{% endif %}
+          {%- if x.produkt %}<p class="mw7-marke">Unser Produkt</p>{% endif %}
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set AK = MW.aktiv %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ AK.kicker }}</p>
+      <h2 class="s7-h2">{{ AK.h2 }}</h2>
+      <p class="s7-lead">{{ AK.lead }}</p>
+      <div class="mw7-wege">
+        {%- for w in AK.wege %}
+        <article class="mw7-weg">
+          <p class="mw7-nr">{{ w.label }}</p>
+          <h3>{{ w.titel }}</h3>
+          <p>{{ w.text }}</p>
+          <div class="mw7-tool">
+            <p class="mw7-tool__name"><span>Werkzeug</span>{{ w.tool.name }}</p>
+            {%- for m in w.tool.modi %}<div class="mw7-modus"><b>{{ m[0] }}</b><p>{{ m[1] }}</p></div>{% endfor %}
+            <p class="mw7-tool__fuss">{{ w.tool.einstellung }}</p>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set VT = MW.vertrieb %}
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ VT.kicker }}</p>
+      <h2 class="s7-h2">{{ VT.h2 }}</h2>
+      <p class="s7-lead">{{ VT.lead }}</p>
+      <ol class="mx7-zeit">
+        {%- for x in VT.schritte %}
+        <li class="mx7-zeit__schritt{% if loop.last %} mx7-zeit__schritt--ziel{% endif %}">
+          <p class="mx7-zeit__wann">{{ x[0] }}</p>
+          <span class="mx7-zeit__punkt" aria-hidden="true"></span>
+          <h3>{% if loop.last %}Anschreiben{% else %}Kommentieren{% endif %}</h3>
+          <p class="mx7-zeit__t">{{ x[1] }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="mw7-bezug">{{ VT.bezug }} <a class="s7-link" href="{{ H7 }}/infografik/#op-detail">Zur Detailstufe {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {%- set WT = MW.weiter %}
+  <section class="s7-band">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ WT.kicker }}</p>
+      <h2 class="s7-h2">{{ WT.h2 }}</h2>
+      <p class="s7-lead">{{ WT.lead }}</p>
+      <div class="mw7-weiter">
+        <div><p class="mw7-weiter__titel">Formate</p>
+          <dl class="mw7-formate">{% for f in WT.formate %}<dt>{{ f[0] }}</dt><dd>{{ f[1] }}</dd>{% endfor %}</dl></div>
+        <div class="mw7-fragen"><p class="mw7-weiter__titel">Offene Fragen</p>
+          <ul>{% for f in WT.fragen %}<li>{{ f }}</li>{% endfor %}</ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+{%- elif s.slug == "infografik" %}
+{#- Infografik sofort sichtbar (Entwicklung, Daniel 12.11.2026): One-Pager zur Homepage-Logik im Look von Story 7.
+    Dateien: story7/assets/onepager (onepager7.py), story7/assets/deckblatt, alter Stand story6/assets/maas/infografik/rollup3 -#}
+{%- set OP = A7 + "/onepager/" %}{% set OPV = "?v=" + S.onepager_stand %}
+{%- set Q = [["a3-quer", "DIN A3 quer"], ["a3-hoch", "DIN A3 hoch"], ["rollup", "Roll-up 100 × 200 cm"]] %}
+{%- set GR = [
+  ["maschine-ausfuehrlich-druck", "Grundstory ausführlich zum Ausdrucken", "Die digitale Maschine vor deinem Vertrieb.", "Wie die ausführliche Fassung, ohne Kontaktband, Gesichter und Kontaktdaten – unten rechts nur die Adresse. Für den Drucker zu Hause.", false],
+  ["maschine-ausfuehrlich", "Grundstory ausführlich", "Die digitale Maschine vor deinem Vertrieb.", "01 Strategie – wo willst du wachsen? · 02 Marketing und Vertrieb – drei Stufen zum Vertriebserfolg mit Messpunkt Leads · 03 Steuerung – funktioniert es?", true],
+  ["maschine", "Grundstory kompakt", "Die digitale Maschine vor deinem Vertrieb.", "Trichter der Startseite mit Messpunkt Leads, Vertrieb und Kundenbetreuung; darunter die drei Schritte.", true],
+  ["maas", "Marketing as a Service", "Wir bedienen die Maschine. Du verkaufst.", "Gesamtlogik wie im Kopf der Website, Schnitt durch die Maschine mit Kernpaket und Ergänzungen, der 30-Tage-Plan.", true]
+] %}
+<main class="ig7">
+  <section class="s7-band ig7-kopf">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Infografik sofort sichtbar</p>
+      <h1 class="sp7-h1">One-Pager zur Homepage-Logik.</h1>
+      <p class="s7-lead">Die Grundstory, die Detailstufe und Marketing as a Service – als DIN A3 quer, DIN A3 hoch und Roll-up. Ein Klick auf ein Blatt öffnet das PDF.</p>
+    </div>
+  </section>
+  {%- for g in GR %}
+  <section class="s7-band{% if loop.index is odd %} s7-band--flaeche{% endif %}" id="op-{{ g[0] }}">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ g[1] }}</p>
+      <h2 class="s7-h2">{{ g[2] }}</h2>
+      <p class="s7-lead">{{ g[3] }}</p>
+      <div class="ig7-reihe{% if not g[4] %} ig7-reihe--zwei{% endif %}">
+        {%- for f in Q %}{% if g[4] or f[0] != "rollup" %}
+        <figure class="ig7-blatt ig7-blatt--{{ f[0] }}">
+          <a href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" alt="{{ g[1] }}, {{ f[1] }}" loading="lazy"></a>
+          <figcaption><span>{{ f[1] }}</span><a class="s7-link" href="{{ OP }}{{ g[0] }}-{{ f[0] }}.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}{{ g[0] }}-{{ f[0] }}.png{{ OPV }}" download>PNG</a></figcaption>
+        </figure>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+  </section>
+  {%- if g[0] == "maschine" %}
+  <section class="s7-band" id="op-detail">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Detailstufe · Seite 2 nach der Grundstory kompakt</p>
+      <h2 class="s7-h2">Vom ersten Kontakt zum Kunden.</h2>
+      <p class="s7-lead">Hineingezoomt in Marketing und Vertrieb: vier Kanäle, der Messpunkt Leads, Qualifizierung und Terminierung, Beratung, Abschluss, Kundenbetreuung.</p>
+      <div class="ig7-reihe ig7-reihe--paar">
+        <figure class="ig7-blatt">
+          <a href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" alt="Detailstufe, DIN A3 quer" loading="lazy"></a>
+          <figcaption><span>DIN A3 quer</span><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}maschine-detail-a3-quer.png{{ OPV }}" download>PNG</a><a class="s7-link" href="{{ OP }}maschine-mit-detail-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF mit Grundstory kompakt (2 Seiten)</a></figcaption>
+        </figure>
+        <figure class="ig7-blatt">
+          <a href="{{ OP }}maschine-detail-leer-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener"><img src="{{ OP }}maschine-detail-leer-a3-quer.png{{ OPV }}" alt="Leeres Arbeitsblatt, DIN A3 quer" loading="lazy"></a>
+          <figcaption><span>Leeres Arbeitsblatt · DIN A3 quer</span><a class="s7-link" href="{{ OP }}maschine-detail-leer-a3-quer.pdf{{ OPV }}" target="_blank" rel="noopener">PDF</a><a class="s7-link" href="{{ OP }}maschine-detail-leer-a3-quer.png{{ OPV }}" download>PNG</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+  {%- endfor %}
+  {%- set DS = A7 + "/deckblatt/system/" %}
+  {%- set DT = [["maas", "Marketing as a Service"], ["maschine", "Grundstory"], ["team", "Mit deinem Team"]] %}
+  {%- for sy in [["s2", "Deckblatt-System dunkel", "Fällt in der Download-Sektion sofort auf."], ["s1", "Deckblatt-System hell", "Ruhiger, nah an den weißen Seiten der Website."]] %}
+  <section class="s7-band{% if loop.first %} s7-band--flaeche{% endif %}" id="deckblatt-{{ sy[0] }}">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Deckblätter als Lead-Magnet · {{ sy[1] }}</p>
+      <h2 class="s7-h2">Eine Vorlage. Jedes Thema.</h2>
+      <p class="s7-lead">Gleich bleiben Art des Dokuments, Logo, Titel mit Verlauf am Ende und die Karte „Was dich erwartet“ mit drei Punkten. Je Thema wechseln nur Titel, Satz und Inhalt. {{ sy[2] }}</p>
+      <div class="ig7-reihe ig7-reihe--drei">
+        {%- for d in DT %}
+        <figure class="ig7-blatt"><a href="{{ DS }}{{ sy[0] }}-{{ d[0] }}.pdf?v=sys1" target="_blank" rel="noopener"><img src="{{ DS }}{{ sy[0] }}-{{ d[0] }}.png?v=sys1" alt="{{ sy[1] }}: {{ d[1] }}" loading="lazy"></a><figcaption><span>{{ d[1] }}</span></figcaption></figure>
+        {%- endfor %}
+      </div>
+      <p class="ig7-kontext-titel">So wirkt es in der Download-Sektion der Website</p>
+      <img class="ig7-kontext" src="{{ DS }}kontext-{{ sy[0] }}.jpg?v=sys1" alt="Download-Sektion mit {{ sy[1] }}" loading="lazy">
+    </div>
+  </section>
+  {%- endfor %}
+  <section class="s7-band" id="deckblatt">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Bisherige Einzelvarianten</p>
+      <h2 class="s7-h2">D und C.</h2>
+      <div class="ig7-reihe ig7-reihe--drei">
+        {%- for k in ["d", "c"] %}
+        <figure class="ig7-blatt"><a href="{{ A7 }}/deckblatt/deckblatt-{{ k }}.pdf" target="_blank" rel="noopener"><img src="{{ A7 }}/deckblatt/deckblatt-{{ k }}.png?v=dc" alt="Deckblatt Variante {{ k | upper }}" loading="lazy"></a><figcaption><span>Variante {{ k | upper }}</span></figcaption></figure>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="s7-band s7-band--flaeche" id="erinnerung">
+    <div class="s7-wrap ig7-alt">
+      <div>
+        <p class="s7-kicker">Alter Stand · Erinnerung</p>
+        <h2 class="s7-h2">Blick in die Maschine.</h2>
+        <p class="s7-lead">Roll-up Version 3 aus dem alten Stand: das Ökosystem aus dem Kernpaket und LinkedIn als aktiver Vertriebskanal. Bleibt als Gedankenstütze, um an dieser Idee weiterzuarbeiten.</p>
+        <p class="ig7-alt__links"><a class="s7-link" href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener">PDF · 100 × 200 cm {{ pfeil | safe }}</a></p>
+      </div>
+      <figure class="ig7-blatt"><a href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener"><img src="{{ B6 }}/assets/maas/infografik/rollup3.png" alt="Roll-up Version 3, Blick in die Maschine" loading="lazy"></a></figure>
+    </div>
+  </section>
+</main>
+{%- elif s.slug == "seitenplan" %}
+{#- Seitenplan (Entwicklung): alle Seiten als Baum – je Seite Frage, Herkunft, Ziel, Stand. Ein Highlight: der Stand „neu gebaut“. Inhalte: s7.seitenplan -#}
+{%- set P = S.seitenplan %}
+{%- macro karte(x, klasse="") -%}
+<article class="sp7-karte sp7-karte--{{ x.stand }} {{ klasse }}">
+  <p class="sp7-stand">{{ P.staende[x.stand] }}</p>
+  <h3>{% if x.link %}<a href="{{ x.link }}">{{ x.name }}</a>{% else %}{{ x.name }}{% endif %}</h3>
+  {%- if x.zusatz %}<p class="sp7-zusatz">{{ x.zusatz }}</p>{% endif %}
+  <p class="sp7-frage">„{{ x.frage }}“</p>
+  <dl>
+    <dt>Kommt von</dt><dd>{{ x.von }}</dd>
+    {%- if x.zu %}<dt>Führt zu</dt><dd>{{ x.zu }}</dd>{% endif %}
+  </dl>
+  {%- if x.offen %}<p class="sp7-offen">{{ x.offen }}</p>{% endif %}
+</article>
+{%- endmacro -%}
+<main>
+  <section class="s7-band sp7">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ P.kicker }}</p>
+      <h1 class="sp7-h1">{{ P.h1 }}</h1>
+      <p class="s7-lead">{{ P.lead }}</p>
+      <p class="sp7-legende">{% for k, v in P.staende %}<span class="sp7-stand sp7-stand--{{ k }}">{{ v }}</span>{% endfor %}</p>
+
+      <div class="sp7-baum">
+        <div class="sp7-wurzel">{{ karte(P.start) }}</div>
+        <div class="sp7-ebene">
+          {%- for x in P.ebene %}
+          <div class="sp7-ast">
+            {{ karte(x) }}
+            {%- if x.unter %}
+            <article class="sp7-unter"><h4><a href="{{ x.unter.link }}">{{ x.unter.name }}</a></h4><p class="sp7-frage">„{{ x.unter.frage }}“</p><p class="sp7-zusatz">{{ x.unter.hinweis }}</p></article>
+            {%- endif %}
+          </div>
+          {%- endfor %}
+        </div>
+        <div class="sp7-immer">{{ karte(P.immer) }}</div>
+      </div>
+
+      <div class="sp7-neben">
+        <div>
+          <h2 class="sp7-h2">Entfällt</h2>
+          <ul class="sp7-liste">{% for x in P.entfallen %}<li><a href="{{ x.link }}">{{ x.name }}</a><span>→ Umleitung auf {{ x.ersatz }}</span></li>{% endfor %}</ul>
+        </div>
+        <div>
+          <h2 class="sp7-h2">Dokumente</h2>
+          <ul class="sp7-liste">{% for x in P.dokumente %}<li><b>{{ x.name }}</b><span>{{ P.staende[x.stand] }} – {{ x.hinweis }}</span></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="s7-band s7-band--flaeche">
+    <div class="s7-wrap">
+      <p class="s7-kicker">Vorgehen</p>
+      <h2 class="s7-h2">In dieser Reihenfolge bauen wir.</h2>
+      <ol class="sp7-schritte">{% for x in P.reihenfolge %}<li{% if x.erledigt %} class="sp7-schritte--erledigt"{% endif %}><span>{{ loop.index }}{% if x.erledigt %} · erledigt{% endif %}</span><h3>{{ x.titel }}</h3><p>{{ x.text }}</p></li>{% endfor %}</ol>
+      <p class="sp7-fuss">{{ P.stufe2 }}</p>
+    </div>
+  </section>
+</main>
+{%- elif s.zg %}
+{#- Zielgruppenseite (Vorlage für alle 20, Seitenplan): „Was bekomme ich für genau diese Zielgruppe, und warum lohnt sie sich?“
+    Inhalte aus zielgruppen.json (intro, heroImage, infoItems, faq) und vertriebsstrecken.json (Name, Segment, Anlässe) – nichts doppelt.
+    Style-Auswahl entfällt (nur noch Elegant). -#}
+{%- set Z = null %}{% for x in zielgruppen %}{% if x.slug == s.zg %}{% set Z = x %}{% endif %}{% endfor %}
+{%- set ZV = null %}{% for v in vertriebsstrecken.zielgruppen %}{% if v.href == "/zielgruppen/" + s.zg %}{% set ZV = v %}{% endif %}{% endfor %}
+{%- set name = ZV.label if ZV else Z.name %}
+{%- set anl = [] %}{% for a in vertriebsstrecken.anlaesse %}{% if a.href == "/zielgruppen/" + s.zg %}{% set anl = (anl.push(a.label), anl) %}{% endif %}{% endfor %}
+{%- set ZT = S.zg %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ZT.kicker }}{% if ZV %} · {{ "Privatkunden" if ZV.filter == "privat" else "Firmenkunden" }}{% endif %}</p>
+      <h1 class="zg7-h1">{{ name }}.<br><span class="s7-wort">{{ ZT.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ Z.intro | replace("<p>‍</p>", "") | striptags }}</p>
+      {%- if anl.length %}<p class="zg7-anlaesse"><span>{{ ZT.anlass }}</span>{% for a in anl %}<b>{{ a }}</b>{% endfor %}</p>{% endif %}
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ ZT.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#fragen">{{ ZT.knopf2 }}</a>
+      </div>
+      <figure class="vs7-held__bild"><img src="/assets/img/{{ Z.heroImage }}" alt="Vertriebsstrecke {{ name }}: Posting, Landingpage und Kundenmailing" width="1664" height="658"></figure>
+    </div>
+  </section>
+
+  <section class="s7-band s7-band--akzent">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ZT.wer_kicker }}</p>
+      <h2 class="s7-h2">{{ ZT.wer_h2 }}</h2>
+      <div class="zg7-wer">
+        {%- for i in Z.infoItems %}
+        <article class="zg7-wer__karte"><h3>{{ i.title }}</h3>{{ i.html | replace(' role="list"', '') | safe }}</article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="s7-band" id="fragen">
+    <div class="s7-wrap zg7-fragen">
+      <div>
+        <p class="s7-kicker">{{ ZT.fragen_kicker }}</p>
+        <h2 class="s7-h2">{{ ZT.fragen_h2 }}</h2>
+      </div>
+      <div class="zg7-faq">
+        {%- for f in Z.faq %}
+        <details{% if loop.first %} open{% endif %}><summary>{{ f.question }}</summary><div class="zg7-faq__a">{{ f.answer | replace("<p>‍</p>", "") | replace(' role="list"', '') | safe }}</div></details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- if ZV %}
+  <section class="s7-band s7-band--flaeche zg7-weitere">
+    <div class="s7-wrap">
+      <div class="vs7-reihe" data-vs7-reihe>
+        <div class="vs7-reihe__kopf">
+          <h2 class="zg7-weitere__h2">{{ ZT.weitere }}</h2>
+          <span class="vs7-reihe__pfeile"><button type="button" data-richtung="-1" aria-label="Zurück">‹</button><button type="button" data-richtung="1" aria-label="Weiter">›</button></span>
+        </div>
+        <ul class="vs7-scroller">
+          {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == ZV.filter and z.href != ZV.href %}
+          {{ zgKarte(z) }}
+          {%- endif %}{% endfor %}
+        </ul>
+      </div>
+      <p class="zg7-alle"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ ZT.alle }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+  {%- endif %}
+
+  {{ kontaktBand() }}
+</main>
+<script>
+document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
+  var s = r.querySelector(".vs7-scroller");
+  r.querySelectorAll("[data-richtung]").forEach(function (k) {
+    k.addEventListener("click", function () { var w = s.querySelector("li").offsetWidth + 16; s.scrollBy({ left: Number(k.dataset.richtung) * w * 2, behavior: "smooth" }); });
+  });
+});
+</script>
+{%- elif s.slug == "vertriebsstrecken" %}
+{#- Unterseite Vertriebsstrecken (Seitenplan): „Welche Zielgruppen gibt es, und was läuft je Zielgruppe?“
+    Muss allein funktionieren (Postings verlinken direkt). Zielgruppen, Filter und Anlässe aus vertriebsstrecken.json,
+    Bilder (Style Elegant) aus zielgruppen.json – nichts doppelt gepflegt. Texte: s7.vs -#}
+{%- set V = S.vs %}
+<main>
+  <section class="s7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ V.held.kicker }}</p>
+      <h1>{{ V.held.h1 }} <span class="s7-wort">{{ V.held.h1_akzent }}</span></h1>
+      <p class="s7-lead vs7-lead">{{ V.held.lead }}</p>
+      <div class="s7-held__knoepfe">
+        <a class="s7-knopf" href="#kontakt">{{ V.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#zielgruppen">{{ V.held.knopf2 }}</a>
+      </div>
+      <figure class="vs7-held__bild"><img src="/assets/img/{{ V.held.bild }}" alt="{{ V.held.bild_alt }}" width="1664" height="658"></figure>
+    </div>
+  </section>
+
+  {%- set T = V.teile %}
+  <section class="s7-band s7-band--akzent">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ T.kicker }}</p>
+      <h2 class="s7-h2">{{ T.h2 }}<br><span class="s7-wort">{{ T.h2_akzent }}</span></h2>
+      <div class="vs7-wege">
+        {%- for x in T.liste %}
+        <article class="vs7-weg">
+          <h3>{{ x.titel }}</h3>
+          <p>{{ x.text }}</p>
+          <img src="/assets/img/{{ x.bild }}" alt="" width="{{ x.b }}" height="{{ x.h }}" loading="lazy">
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set L = V.liste %}
+  <section class="s7-band" id="zielgruppen">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ L.kicker }}</p>
+      <h2 class="s7-h2">{{ L.h2 }}</h2>
+      <p class="s7-lead">{{ L.lead }}</p>
+      {%- for g in L.gruppen %}
+      <div class="vs7-reihe" data-vs7-reihe>
+        <div class="vs7-reihe__kopf">
+          <p class="s7-gruppe vs7-gruppe">{{ g[1] }}</p>
+          <span class="vs7-reihe__pfeile"><button type="button" data-richtung="-1" aria-label="{{ L.zurueck }}">‹</button><button type="button" data-richtung="1" aria-label="{{ L.weiter }}">›</button></span>
+        </div>
+        <ul class="vs7-scroller">
+          {%- for z in vertriebsstrecken.zielgruppen %}{% if z.filter == g[0] %}
+          {{ zgKarte(z) }}
+          {%- endif %}{% endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+      <p class="vs7-kompass"><span>{{ V.kompass.text }}</span><a class="s7-link" href="{{ H7 }}/strategiekompass/">{{ V.kompass.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+<script>
+/* Wisch-Reihen: Pfeile blättern um zwei Karten */
+document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
+  var s = r.querySelector(".vs7-scroller");
+  r.querySelectorAll("[data-richtung]").forEach(function (k) {
+    k.addEventListener("click", function () { var w = s.querySelector("li").offsetWidth + 16; s.scrollBy({ left: Number(k.dataset.richtung) * w * 2, behavior: "smooth" }); });
+  });
+});
+</script>
+{%- elif s.slug == "mit-deinem-team" %}
+{#- Unterseite Weg A (Daniel, 12.11.2026): das klassische sofort sichtbar, jetzt mit allen drei Stufen –
+    Ziel setzen (Kompass / Strategietool Pro) · Zielgruppenpakete · Dashboard mit Reporting. Der Leiter der Agentur
+    bekommt alles fertig, sein Team setzt selbst um. Gleiches System wie Weg B (Kopf mit Gesamtlogik), andere Rolle. Inhalte: s7.weg_a -#}
+{%- set W = S.weg_a %}{% set KP = W.kopf %}
+{%- set mkompass -%}<div class="s7-mini">
+  <div class="s7-mini__zeile"><span>Segment</span><div><i class="an">Privatkunden</i><i>Firmenkunden</i></div></div>
+  <div class="s7-mini__zeile"><span>Sparte</span><div><i class="an">Leben</i><i>Kranken</i><i>Kfz</i></div></div>
+  <div class="s7-mini__zeile"><span>Zielgruppe</span><div><i class="an ziel">Junge Familien</i><i class="an">Bauherren</i><i class="mehr">+ weitere</i></div></div>
+</div>{%- endset %}
+{%- set mdash -%}<div class="s7-mini">
+  <div class="s7-mini__kacheln"><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,12 24,10 36,9 48,7 60,5"/></svg></div></div>
+  <ul class="mt7-aufgaben">{% for a in KP.aufgaben %}<li><span>{{ a[0] }}</span><i>{{ a[1] }}</i></li>{% endfor %}</ul>
+</div>{%- endset %}
+<main>
+  <section class="s7-held mx7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ W.held.kicker }}</p>
+      <h1>{{ W.held.h1 }} <span class="s7-wort">{{ W.held.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ W.held.lead }}</p>
+      {#- Gleiche Gesamtlogik wie bei Marketing as a Service, hier bedient dein Team die Maschine -#}
+      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.spalten[0].sub }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: {{ KP.spalten[2].sub }} {{ KP.zurueck }}.">
+        <p class="mk7__klammer">{{ KP.klammer }}</p>
+        <div class="mk7__spalten">
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
+            <div class="mk7__inhalt">{{ mkompass | safe }}</div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
+            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
+            <div class="mk7__inhalt">{{ mdash | safe }}</div>
+          </div>
+        </div>
+        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
+      </div>
+      <div class="s7-held__knoepfe mk7__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ W.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#pakete">{{ W.held.knopf2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  {%- set ST = W.stufen %}{% set L = ST.liste %}
+  <section class="s7-band s7-band--flaeche" id="stufen">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ST.kicker }}</p>
+      <h2 class="s7-h2">{{ ST.h2 }} <span class="s7-wort">{{ ST.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ ST.lead }}</p>
+      <div class="mt7-stufe">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[0].nr }} · {{ L[0].label }}</p>
+          <h3>{{ L[0].h }}</h3>
+          <p>{{ L[0].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/strategiekompass/">{{ L[0].link }} {{ pfeil | safe }}</a>
+        </div>
+        {%- set SG = ST.strategie %}
+        <div class="mt7-stufe__bild mt7-stufe__bild--frei" aria-hidden="true"><div class="mt7-strategie">
+          <p class="mt7-strategie__kopf">{{ SG.kopf }}</p>
+          <p class="mt7-strategie__satz">{{ SG.satz | safe }}</p>
+          <p class="mt7-strategie__titel">{{ SG.titel }}</p>
+          <ul>{% for z in SG.liste %}<li>{{ z }}</li>{% endfor %}</ul>
+        </div></div>
+      </div>
+      <div class="mt7-stufe mt7-stufe--breit">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[1].nr }} · {{ L[1].label }}</p>
+          <h3>{{ L[1].h }}</h3>
+          <p>{{ L[1].t }}</p>
+          <a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ L[1].link }} {{ pfeil | safe }}</a>
+        </div>
+        <div class="vs7-wege mt7-teile">
+          {%- for x in L[1].teile %}
+          <article class="vs7-weg"><h3>{{ x.name }}</h3><p>{{ x.t }}</p><img src="/assets/img/{{ x.bild }}.png" alt="" width="900" height="494" loading="lazy"></article>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="mt7-stufe">
+        <div class="mt7-stufe__text">
+          <p class="s7-ablauf__nr">{{ L[2].nr }} · {{ L[2].label }}</p>
+          <h3>{{ L[2].h }}</h3>
+          <p>{{ L[2].t }}</p>
+        </div>
+        {%- set RP = ST.report %}
+        <div class="mt7-stufe__bild" aria-hidden="true"><div class="s7-mini mt7-report">
+          <p class="s7-mini__kopf">{{ RP.kopf }}</p>
+          <div class="mt7-report__balken">{% for x in RP.balken %}<span>{{ x[0] }}</span><i{% if loop.first %} class="ziel"{% endif %} style="width:{{ x[1] }}%"></i>{% endfor %}</div>
+          <p class="s7-mini__empf"><b>Empfehlung:</b> {{ RP.empf }}</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  {%- set AU = W.aufteilung %}
+  <section class="s7-band" id="aufteilung">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ AU.kicker }}</p>
+      <h2 class="s7-h2">{{ AU.h2 }}</h2>
+      <p class="s7-lead">{{ AU.lead }}</p>
+      <div class="mt7-teilung">
+        <div><p class="mt7-teilung__titel">{{ AU.wir_titel }}</p><ul class="mx7-haken">{% for y in AU.wir %}<li>{{ y }}</li>{% endfor %}</ul></div>
+        <div class="mt7-teilung__team"><p class="mt7-teilung__titel">{{ AU.team_titel }}</p><ul class="mx7-haken">{% for y in AU.team %}<li>{{ y }}</li>{% endfor %}</ul></div>
+      </div>
+    </div>
+  </section>
+
+  {%- set SR = W.start %}
+  <section class="s7-band s7-band--flaeche" id="start">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ SR.kicker }}</p>
+      <h2 class="s7-h2">{{ SR.h2 }}</h2>
+      <p class="s7-lead">{{ SR.lead }}</p>
+      <ol class="mx7-zeit mt7-zeit">
+        {%- for x in SR.liste %}
+        <li class="mx7-zeit__schritt{% if loop.last %} mx7-zeit__schritt--ziel{% endif %}">
+          <p class="mx7-zeit__wann">{{ x.wann }}</p>
+          <span class="mx7-zeit__punkt" aria-hidden="true"></span>
+          <h3>{{ x.titel }}</h3>
+          <p class="mx7-zeit__t">{{ x.text }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set PK = W.pakete %}
+  <section class="s7-band" id="pakete">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ PK.kicker }}</p>
+      <h2 class="s7-h2">{{ PK.h2 }}</h2>
+      <p class="s7-lead">{{ PK.lead }}</p>
+      <div class="mt7-pakete">
+        {%- for p in S.pakete.liste %}{% if p.id != "komplett" %}
+        <article class="s7-paket s7-paket--{{ p.id }}">
+          <h3>{{ p.name }}</h3>
+          <p class="s7-paket__fuer">{{ p.fuer }}</p>
+          <p class="s7-paket__preis">{% if p.preis %}<b>{{ p.preis }}</b><span>{{ p.einheit }}</span>{% else %}<b>Auf Anfrage</b><span>monatlich</span>{% endif %}</p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/kontakt/">{{ p.knopf }}</a>
+        </article>
+        {%- endif %}{% endfor %}
+        {%- for p in S.pakete.liste %}{% if p.id == "komplett" %}
+        <article class="s7-paket mt7-b">
+          <h3>{{ PK.b_name }}</h3>
+          <p class="s7-paket__fuer">{{ PK.b_text }}</p>
+          <p class="s7-paket__preis"><b>{{ p.preis }}</b><span>{{ p.einheit }}</span></p>
+          <p class="s7-paket__vorspann">{{ p.vorspann }}</p>
+          <ul>{% for x in p.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+          <span></span>
+          <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/marketing-as-a-service/">{{ PK.b_link }}</a>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <p class="s7-pakete__fuss">{{ S.pakete.fuss }} <a class="s7-link" href="{{ H7 }}/preise/">{{ PK.preise_link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- elif s.slug == "marketing-as-a-service" %}
+{#- Unterseite Weg B · neu gedacht (Daniel, 12.11.2026): beantwortet, was die Startseite offen lässt –
+    Was bekomme ich (Trichter herangezoomt, jede Lage mit Preis) · Was kostet es (Basis + dazu buchbar) ·
+    Wie schnell läuft es, was hängt an mir (die ersten 30 Tage) · Alles im Detail (Download mit Stellenbeschreibungen).
+    Je Abschnitt eine Stelle, an der das Auge zuerst landet. Inhalte: s7.maas -#}
+{%- set M = S.maas %}
+<main>
+  <section class="s7-held mx7-held">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ M.held.kicker }}</p>
+      <h1>{{ M.held.h1 }} <span class="s7-wort">{{ M.held.h1_akzent }}</span></h1>
+      <p class="s7-lead">{{ M.held.lead }}</p>
+      {%- set KP = M.kopf %}
+      {#- Gesamtlogik statt großem Trichter (Daniel, 12.11.2026): eine Klammer über allem, drei Spalten mit echten Inhalten
+          (Fragen · Trichter · Auswertung), Rücklauf in den monatlichen Austausch. Vorbild: Infografik Roll-up 2 / A3 quer 2 -#}
+      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.fragen | join(' ') }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: Dashboard und Empfehlung. {{ KP.zurueck }}.">
+        <p class="mk7__klammer">{{ KP.klammer }}</p>
+        <div class="mk7__spalten">
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
+            <div class="mk7__inhalt mk7__fragen">{% for f in KP.fragen %}<i>„{{ f }}“</i>{% endfor %}</div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
+            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
+          </div>
+          <div class="mk7__spalte">
+            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
+            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
+            <div class="mk7__inhalt"><div class="s7-mini">
+              <div class="s7-mini__kacheln"><div><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div></div>
+              <p class="s7-mini__empf"><b>Empfehlung:</b> {{ KP.empf }}</p>
+            </div></div>
+          </div>
+        </div>
+        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
+      </div>
+      <div class="s7-held__knoepfe mk7__knoepfe">
+        <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ M.held.knopf }} {{ pfeil | safe }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#bausteine">{{ M.held.knopf2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  {%- set BS = M.bausteine %}{%- set K = BS.liste[0] %}
+  {%- macro bfenster(b) -%}
+  {%- set F = b.fenster %}
+  <dialog class="mx7-d" id="mx7-{{ b.id }}" aria-labelledby="mx7-{{ b.id }}-t">
+    <button type="button" class="mx7-d__zu" aria-label="Schließen">×</button>
+    <p class="mx7-d__meta">{{ F.meta }}</p>
+    <h3 id="mx7-{{ b.id }}-t">{{ F.titel }}</h3>
+    {%- for x in F.intro %}<p>{{ x }}</p>{% endfor %}
+    {%- for g in F.gruppen %}
+    <p class="mx7-d__label">{{ g.label }}</p>
+    {%- for l in g.leistungen %}
+    <div class="mx7-d__punkt"><b>{{ l.titel }}</b>{% if l.text %}<p>{{ l.text }}</p>{% endif %}{% if l.liste %}<ul>{% for x in l.liste %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}</div>
+    {%- endfor %}
+    {%- endfor %}
+    {%- if F.hinweis %}<p class="mx7-d__hinweis">{{ F.hinweis }}</p>{% endif %}
+  </dialog>
+  {%- endmacro %}
+  <section class="s7-band s7-band--flaeche" id="bausteine">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ BS.kicker }}</p>
+      <h2 class="s7-h2">{{ BS.h2 }}<br><span class="s7-wort">{{ BS.h2_akzent }}</span></h2>
+      <p class="s7-lead">{{ BS.lead }}</p>
+      <div class="mx7-bs">
+        <article class="mx7-basis">
+          <p class="mx7-marke">{{ BS.basis }}</p>
+          <h3>Kernpaket „{{ K.name }}“</h3>
+          <p class="mx7-basis__preis"><b>{{ K.preis }}</b><span>{{ K.einheit }}</span></p>
+          <p class="mx7-basis__kurz">{{ K.kurz }}</p>
+          <div class="mx7-basis__gruppen">
+            {%- for g in K.gruppen %}
+            <div><p class="mx7-basis__g">{{ g.titel }}</p><ul class="mx7-haken">{% for y in g.punkte %}<li>{{ y }}</li>{% endfor %}</ul></div>
+            {%- endfor %}
+          </div>
+          <button type="button" class="s7-knopf mx7-basis__knopf" data-mx7-auf="mx7-{{ K.id }}">Alle Leistungen {{ pfeil | safe }}</button>
+          {{ bfenster(K) }}
+        </article>
+        <div class="mx7-dazu">
+          <p class="mx7-marke">{{ BS.dazu }}</p>
+          {%- for b in BS.liste %}{% if not loop.first %}
+          <article class="mx7-erg">
+            <div class="mx7-erg__text">
+              <h3>{{ b.name }}</h3>
+              <p>{{ b.kurz }}</p>
+              <p class="mx7-erg__punkte">{{ b.punkte | join(" · ") }}</p>
+            </div>
+            <div class="mx7-erg__preis">
+              <b>{{ b.preis }}</b><span>{{ b.einheit }}</span>{% if b.zusatz %}<span>{{ b.zusatz }}</span>{% endif %}
+              <button type="button" class="mx7-mehr" data-mx7-auf="mx7-{{ b.id }}">Alle Leistungen {{ pfeil | safe }}</button>
+            </div>
+            {{ bfenster(b) }}
+          </article>
+          {%- endif %}{% endfor %}
+        </div>
+      </div>
+      <p class="mx7-fuss">{{ BS.hinweis }}</p>
+    </div>
+  </section>
+
+  {%- set ST = M.start %}
+  <section class="s7-band" id="start">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ ST.kicker }}</p>
+      <h2 class="s7-h2">{{ ST.h2 }}</h2>
+      <p class="s7-lead">{{ ST.lead }}</p>
+      <ol class="mx7-zeit">
+        {%- for x in ST.liste %}
+        <li class="mx7-zeit__schritt{% if loop.last %} mx7-zeit__schritt--ziel{% endif %}">
+          <p class="mx7-zeit__wann">{{ x.wann }}</p>
+          <span class="mx7-zeit__punkt" aria-hidden="true"></span>
+          <h3>{{ x.titel }}</h3>
+          <p class="mx7-zeit__t">{{ x.text }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      <div class="mx7-aufwand">
+        <p class="mx7-aufwand__titel">{{ ST.aufwand_titel }}</p>
+        <ul>{% for y in ST.aufwand %}<li>{{ y }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+  </section>
+
+  {%- set DL = M.download %}
+  <section class="s7-band s7-band--flaeche" id="download">
+    <div class="s7-wrap mx7-dl">
+      <div class="mx7-dl__bild" aria-hidden="true">
+        <img class="mx7-dl__seite mx7-dl__seite--hinten" src="{{ A7 }}/maas/{{ DL.bild2 }}" alt="" width="637" height="900">
+        <img class="mx7-dl__seite mx7-dl__seite--vorn" src="{{ A7 }}/maas/{{ DL.bild1 }}" alt="" width="636" height="900">
+      </div>
+      <div>
+        <p class="s7-kicker">{{ DL.kicker }}</p>
+        <h2 class="s7-h2">{{ DL.h2 }}</h2>
+        <p class="s7-lead">{{ DL.lead }}</p>
+        <p class="mx7-dl__meta">{% for x in DL.meta %}<span>{{ x }}</span>{% endfor %}</p>
+        <a class="s7-knopf" href="{{ A7 }}/maas/{{ DL.datei }}" target="_blank" rel="noopener">{{ DL.knopf }} <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beleg: ein ruhiger Satz vor dem Kontakt, dazu der Weg zur Startseite -->
+  <section class="s7-band mx7-beleg">
+    <div class="s7-wrap">
+      <blockquote><p>„{{ M.beleg.zitat }}“</p><cite>{{ M.beleg.quelle }}</cite></blockquote>
+      <p class="mx7-beleg__link"><a class="s7-link" href="{{ H7 }}/#maschine">{{ M.beleg.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+<script>
+/* Pop-ups: Knopf öffnet, Kreuz, Escape oder Klick daneben schließt */
+(function () {
+  document.querySelectorAll("[data-mx7-auf]").forEach(function (k) {
+    k.addEventListener("click", function () { var d = document.getElementById(k.getAttribute("data-mx7-auf")); if (d) d.showModal(); });
+  });
+  document.querySelectorAll(".mx7-d").forEach(function (d) {
+    d.querySelector(".mx7-d__zu").addEventListener("click", function () { d.close(); });
+    d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
+  });
+})();
+</script>
+{%- else %}
+<main>
+  {{ held() }}
+  {{ schritte() }}
+  {{ pakete() }}
+
+  <!-- Zielgruppen: ein großes Bild als Beweis, die 20 Zielgruppen als ruhige Liste mit Anlass -->
+  {%- set Z = S.zielgruppen %}
+  <section class="s7-band s7-band--flaeche" id="zielgruppen">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ Z.kicker }}</p>
+      <h2 class="s7-h2">{{ Z.h2 }}</h2>
+      <p class="s7-lead">{{ Z.lead }}</p>
+      <figure class="s7-zg-bild"><img src="/assets/img/{{ Z.bild }}.webp" alt="{{ Z.bild_alt }}" width="868" height="446"></figure>
+      <div class="s7-zg-listen">
+        {%- for g in Z.gruppen %}
+        <div>
+          <p class="s7-zg-listen__titel">{{ g.name }}</p>
+          <ul>{% for z in g.liste %}<li><a href="/zielgruppen/{{ z[2] }}"><b>{{ z[0] }}</b><span>{{ z[1] }}</span></a></li>{% endfor %}</ul>
+        </div>
+        {%- endfor %}
+      </div>
+      <p class="s7-zg__fuss"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ Z.link }} {{ pfeil | safe }}</a></p>
+    </div>
+  </section>
+
+  <!-- Über uns: Text und Zitat links, Gruppenbild rechts unten bündig auf der Kante -->
+  <section class="s7-band" id="ueber-uns">
+    <div class="s7-wrap s7-vertrauen">
+      <div class="s7-vertrauen__text">
+        <p class="s7-kicker">{{ S.vertrauen.kicker }}</p>
+        <h2 class="s7-h2">{{ S.vertrauen.h2 }}<br><span class="s7-wort">{{ S.vertrauen.h2_akzent }}</span></h2>
+        <p class="s7-lead">{{ S.vertrauen.t }}</p>
+        <blockquote class="s7-zitat"><p>„{{ S.vertrauen.zitat }}“</p><cite>{{ S.vertrauen.quelle }}</cite></blockquote>
+      </div>
+      <figure class="s7-vertrauen__bild"><figcaption>{{ S.vertrauen.namen }}</figcaption><img src="{{ B6 }}/assets/img/{{ S.vertrauen.bild }}.webp" alt="{{ S.vertrauen.bild_alt }}" width="759" height="411"></figure>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- endif %}
+
+<footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung">Datenschutz</a><a href="/impressum">Impressum</a></span></div></footer>
+</div>
+
+<script>
+/* Farbschalter 1 · 2 (nur Entwicklung): setzt die Farbklasse der Seite, merkt sich die Wahl im Browser */
+(function () {
+  var seite = document.getElementById("s7-seite"), knoepfe = document.querySelectorAll(".s7-schalter [data-farbe]");
+  if (!seite || !knoepfe.length) return;
+  function setze(f) {
+    seite.classList.remove("s7-farbe--cyanviolett", "s7-farbe--magentaviolett");
+    seite.classList.add("s7-farbe--" + f);
+    knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.farbe === f ? "true" : "false"); });
+    try { localStorage.setItem("s7-farbe", f); } catch (e) {}
+  }
+  var gemerkt = null; try { gemerkt = localStorage.getItem("s7-farbe"); } catch (e) {}
+  if (gemerkt === "cyanviolett" || gemerkt === "magentaviolett") setze(gemerkt);
+  knoepfe.forEach(function (k) { k.addEventListener("click", function () { setze(k.dataset.farbe); }); });
+})();
+</script>
+<script>
+/* Menüfläche für schmale Bildschirme: Knopf öffnet/schließt, Escape und Wahl eines Punktes schließen */
+(function () {
+  var k = document.querySelector(".s7-burger"), m = document.getElementById("s7-menue"); if (!k || !m) return;
+  function setze(auf) { m.hidden = !auf; k.setAttribute("aria-expanded", auf ? "true" : "false"); k.setAttribute("aria-label", auf ? "Menü schließen" : "Menü öffnen"); document.body.classList.toggle("s7-menue-offen", auf); }
+  k.addEventListener("click", function () { setze(m.hidden); });
+  m.addEventListener("click", function (e) { if (e.target.closest("a")) setze(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) { setze(false); k.focus(); } });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1279 && !m.hidden) setze(false); });
+})();
+</script>
+<script>
+(function () {
+  var dd = document.querySelector("[data-s7-dd]"); if (!dd) return;
+  var auf = dd.querySelector(".s7-dd__auf"), panel = dd.querySelector(".s7-dd__panel");
+  function zu() { panel.hidden = true; auf.setAttribute("aria-expanded", "false"); }
+  auf.addEventListener("click", function (e) { e.stopPropagation(); var offen = panel.hidden; panel.hidden = !offen; auf.setAttribute("aria-expanded", offen ? "true" : "false"); });
+  document.addEventListener("click", function (e) { if (!dd.contains(e.target)) zu(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") zu(); });
+})();
+</script>
+</body>
+</html>

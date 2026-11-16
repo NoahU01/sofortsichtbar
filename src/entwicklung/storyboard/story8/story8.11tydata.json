@@ -1,0 +1,1546 @@
+{
+  "s7": {
+    "hero": {
+      "kicker": "Für Versicherungsagenturen und Maklerbüros",
+      "h1": "Die digitale Maschine",
+      "lead": "Mehr Interessenten aus den Zielgruppen, die du gewinnen willst. Planbar, messbar, in Tagen gestartet.",
+      "knopf": "Termin auswählen",
+      "knopf2": "Wo willst du wachsen? Kompass starten",
+      "h1_akzent": "vor deinem Vertrieb."
+    },
+    "maschine_kicker": "So sieht sie aus",
+    "schritte": {
+      "kicker": "So läuft die Maschine",
+      "h2": "Ziel klären. Leads gewinnen. Nachsteuern.",
+      "liste": [
+        {
+          "nr": "01",
+          "label": "Strategie",
+          "h": "Du weißt, wo du|wachsen willst.",
+          "t": "Segment, Sparte, Zielgruppe: Der Strategiekompass zeigt, welche Zielgruppen bei dir Umsatz bewegen.",
+          "link": "Kompass starten"
+        },
+        {
+          "nr": "02",
+          "label": "Marketing und Vertrieb",
+          "h": "Deine Zielgruppen|nehmen dich wahr.",
+          "t": "Je Zielgruppe Landingpage, Postings und Kundenmailings. Die Leads landen direkt bei dir im Vertrieb.",
+          "link": "Zielgruppenpakete ansehen"
+        },
+        {
+          "nr": "03",
+          "label": "Steuerung",
+          "h": "Du siehst,|was funktioniert.",
+          "t": "Das Dashboard misst Landingpages, Postings und Mailings. Daraus folgt, was als Nächstes wirkt.",
+          "link": ""
+        }
+      ]
+    },
+    "pakete": {
+      "kicker": "Pakete",
+      "h2": "Du bedienst sie. Oder wir.",
+      "lead": "Gleiches Ergebnis: Leads für deinen Vertrieb. Der Unterschied ist, wer die Maschine bedient.",
+      "gruppen": [
+        [
+          "Mit deinem Team",
+          2
+        ],
+        [
+          "Wir übernehmen",
+          1
+        ]
+      ],
+      "liste": [
+        {
+          "id": "fokus",
+          "name": "Fokus",
+          "fuer": "Für Agenturen, die ihr Marketing selbst umsetzen und schneller werden wollen.",
+          "preis": "",
+          "einheit": "pro Monat",
+          "vorspann": "Das bekommst du:",
+          "punkte": [
+            "Strategiekompass",
+            "Vertriebsstrecken für deine Zielgruppen",
+            "Postings werden automatisch veröffentlicht",
+            "Dashboard: Aufgaben, Erinnerungen, Auswertung"
+          ],
+          "knopf": "Fokus anfragen"
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "fuer": "Für Büros mit mehreren Beratern, die Aufgaben verteilen und Ergebnisse vergleichen wollen.",
+          "preis": "",
+          "einheit": "pro Monat",
+          "vorspann": "Alles aus Fokus, dazu:",
+          "punkte": [
+            "Strategietool Pro",
+            "Empfehlungen und Optimierung",
+            "Aufgaben ans Team verteilen",
+            "Mehrere Nutzer und Standorte",
+            "Monatliches Performance-Reporting"
+          ],
+          "knopf": "Team anfragen"
+        },
+        {
+          "id": "komplett",
+          "name": "Komplett",
+          "fuer": "Du willst gar nicht steuern? Dann bedienen wir die Maschine für dich.",
+          "preis": "ab 1.800 €",
+          "einheit": "pro Monat",
+          "vorspann": "Marketing as a Service – Kernpaket:",
+          "punkte": [
+            "Landingpages und laufende Postings",
+            "Laufende Optimierung",
+            "Dashboard, Report und Betreuungscall",
+            "Ein fester Ansprechpartner",
+            "Dazu buchbar: LinkedIn, Paid Ads, Website"
+          ],
+          "knopf": "Marketing as a Service ansehen"
+        }
+      ],
+      "fuss": "Wie viele Zielgruppen du startest, entscheidest du – in jedem Paket."
+    },
+    "zielgruppen": {
+      "kicker": "Für deine Zielgruppen",
+      "h2": "20 Zielgruppen. Jede mit einem echten Anlass.",
+      "lead": "Für jede Zielgruppe eine fertige Vertriebsstrecke – Landingpage, Postings und Kundenmailings, im Look deiner Agentur.",
+      "bild": "zielgruppen/bauherren-style-3",
+      "bild_alt": "Landingpage für Private Bauherren auf Laptop und Handy",
+      "gruppen": [
+        {
+          "name": "Privatkunden",
+          "liste": [
+            [
+              "Junge Familien",
+              "Geburt eines Kindes",
+              "werdende-eltern"
+            ],
+            [
+              "Junge Ehepaare",
+              "Hochzeit",
+              "junge-ehepaare"
+            ],
+            [
+              "Berufseinsteiger",
+              "Der erste Job",
+              "berufseinsteiger-im-ersten-job"
+            ],
+            [
+              "Private Bauherren",
+              "Finanzierung und Notartermin",
+              "bauherren"
+            ],
+            [
+              "Umzug",
+              "Neue Wohnung",
+              "umzug"
+            ],
+            [
+              "Getrennte Paare",
+              "Neuordnung nach der Trennung",
+              "getrennte-personen"
+            ],
+            [
+              "Private Tierhalter",
+              "Ein neues Haustier",
+              "private-tierhalter-im-lokalen-umfeld"
+            ],
+            [
+              "Kommunale Angestellte",
+              "Start im öffentlichen Dienst",
+              "kommunale-angestellte"
+            ],
+            [
+              "Digital aktive Personen",
+              "Neue Geräte, neue Risiken",
+              "digital-aktive-privatpersonen"
+            ],
+            [
+              "Ferienwohnungen",
+              "Die erste Vermietung",
+              "ferienwohnungen"
+            ]
+          ]
+        },
+        {
+          "name": "Firmenkunden",
+          "liste": [
+            [
+              "Inhabergeführte Firmen",
+              "Neue Mitarbeitende",
+              "gewerbekunden"
+            ],
+            [
+              "Gründer & Freelancer",
+              "Start der Selbstständigkeit",
+              "freelancer-und-grunder"
+            ],
+            [
+              "IT-lastige Firmen",
+              "IT-Vorfall im Umfeld",
+              "cyber-firmen"
+            ],
+            [
+              "Ärzte und Zahnärzte",
+              "Praxisgründung",
+              "arzte"
+            ],
+            [
+              "Gesundheitsnahe Heilberufe",
+              "Die eigene Praxis",
+              "physio-und-pflege"
+            ],
+            [
+              "Kanzleiinhaber",
+              "Kanzleigründung",
+              "anwalte-und-kanzleiinhaber"
+            ],
+            [
+              "Immobilienmakler",
+              "Gewerbeanmeldung",
+              "immobilienmakler"
+            ],
+            [
+              "Hausverwaltungen",
+              "Eine neue Liegenschaft",
+              "hausverwalter"
+            ],
+            [
+              "Landwirte",
+              "Hofübernahme",
+              "landwirte"
+            ],
+            [
+              "Vereine",
+              "Ein neuer Vorstand",
+              "vereine"
+            ]
+          ]
+        }
+      ],
+      "link": "Alle Zielgruppenpakete ansehen"
+    },
+    "vertrauen": {
+      "kicker": "Über uns",
+      "h2": "Aus dem Vertrieb.",
+      "t": "Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Vertriebsstrecke.",
+      "zitat": "Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.",
+      "quelle": "Leitung unserer Pilotagentur",
+      "namen": "Kerstin Christ · Daniel Ströbel · Noah Hermanns",
+      "bild": "team-portrait",
+      "bild_alt": "Das Team von sofort sichtbar: Kerstin Christ, Daniel Ströbel und Noah Hermanns",
+      "h2_akzent": "Für den Vertrieb."
+    },
+    "kontakt": {
+      "h2": "Welche Zielgruppen bewegen",
+      "t": "In 45 Minuten klären wir, wo du wachsen willst und welcher Weg zu dir passt.",
+      "mail": "kontakt@sofortsichtbar.de",
+      "tel": "+49 176 3134 7217",
+      "h2_akzent": "bei dir Umsatz?",
+      "team_satz": "Du sprichst direkt mit Kerstin, Daniel und Noah."
+    },
+    "maschine": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-4 0 1210 652\" class=\"mx-strukturbild\" role=\"img\" aria-label=\"Die digitale Maschine: ein Trichter aus vier Bausteinen mündet in deinen Vertrieb und die Kundenbetreuung\"><defs><marker id=\"mb-pfeil\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M1 1 L8 5 L1 9\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></marker></defs><text x=\"0\" y=\"16\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"10.5\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\" letter-spacing=\"1.6\">UNSER SCHWERPUNKT</text><rect x=\"150\" y=\"10\" width=\"302\" height=\"2.5\" fill=\"#1a1817\"/><text x=\"474\" y=\"16\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"10.5\" font-weight=\"700\" fill=\"#6f6a64\" text-anchor=\"start\" letter-spacing=\"1.6\">DEIN VERTRIEB – WIR DOCKEN AN</text><rect x=\"722\" y=\"10\" width=\"478\" height=\"1.5\" fill=\"#cfcac3\"/><circle cx=\"7.8\" cy=\"91.3\" r=\"3.1\" fill=\"#cfcac3\"/><circle cx=\"1.7\" cy=\"206.8\" r=\"2.7\" fill=\"#cfcac3\"/><circle cx=\"1.4\" cy=\"198.2\" r=\"2.3\" fill=\"#cfcac3\"/><circle cx=\"10.4\" cy=\"67.0\" r=\"2.3\" fill=\"#cfcac3\"/><circle cx=\"10.2\" cy=\"294.1\" r=\"2.4\" fill=\"#cfcac3\"/><circle cx=\"5.4\" cy=\"234.2\" r=\"3.5\" fill=\"#cfcac3\"/><circle cx=\"13.9\" cy=\"165.0\" r=\"3.6\" fill=\"#cfcac3\"/><circle cx=\"1.1\" cy=\"303.5\" r=\"2.6\" fill=\"#cfcac3\"/><circle cx=\"3.5\" cy=\"81.3\" r=\"2.6\" fill=\"#cfcac3\"/><circle cx=\"19.6\" cy=\"100.2\" r=\"3.0\" fill=\"#cfcac3\"/><circle cx=\"15.3\" cy=\"157.7\" r=\"3.0\" fill=\"#cfcac3\"/><circle cx=\"1.5\" cy=\"63.9\" r=\"2.5\" fill=\"#cfcac3\"/><circle cx=\"16.3\" cy=\"174.3\" r=\"2.6\" fill=\"#cfcac3\"/><circle cx=\"14.1\" cy=\"182.0\" r=\"2.6\" fill=\"#cfcac3\"/><circle cx=\"19.1\" cy=\"255.7\" r=\"2.5\" fill=\"#cfcac3\"/><circle cx=\"13.8\" cy=\"203.6\" r=\"3.4\" fill=\"#cfcac3\"/><circle cx=\"17.5\" cy=\"132.4\" r=\"3.6\" fill=\"#cfcac3\"/><circle cx=\"2.8\" cy=\"171.4\" r=\"3.3\" fill=\"#cfcac3\"/><circle cx=\"3.6\" cy=\"192.7\" r=\"2.3\" fill=\"#cfcac3\"/><circle cx=\"16.0\" cy=\"275.4\" r=\"3.0\" fill=\"#cfcac3\"/><circle cx=\"21.0\" cy=\"140.1\" r=\"3.2\" fill=\"#cfcac3\"/><circle cx=\"14.3\" cy=\"220.0\" r=\"2.8\" fill=\"#cfcac3\"/><circle cx=\"20.2\" cy=\"329.4\" r=\"2.9\" fill=\"#cfcac3\"/><circle cx=\"15.9\" cy=\"64.2\" r=\"3.2\" fill=\"#cfcac3\"/><circle cx=\"15.5\" cy=\"343.9\" r=\"3.4\" fill=\"#cfcac3\"/><circle cx=\"6.8\" cy=\"161.7\" r=\"3.1\" fill=\"#cfcac3\"/><circle cx=\"0.5\" cy=\"184.5\" r=\"2.4\" fill=\"#cfcac3\"/><circle cx=\"2.8\" cy=\"63.7\" r=\"3.3\" fill=\"#cfcac3\"/><path d=\"M34 34 C264 34 252 136 372 136 H452 V256 H372 C252 256 264 358 34 358 Z\" fill=\"#f3f1ee\" stroke=\"#fff\" stroke-width=\"3\" stroke-linejoin=\"round\"/><path d=\"M34 68 C264 68 252 149 372 149 H452 V243 H372 C252 243 264 324 34 324 Z\" fill=\"#e8e5e0\" stroke=\"#fff\" stroke-width=\"3\" stroke-linejoin=\"round\"/><path d=\"M34 102 C264 102 252 162 372 162 H452 V230 H372 C252 230 264 290 34 290 Z\" fill=\"#dcd8d2\" stroke=\"#fff\" stroke-width=\"3\" stroke-linejoin=\"round\"/><path d=\"M34 136 C264 136 252 175 372 175 H452 V217 H372 C252 217 264 256 34 256 Z\" fill=\"#fff400\" stroke=\"#fff\" stroke-width=\"3\" stroke-linejoin=\"round\"/><g transform=\"translate(48 111.0) scale(0.6250)\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m11 17 2 2a1 1 0 1 0 3-3\" /> <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\" /> <path d=\"m21 3 1 11h-2\" /> <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\" /> <path d=\"M3 4h8\" /></g><text x=\"70\" y=\"123.0\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"11.5\" font-weight=\"600\" fill=\"#1a1817\" text-anchor=\"start\">Baustein 2 · LinkedIn Power Package</text><g transform=\"translate(48 77.0) scale(0.6250)\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 7h6v6\" /> <path d=\"m22 7-8.5 8.5-5-5L2 17\" /></g><text x=\"70\" y=\"89.0\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"11.5\" font-weight=\"600\" fill=\"#1a1817\" text-anchor=\"start\">Baustein 3 · Paid Ads</text><g transform=\"translate(48 43.0) scale(0.6250)\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" /> <path d=\"M10 4v4\" /> <path d=\"M2 8h20\" /> <path d=\"M6 4v4\" /></g><text x=\"70\" y=\"55.0\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"11.5\" font-weight=\"600\" fill=\"#1a1817\" text-anchor=\"start\">Baustein 4 · Website-Entwicklung</text><g class=\"s7-kern\" transform=\"translate(48 172) scale(0.7083)\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" /> <rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" /></g><text class=\"s7-kern\" x=\"72\" y=\"185\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"11.5\" font-weight=\"600\" fill=\"#1a1817\" text-anchor=\"start\">Baustein 1</text><text class=\"s7-kern\" x=\"48\" y=\"209\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"17\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Kernpaket</text><text class=\"s7-kern\" x=\"48\" y=\"228\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"12.5\" font-weight=\"400\" fill=\"#1a1817\" text-anchor=\"start\">sofort sichtbar</text><circle class=\"s7-kern\" cx=\"392\" cy=\"189\" r=\"4.2\" fill=\"#1a1817\"/><circle class=\"s7-kern\" cx=\"414\" cy=\"196\" r=\"4.2\" fill=\"#1a1817\"/><circle class=\"s7-kern\" cx=\"436\" cy=\"203\" r=\"4.2\" fill=\"#1a1817\"/><path d=\"M452 136 H834 L860 196 L834 256 H452 Z\" fill=\"#fff\" stroke=\"#1a1817\" stroke-width=\"2\" stroke-linejoin=\"round\"/><path d=\"M866 136 H1186 Q1200 136 1200 150 V242 Q1200 256 1186 256 H866 L892 196 Z\" fill=\"#1a1817\" stroke=\"#1a1817\" stroke-width=\"2\" stroke-linejoin=\"round\"/><g transform=\"translate(482 166) scale(1.0833)\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m11 17 2 2a1 1 0 1 0 3-3\" /> <path d=\"m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4\" /> <path d=\"m21 3 1 11h-2\" /> <path d=\"M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3\" /> <path d=\"M3 4h8\" /></g><text x=\"518\" y=\"186\" font-family=\"Lora, Georgia, serif\" font-size=\"18\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Vertrieb</text><text x=\"518\" y=\"218\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"12.5\" font-weight=\"500\" fill=\"#1a1817\" text-anchor=\"start\">Terminierung</text><path d=\"M614 209 l5 4.5 l-5 4.5\" fill=\"none\" stroke=\"#6f6a64\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"631\" y=\"218\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"12.5\" font-weight=\"500\" fill=\"#1a1817\" text-anchor=\"start\">Beratung</text><path d=\"M701 209 l5 4.5 l-5 4.5\" fill=\"none\" stroke=\"#6f6a64\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"718\" y=\"218\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"12.5\" font-weight=\"500\" fill=\"#1a1817\" text-anchor=\"start\">Abschluss</text><g transform=\"translate(912 183) scale(1.0833)\" fill=\"none\" stroke=\"#fff400\" stroke-width=\"1.60\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762\" /></g><text x=\"948\" y=\"202\" font-family=\"Lora, Georgia, serif\" font-size=\"18\" font-weight=\"700\" fill=\"#fff\" text-anchor=\"start\">Kundenbetreuung</text><text x=\"0\" y=\"418\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"10.5\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\" letter-spacing=\"1.4\">STUFE 1 · MARKETING</text><text x=\"0\" y=\"452\" font-family=\"Lora, Georgia, serif\" font-size=\"23\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Interessenten gewinnen.</text><text x=\"0\" y=\"480\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">Deine Zielgruppen nehmen dich regelmäßig wahr – und daraus</text><text x=\"0\" y=\"499\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">entstehen echte Anfragen. Jeder weitere Baustein macht den</text><text x=\"0\" y=\"518\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">Trichter größer und schiebt mehr in deinen Vertrieb.</text><rect x=\"0\" y=\"546\" width=\"230\" height=\"1.2\" fill=\"#cfcac3\"/><text x=\"0\" y=\"568\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13.5\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Echte Anfragen aus deinen Zielgruppen</text><text x=\"474\" y=\"418\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"10.5\" font-weight=\"700\" fill=\"#6f6a64\" text-anchor=\"start\" letter-spacing=\"1.4\">STUFE 2 · VERTRIEB</text><text x=\"474\" y=\"452\" font-family=\"Lora, Georgia, serif\" font-size=\"23\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Abschließen.</text><text x=\"474\" y=\"480\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">Termin vereinbaren, beraten, abschließen –</text><text x=\"474\" y=\"499\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">dein Vertrieb, wie du ihn kennst.</text><text x=\"474\" y=\"518\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">Nur mit mehr Gesprächen.</text><rect x=\"474\" y=\"546\" width=\"230\" height=\"1.2\" fill=\"#cfcac3\"/><text x=\"474\" y=\"568\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13.5\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Mehr Abschlüsse</text><text x=\"884\" y=\"418\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"10.5\" font-weight=\"700\" fill=\"#6f6a64\" text-anchor=\"start\" letter-spacing=\"1.4\">STUFE 3 · KUNDENBETREUUNG</text><text x=\"884\" y=\"452\" font-family=\"Lora, Georgia, serif\" font-size=\"23\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Kunden halten.</text><text x=\"884\" y=\"480\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">Wer regelmäßig von dir hört, bleibt –</text><text x=\"884\" y=\"499\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#3d3a37\" text-anchor=\"start\">und bringt neue Anlässe mit.</text><rect x=\"884\" y=\"546\" width=\"230\" height=\"1.2\" fill=\"#cfcac3\"/><text x=\"884\" y=\"568\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"13.5\" font-weight=\"700\" fill=\"#1a1817\" text-anchor=\"start\">Kunden, die bleiben</text><path d=\"M1040 592 V624 H220 V598\" fill=\"none\" stroke=\"#1a1817\" stroke-width=\"1.6\" marker-end=\"url(#mb-pfeil)\"/><rect x=\"390\" y=\"607\" width=\"480\" height=\"34\" rx=\"17\" fill=\"#fff400\"/><text class=\"s7-kern\" x=\"630\" y=\"629\" font-family=\"Poppins, Arial, sans-serif\" font-size=\"12.5\" font-weight=\"600\" fill=\"#1a1817\" text-anchor=\"middle\">Sichtbarkeit pflegt auch deinen Bestand – und bringt neue Anlässe.</text></svg>",
+    "stilproben": {
+      "h1": "Apple-klar.",
+      "h1_akzent": "Gewählt.",
+      "lead": "Die Stilrichtung für die neue Startseite: fast nur Weiß und Hellgrau, sehr große Überschriften, viel Raum, Farbe nur als Akzent. Die Farbe selbst wählen wir auf der Seite Farbproben.",
+      "massstab": [
+        "Großer Kontrast: Überschriften sehr groß, Text ruhig",
+        "Hell: weiße oder fast weiße Seite",
+        "Ein Farbakzent, gezielt eingesetzt",
+        "Clean: viel Luft, wenige Elementtypen",
+        "Kein Bild ohne Inhalt: Maschine, Dashboard, Pakete sind echt",
+        "Eigen: weder empiria noch der dunkle Lila-Look"
+      ],
+      "stile": [
+        {
+          "id": "apple",
+          "nr": "1",
+          "name": "Apple-klar",
+          "satz": "Gewählt. Fast nur Weiß und Hellgrau, sehr große Überschriften, sehr viel Raum. Der Verlauf erscheint nur an wenigen Stellen.",
+          "schrift": "Inter Tight · Inter",
+          "farbe": "Verlauf Blau → Violett (sofort-sichtbar-Farben), sparsam",
+          "vorbilder": "Apple-Produktseiten, Linear, Things",
+          "risiko": "Ohne starke Inhalte wirkt es kühl.",
+          "swatches": [
+            "#1d1d1f",
+            "#f5f5f7",
+            "linear-gradient(100deg,#2f6bff,#7b3fe4 55%,#b44ce0)"
+          ]
+        }
+      ]
+    },
+    "farbproben": {
+      "h1": "Zwei Farben.",
+      "h1_akzent": "Ein Akzent.",
+      "lead": "Apple-klar mit den beiden Farbakzenten, die im Rennen sind. Farbe steht nur an festen Stellen und immer vollflächig: im hervorgehobenen Wort als Verlauf, im Kern der Maschine, bei Leads und Auswahl, im Komplett-Paket. Auf der Startseite lassen sich beide oben mit dem Schalter 1 · 2 umstellen.",
+      "stellen": [
+        "Hervorgehobenes Wort der Hauptüberschrift",
+        "Kern der Maschine",
+        "Leads im Dashboard und gewählte Pills",
+        "Komplett-Paket"
+      ],
+      "farben": [
+        {
+          "id": "cyanviolett",
+          "nr": "1",
+          "name": "Cyan → Violett",
+          "satz": "Genau deine beiden Farben: Cyan #0B9FBD und Violett #8613A1. Der weiteste Bogen – frisch und eigenständig.",
+          "swatch": "linear-gradient(100deg,#0b9fbd,#8613a1)"
+        },
+        {
+          "id": "magentaviolett",
+          "nr": "2",
+          "name": "Magenta → Violett",
+          "satz": "Magenta #C51F5D aus dem CD in Violett #8613A1. Die wärmste und mutigste der drei.",
+          "swatch": "linear-gradient(100deg,#c51f5d,#8613a1)"
+        }
+      ]
+    },
+    "erklaerbild": {
+      "wir": "Hier setzen wir an",
+      "du": "Dein Vertrieb – wir docken an",
+      "kanaele": [
+        "Landingpages",
+        "Postings",
+        "Mailings",
+        "LinkedIn",
+        "Anzeigen"
+      ],
+      "messpunkt": "Messpunkt",
+      "vertrieb": "Dein Vertrieb",
+      "vertrieb_klein": "Termin · Beratung · Abschluss",
+      "kunden": "Kunden, die bleiben",
+      "kunden_klein": "Betreuung und neue Anlässe",
+      "rueck": "Sichtbarkeit pflegt deinen Bestand – und bringt neue Anlässe.",
+      "link": "Ablauf im Detail ansehen",
+      "link_ziel": "/entwicklung/storyboard/story6/maas-infografik/"
+    },
+    "ek_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 380\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-quer\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"0\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Marketing – wir gewinnen Interessenten</text><path d=\"M0 34 H470\" class=\"ek2-linie\"/><text x=\"482\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Vertrieb – du machst daraus Kunden</text><path d=\"M482 34 H1120\" class=\"ek2-linie\"/><path d=\"M0 68 H170 C300 68 300 146 400 146 H470 V226 H400 C300 226 300 304 170 304 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 92 H170 C300 92 300 152 400 152 H470 V220 H400 C300 220 300 280 170 280 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 116 H170 C300 116 300 159 400 159 H470 V213 H400 C300 213 300 256 170 256 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 140 H170 C300 140 300 166 400 166 H470 V206 H400 C300 206 300 232 170 232 H0 Z\" class=\"ek2-kern ek2-lage\"/><svg x=\"28\" y=\"177.1\" width=\"150\" height=\"17.8\" viewBox=\"0 0 199.308 23.6175\" aria-label=\"sofort sichtbar\">\n<defs>\n<clipPath id=\"ek2q-clip-0\">\n<path clip-rule=\"nonzero\" d=\"M 1.246094 7 L 13 7 L 13 23.242188 L 1.246094 23.242188 Z M 1.246094 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-1\">\n<path clip-rule=\"nonzero\" d=\"M 65 7 L 80 7 L 80 23.242188 L 65 23.242188 Z M 65 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-2\">\n<path clip-rule=\"nonzero\" d=\"M 100 7 L 112 7 L 112 23.242188 L 100 23.242188 Z M 100 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-3\">\n<path clip-rule=\"nonzero\" d=\"M 119 7 L 132 7 L 132 23.242188 L 119 23.242188 Z M 119 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-4\">\n<path clip-rule=\"nonzero\" d=\"M 158 0 L 172 0 L 172 23.242188 L 158 23.242188 Z M 158 0 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-5\">\n<path clip-rule=\"nonzero\" d=\"M 173 7 L 186 7 L 186 23.242188 L 173 23.242188 Z M 173 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-6\">\n<path clip-rule=\"nonzero\" d=\"M 48 7 L 55 7 L 55 23.242188 L 48 23.242188 Z M 48 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-7\">\n<path clip-rule=\"nonzero\" d=\"M 15 7 L 22 7 L 22 23.242188 L 15 23.242188 Z M 15 7 \"/>\n</clipPath>\n<clipPath id=\"ek2q-clip-8\">\n<path clip-rule=\"nonzero\" d=\"M 21 21 L 49 21 L 49 23.242188 L 21 23.242188 Z M 21 21 \"/>\n</clipPath>\n</defs>\n<g clip-path=\"url(#ek2q-clip-0)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 4.5 11.746094 C 4.5 15.0625 12.800781 13.828125 12.800781 18.878906 C 12.800781 21.75 10.433594 23.046875 7.433594 23.046875 C 4.847656 23.046875 2.859375 21.816406 2.039062 20.773438 C 1.878906 20.550781 1.816406 20.394531 1.816406 20.171875 C 1.816406 19.667969 2.226562 19.257812 2.730469 19.257812 C 2.921875 19.257812 3.175781 19.320312 3.425781 19.574219 C 4.40625 20.550781 5.667969 21.121094 7.433594 21.121094 C 9.234375 21.121094 10.78125 20.519531 10.78125 18.878906 C 10.78125 15.628906 2.480469 16.921875 2.480469 11.746094 C 2.480469 9.128906 4.625 7.925781 7.308594 7.925781 C 9.453125 7.925781 11.128906 8.652344 12.105469 9.949219 C 12.199219 10.074219 12.328125 10.261719 12.328125 10.546875 C 12.328125 11.050781 11.917969 11.460938 11.410156 11.460938 C 11.253906 11.460938 11 11.429688 10.75 11.179688 C 9.894531 10.359375 8.949219 9.851562 7.308594 9.851562 C 5.886719 9.851562 4.5 10.296875 4.5 11.746094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 57.398438 10.230469 C 56.859375 10.230469 56.449219 9.820312 56.449219 9.285156 C 56.449219 8.746094 56.859375 8.339844 57.398438 8.339844 L 58.46875 8.339844 L 58.46875 6.476562 C 58.46875 3.636719 60.078125 1.046875 63.929688 1.046875 C 64.464844 1.046875 64.875 1.457031 64.875 1.992188 C 64.875 2.53125 64.464844 2.941406 63.929688 2.941406 C 61.46875 2.941406 60.488281 4.425781 60.488281 6.476562 L 60.488281 8.339844 L 63.363281 8.339844 C 63.898438 8.339844 64.308594 8.746094 64.308594 9.285156 C 64.308594 9.820312 63.898438 10.230469 63.363281 10.230469 L 60.488281 10.230469 L 60.488281 21.910156 C 60.488281 22.476562 60.046875 22.917969 59.480469 22.917969 C 58.910156 22.917969 58.46875 22.476562 58.46875 21.910156 L 58.46875 10.230469 Z M 57.398438 10.230469 \"/>\n<g clip-path=\"url(#ek2q-clip-1)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 77.058594 15.472656 C 77.058594 11.496094 75.386719 9.726562 72.484375 9.726562 C 69.578125 9.726562 67.90625 11.492188 67.90625 15.472656 C 67.90625 19.511719 69.578125 21.246094 72.484375 21.246094 C 75.386719 21.246094 77.058594 19.511719 77.058594 15.472656 M 79.109375 15.472656 C 79.109375 20.644531 76.585938 23.078125 72.484375 23.078125 C 68.410156 23.078125 65.855469 20.644531 65.855469 15.472656 C 65.855469 10.292969 68.410156 7.898438 72.484375 7.898438 C 76.585938 7.898438 79.109375 10.292969 79.109375 15.472656 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 84.289062 10.484375 C 84.917969 9.03125 86.496094 7.957031 88.675781 7.957031 C 89.210938 7.957031 89.652344 8.402344 89.652344 8.9375 C 89.652344 9.472656 89.210938 9.917969 88.675781 9.917969 C 85.769531 9.917969 84.289062 11.9375 84.289062 14.839844 L 84.289062 21.910156 C 84.289062 22.476562 83.84375 22.917969 83.277344 22.917969 C 82.707031 22.917969 82.265625 22.476562 82.265625 21.910156 L 82.265625 9.09375 C 82.265625 8.527344 82.707031 8.085938 83.277344 8.085938 C 83.84375 8.085938 84.289062 8.527344 84.289062 9.09375 Z M 84.289062 10.484375 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 93.441406 5.023438 C 93.441406 4.488281 93.914062 4.015625 94.449219 4.015625 C 95.015625 4.015625 95.460938 4.488281 95.460938 5.023438 L 95.460938 8.339844 L 97.511719 8.339844 C 98.046875 8.339844 98.457031 8.746094 98.457031 9.285156 C 98.457031 9.820312 98.046875 10.230469 97.511719 10.230469 L 95.460938 10.230469 L 95.460938 18.941406 C 95.460938 20.300781 96.21875 21.023438 97.289062 21.023438 C 97.828125 21.023438 98.269531 21.433594 98.269531 21.972656 C 98.269531 22.507812 97.828125 22.917969 97.289062 22.917969 C 94.796875 22.917969 93.441406 21.246094 93.441406 18.941406 L 93.441406 10.230469 L 92.207031 10.230469 C 91.671875 10.230469 91.261719 9.820312 91.261719 9.285156 C 91.261719 8.746094 91.671875 8.339844 92.207031 8.339844 L 93.441406 8.339844 Z M 93.441406 5.023438 \"/>\n<g clip-path=\"url(#ek2q-clip-2)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 102.851562 11.714844 C 102.851562 15.03125 111.152344 13.796875 111.152344 18.847656 C 111.152344 21.71875 108.785156 23.015625 105.785156 23.015625 C 103.199219 23.015625 101.210938 21.785156 100.390625 20.742188 C 100.230469 20.519531 100.167969 20.363281 100.167969 20.140625 C 100.167969 19.636719 100.578125 19.226562 101.082031 19.226562 C 101.273438 19.226562 101.527344 19.289062 101.777344 19.542969 C 102.757812 20.519531 104.019531 21.089844 105.785156 21.089844 C 107.585938 21.089844 109.132812 20.488281 109.132812 18.847656 C 109.132812 15.597656 100.832031 16.890625 100.832031 11.714844 C 100.832031 9.097656 102.976562 7.894531 105.660156 7.894531 C 107.804688 7.894531 109.480469 8.621094 110.457031 9.917969 C 110.550781 10.042969 110.679688 10.230469 110.679688 10.515625 C 110.679688 11.019531 110.269531 11.429688 109.761719 11.429688 C 109.605469 11.429688 109.351562 11.398438 109.101562 11.148438 C 108.246094 10.328125 107.300781 9.820312 105.660156 9.820312 C 104.238281 9.820312 102.851562 10.265625 102.851562 11.714844 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 116.550781 21.878906 C 116.550781 22.445312 116.105469 22.886719 115.539062 22.886719 C 114.972656 22.886719 114.527344 22.445312 114.527344 21.878906 L 114.527344 9.0625 C 114.527344 8.496094 114.972656 8.054688 115.539062 8.054688 C 116.105469 8.054688 116.550781 8.496094 116.550781 9.0625 Z M 114.339844 3.886719 C 114.339844 2.972656 114.78125 2.625 115.539062 2.625 C 116.296875 2.625 116.738281 2.972656 116.738281 3.886719 C 116.738281 4.644531 116.296875 5.085938 115.539062 5.085938 C 114.78125 5.085938 114.339844 4.644531 114.339844 3.886719 \"/>\n<g clip-path=\"url(#ek2q-clip-3)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 126.207031 7.863281 C 129.015625 7.863281 130.5625 9.347656 131.066406 10.042969 C 131.222656 10.261719 131.289062 10.421875 131.289062 10.640625 C 131.289062 11.179688 130.878906 11.558594 130.371094 11.558594 C 130.058594 11.558594 129.835938 11.429688 129.617188 11.179688 C 129.140625 10.640625 128.289062 9.695312 126.207031 9.695312 C 123.304688 9.695312 121.757812 11.558594 121.757812 15.4375 C 121.757812 19.382812 123.304688 21.214844 126.207031 21.214844 C 128.039062 21.214844 129.140625 20.394531 129.867188 19.859375 C 130.089844 19.699219 130.246094 19.636719 130.46875 19.636719 C 130.972656 19.636719 131.382812 20.046875 131.382812 20.550781 C 131.382812 20.835938 131.289062 21.058594 130.972656 21.339844 C 130.277344 21.910156 128.761719 23.046875 126.207031 23.046875 C 122.132812 23.046875 119.703125 20.617188 119.703125 15.4375 C 119.703125 10.261719 122.132812 7.863281 126.207031 7.863281 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 146.28125 13.449219 L 146.28125 21.878906 C 146.28125 22.445312 145.839844 22.886719 145.269531 22.886719 C 144.703125 22.886719 144.257812 22.445312 144.257812 21.878906 L 144.257812 13.863281 C 144.257812 11.367188 143.535156 9.664062 140.472656 9.664062 C 137.347656 9.664062 136.273438 11.558594 136.273438 14.082031 L 136.273438 21.878906 C 136.273438 22.445312 135.832031 22.886719 135.265625 22.886719 C 134.695312 22.886719 134.253906 22.445312 134.253906 21.878906 L 134.253906 1.175781 C 134.253906 0.605469 134.695312 0.164062 135.265625 0.164062 C 135.832031 0.164062 136.273438 0.605469 136.273438 1.175781 L 136.273438 10.074219 C 136.875 8.875 138.421875 7.867188 140.472656 7.867188 C 145.332031 7.867188 146.28125 10.769531 146.28125 13.449219 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 150.855469 4.992188 C 150.855469 4.457031 151.328125 3.984375 151.867188 3.984375 C 152.433594 3.984375 152.875 4.457031 152.875 4.992188 L 152.875 8.308594 L 154.929688 8.308594 C 155.464844 8.308594 155.875 8.714844 155.875 9.253906 C 155.875 9.789062 155.464844 10.199219 154.929688 10.199219 L 152.875 10.199219 L 152.875 18.910156 C 152.875 20.269531 153.632812 20.992188 154.707031 20.992188 C 155.242188 20.992188 155.683594 21.402344 155.683594 21.941406 C 155.683594 22.476562 155.242188 22.886719 154.707031 22.886719 C 152.214844 22.886719 150.855469 21.214844 150.855469 18.910156 L 150.855469 10.199219 L 149.625 10.199219 C 149.089844 10.199219 148.679688 9.789062 148.679688 9.253906 C 148.679688 8.714844 149.089844 8.308594 149.625 8.308594 L 150.855469 8.308594 Z M 150.855469 4.992188 \"/>\n<g clip-path=\"url(#ek2q-clip-4)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 160.894531 16.828125 C 160.894531 19.828125 162.628906 21.214844 165.058594 21.214844 C 167.960938 21.214844 169.507812 19.386719 169.507812 15.441406 C 169.507812 11.558594 167.929688 9.695312 165.058594 9.695312 C 162.089844 9.695312 160.894531 12.472656 160.894531 12.472656 Z M 171.527344 15.441406 C 171.527344 20.613281 169.128906 23.046875 165.058594 23.046875 C 161.460938 23.046875 158.871094 20.996094 158.871094 16.828125 L 158.871094 1.171875 C 158.871094 0.605469 159.316406 0.164062 159.882812 0.164062 C 160.453125 0.164062 160.894531 0.605469 160.894531 1.171875 L 160.894531 9.917969 C 161.621094 8.90625 163.164062 7.867188 165.1875 7.867188 C 169.257812 7.867188 171.527344 10.261719 171.527344 15.441406 \"/>\n</g>\n<g clip-path=\"url(#ek2q-clip-5)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 183.679688 17.175781 L 183.679688 15.851562 L 179.230469 15.851562 C 177.179688 15.851562 175.757812 16.703125 175.757812 18.53125 C 175.757812 20.175781 176.894531 21.214844 179.355469 21.214844 C 181.566406 21.214844 183.679688 19.859375 183.679688 17.175781 M 176.292969 11.367188 C 175.980469 11.714844 175.757812 11.808594 175.476562 11.808594 C 174.96875 11.808594 174.558594 11.398438 174.558594 10.894531 C 174.558594 10.675781 174.621094 10.515625 174.71875 10.359375 C 175.601562 8.96875 177.304688 7.867188 179.957031 7.867188 C 183.617188 7.867188 185.636719 10.011719 185.636719 13.230469 L 185.636719 21.910156 C 185.636719 22.445312 185.195312 22.886719 184.65625 22.886719 C 184.121094 22.886719 183.679688 22.445312 183.679688 21.910156 L 183.679688 20.773438 C 182.890625 22.257812 181.058594 23.046875 179.167969 23.046875 C 175.820312 23.046875 173.707031 21.4375 173.707031 18.53125 C 173.707031 15.753906 175.820312 14.082031 179.230469 14.082031 L 183.679688 14.082031 L 183.679688 13.230469 C 183.679688 11.085938 182.261719 9.757812 179.957031 9.757812 C 178.285156 9.757812 177.273438 10.261719 176.292969 11.367188 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 191.445312 10.453125 C 192.074219 9 193.652344 7.925781 195.832031 7.925781 C 196.367188 7.925781 196.808594 8.371094 196.808594 8.90625 C 196.808594 9.441406 196.367188 9.886719 195.832031 9.886719 C 192.925781 9.886719 191.445312 11.90625 191.445312 14.808594 L 191.445312 21.878906 C 191.445312 22.445312 191.003906 22.886719 190.433594 22.886719 C 189.867188 22.886719 189.425781 22.445312 189.425781 21.878906 L 189.425781 9.0625 C 189.425781 8.496094 189.867188 8.054688 190.433594 8.054688 C 191.003906 8.054688 191.445312 8.496094 191.445312 9.0625 Z M 191.445312 10.453125 \"/>\n<g clip-path=\"url(#ek2q-clip-6)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.21875 7.898438 L 48.21875 9.726562 C 51.105469 9.738281 52.769531 11.507812 52.769531 15.472656 C 52.769531 19.5 51.105469 21.234375 48.21875 21.246094 L 48.21875 23.074219 C 52.304688 23.066406 54.820312 20.636719 54.820312 15.472656 C 54.820312 10.304688 52.304688 7.910156 48.21875 7.898438 \"/>\n</g>\n<g clip-path=\"url(#ek2q-clip-7)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 21.863281 21.246094 C 18.976562 21.234375 17.3125 19.496094 17.3125 15.472656 C 17.3125 11.507812 18.976562 9.738281 21.863281 9.726562 L 21.863281 7.898438 C 17.808594 7.90625 15.261719 10.308594 15.261719 15.472656 C 15.261719 20.636719 17.808594 23.066406 21.863281 23.074219 Z M 21.863281 21.246094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 9.722656 L 21.8125 9.722656 L 21.8125 7.898438 L 48.242188 7.898438 Z M 48.242188 9.722656 \"/>\n<g clip-path=\"url(#ek2q-clip-8)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 23.074219 L 21.8125 23.074219 L 21.8125 21.25 L 48.242188 21.25 Z M 48.242188 23.074219 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 49.5 15.367188 C 49.5 17.128906 48.070312 18.558594 46.304688 18.558594 C 44.542969 18.558594 43.113281 17.128906 43.113281 15.367188 C 43.113281 13.601562 44.542969 12.171875 46.304688 12.171875 C 48.070312 12.171875 49.5 13.601562 49.5 15.367188 \"/>\n</svg><circle cx=\"370\" cy=\"186\" r=\"4\" class=\"ek2-kern-p\"/><circle cx=\"386\" cy=\"186\" r=\"4\" class=\"ek2-kern-p\"/><circle cx=\"402\" cy=\"186\" r=\"4\" class=\"ek2-kern-p\"/><path d=\"M476.0 146 V112\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"476.0\" y=\"104\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\">Messpunkt: Leads</text><path d=\"M482 146 H780 L802 186 L780 226 H482 Z\" class=\"ek2-band\"/><path d=\"M792 146 H1104 Q1120 146 1120 162 V210 Q1120 226 1104 226 H792 L814 186 Z\" class=\"ek2-band\"/><text x=\"510\" y=\"183\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Vertrieb</text><text x=\"510\" y=\"207\" class=\"ek2-band-s\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Termin · Beratung · Abschluss</text><text x=\"842\" y=\"183\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\">Kundenbetreuung</text><text x=\"842\" y=\"207\" class=\"ek2-band-s\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Halten und ausbauen</text><path d=\"M1060 226 V362 H60 V312\" class=\"ek2-linie ek2-linie--fein\" marker-end=\"url(#ek2-pfeil-quer)\"/><rect x=\"275.0\" y=\"349\" width=\"570\" height=\"26\" class=\"ek2-grund\"/><text x=\"560.0\" y=\"367\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"middle\">Regelmäßige Präsenz pflegt deinen Bestand – und bringt neue Anlässe.</text></svg>",
+    "ek_hoch": "<svg class=\"ek2-svg ek2-svg--hoch\" viewBox=\"0 0 340 730\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-hoch\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"170\" y=\"30\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Marketing – wir gewinnen Interessenten</text><path d=\"M48 98 V184 C48 274 130 294 130 364 V414 H210 V364 C210 294 292 274 292 184 V98 Z\" class=\"ek2-l4-h ek2-lage\"/><path d=\"M66 98 V184 C66 274 136 294 136 364 V414 H204 V364 C204 294 274 274 274 184 V98 Z\" class=\"ek2-l3-h ek2-lage\"/><path d=\"M86 98 V184 C86 274 143 294 143 364 V414 H197 V364 C197 294 254 274 254 184 V98 Z\" class=\"ek2-l2-h ek2-lage\"/><path d=\"M108 98 V184 C108 274 150 294 150 364 V414 H190 V364 C190 294 232 274 232 184 V98 Z\" class=\"ek2-kern-h ek2-lage\"/><svg x=\"122\" y=\"126.3\" width=\"96\" height=\"11.4\" viewBox=\"0 0 199.308 23.6175\" aria-label=\"sofort sichtbar\">\n<defs>\n<clipPath id=\"ek2h-clip-0\">\n<path clip-rule=\"nonzero\" d=\"M 1.246094 7 L 13 7 L 13 23.242188 L 1.246094 23.242188 Z M 1.246094 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-1\">\n<path clip-rule=\"nonzero\" d=\"M 65 7 L 80 7 L 80 23.242188 L 65 23.242188 Z M 65 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-2\">\n<path clip-rule=\"nonzero\" d=\"M 100 7 L 112 7 L 112 23.242188 L 100 23.242188 Z M 100 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-3\">\n<path clip-rule=\"nonzero\" d=\"M 119 7 L 132 7 L 132 23.242188 L 119 23.242188 Z M 119 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-4\">\n<path clip-rule=\"nonzero\" d=\"M 158 0 L 172 0 L 172 23.242188 L 158 23.242188 Z M 158 0 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-5\">\n<path clip-rule=\"nonzero\" d=\"M 173 7 L 186 7 L 186 23.242188 L 173 23.242188 Z M 173 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-6\">\n<path clip-rule=\"nonzero\" d=\"M 48 7 L 55 7 L 55 23.242188 L 48 23.242188 Z M 48 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-7\">\n<path clip-rule=\"nonzero\" d=\"M 15 7 L 22 7 L 22 23.242188 L 15 23.242188 Z M 15 7 \"/>\n</clipPath>\n<clipPath id=\"ek2h-clip-8\">\n<path clip-rule=\"nonzero\" d=\"M 21 21 L 49 21 L 49 23.242188 L 21 23.242188 Z M 21 21 \"/>\n</clipPath>\n</defs>\n<g clip-path=\"url(#ek2h-clip-0)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 4.5 11.746094 C 4.5 15.0625 12.800781 13.828125 12.800781 18.878906 C 12.800781 21.75 10.433594 23.046875 7.433594 23.046875 C 4.847656 23.046875 2.859375 21.816406 2.039062 20.773438 C 1.878906 20.550781 1.816406 20.394531 1.816406 20.171875 C 1.816406 19.667969 2.226562 19.257812 2.730469 19.257812 C 2.921875 19.257812 3.175781 19.320312 3.425781 19.574219 C 4.40625 20.550781 5.667969 21.121094 7.433594 21.121094 C 9.234375 21.121094 10.78125 20.519531 10.78125 18.878906 C 10.78125 15.628906 2.480469 16.921875 2.480469 11.746094 C 2.480469 9.128906 4.625 7.925781 7.308594 7.925781 C 9.453125 7.925781 11.128906 8.652344 12.105469 9.949219 C 12.199219 10.074219 12.328125 10.261719 12.328125 10.546875 C 12.328125 11.050781 11.917969 11.460938 11.410156 11.460938 C 11.253906 11.460938 11 11.429688 10.75 11.179688 C 9.894531 10.359375 8.949219 9.851562 7.308594 9.851562 C 5.886719 9.851562 4.5 10.296875 4.5 11.746094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 57.398438 10.230469 C 56.859375 10.230469 56.449219 9.820312 56.449219 9.285156 C 56.449219 8.746094 56.859375 8.339844 57.398438 8.339844 L 58.46875 8.339844 L 58.46875 6.476562 C 58.46875 3.636719 60.078125 1.046875 63.929688 1.046875 C 64.464844 1.046875 64.875 1.457031 64.875 1.992188 C 64.875 2.53125 64.464844 2.941406 63.929688 2.941406 C 61.46875 2.941406 60.488281 4.425781 60.488281 6.476562 L 60.488281 8.339844 L 63.363281 8.339844 C 63.898438 8.339844 64.308594 8.746094 64.308594 9.285156 C 64.308594 9.820312 63.898438 10.230469 63.363281 10.230469 L 60.488281 10.230469 L 60.488281 21.910156 C 60.488281 22.476562 60.046875 22.917969 59.480469 22.917969 C 58.910156 22.917969 58.46875 22.476562 58.46875 21.910156 L 58.46875 10.230469 Z M 57.398438 10.230469 \"/>\n<g clip-path=\"url(#ek2h-clip-1)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 77.058594 15.472656 C 77.058594 11.496094 75.386719 9.726562 72.484375 9.726562 C 69.578125 9.726562 67.90625 11.492188 67.90625 15.472656 C 67.90625 19.511719 69.578125 21.246094 72.484375 21.246094 C 75.386719 21.246094 77.058594 19.511719 77.058594 15.472656 M 79.109375 15.472656 C 79.109375 20.644531 76.585938 23.078125 72.484375 23.078125 C 68.410156 23.078125 65.855469 20.644531 65.855469 15.472656 C 65.855469 10.292969 68.410156 7.898438 72.484375 7.898438 C 76.585938 7.898438 79.109375 10.292969 79.109375 15.472656 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 84.289062 10.484375 C 84.917969 9.03125 86.496094 7.957031 88.675781 7.957031 C 89.210938 7.957031 89.652344 8.402344 89.652344 8.9375 C 89.652344 9.472656 89.210938 9.917969 88.675781 9.917969 C 85.769531 9.917969 84.289062 11.9375 84.289062 14.839844 L 84.289062 21.910156 C 84.289062 22.476562 83.84375 22.917969 83.277344 22.917969 C 82.707031 22.917969 82.265625 22.476562 82.265625 21.910156 L 82.265625 9.09375 C 82.265625 8.527344 82.707031 8.085938 83.277344 8.085938 C 83.84375 8.085938 84.289062 8.527344 84.289062 9.09375 Z M 84.289062 10.484375 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 93.441406 5.023438 C 93.441406 4.488281 93.914062 4.015625 94.449219 4.015625 C 95.015625 4.015625 95.460938 4.488281 95.460938 5.023438 L 95.460938 8.339844 L 97.511719 8.339844 C 98.046875 8.339844 98.457031 8.746094 98.457031 9.285156 C 98.457031 9.820312 98.046875 10.230469 97.511719 10.230469 L 95.460938 10.230469 L 95.460938 18.941406 C 95.460938 20.300781 96.21875 21.023438 97.289062 21.023438 C 97.828125 21.023438 98.269531 21.433594 98.269531 21.972656 C 98.269531 22.507812 97.828125 22.917969 97.289062 22.917969 C 94.796875 22.917969 93.441406 21.246094 93.441406 18.941406 L 93.441406 10.230469 L 92.207031 10.230469 C 91.671875 10.230469 91.261719 9.820312 91.261719 9.285156 C 91.261719 8.746094 91.671875 8.339844 92.207031 8.339844 L 93.441406 8.339844 Z M 93.441406 5.023438 \"/>\n<g clip-path=\"url(#ek2h-clip-2)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 102.851562 11.714844 C 102.851562 15.03125 111.152344 13.796875 111.152344 18.847656 C 111.152344 21.71875 108.785156 23.015625 105.785156 23.015625 C 103.199219 23.015625 101.210938 21.785156 100.390625 20.742188 C 100.230469 20.519531 100.167969 20.363281 100.167969 20.140625 C 100.167969 19.636719 100.578125 19.226562 101.082031 19.226562 C 101.273438 19.226562 101.527344 19.289062 101.777344 19.542969 C 102.757812 20.519531 104.019531 21.089844 105.785156 21.089844 C 107.585938 21.089844 109.132812 20.488281 109.132812 18.847656 C 109.132812 15.597656 100.832031 16.890625 100.832031 11.714844 C 100.832031 9.097656 102.976562 7.894531 105.660156 7.894531 C 107.804688 7.894531 109.480469 8.621094 110.457031 9.917969 C 110.550781 10.042969 110.679688 10.230469 110.679688 10.515625 C 110.679688 11.019531 110.269531 11.429688 109.761719 11.429688 C 109.605469 11.429688 109.351562 11.398438 109.101562 11.148438 C 108.246094 10.328125 107.300781 9.820312 105.660156 9.820312 C 104.238281 9.820312 102.851562 10.265625 102.851562 11.714844 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 116.550781 21.878906 C 116.550781 22.445312 116.105469 22.886719 115.539062 22.886719 C 114.972656 22.886719 114.527344 22.445312 114.527344 21.878906 L 114.527344 9.0625 C 114.527344 8.496094 114.972656 8.054688 115.539062 8.054688 C 116.105469 8.054688 116.550781 8.496094 116.550781 9.0625 Z M 114.339844 3.886719 C 114.339844 2.972656 114.78125 2.625 115.539062 2.625 C 116.296875 2.625 116.738281 2.972656 116.738281 3.886719 C 116.738281 4.644531 116.296875 5.085938 115.539062 5.085938 C 114.78125 5.085938 114.339844 4.644531 114.339844 3.886719 \"/>\n<g clip-path=\"url(#ek2h-clip-3)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 126.207031 7.863281 C 129.015625 7.863281 130.5625 9.347656 131.066406 10.042969 C 131.222656 10.261719 131.289062 10.421875 131.289062 10.640625 C 131.289062 11.179688 130.878906 11.558594 130.371094 11.558594 C 130.058594 11.558594 129.835938 11.429688 129.617188 11.179688 C 129.140625 10.640625 128.289062 9.695312 126.207031 9.695312 C 123.304688 9.695312 121.757812 11.558594 121.757812 15.4375 C 121.757812 19.382812 123.304688 21.214844 126.207031 21.214844 C 128.039062 21.214844 129.140625 20.394531 129.867188 19.859375 C 130.089844 19.699219 130.246094 19.636719 130.46875 19.636719 C 130.972656 19.636719 131.382812 20.046875 131.382812 20.550781 C 131.382812 20.835938 131.289062 21.058594 130.972656 21.339844 C 130.277344 21.910156 128.761719 23.046875 126.207031 23.046875 C 122.132812 23.046875 119.703125 20.617188 119.703125 15.4375 C 119.703125 10.261719 122.132812 7.863281 126.207031 7.863281 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 146.28125 13.449219 L 146.28125 21.878906 C 146.28125 22.445312 145.839844 22.886719 145.269531 22.886719 C 144.703125 22.886719 144.257812 22.445312 144.257812 21.878906 L 144.257812 13.863281 C 144.257812 11.367188 143.535156 9.664062 140.472656 9.664062 C 137.347656 9.664062 136.273438 11.558594 136.273438 14.082031 L 136.273438 21.878906 C 136.273438 22.445312 135.832031 22.886719 135.265625 22.886719 C 134.695312 22.886719 134.253906 22.445312 134.253906 21.878906 L 134.253906 1.175781 C 134.253906 0.605469 134.695312 0.164062 135.265625 0.164062 C 135.832031 0.164062 136.273438 0.605469 136.273438 1.175781 L 136.273438 10.074219 C 136.875 8.875 138.421875 7.867188 140.472656 7.867188 C 145.332031 7.867188 146.28125 10.769531 146.28125 13.449219 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 150.855469 4.992188 C 150.855469 4.457031 151.328125 3.984375 151.867188 3.984375 C 152.433594 3.984375 152.875 4.457031 152.875 4.992188 L 152.875 8.308594 L 154.929688 8.308594 C 155.464844 8.308594 155.875 8.714844 155.875 9.253906 C 155.875 9.789062 155.464844 10.199219 154.929688 10.199219 L 152.875 10.199219 L 152.875 18.910156 C 152.875 20.269531 153.632812 20.992188 154.707031 20.992188 C 155.242188 20.992188 155.683594 21.402344 155.683594 21.941406 C 155.683594 22.476562 155.242188 22.886719 154.707031 22.886719 C 152.214844 22.886719 150.855469 21.214844 150.855469 18.910156 L 150.855469 10.199219 L 149.625 10.199219 C 149.089844 10.199219 148.679688 9.789062 148.679688 9.253906 C 148.679688 8.714844 149.089844 8.308594 149.625 8.308594 L 150.855469 8.308594 Z M 150.855469 4.992188 \"/>\n<g clip-path=\"url(#ek2h-clip-4)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 160.894531 16.828125 C 160.894531 19.828125 162.628906 21.214844 165.058594 21.214844 C 167.960938 21.214844 169.507812 19.386719 169.507812 15.441406 C 169.507812 11.558594 167.929688 9.695312 165.058594 9.695312 C 162.089844 9.695312 160.894531 12.472656 160.894531 12.472656 Z M 171.527344 15.441406 C 171.527344 20.613281 169.128906 23.046875 165.058594 23.046875 C 161.460938 23.046875 158.871094 20.996094 158.871094 16.828125 L 158.871094 1.171875 C 158.871094 0.605469 159.316406 0.164062 159.882812 0.164062 C 160.453125 0.164062 160.894531 0.605469 160.894531 1.171875 L 160.894531 9.917969 C 161.621094 8.90625 163.164062 7.867188 165.1875 7.867188 C 169.257812 7.867188 171.527344 10.261719 171.527344 15.441406 \"/>\n</g>\n<g clip-path=\"url(#ek2h-clip-5)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 183.679688 17.175781 L 183.679688 15.851562 L 179.230469 15.851562 C 177.179688 15.851562 175.757812 16.703125 175.757812 18.53125 C 175.757812 20.175781 176.894531 21.214844 179.355469 21.214844 C 181.566406 21.214844 183.679688 19.859375 183.679688 17.175781 M 176.292969 11.367188 C 175.980469 11.714844 175.757812 11.808594 175.476562 11.808594 C 174.96875 11.808594 174.558594 11.398438 174.558594 10.894531 C 174.558594 10.675781 174.621094 10.515625 174.71875 10.359375 C 175.601562 8.96875 177.304688 7.867188 179.957031 7.867188 C 183.617188 7.867188 185.636719 10.011719 185.636719 13.230469 L 185.636719 21.910156 C 185.636719 22.445312 185.195312 22.886719 184.65625 22.886719 C 184.121094 22.886719 183.679688 22.445312 183.679688 21.910156 L 183.679688 20.773438 C 182.890625 22.257812 181.058594 23.046875 179.167969 23.046875 C 175.820312 23.046875 173.707031 21.4375 173.707031 18.53125 C 173.707031 15.753906 175.820312 14.082031 179.230469 14.082031 L 183.679688 14.082031 L 183.679688 13.230469 C 183.679688 11.085938 182.261719 9.757812 179.957031 9.757812 C 178.285156 9.757812 177.273438 10.261719 176.292969 11.367188 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 191.445312 10.453125 C 192.074219 9 193.652344 7.925781 195.832031 7.925781 C 196.367188 7.925781 196.808594 8.371094 196.808594 8.90625 C 196.808594 9.441406 196.367188 9.886719 195.832031 9.886719 C 192.925781 9.886719 191.445312 11.90625 191.445312 14.808594 L 191.445312 21.878906 C 191.445312 22.445312 191.003906 22.886719 190.433594 22.886719 C 189.867188 22.886719 189.425781 22.445312 189.425781 21.878906 L 189.425781 9.0625 C 189.425781 8.496094 189.867188 8.054688 190.433594 8.054688 C 191.003906 8.054688 191.445312 8.496094 191.445312 9.0625 Z M 191.445312 10.453125 \"/>\n<g clip-path=\"url(#ek2h-clip-6)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.21875 7.898438 L 48.21875 9.726562 C 51.105469 9.738281 52.769531 11.507812 52.769531 15.472656 C 52.769531 19.5 51.105469 21.234375 48.21875 21.246094 L 48.21875 23.074219 C 52.304688 23.066406 54.820312 20.636719 54.820312 15.472656 C 54.820312 10.304688 52.304688 7.910156 48.21875 7.898438 \"/>\n</g>\n<g clip-path=\"url(#ek2h-clip-7)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 21.863281 21.246094 C 18.976562 21.234375 17.3125 19.496094 17.3125 15.472656 C 17.3125 11.507812 18.976562 9.738281 21.863281 9.726562 L 21.863281 7.898438 C 17.808594 7.90625 15.261719 10.308594 15.261719 15.472656 C 15.261719 20.636719 17.808594 23.066406 21.863281 23.074219 Z M 21.863281 21.246094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 9.722656 L 21.8125 9.722656 L 21.8125 7.898438 L 48.242188 7.898438 Z M 48.242188 9.722656 \"/>\n<g clip-path=\"url(#ek2h-clip-8)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 23.074219 L 21.8125 23.074219 L 21.8125 21.25 L 48.242188 21.25 Z M 48.242188 23.074219 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 49.5 15.367188 C 49.5 17.128906 48.070312 18.558594 46.304688 18.558594 C 44.542969 18.558594 43.113281 17.128906 43.113281 15.367188 C 43.113281 13.601562 44.542969 12.171875 46.304688 12.171875 C 48.070312 12.171875 49.5 13.601562 49.5 15.367188 \"/>\n</svg><circle cx=\"170\" cy=\"334\" r=\"4\" class=\"ek2-kern-p\"/><circle cx=\"170\" cy=\"349\" r=\"4\" class=\"ek2-kern-p\"/><circle cx=\"170\" cy=\"364\" r=\"4\" class=\"ek2-kern-p\"/><path d=\"M210 400 H232\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"238\" y=\"396\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"start\">Messpunkt:</text><text x=\"238\" y=\"412\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"start\">Leads</text><text x=\"170\" y=\"458\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Vertrieb – du machst daraus Kunden</text><path d=\"M50 470 H290 V540 L170 556 L50 540 Z\" class=\"ek2-band\"/><path d=\"M50 564 L170 580 L290 564 V634 Q290 650 274 650 H66 Q50 650 50 634 Z\" class=\"ek2-band\"/><text x=\"170\" y=\"504\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Vertrieb</text><text x=\"170\" y=\"525\" class=\"ek2-band-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Termin · Beratung · Abschluss</text><text x=\"170\" y=\"614\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\">Kundenbetreuung</text><text x=\"170\" y=\"635\" class=\"ek2-band-s\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Halten und ausbauen</text><path d=\"M50 614 H18 V128 H42\" class=\"ek2-linie ek2-linie--fein\" marker-end=\"url(#ek2-pfeil-hoch)\"/><text x=\"178\" y=\"686\" class=\"ek2-t\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">Regelmäßige Präsenz pflegt deinen Bestand –</text><text x=\"178\" y=\"703\" class=\"ek2-t\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">und bringt neue Anlässe.</text></svg>",
+    "maas": {
+      "_quelle": "Preise, Bausteine, Profile und Monatsablauf aus story6 maas (Angebot A-00062); Texte für die Sicht der Vertriebsleitung neu gefasst, Leads statt Anfragen.",
+      "held": {
+        "kicker": "Marketing as a Service für Versicherungsagenturen und Maklerbüros",
+        "h1": "Wir bedienen die Maschine.",
+        "h1_akzent": "Du verkaufst.",
+        "lead": "Wir stellen die richtigen Fragen, setzen um und werten jeden Monat aus. Du konzentrierst dich auf den Vertrieb.",
+        "knopf": "Termin auswählen",
+        "knopf2": "Bausteine und Preise"
+      },
+      "bausteine": {
+        "kicker": "Bausteine und Preise",
+        "h2": "Ein Kernpaket.",
+        "lead": "Das Kernpaket ist die Basis. Die Ergänzungen machen deinen Trichter breiter – du buchst sie dazu, wenn du sie brauchst.",
+        "liste": [
+          {
+            "id": "kern",
+            "art": "Kernpaket",
+            "name": "sofort sichtbar",
+            "preis": "1.800 €",
+            "einheit": "pro Monat",
+            "zusatz": "",
+            "kurz": "Wir betreuen deinen digitalen Auftritt laufend – damit aus Sichtbarkeit verlässlich Leads für deinen Vertrieb werden.",
+            "punkte": [
+              "Fünf Landingpages",
+              "Laufende Postings je Zielgruppenthema",
+              "Laufende Optimierung",
+              "Zentrales Dashboard",
+              "Monatlicher Report",
+              "Monatlicher Betreuungscall"
+            ],
+            "gruppen": [
+              {
+                "titel": "Damit du gesehen wirst",
+                "punkte": [
+                  "Fünf Landingpages",
+                  "Laufende Postings je Zielgruppenthema",
+                  "Laufende Optimierung"
+                ]
+              },
+              {
+                "titel": "Damit du steuern kannst",
+                "punkte": [
+                  "Zentrales Dashboard",
+                  "Monatlicher Report",
+                  "Monatlicher Betreuungscall"
+                ]
+              }
+            ],
+            "fenster": {
+              "meta": "Kernpaket · 1.800 € monatlich",
+              "titel": "Kernpaket „sofort sichtbar“",
+              "intro": [
+                "„sofort sichtbar“ ist das Herzstück der Zusammenarbeit. Wir übernehmen die komplette laufende Betreuung deines digitalen Auftritts – von den Landingpages über Social Media bis zur Auswertung aller Ergebnisse.",
+                "Ziel ist, dass sich deine Sichtbarkeit verlässlich in qualifizierte Leads übersetzt. Du hast jederzeit den Überblick über deine Ergebnisse und einen festen Ansprechpartner, ohne dich selbst um die operative Umsetzung kümmern zu müssen."
+              ],
+              "gruppen": [
+                {
+                  "label": "Leistungsumfang",
+                  "leistungen": [
+                    {
+                      "titel": "Betreuung von fünf Landingpages",
+                      "text": "Jede Landingpage ist auf ein konkretes Angebot oder eine bestimmte Zielgruppe ausgerichtet.",
+                      "liste": [
+                        "DSGVO-konform aufgesetzt, inklusive Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung",
+                        "Vollständig trackingfähig: Besucher, Conversions und Leads lassen sich sauber messen und den Kanälen zuordnen",
+                        "Für alle Endgeräte optimiert und auf schnelle Ladezeiten ausgelegt",
+                        "Anfrageformulare direkt an das Dashboard angebunden",
+                        "Laufende Pflege, inhaltliche Anpassungen und kontinuierliche Optimierung der Conversion-Rate"
+                      ]
+                    },
+                    {
+                      "titel": "Betreuung Social Media",
+                      "text": "Für jedes Zielgruppenthema laufend neue, fertige Postings – abgestimmt auf die Zielgruppe und das passende Angebot. Wir veröffentlichen sie regelmäßig auf allen deinen Social-Media-Kanälen – so bleibt dein Auftritt dauerhaft aktiv, konsistent und sichtbar."
+                    },
+                    {
+                      "titel": "Steuerung des Dashboards",
+                      "text": "Alle Leads, Kampagnen und Kennzahlen laufen in einem zentralen Dashboard zusammen. Wir richten es ein, pflegen und steuern es – du siehst jederzeit, woher deine Leads kommen und was funktioniert."
+                    },
+                    {
+                      "titel": "Monatlicher Report",
+                      "text": "Strukturierte Auswertung aller relevanten Kennzahlen, mit Einordnung der Entwicklung und konkreten Handlungsempfehlungen."
+                    },
+                    {
+                      "titel": "Laufende Optimierung",
+                      "text": "Auf Basis der Daten entwickeln wir Landingpages, Inhalte und Maßnahmen kontinuierlich weiter, damit die Ergebnisse Monat für Monat besser werden."
+                    },
+                    {
+                      "titel": "Monatlicher Betreuungscall",
+                      "text": "Ein fester Termin, in dem wir Ergebnisse besprechen, Prioritäten festlegen und die nächsten Schritte gemeinsam planen."
+                    }
+                  ]
+                }
+              ],
+              "hinweis": ""
+            }
+          },
+          {
+            "id": "linkedin",
+            "art": "Ergänzung",
+            "name": "LinkedIn Power Package",
+            "preis": "850 €",
+            "einheit": "pro Monat",
+            "zusatz": "",
+            "kurz": "Wir bauen dein LinkedIn-Profil zu einem aktiven Vertriebskanal aus – sichtbar bei Entscheidern, mit den richtigen Kontakten.",
+            "punkte": [
+              "Vier Postings pro Monat",
+              "Gezielter Netzwerkaufbau",
+              "Begleitung der Direktansprache"
+            ],
+            "gruppen": [],
+            "fenster": {
+              "meta": "Ergänzung · 850 € monatlich",
+              "titel": "LinkedIn Power Package",
+              "intro": [
+                "LinkedIn ist für viele Unternehmen der wichtigste Kanal, um Entscheider direkt zu erreichen. Regelmäßige Inhalte sorgen für Sichtbarkeit und unterstreichen deine Expertise, der gezielte Ausbau deines Netzwerks bringt die richtigen Kontakte.",
+                "Laufende Empfehlungen zeigen dir, wann und wie du mit deinen Wunschkunden ins Gespräch kommst. So wird LinkedIn von einer reinen Visitenkarte zu einer verlässlichen Quelle für neue Geschäftskontakte."
+              ],
+              "gruppen": [
+                {
+                  "label": "Leistungsumfang",
+                  "leistungen": [
+                    {
+                      "titel": "Vier individuelle Postings pro Monat",
+                      "liste": [
+                        "Themen, die auf deine Positionierung und Zielgruppe einzahlen",
+                        "Beiträge in deiner Tonalität, inklusive passender Grafiken oder Formate",
+                        "Veröffentlichung nach deiner Freigabe"
+                      ]
+                    },
+                    {
+                      "titel": "Aufbau deines LinkedIn-Netzwerks",
+                      "text": "Wir vernetzen dich gezielt und kontinuierlich mit Entscheidern und relevanten Personen aus deiner Zielgruppe. So wächst nicht nur die Reichweite deiner Beiträge, sondern vor allem die Qualität deines Netzwerks."
+                    },
+                    {
+                      "titel": "Betreuung der Direktansprache",
+                      "liste": [
+                        "Über den LinkedIn Sales Navigator legen wir gemeinsam deine Zielgruppe und deine Wunschkontakte fest",
+                        "Die Aktivitäten dieser Kontakte werten wir laufend KI-gestützt aus",
+                        "Du erhältst regelmäßig Hinweise, welcher Kontakt gerade was gepostet hat – mit Vorschlägen, wie du darauf reagieren kannst",
+                        "So erkennst du die richtigen Anlässe und kommst auf natürliche Weise ins Gespräch",
+                        "Die Reaktion erfolgt durch dich persönlich, damit die Ansprache authentisch bleibt"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "hinweis": "Voraussetzung ist ein Zugang zum LinkedIn Sales Navigator auf deiner Seite."
+            }
+          },
+          {
+            "id": "paid-ads",
+            "art": "Ergänzung",
+            "name": "Paid Ads",
+            "preis": "1.000 €",
+            "einheit": "pro Monat und Kanal",
+            "zusatz": "zzgl. 2.000 € einmalige Einrichtung",
+            "kurz": "Wir bauen deinen Werbekanal auf und betreuen ihn laufend – für Leads zu wirtschaftlichen Kosten.",
+            "punkte": [
+              "Werbekonto, Tracking und Kampagnenaufbau",
+              "Laufende Steuerung und Anzeigen-Tests",
+              "Kennzahlen im Dashboard und Report"
+            ],
+            "gruppen": [],
+            "fenster": {
+              "meta": "Ergänzung · 1.000 € monatlich je Kanal, zzgl. 2.000 € einmalige Einrichtung",
+              "titel": "Paid Ads – Einrichtung und Betreuung",
+              "intro": [
+                "Damit bezahlte Werbung vom ersten Tag an wirtschaftlich läuft, braucht es ein sauberes Fundament. Wir bauen deinen Werbekanal vollständig auf, zum Beispiel Google Ads, Meta Ads oder LinkedIn Ads: Werbekonto, lückenloses Tracking, Zielgruppen, Kampagnenstruktur und die ersten Anzeigen.",
+                "Nach dem Start beginnt die eigentliche Arbeit: Wir betreuen deine Kampagnen laufend und optimieren konsequent auf qualifizierte Leads zu wirtschaftlichen Kosten. So ist jeder Lead messbar, und jeder investierte Euro lässt sich einer konkreten Kampagne zuordnen."
+              ],
+              "gruppen": [
+                {
+                  "label": "Einrichtung · einmalig",
+                  "leistungen": [
+                    {
+                      "titel": "Einrichtung des Werbekontos",
+                      "text": "Anlage oder Überprüfung und Neuaufstellung des Werbekontos, inklusive Abrechnung, Berechtigungen und Grundeinstellungen."
+                    },
+                    {
+                      "titel": "Tracking-Setup",
+                      "liste": [
+                        "Conversion-Tracking über den Google Tag Manager und die jeweiligen Plattform-Pixel",
+                        "DSGVO-konforme Umsetzung, inklusive Consent Mode",
+                        "Abgleich mit den Landingpages und dem Dashboard, damit Leads eindeutig dem Kanal zugeordnet werden"
+                      ]
+                    },
+                    {
+                      "titel": "Zielgruppen und Strategie",
+                      "text": "Festlegung der Zielgruppen, Keywords bzw. Targeting-Optionen und Kampagnenziele auf Basis deiner Positionierung."
+                    },
+                    {
+                      "titel": "Kampagnenaufbau",
+                      "text": "Saubere Kampagnen- und Anzeigengruppenstruktur, Festlegung von Budgets und Gebotsstrategien."
+                    },
+                    {
+                      "titel": "Anzeigenerstellung",
+                      "text": "Die ersten Anzeigen inklusive Texten und, je nach Kanal, Bild- oder Videoformaten."
+                    },
+                    {
+                      "titel": "Launch",
+                      "text": "Freigabe und Start der Kampagnen sowie engmaschige Kontrolle in der Anlaufphase."
+                    }
+                  ]
+                },
+                {
+                  "label": "Laufende Betreuung · monatlich",
+                  "leistungen": [
+                    {
+                      "titel": "Laufende Kampagnensteuerung",
+                      "text": "Regelmäßige Kontrolle und Steuerung von Budgets, Geboten und Auslieferung."
+                    },
+                    {
+                      "titel": "Optimierung",
+                      "text": "Kontinuierliche Verbesserung von Zielgruppen, Keywords, Ausschlüssen und Kampagnenstruktur – damit deine Kampagnen mit der Zeit immer effizienter werden."
+                    },
+                    {
+                      "titel": "Anzeigen-Tests",
+                      "text": "Regelmäßiges Testen neuer Anzeigentexte und Creatives, um die Leistung stetig zu steigern."
+                    },
+                    {
+                      "titel": "Tracking-Kontrolle",
+                      "text": "Laufende Überprüfung, ob alle Conversions korrekt erfasst werden."
+                    },
+                    {
+                      "titel": "Reporting",
+                      "text": "Alle Kennzahlen fließen in das Dashboard und den monatlichen Report, inklusive Einordnung und Empfehlungen."
+                    }
+                  ]
+                }
+              ],
+              "hinweis": "Einrichtung und Betreuung gehören zusammen und werden je Werbekanal gebucht. Das Werbebudget ist nicht enthalten, es wird direkt an die jeweilige Plattform gezahlt."
+            }
+          },
+          {
+            "id": "website",
+            "art": "Ergänzung",
+            "name": "Website-Entwicklung",
+            "preis": "5.000 €",
+            "einheit": "einmalig",
+            "zusatz": "",
+            "kurz": "Eine schnelle Website, die deine Positionierung zeigt, Besucher zum Kontakt führt und in Google und KI-Systemen gefunden wird.",
+            "punkte": [
+              "Konzeption, Design und Umsetzung",
+              "Sichtbar in Google und KI-Systemen",
+              "DSGVO, Tracking und Go-live"
+            ],
+            "gruppen": [],
+            "fenster": {
+              "meta": "Ergänzung · 5.000 € einmalig",
+              "titel": "Website-Entwicklung",
+              "intro": [
+                "Deine Website ist oft der erste Eindruck, den potenzielle Kunden von deinem Unternehmen bekommen. Wir entwickeln eine moderne, schnelle und klar strukturierte Website, die deine Positionierung überzeugend abbildet und Besucher gezielt zum Kontakt führt.",
+                "Sie ist technisch auf dem neuesten Stand, rechtssicher und darauf ausgelegt, in Suchmaschinen wie Google und in KI-Systemen wie ChatGPT, Gemini oder Perplexity gefunden zu werden. Tracking, Anfrageformulare und die Anbindung an das Dashboard sind von Anfang an mitgedacht."
+              ],
+              "gruppen": [
+                {
+                  "label": "Leistungsumfang",
+                  "leistungen": [
+                    {
+                      "titel": "Konzeption und Seitenstruktur",
+                      "text": "Klare Seitenarchitektur und Nutzerführung, abgeleitet aus deiner Positionierung und Zielgruppe."
+                    },
+                    {
+                      "titel": "Design",
+                      "text": "Modernes, individuelles Design im Look deiner Marke, optimiert für Desktop, Tablet und Smartphone."
+                    },
+                    {
+                      "titel": "Technische Umsetzung",
+                      "text": "Entwicklung mit Fokus auf schnelle Ladezeiten und einfache Pflege."
+                    },
+                    {
+                      "titel": "Inhalte",
+                      "text": "Einpflegen aller Texte, Bilder und Inhalte."
+                    },
+                    {
+                      "titel": "Conversion-Elemente",
+                      "text": "Gezielt platzierte Handlungsaufforderungen und Anfrageformulare, die Besucher zur Kontaktaufnahme führen."
+                    },
+                    {
+                      "titel": "Sichtbarkeit in Google und KI-Systemen (SEO und GEO)",
+                      "text": "Immer mehr Menschen fragen direkt KI-Assistenten wie ChatGPT, Gemini oder Perplexity. Deshalb optimieren wir deine Website für beide Welten:",
+                      "liste": [
+                        "Saubere Seitenstruktur, Meta-Titel und -Beschreibungen",
+                        "Strukturierte Daten (Schema.org), damit deine Inhalte für Suchmaschinen und KI-Modelle eindeutig verständlich sind",
+                        "Inhaltlicher Aufbau, der dein Unternehmen als relevante Quelle für KI-Antworten positioniert",
+                        "Anbindung von Skripten, die das Auslesen deiner Website für KI-Agenten möglich machen",
+                        "Einrichtung der Google Search Console und der Bing Webmaster Tools (relevant für ChatGPT)"
+                      ]
+                    },
+                    {
+                      "titel": "DSGVO-Konformität",
+                      "text": "Cookie-Banner, Consent-Management, Impressum und Datenschutzerklärung."
+                    },
+                    {
+                      "titel": "Tracking",
+                      "text": "Einrichtung von Analytics und Conversion-Tracking, damit der Erfolg der Website messbar ist."
+                    },
+                    {
+                      "titel": "Go-live",
+                      "text": "Domain-Anbindung, Hosting-Setup und SSL-Verschlüsselung; bei einer bestehenden Website die Weiterleitungen, damit vorhandene Rankings erhalten bleiben."
+                    }
+                  ]
+                }
+              ],
+              "hinweis": ""
+            }
+          }
+        ],
+        "hinweis": "Alle Preise zzgl. Umsatzsteuer. Paid Ads je Werbekanal, Werbebudget nicht enthalten.",
+        "pdf": "Alle Leistungen im Detail (PDF, 21 Seiten)",
+        "pdf_datei": "marketing-as-a-service-ss.pdf",
+        "h2_akzent": "Drei Ergänzungen.",
+        "basis": "Die Basis",
+        "dazu": "Dazu buchbar"
+      },
+      "start": {
+        "_hinweis": "Wochen sind eine Einschätzung (Claude, 12.11.2026) – von Daniel bestätigen lassen.",
+        "kicker": "Der Start",
+        "h2": "Der 30-Tage-Plan.",
+        "lead": "Ab Tag 1 ist klar, was passiert – vom Auftakt bis zum ersten Report. Danach geht es jeden Monat so weiter.",
+        "liste": [
+          {
+            "wann": "Woche 1",
+            "titel": "Auftakt",
+            "text": "Wir legen mit dir Ziele und Zielgruppen fest. Daraus folgt, welche Landingpages und Postings wir bauen."
+          },
+          {
+            "wann": "Woche 2",
+            "titel": "Landingpages live",
+            "text": "Je Zielgruppe eine Landingpage, angebunden an dein Dashboard und auf Wunsch an dein Terminierungstool."
+          },
+          {
+            "wann": "Woche 3",
+            "titel": "Postings laufen",
+            "text": "Die ersten Postings gehen auf deinen Kanälen raus. Leads landen direkt bei dir."
+          },
+          {
+            "wann": "Woche 4",
+            "titel": "Erster Report",
+            "text": "Im Betreuungscall zeigen wir, was wirkt, und legen die Prioritäten für den nächsten Monat fest."
+          }
+        ],
+        "aufwand_titel": "Was an dir hängt",
+        "aufwand": [
+          "Der Auftakttermin",
+          "Leads nachfassen, beraten und abschließen",
+          "Ein Betreuungscall im Monat"
+        ]
+      },
+      "download": {
+        "kicker": "Download",
+        "h2": "Alles im Detail.",
+        "lead": "Alle Bausteine mit Leistungen und Preisen – und fünf Stellenbeschreibungen mit fertigen Postings, falls du die Profile lieber selbst besetzt.",
+        "meta": [
+          "PDF",
+          "21 Seiten",
+          "1,9 MB"
+        ],
+        "knopf": "PDF herunterladen",
+        "datei": "marketing-as-a-service.pdf?v=3251817e",
+        "bild1": "marketing-as-a-service-1.png?v=3251817e",
+        "bild2": "marketing-as-a-service-2.png?v=3251817e",
+        "ordner": "story7"
+      },
+      "beleg": {
+        "zitat": "Wir haben jetzt wieder etwas in der Hand, mit dem wir das Spiel gewinnen können.",
+        "quelle": "Leitung unserer Pilotagentur",
+        "link": "Wie die Maschine funktioniert"
+      },
+      "schnitt": [
+        {
+          "name": "Kernpaket",
+          "marke": "Die Basis",
+          "text": "Fünf Landingpages, laufende Postings je Zielgruppe, Dashboard, monatlicher Report und Betreuungscall"
+        },
+        {
+          "name": "LinkedIn Power Package",
+          "marke": "dazu buchbar",
+          "text": "Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal"
+        },
+        {
+          "name": "Paid Ads",
+          "marke": "dazu buchbar",
+          "text": "Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert"
+        },
+        {
+          "name": "Website-Entwicklung",
+          "marke": "dazu buchbar",
+          "text": "Deine Versicherungsagentur sauber positioniert"
+        }
+      ],
+      "kopf": {
+        "klammer": "Deine strategische Marketingabteilung – wir kümmern uns um alles, was vor deinem Vertrieb passiert",
+        "spalten": [
+          {
+            "nr": "1",
+            "titel": "Wir fragen",
+            "sub": "Ziele, Zielgruppen, laufende Aktionen."
+          },
+          {
+            "nr": "2",
+            "titel": "Wir setzen um",
+            "sub": "Landingpages, Postings, Mailings."
+          },
+          {
+            "nr": "3",
+            "titel": "Wir werten aus",
+            "sub": "Was wirkt – und was wir anpassen."
+          }
+        ],
+        "fragen": [
+          "Wo willst du wachsen?",
+          "Welche Zielgruppen bewegen Umsatz?",
+          "Läuft gerade eine Mailing-Aktion?",
+          "Was plant dein Versicherer?"
+        ],
+        "leads": "Leads direkt in deinen Vertrieb",
+        "empf": "Bauherren: Landingpage schärfen – wird kaum zu Ende gelesen",
+        "zurueck": "Jeden Monat im Austausch mit dir – die Erkenntnisse fließen in die nächsten Fragen"
+      }
+    },
+    "ek_schnitt_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 438\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-schnitt\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><path d=\"M0 0 H610 C760 0 750 250 880 250 H910 V314 H880 C750 314 760 436 610 436 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 64 H610 C760 64 750 256 880 256 H910 V308 H880 C750 308 760 396 610 396 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 128 H610 C760 128 750 262 880 262 H910 V302 H880 C750 302 760 356 610 356 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 192 H610 C760 192 750 268 880 268 H910 V296 H880 C750 296 760 316 610 316 H0 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"28\" y=\"226\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\">Kernpaket<tspan class=\"ek2-kern-t\" font-size=\"13\" font-weight=\"600\" dx=\"12\">Die Basis</tspan></text><text x=\"28\" y=\"251\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Fünf Landingpages, laufende Postings je Zielgruppe,</text><text x=\"28\" y=\"272\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Dashboard, monatlicher Report und Betreuungscall</text><text x=\"28\" y=\"155\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">LinkedIn Power Package<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"178\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal</text><text x=\"28\" y=\"91\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Paid Ads<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"114\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert</text><text x=\"28\" y=\"27\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Website-Entwicklung<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"50\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Deine Versicherungsagentur sauber positioniert</text><circle cx=\"840\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"856\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"872\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><path d=\"M916.0 250 V216\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"916.0\" y=\"208\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\">Messpunkt: Leads</text><path d=\"M922 250 H1104 Q1120 250 1120 266 V298 Q1120 314 1104 314 H922 Z\" class=\"ek2-band\"/><text x=\"944\" y=\"279\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"start\">Dein Vertrieb</text><text x=\"944\" y=\"300\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">macht daraus Kunden</text></svg>",
+    "seitenplan": {
+      "_stand": "12.11.2026 – Vorschlag Claude nach Gespräch mit Daniel",
+      "kicker": "Seitenplan",
+      "h1": "Alle Seiten auf einen Blick.",
+      "lead": "Welche Seiten es gibt, welche Frage jede beantwortet, woher Besucher kommen und wohin sie weitergehen. Grundlage für die Reihenfolge, in der wir bauen.",
+      "staende": {
+        "gebaut": "neu gebaut",
+        "alt": "live im alten Look",
+        "entwurf": "Entwurf in Story 6",
+        "fehlt": "fehlt",
+        "stufe2": "Stufe 2"
+      },
+      "start": {
+        "name": "Startseite",
+        "frage": "Was ist sofort sichtbar, und was habe ich davon?",
+        "von": "Google, Empfehlung, LinkedIn-Profile",
+        "zu": "Strategiekompass, Vertriebsstrecken, Preise → Weg A oder B, Termin",
+        "stand": "gebaut",
+        "link": "/entwicklung/storyboard/story7/"
+      },
+      "ebene": [
+        {
+          "name": "Marketing as a Service",
+          "zusatz": "Weg B",
+          "frage": "Was bekomme ich, wenn ihr es übernehmt – und was kostet es?",
+          "von": "Startseite (Paket Komplett), Postings, Anzeigen",
+          "zu": "Termin, PDF",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/marketing-as-a-service/"
+        },
+        {
+          "name": "Mit deinem Team",
+          "zusatz": "Weg A · Fokus und Team",
+          "frage": "Wie setze ich es mit meinem Team selbst um – und was bekomme ich?",
+          "von": "Menü, Startseite (Pakete Fokus und Team), Preise",
+          "zu": "Strategiekompass, Vertriebsstrecken, Preise, Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/mit-deinem-team/",
+          "offen": "Braucht von Daniel: Preise Fokus/Team"
+        },
+        {
+          "name": "Vertriebsstrecken",
+          "zusatz": "mit 20 Zielgruppenseiten",
+          "frage": "Welche Zielgruppen gibt es, und was läuft je Zielgruppe?",
+          "von": "Menü, Startseite (Zielgruppen, Schritt 02), Postings zu einer Zielgruppe",
+          "zu": "Zielgruppenseite → Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/vertriebsstrecken/",
+          "unter": {
+            "name": "20 Zielgruppenseiten",
+            "frage": "Was bekomme ich für genau diese Zielgruppe?",
+            "link": "/entwicklung/storyboard/story7/zielgruppen/bauherren/",
+            "hinweis": "eine gemeinsame Vorlage – alle 20 im neuen Look"
+          }
+        },
+        {
+          "name": "Strategiekompass",
+          "zusatz": "",
+          "frage": "Wo will ich wachsen – mit welchen Zielgruppen?",
+          "von": "Startseite (zweiter Knopf im Kopf, Schritt 01)",
+          "zu": "Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/strategiekompass/"
+        },
+        {
+          "name": "Preise",
+          "zusatz": "Fokus · Team · Komplett im Vergleich",
+          "frage": "Was kostet es, und was steckt in welchem Paket?",
+          "von": "Menü, Startseite (Pakete), Marketing as a Service",
+          "zu": "Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/preise/",
+          "offen": "Braucht von Daniel: Preise und Umfang Fokus/Team"
+        },
+        {
+          "name": "Für Vertriebsleiter",
+          "zusatz": "nur Story A · Führungskräfte der Versicherer",
+          "frage": "Wie helfe ich den Büros meiner Region zu mehr Umsatz – ohne Projekt?",
+          "von": "Direktansprache, Regionaltagung (nicht im Menü; im Entwicklungsmenü unter Storyboard)",
+          "zu": "Vertriebsstrecken, Termin",
+          "stand": "gebaut",
+          "link": "/entwicklung/storyboard/story7/vertriebsleiter/",
+          "offen": "Gehen wir gemeinsam durch – bis dahin nicht im Menü"
+        },
+        {
+          "name": "Über uns",
+          "zusatz": "bis dahin Abschnitt auf der Startseite",
+          "frage": "Wer steckt dahinter, und warum kann ich euch vertrauen?",
+          "von": "Menü, LinkedIn-Profile, Empfehlung",
+          "zu": "Termin",
+          "stand": "stufe2",
+          "link": "/entwicklung/storyboard/story7/#ueber-uns"
+        },
+        {
+          "name": "Ablauf im Detail",
+          "zusatz": "Strategie · Maschine · Steuerung",
+          "frage": "Wie greift alles ineinander – vom Ziel bis zur Auswertung?",
+          "von": "Startseite (Link unter der Grafik), Workshop",
+          "zu": "PDF, Termin",
+          "stand": "stufe2",
+          "link": "/entwicklung/storyboard/story6/maas-infografik/"
+        }
+      ],
+      "immer": {
+        "name": "Kontakt und Termin",
+        "frage": "Wie komme ich ins Gespräch?",
+        "von": "jede Seite",
+        "stand": "gebaut",
+        "link": "/entwicklung/storyboard/story7/kontakt/"
+      },
+      "entfallen": [
+        {
+          "name": "Pricing",
+          "link": "/pricing",
+          "ersatz": "die neue Seite Preise"
+        }
+      ],
+      "dokumente": [
+        {
+          "name": "PDF Marketing as a Service",
+          "stand": "gebaut",
+          "hinweis": "neu im Look von Story 7, 21 Seiten – erzeugt mit story7/maas_pdf7.py aus denselben Daten wie die Website"
+        }
+      ],
+      "reihenfolge": [
+        {
+          "titel": "Seitenplan festlegen",
+          "text": "Seiten, Aufgaben und Reihenfolge abgestimmt.",
+          "erledigt": true
+        },
+        {
+          "titel": "Vertriebsstrecken und Zielgruppenseiten",
+          "text": "Übersicht und Vorlage für alle 20 Zielgruppen gebaut.",
+          "erledigt": true
+        },
+        {
+          "titel": "Strategiekompass",
+          "text": "Konfigurator im neuen Look, ohne Preisblock.",
+          "erledigt": true
+        },
+        {
+          "titel": "Kontakt und Termin",
+          "text": "Kalender hell, 45 Minuten Kennenlernen.",
+          "erledigt": true
+        },
+        {
+          "titel": "Preise",
+          "text": "Vergleich Fokus · Team · Komplett gebaut – Preise und Umfang von Fokus und Team fehlen noch.",
+          "erledigt": true
+        },
+        {
+          "titel": "Kontakt kompakt",
+          "text": "Kalender auf einem Bildschirm, Teamfotos im Kontaktband der Unterseiten.",
+          "erledigt": true
+        },
+        {
+          "titel": "Für Vertriebsleiter",
+          "text": "Story A mit Regionsgrafik, Begleitung und Strategie-Sparring.",
+          "erledigt": true
+        },
+        {
+          "titel": "PDF Marketing as a Service",
+          "text": "Version 2: Deckblatt, Grundgrafik der Website, Detailgrafik, Bausteine mit Bildern, Stellen, farbige Anzeigen.",
+          "erledigt": true
+        },
+        {
+          "titel": "Kopf Marketing as a Service",
+          "text": "Gesamtlogik statt großem Trichter: Wir fragen · Wir setzen um · Wir werten aus.",
+          "erledigt": true
+        },
+        {
+          "titel": "Mit deinem Team (Weg A)",
+          "text": "Alle drei Stufen fertig eingerichtet, dein Team setzt um: Kopf mit Gesamtlogik, Stufen mit echten Bildern, Aufteilung, Start, Fokus und Team.",
+          "erledigt": true
+        },
+        {
+          "titel": "Logik-Durchgang",
+          "text": "Alle Seiten auf Schlüssigkeit prüfen.",
+          "erledigt": false
+        },
+        {
+          "titel": "Handy und Tablet",
+          "text": "Menü unter 1000 Pixel, letzter Durchgang über alle Seiten.",
+          "erledigt": false
+        },
+        {
+          "titel": "Häufige Fragen",
+          "text": "Aus Daniels Entwurf übernehmen (neues Modell).",
+          "erledigt": false
+        },
+        {
+          "titel": "Preise Fokus und Team",
+          "text": "Sobald Unterschied und Preise von Fokus und Team feststehen.",
+          "erledigt": false
+        }
+      ],
+      "stufe2": "Danach: Über uns als eigene Seite, Ablauf im Detail. Vor dem Weg nach main: Einwilligung vor dem Kalender einbauen."
+    },
+    "vs": {
+      "_hinweis": "Zielgruppen, Filter (privat/gewerbe) und Anlässe kommen aus src/_data/vertriebsstrecken.json, Bilder aus zielgruppen.json (Style Elegant). Hier nur Texte der Seite.",
+      "held": {
+        "kicker": "Vertriebsstrecken",
+        "h1": "Jede Zielgruppe.",
+        "h1_akzent": "Eine fertige Strecke.",
+        "lead": "Landingpage, Postings und Kundenmailing – abgestimmt auf eine Zielgruppe und die Anlässe, zu denen sie Beratung braucht.",
+        "knopf": "Termin auswählen",
+        "knopf2": "Zu den Zielgruppen",
+        "bild": "pages/bauherren.webp",
+        "bild_alt": "Vertriebsstrecke Private Bauherren: Posting, Landingpage und Kundenmailing"
+      },
+      "teile": {
+        "kicker": "Was in jeder Strecke steckt",
+        "h2": "Drei Wege zur Zielgruppe.",
+        "h2_akzent": "Ein Ziel: Leads.",
+        "liste": [
+          {
+            "titel": "Postings",
+            "text": "Laufend auf deinen Kanälen – mit Themen, die deine Zielgruppe gerade beschäftigen.",
+            "bild": "preview-postings.png",
+            "b": 746,
+            "h": 375
+          },
+          {
+            "titel": "Landingpage",
+            "text": "Eine Seite je Zielgruppe, in deinem Look – mit Kontaktformular und Terminbuchung.",
+            "bild": "preview-landingpages.png",
+            "b": 900,
+            "h": 494
+          },
+          {
+            "titel": "Kundenmailing",
+            "text": "Für deinen Bestand – bringt Kunden mit dem passenden Anlass zurück ins Gespräch.",
+            "bild": "preview-funnel.png",
+            "b": 687,
+            "h": 351
+          }
+        ]
+      },
+      "liste": {
+        "kicker": "Die Zielgruppen",
+        "h2": "Wähle, wen du gewinnen willst.",
+        "lead": "Jede Strecke ist fertig und startet in Tagen. Wie viele du startest, entscheidest du.",
+        "gruppen": [
+          [
+            "privat",
+            "Privatkunden"
+          ],
+          [
+            "gewerbe",
+            "Firmenkunden"
+          ]
+        ],
+        "anlass": "Anlass",
+        "zurueck": "Zurück",
+        "weiter": "Weiter"
+      },
+      "kompass": {
+        "text": "Du weißt noch nicht, welche Zielgruppen zu deinen Zielen passen?",
+        "link": "Strategiekompass starten"
+      },
+      "bild_korrektur": {
+        "cyber-firmen": "zielgruppen/cyber-firmen-style-1.webp"
+      }
+    },
+    "zg": {
+      "kicker": "Vertriebsstrecke",
+      "h1_akzent": "Fertig für deinen Vertrieb.",
+      "anlass": "Anlass:",
+      "knopf": "Termin auswählen",
+      "knopf2": "Fragen aus dem Vertrieb",
+      "wer_kicker": "Die Zielgruppe",
+      "wer_h2": "Wen du hier erreichst.",
+      "fragen_kicker": "Fragen, die im Vertrieb zählen",
+      "fragen_h2": "So nutzt du die Strecke.",
+      "weitere": "Weitere Zielgruppen",
+      "alle": "Alle Vertriebsstrecken"
+    },
+    "kompass": {
+      "kicker": "Strategiekompass",
+      "h1": "Wo willst du wachsen?",
+      "h1_akzent": "Drei Fragen genügen.",
+      "lead": "Wähle Kundengruppe, Sparten und Schwerpunkt. Der Kompass zeigt dir, mit welchen Zielgruppen du deine Ziele erreichst.",
+      "knopf": "Auswahl im Termin besprechen",
+      "hinweis": "Im Termin prüfen wir deine Auswahl – und welcher Weg zu dir passt."
+    },
+    "kontaktseite": {
+      "kicker": "Kontakt",
+      "h1": "Lass uns sprechen.",
+      "h1_akzent": "Ganz konkret.",
+      "lead": "Wir klären, wo du wachsen willst und welcher Weg zu dir passt.",
+      "ablauf_titel": "Darum geht es im Kennenlernen",
+      "ablauf": [
+        "Wo willst du wachsen – mit welchen Sparten und Zielgruppen?",
+        "Welche Vertriebsstrecken passen dazu?",
+        "Welcher Weg passt zu dir: mit deinem Team oder Marketing as a Service?"
+      ],
+      "direkt": "Lieber direkt?",
+      "team": "Kerstin Christ · Daniel Ströbel · Noah Hermanns"
+    },
+    "preise": {
+      "_hinweis": "Fokus/Team: Inhalte aus s7.pakete, Preise offen (Daniel liefert). Komplett: Angebot A-00062 (s7.maas.bausteine). Zellen „offen“ = noch nicht festgelegt, nichts erfunden.",
+      "kicker": "Preise",
+      "h1": "Was es kostet.",
+      "h1_akzent": "Du wählst den Weg.",
+      "lead": "Mit deinem Team bedienst du die Maschine selbst, bei Marketing as a Service übernehmen wir.",
+      "vergleich": {
+        "kicker": "Im Vergleich",
+        "h2": "Was in jedem Paket steckt.",
+        "offen_hinweis": "Preise und Umfang von Fokus und Team werden gerade festgelegt. Felder mit „offen“ folgen.",
+        "spalten": [
+          "Fokus",
+          "Team",
+          "Komplett"
+        ],
+        "gruppen": [
+          {
+            "titel": "Grundlage",
+            "zeilen": [
+              [
+                "Wer bedient die Maschine",
+                "Du",
+                "Dein Team",
+                "Wir"
+              ],
+              [
+                "Strategiekompass: Ziele und Zielgruppen festlegen",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Vertriebsstrecken für deine Zielgruppen",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Strategietool Pro",
+                "nein",
+                "ja",
+                "offen"
+              ]
+            ]
+          },
+          {
+            "titel": "Umsetzung",
+            "zeilen": [
+              [
+                "Postings",
+                "automatisch veröffentlicht",
+                "automatisch veröffentlicht",
+                "laufend erstellt und veröffentlicht"
+              ],
+              [
+                "Landingpages",
+                "je Vertriebs­strecke",
+                "je Vertriebs­strecke",
+                "fünf, laufend betreut"
+              ],
+              [
+                "Aufgaben ans Team verteilen",
+                "nein",
+                "ja",
+                "übernehmen wir"
+              ],
+              [
+                "Mehrere Nutzer und Standorte",
+                "nein",
+                "ja",
+                "offen"
+              ]
+            ]
+          },
+          {
+            "titel": "Steuerung",
+            "zeilen": [
+              [
+                "Dashboard",
+                "Aufgaben, Erinnerungen, Auswertung",
+                "Aufgaben, Erinnerungen, Auswertung",
+                "zentral, von uns gesteuert"
+              ],
+              [
+                "Empfehlungen und Optimierung",
+                "nein",
+                "ja",
+                "laufend"
+              ],
+              [
+                "Performance-Reporting",
+                "nein",
+                "monatlich",
+                "monatlich"
+              ],
+              [
+                "Betreuungscall",
+                "nein",
+                "nein",
+                "monatlich"
+              ],
+              [
+                "Fester Ansprechpartner",
+                "nein",
+                "nein",
+                "ja"
+              ]
+            ]
+          }
+        ],
+        "preis": [
+          "offen",
+          "offen",
+          "ab 1.800 €"
+        ],
+        "preis_einheit": "pro Monat"
+      },
+      "ergaenzungen": {
+        "kicker": "Dazu buchbar",
+        "h2": "Ergänzungen zu Marketing as a Service.",
+        "link": "Alle Leistungen ansehen"
+      },
+      "fuss": [
+        "Alle Preise zzgl. Umsatzsteuer. Paid Ads je Werbekanal, Werbebudget nicht enthalten."
+      ]
+    },
+    "vl": {
+      "_quelle": "Inhalte aus src/_data/vertriebsleiter.json (Live-Seite /vetriebsleiter), sprachlich geglättet. Nur Story A – kein Marketing as a Service (Daniel, 12.11.2026).",
+      "held": {
+        "kicker": "Für Vertriebsleiter im Versicherungsvertrieb",
+        "h1": "Mehr Neugeschäft",
+        "h1_akzent": "aus jeder Agentur.",
+        "lead": "Fertige digitale Vertriebsstrecken für alle Agenturen deiner Region – eingeführt, begleitet und für dich messbar.",
+        "knopf": "Termin auswählen",
+        "knopf2": "So führen wir es ein"
+      },
+      "problem": {
+        "kicker": "Die Ausgangslage",
+        "h2": "Deine Region wächst, wenn deine Agenturen wachsen.",
+        "absaetze": [
+          "Dein Ergebnis entsteht in vielen einzelnen Agenturen. Jede kämpft für sich: wenig Zeit, wenig Erfahrung mit digitaler Neukundengewinnung – und Programme aus der Zentrale kommen als Konzept an, nicht als Werkzeug.",
+          "Was fehlt, ist etwas, das jede Agentur sofort einsetzt. Und für dich die Sicht, welche Agentur wo steht."
+        ]
+      },
+      "loesung": {
+        "kicker": "Was jede Agentur bekommt",
+        "h2": "Für jede Zielgruppe",
+        "h2_akzent": "eine fertige Vertriebsstrecke.",
+        "lead": "Postings bringen Aufmerksamkeit, die Landingpage macht daraus Anfragen, das Kundenmailing aktiviert den Bestand. Die Anfragen landen direkt in der Agentur.",
+        "link": "Alle Vertriebsstrecken ansehen"
+      },
+      "einfuehrung": {
+        "kicker": "Was du bekommst",
+        "h2": "Von der Tagung bis zum Ergebnis.",
+        "liste": [
+          {
+            "titel": "Einführung",
+            "text": "Wir stellen die Vertriebsstrecken auf deiner Regionaltagung vor. Die Agenturen starten direkt – ohne Projektphase."
+          },
+          {
+            "titel": "Begleitung der Agenturen",
+            "text": "Jede Agentur wählt ihre Zielgruppen. Wir begleiten mit Calls und Anwendergruppen, bis es läuft."
+          },
+          {
+            "titel": "Strategie-Sparring mit dir",
+            "text": "Jeden Monat schauen wir gemeinsam ins Dashboard: welche Agentur wo steht, was läuft, was nicht – und was wir anpassen."
+          }
+        ]
+      },
+      "zitat": {
+        "text": "Seit 2012 begleiten wir Versicherer und ihre Vertriebspartner im gesamten Marketing- und Vertriebsprozess. Diese Erfahrung steckt in jeder Vertriebsstrecke von sofort sichtbar.",
+        "quelle": "Daniel Ströbel · Gründer von sofort sichtbar",
+        "bild": "pages/daniel-image-bw.webp",
+        "bild_alt": "Daniel Ströbel"
+      },
+      "kontakt": {
+        "h2": "Lass uns über deine",
+        "h2_akzent": "Region sprechen.",
+        "t": "In 45 Minuten klären wir, welche Zielgruppen in deinen Agenturen Umsatz bewegen und wie die Einführung abläuft."
+      }
+    },
+    "ek_region_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 470\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-rquer\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"130\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Jede Agentur – fertige Vertriebsstrecken für ihre Zielgruppen</text><path d=\"M130 34 H550\" class=\"ek2-linie\"/><text x=\"640\" y=\"20\" class=\"ek2-t\" font-size=\"15\" font-weight=\"600\" text-anchor=\"start\">Deine Region</text><path d=\"M640 34 H1120\" class=\"ek2-linie\"/><text x=\"0\" y=\"101\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Agentur 1</text><path d=\"M130 58 H290 C360 58 441 81 491 81 H550 V111 H491 C441 111 360 134 290 134 H130 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M130 66 H290 C360 66 441 84 491 84 H550 V108 H491 C441 108 360 126 290 126 H130 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M130 74 H290 C360 74 441 87 491 87 H550 V105 H491 C441 105 360 118 290 118 H130 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M130 82 H290 C360 82 441 90 491 90 H550 V102 H491 C441 102 360 110 290 110 H130 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M550 96 C600 96 590 196 640 196\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"0\" y=\"201\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Agentur 2</text><path d=\"M130 158 H290 C360 158 441 181 491 181 H550 V211 H491 C441 211 360 234 290 234 H130 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M130 166 H290 C360 166 441 184 491 184 H550 V208 H491 C441 208 360 226 290 226 H130 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M130 174 H290 C360 174 441 187 491 187 H550 V205 H491 C441 205 360 218 290 218 H130 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M130 182 H290 C360 182 441 190 491 190 H550 V202 H491 C441 202 360 210 290 210 H130 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M550 196 C600 196 590 196 640 196\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"0\" y=\"301\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\">Agentur 3</text><path d=\"M130 258 H290 C360 258 441 281 491 281 H550 V311 H491 C441 311 360 334 290 334 H130 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M130 266 H290 C360 266 441 284 491 284 H550 V308 H491 C441 308 360 326 290 326 H130 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M130 274 H290 C360 274 441 287 491 287 H550 V305 H491 C441 305 360 318 290 318 H130 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M130 282 H290 C360 282 441 290 491 290 H550 V302 H491 C441 302 360 310 290 310 H130 Z\" class=\"ek2-kern ek2-lage\"/><path d=\"M550 296 C600 296 590 196 640 196\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"130\" y=\"362\" class=\"ek2-grau\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">… und alle weiteren Agenturen deiner Region</text><path d=\"M640 144 H1104 Q1120 144 1120 160 V232 Q1120 248 1104 248 H640 Z\" class=\"ek2-band\"/><text x=\"670\" y=\"192\" class=\"ek2-band-t\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\">Mehr Neugeschäft</text><text x=\"670\" y=\"220\" class=\"ek2-band-s\" font-size=\"16\" font-weight=\"500\" text-anchor=\"start\">in deiner Region</text><path d=\"M880.0 248 V448 H60 V316\" class=\"ek2-linie ek2-linie--fein\" marker-end=\"url(#ek2-pfeil-rquer)\"/><rect x=\"230.0\" y=\"435\" width=\"660\" height=\"26\" class=\"ek2-grund\"/><text x=\"560.0\" y=\"453\" class=\"ek2-t\" font-size=\"14\" font-weight=\"600\" text-anchor=\"middle\">Jeden Monat im Dashboard und im Sparring: welche Agentur wo steht – und was wir anpassen</text></svg>",
+    "ek_region_hoch": "<svg class=\"ek2-svg ek2-svg--hoch\" viewBox=\"0 0 340 542\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-rhoch\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><text x=\"170\" y=\"16\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Jede Agentur – fertige</text><text x=\"170\" y=\"33\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Vertriebsstrecken für ihre Zielgruppen</text><text x=\"0\" y=\"85\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"start\">Agentur 1</text><path d=\"M90 42 H177 C247 42 238 65 288 65 H320 V95 H288 C238 95 247 118 177 118 H90 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M90 50 H177 C247 50 238 68 288 68 H320 V92 H288 C238 92 247 110 177 110 H90 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M90 58 H177 C247 58 238 71 288 71 H320 V89 H288 C238 89 247 102 177 102 H90 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M90 66 H177 C247 66 238 74 288 74 H320 V86 H288 C238 86 247 94 177 94 H90 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"0\" y=\"177\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"start\">Agentur 2</text><path d=\"M90 134 H177 C247 134 238 157 288 157 H320 V187 H288 C238 187 247 210 177 210 H90 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M90 142 H177 C247 142 238 160 288 160 H320 V184 H288 C238 184 247 202 177 202 H90 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M90 150 H177 C247 150 238 163 288 163 H320 V181 H288 C238 181 247 194 177 194 H90 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M90 158 H177 C247 158 238 166 288 166 H320 V178 H288 C238 178 247 186 177 186 H90 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"0\" y=\"269\" class=\"ek2-t\" font-size=\"13\" font-weight=\"700\" text-anchor=\"start\">Agentur 3</text><path d=\"M90 226 H177 C247 226 238 249 288 249 H320 V279 H288 C238 279 247 302 177 302 H90 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M90 234 H177 C247 234 238 252 288 252 H320 V276 H288 C238 276 247 294 177 294 H90 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M90 242 H177 C247 242 238 255 288 255 H320 V273 H288 C238 273 247 286 177 286 H90 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M90 250 H177 C247 250 238 258 288 258 H320 V270 H288 C238 270 247 278 177 278 H90 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"90\" y=\"326\" class=\"ek2-grau\" font-size=\"12\" font-weight=\"500\" text-anchor=\"start\">… und alle weiteren</text><path d=\"M170 346 V372\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-rhoch)\"/><rect x=\"30\" y=\"384\" width=\"280\" height=\"96\" rx=\"16\" class=\"ek2-band\"/><text x=\"170\" y=\"428\" class=\"ek2-band-t\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\">Mehr Neugeschäft</text><text x=\"170\" y=\"452\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"middle\">in deiner Region</text><text x=\"170\" y=\"514\" class=\"ek2-t\" font-size=\"13\" font-weight=\"600\" text-anchor=\"middle\">Jeden Monat im Dashboard und im Sparring:</text><text x=\"170\" y=\"532\" class=\"ek2-t\" font-size=\"13\" font-weight=\"500\" text-anchor=\"middle\">welche Agentur wo steht – und was wir anpassen</text></svg>",
+    "ek_kopf_trichter": "<svg class=\"ek2-svg ek2-svg--kt\" viewBox=\"0 0 360 250\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-kt\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><path d=\"M0 7 H100 C190 7 200 85 270 85 H330 V165 H270 C200 165 190 243 100 243 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 31 H100 C190 31 200 91 270 91 H330 V159 H270 C200 159 190 219 100 219 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 55 H100 C190 55 200 98 270 98 H330 V152 H270 C200 152 190 195 100 195 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 79 H100 C190 79 200 105 270 105 H330 V145 H270 C200 145 190 171 100 171 H0 Z\" class=\"ek2-kern ek2-lage\"/><svg x=\"16\" y=\"117.3\" width=\"130\" height=\"15.4\" viewBox=\"0 0 199.308 23.6175\" aria-label=\"sofort sichtbar\">\n<defs>\n<clipPath id=\"ek2kt-clip-0\">\n<path clip-rule=\"nonzero\" d=\"M 1.246094 7 L 13 7 L 13 23.242188 L 1.246094 23.242188 Z M 1.246094 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-1\">\n<path clip-rule=\"nonzero\" d=\"M 65 7 L 80 7 L 80 23.242188 L 65 23.242188 Z M 65 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-2\">\n<path clip-rule=\"nonzero\" d=\"M 100 7 L 112 7 L 112 23.242188 L 100 23.242188 Z M 100 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-3\">\n<path clip-rule=\"nonzero\" d=\"M 119 7 L 132 7 L 132 23.242188 L 119 23.242188 Z M 119 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-4\">\n<path clip-rule=\"nonzero\" d=\"M 158 0 L 172 0 L 172 23.242188 L 158 23.242188 Z M 158 0 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-5\">\n<path clip-rule=\"nonzero\" d=\"M 173 7 L 186 7 L 186 23.242188 L 173 23.242188 Z M 173 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-6\">\n<path clip-rule=\"nonzero\" d=\"M 48 7 L 55 7 L 55 23.242188 L 48 23.242188 Z M 48 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-7\">\n<path clip-rule=\"nonzero\" d=\"M 15 7 L 22 7 L 22 23.242188 L 15 23.242188 Z M 15 7 \"/>\n</clipPath>\n<clipPath id=\"ek2kt-clip-8\">\n<path clip-rule=\"nonzero\" d=\"M 21 21 L 49 21 L 49 23.242188 L 21 23.242188 Z M 21 21 \"/>\n</clipPath>\n</defs>\n<g clip-path=\"url(#ek2kt-clip-0)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 4.5 11.746094 C 4.5 15.0625 12.800781 13.828125 12.800781 18.878906 C 12.800781 21.75 10.433594 23.046875 7.433594 23.046875 C 4.847656 23.046875 2.859375 21.816406 2.039062 20.773438 C 1.878906 20.550781 1.816406 20.394531 1.816406 20.171875 C 1.816406 19.667969 2.226562 19.257812 2.730469 19.257812 C 2.921875 19.257812 3.175781 19.320312 3.425781 19.574219 C 4.40625 20.550781 5.667969 21.121094 7.433594 21.121094 C 9.234375 21.121094 10.78125 20.519531 10.78125 18.878906 C 10.78125 15.628906 2.480469 16.921875 2.480469 11.746094 C 2.480469 9.128906 4.625 7.925781 7.308594 7.925781 C 9.453125 7.925781 11.128906 8.652344 12.105469 9.949219 C 12.199219 10.074219 12.328125 10.261719 12.328125 10.546875 C 12.328125 11.050781 11.917969 11.460938 11.410156 11.460938 C 11.253906 11.460938 11 11.429688 10.75 11.179688 C 9.894531 10.359375 8.949219 9.851562 7.308594 9.851562 C 5.886719 9.851562 4.5 10.296875 4.5 11.746094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 57.398438 10.230469 C 56.859375 10.230469 56.449219 9.820312 56.449219 9.285156 C 56.449219 8.746094 56.859375 8.339844 57.398438 8.339844 L 58.46875 8.339844 L 58.46875 6.476562 C 58.46875 3.636719 60.078125 1.046875 63.929688 1.046875 C 64.464844 1.046875 64.875 1.457031 64.875 1.992188 C 64.875 2.53125 64.464844 2.941406 63.929688 2.941406 C 61.46875 2.941406 60.488281 4.425781 60.488281 6.476562 L 60.488281 8.339844 L 63.363281 8.339844 C 63.898438 8.339844 64.308594 8.746094 64.308594 9.285156 C 64.308594 9.820312 63.898438 10.230469 63.363281 10.230469 L 60.488281 10.230469 L 60.488281 21.910156 C 60.488281 22.476562 60.046875 22.917969 59.480469 22.917969 C 58.910156 22.917969 58.46875 22.476562 58.46875 21.910156 L 58.46875 10.230469 Z M 57.398438 10.230469 \"/>\n<g clip-path=\"url(#ek2kt-clip-1)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 77.058594 15.472656 C 77.058594 11.496094 75.386719 9.726562 72.484375 9.726562 C 69.578125 9.726562 67.90625 11.492188 67.90625 15.472656 C 67.90625 19.511719 69.578125 21.246094 72.484375 21.246094 C 75.386719 21.246094 77.058594 19.511719 77.058594 15.472656 M 79.109375 15.472656 C 79.109375 20.644531 76.585938 23.078125 72.484375 23.078125 C 68.410156 23.078125 65.855469 20.644531 65.855469 15.472656 C 65.855469 10.292969 68.410156 7.898438 72.484375 7.898438 C 76.585938 7.898438 79.109375 10.292969 79.109375 15.472656 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 84.289062 10.484375 C 84.917969 9.03125 86.496094 7.957031 88.675781 7.957031 C 89.210938 7.957031 89.652344 8.402344 89.652344 8.9375 C 89.652344 9.472656 89.210938 9.917969 88.675781 9.917969 C 85.769531 9.917969 84.289062 11.9375 84.289062 14.839844 L 84.289062 21.910156 C 84.289062 22.476562 83.84375 22.917969 83.277344 22.917969 C 82.707031 22.917969 82.265625 22.476562 82.265625 21.910156 L 82.265625 9.09375 C 82.265625 8.527344 82.707031 8.085938 83.277344 8.085938 C 83.84375 8.085938 84.289062 8.527344 84.289062 9.09375 Z M 84.289062 10.484375 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 93.441406 5.023438 C 93.441406 4.488281 93.914062 4.015625 94.449219 4.015625 C 95.015625 4.015625 95.460938 4.488281 95.460938 5.023438 L 95.460938 8.339844 L 97.511719 8.339844 C 98.046875 8.339844 98.457031 8.746094 98.457031 9.285156 C 98.457031 9.820312 98.046875 10.230469 97.511719 10.230469 L 95.460938 10.230469 L 95.460938 18.941406 C 95.460938 20.300781 96.21875 21.023438 97.289062 21.023438 C 97.828125 21.023438 98.269531 21.433594 98.269531 21.972656 C 98.269531 22.507812 97.828125 22.917969 97.289062 22.917969 C 94.796875 22.917969 93.441406 21.246094 93.441406 18.941406 L 93.441406 10.230469 L 92.207031 10.230469 C 91.671875 10.230469 91.261719 9.820312 91.261719 9.285156 C 91.261719 8.746094 91.671875 8.339844 92.207031 8.339844 L 93.441406 8.339844 Z M 93.441406 5.023438 \"/>\n<g clip-path=\"url(#ek2kt-clip-2)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 102.851562 11.714844 C 102.851562 15.03125 111.152344 13.796875 111.152344 18.847656 C 111.152344 21.71875 108.785156 23.015625 105.785156 23.015625 C 103.199219 23.015625 101.210938 21.785156 100.390625 20.742188 C 100.230469 20.519531 100.167969 20.363281 100.167969 20.140625 C 100.167969 19.636719 100.578125 19.226562 101.082031 19.226562 C 101.273438 19.226562 101.527344 19.289062 101.777344 19.542969 C 102.757812 20.519531 104.019531 21.089844 105.785156 21.089844 C 107.585938 21.089844 109.132812 20.488281 109.132812 18.847656 C 109.132812 15.597656 100.832031 16.890625 100.832031 11.714844 C 100.832031 9.097656 102.976562 7.894531 105.660156 7.894531 C 107.804688 7.894531 109.480469 8.621094 110.457031 9.917969 C 110.550781 10.042969 110.679688 10.230469 110.679688 10.515625 C 110.679688 11.019531 110.269531 11.429688 109.761719 11.429688 C 109.605469 11.429688 109.351562 11.398438 109.101562 11.148438 C 108.246094 10.328125 107.300781 9.820312 105.660156 9.820312 C 104.238281 9.820312 102.851562 10.265625 102.851562 11.714844 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 116.550781 21.878906 C 116.550781 22.445312 116.105469 22.886719 115.539062 22.886719 C 114.972656 22.886719 114.527344 22.445312 114.527344 21.878906 L 114.527344 9.0625 C 114.527344 8.496094 114.972656 8.054688 115.539062 8.054688 C 116.105469 8.054688 116.550781 8.496094 116.550781 9.0625 Z M 114.339844 3.886719 C 114.339844 2.972656 114.78125 2.625 115.539062 2.625 C 116.296875 2.625 116.738281 2.972656 116.738281 3.886719 C 116.738281 4.644531 116.296875 5.085938 115.539062 5.085938 C 114.78125 5.085938 114.339844 4.644531 114.339844 3.886719 \"/>\n<g clip-path=\"url(#ek2kt-clip-3)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 126.207031 7.863281 C 129.015625 7.863281 130.5625 9.347656 131.066406 10.042969 C 131.222656 10.261719 131.289062 10.421875 131.289062 10.640625 C 131.289062 11.179688 130.878906 11.558594 130.371094 11.558594 C 130.058594 11.558594 129.835938 11.429688 129.617188 11.179688 C 129.140625 10.640625 128.289062 9.695312 126.207031 9.695312 C 123.304688 9.695312 121.757812 11.558594 121.757812 15.4375 C 121.757812 19.382812 123.304688 21.214844 126.207031 21.214844 C 128.039062 21.214844 129.140625 20.394531 129.867188 19.859375 C 130.089844 19.699219 130.246094 19.636719 130.46875 19.636719 C 130.972656 19.636719 131.382812 20.046875 131.382812 20.550781 C 131.382812 20.835938 131.289062 21.058594 130.972656 21.339844 C 130.277344 21.910156 128.761719 23.046875 126.207031 23.046875 C 122.132812 23.046875 119.703125 20.617188 119.703125 15.4375 C 119.703125 10.261719 122.132812 7.863281 126.207031 7.863281 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 146.28125 13.449219 L 146.28125 21.878906 C 146.28125 22.445312 145.839844 22.886719 145.269531 22.886719 C 144.703125 22.886719 144.257812 22.445312 144.257812 21.878906 L 144.257812 13.863281 C 144.257812 11.367188 143.535156 9.664062 140.472656 9.664062 C 137.347656 9.664062 136.273438 11.558594 136.273438 14.082031 L 136.273438 21.878906 C 136.273438 22.445312 135.832031 22.886719 135.265625 22.886719 C 134.695312 22.886719 134.253906 22.445312 134.253906 21.878906 L 134.253906 1.175781 C 134.253906 0.605469 134.695312 0.164062 135.265625 0.164062 C 135.832031 0.164062 136.273438 0.605469 136.273438 1.175781 L 136.273438 10.074219 C 136.875 8.875 138.421875 7.867188 140.472656 7.867188 C 145.332031 7.867188 146.28125 10.769531 146.28125 13.449219 \"/>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 150.855469 4.992188 C 150.855469 4.457031 151.328125 3.984375 151.867188 3.984375 C 152.433594 3.984375 152.875 4.457031 152.875 4.992188 L 152.875 8.308594 L 154.929688 8.308594 C 155.464844 8.308594 155.875 8.714844 155.875 9.253906 C 155.875 9.789062 155.464844 10.199219 154.929688 10.199219 L 152.875 10.199219 L 152.875 18.910156 C 152.875 20.269531 153.632812 20.992188 154.707031 20.992188 C 155.242188 20.992188 155.683594 21.402344 155.683594 21.941406 C 155.683594 22.476562 155.242188 22.886719 154.707031 22.886719 C 152.214844 22.886719 150.855469 21.214844 150.855469 18.910156 L 150.855469 10.199219 L 149.625 10.199219 C 149.089844 10.199219 148.679688 9.789062 148.679688 9.253906 C 148.679688 8.714844 149.089844 8.308594 149.625 8.308594 L 150.855469 8.308594 Z M 150.855469 4.992188 \"/>\n<g clip-path=\"url(#ek2kt-clip-4)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 160.894531 16.828125 C 160.894531 19.828125 162.628906 21.214844 165.058594 21.214844 C 167.960938 21.214844 169.507812 19.386719 169.507812 15.441406 C 169.507812 11.558594 167.929688 9.695312 165.058594 9.695312 C 162.089844 9.695312 160.894531 12.472656 160.894531 12.472656 Z M 171.527344 15.441406 C 171.527344 20.613281 169.128906 23.046875 165.058594 23.046875 C 161.460938 23.046875 158.871094 20.996094 158.871094 16.828125 L 158.871094 1.171875 C 158.871094 0.605469 159.316406 0.164062 159.882812 0.164062 C 160.453125 0.164062 160.894531 0.605469 160.894531 1.171875 L 160.894531 9.917969 C 161.621094 8.90625 163.164062 7.867188 165.1875 7.867188 C 169.257812 7.867188 171.527344 10.261719 171.527344 15.441406 \"/>\n</g>\n<g clip-path=\"url(#ek2kt-clip-5)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 183.679688 17.175781 L 183.679688 15.851562 L 179.230469 15.851562 C 177.179688 15.851562 175.757812 16.703125 175.757812 18.53125 C 175.757812 20.175781 176.894531 21.214844 179.355469 21.214844 C 181.566406 21.214844 183.679688 19.859375 183.679688 17.175781 M 176.292969 11.367188 C 175.980469 11.714844 175.757812 11.808594 175.476562 11.808594 C 174.96875 11.808594 174.558594 11.398438 174.558594 10.894531 C 174.558594 10.675781 174.621094 10.515625 174.71875 10.359375 C 175.601562 8.96875 177.304688 7.867188 179.957031 7.867188 C 183.617188 7.867188 185.636719 10.011719 185.636719 13.230469 L 185.636719 21.910156 C 185.636719 22.445312 185.195312 22.886719 184.65625 22.886719 C 184.121094 22.886719 183.679688 22.445312 183.679688 21.910156 L 183.679688 20.773438 C 182.890625 22.257812 181.058594 23.046875 179.167969 23.046875 C 175.820312 23.046875 173.707031 21.4375 173.707031 18.53125 C 173.707031 15.753906 175.820312 14.082031 179.230469 14.082031 L 183.679688 14.082031 L 183.679688 13.230469 C 183.679688 11.085938 182.261719 9.757812 179.957031 9.757812 C 178.285156 9.757812 177.273438 10.261719 176.292969 11.367188 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 191.445312 10.453125 C 192.074219 9 193.652344 7.925781 195.832031 7.925781 C 196.367188 7.925781 196.808594 8.371094 196.808594 8.90625 C 196.808594 9.441406 196.367188 9.886719 195.832031 9.886719 C 192.925781 9.886719 191.445312 11.90625 191.445312 14.808594 L 191.445312 21.878906 C 191.445312 22.445312 191.003906 22.886719 190.433594 22.886719 C 189.867188 22.886719 189.425781 22.445312 189.425781 21.878906 L 189.425781 9.0625 C 189.425781 8.496094 189.867188 8.054688 190.433594 8.054688 C 191.003906 8.054688 191.445312 8.496094 191.445312 9.0625 Z M 191.445312 10.453125 \"/>\n<g clip-path=\"url(#ek2kt-clip-6)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.21875 7.898438 L 48.21875 9.726562 C 51.105469 9.738281 52.769531 11.507812 52.769531 15.472656 C 52.769531 19.5 51.105469 21.234375 48.21875 21.246094 L 48.21875 23.074219 C 52.304688 23.066406 54.820312 20.636719 54.820312 15.472656 C 54.820312 10.304688 52.304688 7.910156 48.21875 7.898438 \"/>\n</g>\n<g clip-path=\"url(#ek2kt-clip-7)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 21.863281 21.246094 C 18.976562 21.234375 17.3125 19.496094 17.3125 15.472656 C 17.3125 11.507812 18.976562 9.738281 21.863281 9.726562 L 21.863281 7.898438 C 17.808594 7.90625 15.261719 10.308594 15.261719 15.472656 C 15.261719 20.636719 17.808594 23.066406 21.863281 23.074219 Z M 21.863281 21.246094 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 9.722656 L 21.8125 9.722656 L 21.8125 7.898438 L 48.242188 7.898438 Z M 48.242188 9.722656 \"/>\n<g clip-path=\"url(#ek2kt-clip-8)\">\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 48.242188 23.074219 L 21.8125 23.074219 L 21.8125 21.25 L 48.242188 21.25 Z M 48.242188 23.074219 \"/>\n</g>\n<path fill-rule=\"nonzero\" class=\"ek2-kern-t\" fill-opacity=\"1\" d=\"M 49.5 15.367188 C 49.5 17.128906 48.070312 18.558594 46.304688 18.558594 C 44.542969 18.558594 43.113281 17.128906 43.113281 15.367188 C 43.113281 13.601562 44.542969 12.171875 46.304688 12.171875 C 48.070312 12.171875 49.5 13.601562 49.5 15.367188 \"/>\n</svg><circle cx=\"248\" cy=\"125\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"260\" cy=\"125\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"272\" cy=\"125\" r=\"3.5\" class=\"ek2-kern-p\"/><path d=\"M336 125 H354\" class=\"ek2-linie\" marker-end=\"url(#ek2-pfeil-kt)\"/></svg>",
+    "weg_a": {
+      "_quelle": "Weg A (Daniel, 12.11.2026): alle drei Stufen – Zielsetzung (Kompass/Strategietool Pro), Zielgruppenpakete, Dashboard mit Reporting –, der Leiter der Agentur setzt mit seinem Team selbst um. Inhalte aus s7.pakete und der Live-Seite (home.json, pricingOverview.json); Preise offen.",
+      "held": {
+        "kicker": "Mit deinem Team · für Versicherungsagenturen und Maklerbüros",
+        "h1": "Deine Maschine.",
+        "h1_akzent": "Dein Team bedient sie.",
+        "lead": "Du bekommst alle drei Stufen fertig eingerichtet: Ziele setzen, Zielgruppenpakete, Dashboard mit Reporting. Dein Team setzt um – Schritt für Schritt geführt.",
+        "knopf": "Termin auswählen",
+        "knopf2": "Fokus und Team vergleichen"
+      },
+      "kopf": {
+        "klammer": "Deine digitale Maschine – fertig eingerichtet, dein Team bedient sie",
+        "spalten": [
+          {
+            "nr": "1",
+            "titel": "Ziel setzen",
+            "sub": "Strategiekompass oder Strategietool Pro."
+          },
+          {
+            "nr": "2",
+            "titel": "Umsetzen",
+            "sub": "Landingpage, Postings, Kundenmailing."
+          },
+          {
+            "nr": "3",
+            "titel": "Auswerten",
+            "sub": "Dashboard mit Aufgaben und Reporting."
+          }
+        ],
+        "leads": "Leads direkt zu deinem Team",
+        "aufgaben": [
+          [
+            "Familie M. zurückrufen",
+            "AK"
+          ],
+          [
+            "Mailing Bauherren senden",
+            "TS"
+          ],
+          [
+            "Termin Praxis Dr. K.",
+            "AK"
+          ]
+        ],
+        "zurueck": "Das Dashboard zeigt, was wirkt – daraus folgen die nächsten Ziele"
+      },
+      "stufen": {
+        "kicker": "Was du bekommst",
+        "h2": "Drei Stufen.",
+        "h2_akzent": "Alles fertig.",
+        "lead": "Strategie, Umsetzung und Steuerung greifen ineinander. Dein Team muss nichts konzipieren, es arbeitet mit dem, was steht.",
+        "liste": [
+          {
+            "nr": "01",
+            "label": "Ziel setzen",
+            "h": "Du weißt, wo du wachsen willst.",
+            "t": "Segment, Sparte, Zielgruppe: Der Strategiekompass zeigt, welche Zielgruppen bei dir Umsatz bewegen. Im Paket Team arbeitest du mit dem Strategietool Pro.",
+            "link": "Kompass starten"
+          },
+          {
+            "nr": "02",
+            "label": "Zielgruppenpakete",
+            "h": "Je Zielgruppe ein fertiges Paket.",
+            "t": "Landingpage, Postings und Kundenmailing, abgestimmt auf eine Zielgruppe und ihren Anlass. Mit deinem Logo, deinen Farben und deinen Kontaktdaten.",
+            "link": "Alle 20 Zielgruppen ansehen",
+            "teile": [
+              {
+                "name": "Landingpage",
+                "t": "Mit Download-Dokument, Podcastfolge und Kontaktformular.",
+                "bild": "preview-landingpages"
+              },
+              {
+                "name": "Postings",
+                "t": "Fertige Beiträge, die automatisch auf deinen Kanälen erscheinen.",
+                "bild": "preview-postings"
+              },
+              {
+                "name": "Kundenmailing",
+                "t": "Du aktivierst deinen Bestand und führst ihn auf die passende Landingpage.",
+                "bild": "preview-funnel"
+              }
+            ]
+          },
+          {
+            "nr": "03",
+            "label": "Dashboard und Reporting",
+            "h": "Du siehst, was wirkt.",
+            "t": "Alle Leads je Zielgruppe an einem Ort, dazu Aufgaben und Erinnerungen für dein Team. Im Paket Team mit Empfehlungen und monatlichem Reporting."
+          }
+        ],
+        "strategie": {
+          "kopf": "Deine Strategie",
+          "satz": "Ich will <b>Privatkunden</b> erreichen, in <b>Leben</b> und <b>Kranken</b> wachsen und setze auf <b>Bestand aktivieren</b>.",
+          "titel": "Deine Zielgruppen",
+          "liste": [
+            "Junge Familien",
+            "Bauherren",
+            "Berufseinsteiger"
+          ]
+        },
+        "report": {
+          "kopf": "Leads je Zielgruppe · Oktober",
+          "balken": [
+            [
+              "Junge Familien",
+              92
+            ],
+            [
+              "Bauherren",
+              58
+            ],
+            [
+              "Berufseinsteiger",
+              34
+            ]
+          ],
+          "empf": "Bauherren: Landingpage schärfen – wird kaum zu Ende gelesen"
+        }
+      },
+      "aufteilung": {
+        "kicker": "Aufteilung",
+        "h2": "Klar verteilt.",
+        "lead": "Die Technik und die Inhalte liegen bei uns. Dein Team konzentriert sich auf das, was nur es kann: Gespräche.",
+        "wir_titel": "Das richten wir ein",
+        "wir": [
+          "Strategiekompass oder Strategietool Pro",
+          "Landingpages, Postings und Kundenmailings je Zielgruppe",
+          "Dashboard mit Aufgaben und Erinnerungen",
+          "Dein Logo, deine Farben, deine Kontaktdaten",
+          "Hosting, SSL-Zertifikat und DSGVO-konforme Leadgewinnung"
+        ],
+        "team_titel": "Das macht dein Team",
+        "team": [
+          "Ziele und Zielgruppen festlegen",
+          "Kundenmailings an den Bestand senden",
+          "Aufgaben im Dashboard erledigen",
+          "Leads nachfassen, beraten und abschließen"
+        ]
+      },
+      "start": {
+        "kicker": "Der Start",
+        "h2": "In Tagen startklar.",
+        "lead": "Vom ersten Gespräch bis zum ersten Lead in vier Schritten.",
+        "liste": [
+          {
+            "wann": "Schritt 1",
+            "titel": "Gespräch",
+            "text": "In 45 Minuten klären wir, wo du wachsen willst und welches Paket passt."
+          },
+          {
+            "wann": "Schritt 2",
+            "titel": "Ziele setzen",
+            "text": "Mit dem Kompass legst du Segment, Sparten und Zielgruppen fest."
+          },
+          {
+            "wann": "Schritt 3",
+            "titel": "Einrichten",
+            "text": "Wir richten Landingpages, Postings und Dashboard mit deinem Auftritt ein."
+          },
+          {
+            "wann": "Schritt 4",
+            "titel": "Dein Team legt los",
+            "text": "Postings laufen, Mailings gehen raus, Leads landen im Dashboard."
+          }
+        ]
+      },
+      "pakete": {
+        "kicker": "Pakete",
+        "h2": "Fokus oder Team.",
+        "lead": "Beide enthalten alle drei Stufen. Team bringt das Strategietool Pro, Empfehlungen und Reporting dazu – für Büros mit mehreren Beratern.",
+        "preise_link": "Alle Preise im Vergleich",
+        "b_text": "Du willst die Maschine gar nicht selbst bedienen? Dann übernehmen wir – mit Marketing as a Service.",
+        "b_link": "Marketing as a Service ansehen",
+        "b_preis": "ab 1.800 €",
+        "b_einheit": "pro Monat",
+        "b_name": "Lieber übergeben?"
+      }
+    },
+    "onepager_stand": "2ec47baf",
+    "mehrwerte": {
+      "_quelle": "Daniel, Diktat 14.11.2026 – Ideensammlung, noch nicht eingebaut. Aussagen nicht verkürzen; Ergänzungen von Claude als offene Fragen markiert.",
+      "kopf": {
+        "kicker": "Mehrwerte · Ideensammlung",
+        "h1": "Was mache ich jetzt",
+        "h1_akzent": "ganz konkret?",
+        "lead": "Die zentrale Frage aus der Anwendung: Ich habe LinkedIn, ich habe die Postings – wie gehe ich im Marketing- und Vertriebsprozess konkret vor? Diese Erklärungen gibt es bisher nur mündlich, zuletzt im Workshop. Wir wollen die Leute direkt befähigen: mit einem klaren Vorgehen, vielleicht mit Erklärvideo."
+      },
+      "grundlage": {
+        "kicker": "Teil 1 · Die Grundlage",
+        "h2": "Drei Voraussetzungen, damit LinkedIn überhaupt funktioniert.",
+        "lead": "Was ich bei LinkedIn immer wieder sage, wird sichtbar gemacht: Grundthemen, die eingerichtet sein müssen, bevor aktive Arbeit wirkt.",
+        "liste": [
+          {
+            "nr": "01",
+            "titel": "Das Profil sauber darstellen",
+            "text": "Wir sagen genau, was man machen muss, damit das Profil überzeugt.",
+            "punkte": []
+          },
+          {
+            "nr": "02",
+            "titel": "Kontakte aufbauen",
+            "text": "Ganz konkrete Tipps, wie man die Zielgruppe auf LinkedIn findet – mit und ohne Sales Navigator.",
+            "punkte": [
+              "Welche Arten von Kontakten man will",
+              "LinkedIn passt seine Empfehlungen an die zuletzt hinzugefügten Kontakte an: Wer nur Kollegen anklickt, bekommt auch hauptsächlich Kollegen empfohlen",
+              "Wie ich meine Zielgruppe finde",
+              "Wie ich im Sales Navigator vorgehe"
+            ]
+          },
+          {
+            "nr": "03",
+            "titel": "Regelmäßig posten",
+            "text": "Decken wir über unsere Produkte ab: Die Postings je Zielgruppe laufen.",
+            "punkte": [],
+            "produkt": true
+          }
+        ]
+      },
+      "aktiv": {
+        "kicker": "Teil 2 · Aktiv werden",
+        "h2": "Zwei Wege, auf LinkedIn aktiv zu sein.",
+        "lead": "Ab hier ist die Frage: Was mache ich selbst aktiv?",
+        "wege": [
+          {
+            "label": "Weg A",
+            "titel": "Selbst posten – als Person",
+            "text": "Echte Einblicke geben, aus dem Alltag posten und sich als Person zeigen.",
+            "tool": {
+              "name": "Posting-Generator",
+              "modi": [
+                [
+                  "Ad hoc",
+                  "Ich habe gerade eine Idee oder war auf einer Veranstaltung und will dazu etwas posten – hilf mir, den Post zu machen."
+                ],
+                [
+                  "Interview-Modus",
+                  "Ich habe keine Idee: Das Tool stellt innovative Fragen, provoziert auch mal und filtert so passende Postings für mich heraus."
+                ]
+              ],
+              "einstellung": "Der Kunde stellt ein, was das Tool tun soll und in welchem Stil es Postings ausgibt."
+            }
+          },
+          {
+            "label": "Weg B",
+            "titel": "Bei anderen kommentieren – die Zielkunden im Blick",
+            "text": "Ich suche mir meine wichtigsten Zielkunden auf LinkedIn, schaue, was sie posten, und schreibe jedes Mal einen Kommentar darunter: innovativ, freundlich und modern – und so, dass er zum Diskutieren anregt und die Person am besten antworten muss.",
+            "tool": {
+              "name": "Antwortgenerator",
+              "modi": [
+                [
+                  "Direkt",
+                  "Text des Beitrags hineinkopieren und eine Standardantwort ausgeben lassen."
+                ],
+                [
+                  "Mit Rückfrage",
+                  "Das Tool fragt, in welche Richtung die Antwort gehen soll und ob etwas berücksichtigt werden soll – eintragen oder direkt generieren."
+                ]
+              ],
+              "einstellung": "Als Knopf im Posting-Generator oder als eigenes Tool."
+            }
+          }
+        ]
+      },
+      "vertrieb": {
+        "kicker": "Teil 3 · Vom Kommentar zum Gespräch",
+        "h2": "Der Weg in den Vertrieb.",
+        "lead": "Wie man mit den Kommentaren vorgeht und wie daraus ein Termin wird.",
+        "schritte": [
+          [
+            "1. Kommentar",
+            "Beim Beitrag einer Person aus der Zielgruppe kommentieren."
+          ],
+          [
+            "2. Kommentar",
+            "Beim nächsten Beitrag wieder – der Austausch beginnt."
+          ],
+          [
+            "3. Kommentar",
+            "Die Person kennt dich inzwischen."
+          ],
+          [
+            "Nachricht",
+            "Danach per LinkedIn anschreiben: „Mensch, jetzt haben wir uns schon öfters ausgetauscht, das fand ich super – lass uns doch mal telefonieren.“"
+          ]
+        ],
+        "bezug": "Passt zur Detailstufe „Vom ersten Kontakt zum Kunden“: LinkedIn-Strang „Beiträge → Liker und Kommentierer ansprechen“ und weiter ins Kennenlerngespräch."
+      },
+      "weiter": {
+        "kicker": "Teil 4 · Was wir daraus machen",
+        "h2": "Formate und offene Fragen.",
+        "lead": "Von hier aus überlegen wir weiter, was daraus wird.",
+        "formate": [
+          [
+            "Vorgehen erklären",
+            "Die drei Voraussetzungen und die zwei Wege als klare Anleitung."
+          ],
+          [
+            "Erklärvideo",
+            "Vielleicht – für das Vorgehen auf LinkedIn."
+          ],
+          [
+            "Posting-Generator",
+            "Goodie mit Ad-hoc- und Interview-Modus, Stil einstellbar."
+          ],
+          [
+            "Antwortgenerator",
+            "Knopf im Posting-Generator oder eigenes Tool."
+          ]
+        ],
+        "fragen": [
+          "Wie bauen wir den Posting-Generator? (Daniel: „Da müssen wir nur überlegen, wie wir das machen.“)",
+          "Antwortgenerator als Knopf im Posting-Generator oder als separates Tool?",
+          "Wo erhält der Kunde Anleitung, Video und Tools – im Kunden-Dashboard, auf der Website, im Termin? (offen, Claude)",
+          "Welche Pakete enthalten die Tools? (offen, Claude)"
+        ]
+      }
+    }
+  }
+}

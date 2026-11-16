@@ -58,6 +58,24 @@
           "label": "Storyboard"
         },
         {
+          "label": "Homepage-Story 8",
+          "href": "/entwicklung/storyboard/story8/",
+          "children": [
+            {
+              "label": "Startseite",
+              "href": "/entwicklung/storyboard/story8/"
+            },
+            {
+              "label": "Mit deinem Team",
+              "href": "/entwicklung/storyboard/story8/mit-deinem-team/"
+            },
+            {
+              "label": "Marketing as a Service",
+              "href": "/entwicklung/storyboard/story8/marketing-as-a-service/"
+            }
+          ]
+        },
+        {
           "label": "Homepage-Story 7",
           "href": "/entwicklung/storyboard/story-2-0/",
           "children": [
