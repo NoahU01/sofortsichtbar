@@ -19,13 +19,13 @@ MUND, HALS, MUND_H, LAGEN = eb.MUND, eb.HALS, eb.MUND_H, eb.LAGEN
 TX = {
     "marketing": "Marketing – wir gewinnen Interessenten",
     "vertrieb": "Vertrieb – du machst daraus Kunden",
-    "aufbauen": "Aufbauen", "aufbauen_unter": "Zielgruppen, Kanäle, Medien",
+    "aufbauen": "Auswählen", "aufbauen_unter": "Fertige Strecken je Zielgruppe",
     "betreiben": "Betreiben", "betreiben_unter": "Posten, vernetzen, nachhalten",
     "messpunkt": "Messpunkt: Gesprächsanlässe",
     "vertrieb_band": "Vertrieb", "vertrieb_unter": "Ansprechen · Terminieren · Beraten",
     "betreuen": "Betreuen", "betreuen_unter": "Bestand halten und ausbauen",
-    "a": ("Mit deinem Team:", "Wir bauen auf, du betreibst."),
-    "b": ("Marketing as a Service:", "Wir bauen auf und betreiben."),
+    "a": ("Mit deinem Team:", "Du wählst aus, dein Team betreibt."),
+    "b": ("Marketing as a Service:", "Du wählst aus, wir betreiben."),
     "rueck": "Regelmäßige Präsenz pflegt deinen Bestand – und bringt neue Anlässe.",
 }
 
@@ -104,8 +104,8 @@ def hoch(kopf=False):
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
     # Aufbauen im Kern, wie im Querformat
     o.append(text(c, y_oben + 40, TX["aufbauen"], "ek2-kern-t", eb.T_GROSS, 700, "middle"))
-    o.append(text(c, y_oben + 62, "Zielgruppen,", "ek2-kern-s", anker="middle"))
-    o.append(text(c, y_oben + 78, "Kanäle, Medien", "ek2-kern-s", anker="middle"))
+    o.append(text(c, y_oben + 62, "Fertige Strecken", "ek2-kern-s", anker="middle"))
+    o.append(text(c, y_oben + 78, "je Zielgruppe", "ek2-kern-s", anker="middle"))
     # weiche Fuge, nach unten gewölbt wie die Strömung
     o.append(f'<path d="M{c - MUND_H[3] - 4} {y_teil - 8} C{c - 50} {y_teil + 16} {c + 50} {y_teil + 16} {c + MUND_H[3] + 4} {y_teil - 8}" class="ek2-fuge"/>')
     # Betreiben rechts neben der schmalen Stelle

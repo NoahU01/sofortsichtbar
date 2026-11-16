@@ -99,7 +99,7 @@ def vertrieb(o):
 def beschriftung(o, v):
     """Begriffe im farbigen Kern – wie im Vertriebsband: Titel und Zeile darunter"""
     xa, xb = 26, X_TEIL + (30 if v != 3 else 26)
-    o.append(f'<g class="tr-aufbauen tr-text">{text(xa, c - 3, "Aufbauen", "ek2-kern-t", G, 700)}{text(xa, c + 21, "Zielgruppen, Kanäle, Medien", "ek2-kern-s", U)}</g>')
+    o.append(f'<g class="tr-aufbauen tr-text">{text(xa, c - 3, "Auswählen", "ek2-kern-t", G, 700)}{text(xa, c + 21, "Fertige Strecken je Zielgruppe", "ek2-kern-s", U)}</g>')
     o.append(f'<g class="tr-betreiben tr-text">{text(xb, c - 3, "Betreiben", "ek2-kern-t", G, 700)}{text(xb, c + 21, "Posten, vernetzen, nachhalten", "ek2-kern-s", U)}</g>')
 
 
