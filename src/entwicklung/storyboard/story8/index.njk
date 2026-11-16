@@ -123,7 +123,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
       <p class="s7-lead">{{ S.hero.lead }}</p>
       <div class="s7-held__knoepfe">
         <a class="s7-knopf" href="#kontakt">{{ S.hero.knopf }} {{ pfeil | safe }}</a>
-        <a class="s7-knopf s7-knopf--rand" href="{{ H7 }}/strategiekompass/">{{ S.hero.knopf2 }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#beispiel">{{ S.hero.knopf2 }}</a>
       </div>
       <figure class="s7-maschine">
         {{ erklaerbild() }}
@@ -132,6 +132,40 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
   </section>
 {%- endmacro -%}
 
+{%- macro beispiel() -%}
+  {#- Story 8 (16.11.2026): der konkrete Mehrwert an einer echten Vertriebsstrecke – vom Anlass bis in den Vertrieb.
+      Strategie (Kompass) und Steuerung (Dashboard) nur als Nebensatz. Inhalte: s7.beispiel -#}
+  {%- set BP = S.beispiel %}
+  <section class="s7-band s7-band--flaeche" id="beispiel">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ BP.kicker }}</p>
+      <h2 class="s7-h2">{{ BP.h2 }}</h2>
+      <p class="s7-lead bp8-lead">{{ BP.lead }}</p>
+      <figure class="bp8-strecke">
+        <img src="/assets/img/{{ BP.bild }}" alt="{{ BP.bild_alt }}" width="1664" height="658" loading="lazy">
+        <figcaption>{% for x in BP.teile %}<span>{{ x }}</span>{% endfor %}</figcaption>
+      </figure>
+      <div class="bp8-fluss">
+        <div class="bp8-anlass">
+          <p class="bp8-anlass__kopf">{{ BP.anlass.kopf }}</p>
+          <b>{{ BP.anlass.name }}</b>
+          {%- for z in BP.anlass.zeilen %}<span>{{ z }}</span>{% endfor %}
+        </div>
+        <span class="bp8-pfeil" aria-hidden="true">{{ pfeil | safe }}</span>
+        <div class="bp8-vertrieb">
+          <p class="bp8-vertrieb__titel">{{ BP.vertrieb_titel }}</p>
+          <ol>{% for v in BP.vertrieb %}<li><b>{{ v[0] }}</b><span>{{ v[1] }}</span></li>{% endfor %}</ol>
+        </div>
+      </div>
+      <div class="bp8-neben">
+        {%- for n in BP.neben %}
+        <p><b>{{ n[0] }}</b> {{ n[1] }}{% if n[2] %} <a class="s7-link" href="{{ H7 }}/{{ n[2] }}">Kompass starten {{ pfeil | safe }}</a>{% endif %}</p>
+        {%- endfor %}
+        <p class="bp8-neben__link"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ BP.link }} {{ pfeil | safe }}</a></p>
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}
 {%- macro rollen() -%}
   {#- Wer macht was (Daniel, 16.11.2026): je Stufe die Rolle in Mit deinem Team (A) und Marketing as a Service (B). Inhalte: s7.rollen -#}
   {%- set R = S.rollen %}
@@ -253,7 +287,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
         </article>
         {%- endfor %}
       </div>
-      <p class="s7-pakete__fuss">{{ S.pakete.fuss }}</p>
+      <p class="s7-pakete__fuss">{{ S.pakete.fuss }}{% if s.slug != "preise" %} <a class="s7-link" href="{{ H7 }}/preise/#wer-macht-was">Wer macht was {{ pfeil | safe }}</a>{% endif %}</p>
     </div>
   </section>
 {%- endmacro -%}
@@ -885,6 +919,38 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-alt__links { margin-top: 1.6rem; }
 @media (max-width: 900px) { .ig7-reihe--paar { grid-template-columns: minmax(0, 1fr); } .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
 
+/* ---------- Beispiel einer Vertriebsstrecke (bp8-, Story 8) ---------- */
+.bp8-lead { max-width: 46rem !important; }
+/* oben die Strecke groß auf der Bühne, darunter der Weg vom Anlass durch den Vertrieb in einer Reihe */
+.bp8-strecke { margin: 3rem 0 0; padding: clamp(1.6rem, 4vw, 3.4rem) clamp(1rem, 5vw, 5rem) 0; border-radius: calc(var(--s7-rund) * 1.4); background: var(--s7-karte); overflow: hidden; }
+.bp8-strecke img { display: block; width: 100%; height: auto; margin-top: -11%; } /* das Bild hat oben freie Fläche */
+.bp8-strecke figcaption { display: grid; grid-template-columns: 1fr 1.3fr 1fr; margin: 0 calc(-1 * clamp(1rem, 5vw, 5rem)); padding: 1.1rem clamp(1rem, 5vw, 5rem) 1.3rem; border-top: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .95rem; font-weight: 600; text-align: center; }
+.bp8-fluss { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 2.4fr); align-items: stretch; gap: 1.2rem; margin-top: 1.2rem; }
+.bp8-anlass { display: grid; align-content: center; gap: .2rem; padding: 1.4rem 1.5rem; border-radius: calc(var(--s7-rund) * 1.2); background: var(--s7-akzent-verlauf); color: color-mix(in srgb, #fff 85%, transparent); font-size: .95rem; }
+.bp8-anlass__kopf { color: #fff; font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.bp8-anlass b { margin: .3rem 0 .2rem; color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.bp8-pfeil { align-self: center; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--s7-tinte); }
+.bp8-pfeil .s7-pfeil { width: 1.2rem; height: 1.2rem; stroke: #fff; }
+.bp8-vertrieb { padding: 1.4rem 1.6rem; border-radius: calc(var(--s7-rund) * 1.2); background: var(--s7-tinte); color: #c7c7cc; }
+.bp8-vertrieb__titel { color: #a1a1a6; font-size: .9rem; font-weight: 600; }
+.bp8-vertrieb ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin: .9rem 0 0; padding: 0; list-style: none; counter-reset: v; }
+.bp8-vertrieb li { position: relative; display: grid; align-content: start; gap: .25rem; padding-top: 2.2rem; counter-increment: v; }
+.bp8-vertrieb li::before { content: counter(v); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 1px solid rgba(255,255,255,.45); color: #fff; font-size: .8rem; font-weight: 600; }
+.bp8-vertrieb li:not(:last-child)::after { content: ""; position: absolute; left: 2.2rem; right: -.9rem; top: .8rem; height: 1px; background: rgba(255,255,255,.25); }
+.bp8-vertrieb li b { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.bp8-vertrieb li span { font-size: .95rem; line-height: 1.45; }
+.bp8-neben { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--s7-linie); color: var(--s7-text); font-size: .98rem; line-height: 1.55; }
+.bp8-neben b { color: var(--s7-tinte); font-weight: 600; }
+.bp8-neben .s7-link { margin-left: .2rem; }
+.bp8-neben__link { justify-self: end; align-self: start; }
+@media (max-width: 1000px) {
+  .bp8-fluss { grid-template-columns: minmax(0, 1fr); }
+  .bp8-pfeil { justify-self: center; transform: rotate(90deg); }
+  .bp8-neben { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .bp8-neben__link { justify-self: start; }
+}
+@media (max-width: 600px) { .bp8-vertrieb ol { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .bp8-vertrieb li:not(:last-child)::after { display: none; } .bp8-strecke figcaption { font-size: .8rem; } }
+
 /* ---------- Wer macht was (rl8-, Story 8) ---------- */
 .rl8 { margin-top: 3rem; }
 .rl8-kopf, .rl8-zeile { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; }
@@ -1306,6 +1372,7 @@ body.s7-menue-offen { overflow: hidden; }
     </div>
   </section>
   {{ pakete(false) }}
+  {{ rollen() }}
 
   <section class="s7-band s7-band--flaeche">
     <div class="s7-wrap">
@@ -2212,8 +2279,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 {%- else %}
 <main>
   {{ held() }}
-  {{ rollen() }}
-  {{ schritte() }}
+  {{ beispiel() }}
   {{ pakete() }}
 
   <!-- Zielgruppen: ein großes Bild als Beweis, die 20 Zielgruppen als ruhige Liste mit Anlass -->
