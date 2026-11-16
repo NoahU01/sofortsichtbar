@@ -16,6 +16,7 @@ import erklaerbild as eb  # noqa: E402
 
 text, svg = eb.text, eb.svg
 K, G = 15, 20
+U = 14   # eine Größe für alle Unterzeilen: Aufbauen, Betreiben, Vertrieb, Betreuen
 W, c = 1120, 196
 X_FLACH, X_KURVE, X_HALS = 250, 450, 510
 X_TEIL = 262
@@ -92,14 +93,14 @@ def vertrieb(o):
     o.append(f'<path d="M818 {y0} H{W - 16} Q{W} {y0} {W} {y0 + 16} V{y1 - 16} Q{W} {y1} {W - 16} {y1} H818 L840 {c} Z" class="ek2-band"/>')
     for x, titel, unter in ((xv + 26, "Vertrieb", "Ansprechen · Terminieren · Beraten"), (866, "Betreuen", "Bestand halten und ausbauen")):
         o.append(text(x, c - 3, titel, "ek2-band-t", G, 700))
-        o.append(text(x, c + 21, unter, "ek2-band-s", K))
+        o.append(text(x, c + 21, unter, "ek2-band-s", U))
 
 
 def beschriftung(o, v):
     """Begriffe im farbigen Kern – wie im Vertriebsband: Titel und Zeile darunter"""
     xa, xb = 26, X_TEIL + (30 if v != 3 else 26)
-    o.append(f'<g class="tr-aufbauen tr-text">{text(xa, c - 3, "Aufbauen", "ek2-kern-t", G, 700)}{text(xa, c + 21, "Zielgruppen, Kanäle, Medien", "ek2-kern-s", K)}</g>')
-    o.append(f'<g class="tr-betreiben tr-text">{text(xb, c - 3, "Betreiben", "ek2-kern-t", G, 700)}{text(xb, c + 21, "Posten, vernetzen, nachhalten", "ek2-kern-s", 13.5)}</g>')
+    o.append(f'<g class="tr-aufbauen tr-text">{text(xa, c - 3, "Aufbauen", "ek2-kern-t", G, 700)}{text(xa, c + 21, "Zielgruppen, Kanäle, Medien", "ek2-kern-s", U)}</g>')
+    o.append(f'<g class="tr-betreiben tr-text">{text(xb, c - 3, "Betreiben", "ek2-kern-t", G, 700)}{text(xb, c + 21, "Posten, vernetzen, nachhalten", "ek2-kern-s", U)}</g>')
 
 
 def variante(v, form="a"):
