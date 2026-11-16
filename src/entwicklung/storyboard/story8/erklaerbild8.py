@@ -89,32 +89,33 @@ def quer(klammern=True):
 
 
 def hoch(kopf=False):
+    """Handy: Bogen-Fuge mit großer Mündung (Form B, Daniel 16.11.2026) – Aufbauen im Kern, Betreiben rechts neben der schmalen Stelle"""
     W, c = 340, 170
-    y_oben = 140
-    y_flach, y_kurve, y_hals = y_oben + 86, y_oben + 266, y_oben + 316
-    y_teil = y_oben + 120
+    HB = [30, 38, 46, 54]            # Form B: graue Lagen an der Mündung bleiben breit
+    y_oben = 56
+    y_flach, y_kurve, y_hals = y_oben + 96, y_oben + 266, y_oben + 316
+    y_teil = y_oben + 132
     o = []
     o.append(text(c, 30, TX["marketing"], "ek2-t", gewicht=600, anker="middle"))
-    o.append(text(c, 66, TX["aufbauen"], "ek2-t", eb.T_GROSS, 700, "middle"))
-    o.append(text(c, 86, TX["aufbauen_unter"], "ek2-grau", anker="middle"))
     for k in (3, 2, 1, 0):
-        hm, hh = MUND_H[k], HALS[k]
+        hm, hh = MUND_H[k], HB[k]
         d = (f"M{c - hm} {y_oben} V{y_flach} C{c - hm} {y_flach + 90} {c - hh} {y_kurve - 70} {c - hh} {y_kurve} V{y_hals} "
              f"H{c + hh} V{y_kurve} C{c + hh} {y_kurve - 70} {c + hm} {y_flach + 90} {c + hm} {y_flach} V{y_oben} Z")
         o.append(f'<path d="{d}" class="{LAGEN[k][0]}-h ek2-lage"/>')
-    o.append(logo(c - 48, y_oben + 34, 96, "ek8h"))
-    # Grenze Aufbauen | Betreiben, Beschriftung rechts daneben
-    o.append(f'<path d="M{c - MUND_H[3] - 4} {y_teil - 10} L{c} {y_teil + 10} L{c + MUND_H[3] + 4} {y_teil - 10}" class="ek2-schnitt"/>')
-    # Beschriftung rechts neben der schmalen Stelle, dort ist neben dem Trichter Platz
-    o.append(text(c + 54, y_kurve - 42, TX["betreiben"], "ek2-t", eb.T_GROSS, 700))
-    o.append(text(c + 54, y_kurve - 22, "Posten, vernetzen,", "ek2-grau"))
-    o.append(text(c + 54, y_kurve - 6, "nachhalten", "ek2-grau"))
-    for i in range(3):
-        o.append(f'<circle cx="{c}" cy="{y_kurve - 30 + i * 15}" r="4" class="ek2-kern-p"/>')
-    # Messpunkt links, damit rechts „Betreiben“ Platz hat
-    o.append(f'<path d="M{c - HALS[3]} {y_hals - 14} H{c - HALS[3] - 22}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(c - HALS[3] - 28, y_hals - 18, "Messpunkt:", "ek2-t", gewicht=700, anker="end"))
-    o.append(text(c - HALS[3] - 28, y_hals - 2, "Leads", "ek2-t", gewicht=700, anker="end"))
+    # Aufbauen im Kern, wie im Querformat
+    o.append(text(c, y_oben + 40, TX["aufbauen"], "ek2-kern-t", eb.T_GROSS, 700, "middle"))
+    o.append(text(c, y_oben + 62, "Zielgruppen,", "ek2-kern-s", anker="middle"))
+    o.append(text(c, y_oben + 78, "Kanäle, Medien", "ek2-kern-s", anker="middle"))
+    # weiche Fuge, nach unten gewölbt wie die Strömung
+    o.append(f'<path d="M{c - MUND_H[3] - 4} {y_teil - 8} C{c - 50} {y_teil + 16} {c + 50} {y_teil + 16} {c + MUND_H[3] + 4} {y_teil - 8}" class="ek2-fuge"/>')
+    # Betreiben rechts neben der schmalen Stelle
+    o.append(text(c + HB[3] + 18, y_kurve - 30, TX["betreiben"], "ek2-t", eb.T_GROSS, 700))
+    o.append(text(c + HB[3] + 18, y_kurve - 10, "Posten, vernetzen,", "ek2-grau"))
+    o.append(text(c + HB[3] + 18, y_kurve + 6, "nachhalten", "ek2-grau"))
+    # Messpunkt links
+    o.append(f'<path d="M{c - HB[3]} {y_hals - 14} H{c - HB[3] - 18}" class="ek2-linie ek2-linie--fein"/>')
+    o.append(text(c - HB[3] - 24, y_hals - 18, "Messpunkt:", "ek2-t", gewicht=700, anker="end"))
+    o.append(text(c - HB[3] - 24, y_hals - 2, "Leads", "ek2-t", gewicht=700, anker="end"))
     o.append(text(c, y_hals + 44, TX["vertrieb"], "ek2-t", gewicht=600, anker="middle"))
     y_hals += 42
     x0, x1 = 50, W - 50
@@ -125,7 +126,6 @@ def hoch(kopf=False):
         o.append(text(c, y, titel, "ek2-band-t", eb.T_GROSS, 700, "middle"))
         o.append(text(c, y + 21, unter, "ek2-band-s", anker="middle"))
     return svg(W, yk + 100, "".join(o), "ek2-svg--hoch", "hoch")
-
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story8.11tydata.json")

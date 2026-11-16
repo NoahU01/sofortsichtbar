@@ -136,7 +136,8 @@ def variante(v, form="a"):
 if __name__ == "__main__":
     p = os.path.join(HERE, "story8.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
-    d["s7"]["ek_varianten"] = {f"v{v}{f}": variante(v, f) for v in (1, 2) for f in ("a", "b")}
+    d["s7"]["ek_varianten"] = {f"v{v}{f}": variante(v, f) for v in (1, 2) for f in ("a", "b")}   # Vergleich (Infografik/Archiv)
+    d["s7"]["ek_kopf"] = variante(1, "b")   # gewählt (Daniel, 16.11.2026): Bogen-Fuge, Form B
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
     print("drei Varianten geschrieben")
