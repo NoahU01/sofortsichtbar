@@ -2023,10 +2023,19 @@
               "span": "1",
               "name": "Unser Team",
               "tut": "Strategie, Texte, Gestaltung und Technik. Baut deine Strecken – und liefert laufend nach.",
-              "rollen": [
-                "ziel",
-                "stift",
-                "code"
+              "figuren": [
+                [
+                  "strategie",
+                  "ziel"
+                ],
+                [
+                  "texte",
+                  "stift"
+                ],
+                [
+                  "technik",
+                  "code"
+                ]
               ]
             },
             {
@@ -2034,8 +2043,11 @@
               "span": "1",
               "name": "Deine Marketing-Person",
               "tut": "Postet, vernetzt sich und hält nach. Mit Anleitung und Dashboard von uns.",
-              "rollen": [
-                "handy"
+              "figuren": [
+                [
+                  "marketing",
+                  "handy"
+                ]
               ]
             },
             {
@@ -2043,9 +2055,15 @@
               "span": "2",
               "name": "Dein Vertriebsteam",
               "tut": "Spricht an, vereinbart Termine, berät und betreut den Bestand – wie bisher, nur mit mehr Anlässen.",
-              "rollen": [
-                "telefon",
-                "gespraech"
+              "figuren": [
+                [
+                  "vertrieb",
+                  "gespraech"
+                ],
+                [
+                  "innendienst",
+                  "telefon"
+                ]
               ]
             }
           ]
@@ -2079,10 +2097,19 @@
               "span": "2",
               "name": "Unser Team",
               "tut": "Strategie, Texte, Gestaltung, Technik und Social Media. Baut deine Strecken und betreibt sie für dich – jeden Monat mit einem Call.",
-              "rollen": [
-                "ziel",
-                "stift",
-                "handy"
+              "figuren": [
+                [
+                  "strategie",
+                  "ziel"
+                ],
+                [
+                  "texte",
+                  "stift"
+                ],
+                [
+                  "social",
+                  "handy"
+                ]
               ]
             },
             {
@@ -2090,9 +2117,15 @@
               "span": "2",
               "name": "Dein Vertriebsteam",
               "tut": "Spricht an, vereinbart Termine, berät und betreut den Bestand. Mehr musst du nicht tun.",
-              "rollen": [
-                "telefon",
-                "gespraech"
+              "figuren": [
+                [
+                  "vertrieb",
+                  "gespraech"
+                ],
+                [
+                  "innendienst",
+                  "telefon"
+                ]
               ]
             }
           ]
