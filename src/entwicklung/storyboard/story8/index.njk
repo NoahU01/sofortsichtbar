@@ -9,9 +9,9 @@ seiten:
   - slug: ""
     titel: "Startseite"
   - slug: "mit-deinem-team"
-    titel: "Mit deinem Team"
+    titel: "Selbst machen"
   - slug: "marketing-as-a-service"
-    titel: "Marketing as a Service"
+    titel: "Machen lassen"
   - slug: "vertriebsstrecken"
     titel: "Vertriebsstrecken"
   - slug: "strategiekompass"
@@ -170,22 +170,25 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
     </div>
   </section>
 {%- endmacro -%}
-{%- macro rollen() -%}
-  {#- Wer macht was (Daniel, 16.11.2026): je Stufe die Rolle in Mit deinem Team (A) und Marketing as a Service (B). Inhalte: s7.rollen -#}
-  {%- set R = S.rollen %}
+{%- macro rollen(nur="") -%}
+  {#- Wer macht was (Daniel, 16.11.2026): je Stufe die Rolle in Selbst machen (a) und Machen lassen (b).
+      Auf den Unterseiten nur die eigene Spalte (nur="a" | "b"). Inhalte: s7.rollen -#}
+  {%- set R = S.rollen %}{% set T = R.seite[nur] if nur else R %}
   <section class="s7-band s7-band--flaeche" id="wer-macht-was">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ R.kicker }}</p>
-      <h2 class="s7-h2">{{ R.h2 }}</h2>
-      <p class="s7-lead">{{ R.lead }}</p>
-      <div class="rl8" role="table" aria-label="Wer macht was je Stufe">
+      <h2 class="s7-h2">{{ T.h2 }}</h2>
+      <p class="s7-lead">{{ T.lead }}</p>
+      <div class="rl8{% if nur %} rl8--eins{% endif %}" role="table" aria-label="Wer macht was je Stufe">
+        {%- if not nur %}
         <div class="rl8-kopf" role="row"><span role="columnheader"></span>{% for p in R.pakete %}<a role="columnheader" class="rl8-paket" href="{{ H7 }}/{{ p.link }}"><b>{{ p.name }}</b><span>{{ p.satz }}</span></a>{% endfor %}</div>
+        {%- endif %}
         {%- for g in R.gruppen %}
         <p class="rl8-gruppe" role="row"><span role="cell">{{ g.titel }}</span></p>
         {%- for z in g.zeilen %}
         <div class="rl8-zeile" role="row">
           <div role="rowheader"><b>{{ z.stufe }}</b><span>{{ z.was }}</span></div>
-          {%- for x in [z.a, z.b] %}<div role="cell" class="rl8-zelle rl8-zelle--{{ x[0] }}"><i>{% if x[0] == "wir" %}sofort sichtbar{% else %}Deine Agentur{% endif %}</i>{% if x[1] %}<span>{{ x[1] }}</span>{% endif %}</div>{% endfor %}
+          {%- for x in ([z[nur]] if nur else [z.a, z.b]) %}<div role="cell" class="rl8-zelle rl8-zelle--{{ x[0] }}"><i>{% if x[0] == "wir" %}sofort sichtbar{% elif z.stufe == "Betreiben" %}Dein Team{% else %}Deine Agentur{% endif %}</i>{% if x[1] %}<span>{{ x[1] }}</span>{% endif %}</div>{% endfor %}
         </div>
         {%- endfor %}
         {%- endfor %}
@@ -975,6 +978,12 @@ body.s7-menue-offen { overflow: hidden; }
 
 /* ---------- Wer macht was (rl8-, Story 8) ---------- */
 .rl8 { margin-top: 3rem; }
+.rl8--eins .rl8-zeile { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ek8-paket { margin-top: 2.5rem; }
+/* Selbst machen: Betreiben ist ausgegraut, bleibt aber lesbar – in Tinte statt Weiß */
+.ek8-paket[data-aus="betreiben"] .tr-betreiben.tr-text { filter: none; opacity: 1; }
+.ek8-paket[data-aus="betreiben"] .tr-betreiben.tr-text .ek2-kern-t { fill: var(--s7-tinte); }
+.ek8-paket[data-aus="betreiben"] .tr-betreiben.tr-text .ek2-kern-s { fill: var(--s7-grau); }
 .rl8-kopf, .rl8-zeile { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; }
 .rl8-kopf { position: sticky; top: 72px; z-index: 2; padding-bottom: 1rem; background: var(--s7-flaeche); }
 .rl8-paket { display: grid; gap: .2rem; padding: 1.1rem 1.3rem; border-radius: var(--s7-rund); background: var(--s7-tinte); color: #fff; text-decoration: none; }
@@ -989,6 +998,7 @@ body.s7-menue-offen { overflow: hidden; }
 .rl8-zelle--wir i { background: var(--s7-akzent-verlauf); color: #fff; }
 .rl8-zelle--ihr i { background: var(--s7-karte); color: var(--s7-tinte); border: 1px solid var(--s7-linie); }
 .rl8-zelle span:empty { display: none; }
+@media (max-width: 760px) { .rl8--eins .rl8-zeile { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 800px) {
   .rl8-kopf, .rl8-zeile { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: .8rem; }
   .rl8-kopf > span:first-child { display: none; }
@@ -1267,7 +1277,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 8</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Mit deinem Team (Weg A){% elif s.slug == "marketing-as-a-service" %}Unterseite Marketing as a Service (Weg B){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 8</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -1289,7 +1299,7 @@ body.s7-menue-offen { overflow: hidden; }
     {%- if istSeite %}
     {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
         Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1280px, Knopf mit zwei Strichen) -#}
-    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Mit deinem Team", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Marketing as a Service", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Selbst machen", s.slug == "mit-deinem-team"], ["marketing-as-a-service/", "Machen lassen", s.slug == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
     </nav>
@@ -1985,37 +1995,19 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s7-kicker">{{ W.held.kicker }}</p>
       <h1>{{ W.held.h1 }} <span class="s7-wort">{{ W.held.h1_akzent }}</span></h1>
       <p class="s7-lead">{{ W.held.lead }}</p>
-      {#- Gleiche Gesamtlogik wie bei Marketing as a Service, hier bedient dein Team die Maschine -#}
-      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.spalten[0].sub }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: {{ KP.spalten[2].sub }} {{ KP.zurueck }}.">
-        <p class="mk7__klammer">{{ KP.klammer }}</p>
-        <div class="mk7__spalten">
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
-            <div class="mk7__inhalt">{{ mkompass | safe }}</div>
-          </div>
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
-            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
-          </div>
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
-            <div class="mk7__inhalt">{{ mdash | safe }}</div>
-          </div>
-        </div>
-        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
-      </div>
+      {#- Trichter mit Kennzeichnung (Daniel, 16.11.2026): nur Teil 1 kommt von uns, Betreiben liegt bei deinem Team (ausgegraut) -#}
+      <div class="ek8 ek8-paket" data-aus="betreiben"><div class="ek2 ek8-var ek8-var--kopf" role="img" aria-label="{{ W.held.bild_label }}">{{ S.ek_paket.selbst | safe }}</div><div class="ek2 ek8-hoch">{{ S.ek_hoch | safe }}</div></div>
       <div class="s7-held__knoepfe mk7__knoepfe">
         <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ W.held.knopf }} {{ pfeil | safe }}</a>
-        <a class="s7-knopf s7-knopf--rand" href="#pakete">{{ W.held.knopf2 }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#wer-macht-was">{{ W.held.knopf2 }}</a>
       </div>
     </div>
   </section>
 
+  {{ rollen("a") }}
+
   {%- set ST = W.stufen %}{% set L = ST.liste %}
-  <section class="s7-band s7-band--flaeche" id="stufen">
+  <section class="s7-band" id="stufen">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ ST.kicker }}</p>
       <h2 class="s7-h2">{{ ST.h2 }} <span class="s7-wort">{{ ST.h2_akzent }}</span></h2>
@@ -2065,7 +2057,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {%- set AU = W.aufteilung %}
-  <section class="s7-band" id="aufteilung">
+  <section class="s7-band s7-band--flaeche" id="aufteilung">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ AU.kicker }}</p>
       <h2 class="s7-h2">{{ AU.h2 }}</h2>
@@ -2078,7 +2070,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {%- set SR = W.start %}
-  <section class="s7-band s7-band--flaeche" id="start">
+  <section class="s7-band" id="start">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ SR.kicker }}</p>
       <h2 class="s7-h2">{{ SR.h2 }}</h2>
@@ -2097,7 +2089,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {%- set PK = W.pakete %}
-  <section class="s7-band" id="pakete">
+  <section class="s7-band s7-band--flaeche" id="pakete">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ PK.kicker }}</p>
       <h2 class="s7-h2">{{ PK.h2 }}</h2>
@@ -2144,39 +2136,16 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s7-kicker">{{ M.held.kicker }}</p>
       <h1>{{ M.held.h1 }} <span class="s7-wort">{{ M.held.h1_akzent }}</span></h1>
       <p class="s7-lead">{{ M.held.lead }}</p>
-      {%- set KP = M.kopf %}
-      {#- Gesamtlogik statt großem Trichter (Daniel, 12.11.2026): eine Klammer über allem, drei Spalten mit echten Inhalten
-          (Fragen · Trichter · Auswertung), Rücklauf in den monatlichen Austausch. Vorbild: Infografik Roll-up 2 / A3 quer 2 -#}
-      <div class="mk7" role="img" aria-label="{{ KP.klammer }}. 1 {{ KP.spalten[0].titel }}: {{ KP.fragen | join(' ') }} 2 {{ KP.spalten[1].titel }}: {{ KP.leads }}. 3 {{ KP.spalten[2].titel }}: Dashboard und Empfehlung. {{ KP.zurueck }}.">
-        <p class="mk7__klammer">{{ KP.klammer }}</p>
-        <div class="mk7__spalten">
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[0].nr }}</span>{{ KP.spalten[0].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[0].sub }}</p>
-            <div class="mk7__inhalt mk7__fragen">{% for f in KP.fragen %}<i>„{{ f }}“</i>{% endfor %}</div>
-          </div>
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[1].nr }}</span>{{ KP.spalten[1].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[1].sub }}</p>
-            <div class="mk7__inhalt mk7__trichter"><div class="ek2">{{ S.ek_kopf_trichter | safe }}</div><p>{{ KP.leads }}</p></div>
-          </div>
-          <div class="mk7__spalte">
-            <p class="mk7__titel"><span>{{ KP.spalten[2].nr }}</span>{{ KP.spalten[2].titel }}</p>
-            <p class="mk7__sub">{{ KP.spalten[2].sub }}</p>
-            <div class="mk7__inhalt"><div class="s7-mini">
-              <div class="s7-mini__kacheln"><div><b>Aufmerksamkeit</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Verweildauer</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,4 12,5 24,4 36,8 48,10 60,13"/></svg></div><div><b>Google</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div><div><b>Leads</b><svg viewBox="0 0 60 16" preserveAspectRatio="none"><polyline points="0,13 12,11 24,12 36,8 48,6 60,3"/></svg></div></div>
-              <p class="s7-mini__empf"><b>Empfehlung:</b> {{ KP.empf }}</p>
-            </div></div>
-          </div>
-        </div>
-        <p class="mk7__zurueck"><span>{{ KP.zurueck }}</span></p>
-      </div>
+      {#- Trichter mit Kennzeichnung (Daniel, 16.11.2026): Teil 1 und Teil 2 kommen von uns -#}
+      <div class="ek8 ek8-paket" data-aus=""><div class="ek2 ek8-var ek8-var--kopf" role="img" aria-label="{{ M.held.bild_label }}">{{ S.ek_paket.lassen | safe }}</div><div class="ek2 ek8-hoch">{{ S.ek_hoch | safe }}</div></div>
       <div class="s7-held__knoepfe mk7__knoepfe">
         <a class="s7-knopf" href="{{ H7 }}/kontakt/">{{ M.held.knopf }} {{ pfeil | safe }}</a>
-        <a class="s7-knopf s7-knopf--rand" href="#bausteine">{{ M.held.knopf2 }}</a>
+        <a class="s7-knopf s7-knopf--rand" href="#wer-macht-was">{{ M.held.knopf2 }}</a>
       </div>
     </div>
   </section>
+
+  {{ rollen("b") }}
 
   {%- set BS = M.bausteine %}{%- set K = BS.liste[0] %}
   {%- macro bfenster(b) -%}
@@ -2195,7 +2164,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     {%- if F.hinweis %}<p class="mx7-d__hinweis">{{ F.hinweis }}</p>{% endif %}
   </dialog>
   {%- endmacro %}
-  <section class="s7-band s7-band--flaeche" id="bausteine">
+  <section class="s7-band" id="bausteine">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ BS.kicker }}</p>
       <h2 class="s7-h2">{{ BS.h2 }}<br><span class="s7-wort">{{ BS.h2_akzent }}</span></h2>
@@ -2237,7 +2206,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {%- set ST = M.start %}
-  <section class="s7-band" id="start">
+  <section class="s7-band s7-band--flaeche" id="start">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ ST.kicker }}</p>
       <h2 class="s7-h2">{{ ST.h2 }}</h2>
@@ -2260,7 +2229,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {%- set DL = M.download %}
-  <section class="s7-band s7-band--flaeche" id="download">
+  <section class="s7-band" id="download">
     <div class="s7-wrap mx7-dl">
       <div class="mx7-dl__bild" aria-hidden="true">
         <img class="mx7-dl__seite mx7-dl__seite--hinten" src="{{ A7 }}/maas/{{ DL.bild2 }}" alt="" width="637" height="900">
@@ -2277,7 +2246,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   <!-- Beleg: ein ruhiger Satz vor dem Kontakt, dazu der Weg zur Startseite -->
-  <section class="s7-band mx7-beleg">
+  <section class="s7-band s7-band--flaeche mx7-beleg">
     <div class="s7-wrap">
       <blockquote><p>„{{ M.beleg.zitat }}“</p><cite>{{ M.beleg.quelle }}</cite></blockquote>
       <p class="mx7-beleg__link"><a class="s7-link" href="{{ H7 }}/#maschine">{{ M.beleg.link }} {{ pfeil | safe }}</a></p>

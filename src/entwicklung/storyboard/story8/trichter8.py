@@ -103,7 +103,8 @@ def beschriftung(o, v):
     o.append(f'<g class="tr-betreiben tr-text">{text(xb, c - 3, "Betreiben", "ek2-kern-t", G, 700)}{text(xb, c + 21, "Posten, vernetzen, nachhalten", "ek2-kern-s", U)}</g>')
 
 
-def variante(v, form="a"):
+def variante(v, form="a", klammern=None):
+    """klammern: [(x0, x1, fett, rest), …] – wer welche Stufe übernimmt, unter dem Trichter (Unterseiten)"""
     global HALS
     HALS = FORMEN[form]
     o = []
@@ -130,13 +131,33 @@ def variante(v, form="a"):
         o.append(f'<g class="tr-betreiben"><path d="{kern_stueck(X_TEIL - 6, X_HALS, True, False)}" class="ek2-kern"/></g>')
     beschriftung(o, v)
     vertrieb(o)
-    return svg(W, c + MUND[3] + 6, "".join(o), "ek2-svg--quer ek2-var", f"v{v}{form}")
+    h = c + MUND[3] + 6
+    if klammern:
+        y = c + MUND[3] + 30
+        for x0, x1, fett, rest in klammern:
+            o.append(f'<path d="M{x0} {y - 8} V{y} H{x1} V{y - 8}" class="ek2-linie"/>')
+            o.append(f'<text x="{x0}" y="{y + 26}" class="ek2-t" font-size="{K}"><tspan font-weight="700">{fett}</tspan>'
+                     + (f'<tspan x="{x0}" dy="20" class="ek2-grau">{rest}</tspan>' if rest else "") + '</text>')
+        h = y + 56
+    return svg(W, h, "".join(o), "ek2-svg--quer ek2-var", f"v{v}{form}{'k' if klammern else ''}")
+
+
+# Unterseiten (Daniel, 16.11.2026): Selbst machen = Teil 1 von uns · Machen lassen = Teil 1 und 2 von uns
+XV = X_HALS + LU
+PAKET = {
+    "selbst": [(0, X_TEIL - 14, "sofort sichtbar", "Fertige Strecken, eingerichtet"),
+               (X_TEIL + 2, X_HALS, "Dein Team", "Mit Anleitung und Werkzeugen"),
+               (XV, W, "Deine Agentur", "Wie bisher, mit neuen Gesprächsanlässen")],
+    "lassen": [(0, X_HALS, "sofort sichtbar", "Fertige Strecken und laufender Betrieb"),
+               (XV, W, "Deine Agentur", "Wie bisher, mit neuen Gesprächsanlässen")],
+}
 
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story8.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["ek_varianten"] = {f"v{v}{f}": variante(v, f) for v in (1, 2) for f in ("a", "b")}   # Vergleich (Infografik/Archiv)
+    d["s7"]["ek_paket"] = {k: variante(1, "b", kl) for k, kl in PAKET.items()}
     d["s7"]["ek_kopf"] = variante(1, "b")   # gewählt (Daniel, 16.11.2026): Bogen-Fuge, Form B
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
