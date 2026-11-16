@@ -2198,6 +2198,131 @@
         ],
         "hintergrund": "Im Hintergrund bauen Grafik- und Webdesigner/in und Webentwickler/in die Strecken. Mit Paid Ads kommt Performance-Marketing-Manager/in dazu."
       }
+    },
+    "s9": {
+      "_quelle": "Daniel, 17.11.2026: Homepage-Story 9 – gleiche Inhalte, Farben und Schriften wie Story 8, aber reduziert, visualisiert, Blick gelenkt, Landingpage-Charakter",
+      "a": {
+        "kicker": "Selbst machen",
+        "h1": "Warten auf die Zentrale?",
+        "h1_akzent": "Dein Team postet heute.",
+        "lead": "Fertige Vertriebsstrecken für die Person in deinem Team, die sich ums Marketing kümmert.",
+        "knopf2": "So sieht es aus",
+        "bento_h2": "Alles fertig.",
+        "bento_akzent": "Ab Tag eins.",
+        "kacheln": [
+          [
+            "gross",
+            "20 Zielgruppen. Fertige Strecken.",
+            "Landingpage, Postings und Checkliste – im Look deiner Agentur.",
+            "/assets/img/pages/vertriebsstrecken-hero-2-800.webp"
+          ],
+          [
+            "bild",
+            "Postings, die sich selbst veröffentlichen.",
+            "Dein Team plant, der Rest läuft.",
+            "/assets/img/preview-postings.png"
+          ],
+          [
+            "dunkel",
+            "Neue Zielgruppe?",
+            "Bauen wir in wenigen Tagen. Ohne Abstimmungsschleife.",
+            "/entwicklung/storyboard/story6/assets/img/sofort-sichtbar-mockup.webp"
+          ],
+          [
+            "ui-aufgaben",
+            "Das Dashboard sagt, was dran ist.",
+            "",
+            ""
+          ]
+        ],
+        "start_h2": "In vier Schritten startklar."
+      },
+      "b": {
+        "kicker": "Machen lassen",
+        "h1": "Marketing, das läuft.",
+        "h1_akzent": "Ohne dass du es führen musst.",
+        "lead": "Wir liefern die Strecken und betreiben sie. Du führst die Gespräche.",
+        "knopf2": "So sieht es aus",
+        "bento_h2": "Wir machen.",
+        "bento_akzent": "Du verkaufst.",
+        "kacheln": [
+          [
+            "gross",
+            "Fertige Strecken für 20 Zielgruppen.",
+            "Landingpage, Postings und Checkliste – wir richten sie ein.",
+            "/assets/img/pages/vertriebsstrecken-hero-2-800.webp"
+          ],
+          [
+            "bild",
+            "Wir posten. Jede Woche.",
+            "Auch wenn bei dir im Büro die Hütte brennt.",
+            "/assets/img/preview-postings.png"
+          ],
+          [
+            "bild",
+            "Landingpages, die wir laufend verbessern.",
+            "Was nicht gelesen wird, stellen wir um.",
+            "/assets/img/preview-landingpages.png"
+          ],
+          [
+            "ui-report",
+            "Jeden Monat ein Call.",
+            "Mit klarer Empfehlung, wen du ansprichst.",
+            ""
+          ]
+        ],
+        "start_h2": "In 30 Tagen live."
+      },
+      "team_h2": "Du entscheidest,",
+      "team_akzent": "wie viel wir übernehmen.",
+      "schalter": {
+        "a": [
+          "Selbst machen",
+          "Du wählst aus, dein Team betreibt.",
+          "/entwicklung/storyboard/story9/selbst-machen/"
+        ],
+        "b": [
+          "Machen lassen",
+          "Du wählst aus, wir betreiben.",
+          "/entwicklung/storyboard/story9/machen-lassen/"
+        ]
+      },
+      "beispiel_h2": "So kommt Familie K.",
+      "beispiel_akzent": "zu dir.",
+      "beispiel": [
+        [
+          "Mo 08:30",
+          "Posting ist live",
+          "Private Bauherren · Content- und Social-Media-Manager/in",
+          "wir"
+        ],
+        [
+          "Mi 19:12",
+          "Checkliste Hausbau geladen",
+          "Familie K. über deine Landingpage",
+          "kunde"
+        ],
+        [
+          "Mi 19:14",
+          "Rückruf gewünscht",
+          "Familie K. hinterlässt die Nummer",
+          "kunde"
+        ],
+        [
+          "Do 10:00",
+          "Termin steht",
+          "Kundenbetreuer/in im Innendienst",
+          "ihr"
+        ],
+        [
+          "Di 17:00",
+          "Beratung",
+          "Versicherungsberater/in · Wohngebäude, Bauherrenhaftpflicht",
+          "ihr"
+        ]
+      ],
+      "pdf_h2": "Alles im Detail.",
+      "pdf_lead": "Rollen, Leistungen und Start – zum Weitergeben."
     }
   }
 }

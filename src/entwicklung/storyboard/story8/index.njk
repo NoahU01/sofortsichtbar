@@ -12,6 +12,14 @@ seiten:
     titel: "Selbst machen"
   - slug: "marketing-as-a-service"
     titel: "Machen lassen"
+  - slug: "s9-selbst-machen"
+    titel: "Selbst machen"
+    v9: "a"
+    pfad: "story9/selbst-machen/"
+  - slug: "s9-machen-lassen"
+    titel: "Machen lassen"
+    v9: "b"
+    pfad: "story9/machen-lassen/"
   - slug: "mit-deinem-team-2"
     titel: "Selbst machen · Variante 2"
     basis: "mit-deinem-team"
@@ -88,7 +96,7 @@ seiten:
   - slug: "zielgruppen/werdende-eltern"
     titel: "Junge Familien"
     zg: "werdende-eltern"
-permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif %}index.html"
+permalink: "/entwicklung/storyboard/{% if s.pfad %}{{ s.pfad }}{% else %}story8/{% if s.slug %}{{ s.slug }}/{% endif %}{% endif %}index.html"
 ---
 {#- Homepage-Story 8 (Duplikat von Story 7, 16.11.2026: Startseite, Mit deinem Team und Marketing as a Service werden hier weiterentwickelt; Vertriebsstrecken, Kompass, Kontakt, Preise unverändert mitgenommen. Assets und Generatoren liegen weiter in story7) · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
     und die Stilproben (drei Richtungen auf denselben Bausteinen).
@@ -1446,6 +1454,133 @@ body.s7-menue-offen { overflow: hidden; }
 @media (max-width: 600px) {
   .sp-massstab { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ================= Homepage-Story 9 (s9-): reduziert, visualisiert, Blick gelenkt (Daniel, 17.11.2026) =================
+   Je Abschnitt eine Aussage, das Bild führt. Farben und Schriften wie Story 8; dunkle Bühne im Kopf, Bento mit Produktbildern,
+   Schalter als interaktiver Moment, Benachrichtigungen statt Text für das Beispiel. */
+.s9-kicker { color: #a1a1a6; font-size: 1.05rem; font-weight: 600; }
+.s9 .s9-held .s9-h1 { margin-top: .8rem; color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-wrap: balance; }
+.s9-h2 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; }
+.s9-lead { max-width: 34rem; margin: 1.6rem auto 0; color: #c7c7cc; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; }
+.s9-lead--dunkel { margin: 1.2rem 0 2rem; color: var(--s7-text); }
+.s9-band { padding-block: clamp(5rem, 10vw, 8.5rem); }
+.s9-band--flaeche { background: var(--s7-flaeche); }
+.s9-band--tinte { background: #0e0e10; }
+.s9-band--tinte .s9-h2 { color: #fff; }
+/* Kopf: dunkle Bühne, zentriert, Produktbild mit Benachrichtigungen */
+.s9-held { padding-block: clamp(4rem, 8vw, 7rem) 0; overflow: hidden; background: radial-gradient(60% 55% at 50% 100%, rgba(134,19,161,.45), transparent 70%), radial-gradient(45% 45% at 30% 90%, rgba(11,159,189,.35), transparent 70%), #0e0e10; text-align: center; }
+.s9-knoepfe { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.6rem; margin-top: 2.2rem; }
+.s9 .s9-knopf-hell { background: #fff; color: #1d1d1f; }
+.s9 .s9-knopf-hell .s7-pfeil { stroke: #1d1d1f; }
+.s9-link-hell { color: #fff; font-weight: 600; text-decoration: none; }
+.s9-link-hell:hover { text-decoration: underline; }
+.s9-buehne { position: relative; max-width: 62rem; margin: clamp(3rem, 6vw, 4.5rem) auto 0; }
+.s9-buehne__bild { display: block; width: 100%; height: auto; margin-bottom: -2px; }
+.s9-note { display: flex; align-items: center; gap: .8rem; padding: .85rem 1.1rem .85rem .85rem; border-radius: 18px; background: rgba(255,255,255,.92); box-shadow: 0 20px 50px rgba(0,0,0,.35); backdrop-filter: blur(12px); text-align: left; }
+.s9-note b { display: block; color: #1d1d1f; font-size: .98rem; }
+.s9-note small { display: block; color: #6e6e73; font-size: .85rem; }
+.s9-buehne .s9-note { position: absolute; }
+.s9-note--1 { left: -2%; top: 18%; }
+.s9-note--2 { right: -2%; top: 46%; }
+.s9-app { flex: none; width: 2.4rem; height: 2.4rem; border-radius: 11px; background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.s9-app--ihr { background: #1d1d1f; }
+.s9-app--kunde { background: #fff; box-shadow: inset 0 0 0 2px #1d1d1f; }
+/* Bento: Produktbilder führen */
+.s9-bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+.s9-kachel { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 26rem; padding: clamp(1.6rem, 3vw, 2.4rem) clamp(1.6rem, 3vw, 2.4rem) 0; border-radius: 28px; background: var(--s7-flaeche); overflow: hidden; }
+.s9-kachel:nth-child(1) { grid-column: span 4; }
+.s9-kachel:nth-child(2) { grid-column: span 2; }
+.s9-kachel:nth-child(3) { grid-column: span 3; }
+.s9-kachel:nth-child(4) { grid-column: span 3; }
+.s9-kachel h3 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance; }
+.s9-kachel p { margin-top: .6rem; color: var(--s7-grau); font-size: 1.02rem; line-height: 1.5; }
+.s9-kachel__bild { display: flex; justify-content: center; align-items: flex-end; margin-inline: -1rem; }
+.s9-kachel__bild img { display: block; width: 100%; max-height: 18rem; object-fit: contain; object-position: bottom; }
+.s9-kachel--dunkel { background: #0e0e10; }
+.s9-kachel--dunkel h3 { color: #fff; }
+.s9-kachel--dunkel p { color: #a1a1a6; }
+.s9-kachel--ui-aufgaben, .s9-kachel--ui-report { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); background: linear-gradient(140deg, #0b9fbd, #8613a1); }
+.s9-kachel--ui-aufgaben h3, .s9-kachel--ui-report h3 { color: #fff; }
+.s9-kachel--ui-aufgaben p, .s9-kachel--ui-report p { color: rgba(255,255,255,.85); }
+.s9-ui { padding: 1.2rem; border-radius: 20px; background: #fff; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+.s9-ui__kopf { color: #6e6e73 !important; font-size: .8rem !important; font-weight: 600; margin: 0 0 .7rem !important; }
+.s9-aufg { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.s9-aufg li { display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; border-radius: 12px; background: #f5f5f7; color: #1d1d1f; font-weight: 500; }
+.s9-aufg i { flex: none; width: 1.1rem; height: 1.1rem; border-radius: 50%; box-shadow: inset 0 0 0 2px #c7c7cc; }
+.s9-aufg li.an i { background: linear-gradient(135deg, #0b9fbd, #8613a1); box-shadow: none; }
+.s9-aufg em { margin-left: auto; color: #6e6e73; font-size: .85rem; font-style: normal; }
+.s9-kurve { display: block; width: 100%; height: 7rem; }
+.s9-empf { margin-top: .8rem !important; padding: .7rem .8rem; border-radius: 12px; background: #f5f5f7; color: #1d1d1f !important; font-size: .95rem !important; }
+/* Team: Schalter und vier Rollen */
+.s9-team { margin-top: 3rem; }
+.s9-schalter { display: inline-flex; padding: .3rem; border-radius: 99px; background: #fff; box-shadow: inset 0 0 0 1px var(--s7-linie); }
+.s9-schalter button { padding: .7rem 1.4rem; border: 0; border-radius: 99px; background: none; color: var(--s7-tinte); font: inherit; font-weight: 600; cursor: pointer; }
+.s9-schalter button[aria-checked="true"] { background: var(--s7-tinte); color: #fff; }
+.s9-schalter button:focus-visible { outline: 2px solid #3d5bd1; outline-offset: 2px; }
+.s9-reihe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; margin-top: 2rem; }
+.s9-stufe { margin-bottom: .6rem; color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.s9-karte { display: grid; align-content: space-between; gap: 2.4rem; min-height: 13rem; padding: 1.5rem; border-radius: 24px; background: var(--s7-tinte); color: #fff; transition: background .4s ease; }
+.s9-karte--wir { background: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%); background-size: 400% 100%; background-position: 0% 0; }
+.s9-wer { color: rgba(255,255,255,.7); font-size: .9rem; font-weight: 600; }
+.s9-titel { font-family: var(--s7-schrift-titel); font-size: clamp(1.3rem, 1.9vw, 1.65rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; hyphens: manual; }
+.s9-team .nur-b, .s9-team[data-paket="b"] .nur-a { display: none; }
+.s9-team[data-paket="b"] .nur-b { display: inline; }
+.s9-team[data-paket="b"] .s9-karte--wechsel { background: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%); background-size: 200% 100%; background-position: 100% 0; }
+.s9-team[data-paket="b"] .s9-rolle--0 .s9-karte--wir { background-size: 200% 100%; background-position: 0% 0; }
+.s9-satz { margin-top: 1.6rem; color: var(--s7-text); font-size: 1.1rem; }
+.s9-satz .s7-link { margin-left: .6rem; }
+/* Beispiel: Benachrichtigungen auf einer Zeitachse */
+.s9-bsp { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: clamp(2rem, 5vw, 4rem); }
+.s9-bsp__satz { margin-top: 1.4rem; max-width: 26rem; color: #a1a1a6; font-size: 1.15rem; line-height: 1.5; }
+.s9-zeit { position: relative; display: grid; gap: 1rem; max-width: 36rem; margin: 0; padding: 0 0 0 7.5rem; list-style: none; }
+.s9-zeit::before { content: ""; position: absolute; left: 6.2rem; top: 1.4rem; bottom: 1.4rem; border-left: 2px solid #3a3a3c; }
+.s9-zeit__p { position: relative; }
+.s9-zeit__wann { position: absolute; left: -7.5rem; top: 50%; transform: translateY(-50%); width: 5.6rem; color: #a1a1a6; font-size: .95rem; font-weight: 600; text-align: right; }
+.s9-zeit__p::before { content: ""; position: absolute; left: -1.62rem; top: 50%; width: .75rem; height: .75rem; border-radius: 50%; background: #0e0e10; box-shadow: 0 0 0 2px #a1a1a6; transform: translateY(-50%); }
+.s9-zeit__p--wir::before { background: #8613a1; box-shadow: 0 0 0 2px #8613a1; }
+.s9-note--flach { box-shadow: none; }
+/* Start und Preis */
+.s9-schritte { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; margin: 3rem 0 0; padding: 0; list-style: none; counter-reset: s9; }
+.s9-schritte li { display: grid; gap: .4rem; padding: 1.4rem 0 0; border-top: 3px solid var(--s7-tinte); }
+.s9-schritte li:last-child { border-image: linear-gradient(100deg, #0b9fbd, #8613a1) 1; }
+.s9-schritte span { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.s9-schritte b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; }
+.s9-preis { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1rem; margin-top: 3.5rem; }
+.s9-preis__kern { display: grid; align-content: end; gap: .3rem; min-height: 18rem; padding: 2rem; border-radius: 28px; background: linear-gradient(140deg, #0b9fbd, #8613a1); color: #fff; }
+.s9-preis__zahl { font-family: var(--s7-schrift-titel); font-size: clamp(3.2rem, 6vw, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+.s9-preis__einheit { color: rgba(255,255,255,.8); font-size: 1.05rem; }
+.s9-preis__dazu { display: grid; align-content: end; gap: 0; padding: 2rem; border-radius: 28px; background: var(--s7-flaeche); }
+.s9-preis__dazu .s9-wer, .s9-paket .s9-wer { color: var(--s7-grau); margin-bottom: .8rem; }
+.s9-zeile { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--s7-linie); }
+.s9-zeile span { color: var(--s7-tinte); font-weight: 600; font-size: 1.1rem; }
+.s9-zeile b { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.4rem; letter-spacing: -0.02em; text-align: right; }
+.s9-zeile small { grid-column: 2; color: var(--s7-grau); text-align: right; }
+.s9-preis--zwei { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.s9-paket { padding: 2rem; border-radius: 28px; background: var(--s7-flaeche); }
+.s9-preis__name { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; }
+.s9-paket__fuer { margin-top: .6rem; color: var(--s7-text); font-size: 1.05rem; line-height: 1.5; }
+/* PDF */
+.s9-pdf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 6vw, 5rem); }
+.s9-pdf__bild { position: relative; height: 24rem; }
+.s9-pdf__bild img { position: absolute; width: 15rem; height: auto; border-radius: 6px; box-shadow: 0 30px 60px rgba(0,0,0,.18); }
+.s9-pdf__bild img:first-child { left: 30%; top: 0; transform: rotate(6deg); }
+.s9-pdf__bild img:last-child { left: 8%; top: 1.5rem; transform: rotate(-4deg); }
+@media (max-width: 900px) {
+  .s9-bento { grid-template-columns: minmax(0, 1fr); }
+  .s9-kachel:nth-child(n) { grid-column: auto; min-height: 0; }
+  .s9-reihe, .s9-schritte { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .s9-preis, .s9-preis--zwei, .s9-pdf, .s9-bsp { grid-template-columns: minmax(0, 1fr); }
+  .s9-note--1 { left: 2%; top: 4%; } .s9-note--2 { right: 2%; top: auto; bottom: 8%; }
+  .s9-buehne .s9-note { transform: scale(.85); }
+}
+@media (max-width: 560px) {
+  .s9-reihe, .s9-schritte { grid-template-columns: minmax(0, 1fr); }
+  .s9-karte { min-height: 0; gap: 1rem; }
+  .s9-zeit { padding-left: 0; } .s9-zeit::before, .s9-zeit__p::before { display: none; }
+  .s9-zeit__wann { position: static; display: block; width: auto; margin-bottom: .4rem; text-align: left; transform: none; }
+  .s9-buehne .s9-note { position: static; margin: .6rem auto 0; max-width: 20rem; transform: none; }
+  .s9-pdf__bild { height: 18rem; } .s9-pdf__bild img { width: 11rem; }
+}
 </style>
 </head>
 <body>
@@ -1458,7 +1593,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story 8</b> · {% if s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}Unterseite {{ s.titel }} · reduziert und visualisiert{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -1480,7 +1615,7 @@ body.s7-menue-offen { overflow: hidden; }
     {%- if istSeite %}
     {#- Hauptmenü: echte Unterseiten; „Über uns“ springt zur Startseite, bis es eine eigene Seite gibt.
         Eine Liste für beide Fassungen: Leiste (breit) und Menüfläche (unter 1280px, Knopf mit zwei Strichen) -#}
-    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["mit-deinem-team/", "Selbst machen", s.slug == "mit-deinem-team" or s.basis == "mit-deinem-team"], ["marketing-as-a-service/", "Machen lassen", s.slug == "marketing-as-a-service" or s.basis == "marketing-as-a-service"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
+    {%- set menue = [["strategiekompass/", "Strategiekompass", s.slug == "strategiekompass"], ["vertriebsstrecken/", "Vertriebsstrecken", s.slug == "vertriebsstrecken" or s.zg], ["../story9/selbst-machen/" if s.v9 else "mit-deinem-team/", "Selbst machen", s.slug == "mit-deinem-team" or s.basis == "mit-deinem-team" or s.v9 == "a"], ["../story9/machen-lassen/" if s.v9 else "marketing-as-a-service/", "Machen lassen", s.slug == "marketing-as-a-service" or s.basis == "marketing-as-a-service" or s.v9 == "b"], ["preise/", "Preise", s.slug == "preise"], ["#ueber-uns", "Über uns", false]] %}
     <nav class="s7-nav" aria-label="Hauptnavigation">
       {%- for m in menue %}<a href="{{ H7 }}/{{ m[0] }}"{% if m[2] %} aria-current="page"{% endif %}>{{ m[1] }}</a>{% endfor %}
     </nav>
@@ -2153,6 +2288,127 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   var s = r.querySelector(".vs7-scroller");
   r.querySelectorAll("[data-richtung]").forEach(function (k) {
     k.addEventListener("click", function () { var w = s.querySelector("li").offsetWidth + 16; s.scrollBy({ left: Number(k.dataset.richtung) * w * 2, behavior: "smooth" }); });
+  });
+});
+</script>
+{%- elif s.v9 %}
+{#- Homepage-Story 9 (Daniel, 17.11.2026): dieselben Inhalte wie Story 8, aber reduziert und visualisiert – Landingpage-Charakter.
+    Je Abschnitt eine Aussage in wenigen Worten, das Bild führt; ein interaktiver Moment (Schalter Selbst machen / Machen lassen).
+    Inhalte: s7.s9, Rollen aus s7.team8.karten, Preise aus s7.maas und s7.pakete. Stil: s9- -#}
+{%- set art = s.v9 %}{% set X = S.s9[art] %}{% set Z = S.s9 %}
+<main class="s9">
+  <section class="s9-held">
+    <div class="s7-wrap">
+      <p class="s9-kicker">{{ X.kicker }}</p>
+      <h1 class="s9-h1">{{ X.h1 }}<br><span class="s7-wort">{{ X.h1_akzent }}</span></h1>
+      <p class="s9-lead">{{ X.lead }}</p>
+      <div class="s9-knoepfe"><a class="s7-knopf s9-knopf-hell" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link-hell" href="#was">{{ X.knopf2 }} ›</a></div>
+      <div class="s9-buehne" aria-hidden="true">
+        <img class="s9-buehne__bild" src="/assets/img/preview-landingpages.png" alt="" width="900" height="494">
+        <div class="s9-note s9-note--1"><span class="s9-app"></span><div><b>Posting ist live</b><small>Private Bauherren · jetzt</small></div></div>
+        <div class="s9-note s9-note--2"><span class="s9-app"></span><div><b>Neue Anfrage</b><small>Familie K. · Rückruf gewünscht</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band" id="was">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.bento_h2 }} <span class="s7-wort">{{ X.bento_akzent }}</span></h2>
+      <div class="s9-bento">
+        {%- for k in X.kacheln %}
+        <article class="s9-kachel s9-kachel--{{ k[0] }}">
+          <div class="s9-kachel__text"><h3>{{ k[1] }}</h3>{% if k[2] %}<p>{{ k[2] }}</p>{% endif %}</div>
+          {%- if k[0] == "ui-aufgaben" %}
+          <div class="s9-ui" aria-hidden="true"><p class="s9-ui__kopf">Heute dran</p>
+            <ul class="s9-aufg"><li class="an"><i></i>Posting Bauherren freigeben<em>heute</em></li><li><i></i>Rückruf Familie K.<em>10:00</em></li><li><i></i>Checkliste Junge Familien teilen<em>Do</em></li></ul></div>
+          {%- elif k[0] == "ui-report" %}
+          <div class="s9-ui" aria-hidden="true"><p class="s9-ui__kopf">Report · Oktober</p>
+            <svg class="s9-kurve" viewBox="0 0 300 90" preserveAspectRatio="none"><path d="M0 78 C40 74 60 70 90 62 C130 50 150 56 180 40 C210 26 240 30 300 10 L300 90 L0 90 Z" fill="url(#s7v-cyanviolett)" opacity=".16"/><path d="M0 78 C40 74 60 70 90 62 C130 50 150 56 180 40 C210 26 240 30 300 10" fill="none" stroke="url(#s7v-cyanviolett)" stroke-width="4" stroke-linecap="round"/><circle cx="296" cy="11" r="6" fill="#8613a1"/></svg>
+            <p class="s9-empf"><b>Empfehlung:</b> Bauherren verstärken, Familie M. ansprechen</p></div>
+          {%- else %}
+          <div class="s9-kachel__bild" aria-hidden="true"><img src="{{ k[3] }}" alt="" loading="lazy"></div>
+          {%- endif %}
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set K = S.team8.karten %}
+  <section class="s9-band s9-band--flaeche" id="team">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ Z.team_h2 }} <span class="s7-wort">{{ Z.team_akzent }}</span></h2>
+      <div class="s9-team" data-paket="{{ art }}">
+        <div class="s9-schalter" role="radiogroup" aria-label="Paket">
+          {%- for id in ["a", "b"] %}<button type="button" role="radio" data-s9="{{ id }}" aria-checked="{% if id == art %}true{% else %}false{% endif %}">{{ Z.schalter[id][0] }}</button>{% endfor %}
+        </div>
+        <div class="s9-reihe">
+          {%- for i in range(4) %}{% set ka = K.a[i] %}{% set kb = K.b[i] %}
+          <div class="s9-rolle s9-rolle--{{ i }}">
+            <p class="s9-stufe">{{ S.team8.v2.a.spalten[i][0] }}</p>
+            <div class="s9-karte s9-karte--{{ ka.wer }}{% if i == 1 %} s9-karte--wechsel{% endif %}">
+              <p class="s9-wer">{% if i == 1 %}<span class="nur-a">{{ ka.label }}</span><span class="nur-b">{{ kb.label }}</span>{% else %}{{ ka.label }}{% endif %}</p>
+              <p class="s9-titel">{{ ka.titel }}</p>
+            </div>
+          </div>
+          {%- endfor %}
+        </div>
+        <p class="s9-satz">{% for id in ["a", "b"] %}<span class="nur-{{ id }}">{{ Z.schalter[id][1] }} {% if id != art %}<a class="s7-link" href="{{ Z.schalter[id][2] }}">Zu {{ Z.schalter[id][0] }} ›</a>{% endif %}</span>{% endfor %}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--tinte">
+    <div class="s7-wrap s9-bsp">
+      <div><h2 class="s9-h2">{{ Z.beispiel_h2 }}<br><span class="s7-wort">{{ Z.beispiel_akzent }}</span></h2><p class="s9-bsp__satz">Ein Posting, eine Checkliste, ein Rückruf. Fünf Momente vom ersten Kontakt bis zur Beratung.</p></div>
+      <ol class="s9-zeit">
+        {%- for x in Z.beispiel %}{% set w = (("wir" if art == "b" else "ihr") if x[3] == "wir" else x[3]) %}
+        <li class="s9-zeit__p s9-zeit__p--{{ w }}"><span class="s9-zeit__wann">{{ x[0] }}</span><div class="s9-note s9-note--flach"><span class="s9-app s9-app--{{ w }}"></span><div><b>{{ x[1] }}</b><small>{{ x[2] }}</small></div></div></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section class="s9-band" id="start">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.start_h2 }}</h2>
+      {%- set SL = S.maas.start.liste if art == "b" else S.weg_a.start.liste %}
+      <ol class="s9-schritte">
+        {%- for x in SL %}<li><span>{{ x.wann }}</span><b>{{ x.titel }}</b></li>{% endfor %}
+      </ol>
+      {%- if art == "b" %}{% set BS = S.maas.bausteine.liste %}
+      <div class="s9-preis">
+        <div class="s9-preis__kern"><p class="s9-wer">Kernpaket</p><p class="s9-preis__zahl">{{ BS[0].preis }}</p><p class="s9-preis__einheit">{{ BS[0].einheit }}</p></div>
+        <div class="s9-preis__dazu"><p class="s9-wer">Dazu buchbar</p>
+          {%- for b in BS %}{% if not loop.first %}<p class="s9-zeile"><span>{{ b.name }}</span><b>{{ b.preis }}</b><small>{{ b.einheit }}</small></p>{% endif %}{% endfor %}
+        </div>
+      </div>
+      {%- else %}
+      <div class="s9-preis s9-preis--zwei">
+        {%- for p in S.pakete.liste %}{% if p.id != "komplett" %}
+        <div class="s9-paket"><p class="s9-wer">Paket</p><p class="s9-preis__name">{{ p.name }}</p><p class="s9-paket__fuer">{{ p.fuer }}</p></div>
+        {%- endif %}{% endfor %}
+      </div>
+      {%- endif %}
+    </div>
+  </section>
+
+  {%- set DL = S.maas.download if art == "b" else S.weg_a.download %}{% set DP = (A7 + "/maas") if art == "b" else DL.pfad %}
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap s9-pdf">
+      <div class="s9-pdf__bild" aria-hidden="true"><img src="{{ DP }}/{{ DL.bild2 }}" alt="" width="637" height="900"><img src="{{ DP }}/{{ DL.bild1 }}" alt="" width="636" height="900"></div>
+      <div><h2 class="s9-h2">{{ Z.pdf_h2 }}</h2><p class="s9-lead s9-lead--dunkel">{{ Z.pdf_lead }}</p><a class="s7-knopf" href="{{ DP }}/{{ DL.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a></div>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+<script>
+/* Story 9: Schalter Selbst machen / Machen lassen – zeigt, welche Rolle wir dazustellen */
+document.querySelectorAll("[data-s9]").forEach(function (k) {
+  k.addEventListener("click", function () {
+    var t = k.closest(".s9-team"); t.setAttribute("data-paket", k.getAttribute("data-s9"));
+    t.querySelectorAll("[data-s9]").forEach(function (x) { x.setAttribute("aria-checked", x === k ? "true" : "false"); });
   });
 });
 </script>

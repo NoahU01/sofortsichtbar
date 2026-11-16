@@ -58,6 +58,20 @@
           "label": "Storyboard"
         },
         {
+          "label": "Homepage-Story 9",
+          "href": "/entwicklung/storyboard/story9/selbst-machen/",
+          "children": [
+            {
+              "label": "Selbst machen",
+              "href": "/entwicklung/storyboard/story9/selbst-machen/"
+            },
+            {
+              "label": "Machen lassen",
+              "href": "/entwicklung/storyboard/story9/machen-lassen/"
+            }
+          ]
+        },
+        {
           "label": "Homepage-Story 8",
           "href": "/entwicklung/storyboard/story8/",
           "children": [
