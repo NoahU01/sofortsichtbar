@@ -1655,7 +1655,7 @@
     "beispiel": {
       "kicker": "Ein Beispiel: Private Bauherren",
       "h2": "Je Zielgruppe eine fertige Vertriebsstrecke.",
-      "lead": "Wer ein Haus baut, braucht neue Versicherungen – und denkt oft zu spät daran. Deine Postings, deine Landingpage und ein Mailing an deine Kunden erinnern rechtzeitig daran, und wer Fragen hat, meldet sich bei dir.",
+      "lead": "Wer ein Haus baut, braucht neue Versicherungen – und denkt oft zu spät daran. Deine Postings und deine Landingpage sorgen dafür, dass Bauherren dich regelmäßig sehen. Wer reagiert, zeigt dir: Da steht gerade ein Thema an – und genau da steigst du ein.",
       "bild": "pages/bauherren.webp",
       "bild_alt": "Vertriebsstrecke Private Bauherren: Posting, Landingpage und Bestandsmailing",
       "teile": [
@@ -1664,12 +1664,12 @@
         "Bestandsmailing"
       ],
       "anlass": {
-        "kopf": "Gesprächsanlass aus deinem Bestand",
+        "kopf": "Gesprächsanlass · neuer Kontakt",
         "name": "Familie K.",
         "zeilen": [
-          "Bei dir versichert: Kfz und Hausrat",
-          "Öffnet das Mailing zum Hausbau, lädt die Checkliste",
-          "Bittet um Rückruf"
+          "Kommt über dein Posting auf die Landingpage",
+          "Lädt die Checkliste Hausbau",
+          "Hinterlässt die Nummer: Rückruf gewünscht"
         ]
       },
       "vertrieb_titel": "In deinem Vertrieb",
