@@ -113,20 +113,9 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- else %}
 {#- Story 8: drei Varianten des Kopfbilds zum Vergleich (Daniel, 16.11.2026) – umschaltbar; je Stufe ausgraubar -#}
 <div class="ek8" data-aus="">
-  <div class="ek8-schalter" role="group" aria-label="Ansicht">
-    <span>Ansicht</span>{% for a in [["", "Alles"], ["betreiben", "Mit deinem Team"], ["aufbauen", "Aufbauen grau"]] %}<button type="button" data-ek8-aus="{{ a[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ a[1] }}</button>{% endfor %}
-  </div>
   <div class="ek2 ek8-var ek8-var--kopf" role="img" aria-label="Die digitale Maschine: Marketing in zwei Stufen – Aufbauen (Zielgruppen, Kanäle, Medien) und Betreiben (posten, vernetzen, nachhalten). Am Ende der Messpunkt Leads. Vertrieb: Ansprechen, Terminieren, Beraten, dann Betreuen.">{{ S.ek_kopf | safe }}</div>
   <div class="ek2 ek8-hoch">{{ S.ek_hoch | safe }}</div>
 </div>
-<script>
-(function () {
-  var b = document.querySelector(".ek8"); if (!b) return;
-  b.querySelectorAll("[data-ek8-v]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.v = k.dataset.ek8V; b.querySelectorAll("[data-ek8-v]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
-  b.querySelectorAll("[data-ek8-form]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.form = k.dataset.ek8Form; b.querySelectorAll("[data-ek8-form]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
-  b.querySelectorAll("[data-ek8-aus]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.aus = k.dataset.ek8Aus; b.querySelectorAll("[data-ek8-aus]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
-})();
-</script>
 {%- endif %}
 {%- endmacro -%}
 
