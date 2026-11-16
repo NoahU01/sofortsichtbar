@@ -110,8 +110,25 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
   <p class="mx7-schnitt__mess">Messpunkt: Leads</p>
   <div class="mx7-schnitt__vertrieb"><b>Dein Vertrieb</b><span>macht daraus Kunden</span></div>
 </div>
-{%- else %}<div class="ek2" role="img" aria-label="Die digitale Maschine: Marketing – wir gewinnen Interessenten, in zwei Stufen: Aufbauen (Zielgruppen, Kanäle, Medien) und Betreiben (posten, vernetzen, nachhalten). Am Ende der Messpunkt Leads. Vertrieb – du machst daraus Kunden: Ansprechen, Terminieren, Beraten, dann Betreuen. Mit deinem Team: wir bauen auf, du betreibst. Marketing as a Service: wir bauen auf und betreiben. Regelmäßige Präsenz pflegt deinen Bestand und bringt neue Anlässe.">{{ S.ek_quer | safe }}{{ S.ek_hoch | safe }}</div>
-<p class="ek__mehr"><a class="s7-link" href="{{ E.link_ziel }}">{{ E.link }} {{ pfeil | safe }}</a></p>
+{%- else %}
+{#- Story 8: drei Varianten des Kopfbilds zum Vergleich (Daniel, 16.11.2026) – umschaltbar; je Stufe ausgraubar -#}
+<div class="ek8" data-v="v1" data-aus="">
+  <div class="ek8-schalter" role="group" aria-label="Variante des Trichters">
+    <span>Trichter</span>{% for v in [["v1", "1 · Bogen-Fuge"], ["v2", "2 · Zwei Kapseln"], ["v3", "3 · Durchgehend"]] %}<button type="button" data-ek8-v="{{ v[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ v[1] }}</button>{% endfor %}
+    <span class="ek8-trenn">Ansicht</span>{% for a in [["", "Alles"], ["betreiben", "Mit deinem Team"], ["aufbauen", "Aufbauen grau"]] %}<button type="button" data-ek8-aus="{{ a[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ a[1] }}</button>{% endfor %}
+  </div>
+  {%- for k in ["v1", "v2", "v3"] %}
+  <div class="ek2 ek8-var ek8-var--{{ k }}" role="img" aria-label="Die digitale Maschine: Marketing in zwei Stufen – Aufbauen (Zielgruppen, Kanäle, Medien) und Betreiben (posten, vernetzen, nachhalten). Am Ende der Messpunkt Leads. Vertrieb: Ansprechen, Terminieren, Beraten, dann Betreuen.">{{ S.ek_varianten[k] | safe }}</div>
+  {%- endfor %}
+  <div class="ek2 ek8-hoch">{{ S.ek_hoch | safe }}</div>
+</div>
+<script>
+(function () {
+  var b = document.querySelector(".ek8"); if (!b) return;
+  b.querySelectorAll("[data-ek8-v]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.v = k.dataset.ek8V; b.querySelectorAll("[data-ek8-v]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
+  b.querySelectorAll("[data-ek8-aus]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.aus = k.dataset.ek8Aus; b.querySelectorAll("[data-ek8-aus]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
+})();
+</script>
 {%- endif %}
 {%- endmacro -%}
 
@@ -918,6 +935,24 @@ body.s7-menue-offen { overflow: hidden; }
 .ig7-alt .ig7-blatt { max-width: 22rem; justify-self: end; width: 100%; }
 .ig7-alt__links { margin-top: 1.6rem; }
 @media (max-width: 900px) { .ig7-reihe--paar { grid-template-columns: minmax(0, 1fr); } .ig7-reihe--vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ig7-reihe, .ig7-reihe--zwei, .ig7-reihe--drei, .ig7-alt { grid-template-columns: minmax(0, 1fr); } .ig7-alt .ig7-blatt { justify-self: start; } }
+
+/* ---------- Kopfbild Story 8: Varianten und Ausgrauen (ek8-) ---------- */
+.ek2-kern-s { fill: color-mix(in srgb, #fff 82%, transparent); }
+.ek2-fuge { fill: none; stroke: var(--s7-grund); stroke-width: 6; stroke-linecap: round; }
+.ek8-var { display: none; }
+.ek8[data-v="v1"] .ek8-var--v1, .ek8[data-v="v2"] .ek8-var--v2, .ek8[data-v="v3"] .ek8-var--v3 { display: block; }
+.ek8-var .ek2-svg--quer { display: block !important; }
+.ek8-hoch { display: none; }
+.ek8 [class*="tr-"] { transition: opacity .25s ease, filter .25s ease; }
+.ek8[data-aus="betreiben"] .tr-betreiben, .ek8[data-aus="aufbauen"] .tr-aufbauen { filter: grayscale(1); opacity: .28; }
+.ek8[data-aus]:not([data-aus=""]) .tr-unten { display: none; }
+.ek8[data-aus=""] .tr-teil { display: none; } /* v3 ungeteilt zeigen, solange nichts ausgegraut ist */
+.ek8-schalter { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem; margin: 0 0 2rem; font-size: .85rem; }
+.ek8-schalter span { color: var(--s7-grau); font-weight: 600; margin-right: .2rem; }
+.ek8-schalter .ek8-trenn { margin-left: 1.2rem; }
+.ek8-schalter button { padding: .35rem .8rem; border: 1px solid var(--s7-linie); border-radius: 99px; background: var(--s7-karte); color: var(--s7-tinte); font: inherit; font-weight: 600; cursor: pointer; }
+.ek8-schalter button[aria-pressed="true"] { border-color: var(--s7-tinte); background: var(--s7-tinte); color: #fff; }
+@media (max-width: 820px) { .ek8-var { display: none !important; } .ek8-hoch { display: block; } .ek8-hoch .ek2-svg--hoch { display: block !important; } .ek8-schalter { display: none; } }
 
 /* ---------- Beispiel einer Vertriebsstrecke (bp8-, Story 8) ---------- */
 .bp8-lead { max-width: 46rem !important; }

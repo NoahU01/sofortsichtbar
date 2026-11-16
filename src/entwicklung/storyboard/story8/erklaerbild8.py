@@ -124,10 +124,7 @@ def hoch(kopf=False):
     for y, titel, unter in ((y_hals + 48, TX["vertrieb_band"], TX["vertrieb_unter"]), (yk + 50, TX["betreuen"], TX["betreuen_unter"])):
         o.append(text(c, y, titel, "ek2-band-t", eb.T_GROSS, 700, "middle"))
         o.append(text(c, y + 21, unter, "ek2-band-s", anker="middle"))
-    o.append(f'<path d="M{x0} {yk + 50} H18 V{y_oben + 30} H{c - MUND_H[3] - 6}" class="ek2-linie ek2-linie--fein" marker-end="url(#ek2-pfeil-hoch)"/>')
-    o.append(text(c + 8, yk + 122, "Regelmäßige Präsenz pflegt deinen Bestand –", "ek2-t", anker="middle"))
-    o.append(text(c + 8, yk + 139, "und bringt neue Anlässe.", "ek2-t", anker="middle"))
-    return svg(W, yk + 150, "".join(o), "ek2-svg--hoch", "hoch")
+    return svg(W, yk + 100, "".join(o), "ek2-svg--hoch", "hoch")
 
 
 if __name__ == "__main__":
