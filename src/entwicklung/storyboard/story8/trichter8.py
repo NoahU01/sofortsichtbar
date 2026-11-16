@@ -86,7 +86,7 @@ def kopf(o, geteilt_oben=False):
 def vertrieb(o):
     xm = X_HALS + LU / 2
     o.append(f'<path d="M{xm} {c - HALS[3]} V{c - HALS[3] - 34}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(xm, c - HALS[3] - 42, "Messpunkt: Leads", "ek2-t", K, 700, "middle"))
+    o.append(text(xm + 8, c - HALS[3] - 24, "Messpunkt: Gesprächsanlässe", "ek2-t", K, 700))   # rechts neben der Linie, frei vom Trichter
     y0, y1 = c - HALS[3], c + HALS[3]
     xv = X_HALS + LU
     o.append(f'<path d="M{xv} {y0} H806 L828 {c} L806 {y1} H{xv} Z" class="ek2-band"/>')

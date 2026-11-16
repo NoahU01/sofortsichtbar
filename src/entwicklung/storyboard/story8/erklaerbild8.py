@@ -21,7 +21,7 @@ TX = {
     "vertrieb": "Vertrieb – du machst daraus Kunden",
     "aufbauen": "Aufbauen", "aufbauen_unter": "Zielgruppen, Kanäle, Medien",
     "betreiben": "Betreiben", "betreiben_unter": "Posten, vernetzen, nachhalten",
-    "messpunkt": "Messpunkt: Leads",
+    "messpunkt": "Messpunkt: Gesprächsanlässe",
     "vertrieb_band": "Vertrieb", "vertrieb_unter": "Ansprechen · Terminieren · Beraten",
     "betreuen": "Betreuen", "betreuen_unter": "Bestand halten und ausbauen",
     "a": ("Mit deinem Team:", "Wir bauen auf, du betreibst."),
@@ -113,9 +113,10 @@ def hoch(kopf=False):
     o.append(text(c + HB[3] + 18, y_kurve - 10, "Posten, vernetzen,", "ek2-grau"))
     o.append(text(c + HB[3] + 18, y_kurve + 6, "nachhalten", "ek2-grau"))
     # Messpunkt links
-    o.append(f'<path d="M{c - HB[3]} {y_hals - 14} H{c - HB[3] - 18}" class="ek2-linie ek2-linie--fein"/>')
-    o.append(text(c - HB[3] - 24, y_hals - 18, "Messpunkt:", "ek2-t", gewicht=700, anker="end"))
-    o.append(text(c - HB[3] - 24, y_hals - 2, "Leads", "ek2-t", gewicht=700, anker="end"))
+    o.append(f'<path d="M{c - HB[3]} {y_hals - 22} H{c - HB[3] - 18}" class="ek2-linie ek2-linie--fein"/>')
+    o.append(text(c - HB[3] - 24, y_hals - 34, "Messpunkt:", "ek2-t", gewicht=700, anker="end"))
+    o.append(text(c - HB[3] - 24, y_hals - 18, "Gesprächs-", "ek2-t", gewicht=700, anker="end"))
+    o.append(text(c - HB[3] - 24, y_hals - 2, "anlässe", "ek2-t", gewicht=700, anker="end"))
     o.append(text(c, y_hals + 44, TX["vertrieb"], "ek2-t", gewicht=600, anker="middle"))
     y_hals += 42
     x0, x1 = 50, W - 50

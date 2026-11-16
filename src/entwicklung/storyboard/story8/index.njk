@@ -271,7 +271,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 {%- endmacro -%}
 
 {%- macro pakete(mitIds=true) -%}
-  <section class="s7-band"{% if mitIds %} id="pakete"{% endif %}>
+  <section class="s7-band{% if not s.slug %} s7-band--flaeche{% endif %}"{% if mitIds %} id="pakete"{% endif %}>
     <div class="s7-wrap">
       <p class="s7-kicker">{{ S.pakete.kicker }}</p>
       <h2 class="s7-h2">{{ S.pakete.h2 }}</h2>
@@ -2302,11 +2302,10 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 <main>
   {{ held() }}
   {{ beispiel() }}
-  {{ pakete() }}
 
   <!-- Zielgruppen: ein großes Bild als Beweis, die 20 Zielgruppen als ruhige Liste mit Anlass -->
   {%- set Z = S.zielgruppen %}
-  <section class="s7-band s7-band--flaeche" id="zielgruppen">
+  <section class="s7-band" id="zielgruppen">
     <div class="s7-wrap">
       <p class="s7-kicker">{{ Z.kicker }}</p>
       <h2 class="s7-h2">{{ Z.h2 }}</h2>
@@ -2323,6 +2322,8 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s7-zg__fuss"><a class="s7-link" href="{{ H7 }}/vertriebsstrecken/">{{ Z.link }} {{ pfeil | safe }}</a></p>
     </div>
   </section>
+
+  {{ pakete() }}
 
   <!-- Über uns: Text und Zitat links, Gruppenbild rechts unten bündig auf der Kante -->
   <section class="s7-band" id="ueber-uns">
