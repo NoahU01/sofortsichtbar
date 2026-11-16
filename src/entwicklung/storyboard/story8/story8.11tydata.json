@@ -1902,12 +1902,12 @@
           [
             "texte",
             "Fertig geliefert",
-            "Die Strecke Bauherren steht: Landingpage, Postings, Checkliste."
+            "Unser Online-Marketing-Manager hat die Strecke Bauherren eingerichtet: Landingpage, Postings, Checkliste."
           ],
           [
             "betreiben_ihr",
             "Gepostet",
-            "Deine Marketing-Person postet und vernetzt sich mit Bauherren aus der Region."
+            "Deine Content- und Social-Media-Managerin postet und vernetzt sich mit Bauherren aus der Region."
           ],
           [
             "kunde",
@@ -1917,12 +1917,12 @@
           [
             "innendienst",
             "Terminiert",
-            "Dein Innendienst ruft an und vereinbart den Termin."
+            "Deine Kundenbetreuerin im Innendienst ruft an und vereinbart den Termin."
           ],
           [
             "vertrieb",
             "Beraten",
-            "Dein Vertrieb berät zu Wohngebäude und Bauherrenhaftpflicht."
+            "Dein Versicherungsberater berät zu Wohngebäude und Bauherrenhaftpflicht."
           ]
         ]
       },
@@ -1969,12 +1969,12 @@
           [
             "texte",
             "Fertig geliefert",
-            "Die Strecke Bauherren steht: Landingpage, Postings, Checkliste."
+            "Unser Online-Marketing-Manager hat die Strecke Bauherren eingerichtet: Landingpage, Postings, Checkliste."
           ],
           [
             "betreiben_wir",
             "Gepostet",
-            "Unser Social-Media-Manager postet für dich und vernetzt dich mit Bauherren aus der Region."
+            "Unsere Content- und Social-Media-Managerin postet für dich und vernetzt dich mit Bauherren aus der Region."
           ],
           [
             "kunde",
@@ -1984,12 +1984,12 @@
           [
             "innendienst",
             "Terminiert",
-            "Dein Innendienst ruft an und vereinbart den Termin."
+            "Deine Kundenbetreuerin im Innendienst ruft an und vereinbart den Termin."
           ],
           [
             "vertrieb",
             "Beraten",
-            "Dein Vertrieb berät zu Wohngebäude und Bauherrenhaftpflicht."
+            "Dein Versicherungsberater berät zu Wohngebäude und Bauherrenhaftpflicht."
           ]
         ]
       },
@@ -2139,6 +2139,64 @@
         "marketing": "<svg viewBox=\"0 0 60 158\" aria-hidden=\"true\"><path d=\"M21.5 15 C21 3 39 3 38.5 15 L39 25 C35 27 25 27 21 25 Z\" fill=\"#1d1d1f\"/><path d=\"M19.5 78 H29.6 L28.4 151 H22.6 Z M30.4 78 H40.5 L38.6 151 H32.800000000000004 Z\" fill=\"#1d1d1f\"/><path d=\"M21.5 150 H29 C30.6 150 30.6 154.5 29 154.5 H20.4 C19.4 154.5 19.6 150 21.5 150 Z\" fill=\"#1d1d1f\"/><path d=\"M32.2 150 H39.800000000000004 C41.800000000000004 150 41.6 154.5 40.800000000000004 154.5 H32.2 C30.599999999999998 154.5 30.599999999999998 150 32.2 150 Z\" fill=\"#1d1d1f\"/><path d=\"M27.4 21 H32.6 V30 H27.4 Z\" fill=\"#d4ab8c\"/><path d=\"M16.5 33.5 C16.5 29 20.5 27 25.5 27 H34.5 C39.5 27 43.5 29 43.5 33.5 L41.5 80 H18.5 Z\" fill=\"#48484a\"/><path d=\"M25.6 27 L30 41 L34.4 27 Z\" fill=\"#ffffff\"/><path d=\"M25.6 27 L30 41 L29 80 H27.5 L23.5 33 Z M34.4 27 L30 41 L31 80 H32.5 L36.5 33 Z\" fill=\"rgba(0,0,0,.14)\"/><path d=\"M16.5 33.5 C13.8 34.5 13 38 13 42 L13.6 77 C13.7 79.5 17.6 79.5 17.8 77 L19 44 Z\" fill=\"#48484a\"/><circle cx=\"15.7\" cy=\"80.6\" r=\"2.6\" fill=\"#d4ab8c\"/><path d=\"M43.5 33.5 C46.2 34.5 47 38 47 42 L46.6 58 C46.4 60.5 42.6 60.5 42.4 58 L41 44 Z\" fill=\"#48484a\"/><path d=\"M46.6 56 C46.6 60 44 61 40 59.5 L33 55.5 C31.4 54.5 32.6 51.6 34.4 52.4 L42.4 56 Z\" fill=\"#48484a\"/><path d=\"M31 44.5 H37 V56 H31 Z\" fill=\"#1d1d1f\"/><circle cx=\"33\" cy=\"54.4\" r=\"2.4\" fill=\"#d4ab8c\"/><ellipse cx=\"30\" cy=\"14.5\" rx=\"7.2\" ry=\"8.6\" fill=\"#d4ab8c\"/><path d=\"M22.6 15 C21.6 4 38.4 3.6 37.4 14 C34 9 27.6 8.4 22.6 15 Z\" fill=\"#1d1d1f\"/></svg>",
         "vertrieb": "<svg viewBox=\"0 0 60 158\" aria-hidden=\"true\"><path d=\"M19.5 78 H29.6 L28.4 151 H22.6 Z M30.4 78 H40.5 L39.8 151 H34.0 Z\" fill=\"#48484a\"/><path d=\"M21.5 150 H29 C30.6 150 30.6 154.5 29 154.5 H20.4 C19.4 154.5 19.6 150 21.5 150 Z\" fill=\"#1d1d1f\"/><path d=\"M33.4 150 H41.0 C43.0 150 42.8 154.5 42.0 154.5 H33.4 C31.799999999999997 154.5 31.799999999999997 150 33.4 150 Z\" fill=\"#1d1d1f\"/><path d=\"M27.4 21 H32.6 V30 H27.4 Z\" fill=\"#ecd3c1\"/><path d=\"M16.5 33.5 C16.5 29 20.5 27 25.5 27 H34.5 C39.5 27 43.5 29 43.5 33.5 L41.5 80 H18.5 Z\" fill=\"#1d1d1f\"/><path d=\"M25.6 27 L30 41 L34.4 27 Z\" fill=\"#ffffff\"/><path d=\"M25.6 27 L30 41 L29 80 H27.5 L23.5 33 Z M34.4 27 L30 41 L31 80 H32.5 L36.5 33 Z\" fill=\"rgba(0,0,0,.14)\"/><path d=\"M16.5 33.5 C13.8 34.5 13 38 13 42 L14.5 72 C15 74 19 74 19.2 72 L19 44 Z\" fill=\"#1d1d1f\"/><path d=\"M43.5 33.5 C46.2 34.5 47 38 47 42 L46.4 77 C46.3 79.5 42.4 79.5 42.2 77 L41 44 Z\" fill=\"#1d1d1f\"/><circle cx=\"44.4\" cy=\"80.6\" r=\"2.6\" fill=\"#ecd3c1\"/><ellipse cx=\"30\" cy=\"14.5\" rx=\"7.2\" ry=\"8.6\" fill=\"#ecd3c1\"/><path d=\"M22.6 13.5 C21.6 4.5 38.4 3.8 37.4 13.5 C35.5 9.6 27 9 22.6 13.5 Z\" fill=\"#5a4031\"/></svg>",
         "innendienst": "<svg viewBox=\"0 0 60 158\" aria-hidden=\"true\"><path d=\"M36 9 C44 11 45 26 41 33 C40.5 25 39 18 35 14 Z\" fill=\"#1d1d1f\"/><path d=\"M19.5 78 H29.6 L28.4 151 H22.6 Z M30.4 78 H40.5 L37.4 151 H31.6 Z\" fill=\"#1d1d1f\"/><path d=\"M21.5 150 H29 C30.6 150 30.6 154.5 29 154.5 H20.4 C19.4 154.5 19.6 150 21.5 150 Z\" fill=\"#1d1d1f\"/><path d=\"M31 150 H38.6 C40.6 150 40.4 154.5 39.6 154.5 H31 C29.4 154.5 29.4 150 31 150 Z\" fill=\"#1d1d1f\"/><path d=\"M27.4 21 H32.6 V30 H27.4 Z\" fill=\"#a7765a\"/><path d=\"M16.5 33.5 C16.5 29 20.5 27 25.5 27 H34.5 C39.5 27 43.5 29 43.5 33.5 L41.5 80 H18.5 Z\" fill=\"#48484a\"/><path d=\"M25.6 27 L30 41 L34.4 27 Z\" fill=\"#ffffff\"/><path d=\"M25.6 27 L30 41 L29 80 H27.5 L23.5 33 Z M34.4 27 L30 41 L31 80 H32.5 L36.5 33 Z\" fill=\"rgba(0,0,0,.14)\"/><path d=\"M16.5 33.5 C13.8 34.5 13 38 13 42 L13.6 77 C13.7 79.5 17.6 79.5 17.8 77 L19 44 Z\" fill=\"#48484a\"/><circle cx=\"15.7\" cy=\"80.6\" r=\"2.6\" fill=\"#a7765a\"/><path d=\"M42.6 44 L50.6 45.2 L48.8 79 L40.8 77.8 Z\" fill=\"#c7c7cc\"/><path d=\"M49.4 45.1 L50.6 45.2 L48.8 79 L47.6 78.8 Z\" fill=\"#8e8e93\"/><path d=\"M43.5 33.5 C46.2 34.5 47 38 47 42 L46.4 77 C46.3 79.5 42.4 79.5 42.2 77 L41 44 Z\" fill=\"#48484a\"/><circle cx=\"44.4\" cy=\"80.6\" r=\"2.6\" fill=\"#a7765a\"/><ellipse cx=\"30\" cy=\"14.5\" rx=\"7.2\" ry=\"8.6\" fill=\"#a7765a\"/><path d=\"M22.6 15 C21.6 4 38.4 3.6 37.4 14 C34 9 27.6 8.4 22.6 15 Z\" fill=\"#1d1d1f\"/><path d=\"M22 15 C21.4 3.4 38.6 3.4 38 15\" fill=\"none\" stroke=\"#1d1d1f\" stroke-width=\"1.2\"/><rect x=\"20.6\" y=\"12.6\" width=\"3\" height=\"5.6\" rx=\"1.5\" fill=\"#1d1d1f\"/><path d=\"M22.2 18 C22.6 21.6 25 22.6 27.6 22.4\" fill=\"none\" stroke=\"#1d1d1f\" stroke-width=\"1\"/></svg>"
+      },
+      "karten": {
+        "_quelle": "Daniel, 17.11.2026: Rollen mit Jobtitel wie im PDF (Profile), eine Rolle je Stufe, Darstellung als Profilkarte wie im PDF; Terminieren liegt beim Innendienst",
+        "a": [
+          {
+            "titel": "Online-Marketing-Manager/in",
+            "denk": "Denkt vom Ziel her, liest Kennzahlen und entscheidet, was als Nächstes zählt.",
+            "tut": "Wählt mit dir die Zielgruppen und richtet die Strecken ein.",
+            "wer": "wir",
+            "label": "sofort sichtbar"
+          },
+          {
+            "titel": "Content- und Social-Media-Manager/in",
+            "denk": "Postet, vernetzt und hält nach – mit Anleitung und Dashboard von uns.",
+            "wer": "ihr",
+            "label": "In deinem Team"
+          },
+          {
+            "titel": "Versicherungs­berater/in",
+            "denk": "Spricht an, berät und schließt ab.",
+            "wer": "ihr",
+            "label": "Deine Agentur"
+          },
+          {
+            "titel": "Kunden­betreuer/in im Innendienst",
+            "denk": "Vereinbart Termine und hält den Bestand.",
+            "wer": "ihr",
+            "label": "Deine Agentur"
+          }
+        ],
+        "b": [
+          {
+            "titel": "Online-Marketing-Manager/in",
+            "denk": "Denkt vom Ziel her, liest Kennzahlen und entscheidet, was als Nächstes zählt.",
+            "tut": "Wählt mit dir die Zielgruppen und richtet die Strecken ein.",
+            "wer": "wir",
+            "label": "sofort sichtbar"
+          },
+          {
+            "titel": "Content- und Social-Media-Manager/in",
+            "denk": "Schreibt so, wie deine Kunden denken, und bleibt dran – Woche für Woche.",
+            "wer": "wir",
+            "label": "sofort sichtbar · stellen wir"
+          },
+          {
+            "titel": "Versicherungs­berater/in",
+            "denk": "Spricht an, berät und schließt ab.",
+            "wer": "ihr",
+            "label": "Deine Agentur"
+          },
+          {
+            "titel": "Kunden­betreuer/in im Innendienst",
+            "denk": "Vereinbart Termine und hält den Bestand.",
+            "wer": "ihr",
+            "label": "Deine Agentur"
+          }
+        ],
+        "hintergrund": "Im Hintergrund bauen Grafik- und Webdesigner/in und Webentwickler/in die Strecken. Mit Paid Ads kommt Performance-Marketing-Manager/in dazu."
       }
     }
   }

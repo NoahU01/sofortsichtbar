@@ -200,7 +200,14 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
       <div class="mw8">
         {%- for x in MW.punkte %}
         <article class="mw8-punkt">
+          {%- if x[2] == "freiheit" %}
+          <div class="mw8-bild mw8-bild--freiheit" aria-hidden="true"><div class="mw8-stapel">
+            <div class="pk8 pk8--wir pk8--teil0"><p class="pk8-label">Musst du nicht besetzen</p><p class="pk8-titel">Online-Marketing-Manager/in</p></div>
+            <div class="pk8 pk8--wir pk8--teil1"><p class="pk8-label">Musst du nicht besetzen</p><p class="pk8-titel">Content- und Social-Media-Manager/in</p></div>
+          </div></div>
+          {%- else %}
           <div class="mw8-bild mw8-bild--{{ x[2] }}" aria-hidden="true"><img src="{{ x[3] }}" alt="" loading="lazy"></div>
+          {%- endif %}
           <h3>{{ x[0] }}</h3><p>{{ x[1] }}</p>
         </article>
         {%- endfor %}
@@ -214,20 +221,22 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 {{ S.team8.figuren[f] | safe }}
 {%- endmacro -%}
 {%- macro teamBild(art) -%}
-  {#- Variante 2 (Daniel, 16.11.2026): dieselben vier Stufen wie der Trichter, darunter die Menschen dahinter – wenige, als Team erkennbar.
-      Farbe = sofort sichtbar, Schwarz = deine Agentur. Fotos: unser Team (Kontakt), Agentur aus dem Bild der Live-Seite -#}
-  {%- set T = S.team8.v2[art] %}
-  <div class="tm8" role="img" aria-label="{% for sp in T.spalten %}{{ sp[0] }}{% if not loop.last %}, {% endif %}{% endfor %}. {% for p in T.personen %}{{ p.name }}: {{ p.tut }} {% endfor %}">
+  {#- Variante 2 (Daniel, 17.11.2026): die vier Stufen wie im Trichter, darunter je Stufe EINE Rolle als Profilkarte wie im PDF –
+      Jobtitel groß, ein Satz zur Denkweise. Farbe = sofort sichtbar (Verlauf einmal durch alle Karten von uns), Schwarz = deine Agentur -#}
+  {%- set T = S.team8.v2[art] %}{% set K = S.team8.karten[art] %}{% set nw = 0 %}
+  <div class="tm8" role="img" aria-label="{% for sp in T.spalten %}{{ sp[0] }}: {{ K[loop.index0].titel | replace('­', '') }}. {% endfor %}">
     {%- for sp in T.spalten %}
     <div class="tm8-kopf tm8-kopf--{{ sp[2] }}"><b>{{ sp[0] }}</b><span>{{ sp[1] }}</span></div>
     {%- endfor %}
-    {%- for p in T.personen %}
-    <div class="tm8-person tm8-person--{{ p.wer }}" style="grid-column: span {{ p.span }}">
-      <span class="tm8-fotos">{% for f in p.figuren %}<span class="tm8-figur">{{ figur(f[0]) }}</span>{% endfor %}</span>
-      <div><p class="tm8-wer">{% if p.wer == "wir" %}sofort sichtbar{% else %}Deine Agentur{% endif %}</p><b>{{ p.name }}</b><span>{{ p.tut }}</span></div>
+    {%- for k in K %}
+    <div class="pk8 pk8--{{ k.wer }}{% if k.wer == "wir" %} pk8--teil{{ loop.index0 }}{% endif %}">
+      <p class="pk8-label">{{ k.label }}</p>
+      <p class="pk8-titel">{{ k.titel }}</p>
+      <p class="pk8-denk">{{ k.denk }}</p>
     </div>
     {%- endfor %}
   </div>
+  <p class="pk8-hinter">{{ S.team8.karten.hintergrund }}</p>
 {%- endmacro -%}
 {%- macro zusammenspiel(art) -%}
   {%- set T = S.team8[art] %}{% set P = S.team8.personen %}
@@ -1080,8 +1089,10 @@ body.s7-menue-offen { overflow: hidden; }
 .mw8-punkt { display: flex; flex-direction: column; }
 .mw8-bild { display: flex; align-items: flex-end; justify-content: center; height: 14rem; margin-bottom: 1.8rem; border-bottom: 1px solid #3a3a3c; }
 .mw8-bild img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
-.mw8-bild--freiheit { background: radial-gradient(ellipse 46% 64% at 50% 100%, #f5f5f7 99%, transparent 100%); }
-.mw8-bild--freiheit img { height: 88%; }
+.mw8-stapel { display: grid; gap: .6rem; width: 100%; padding-bottom: 1.2rem; }
+.mw8-stapel .pk8 { margin: 0; padding: 1rem 1.1rem; gap: .3rem; }
+.mw8-stapel .pk8-titel { font-size: 1.2rem; }
+.mw8-stapel .pk8:last-child { margin-left: 1.6rem; }
 .mw8-punkt h3 { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
 .mw8-punkt > p { margin-top: .6rem; color: #c7c7cc; font-size: 1rem; line-height: 1.55; }
 .mw8-passt { margin-top: 3rem; color: #fff; font-size: 1.05rem; font-weight: 600; }
@@ -1097,6 +1108,19 @@ body.s7-menue-offen { overflow: hidden; }
 .tm8-kopf--wir:nth-child(1) { background-position: 0% 0; }
 .tm8-kopf--wir:nth-child(2) { background-position: 100% 0; }
 .tm8-person { display: grid; justify-items: start; align-content: start; gap: 1rem; margin-top: 1.6rem; padding: 0 1.2rem 0 .4rem; }
+/* Profilkarten wie im PDF (pk8-): Jobtitel groß, Denkweise, Verlauf einmal durch die Karten von uns */
+.pk8 { display: grid; align-content: start; gap: .6rem; margin-top: 1rem; padding: 1.4rem 1.3rem 1.6rem; border-radius: 18px; color: #fff; text-align: left; }
+.pk8--ihr { background: var(--s7-tinte); }
+.pk8--wir { background: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%); background-size: 200% 100%; }
+.pk8--teil0 { background-position: 0% 0; }
+.pk8--teil1 { background-position: 100% 0; }
+.pk8-label { color: rgba(255,255,255,.75); font-size: .85rem; font-weight: 600; }
+.pk8-titel { font-family: var(--s7-schrift-titel); font-size: clamp(1.35rem, 1.9vw, 1.7rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; hyphens: manual; }
+.pk8-denk { margin-top: .4rem; color: rgba(255,255,255,.85); font-size: .98rem; line-height: 1.5; }
+.pk8--ihr .pk8-label { color: #a1a1a6; }
+.pk8--ihr .pk8-denk { color: #c7c7cc; }
+.pk8-hinter { margin-top: 1.4rem; color: var(--s7-grau); font-size: .95rem; text-align: left; }
+@media (max-width: 900px) { .pk8 { grid-column: 1 / -1; } }
 /* Personen (figuren9.py): gezeichnet, straight, Ganzkörper */
 .tm8 .tm8-fotos { display: flex; align-items: flex-end; height: 11rem; margin: 0; }
 .tm8 .tm8-figur { display: block; width: 4.2rem; margin: 0; }
