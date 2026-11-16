@@ -323,13 +323,13 @@
       "_quelle": "Preise, Bausteine, Profile und Monatsablauf aus story6 maas (Angebot A-00062); Texte für die Sicht der Vertriebsleitung neu gefasst, Leads statt Anfragen.",
       "held": {
         "_quelle": "Daniel, 16.11.2026: Machen lassen = Teil 1 und Teil 2 des Trichters – ganz wichtig",
-        "kicker": "Machen lassen · für Versicherungsagenturen und Maklerbüros",
-        "h1": "Wir bringen die Strecken ins Laufen.",
-        "h1_akzent": "Du führst die Gespräche.",
-        "lead": "Von uns kommen beide Stufen: die fertigen Vertriebsstrecken und der laufende Betrieb. Wir posten, vernetzen, betreuen die Landingpages und sagen dir, wen du ansprechen kannst.",
-        "bild_label": "Machen lassen: Auswählen und Betreiben kommen von sofort sichtbar, Ansprechen, Terminieren, Beraten und Betreuen bleiben bei deiner Agentur.",
+        "kicker": "Machen lassen",
+        "h1": "Marketing, das läuft.",
+        "h1_akzent": "Ohne dass du es führen musst.",
+        "lead": "Wir liefern die Strecken und betreiben sie. Du führst die Gespräche.",
+        "bild_label": "Im Trichter kommen Auswählen und Betreiben von sofort sichtbar. Vertrieb und Betreuen bleiben bei deiner Agentur.",
         "knopf": "Termin auswählen",
-        "knopf2": "Wer macht was"
+        "knopf2": "Pakete und Preise"
       },
       "bausteine": {
         "kicker": "Bausteine und Preise",
@@ -741,6 +741,27 @@
         "leads": "Leads direkt in deinen Vertrieb",
         "empf": "Bauherren: Landingpage schärfen – wird kaum zu Ende gelesen",
         "zurueck": "Jeden Monat im Austausch mit dir – die Erkenntnisse fließen in die nächsten Fragen"
+      },
+      "mehrwert": {
+        "_quelle": "Daniel, 16.11.2026: niemand fürs Betreiben (sonst bricht es ab) · Vollgas · freier werden, digitaler aufstellen",
+        "kicker": "Warum Machen lassen",
+        "h2": "Die meisten Marketingideen sterben im Alltag.",
+        "h2_akzent": "Deine nicht.",
+        "punkte": [
+          [
+            "Keine Lücke.",
+            "Niemand im Team hat Zeit fürs Marketing? Wir übernehmen das Betreiben. Dann bricht nichts ab, wenn es im Büro brennt."
+          ],
+          [
+            "Vollgas.",
+            "Wir posten, vernetzen und optimieren jeden Monat, damit jede Zielgruppe zieht."
+          ],
+          [
+            "Freier.",
+            "Eine Person weniger, die du führen musst, und ein Grund weniger, an dein Büro gebunden zu sein. Gut für alle, die digitaler beraten wollen."
+          ]
+        ],
+        "passt": "Für Agenturen ohne eigene Person fürs Marketing – und für alle, die es professionell und mit Vollgas wollen."
       }
     },
     "ek_schnitt_quer": "<svg class=\"ek2-svg ek2-svg--quer\" viewBox=\"0 0 1120 438\" aria-hidden=\"true\"><defs><marker id=\"ek2-pfeil-schnitt\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M1 1 L8 5 L1 9\" class=\"ek2-pfeilkopf\"/></marker></defs><path d=\"M0 0 H610 C760 0 750 250 880 250 H910 V314 H880 C750 314 760 436 610 436 H0 Z\" class=\"ek2-l4 ek2-lage\"/><path d=\"M0 64 H610 C760 64 750 256 880 256 H910 V308 H880 C750 308 760 396 610 396 H0 Z\" class=\"ek2-l3 ek2-lage\"/><path d=\"M0 128 H610 C760 128 750 262 880 262 H910 V302 H880 C750 302 760 356 610 356 H0 Z\" class=\"ek2-l2 ek2-lage\"/><path d=\"M0 192 H610 C760 192 750 268 880 268 H910 V296 H880 C750 296 760 316 610 316 H0 Z\" class=\"ek2-kern ek2-lage\"/><text x=\"28\" y=\"226\" class=\"ek2-kern-t\" font-size=\"20\" font-weight=\"700\">Kernpaket<tspan class=\"ek2-kern-t\" font-size=\"13\" font-weight=\"600\" dx=\"12\">Die Basis</tspan></text><text x=\"28\" y=\"251\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Fünf Landingpages, laufende Postings je Zielgruppe,</text><text x=\"28\" y=\"272\" class=\"ek2-kern-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Dashboard, monatlicher Report und Betreuungscall</text><text x=\"28\" y=\"155\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">LinkedIn Power Package<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"178\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Mit Netzwerkaufbau und Direktansprache zum aktiven Vertriebskanal</text><text x=\"28\" y=\"91\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Paid Ads<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"114\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Kampagnen auf Google, Meta oder LinkedIn – laufend gesteuert</text><text x=\"28\" y=\"27\" class=\"ek2-t\" font-size=\"17\" font-weight=\"700\">Website-Entwicklung<tspan class=\"ek2-grau\" font-size=\"13\" font-weight=\"600\" dx=\"12\">dazu buchbar</tspan></text><text x=\"28\" y=\"50\" class=\"ek2-t\" font-size=\"15\" font-weight=\"500\" text-anchor=\"start\">Deine Versicherungsagentur sauber positioniert</text><circle cx=\"840\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"856\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><circle cx=\"872\" cy=\"282\" r=\"3.5\" class=\"ek2-kern-p\"/><path d=\"M916.0 250 V216\" class=\"ek2-linie ek2-linie--fein\"/><text x=\"916.0\" y=\"208\" class=\"ek2-t\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\">Messpunkt: Leads</text><path d=\"M922 250 H1104 Q1120 250 1120 266 V298 Q1120 314 1104 314 H922 Z\" class=\"ek2-band\"/><text x=\"944\" y=\"279\" class=\"ek2-band-t\" font-size=\"18\" font-weight=\"700\" text-anchor=\"start\">Dein Vertrieb</text><text x=\"944\" y=\"300\" class=\"ek2-band-s\" font-size=\"14\" font-weight=\"500\" text-anchor=\"start\">macht daraus Kunden</text></svg>",
@@ -1231,13 +1252,13 @@
       "_quelle": "Weg A (Daniel, 12.11.2026): alle drei Stufen – Zielsetzung (Kompass/Strategietool Pro), Zielgruppenpakete, Dashboard mit Reporting –, der Leiter der Agentur setzt mit seinem Team selbst um. Inhalte aus s7.pakete und der Live-Seite (home.json, pricingOverview.json); Preise offen.",
       "held": {
         "_quelle": "Daniel, 16.11.2026: Selbst machen = nur Teil 1 des Trichters (fertige Vertriebsstrecken), Betreiben macht das Team selbst mit Unterstützung",
-        "kicker": "Selbst machen · für Versicherungsagenturen und Maklerbüros",
-        "h1": "Die Strecken sind fertig.",
-        "h1_akzent": "Dein Team bringt sie ins Laufen.",
-        "lead": "Von uns kommt die erste Stufe: fertige Vertriebsstrecken je Zielgruppe, im Look deiner Agentur eingerichtet. Die zweite Stufe – posten, vernetzen, nachhalten – macht dein Team, mit Anleitung, Werkzeugen und Dashboard von uns.",
-        "bild_label": "Selbst machen: Auswählen kommt von sofort sichtbar, Betreiben macht dein Team mit Anleitung und Werkzeugen, Ansprechen, Terminieren, Beraten und Betreuen bleiben bei deiner Agentur.",
+        "kicker": "Selbst machen",
+        "h1": "Während andere noch abstimmen,",
+        "h1_akzent": "postet dein Team schon.",
+        "lead": "Fertige Vertriebsstrecken je Zielgruppe. Ab heute, in deinem Look.",
         "knopf": "Termin auswählen",
-        "knopf2": "Wer macht was"
+        "knopf2": "Was dein Team bekommt",
+        "bild_label": "Im Trichter kommt Auswählen von sofort sichtbar – die fertigen Strecken. Betreiben übernimmt dein Team, Vertrieb und Betreuen bleiben bei deiner Agentur."
       },
       "kopf": {
         "klammer": "Deine digitale Maschine – fertig eingerichtet, dein Team bedient sie",
@@ -1405,6 +1426,42 @@
         "b_preis": "ab 1.800 €",
         "b_einheit": "pro Monat",
         "b_name": "Lieber übergeben?"
+      },
+      "mehrwert": {
+        "_quelle": "Daniel, 16.11.2026: Agenturen mit jemandem fürs Marketing; gefrustet, dass vom Marketing des Unternehmens nichts Brauchbares kommt und neue Ideen viel zu lange dauern – darf provozieren",
+        "kicker": "Warum Selbst machen",
+        "h2": "Neue Ideen dauern bei dir Monate?",
+        "h2_akzent": "Bei uns Tage.",
+        "punkte": [
+          [
+            "Sofort da.",
+            "Landingpages, Postings und Checklisten für 20 Zielgruppen stehen fertig, im Look deiner Agentur. Dein Team legt am ersten Tag los."
+          ],
+          [
+            "Schnell ergänzt.",
+            "Fehlt dir eine Zielgruppe, bauen wir sie in wenigen Tagen. Ohne Abstimmungsschleifen über drei Ebenen."
+          ],
+          [
+            "Immer frisch.",
+            "Wir liefern laufend neues Material und verbessern, was nicht wirkt. Dein Team muss sich nichts ausdenken."
+          ]
+        ],
+        "passt": "Für Agenturen, in denen sich jemand ums Marketing kümmert. Wir machen diese Person sofort erfolgreich."
+      },
+      "download": {
+        "kicker": "Download",
+        "h2": "Alles im Detail.",
+        "lead": "Was dein Team bekommt, wer welche Stufe übernimmt und wie der Start läuft – zum Weitergeben an die Person, die bei dir das Marketing betreibt.",
+        "meta": [
+          "PDF",
+          "6 Seiten",
+          "0,5 MB"
+        ],
+        "knopf": "PDF herunterladen",
+        "datei": "selbst-machen.pdf?v=d16c847b",
+        "bild1": "selbst-machen-1.png?v=d16c847b",
+        "bild2": "selbst-machen-2.png?v=d16c847b",
+        "pfad": "/entwicklung/storyboard/story8/assets/team"
       }
     },
     "onepager_stand": "2ec47baf",
