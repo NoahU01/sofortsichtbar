@@ -21,6 +21,10 @@ X_FLACH, X_KURVE, X_HALS = 250, 450, 510
 X_TEIL = 262
 MUND = [50, 74, 96, 118]
 HALS = [24, 30, 36, 40]
+FORMEN = {  # halbe Höhen an der Mündung (innen → außen)
+    "a": [28, 32, 36, 40],   # Mündung gleich hoch, Kern höher, graue Lagen je 4 – schmaler, aber noch als Lagen lesbar
+    "b": [30, 38, 46, 54],   # Mündung insgesamt höher, graue Lagen je 8 – Vertrieb und Betreuen wachsen mit
+}
 LU = eb.LUECKE
 
 
@@ -98,21 +102,26 @@ def beschriftung(o, v):
     o.append(f'<g class="tr-betreiben tr-text">{text(xb, c - 3, "Betreiben", "ek2-kern-t", G, 700)}{text(xb, c + 21, "Posten, vernetzen, nachhalten", "ek2-kern-s", 13.5)}</g>')
 
 
-def variante(v):
+def variante(v, form="a"):
+    global HALS
+    HALS = FORMEN[form]
     o = []
     kopf(o, geteilt_oben=(v == 3))
-    clip = (f'<defs><clipPath id="tr{v}-a"><rect x="-10" y="0" width="{X_TEIL + 10}" height="400"/></clipPath>'
-            f'<clipPath id="tr{v}-b"><rect x="{X_TEIL - .6}" y="0" width="{X_HALS - X_TEIL + 10}" height="400"/></clipPath></defs>')
+    yo, yu = c - MUND[3] - 2, c + MUND[3] + 2
+    bogen_ab = f"C{X_TEIL + 14} {c - 50} {X_TEIL + 14} {c + 50} {X_TEIL - 10} {yu}"
+    bogen_auf = f"C{X_TEIL + 14} {c + 50} {X_TEIL + 14} {c - 50} {X_TEIL - 10} {yo}"
+    cid = f"tr{v}{form}"
+    clip = (f'<defs><clipPath id="{cid}-a"><path d="M-10 -10 H{X_TEIL - 10} V{yo} {bogen_ab} V400 H-10 Z"/></clipPath>'
+            f'<clipPath id="{cid}-b"><path d="M{X_TEIL - 10} -10 H{W} V400 H{X_TEIL - 10} V{yu} {bogen_auf} Z"/></clipPath></defs>')
     o.append(clip)
     if v in (1, 3):
         if v == 3:   # ungeteilt darunter, damit an der Grenze keine feine Naht sichtbar wird
             o.append('<g class="tr-unten">' + "".join(f'<path d="{lage(k)}" class="{eb.LAGEN[k][0]} ek2-lage"/>' for k in (3, 2, 1, 0)) + '</g>')
-        for teil, cid in (("tr-aufbauen", "a"), ("tr-betreiben", "b")):
+        for teil, ab in (("tr-aufbauen", "a"), ("tr-betreiben", "b")):
             g = "".join(f'<path d="{lage(k)}" class="{eb.LAGEN[k][0]} ek2-lage"/>' for k in (3, 2, 1, 0))
-            o.append(f'<g class="{teil}{" tr-teil" if v == 3 else ""}" clip-path="url(#tr{v}-{cid})">{g}</g>')
+            o.append(f'<g class="{teil}{" tr-teil" if v == 3 else ""}" clip-path="url(#{cid}-{ab})">{g}</g>')
         if v == 1:   # weiche Fuge, nach rechts gewölbt wie die Strömung
-            yo, yu = c - MUND[3] - 2, c + MUND[3] + 2
-            o.append(f'<path d="M{X_TEIL - 10} {yo} C{X_TEIL + 14} {c - 50} {X_TEIL + 14} {c + 50} {X_TEIL - 10} {yu}" class="ek2-fuge"/>')
+            o.append(f'<path d="M{X_TEIL - 10} {yo} {bogen_ab}" class="ek2-fuge"/>')
     else:        # v2: graue Lagen durchgehend, nur der Kern in zwei Kapseln
         o.append("".join(f'<path d="{lage(k)}" class="{eb.LAGEN[k][0]} ek2-lage"/>' for k in (3, 2, 1)))
         o.append(f'<path d="{lage(0)}" class="ek2-l2"/>')
@@ -120,13 +129,13 @@ def variante(v):
         o.append(f'<g class="tr-betreiben"><path d="{kern_stueck(X_TEIL - 6, X_HALS, True, False)}" class="ek2-kern"/></g>')
     beschriftung(o, v)
     vertrieb(o)
-    return svg(W, c + MUND[3] + 6, "".join(o), "ek2-svg--quer ek2-var", f"v{v}")
+    return svg(W, c + MUND[3] + 6, "".join(o), "ek2-svg--quer ek2-var", f"v{v}{form}")
 
 
 if __name__ == "__main__":
     p = os.path.join(HERE, "story8.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
-    d["s7"]["ek_varianten"] = {f"v{v}": variante(v) for v in (1, 2, 3)}
+    d["s7"]["ek_varianten"] = {f"v{v}{f}": variante(v, f) for v in (1, 2) for f in ("a", "b")}
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
     print("drei Varianten geschrieben")

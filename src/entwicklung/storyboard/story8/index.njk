@@ -112,12 +112,13 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 </div>
 {%- else %}
 {#- Story 8: drei Varianten des Kopfbilds zum Vergleich (Daniel, 16.11.2026) – umschaltbar; je Stufe ausgraubar -#}
-<div class="ek8" data-v="v1" data-aus="">
+<div class="ek8" data-v="v1" data-form="a" data-aus="">
   <div class="ek8-schalter" role="group" aria-label="Variante des Trichters">
-    <span>Trichter</span>{% for v in [["v1", "1 · Bogen-Fuge"], ["v2", "2 · Zwei Kapseln"], ["v3", "3 · Durchgehend"]] %}<button type="button" data-ek8-v="{{ v[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ v[1] }}</button>{% endfor %}
+    <span>Trichter</span>{% for v in [["v1", "Bogen-Fuge"], ["v2", "Zwei Kapseln"]] %}<button type="button" data-ek8-v="{{ v[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ v[1] }}</button>{% endfor %}
+    <span class="ek8-trenn">Form</span>{% for f in [["a", "A · Mündung gleich"], ["b", "B · Mündung größer"]] %}<button type="button" data-ek8-form="{{ f[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ f[1] }}</button>{% endfor %}
     <span class="ek8-trenn">Ansicht</span>{% for a in [["", "Alles"], ["betreiben", "Mit deinem Team"], ["aufbauen", "Aufbauen grau"]] %}<button type="button" data-ek8-aus="{{ a[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ a[1] }}</button>{% endfor %}
   </div>
-  {%- for k in ["v1", "v2", "v3"] %}
+  {%- for k in ["v1a", "v1b", "v2a", "v2b"] %}
   <div class="ek2 ek8-var ek8-var--{{ k }}" role="img" aria-label="Die digitale Maschine: Marketing in zwei Stufen – Aufbauen (Zielgruppen, Kanäle, Medien) und Betreiben (posten, vernetzen, nachhalten). Am Ende der Messpunkt Leads. Vertrieb: Ansprechen, Terminieren, Beraten, dann Betreuen.">{{ S.ek_varianten[k] | safe }}</div>
   {%- endfor %}
   <div class="ek2 ek8-hoch">{{ S.ek_hoch | safe }}</div>
@@ -126,6 +127,7 @@ permalink: "/entwicklung/storyboard/story8/{% if s.slug %}{{ s.slug }}/{% endif 
 (function () {
   var b = document.querySelector(".ek8"); if (!b) return;
   b.querySelectorAll("[data-ek8-v]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.v = k.dataset.ek8V; b.querySelectorAll("[data-ek8-v]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
+  b.querySelectorAll("[data-ek8-form]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.form = k.dataset.ek8Form; b.querySelectorAll("[data-ek8-form]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
   b.querySelectorAll("[data-ek8-aus]").forEach(function (k) { k.addEventListener("click", function () { b.dataset.aus = k.dataset.ek8Aus; b.querySelectorAll("[data-ek8-aus]").forEach(function (x) { x.setAttribute("aria-pressed", x === k ? "true" : "false"); }); }); });
 })();
 </script>
@@ -940,7 +942,7 @@ body.s7-menue-offen { overflow: hidden; }
 .ek2-kern-s { fill: color-mix(in srgb, #fff 82%, transparent); }
 .ek2-fuge { fill: none; stroke: var(--s7-grund); stroke-width: 6; stroke-linecap: round; }
 .ek8-var { display: none; }
-.ek8[data-v="v1"] .ek8-var--v1, .ek8[data-v="v2"] .ek8-var--v2, .ek8[data-v="v3"] .ek8-var--v3 { display: block; }
+.ek8[data-v="v1"][data-form="a"] .ek8-var--v1a, .ek8[data-v="v1"][data-form="b"] .ek8-var--v1b, .ek8[data-v="v2"][data-form="a"] .ek8-var--v2a, .ek8[data-v="v2"][data-form="b"] .ek8-var--v2b { display: block; }
 .ek8-var .ek2-svg--quer { display: block !important; }
 .ek8-hoch { display: none; }
 .ek8 [class*="tr-"] { transition: opacity .25s ease, filter .25s ease; }
