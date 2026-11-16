@@ -1092,7 +1092,10 @@ body.s7-menue-offen { overflow: hidden; }
 .tm8-kopf:first-child { padding-left: 1.2rem; border-radius: 14px 0 0 14px; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); }
 .tm8-kopf:nth-child(4) { border-radius: 0 14px 14px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%); }
 .tm8-kopf b { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
-.tm8-kopf--wir { background: var(--s7-wort-verlauf); color: rgba(255,255,255,.85); }
+/* Verlauf läuft wie im Trichter einmal durch beide Stufen (Daniel, 16.11.2026) – je Kopf nur sein Abschnitt */
+.tm8-kopf--wir { background: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%); background-size: 200% 100%; color: rgba(255,255,255,.85); }
+.tm8-kopf--wir:nth-child(1) { background-position: 0% 0; }
+.tm8-kopf--wir:nth-child(2) { background-position: 100% 0; }
 .tm8-person { display: grid; justify-items: start; align-content: start; gap: 1rem; margin-top: 1.6rem; padding: 0 1.2rem 0 .4rem; }
 /* Personen (figuren9.py): gezeichnet, straight, Ganzkörper */
 .tm8 .tm8-fotos { display: flex; align-items: flex-end; height: 11rem; margin: 0; }
@@ -1103,7 +1106,10 @@ body.s7-menue-offen { overflow: hidden; }
 .tm8-person b { display: block; margin-top: .15rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
 .tm8-person span:not(.tm8-fotos) { display: block; margin-top: .3rem; color: var(--s7-text); line-height: 1.5; }
 .tm8-av { display: inline-grid; place-items: center; flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--s7-tinte); }
-.tm8-av--wir { background: var(--s7-wort-verlauf); }
+.tm8-av--wir { background: #3d5bd1; }
+.zs8 li:nth-child(1) .tm8-av--wir { background: #0b9fbd; }  /* je Schritt ein Ton, Verlauf über die Schritte */
+.zs8 li:nth-child(2) .tm8-av--wir { background: #8613a1; }
+.zs8-legende .tm8-av--wir { background: linear-gradient(100deg, #0b9fbd, #8613a1); }
 .tm8-av--kunde { background: #fff; border: 1.5px solid var(--s7-tinte); }
 .tm8-av svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tm8-av--kunde svg { stroke: var(--s7-tinte); }
