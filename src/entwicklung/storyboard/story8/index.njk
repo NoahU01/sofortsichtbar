@@ -1660,6 +1660,70 @@ body.s7-menue-offen { overflow: hidden; }
   .b9-legende i + i, .b9-legende i:not(:first-child) { margin-left: .8rem; }
   .b9-legende .b9-legende--wir { background: linear-gradient(100deg, #0b9fbd, #8613a1); }
 }
+
+/* Story 9 · Selbst machen: Arbeitsplatz der Marketing-Person (ws9-), Kontrast (k9-), Tisch (t9-) */
+.ws9 { max-width: 66rem; margin: clamp(3rem, 6vw, 4.5rem) auto 0; border-radius: 22px; background: #fff; box-shadow: 0 40px 90px rgba(29,29,31,.16), 0 0 0 1px rgba(0,0,0,.05); overflow: hidden; text-align: left; }
+.ws9-leiste { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-bottom: 1px solid #ececf0; font-size: .85rem; color: #6e6e73; }
+.ws9-leiste i { width: 11px; height: 11px; border-radius: 50%; background: #d2d2d7; }
+.ws9-leiste b { margin-left: 12px; color: #1d1d1f; font-weight: 600; }
+.ws9-ich { margin-left: auto; padding: 4px 10px 4px 26px; border-radius: 99px; background: #f5f5f7; color: #1d1d1f; font-weight: 600; position: relative; }
+.ws9-ich::before { content: ""; position: absolute; left: 6px; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: #1d1d1f; transform: translateY(-50%); }
+.ws9-flaeche { display: grid; grid-template-columns: 13rem minmax(0, 1fr) 16rem; min-height: 24rem; }
+.ws9-seite { padding: 1.3rem 1rem; border-right: 1px solid #ececf0; background: #fafafb; }
+.ws9-l { margin-bottom: .7rem; color: #6e6e73; font-size: .78rem; font-weight: 600; }
+.ws9-strecke { display: flex; align-items: center; gap: .55rem; padding: .55rem .6rem; border-radius: 10px; color: #1d1d1f; font-size: .92rem; font-weight: 500; }
+.ws9-strecke i { width: .55rem; height: .55rem; border-radius: 50%; background: #c7c7cc; }
+.ws9-strecke.an { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-weight: 600; }
+.ws9-strecke.an i { background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.ws9-strecke em { margin-left: auto; padding: 1px 7px; border-radius: 99px; background: linear-gradient(100deg, #0b9fbd, #8613a1); color: #fff; font-size: .7rem; font-style: normal; font-weight: 600; }
+.ws9-neu { margin-top: .6rem; padding: .55rem .6rem; border: 1.5px dashed #c7c7cc; border-radius: 10px; color: #6e6e73; font-size: .88rem; font-weight: 600; }
+.ws9-mitte { padding: 1.4rem 1.5rem; }
+.ws9-titel { color: #1d1d1f; font-family: var(--s7-schrift-titel); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.ws9-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+.ws9-chips span { padding: .25rem .65rem; border-radius: 99px; background: #f5f5f7; color: #1d1d1f; font-size: .8rem; font-weight: 600; }
+.ws9-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 1.2rem; }
+.ws9-post__bild { display: flex; align-items: flex-end; aspect-ratio: 4 / 5; padding: .8rem; border-radius: 12px; color: #fff; }
+.ws9-post__bild b { font-family: var(--s7-schrift-titel); font-size: 1.05rem; line-height: 1.1; letter-spacing: -0.01em; }
+.ws9-post__bild.p1 { background: linear-gradient(160deg, #0b9fbd, #3d5bd1); }
+.ws9-post__bild.p2 { background: #1d1d1f; }
+.ws9-post__bild.p3 { background: linear-gradient(160deg, #3d5bd1, #8613a1); }
+.ws9-post p { margin-top: .45rem; color: #6e6e73; font-size: .8rem; font-weight: 600; }
+.ws9-heute { display: grid; align-content: start; gap: .6rem; padding: 1.3rem 1.1rem; border-left: 1px solid #ececf0; background: #fafafb; }
+.ws9-auf { display: grid; gap: .45rem; padding: .8rem .9rem; border-radius: 12px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.07); }
+.ws9-auf b { color: #1d1d1f; font-size: .9rem; }
+.ws9-auf span { color: #6e6e73; font-size: .8rem; }
+.ws9-auf.an { box-shadow: 0 0 0 2px #3d5bd1, 0 10px 24px rgba(61,91,209,.18); }
+.ws9-auf .ws9-knopf { justify-self: start; padding: .4rem .85rem; border-radius: 99px; background: #1d1d1f; color: #fff; font-weight: 600; font-size: .8rem; }
+.k9 { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 1.5rem; max-width: 52rem; margin-top: 3rem; }
+.k9-karte { display: grid; gap: .3rem; padding: 1.6rem; border-radius: 22px; background: #fff; }
+.k9-karte b { color: #1d1d1f; font-family: var(--s7-schrift-titel); font-size: 1.4rem; letter-spacing: -0.02em; }
+.k9-karte--alt { background: transparent; box-shadow: inset 0 0 0 1.5px #d2d2d7; }
+.k9-karte--alt b { color: #8e8e93; }
+.k9-karte--neu { border: 3px solid transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(120deg, #0b9fbd, #8613a1) border-box; box-shadow: 0 20px 50px rgba(134,19,161,.15); }
+.k9-status { display: flex; align-items: center; gap: .5rem; margin-top: .6rem; color: #8e8e93; font-weight: 600; }
+.k9-status i { width: .6rem; height: .6rem; border-radius: 50%; background: #d2d2d7; }
+.k9-status--live { color: #1d1d1f; }
+.k9-status--live i { background: #34c759; box-shadow: 0 0 0 4px rgba(52,199,89,.2); }
+.k9-pfeil { width: 2rem; height: 2rem; fill: none; stroke: #1d1d1f; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.t9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: 3rem; }
+.t9-bild { display: flex; align-items: flex-end; justify-content: center; height: 18rem; margin-bottom: 1.4rem; padding: 1.4rem 1.4rem 0; border-radius: 24px; background: var(--s7-flaeche); overflow: hidden; }
+.t9-bild img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; object-position: bottom; }
+.t9-neu { align-self: center; display: grid; gap: .8rem; width: 100%; max-width: 16rem; margin-bottom: 1.4rem; }
+.t9-neu .ws9-strecke { padding: .9rem 1rem; font-size: 1.05rem; }
+.t9-neu__satz { color: #6e6e73; font-size: .9rem; font-weight: 600; text-align: center; }
+.t9-ding h3 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.4rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+.t9-ding p { margin-top: .5rem; color: var(--s7-text); line-height: 1.5; }
+.s9-app--du { background: #1d1d1f; }
+.s9-zeit__p--du::before { background: #1d1d1f; box-shadow: 0 0 0 2px #1d1d1f; }
+@media (max-width: 1000px) { .ws9-flaeche { grid-template-columns: minmax(0, 1fr) 15rem; } .ws9-seite { display: none; } }
+@media (max-width: 900px) { .t9 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) {
+  .ws9-flaeche { grid-template-columns: minmax(0, 1fr); }
+  .ws9-heute { border-left: 0; border-top: 1px solid #ececf0; }
+  .ws9-ich { display: none; }
+  .ws9-post__bild { padding: .55rem; } .ws9-post__bild b { font-size: .8rem; hyphens: auto; }
+  .k9 { grid-template-columns: minmax(0, 1fr); } .k9-pfeil { transform: rotate(90deg); justify-self: center; }
+}
 </style>
 </head>
 <body>
@@ -2430,6 +2494,108 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
         <div><p class="w9-l">{{ g.name }}</p><p class="z9-chips">{% for z in g.liste %}<a href="{{ H7 }}/zielgruppen/{{ z[2] }}/"><b>{{ z[0] }}</b><span>{{ z[1] }}</span></a>{% endfor %}</p></div>
         {%- endfor %}
       </div>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
+{%- elif s.v9 == "a" %}
+{#- Homepage-Story 9 · Selbst machen (Daniel, 17.11.2026): eine eigene Story, keine Variante des Vergleichs.
+    Situation: In der Agentur kümmert sich jemand ums Marketing und bekommt von der Zentrale nichts Brauchbares.
+    Mehrwert: Wir machen genau diese Person erfolgreich. Hauptbild: ihr Arbeitsplatz als Oberfläche. Inhalte: s7.s9.selbst -#}
+{%- set X = S.s9.selbst %}
+<main class="s9 s9-a">
+  <section class="s9-held">
+    <div class="s7-wrap">
+      <p class="s9-kicker">{{ X.kicker }}</p>
+      <h1 class="s9-h1">{{ X.h1 }}<br><span class="s7-wort">{{ X.h1_akzent }}</span></h1>
+      <p class="s9-lead">{{ X.lead }}</p>
+      <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#tisch">Was sie bekommt ›</a></div>
+      {#- Arbeitsplatz der Marketing-Person: Strecken · fertige Postings · Heute dran -#}
+      <div class="ws9" role="img" aria-label="Arbeitsplatz deiner Marketing-Person: Strecken je Zielgruppe, fertige Postings mit Termin, Aufgaben für heute mit dem Knopf Veröffentlichen">
+        <p class="ws9-leiste"><i></i><i></i><i></i><b>sofort sichtbar · Arbeitsplatz</b><span class="ws9-ich">Deine Marketing-Person</span></p>
+        <div class="ws9-flaeche">
+          <aside class="ws9-seite">
+            <p class="ws9-l">Deine Strecken</p>
+            <p class="ws9-strecke an"><i></i>Private Bauherren</p>
+            <p class="ws9-strecke"><i></i>Junge Familien</p>
+            <p class="ws9-strecke"><i></i>Berufseinsteiger</p>
+            <p class="ws9-strecke"><i></i>Landwirte <em>neu</em></p>
+            <p class="ws9-neu">+ Zielgruppe anfragen</p>
+          </aside>
+          <div class="ws9-mitte">
+            <p class="ws9-titel">Private Bauherren</p>
+            <p class="ws9-chips"><span>Landingpage live</span><span>Checkliste Hausbau</span><span>6 Postings fertig</span></p>
+            <div class="ws9-posts">
+              <div class="ws9-post"><div class="ws9-post__bild p1"><b>Bauen ist teuer genug.</b></div><p>Heute · 08:30</p></div>
+              <div class="ws9-post"><div class="ws9-post__bild p2"><b>Checkliste Hausbau</b></div><p>Donnerstag</p></div>
+              <div class="ws9-post"><div class="ws9-post__bild p3"><b>Rohbau versichert?</b></div><p>Nächste Woche</p></div>
+            </div>
+          </div>
+          <div class="ws9-heute">
+            <p class="ws9-l">Heute dran</p>
+            <div class="ws9-auf an"><b>Posting Bauherren</b><span class="ws9-knopf">Veröffentlichen</span></div>
+            <div class="ws9-auf"><b>Mit 5 Bauherren vernetzen</b><span>Vorschläge liegen bereit</span></div>
+            <div class="ws9-auf"><b>Rückruf Familie K.</b><span>an deinen Vertrieb</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.kontrast_h2 }}<br><span class="s7-wort">{{ X.kontrast_akzent }}</span></h2>
+      <div class="k9" aria-hidden="true">
+        <div class="k9-karte k9-karte--alt"><p class="ws9-l">Anfrage an die Zentrale</p><b>Posting-Idee Landwirte</b><p class="k9-status"><i></i>in Abstimmung …</p></div>
+        <svg class="k9-pfeil" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="k9-karte k9-karte--neu"><p class="ws9-l">Bei sofort sichtbar</p><b>Strecke Landwirte</b><p class="k9-status k9-status--live"><i></i>live</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band" id="tisch">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.tisch_h2 }}</h2>
+      <div class="t9">
+        {%- for t in X.tisch %}
+        <article class="t9-ding">
+          <div class="t9-bild" aria-hidden="true">{% if t[2] %}<img src="{{ t[2] }}" alt="" loading="lazy">{% else %}<div class="t9-neu"><p class="ws9-strecke an"><i></i>Landwirte <em>neu</em></p><p class="t9-neu__satz">Angefragt Montag · live Freitag</p></div>{% endif %}</div>
+          <h3>{{ t[0] }}</h3><p>{{ t[1] }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap s9-bsp">
+      <div><h2 class="s9-h2">{{ X.tag_h2 }}<br><span class="s7-wort">{{ X.tag_akzent }}</span></h2><p class="s9-bsp__satz">Sie muss sich nichts ausdenken. Sie setzt ein, vernetzt sich und gibt die Anfragen weiter.</p></div>
+      <ol class="s9-zeit">
+        {%- for x in X.tag %}
+        <li class="s9-zeit__p s9-zeit__p--{{ x[2] }}"><span class="s9-zeit__wann">{{ x[0] }}</span><div class="s9-note s9-note--flach"><span class="s9-app s9-app--{{ 'ihr' if x[2] == 'du' else x[2] }}"></span><div><b>{{ x[1] }}</b></div></div></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section class="s9-band" id="start">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.start_h2 }}</h2>
+      <ol class="s9-schritte">{% for x in S.weg_a.start.liste %}<li><span>{{ x.wann }}</span><b>{{ x.titel }}</b></li>{% endfor %}</ol>
+      <div class="s9-preis s9-preis--zwei">
+        {%- for p in S.pakete.liste %}{% if p.id != "komplett" %}
+        <div class="s9-paket"><p class="s9-wer">Paket</p><p class="s9-preis__name">{{ p.name }}</p><p class="s9-paket__fuer">{{ p.fuer }}</p></div>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- set DL = S.weg_a.download %}
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap s9-pdf">
+      <div class="s9-pdf__bild" aria-hidden="true"><img src="{{ DL.pfad }}/{{ DL.bild2 }}" alt="" width="637" height="900"><img src="{{ DL.pfad }}/{{ DL.bild1 }}" alt="" width="636" height="900"></div>
+      <div><h2 class="s9-h2">Alles im Detail.</h2><p class="s9-lead s9-lead--dunkel">Zum Weitergeben an deine Marketing-Person.</p><a class="s7-knopf" href="{{ DL.pfad }}/{{ DL.datei }}" target="_blank" rel="noopener">PDF herunterladen <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a></div>
     </div>
   </section>
 

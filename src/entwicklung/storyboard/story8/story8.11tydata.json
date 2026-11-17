@@ -2398,6 +2398,63 @@
             "ihr"
           ]
         ]
+      },
+      "selbst": {
+        "_quelle": "Daniel, 17.11.2026: Selbst machen = Agentur hat jemanden für Social Media/Marketing; diese Person machen wir erfolgreich; Frust über das Marketing der Zentrale (nichts Brauchbares, dauert ewig). Nur „wir“ und „dein Team“, keine weitere Unterscheidung.",
+        "kicker": "Selbst machen · für Agenturen mit eigener Marketing-Person",
+        "h1": "Deine Marketing-Person.",
+        "h1_akzent": "Mit Profi-Team im Rücken.",
+        "lead": "Fertige Strecken, ein gefüllter Posting-Plan und ein Dashboard, das sagt, was dran ist. Sie setzt ein – wir liefern nach.",
+        "kontrast_h2": "Die Zentrale plant fürs nächste Jahr.",
+        "kontrast_akzent": "Deine Marketing-Person postet heute.",
+        "tisch_h2": "Das landet auf ihrem Tisch.",
+        "tisch": [
+          [
+            "Fertige Strecken für 20 Zielgruppen",
+            "Landingpage, Postings, Checkliste – im Look deiner Agentur.",
+            "/assets/img/pages/vertriebsstrecken-hero-2-800.webp"
+          ],
+          [
+            "Ein Posting-Plan, der schon gefüllt ist",
+            "Sie wählt aus und veröffentlicht mit einem Klick.",
+            "/assets/img/preview-postings.png"
+          ],
+          [
+            "Neue Zielgruppe? In wenigen Tagen.",
+            "Fehlt ihr ein Thema, bauen wir es. Ohne Antrag, ohne Abstimmungsschleife.",
+            ""
+          ]
+        ],
+        "tag_h2": "Ein Dienstag",
+        "tag_akzent": "deiner Marketing-Person.",
+        "tag": [
+          [
+            "08:30",
+            "Das Dashboard zeigt: Posting Bauherren ist dran",
+            "wir"
+          ],
+          [
+            "08:32",
+            "Veröffentlicht – mit einem Klick",
+            "du"
+          ],
+          [
+            "11:00",
+            "Mit fünf Bauherren aus der Region vernetzt",
+            "du"
+          ],
+          [
+            "19:12",
+            "Familie K. lädt die Checkliste Hausbau",
+            "kunde"
+          ],
+          [
+            "Mi 09:00",
+            "Rückruf an deinen Vertrieb übergeben",
+            "du"
+          ]
+        ],
+        "start_h2": "In vier Schritten startklar."
       }
     }
   }
