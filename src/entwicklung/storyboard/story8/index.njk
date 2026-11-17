@@ -1814,6 +1814,18 @@ body.s7-menue-offen { overflow: hidden; }
 .px9-chat { display: grid; gap: 4px; }
 .px9-chat__wer { color: #6e6e73; font-size: 11px; font-weight: 600; }
 .px9-chat__blase { padding: 10px 12px; border-radius: 16px 16px 16px 4px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.08); color: #1d1d1f; font-size: 12.5px; line-height: 1.4; }
+
+/* Erklärvideo und Storyboard (vd9-, sb9-) */
+.vd9 { display: block; width: 100%; margin-top: 1.6rem; border-radius: 22px; background: #000; box-shadow: 0 0 0 1px var(--s7-linie); }
+.vd9 + .gs9-h2, .sb9 + .gs9-h2 { margin-top: 4.5rem; }
+.gs9-h2--abstand { padding-top: 2rem; }
+.sb9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 1.2rem; margin: 1.6rem 0 0; padding: 0; list-style: none; }
+.sb9 img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--s7-linie); }
+.sb9-zeit { margin-top: .7rem; color: var(--s7-grau); font-size: .85rem; font-weight: 600; }
+.sb9-satz { margin-top: .2rem; color: var(--s7-tinte); font-weight: 700; line-height: 1.35; }
+.sb9-bild { margin-top: .3rem; color: var(--s7-text); font-size: .95rem; line-height: 1.5; }
+@media (max-width: 900px) { .sb9 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (max-width: 560px) { .sb9 { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -2603,6 +2615,17 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       {#- Die Grundstory in einem Bild, 3. Fassung (Daniel, 17.11.2026): „Der Weg von Familie K.“ – eine Hauptfigur als farbiger Faden, ein Zeichenstil. Erzeugt von grundbild9.py -#}
       <h2 class="gs9-h2">Der Weg von Familie K.</h2>
       <div class="px9-rahmen gb9-rahmen">{{ S.s9.grundbild | safe }}</div>
+      {#- Erklärvideo und Storyboard (Daniel, 17.11.2026): erzeugt mit video9/ -#}
+      {%- set V = S.s9.video %}{% set VP = "/entwicklung/storyboard/story8/assets/video" %}
+      <h2 class="gs9-h2">{{ V.h2 }}</h2>
+      <p class="gs9-lead">{{ V.lead }}</p>
+      <video class="vd9" controls preload="metadata" playsinline poster="{{ VP }}/poster.webp" src="{{ VP }}/grundstory.mp4"></video>
+      <h2 class="gs9-h2">Storyboard</h2>
+      <ol class="sb9">
+        {%- for x in V.szenen %}
+        <li><img src="{{ VP }}/sb-{{ loop.index }}.webp" alt="" width="960" height="540" loading="lazy"><p class="sb9-zeit">Szene {{ loop.index }} · {{ x[0] }}</p><p class="sb9-satz">{{ x[1] }}</p><p class="sb9-bild">{{ x[2] }}</p></li>
+        {%- endfor %}
+      </ol>
       <h2 class="gs9-h2 gs9-h2--abstand">Die Logik in sieben Teilen</h2>
     </div>
     <div class="s7-wrap gs9-wrap">

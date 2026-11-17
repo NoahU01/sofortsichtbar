@@ -1,0 +1,7 @@
+# Erklärvideo Grundstory (Story 9)
+
+1. `python3 film_bauen.py` erzeugt `film.html` (Szenen, Sätze, Animationen; Zeiten in Sekunden).
+2. `node aufnahme.mjs film` nimmt 25 Bilder je Sekunde nach `fr/` auf (Animationen werden Bild für Bild gesetzt).
+3. `ffmpeg -framerate 25 -i fr/f%04d.png -c:v libx264 -pix_fmt yuv420p -crf 21 -movflags +faststart grundstory.mp4`
+4. Ergebnis nach `../assets/video/` kopieren; Storyboard-Bilder `sb-1…9.webp` aus den Szenenmitten.
+Arbeitsdateien (`film.html`, `fr/`) nicht ins Repo.
