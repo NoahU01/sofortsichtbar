@@ -2322,7 +2322,83 @@
         ]
       ],
       "pdf_h2": "Alles im Detail.",
-      "pdf_lead": "Rollen, Leistungen und Start – zum Weitergeben."
+      "pdf_lead": "Rollen, Leistungen und Start – zum Weitergeben.",
+      "start": {
+        "kicker": "Für Versicherungsagenturen und Maklerbüros",
+        "h1": "Fertige Vertriebsstrecken.",
+        "h1_akzent": "Für jede Zielgruppe.",
+        "lead": "Postings und Landingpages, die Gesprächsanlässe bringen – im Look deiner Agentur, in Tagen gestartet.",
+        "wege_h2": "Selbst machen",
+        "wege_akzent": "oder machen lassen.",
+        "wege": {
+          "a": {
+            "name": "Selbst machen",
+            "satz": "Wir liefern die Strecken. Dein Team betreibt sie.",
+            "wir": [
+              "Fertige Strecken für 20 Zielgruppen",
+              "Dashboard mit Aufgaben und Anleitung",
+              "Neue Zielgruppen in wenigen Tagen"
+            ],
+            "du": [
+              "Dein Team postet, vernetzt und hält nach",
+              "Du führst die Gespräche"
+            ],
+            "fuer": "Für Agenturen, in denen sich jemand ums Marketing kümmert.",
+            "preis": "Fokus oder Team",
+            "einheit": "Preis im Gespräch",
+            "link": "/entwicklung/storyboard/story9/selbst-machen/"
+          },
+          "b": {
+            "name": "Machen lassen",
+            "satz": "Wir liefern die Strecken und betreiben sie.",
+            "wir": [
+              "Alles aus Selbst machen",
+              "Wir posten, vernetzen und halten nach",
+              "Jeden Monat ein Call mit Empfehlung"
+            ],
+            "du": [
+              "Du führst die Gespräche"
+            ],
+            "fuer": "Für Agenturen ohne eigene Person fürs Marketing.",
+            "preis": "ab 1.800 €",
+            "einheit": "pro Monat",
+            "link": "/entwicklung/storyboard/story9/machen-lassen/"
+          }
+        },
+        "zg_h2": "20 Zielgruppen.",
+        "zg_akzent": "Fertig zum Ansprechen."
+      },
+      "balken": {
+        "a": [
+          [
+            "Machen wir",
+            1,
+            "wir"
+          ],
+          [
+            "Macht dein Team",
+            1,
+            "ihr"
+          ],
+          [
+            "Macht deine Agentur",
+            2,
+            "ihr"
+          ]
+        ],
+        "b": [
+          [
+            "Machen wir",
+            2,
+            "wir"
+          ],
+          [
+            "Macht deine Agentur",
+            2,
+            "ihr"
+          ]
+        ]
+      }
     }
   }
 }

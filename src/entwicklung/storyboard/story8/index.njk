@@ -12,6 +12,10 @@ seiten:
     titel: "Selbst machen"
   - slug: "marketing-as-a-service"
     titel: "Machen lassen"
+  - slug: "s9-start"
+    titel: "Startseite"
+    v9: "start"
+    pfad: "story9/"
   - slug: "s9-selbst-machen"
     titel: "Selbst machen"
     v9: "a"
@@ -198,6 +202,18 @@ permalink: "/entwicklung/storyboard/{% if s.pfad %}{{ s.pfad }}{% else %}story8/
 {%- elif n == "gespraech" %}<path d="M4 5h16v10.5H10l-6 4z M8 9.5h8 M8 12.5h5"/>
 {%- elif n == "haus" %}<path d="M3.5 11L12 4l8.5 7 M6 9.5V20h12V9.5 M10 20v-5h4v5"/>
 {%- endif %}</svg>
+{%- endmacro -%}
+{%- macro balken9(art, klein=false) -%}
+  {#- Story 9: das eine Unterscheidungsmerkmal – vier Stufen, farbig = machen wir, schwarz = machst du (Daniel, 17.11.2026) -#}
+  {%- set B = S.s9.balken[art] %}{% set ST = S.team8.v2.a.spalten %}
+  <div class="b9{% if klein %} b9--klein{% endif %}" role="img" aria-label="{% for g in B %}{{ g[0] }}{% if not loop.last %}, {% endif %}{% endfor %}">
+    <div class="b9-wer">{% for g in B %}<span class="b9-wer--{{ g[2] }}" style="grid-column: span {{ g[1] }}">{{ g[0] }}</span>{% endfor %}</div>
+    <div class="b9-stufen">
+      {%- set nwir = 2 if art == "b" else 1 %}
+      {%- for i in range(4) %}<span class="b9-stufe{% if i < nwir %} b9-stufe--wir b9-stufe--teil{{ i }}{% if art == "a" %} b9-stufe--halb{% endif %}{% endif %}"><b>{{ ST[i][0] }}</b>{% if not klein %}<small>{{ ST[i][1] }}</small>{% endif %}</span>{% endfor %}
+    </div>
+    <p class="b9-legende"><i class="b9-legende--wir"></i>Machen wir <i></i>Machst du</p>
+  </div>
 {%- endmacro -%}
 {%- macro mehrwert(MW) -%}
   {#- Was du bekommst (Daniel, 16.11.2026): positiv, aus Sicht der Agentur, darf provozieren – dunkles Band, je Punkt ein echtes Produktbild, freigestellt, ohne Kästen -#}
@@ -1458,17 +1474,21 @@ body.s7-menue-offen { overflow: hidden; }
 /* ================= Homepage-Story 9 (s9-): reduziert, visualisiert, Blick gelenkt (Daniel, 17.11.2026) =================
    Je Abschnitt eine Aussage, das Bild führt. Farben und Schriften wie Story 8; dunkle Bühne im Kopf, Bento mit Produktbildern,
    Schalter als interaktiver Moment, Benachrichtigungen statt Text für das Beispiel. */
-.s9-kicker { color: #a1a1a6; font-size: 1.05rem; font-weight: 600; }
-.s9 .s9-held .s9-h1 { margin-top: .8rem; color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-wrap: balance; }
+.s9-kicker { color: var(--s7-grau); font-size: 1.05rem; font-weight: 600; }
+.s9 .s9-held .s9-h1 { margin-top: .8rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-wrap: balance; }
 .s9-h2 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; }
-.s9-lead { max-width: 34rem; margin: 1.6rem auto 0; color: #c7c7cc; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; }
+.s9-lead { max-width: 36rem; margin: 1.6rem auto 0; color: var(--s7-text); font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; }
 .s9-lead--dunkel { margin: 1.2rem 0 2rem; color: var(--s7-text); }
 .s9-band { padding-block: clamp(5rem, 10vw, 8.5rem); }
 .s9-band--flaeche { background: var(--s7-flaeche); }
 .s9-band--tinte { background: #0e0e10; }
 .s9-band--tinte .s9-h2 { color: #fff; }
 /* Kopf: dunkle Bühne, zentriert, Produktbild mit Benachrichtigungen */
-.s9-held { padding-block: clamp(4rem, 8vw, 7rem) 0; overflow: hidden; background: radial-gradient(60% 55% at 50% 100%, rgba(134,19,161,.45), transparent 70%), radial-gradient(45% 45% at 30% 90%, rgba(11,159,189,.35), transparent 70%), #0e0e10; text-align: center; }
+.s9-held { padding-block: clamp(4rem, 8vw, 6.5rem) clamp(3rem, 6vw, 5rem); overflow: hidden; background: radial-gradient(50% 40% at 50% 100%, rgba(134,19,161,.10), transparent 70%), radial-gradient(40% 40% at 25% 95%, rgba(11,159,189,.10), transparent 70%), #fff; text-align: center; }
+.s9-held:has(.s9-buehne) { padding-bottom: 0; }
+.s9-link { color: var(--s7-tinte); font-weight: 600; text-decoration: none; }
+.s9-link:hover { text-decoration: underline; }
+.s9-kopfbalken { max-width: 64rem; margin: clamp(3rem, 6vw, 4.5rem) auto 0; text-align: left; }
 .s9-knoepfe { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.6rem; margin-top: 2.2rem; }
 .s9 .s9-knopf-hell { background: #fff; color: #1d1d1f; }
 .s9 .s9-knopf-hell .s7-pfeil { stroke: #1d1d1f; }
@@ -1476,7 +1496,7 @@ body.s7-menue-offen { overflow: hidden; }
 .s9-link-hell:hover { text-decoration: underline; }
 .s9-buehne { position: relative; max-width: 62rem; margin: clamp(3rem, 6vw, 4.5rem) auto 0; }
 .s9-buehne__bild { display: block; width: 100%; height: auto; margin-bottom: -2px; }
-.s9-note { display: flex; align-items: center; gap: .8rem; padding: .85rem 1.1rem .85rem .85rem; border-radius: 18px; background: rgba(255,255,255,.92); box-shadow: 0 20px 50px rgba(0,0,0,.35); backdrop-filter: blur(12px); text-align: left; }
+.s9-note { display: flex; align-items: center; gap: .8rem; padding: .85rem 1.1rem .85rem .85rem; border-radius: 18px; background: rgba(255,255,255,.94); box-shadow: 0 20px 50px rgba(0,0,0,.14), 0 0 0 1px rgba(0,0,0,.04); backdrop-filter: blur(12px); text-align: left; }
 .s9-note b { display: block; color: #1d1d1f; font-size: .98rem; }
 .s9-note small { display: block; color: #6e6e73; font-size: .85rem; }
 .s9-buehne .s9-note { position: absolute; }
@@ -1531,14 +1551,14 @@ body.s7-menue-offen { overflow: hidden; }
 .s9-satz .s7-link { margin-left: .6rem; }
 /* Beispiel: Benachrichtigungen auf einer Zeitachse */
 .s9-bsp { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: clamp(2rem, 5vw, 4rem); }
-.s9-bsp__satz { margin-top: 1.4rem; max-width: 26rem; color: #a1a1a6; font-size: 1.15rem; line-height: 1.5; }
+.s9-bsp__satz { margin-top: 1.4rem; max-width: 26rem; color: var(--s7-text); font-size: 1.15rem; line-height: 1.5; }
 .s9-zeit { position: relative; display: grid; gap: 1rem; max-width: 36rem; margin: 0; padding: 0 0 0 7.5rem; list-style: none; }
-.s9-zeit::before { content: ""; position: absolute; left: 6.2rem; top: 1.4rem; bottom: 1.4rem; border-left: 2px solid #3a3a3c; }
+.s9-zeit::before { content: ""; position: absolute; left: 6.2rem; top: 1.4rem; bottom: 1.4rem; border-left: 2px solid var(--s7-linie); }
 .s9-zeit__p { position: relative; }
-.s9-zeit__wann { position: absolute; left: -7.5rem; top: 50%; transform: translateY(-50%); width: 5.6rem; color: #a1a1a6; font-size: .95rem; font-weight: 600; text-align: right; }
-.s9-zeit__p::before { content: ""; position: absolute; left: -1.62rem; top: 50%; width: .75rem; height: .75rem; border-radius: 50%; background: #0e0e10; box-shadow: 0 0 0 2px #a1a1a6; transform: translateY(-50%); }
+.s9-zeit__wann { position: absolute; left: -7.5rem; top: 50%; transform: translateY(-50%); width: 5.6rem; color: var(--s7-grau); font-size: .95rem; font-weight: 600; text-align: right; }
+.s9-zeit__p::before { content: ""; position: absolute; left: -1.62rem; top: 50%; width: .75rem; height: .75rem; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px #c7c7cc; transform: translateY(-50%); }
 .s9-zeit__p--wir::before { background: #8613a1; box-shadow: 0 0 0 2px #8613a1; }
-.s9-note--flach { box-shadow: none; }
+.s9-note--flach { box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05); background: #fff; }
 /* Start und Preis */
 .s9-schritte { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; margin: 3rem 0 0; padding: 0; list-style: none; counter-reset: s9; }
 .s9-schritte li { display: grid; gap: .4rem; padding: 1.4rem 0 0; border-top: 3px solid var(--s7-tinte); }
@@ -1581,6 +1601,65 @@ body.s7-menue-offen { overflow: hidden; }
   .s9-buehne .s9-note { position: static; margin: .6rem auto 0; max-width: 20rem; transform: none; }
   .s9-pdf__bild { height: 18rem; } .s9-pdf__bild img { width: 11rem; }
 }
+
+/* Story 9: Stufenbalken (b9-) – farbig = machen wir, schwarz = machst du */
+.b9 { display: grid; gap: .6rem; }
+.b9-wer, .b9-stufen { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.b9-wer span { padding-bottom: .4rem; border-bottom: 2px solid var(--s7-tinte); color: var(--s7-tinte); font-size: .95rem; font-weight: 700; }
+.b9-wer .b9-wer--wir { border-image: linear-gradient(100deg, #0b9fbd, #8613a1) 1; background: linear-gradient(100deg, #0b9fbd, #8613a1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.b9-stufe { display: grid; gap: .15rem; padding: 1rem 1.4rem 1rem 1.6rem; background: var(--s7-tinte); color: #fff; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); }
+.b9-stufe:first-child { padding-left: 1.1rem; border-radius: 14px 0 0 14px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); }
+.b9-stufe:last-child { border-radius: 0 14px 14px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 14px 50%); }
+.b9-stufe b { font-family: var(--s7-schrift-titel); font-size: clamp(1rem, 1.6vw, 1.3rem); font-weight: 700; letter-spacing: -0.02em; }
+.b9-stufe small { color: rgba(255,255,255,.7); font-size: .85rem; }
+.b9-stufe--wir { background: linear-gradient(100deg, #0b9fbd 0%, #8613a1 100%); background-size: 200% 100%; }
+.b9-stufe--teil0 { background-position: 0% 0; }
+.b9-stufe--teil1 { background-position: 100% 0; }
+.b9-stufe--halb { background-size: 200% 100%; background-position: 0% 0; }
+.b9--klein .b9-stufe { padding: .7rem .9rem .7rem 1.3rem; }
+.b9--klein .b9-stufe:first-child { padding-left: .9rem; }
+.b9--klein .b9-stufe b { font-size: .95rem; }
+.b9--klein .b9-wer span { font-size: .85rem; }
+/* Startseite: zwei Wege, deutlich verschieden */
+.w9 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; margin-top: 3rem; }
+.w9-weg { display: flex; flex-direction: column; gap: 1.4rem; padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 28px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); }
+.w9-weg--b { box-shadow: 0 0 0 3px transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(120deg, #0b9fbd, #8613a1) border-box; border: 3px solid transparent; }
+.w9-name { color: var(--s7-grau); font-size: 1rem; font-weight: 700; }
+.w9-weg--b .w9-name { background: linear-gradient(100deg, #0b9fbd, #8613a1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.w9-weg h3 { margin-top: -.8rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; }
+.w9-listen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; }
+.w9-l { margin-bottom: .5rem; color: var(--s7-tinte); font-size: .9rem; font-weight: 700; }
+.w9-l--wir { background: linear-gradient(100deg, #0b9fbd, #8613a1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.w9-listen ul { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.w9-listen li { position: relative; padding-left: 1.2rem; color: var(--s7-text); line-height: 1.4; }
+.w9-listen li::before { content: ""; position: absolute; left: 0; top: .5em; width: .5rem; height: .5rem; border-radius: 50%; background: var(--s7-tinte); }
+.w9-listen div:first-child li::before { background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.w9-fuer { color: var(--s7-grau); }
+.w9-fuss { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1.4rem; border-top: 1px solid var(--s7-linie); }
+.w9-fuss b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.8rem; letter-spacing: -0.03em; }
+.w9-fuss span { color: var(--s7-grau); font-size: .95rem; }
+/* Zielgruppen */
+.z9 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; margin-top: 3rem; }
+.z9-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.z9-chips a { display: grid; padding: .7rem 1rem; border-radius: 14px; background: #fff; text-decoration: none; box-shadow: 0 0 0 1px var(--s7-linie); }
+.z9-chips a:hover { box-shadow: 0 0 0 2px var(--s7-tinte); }
+.z9-chips b { color: var(--s7-tinte); font-weight: 600; }
+.z9-chips span { color: var(--s7-grau); font-size: .85rem; }
+@media (max-width: 900px) {
+  .w9, .w9-listen, .z9 { grid-template-columns: minmax(0, 1fr); }
+  .b9-stufe small { display: none; }
+}
+.b9-legende { display: none; }
+@media (max-width: 560px) {
+  .b9-wer { display: none; }
+  .b9-stufen { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
+  .b9 .b9-stufe, .b9 .b9-stufe:first-child, .b9 .b9-stufe:last-child { padding: .8rem 1rem; border-radius: 12px; clip-path: none; }
+  .b9 .b9-stufe b { font-size: 1rem; }
+  .b9-legende { display: flex; align-items: center; gap: .45rem; color: var(--s7-grau); font-size: .85rem; font-weight: 600; }
+  .b9-legende i { width: .8rem; height: .8rem; border-radius: 3px; background: var(--s7-tinte); }
+  .b9-legende i + i, .b9-legende i:not(:first-child) { margin-left: .8rem; }
+  .b9-legende .b9-legende--wir { background: linear-gradient(100deg, #0b9fbd, #8613a1); }
+}
 </style>
 </head>
 <body>
@@ -1593,13 +1672,13 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}Unterseite {{ s.titel }} · reduziert und visualisiert{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite{% else %}Unterseite {{ s.titel }}{% endif %} · reduziert und visualisiert{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
   <div class="s7-wrap">
     <div class="s7-marke">
-      <a href="{{ H7 }}/" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
+      <a href="{% if s.v9 %}/entwicklung/storyboard/story9/{% else %}{{ H7 }}/{% endif %}" aria-label="sofort sichtbar – Startseite"><img src="{{ B6 }}/assets/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a>
       <div class="s7-dd" data-s7-dd>
         <button type="button" class="s7-dd__auf" aria-expanded="false" aria-controls="s7-dd-panel" aria-label="Entwicklungsmenü öffnen"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4z"/></svg></button>
         <div class="s7-dd__panel" id="s7-dd-panel" hidden>
@@ -2291,6 +2370,71 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   });
 });
 </script>
+{%- elif s.v9 == "start" %}
+{#- Homepage-Story 9 · Startseite (Daniel, 17.11.2026): hell, sofort klar, was man bekommt; die zwei Wege direkt nach dem Kopf,
+    deutlich verschieden über den Stufenbalken (farbig = machen wir). Inhalte: s7.s9.start -#}
+{%- set Z = S.s9 %}{% set X = Z.start %}
+<main class="s9">
+  <section class="s9-held">
+    <div class="s7-wrap">
+      <p class="s9-kicker">{{ X.kicker }}</p>
+      <h1 class="s9-h1">{{ X.h1 }}<br><span class="s7-wort">{{ X.h1_akzent }}</span></h1>
+      <p class="s9-lead">{{ X.lead }}</p>
+      <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#wege">Zwei Wege ansehen ›</a></div>
+      <div class="s9-buehne" aria-hidden="true">
+        <img class="s9-buehne__bild" src="/assets/img/zielgruppen/bauherren-style-3.webp" alt="" width="1200" height="800">
+        <div class="s9-note s9-note--1"><span class="s9-app"></span><div><b>Posting ist live</b><small>Private Bauherren · jetzt</small></div></div>
+        <div class="s9-note s9-note--2"><span class="s9-app"></span><div><b>Neue Anfrage</b><small>Familie K. · Rückruf gewünscht</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche" id="wege">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.wege_h2 }} <span class="s7-wort">{{ X.wege_akzent }}</span></h2>
+      <div class="w9">
+        {%- for id in ["a", "b"] %}{% set W = X.wege[id] %}
+        <article class="w9-weg w9-weg--{{ id }}">
+          <p class="w9-name">{{ W.name }}</p>
+          <h3>{{ W.satz }}</h3>
+          {{ balken9(id, true) }}
+          <div class="w9-listen">
+            <div><p class="w9-l w9-l--wir">Machen wir</p><ul>{% for x in W.wir %}<li>{{ x }}</li>{% endfor %}</ul></div>
+            <div><p class="w9-l">Machst du</p><ul>{% for x in W.du %}<li>{{ x }}</li>{% endfor %}</ul></div>
+          </div>
+          <p class="w9-fuer">{{ W.fuer }}</p>
+          <div class="w9-fuss"><p><b>{{ W.preis }}</b><span>{{ W.einheit }}</span></p><a class="s7-knopf{% if id == "a" %} s7-knopf--rand{% endif %}" href="{{ W.link }}">{{ W.name }} {{ pfeil | safe }}</a></div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band">
+    <div class="s7-wrap s9-bsp">
+      <div><h2 class="s9-h2">{{ Z.beispiel_h2 }}<br><span class="s7-wort">{{ Z.beispiel_akzent }}</span></h2><p class="s9-bsp__satz">Ein Posting, eine Checkliste, ein Rückruf. Fünf Momente vom ersten Kontakt bis zur Beratung.</p></div>
+      <ol class="s9-zeit">
+        {%- for x in Z.beispiel %}{% set w = ("wir" if x[3] == "wir" else x[3]) %}
+        <li class="s9-zeit__p s9-zeit__p--{{ w }}"><span class="s9-zeit__wann">{{ x[0] }}</span><div class="s9-note s9-note--flach"><span class="s9-app s9-app--{{ w }}"></span><div><b>{{ x[1] }}</b><small>{{ x[2] }}</small></div></div></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  {%- set ZG = S.zielgruppen %}
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap">
+      <h2 class="s9-h2">{{ X.zg_h2 }} <span class="s7-wort">{{ X.zg_akzent }}</span></h2>
+      <div class="z9">
+        {%- for g in ZG.gruppen %}
+        <div><p class="w9-l">{{ g.name }}</p><p class="z9-chips">{% for z in g.liste %}<a href="{{ H7 }}/zielgruppen/{{ z[2] }}/"><b>{{ z[0] }}</b><span>{{ z[1] }}</span></a>{% endfor %}</p></div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {{ kontaktBand() }}
+</main>
 {%- elif s.v9 %}
 {#- Homepage-Story 9 (Daniel, 17.11.2026): dieselben Inhalte wie Story 8, aber reduziert und visualisiert – Landingpage-Charakter.
     Je Abschnitt eine Aussage in wenigen Worten, das Bild führt; ein interaktiver Moment (Schalter Selbst machen / Machen lassen).
@@ -2302,12 +2446,8 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s9-kicker">{{ X.kicker }}</p>
       <h1 class="s9-h1">{{ X.h1 }}<br><span class="s7-wort">{{ X.h1_akzent }}</span></h1>
       <p class="s9-lead">{{ X.lead }}</p>
-      <div class="s9-knoepfe"><a class="s7-knopf s9-knopf-hell" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link-hell" href="#was">{{ X.knopf2 }} ›</a></div>
-      <div class="s9-buehne" aria-hidden="true">
-        <img class="s9-buehne__bild" src="/assets/img/preview-landingpages.png" alt="" width="900" height="494">
-        <div class="s9-note s9-note--1"><span class="s9-app"></span><div><b>Posting ist live</b><small>Private Bauherren · jetzt</small></div></div>
-        <div class="s9-note s9-note--2"><span class="s9-app"></span><div><b>Neue Anfrage</b><small>Familie K. · Rückruf gewünscht</small></div></div>
-      </div>
+      <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#was">{{ X.knopf2 }} ›</a></div>
+      <div class="s9-kopfbalken">{{ balken9(art) }}</div>
     </div>
   </section>
 
@@ -2358,7 +2498,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
-  <section class="s9-band s9-band--tinte">
+  <section class="s9-band s9-band--flaeche">
     <div class="s7-wrap s9-bsp">
       <div><h2 class="s9-h2">{{ Z.beispiel_h2 }}<br><span class="s7-wort">{{ Z.beispiel_akzent }}</span></h2><p class="s9-bsp__satz">Ein Posting, eine Checkliste, ein Rückruf. Fünf Momente vom ersten Kontakt bis zur Beratung.</p></div>
       <ol class="s9-zeit">
