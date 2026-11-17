@@ -15,7 +15,7 @@
  * Umgebungsvariablen wie api/track.js: SUPABASE_URL, SUPABASE_SECRET_KEY
  */
 
-const STARTSEITE = "https://sofortsichtbar.de/";
+const STARTSEITE = "https://www.sofortsichtbar.de/";
 const TOKEN = /^[0-9a-f]{64}$/;
 
 async function rpc(fn, args) {
