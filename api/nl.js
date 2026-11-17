@@ -4,6 +4,10 @@
  *   GET  /n/<token>/<nr>          (Rewrite → /api/nl?k=<token>&l=<nr>)
  *        Klick-Weiterleitung: Ziel holen, Klick protokollieren (falls im
  *        Newsletter eingeschaltet), 302 aufs Ziel. Unbekannt → Startseite.
+ *   GET  /o/<token>               (Rewrite → /api/nl?o=<token>)
+ *        Zählpixel (1×1 GIF). Steht nur in Mails an Empfänger mit Einwilligung.
+ *        Abrufe von Apple-Servern (Mail Privacy Protection, IP-Bereich 17.0.0.0/8)
+ *        werden als „unsicher“ markiert – die IP selbst wird nicht gespeichert.
  *   GET  /api/nl?abmelden=<token>  → weiter zur Abmeldeseite (bestätigen per Klick;
  *        GET meldet NICHT ab, weil Link-Scanner der Mailprogramme Links vorab öffnen)
  *   POST /api/nl?abmelden=<token>  → abmelden. Das nutzen die Abmeldeseite und die
@@ -11,6 +15,9 @@
  *
  * Keine Cookies, keine IP-Adressen. Für die Klickmessung wird nur der
  * User-Agent ausgewertet, um Link-Scanner herauszufiltern (nicht gespeichert).
+ * Links zu sofortsichtbar.de bekommen beim Klick einen einmaligen Schlüssel
+ * (nlk), über den api/track.js den Besuch dem Kontakt zuordnet – nur mit
+ * Statistik-Einwilligung auf der Website.
  *
  * Umgebungsvariablen wie api/track.js: SUPABASE_URL, SUPABASE_SECRET_KEY
  */
@@ -35,8 +42,27 @@ function weiter(ziel) {
   return new Response(null, { status: 302, headers: { Location: ziel, ...ohneCache, "Referrer-Policy": "no-referrer" } });
 }
 
+// 1×1 transparentes GIF
+const PIXEL = Uint8Array.from(atob("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"), (c) => c.charCodeAt(0));
+function pixel() {
+  return new Response(PIXEL, { status: 200, headers: { "Content-Type": "image/gif", "Content-Length": String(PIXEL.length), ...ohneCache } });
+}
+function vonApple(request) {
+  const ip = (request.headers.get("x-real-ip") || request.headers.get("x-forwarded-for") || "").split(",")[0].trim();
+  return /^17\./.test(ip);
+}
+
 export async function GET(request) {
   const p = new URL(request.url).searchParams;
+  const o = p.get("o");
+  if (o !== null) {
+    if (TOKEN.test(o)) {
+      try {
+        await rpc("newsletter_oeffnung", { p_token: o, p_ua: (request.headers.get("user-agent") || "").slice(0, 300) || null, p_apple: vonApple(request) });
+      } catch (err) { console.error("[nl] Öffnung", err); }
+    }
+    return pixel();
+  }
   const abmelden = p.get("abmelden");
   if (abmelden !== null) {
     return weiter("/newsletter/abmelden" + (TOKEN.test(abmelden) ? "?t=" + abmelden : ""));

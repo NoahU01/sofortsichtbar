@@ -15,6 +15,10 @@
  *                     Cookie wird gelöscht (Widerruf).
  * IP-Adressen werden nie gespeichert.
  *
+ * Newsletter: Kam der Besucher über einen Newsletter-Link (Schlüssel nlk,
+ * von firstparty.js mitgeschickt) und hat er eingewilligt, wird seine
+ * visitor_id dem Kontakt zugeordnet (public.newsletter_besucher).
+ *
  * Umgebungsvariablen (Vercel → Settings → Environment Variables):
  *   SUPABASE_URL         https://<ref>.supabase.co
  *   SUPABASE_SECRET_KEY  sb_secret_…  (nie ins Repo)
@@ -186,6 +190,17 @@ export async function POST(request) {
   }
 
   let ausgang = "gespeichert";
+  if (visitorId && typeof body.nlk === "string" && UUID.test(body.nlk)) {
+    try {
+      await fetch(`${url.replace(/\/+$/, "")}/rest/v1/rpc/newsletter_besucher`, {
+        method: "POST",
+        headers: { apikey: key, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_schluessel: body.nlk.toLowerCase(), p_visitor: visitorId }),
+      });
+    } catch (err) {
+      console.error("[track] Newsletter-Zuordnung", err);
+    }
+  }
   try {
     const r = await fetch(`${url.replace(/\/+$/, "")}/rest/v1/rpc/ingest_events`, {
       method: "POST",

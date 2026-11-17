@@ -39,6 +39,18 @@
     });
   }
 
+  // Newsletter-Schlüssel (nlk) aus der Adresse holen und sofort entfernen –
+  // er wird nur im Speicher gehalten und nur mit Einwilligung einmal mitgeschickt.
+  var nlk = null;
+  try {
+    var adr = new URL(location.href);
+    if (adr.searchParams.has("nlk")) {
+      nlk = adr.searchParams.get("nlk").slice(0, 36);
+      adr.searchParams.delete("nlk");
+      history.replaceState(history.state, "", adr.pathname + (adr.searchParams.toString() ? "?" + adr.searchParams.toString() : "") + adr.hash);
+    }
+  } catch (e) {}
+
   function intern() {
     try { return localStorage.getItem("ss_internal") === "1"; } catch (e) { return false; }
   }
@@ -110,12 +122,14 @@
   }
 
   function paket(events) {
-    return JSON.stringify({
+    var p = {
       consent: einwilligung,
       session_id: einwilligung ? sitzung : null,
       internal: intern(),
       events: events
-    });
+    };
+    if (einwilligung && nlk) { p.nlk = nlk; nlk = null; }
+    return JSON.stringify(p);
   }
 
   function senden(beimVerlassen) {

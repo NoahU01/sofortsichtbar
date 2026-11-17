@@ -35,6 +35,10 @@
   ],
   "rewrites": [
     {
+      "source": "/o/:token",
+      "destination": "/api/nl?o=:token"
+    },
+    {
       "source": "/n/:token/:nr",
       "destination": "/api/nl?k=:token&l=:nr"
     }
