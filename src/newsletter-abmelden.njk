@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+title: Newsletter abbestellen – sofort sichtbar
+description: Den Newsletter von sofort sichtbar abbestellen.
+permalink: /newsletter/abmelden/index.html
+eleventyExcludeFromCollections: true
+noindex: true
+---
+<section class="notfound">
+  <div class="padding-global">
+    <div class="section-padding">
+      <div class="container notfound__inner" data-nl-abmelden>
+        <div class="eyebrow"><div class="eyebrow__text">Newsletter</div></div>
+        <h1 class="heading-h2 text-white text-center" data-nl-titel>Newsletter abbestellen</h1>
+        <p class="text-secondary text-center" data-nl-text>
+          Mit einem Klick bekommst du keine Newsletter mehr von uns. Andere E-Mails, etwa zu einem gebuchten Termin, sind davon nicht betroffen.
+        </p>
+        <button type="button" class="btn btn--primary" data-nl-knopf>Newsletter abbestellen</button>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var t = new URLSearchParams(location.search).get("t") || "";
+    var knopf = document.querySelector("[data-nl-knopf]"), titel = document.querySelector("[data-nl-titel]"), text = document.querySelector("[data-nl-text]");
+    if (!/^[0-9a-f]{64}$/.test(t)) {
+      text.textContent = "Dieser Link ist unvollständig. Öffne bitte den Abmeldelink direkt aus der E-Mail oder antworte einfach auf den Newsletter mit „Abmelden“.";
+      knopf.hidden = true;
+      return;
+    }
+    knopf.addEventListener("click", function () {
+      knopf.disabled = true; knopf.textContent = "Einen Moment …";
+      fetch("/api/nl?abmelden=" + t, { method: "POST" }).then(function (r) { return r.json(); }).then(function (d) {
+        if (!d.ok) throw new Error();
+        titel.textContent = "Du bist abgemeldet.";
+        text.textContent = "Du bekommst keine Newsletter mehr von uns. Falls das ein Versehen war, schreib uns einfach eine kurze E-Mail.";
+        knopf.hidden = true;
+      }).catch(function () {
+        knopf.disabled = false; knopf.textContent = "Nochmal versuchen";
+        text.textContent = "Das hat leider nicht geklappt. Versuch es bitte nochmal oder antworte auf den Newsletter mit „Abmelden“ – wir tragen dich dann von Hand aus.";
+      });
+    });
+  })();
+</script>

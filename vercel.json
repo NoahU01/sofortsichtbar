@@ -32,5 +32,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/n/:token/:nr",
+      "destination": "/api/nl?k=:token&l=:nr"
+    }
   ]
 }
