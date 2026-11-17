@@ -1740,6 +1740,70 @@ body.s7-menue-offen { overflow: hidden; }
 .gs9-unter { margin-top: .2rem; color: var(--s7-grau); font-weight: 600; }
 .gs9-label { margin-top: 1.1rem; color: var(--s7-tinte); font-weight: 700; }
 .gs9-teil ul { display: grid; gap: .45rem; margin: .7rem 0 0; padding: 0 0 0 1.1rem; color: var(--s7-text); line-height: 1.55; }
+
+/* Grundstory in einem Bild (px9-): Panorama, Ergebnisse je Stufe, ein Faden im Verlauf */
+.gs9-h2 { margin-top: 3.5rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; }
+.gs9-h2--abstand { margin-top: 4rem; max-width: 50rem; margin-inline: auto; }
+.px9-rahmen { margin-top: 1.6rem; overflow-x: auto; border-radius: 28px; background: var(--s7-flaeche); }
+.px9 { position: relative; width: 100%; min-width: 1150px; padding: 34px 36px 30px; }
+.px9-faden { position: absolute; left: 0; top: 60px; width: 100%; height: 520px; pointer-events: none; }
+.px9-stufen, .px9-zonen, .px9-ergebnisse { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.px9-stufen span { padding-bottom: 8px; border-bottom: 2px solid #1d1d1f; color: #1d1d1f; font-weight: 700; font-size: 15px; }
+.px9-zonen { height: 400px; margin-top: 22px; }
+.px9-zone { position: relative; }
+.px9-ergebnisse { margin-top: 18px; }
+.px9-ergebnisse p { color: #1d1d1f; font-family: var(--s7-schrift-titel); font-size: 19px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; }
+/* 1 Auswählen */
+.px9-zg { display: flex; gap: 6px; white-space: nowrap; }
+.px9-zg i { padding: 5px 10px; border-radius: 99px; background: #fff; box-shadow: 0 0 0 1px #e5e5ea; color: #6e6e73; font-size: 12px; font-style: normal; font-weight: 600; }
+.px9-zg i.an { background: linear-gradient(100deg, #0b9fbd, #8613a1); box-shadow: none; color: #fff; }
+.px9-lp { position: absolute; left: 0; top: 52px; width: 228px; border-radius: 12px; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,.12); overflow: hidden; }
+.px9-lp__leiste { display: flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-bottom: 1px solid #ececf0; }
+.px9-lp__leiste i { width: 6px; height: 6px; border-radius: 50%; background: #d2d2d7; }
+.px9-lp__leiste span { margin-left: 6px; color: #8e8e93; font-size: 9px; }
+.px9-lp__inhalt { display: grid; grid-template-columns: minmax(0, 1fr) 64px; grid-template-rows: auto auto auto; gap: 4px 10px; padding: 12px; }
+.px9-lp__marke { grid-column: 1; color: #3d5bd1; font-size: 10px; font-weight: 700; }
+.px9-lp__h { grid-column: 1; color: #1d1d1f; font-family: var(--s7-schrift-titel); font-size: 15px; font-weight: 700; line-height: 1.12; }
+.px9-lp__knopf { grid-column: 1; justify-self: start; white-space: nowrap; margin-top: 4px; padding: 4px 9px; border-radius: 99px; background: #3d5bd1; color: #fff; font-size: 10px; font-weight: 600; }
+.px9-lp__bild { grid-column: 2; grid-row: 1 / 4; display: grid; place-items: center; border-radius: 8px; background: linear-gradient(160deg, #e6f0ff, #efe6fb); }
+.px9-lp__bild svg { width: 34px; height: 34px; fill: none; stroke: #3d5bd1; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.px9-kanal { position: absolute; display: flex; align-items: center; gap: 6px; padding: 6px 10px 6px 6px; border-radius: 10px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.1); color: #1d1d1f; font-size: 12px; font-weight: 600; }
+.px9-kanal b { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; color: #fff; font-size: 11px; }
+.px9-kanal--in { left: 10px; top: 236px; } .px9-kanal--in b { background: #0a66c2; }
+.px9-kanal--fb { left: 104px; top: 256px; } .px9-kanal--fb b { background: #1877f2; }
+.px9-kanal--ig { left: 30px; top: 300px; } .px9-kanal--ig b { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+.px9-mail { position: absolute; left: 112px; top: 312px; display: grid; gap: 2px; width: 150px; padding: 9px 11px; border-radius: 10px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.1); }
+.px9-mail b { color: #1d1d1f; font-size: 12px; } .px9-mail span { color: #6e6e73; font-size: 11px; line-height: 1.3; }
+/* 2 Betreiben */
+.px9-handy { position: absolute; left: 30px; top: 0; width: 200px; height: 392px; padding: 8px; border-radius: 34px; background: #1d1d1f; box-shadow: 0 24px 50px rgba(0,0,0,.18); }
+.px9-feed { height: 100%; padding: 24px 10px 10px; border-radius: 27px; background: #f5f5f7; overflow: hidden; }
+.px9-feed__kopf { display: flex; align-items: center; gap: 6px; font-size: 11px; } .px9-feed__kopf i { width: 20px; height: 20px; border-radius: 50%; background: #3d5bd1; }
+.px9-feed__kopf b { color: #1d1d1f; } .px9-feed__kopf span { margin-left: auto; color: #8e8e93; }
+.px9-feed__bild { display: grid; align-content: end; gap: 3px; height: 128px; margin-top: 8px; padding: 10px; border-radius: 10px; background: linear-gradient(160deg, #0b9fbd, #3d5bd1); color: #fff; }
+.px9-feed__bild b { font-family: var(--s7-schrift-titel); font-size: 16px; line-height: 1.05; } .px9-feed__bild span { font-size: 10px; opacity: .85; }
+.px9-feed__re { margin: 6px 2px 10px; color: #6e6e73; font-size: 10px; }
+.px9-kontakt { display: flex; gap: 7px; margin-top: 6px; padding: 8px; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.px9-kontakt i { flex: none; width: 18px; height: 18px; border-radius: 50%; background: #1d1d1f; }
+.px9-kontakt b { display: block; color: #1d1d1f; font-size: 11px; } .px9-kontakt span { display: block; color: #6e6e73; font-size: 10px; line-height: 1.3; }
+/* 3 Vertrieb */
+.px9-z3 { display: grid; align-content: center; gap: 10px; padding-top: 6px; }
+.px9-note { display: flex; align-items: center; gap: 9px; padding: 10px 12px 10px 10px; border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.1); }
+.px9-note b { display: block; color: #1d1d1f; font-size: 13px; } .px9-note small { display: block; color: #6e6e73; font-size: 11px; }
+.px9-app { flex: none; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.px9-note:nth-child(2) { margin-left: 22px; }
+.px9-kal { margin-left: 44px; border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.1); overflow: hidden; }
+.px9-kal__kopf { padding: 6px 12px; background: #1d1d1f; color: #fff; font-size: 12px; font-weight: 700; }
+.px9-kal__termin { margin: 10px; padding: 8px 10px; border-left: 3px solid #8613a1; border-radius: 6px; background: #f3e8f6; }
+.px9-kal__termin b { display: block; color: #1d1d1f; font-size: 13px; } .px9-kal__termin span { display: block; color: #6e6e73; font-size: 11px; line-height: 1.3; }
+/* 4 Betreuen */
+.px9-kreis { position: absolute; left: 34px; top: 74px; width: 200px; height: 200px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px #d2d2d7; }
+.px9-mitte { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 92px; height: 92px; border-radius: 50%; background: #1d1d1f; color: #fff; font-size: 13px; font-weight: 700; line-height: 1.15; text-align: center; transform: translate(-50%, -50%); }
+.px9-kunde { position: absolute; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1.5px #d2d2d7; color: #6e6e73; font-size: 12px; font-weight: 700; transform: translate(-50%, -50%); }
+.px9-kunde--1 { left: 50%; top: 0; } .px9-kunde--2 { left: 93%; top: 25%; } .px9-kunde--3 { left: 93%; top: 75%; }
+.px9-kunde--4 { left: 50%; top: 100%; } .px9-kunde--5 { left: 7%; top: 75%; } .px9-kunde--6 { left: 7%; top: 25%; }
+.px9-kunde.an { background: linear-gradient(135deg, #0b9fbd, #8613a1); box-shadow: 0 0 0 5px rgba(134,19,161,.15); color: #fff; }
+.px9-anlass { position: absolute; left: -40px; top: -84px; display: grid; gap: 2px; padding: 8px 11px; border-radius: 12px; background: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.12); white-space: nowrap; }
+.px9-anlass b { color: #1d1d1f; font-size: 12px; } .px9-anlass span { color: #6e6e73; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -2524,6 +2588,53 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="s9-kicker">Homepage-Story 9 · Arbeitsgrundlage</p>
       <h1 class="gs9-h1">{{ G.h1 }}</h1>
       <p class="gs9-lead">{{ G.lead }}</p>
+    </div>
+    <div class="s7-wrap">
+      {#- Die Grundstory in einem Bild (Daniel, 17.11.2026): Ergebnisse statt Prozess, von links nach rechts, ein Faden verbindet sie -#}
+      <h2 class="gs9-h2">Die Grundstory in einem Bild</h2>
+      <div class="px9-rahmen">
+        <div class="px9" role="img" aria-label="Die Grundstory in einem Bild: Die Agentur wählt Private Bauherren, die Strecke steht fertig in ihrem Look. Das Posting geht live, neue Kontakte aus der Region. Familie K. lädt die Checkliste, ein Termin entsteht. Im Bestand bleibt die Agentur präsent, der nächste Anlass kommt.">
+          <svg class="px9-faden" viewBox="0 0 1216 520" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="px9-g" x1="0" x2="1"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient></defs>
+            <path d="M200 230 C280 230 320 290 400 290 C500 290 540 210 660 210 C770 210 820 290 920 290 C1000 290 1030 250 1100 250" fill="none" stroke="url(#px9-g)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"/></svg>
+          <div class="px9-stufen"><span>Auswählen</span><span>Betreiben</span><span>Vertrieb</span><span>Betreuen</span></div>
+          <div class="px9-zonen">
+            <div class="px9-zone px9-z1">
+              <div class="px9-zg"><i class="an">Private Bauherren</i><i>+ 19 Zielgruppen</i></div>
+              <div class="px9-lp"><p class="px9-lp__leiste"><i></i><i></i><i></i><span>deine-agentur.de/bauherren</span></p>
+                <div class="px9-lp__inhalt"><p class="px9-lp__marke">Deine Agentur</p><p class="px9-lp__h">Gut abgesichert ins eigene Zuhause.</p><span class="px9-lp__knopf">Checkliste Hausbau</span><div class="px9-lp__bild"><svg viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7 M6 9.5V20h12V9.5 M10 20v-5h4v5"/></svg></div></div></div>
+              <div class="px9-kanal px9-kanal--in"><b>in</b>Posting</div>
+              <div class="px9-kanal px9-kanal--fb"><b>f</b>Posting</div>
+              <div class="px9-kanal px9-kanal--ig"><b>ig</b>Posting</div>
+              <div class="px9-mail"><b>Mailing</b><span>An deinen Bestand: Bauen Sie gerade?</span></div>
+            </div>
+            <div class="px9-zone px9-z2">
+              <div class="px9-handy"><div class="px9-feed">
+                <p class="px9-feed__kopf"><i></i><b>Deine Agentur</b><span>jetzt</span></p>
+                <div class="px9-feed__bild"><b>Bauen ist teuer genug.</b><span>Checkliste Hausbau</span></div>
+                <p class="px9-feed__re">Gefällt Familie K. und weiteren</p>
+                <div class="px9-kontakt"><i></i><div><b>Neue Kontakte</b><span>Bauherren aus der Region</span></div></div>
+                <div class="px9-kontakt"><i></i><div><b>Kommentar</b><span>„Gibt es die Checkliste auch zum Ausdrucken?“</span></div></div>
+              </div></div>
+            </div>
+            <div class="px9-zone px9-z3">
+              <div class="px9-note"><span class="px9-app"></span><div><b>Checkliste geladen</b><small>Familie K. · über die Landingpage</small></div></div>
+              <div class="px9-note"><span class="px9-app"></span><div><b>Rückruf gewünscht</b><small>Familie K. · heute 19:14</small></div></div>
+              <div class="px9-kal"><p class="px9-kal__kopf">Dienstag</p><div class="px9-kal__termin"><b>17:00 Beratung</b><span>Familie K. · Wohngebäude, Bauherrenhaftpflicht</span></div></div>
+            </div>
+            <div class="px9-zone px9-z4">
+              <div class="px9-kreis">
+                <span class="px9-mitte">Deine<br>Agentur</span>
+                {%- for k in ["MS", "AB", "JW", "TR", "LK", "FK"] %}<span class="px9-kunde px9-kunde--{{ loop.index }}{% if k == 'FK' %} an{% endif %}">{{ k }}</span>{% endfor %}
+                <div class="px9-anlass"><b>Neuer Anlass</b><span>Familie K. · Zweitwagen</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="px9-ergebnisse"><p>Fertig, im Look deiner Agentur.</p><p>Sichtbar bei Bauherren in der Region.</p><p>Aus dem Kontakt wird ein Termin.</p><p>Präsent im Bestand. Der nächste Anlass kommt.</p></div>
+        </div>
+      </div>
+      <h2 class="gs9-h2 gs9-h2--abstand">Die Logik in sieben Teilen</h2>
+    </div>
+    <div class="s7-wrap gs9-wrap">
       <ol class="gs9-teile">
         {%- for t in G.teile %}
         <li class="gs9-teil">
