@@ -1743,6 +1743,8 @@ body.s7-menue-offen { overflow: hidden; }
 
 /* Grundstory in einem Bild (px9-, 2. Fassung): jedes Element als erkennbares Objekt */
 .px9-rahmen { margin-top: 1.6rem; overflow-x: auto; border-radius: 28px; background: var(--s7-flaeche); }
+.gb9-rahmen { padding: 2rem 2.2rem 1.6rem; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); }
+.gb9 { display: block; width: 100%; min-width: 1000px; height: auto; }
 .px9 { position: relative; width: 100%; min-width: 1150px; padding: 34px 36px 30px; }
 .px9-stufen, .px9-zonen, .px9-ergebnisse { display: grid; grid-template-columns: 1.55fr 1fr 1fr 1fr; gap: 28px; }
 .px9-stufen span { padding-bottom: 8px; border-bottom: 2px solid #1d1d1f; color: #1d1d1f; font-weight: 700; font-size: 15px; }
@@ -2598,92 +2600,9 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <p class="gs9-lead">{{ G.lead }}</p>
     </div>
     <div class="s7-wrap">
-      {#- Die Grundstory in einem Bild (Daniel, 17.11.2026, 2. Fassung): jeder Punkt der Story als erkennbares Objekt, nicht als Wort im Kasten -#}
-      {%- set daumen %}<svg viewBox="0 0 24 24"><path d="M7 10v10H4V10zM7 10l4-7c1.5 0 2.5 1 2.2 2.6L12.6 9H19a2 2 0 0 1 2 2.3l-1.2 6.7A2.5 2.5 0 0 1 17.3 20H7"/></svg>{% endset %}
-      {%- set blase %}<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>{% endset %}
-      {%- set herz %}<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>{% endset %}
-      {%- set zeiger %}<svg class="px9-zeiger" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6 3.4 6.4-2.6 1.4-3.4-6.4L6 18z"/></svg>{% endset %}
-      <h2 class="gs9-h2">Die Grundstory in einem Bild</h2>
-      <div class="px9-rahmen">
-        <div class="px9" role="img" aria-label="Die Grundstory in einem Bild. Auswählen: Landingpage, Postings für LinkedIn, Facebook und Instagram und ein Mailing an Bestandskunden stehen fertig bereit und bringen Besucher auf die Landingpage. Betreiben: Postings einplanen, Netzwerk aufbauen, auf Kommentare antworten. Vertrieb: Mailing an Bestandskunden senden, Familie K. anrufen, Beratungstermin. Betreuen: Bestandskunden sehen die Inhalte und melden sich mit dem nächsten Anlass.">
-          <div class="px9-stufen"><span>Auswählen</span><span>Betreiben</span><span>Vertrieb</span><span>Betreuen</span></div>
-          <div class="px9-zonen">
-            {#- 1 Auswählen: was fertig bereitsteht -#}
-            <div class="px9-zone px9-z1">
-              <p class="px9-cap">Landingpage je Zielgruppe</p>
-              <div class="px9-lpbild"><img src="/assets/img/zielgruppen/bauherren-style-3.webp" alt="" width="1200" height="800"></div>
-              <div class="px9-pfeile" aria-hidden="true"><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path d="M50 38 C70 12 110 6 150 4 M250 38 C230 12 190 6 150 4" fill="none" stroke="#1d1d1f" stroke-width="1.6" stroke-dasharray="3 4"/><path d="M144 10l6-8 6 8" fill="none" stroke="#1d1d1f" stroke-width="1.6"/></svg><span>bringen Besucher auf die Landingpage</span></div>
-              <div class="px9-reihe">
-                <div><p class="px9-cap">Postings</p>
-                  <div class="px9-post">
-                    <p class="px9-post__kopf"><i class="in">in</i><b>Agentur</b></p>
-                    <div class="px9-post__bild"><b>Bauen ist teuer genug.</b></div>
-                    <p class="px9-post__leiste">{{ daumen | safe }}{{ blase | safe }}</p>
-                  </div>
-                  <div class="px9-post px9-post--ig">
-                    <p class="px9-post__kopf"><i class="ig">ig</i><b>agentur</b></p>
-                    <div class="px9-post__bild px9-post__bild--q"><b>Checkliste Hausbau</b></div>
-                    <p class="px9-post__leiste">{{ herz | safe }}{{ blase | safe }}</p>
-                  </div>
-                  <div class="px9-post px9-post--fb">
-                    <p class="px9-post__kopf"><i class="fb">f</i><b>Agentur</b></p>
-                    <div class="px9-post__bild px9-post__bild--v"><b>Rohbau versichert?</b></div>
-                    <p class="px9-post__leiste">{{ daumen | safe }}{{ blase | safe }}</p>
-                  </div>
-                </div>
-                <div><p class="px9-cap px9-cap--eng">Mailing an Bestandskunden</p>
-                  <div class="px9-mail2">
-                    <p class="px9-mail2__kopf"><span>Von</span>Deine Agentur</p>
-                    <p class="px9-mail2__kopf"><span>Betreff</span>Bauen Sie gerade?</p>
-                    <div class="px9-mail2__text"><i></i><i></i><i class="kurz"></i><em>Checkliste Hausbau</em></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {#- 2 Betreiben: was getan werden muss -#}
-            <div class="px9-zone px9-z2">
-              <p class="px9-cap">Postings einstellen</p>
-              <div class="px9-ui">
-                <p class="px9-ui__t">Bauen ist teuer genug.</p>
-                <p class="px9-check"><i class="an"></i>LinkedIn <i class="an"></i>Facebook <i class="an"></i>Instagram</p>
-                <p class="px9-ui__fuss"><span>Di · 08:30</span><span class="px9-btn">Einplanen{{ zeiger | safe }}</span></p>
-              </div>
-              <p class="px9-cap">Netzwerk aufbauen</p>
-              <div class="px9-ui">
-                {%- for k in [["MB", "Bauherr · Region"], ["JS", "Bauherrin · Region"]] %}
-                <p class="px9-person"><i>{{ k[0] }}</i><span><b>{{ k[1] }}</b></span><span class="px9-btn px9-btn--rand">{% if loop.first %}Vernetzen{{ zeiger | safe }}{% else %}Vernetzen{% endif %}</span></p>
-                {%- endfor %}
-              </div>
-              <p class="px9-cap">Interagieren</p>
-              <div class="px9-ui">
-                <p class="px9-person"><i>FK</i><span>„Gibt es die Checkliste auch zum Ausdrucken?“</span></p>
-                <p class="px9-antwort">Antworten …</p>
-              </div>
-            </div>
-            {#- 3 Vertrieb: ansprechen per Mailing und Anruf, Termin, Beratung -#}
-            <div class="px9-zone px9-z3">
-              <p class="px9-cap">Ansprechen per Mailing</p>
-              <div class="px9-ui px9-gesendet"><span class="px9-haken"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Gesendet</b><span>„Bauen Sie gerade?“ an Bestandskunden</span></div></div>
-              <p class="px9-cap">… und per Anruf</p>
-              <div class="px9-anruf"><p class="px9-anruf__name">Familie K.</p><p class="px9-anruf__zeit">Rückruf · 02:14</p><p class="px9-anruf__knoepfe"><i class="aus"></i><i class="an"></i></p></div>
-              <p class="px9-cap">Termin und Beratung</p>
-              <div class="px9-kal"><p class="px9-kal__kopf">Dienstag</p><div class="px9-kal__termin"><b>17:00 Beratung</b><span>Familie K. · Wohngebäude, Bauherrenhaftpflicht</span></div></div>
-            </div>
-            {#- 4 Betreuen: vernetzt mit den Kunden, Inhalte wirken weiter -#}
-            <div class="px9-zone px9-z4">
-              <p class="px9-cap">Kunden sehen deine Inhalte</p>
-              <div class="px9-post px9-post--breit">
-                <p class="px9-post__kopf"><i class="in">in</i><b>Deine Agentur</b></p>
-                <div class="px9-post__bild px9-post__bild--v"><b>Nachwuchs unterwegs?</b></div>
-                <p class="px9-post__leiste">{{ daumen | safe }}<span>Herr S., dein Kunde, gefällt das</span></p>
-              </div>
-              <p class="px9-cap">Der nächste Anlass kommt</p>
-              <div class="px9-chat"><p class="px9-chat__wer">Herr S.</p><p class="px9-chat__blase">Wir bekommen Nachwuchs. Was müssen wir anpassen?</p></div>
-            </div>
-          </div>
-          <div class="px9-ergebnisse"><p>Fertig, im Look deiner Agentur.</p><p>Sichtbar bei Bauherren in der Region.</p><p>Aus dem Kontakt wird ein Termin.</p><p>Präsent im Bestand. Der nächste Anlass kommt.</p></div>
-        </div>
-      </div>
+      {#- Die Grundstory in einem Bild, 3. Fassung (Daniel, 17.11.2026): „Der Weg von Familie K.“ – eine Hauptfigur als farbiger Faden, ein Zeichenstil. Erzeugt von grundbild9.py -#}
+      <h2 class="gs9-h2">Der Weg von Familie K.</h2>
+      <div class="px9-rahmen gb9-rahmen">{{ S.s9.grundbild | safe }}</div>
       <h2 class="gs9-h2 gs9-h2--abstand">Die Logik in sieben Teilen</h2>
     </div>
     <div class="s7-wrap gs9-wrap">
