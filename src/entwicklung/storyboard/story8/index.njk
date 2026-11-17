@@ -16,6 +16,10 @@ seiten:
     titel: "Startseite"
     v9: "start"
     pfad: "story9/"
+  - slug: "s9-grundstory"
+    titel: "Grundstory"
+    v9: "grund"
+    pfad: "story9/grundstory/"
   - slug: "s9-selbst-machen"
     titel: "Selbst machen"
     v9: "a"
@@ -1724,6 +1728,18 @@ body.s7-menue-offen { overflow: hidden; }
   .ws9-post__bild { padding: .55rem; } .ws9-post__bild b { font-size: .8rem; hyphens: auto; }
   .k9 { grid-template-columns: minmax(0, 1fr); } .k9-pfeil { transform: rotate(90deg); justify-self: center; }
 }
+
+/* Story 9 · Grundstory (gs9-): Arbeitsgrundlage, ruhig gesetzt */
+.gs9-wrap { max-width: 50rem; }
+.gs9-h1 { margin-top: .6rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(2.6rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.035em; }
+.gs9-lead { margin-top: 1rem; color: var(--s7-text); font-size: 1.15rem; line-height: 1.55; }
+.gs9-teile { display: grid; gap: 0; margin: 3rem 0 0; padding: 0; list-style: none; }
+.gs9-teil { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1rem; padding: 2rem 0; border-top: 1px solid var(--s7-linie); }
+.gs9-nr { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-weight: 700; }
+.gs9-teil h2 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+.gs9-unter { margin-top: .2rem; color: var(--s7-grau); font-weight: 600; }
+.gs9-label { margin-top: 1.1rem; color: var(--s7-tinte); font-weight: 700; }
+.gs9-teil ul { display: grid; gap: .45rem; margin: .7rem 0 0; padding: 0 0 0 1.1rem; color: var(--s7-text); line-height: 1.55; }
 </style>
 </head>
 <body>
@@ -1736,7 +1752,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite{% else %}Unterseite {{ s.titel }}{% endif %} · reduziert und visualisiert{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -2498,6 +2514,32 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   {{ kontaktBand() }}
+</main>
+{%- elif s.v9 == "grund" %}
+{#- Homepage-Story 9 · Grundstory (Daniel, 17.11.2026): die Logik, wie was aufeinander aufbaut – Arbeitsgrundlage, keine Kundenseite. Inhalte: s7.s9.grundstory -#}
+{%- set G = S.s9.grundstory %}
+<main class="s9 gs9">
+  <section class="s9-band">
+    <div class="s7-wrap gs9-wrap">
+      <p class="s9-kicker">Homepage-Story 9 · Arbeitsgrundlage</p>
+      <h1 class="gs9-h1">{{ G.h1 }}</h1>
+      <p class="gs9-lead">{{ G.lead }}</p>
+      <ol class="gs9-teile">
+        {%- for t in G.teile %}
+        <li class="gs9-teil">
+          <span class="gs9-nr">{{ loop.index }}</span>
+          <div>
+            <h2>{{ t.titel }}</h2>{% if t.unter %}<p class="gs9-unter">{{ t.unter }}</p>{% endif %}
+            {%- for g in t.gruppen %}
+            {%- if g.label %}<p class="gs9-label">{{ g.label }}</p>{% endif %}
+            <ul>{% for x in g.punkte %}<li>{{ x }}</li>{% endfor %}</ul>
+            {%- endfor %}
+          </div>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
 </main>
 {%- elif s.v9 == "a" %}
 {#- Homepage-Story 9 · Selbst machen (Daniel, 17.11.2026): eine eigene Story, keine Variante des Vergleichs.

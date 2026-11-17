@@ -2455,6 +2455,129 @@
           ]
         ],
         "start_h2": "In vier Schritten startklar."
+      },
+      "grundstory": {
+        "_quelle": "Daniel, 17.11.2026: Logik der Story, wie was aufeinander aufbaut – Grundlage für Startseite und Unterseiten von Story 9 (nicht zwingend deren Aufbau)",
+        "h1": "Grundstory",
+        "lead": "Wie die Story aufeinander aufbaut. Die Seiten müssen nicht genau so aufgebaut sein, aber sie folgen dieser Logik.",
+        "teile": [
+          {
+            "titel": "Ausgangssituation",
+            "gruppen": [
+              {
+                "punkte": [
+                  "Der Leiter einer Versicherungsagentur oder eines Maklerbüros will Vertriebserfolg.",
+                  "Entweder muss er sein Marketing selbst machen, oder er sollte es von seinem Versicherer bekommen.",
+                  "Dort ist das Marketing langsam, und die Vertriebsunterstützung liefert nichts, was er gezielt einsetzen kann."
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Stufe 1: Auswählen",
+            "unter": "Trichter, erster Teil",
+            "gruppen": [
+              {
+                "label": "Was je Zielgruppe fertig bereitsteht, sobald er sie ausgewählt hat",
+                "punkte": [
+                  "Eine professionelle Landingpage, komplett aus Sicht der Zielgruppe formuliert, im Corporate Design der Agentur",
+                  "Postings für LinkedIn, Facebook und Instagram",
+                  "Mailings an Bestandskunden"
+                ]
+              },
+              {
+                "label": "Zweck",
+                "punkte": [
+                  "Postings und Mailings bringen Besucher auf die Landingpage. Das Ergebnis ist sofortige Sichtbarkeit."
+                ]
+              },
+              {
+                "label": "Dahinter, nur in einem Satz erzählt",
+                "punkte": [
+                  "Als Online-Marketing-Manager haben wir die Zielgruppen analysiert, die Ansprache gebaut und die Kanäle ausgewählt. Wir erzählen nicht, was wir tun, sondern zeigen, was fertig daliegt."
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Stufe 2: Betreiben",
+            "unter": "Trichter, zweiter Teil",
+            "gruppen": [
+              {
+                "punkte": [
+                  "Die bereitgestellten Postings einstellen",
+                  "Ein Netzwerk aufbauen",
+                  "Mit den Personen interagieren"
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Stufe 3: Vertrieb",
+            "unter": "Das klassische Tun der Agentur",
+            "gruppen": [
+              {
+                "punkte": [
+                  "Kunden ansprechen, auch mit den bereitgestellten Mailings und per Anruf",
+                  "Termine vereinbaren",
+                  "Beraten"
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Stufe 4: Kundenbetreuung",
+            "gruppen": [
+              {
+                "punkte": [
+                  "Die Agentur ist mit ihren Kunden vernetzt, dadurch wirken unsere Inhalte im Bestand weiter."
+                ]
+              },
+              {
+                "label": "Ergebnis",
+                "punkte": [
+                  "Die Agentur wird bei genau den Zielkunden wahrgenommen, bei denen sie wachsen will."
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Über alle Stufen hinweg",
+            "gruppen": [
+              {
+                "label": "Bereitstellen und Anwenden sind zwei Schritte",
+                "punkte": [
+                  "Postings und Mailings tauchen deshalb zweimal auf.",
+                  "In Stufe 1 stellen wir sie bereit.",
+                  "In Stufe 2 (Postings) und Stufe 3 (Mailings) werden sie angewandt."
+                ]
+              },
+              {
+                "punkte": [
+                  "Für jede Stufe stellen wir das komplette Vorgehen bereit, also wie man es anwendet.",
+                  "Das ganze System wird laufend optimiert."
+                ]
+              }
+            ]
+          },
+          {
+            "titel": "Die Entscheidung des Kunden",
+            "gruppen": [
+              {
+                "punkte": [
+                  "Selbst machen: Wir stellen Stufe 1 bereit, die Agentur betreibt selbst.",
+                  "Machen lassen: Wir übernehmen auch Stufe 2, also Posten, Vernetzen und Interagieren."
+                ]
+              },
+              {
+                "label": "Noch offen",
+                "punkte": [
+                  "Wie viel von der Optimierung liegt jeweils bei uns?"
+                ]
+              }
+            ]
+          }
+        ]
       }
     }
   }
