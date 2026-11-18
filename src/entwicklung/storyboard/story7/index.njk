@@ -1143,7 +1143,7 @@ body.s7-menue-offen { overflow: hidden; }
 .hg7-bild { min-width: 0; }
 .hg7-bild img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 0 1px var(--s7-linie), 0 10px 24px rgba(0,0,0,.12); }
 .hg7-bild--iphone img { border-radius: 16px; }
-.hg7-bild span { color: var(--s7-grau); font-size: .8rem; line-height: 1.35; }
+.hg7-bild span { min-height: 5.6em; color: var(--s7-grau); font-size: .8rem; line-height: 1.35; }
 .hg7-bild b { display: block; color: var(--s7-tinte); font-size: .88rem; }
 .hg7-bild:hover img { box-shadow: 0 0 0 2px var(--s7-tinte), 0 10px 24px rgba(0,0,0,.12); }
 @media (max-width: 900px) { .hg7-reihe { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -1658,7 +1658,7 @@ body.s7-menue-offen { overflow: hidden; }
         <h3>{{ v.name }}</h3><p>{{ v.text }}</p>
         <div class="hg7-reihe">
           {%- for b in v.bilder %}
-          <a class="hg7-bild hg7-bild--{{ b.art }}" href="{{ A7 }}/hintergruende/{{ b.datei }}" download><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }} · PNG</span></a>
+          <a class="hg7-bild hg7-bild--{{ b.art }}" href="{{ A7 }}/hintergruende/{{ b.datei }}" target="_blank" rel="noopener"><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }}</span></a>
           {%- endfor %}
         </div>
       </div>
