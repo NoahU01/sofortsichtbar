@@ -21,7 +21,7 @@ SRC = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 ZIEL = os.path.join(HERE, "assets", "hintergruende")
 FONTS = os.path.join(HERE, "assets", "fonts")
 LOGO = os.path.join(SRC, "assets", "img", "logos", "logo-white.svg")
-BG = "#1d1d1f"  # wie der Footer der Website (Apple-Tinte), nicht tiefschwarz – Daniel 18.11.2026
+BG = "#000000"  # tiefschwarz (Daniel, 18.11.2026, auf dem iPad mini geprüft: Grau wirkt zu hell, als wäre am Bild etwas kaputt)
 
 # Vorschau so, wie es auf dem Gerät aussieht: iPad quer ausgeschnitten (Bildschirmseitenverhältnis), Größen maßstäblich nach Bildschirmbreite (cm)
 VORSCHAU = {"macbook": (None, 30.2), "ipad13": (4 / 3, 28.1), "ipadmini": (1.52, 19.5), "teams": (None, 30.2),
@@ -39,7 +39,7 @@ VARIANTEN = [
     ("klar", "Klar", "Die Grundform: Logo und Satz als ein Block, ruhig gesetzt. Nichts lenkt von Fenstern und Symbolen ab."),
     ("akzent", "Akzent", "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan."),
     ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Mit viel Rand, kein Bildschirm voll."),
-    ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort, Vertrieb und Betreuen als kleine Blöcke. Je Gerät sinnvoll gesetzt."),
+    ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort, rechts neben dem Satz – beide als eine Gruppe mittig, der Trichter auf der Höhe des Satzes."),
     ("nur-trichter", "Nur Trichter", "Nur der Trichter, ohne Blöcke. Quer mündet er direkt in den Satz – Maschine und Aussage auf einer Höhe."),
 ]
 
@@ -64,11 +64,11 @@ S8 = json.load(open(os.path.join(HERE, "..", "story8", "story8.11tydata.json"), 
 TRICHTER_CSS = (
     ".tr svg{display:block;width:100%;height:auto;overflow:visible}"
     f".tr .ek2-lage{{stroke:{BG};stroke-width:2}}"
-    ".tr .ek2-l2,.tr .ek2-l2-h{fill:#46464b}.tr .ek2-l3,.tr .ek2-l3-h{fill:#38383c}.tr .ek2-l4,.tr .ek2-l4-h{fill:#2d2d31}"
+    ".tr .ek2-l2,.tr .ek2-l2-h{fill:#3a3a3e}.tr .ek2-l3,.tr .ek2-l3-h{fill:#2a2a2d}.tr .ek2-l4,.tr .ek2-l4-h{fill:#1c1c1e}"
     ".tr .ek2-kern{fill:url(#hg-q)}.tr .ek2-kern-h{fill:url(#hg-h)}"
     ".tr .ek2-kern-t{fill:#fff}.tr .ek2-kern-s{fill:rgba(255,255,255,.82)}"
     f".tr .ek2-fuge{{fill:none;stroke:{BG};stroke-width:6;stroke-linecap:round}}"
-    ".tr .ek2-band{fill:#3a3a3e}.tr .ek2-l2{fill:#46464b}.tr .ek2-l3{fill:#38383c}.tr .ek2-l4{fill:#2d2d31}"
+    ".tr .ek2-band{fill:#2c2c2e}.tr .ek2-l2{fill:#3a3a3e}.tr .ek2-l3{fill:#2a2a2d}.tr .ek2-l4{fill:#1c1c1e}"
     ".tr .ek2-band-t{fill:#fff}.tr .ek2-band-s{fill:#a1a1a6}"
     ".tr .ek2-t{fill:#f5f5f7}.tr .ek2-grau{fill:#a1a1a6}"
     ".tr .ek2-linie{fill:none;stroke:#f5f5f7;stroke-width:2}.tr .ek2-linie--fein{stroke-width:1.4}"
@@ -160,27 +160,27 @@ def bild(gkey, w, h, art, var):
             hoehe = .84 * h
             teile.append(block(art, .05 * w, .5 * h, .034 * w))
             teile.append(setze("tr", S8["ek_hoch"], .95 * w - hoehe * 340 / 622, .08 * h, hoehe * 340 / 622))
-    elif var == "trichter-stilisiert":
-        if art == "mac":
-            svgx, verh = stil_svg(True)
-            fb = .36 * w
-            teile.append(block(art, .10 * w, .5 * h, .042 * w))
-            teile.append(setze("tr", svgx, .54 * w, .5 * h - fb / verh / 2, fb))
-        elif art == "ipad":  # quer und kompakt im Mittelband – senkrecht wäre es dort zu dünn
-            svgx, verh = stil_svg(True)
-            fb = .36 * w
-            teile.append(block(art, .13 * w, band, .034 * w))
-            teile.append(setze("tr", svgx, .51 * w, band - fb / verh / 2, fb))
-        elif art == "iphone":
-            svgx, verh = stil_svg(True, True)
-            hoehe = .31 * h
+    elif var == "trichter-stilisiert":  # ohne Blöcke (Daniel, 18.11.2026: „sieht aus, als würde der Trichter etwas schießen“)
+        if art in ("mac", "ipad"):
+            # Satz links, Trichter rechts als eine Gruppe, mittig auf dem Bildschirm; Trichter auf der Achse des Satzes (nicht von Logo und Satz)
+            svgx, verh = stil_svg(False)
+            size, fb, mitte = (.040 * w, .30 * w, .48 * h) if art == "mac" else (.033 * w, .25 * w, band)
+            versatz = (size * .72 + size * .75) / 2
+            teile.append(f'<div style="position:absolute;left:0;top:{mitte:.0f}px;width:{w}px;transform:translateY(calc(-50% - {versatz:.1f}px));'
+                         f'display:flex;align-items:center;justify-content:center;gap:{.05 * w:.0f}px">'
+                         f'<div style="display:flex;flex-direction:column;gap:{size * .75:.1f}px"><img src="file://{LOGO}" style="height:{size * .72:.1f}px;align-self:flex-start">'
+                         f'<p style="margin:0;font:700 {size:.1f}px/1.03 \'Inter Tight\';letter-spacing:-.035em;color:#f5f5f7">{satz("mac")}</p></div>'
+                         f'<div class="tr" style="width:{fb:.0f}px;transform:translateY({versatz:.1f}px)">{svgx}</div></div>')
+        elif art == "iphone":  # Trichter bündig unter dem Satz
+            svgx, verh = stil_svg(False, True)
+            hoehe = .30 * h
             teile.append(block(art, .10 * w, .40 * h, .075 * w))
-            teile.append(setze("tr", svgx, .10 * w, .52 * h, hoehe * verh))
-        else:
-            svgx, verh = stil_svg(True, True)
-            hoehe = .78 * h
+            teile.append(setze("tr", svgx, .10 * w, .53 * h, hoehe * verh))
+        else:  # Teams: Satz links, Trichter rechts auf derselben Mittellinie
+            svgx, verh = stil_svg(False, True)
+            hoehe = .62 * h
             teile.append(block(art, .05 * w, .5 * h, .034 * w))
-            teile.append(setze("tr", svgx, .93 * w - hoehe * verh, .11 * h, hoehe * verh))
+            teile.append(setze("tr", svgx, .92 * w - hoehe * verh, .5 * h - hoehe / 2, hoehe * verh))
     else:  # nur-trichter: quer mündet der Trichter in den Satz – gleiche Höhe
         if art in ("mac", "ipad"):
             svgx, verh = stil_svg(False)
@@ -264,7 +264,7 @@ def main():
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["hintergruende"] = {"kicker": "Für deine Geräte", "h2": "Hintergrundbilder.",
-                                "lead": "Dunkel wie der Footer der Website, damit nichts blendet – mit Logo und Grundaussage. Für MacBook, iPad, iPhone sowie Teams und Zoom; Uhr, Dock und die Person im Videocall bleiben frei. Klick auf ein Bild öffnet es in voller Größe.",
+                                "lead": "Tiefschwarz, damit nichts blendet und der Bildschirmrand nahtlos ins Schwarze läuft – mit Logo und Grundaussage. Für MacBook, iPad, iPhone sowie Teams und Zoom; Uhr, Dock und die Person im Videocall bleiben frei. Klick auf ein Bild öffnet es in voller Größe.",
                                 "varianten": daten}
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")

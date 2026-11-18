@@ -1545,7 +1545,7 @@
     "hintergruende": {
       "kicker": "Für deine Geräte",
       "h2": "Hintergrundbilder.",
-      "lead": "Dunkel wie der Footer der Website, damit nichts blendet – mit Logo und Grundaussage. Für MacBook, iPad, iPhone sowie Teams und Zoom; Uhr, Dock und die Person im Videocall bleiben frei. Klick auf ein Bild öffnet es in voller Größe.",
+      "lead": "Tiefschwarz, damit nichts blendet und der Bildschirmrand nahtlos ins Schwarze läuft – mit Logo und Grundaussage. Für MacBook, iPad, iPhone sowie Teams und Zoom; Uhr, Dock und die Person im Videocall bleiben frei. Klick auf ein Bild öffnet es in voller Größe.",
       "varianten": [
         {
           "id": "klar",
@@ -1802,7 +1802,7 @@
         {
           "id": "trichter-stilisiert",
           "name": "Trichter stilisiert",
-          "text": "Der Trichter ohne ein Wort, Vertrieb und Betreuen als kleine Blöcke. Je Gerät sinnvoll gesetzt.",
+          "text": "Der Trichter ohne ein Wort, rechts neben dem Satz – beide als eine Gruppe mittig, der Trichter auf der Höhe des Satzes.",
           "bilder": [
             {
               "geraet": "MacBook Air 13″",
