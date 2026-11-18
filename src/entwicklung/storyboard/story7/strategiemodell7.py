@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Strategiemodell für Versicherungsagenturen – im Stil von sofort sichtbar (Daniel, 18.11.2026).
 
-Grundlogik aus dem empiria-Strategiemodell (empiria-Repo, werkzeuge/pdf-seiten/sk/strategiemodell.svg), für das Unternehmen
-(die Agentur) und in Daniels Ablauf: 1 Zukünftiges Geschäftsmodell mit Positionierung und Pitch (Vision, „Wie wollen wir
-wahrgenommen werden?“, das Zentrale) → 2 Strategie („Wie kommen wir dorthin?“, Ausgangssituation als Eingangsgröße) →
-3 Leitbild und Selbstverständnis („Wofür stehen wir?“).
+Grundlogik und Nummern aus dem empiria-Strategiemodell (empiria-Repo, werkzeuge/pdf-seiten/sk/strategiemodell.svg), für das
+Unternehmen (die Agentur): 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäftsmodell, Positionierung und Pitch
+(„Wie wollen wir wahrgenommen werden?“, das Zentrale), 3 Strategie („Wie kommen wir dorthin?“); darüber das
+Selbstverständnis („Wofür stehen wir?“).
 
 Drei Blätter, hell, ohne schwarzen Balken (zum Drucken):
   Übersicht       A3 hoch – alle Inhalte mit Erklärung
-  Arbeitsblatt A  A3 quer – nacheinander von links nach rechts, offen zum Reinschreiben
-  Arbeitsblatt B  A3 quer – im Bild des Strategiemodells: oben quer „Wofür stehen wir?“, darunter zwei Säulen
+  Arbeitsblatt A  A3 quer – Ausschnitt: links 1 Ausgangssituation, Mitte 3 Strategie, rechts 2 Vision
+  Arbeitsblatt B  A3 quer – drei Kästen wie im Strategiemodell: oben „Wofür stehen wir?“, links breit 1 + 3, rechts schmal 2
 
 SCHRIFTSYSTEM (fest):
   Inter Tight 700 – Hauptüberschrift 32 pt (eine Größe, Akzentwort im Verlauf); alle übrigen Überschriften 15 pt
@@ -38,7 +38,7 @@ e = html.escape
 # Inhalte (eine Quelle für Übersicht und Arbeitsblätter)
 Z_WAHR, Z_WEG, Z_WOFUER = "Wie wollen wir wahrgenommen werden?", "Wie kommen wir dorthin?", "Wofür stehen wir?"
 GM = {
-    "nr": "1", "titel": "Zukünftiges Geschäftsmodell", "unter": "mit Positionierung und Pitch",
+    "nr": "2", "titel": "Zukünftiges Geschäftsmodell", "unter": "mit Positionierung und Pitch",
     "kurz": "Das Zentrale: wie die Agentur in drei bis fünf Jahren arbeitet – und warum Kunden genau zu ihr kommen.",
     "punkte": [("Zielgruppen und Sparten", "Wen sprechen wir an, womit wachsen wir?"),
                ("Problem und Mehrwert", "Welches Problem lösen wir für diese Kunden?"),
@@ -48,19 +48,19 @@ GM = {
     "frage": "Welches Problem lösen wir – und was macht uns einzigartig?",
     "vision": "Vision: das Zielbild in einem Satz · Mission: was wir dafür jeden Tag tun",
 }
-AUSGANG = {"titel": "Ausgangssituation", "unter": "Heutiges Geschäfts- und Organisationsmodell",
+AUSGANG = {"nr": "1", "titel": "Ausgangssituation", "unter": "Heutiges Geschäfts- und Organisationsmodell",
            "kurz": "Wo stehen wir heute? Bestand, Sparten, Team, Abläufe – was ist stark, was fehlt?"}
-STRATEGIE = {"nr": "2", "titel": "Strategie", "unter": "Stoßrichtungen und Handlungsfelder",
+STRATEGIE = {"nr": "3", "titel": "Strategie", "unter": "Stoßrichtungen und Handlungsfelder",
              "kurz": "Der Weg vom Heute zum Zielbild: wenige Stoßrichtungen, je mit konkreten Handlungsfeldern und einem Zeitplan.",
              "detail": [("Führungs- und Arbeitsalltag", "Wie sichern wir die Zielerreichung?"),
                         ("Strategiekommunikation", "Wie erklären wir die Strategie im Team?")]}
-LEITBILD = {"nr": "3", "titel": "Leitbild und Selbstverständnis",
+LEITBILD = {"titel": "Selbstverständnis", "unter": "Leitbild der Agentur",
             "kurz": "Entsteht zuletzt und fasst alles zusammen: was für uns, unser Team und unsere Kunden gilt.",
-            "punkte": [("Selbstverständnis", "Wer wir sind und was uns antreibt."),
+            "punkte": [("Selbstbild", "Wer wir sind und was uns antreibt."),
                        ("Unternehmensstrategie", "Wohin wir als Agentur wollen – in einem Satz."),
                        ("Führungsverständnis", "Wie wir führen und zusammenarbeiten."),
                        ("Zielgruppe", "„What's in it for me?“ – was unsere Kunden davon haben.")]}
-REIHENFOLGE = "Erst das zukünftige Geschäftsmodell, dann die Strategie, zuletzt das Leitbild."
+REIHENFOLGE = "Erst die Ausgangssituation, dann die Vision mit dem zukünftigen Geschäftsmodell, dann die Strategie als Weg dorthin. Das Selbstverständnis fasst zuletzt alles zusammen."
 
 
 def schriften():
@@ -116,7 +116,7 @@ def uebersicht():
           f'<p class="frage"><span class="klein">Ergebnisfrage</span><b>{e(GM["frage"])}</b></p></div>')
     weg = (f'<div style="display:grid;grid-template-columns:1fr 1.35fr;gap:6mm">'
            f'<div class="kasten" style="background:#f5f5f7;border-color:#f5f5f7">{titel(AUSGANG)}<p style="margin-top:3mm">{e(AUSGANG["kurz"])}</p>'
-           f'<p class="klein" style="margin-top:3mm">Eingangsgröße – ohne Nummer, weil sie nicht gestaltet, sondern ehrlich beschrieben wird.</p></div>'
+           f'<p class="klein" style="margin-top:3mm">Ehrlich beschreiben, nicht schönreden – sie ist der Ausgangspunkt für alles Weitere.</p></div>'
            f'<div class="kasten">{titel(STRATEGIE)}<p style="margin-top:3mm">{e(STRATEGIE["kurz"])}</p>'
            + "".join(f'<p class="frage"><span class="klein">{e(a)}</span><b>{e(b)}</b></p>' for a, b in STRATEGIE["detail"]) + '</div></div>')
     lb = (f'<div class="kasten">{titel(LEITBILD)}<p style="margin-top:3mm">{e(LEITBILD["kurz"])}</p>'
@@ -125,17 +125,26 @@ def uebersicht():
     inhalt = (f'<div class="kopf">{logo()}<span class="art">Strategiemodell · Übersicht</span></div>'
               f'<p class="art" style="margin-top:20mm">Für Versicherungsagenturen und Maklerbüros</p>'
               f'<h1 style="margin-top:3mm">Das Strategiemodell<br><span class="v">für deine Agentur.</span></h1>'
-              f'<p style="margin-top:5mm;max-width:190mm">Drei Fragen, in dieser Reihenfolge. {e(REIHENFOLGE)}</p>'
+              f'<p style="margin-top:5mm;max-width:190mm">Drei Fragen. {e(REIHENFOLGE)}</p>'
               + zone(Z_WAHR, gm, f' · Vision') + f'<p class="klein" style="margin-top:2.4mm">{e(GM["vision"])}</p>'
               + zone(Z_WEG, weg) + zone(Z_WOFUER, lb)
               + '<p class="fuss">sofortsichtbar.de</p>')
     return f'<div class="blatt" style="width:297mm;height:420mm;padding:18mm 18mm 20mm">{inhalt}</div>', "297mm 420mm"
 
 
-def feld(x, kurz=True, flex=1):
-    k = f'<p class="klein" style="margin-top:1.5mm;max-width:95mm">{e(x["kurz"])}</p>' if kurz else ""
-    return (f'<div class="kasten" style="flex:{flex};display:flex;flex-direction:column;padding:5mm">{titel(x)}{k}'
-            f'<div class="linien" style="margin-top:3mm"></div></div>')
+VISION = dict(GM, titel="Vision", unter="Zukünftiges Geschäftsmodell mit Positionierung und Pitch",
+              kurz="Das Zentrale: Zielgruppen und Sparten, das Problem, das wir lösen, was uns einzigartig macht – und der Pitch in einem Satz.")
+
+
+def teil(x, stil=""):
+    """Ein Bereich zum Reinschreiben: Nummer, Titel, kurze Erklärung, darunter freie Fläche."""
+    return (f'<div style="display:flex;flex-direction:column;min-width:0;{stil}">{titel(x)}'
+            f'<p class="klein" style="margin-top:1.5mm;max-width:95mm">{e(x["kurz"])}</p><div class="linien"></div></div>')
+
+
+def kasten(frage, inhalt, stil=""):
+    return (f'<div class="kasten" style="display:flex;flex-direction:column;gap:4mm;padding:5mm 6mm;{stil}">'
+            f'<p class="zone" style="text-align:center">{e(frage)}</p>{inhalt}</div>')
 
 
 def kopf_quer(art):
@@ -145,31 +154,34 @@ def kopf_quer(art):
 
 
 def arbeitsblatt_a():
-    spalte = lambda frage, felder: (f'<div style="display:flex;flex-direction:column;gap:5mm;min-height:0"><p class="zone">{e(frage)}</p>{felder}</div>')
-    gm = dict(GM, kurz="Das Zentrale: Zielgruppen und Sparten, das Problem, das wir lösen, was uns einzigartig macht – und der Pitch in einem Satz.")
-    inhalt = (kopf_quer("Arbeitsblatt") +
-              f'<div style="position:absolute;left:18mm;right:18mm;top:36mm;bottom:20mm;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8mm">'
-              + spalte(Z_WAHR + " · Vision", feld(gm))
-              + spalte(Z_WEG, feld(AUSGANG, flex=.8) + feld(STRATEGIE))
-              + spalte(Z_WOFUER, feld(LEITBILD))
+    """Ausschnitt des Strategiemodells: links 1 Ausgangssituation, in der Mitte 3 Strategie, rechts 2 Vision."""
+    # Zonen wie im Modell: 1 und 3 gehören zu „Wie kommen wir dorthin?“, 2 zu „Wie wollen wir wahrgenommen werden?“
+    feld = lambda x: f'<div class="kasten" style="display:flex;padding:5mm 6mm;min-height:0">{teil(x, "flex:1")}</div>'
+    inhalt = (kopf_quer("Arbeitsblatt A") +
+              f'<div style="position:absolute;left:18mm;right:18mm;top:36mm;bottom:20mm;display:grid;grid-template-columns:1fr 1fr 1fr;'
+              f'grid-template-rows:auto 1fr;gap:3mm 8mm">'
+              f'<p class="zone" style="grid-column:1/3">{e(Z_WEG)}</p><p class="zone">{e(Z_WAHR)}</p>'
+              + feld(AUSGANG) + feld(STRATEGIE) + feld(VISION)
               + '</div><p class="fuss">sofortsichtbar.de</p>')
     return f'<div class="blatt" style="width:420mm;height:297mm;padding:16mm 18mm">{inhalt}</div>', "420mm 297mm"
 
 
 def arbeitsblatt_b():
-    """Bild des Strategiemodells: oben quer „Wofür stehen wir?“, darunter zwei Säulen – links der Weg, rechts die Vision."""
-    gm = dict(GM, kurz="Das Zentrale: Zielgruppen und Sparten, das Problem, das wir lösen, was uns einzigartig macht – und der Pitch in einem Satz.")
-    oben = (f'<div style="position:absolute;left:18mm;right:18mm;top:34mm;height:52mm;display:flex;flex-direction:column;gap:3mm">'
-            f'<p class="zone" style="text-align:center">{e(Z_WOFUER)}</p>{feld(LEITBILD)}</div>')
-    unten = (f'<div style="position:absolute;left:18mm;right:18mm;top:96mm;bottom:20mm;display:grid;grid-template-columns:1.5fr 1fr;gap:10mm">'
-             f'<div style="display:flex;flex-direction:column;gap:3mm"><p class="zone" style="text-align:center">{e(Z_WEG)}</p>'
-             f'<div style="flex:1;display:grid;grid-template-columns:1fr 1.3fr;gap:6mm;min-height:0">{feld(AUSGANG)}{feld(STRATEGIE)}</div></div>'
-             f'<div style="display:flex;flex-direction:column;gap:3mm"><p class="zone" style="text-align:center">{e(Z_WAHR)} · Vision</p>{feld(gm)}</div></div>')
-    # Pfeile: Ausgangssituation → Strategie → Vision
+    """Drei Kästen wie im Strategiemodell: oben quer „Wofür stehen wir?“ (Selbstverständnis), darunter links der breite Kasten
+    „Wie kommen wir dorthin?“ mit 1 Ausgangssituation und 3 Strategie, rechts der schmälere „Wie wollen wir wahrgenommen werden?“
+    mit 2 Vision. Der Pfeil vom Selbstverständnis zur Vision wie im Modell."""
+    oben = (f'<div style="position:absolute;left:18mm;right:18mm;top:34mm;height:60mm;display:flex">'
+            + kasten(Z_WOFUER, teil(LEITBILD, "flex:1"), "flex:1") + '</div>')
+    links = kasten(Z_WEG, f'<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0">'
+                   f'{teil(AUSGANG, "padding-right:6mm")}{teil(STRATEGIE, "padding-left:6mm;border-left:0.35mm solid #d2d2d7")}</div>')
+    rechts = kasten(Z_WAHR, teil(VISION, "flex:1"))
+    unten = (f'<div style="position:absolute;left:18mm;right:18mm;top:104mm;bottom:20mm;display:grid;grid-template-columns:1.6fr 1fr;gap:8mm">'
+             f'{links}{rechts}</div>')
+    # rechte Säule: Start 18 + 376/2.6*1.6 + 8 = 257.4 mm, Mitte 329.7 mm
     pfeil = ('<svg style="position:absolute;left:0;top:0" width="420mm" height="297mm" viewBox="0 0 420 297">'
              '<defs><marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#1d1d1f" stroke-width="1.6"/></marker></defs>'
-             '<path d="M113.4 196 h5" stroke="#1d1d1f" stroke-width=".5" marker-end="url(#p)"/><path d="M243.2 196 h8.6" stroke="#1d1d1f" stroke-width=".5" marker-end="url(#p)"/></svg>')
-    inhalt = kopf_quer("Arbeitsblatt") + oben + unten + pfeil + '<p class="fuss">sofortsichtbar.de</p>'
+             '<path d="M329.7 95.2 V102.6" stroke="#1d1d1f" stroke-width=".5" marker-end="url(#p)"/></svg>')
+    inhalt = kopf_quer("Arbeitsblatt B") + oben + unten + pfeil + '<p class="fuss">sofortsichtbar.de</p>'
     return f'<div class="blatt" style="width:420mm;height:297mm;padding:16mm 18mm">{inhalt}</div>', "420mm 297mm"
 
 
@@ -190,8 +202,8 @@ def drucken(name, blatt, groesse):
 def main():
     os.makedirs(ZIEL, exist_ok=True)
     blaetter = [("strategiemodell-uebersicht-a3-hoch", "Übersicht", "A3 hoch · alle Inhalte mit Erklärung", uebersicht),
-                ("strategiemodell-arbeitsblatt-a-a3-quer", "Arbeitsblatt A", "A3 quer · nacheinander von links nach rechts", arbeitsblatt_a),
-                ("strategiemodell-arbeitsblatt-b-a3-quer", "Arbeitsblatt B", "A3 quer · im Bild des Strategiemodells", arbeitsblatt_b)]
+                ("strategiemodell-arbeitsblatt-a-a3-quer", "Arbeitsblatt A", "A3 quer · Ausschnitt des Strategiemodells", arbeitsblatt_a),
+                ("strategiemodell-arbeitsblatt-b-a3-quer", "Arbeitsblatt B", "A3 quer · drei Kästen wie im Strategiemodell", arbeitsblatt_b)]
     daten = []
     for name, titel_, text, fn in blaetter:
         blatt, groesse = fn()
@@ -200,7 +212,7 @@ def main():
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["strategiemodell"] = {"kicker": "Arbeitsblatt", "h2": "Das Strategiemodell.",
-                                  "lead": "Für die Agentur, in dieser Reihenfolge: zukünftiges Geschäftsmodell mit Positionierung und Pitch, dann die Strategie, zuletzt das Leitbild. Hell und ohne Balken – zum Ausdrucken.",
+                                  "lead": "Für die Agentur, nummeriert wie im Strategiemodell: 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäftsmodell, 3 Strategie – darüber das Selbstverständnis. Hell und ohne Balken – zum Ausdrucken.",
                                   "blaetter": daten}
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")
