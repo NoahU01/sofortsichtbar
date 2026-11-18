@@ -259,8 +259,8 @@ def main():
             hh = int(im.width / verh)
             oben = (im.height - hh) // 2
             im = im.crop((0, oben, im.width, oben + hh))
-        im.thumbnail((1000, 1000))
-        im.save(x["png"].replace(".png", ".webp"), quality=84)
+        im.thumbnail((1800, 1800), Image.LANCZOS)  # scharf auch auf Retina
+        im.save(x["png"].replace(".png", ".webp"), quality=92, method=6)
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["hintergruende"] = {"kicker": "Für deine Geräte", "h2": "Hintergrundbilder.",
