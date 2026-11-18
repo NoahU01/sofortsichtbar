@@ -1138,7 +1138,8 @@ body.s7-menue-offen { overflow: hidden; }
 .hg7-variante { margin-top: 3.4rem; }
 .hg7-variante h3 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
 .hg7-variante > p { margin-top: .4rem; color: var(--s7-text); max-width: 46rem; }
-.hg7-reihe { display: grid; grid-template-columns: 1.54fr 1fr 1fr .46fr .46fr .46fr 1.78fr; align-items: end; gap: 1.4rem 1rem; margin-top: 1.4rem; }
+.hg7-reihe { display: flex; align-items: flex-end; gap: 1.2rem; margin-top: 1.4rem; }
+.hg7-reihe--telefon { max-width: 22rem; }
 .hg7-bild { display: grid; gap: .5rem; text-decoration: none; }
 .hg7-bild { min-width: 0; }
 .hg7-bild img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 0 1px var(--s7-linie), 0 10px 24px rgba(0,0,0,.12); }
@@ -1146,7 +1147,7 @@ body.s7-menue-offen { overflow: hidden; }
 .hg7-bild span { min-height: 5.6em; color: var(--s7-grau); font-size: .8rem; line-height: 1.35; }
 .hg7-bild b { display: block; color: var(--s7-tinte); font-size: .88rem; }
 .hg7-bild:hover img { box-shadow: 0 0 0 2px var(--s7-tinte), 0 10px 24px rgba(0,0,0,.12); }
-@media (max-width: 900px) { .hg7-reihe { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .hg7-reihe--gross { flex-wrap: wrap; } .hg7-reihe--gross .hg7-bild { flex: 0 1 calc(50% - .6rem) !important; } }
 </style>
 </head>
 <body>
@@ -1656,11 +1657,13 @@ body.s7-menue-offen { overflow: hidden; }
       {%- for v in HG.varianten %}
       <div class="hg7-variante">
         <h3>{{ v.name }}</h3><p>{{ v.text }}</p>
-        <div class="hg7-reihe">
-          {%- for b in v.bilder %}
-          <a class="hg7-bild hg7-bild--{{ b.art }}" href="{{ A7 }}/hintergruende/{{ b.datei }}" target="_blank" rel="noopener"><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }}</span></a>
-          {%- endfor %}
+        {%- for r in ["gross", "telefon"] %}
+        <div class="hg7-reihe hg7-reihe--{{ r }}">
+          {%- for b in v.bilder %}{% if b.reihe == r %}
+          <a class="hg7-bild hg7-bild--{{ b.art }}" style="flex: 0 1 {{ b.anteil }}%" href="{{ A7 }}/hintergruende/{{ b.datei }}" target="_blank" rel="noopener"><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }}{% if b.hinweis %}<br>{{ b.hinweis }}{% endif %}</span></a>
+          {%- endif %}{% endfor %}
         </div>
+        {%- endfor %}
       </div>
       {%- endfor %}
     </div>

@@ -23,6 +23,9 @@ FONTS = os.path.join(HERE, "assets", "fonts")
 LOGO = os.path.join(SRC, "assets", "img", "logos", "logo-white.svg")
 BG = "#1d1d1f"  # wie der Footer der Website (Apple-Tinte), nicht tiefschwarz – Daniel 18.11.2026
 
+# Vorschau so, wie es auf dem Gerät aussieht: iPad quer ausgeschnitten (Bildschirmseitenverhältnis), Größen maßstäblich nach Bildschirmbreite (cm)
+VORSCHAU = {"macbook": (None, 30.2), "ipad13": (4 / 3, 28.1), "ipadmini": (1.52, 19.5), "teams": (None, 30.2),
+            "iphone13mini": (None, 5.4), "iphone13pro": (None, 6.4), "iphone16pro": (None, 6.6)}
 GERAETE = [  # Schlüssel, Name, Breite, Höhe (Punkte), Art
     ("macbook", "MacBook Air 13″", 3024, 1964, "mac"),
     ("ipad13", "iPad Air 13″", 2752, 2752, "ipad"),
@@ -36,7 +39,7 @@ VARIANTEN = [
     ("klar", "Klar", "Die Grundform: Logo und Satz als ein Block, ruhig gesetzt. Nichts lenkt von Fenstern und Symbolen ab."),
     ("akzent", "Akzent", "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan."),
     ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Darunter der Trichter mit Vertrieb und Betreuen."),
-    ("trichter-reduziert", "Trichter reduziert", "Derselbe Trichter, stilisiert: nur die Formen und die Namen der vier Stufen."),
+    ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort – nur die Formen. Je Gerät sinnvoll gesetzt: auf dem MacBook rechts neben dem Satz, auf iPad, iPhone und bei Teams senkrecht."),
 ]
 
 
@@ -69,8 +72,8 @@ TRICHTER_CSS = (
     ".tr .ek2-linie{fill:none;stroke:#f5f5f7;stroke-width:2}.tr .ek2-linie--fein{stroke-width:1.4}"
     ".tr .ek2-pfeilkopf{fill:none;stroke:#f5f5f7}"
     ".tr text{font-family:Inter,sans-serif}"
-    # reduziert: nur Formen und Stufennamen (Texte blendet REDUZIERT_JS aus)
-    ".red .ek2-linie,.red .ek2-pfeilkopf{display:none}"
+    # stilisiert: nur Formen, kein Wort
+    ".stil text,.stil .ek2-linie,.stil .ek2-pfeilkopf{display:none}"
 )
 VERLAUF_DEFS = ('<svg width="0" height="0" style="position:absolute"><defs>'
                 '<linearGradient id="hg-q" x1="0" x2="1"><stop offset="0" stop-color="#0b9fbd"/><stop offset="1" stop-color="#8613a1"/></linearGradient>'
@@ -78,19 +81,17 @@ VERLAUF_DEFS = ('<svg width="0" height="0" style="position:absolute"><defs>'
                 '</defs></svg>')
 
 
-REDUZIERT_JS = ("<script>document.querySelectorAll('.red text').forEach(t=>{if(!['Auswählen','Betreiben','Vertrieb','Betreuen'].includes(t.textContent.trim()))t.style.display='none'})</script>")
-
-
 def bild(gkey, w, h, art, var):
     """Logo und Satz bilden einen Block: Logo klein, linksbündig mit dem Satz, fester Abstand darüber. Eine Schriftgröße wie auf der Homepage."""
     trichter = var.startswith("trichter")
-    hoch = trichter and art in ("iphone", "video")
+    stil = var == "trichter-stilisiert"
+    hoch = trichter and (art in ("iphone", "video") or (stil and art == "ipad"))
     if art == "mac":
-        size = .046 * w if not trichter else .036 * w
-        block = dict(left=.08 * w, mitte_y=(.47 if not trichter else .27) * h, align="left")
+        size = .046 * w if not trichter else (.036 * w if not stil else .042 * w)
+        block = dict(left=.08 * w, mitte_y=(.47 if not trichter or stil else .27) * h, align="left")
     elif art == "ipad":
-        size = .06 * w if not trichter else .046 * w
-        block = dict(left=0, mitte_y=(.45 if not trichter else .30) * h, align="center", breite=w)
+        size = .06 * w if not trichter else (.046 * w if not stil else .042 * w)
+        block = dict(left=0, mitte_y=(.45 if not trichter else (.30 if not stil else .27)) * h, align="center", breite=w)
     elif art == "iphone":
         size = .11 * w if not trichter else .075 * w
         block = dict(left=.10 * w, mitte_y=(.52 if not trichter else .405) * h, align="left")
@@ -110,10 +111,13 @@ def bild(gkey, w, h, art, var):
         hintergrund = f"radial-gradient(40% 36% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 26% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
     extra = ""
     if trichter:
-        kl = "tr red" if var == "trichter-reduziert" else "tr"
+        kl = "tr stil" if stil else "tr"
         if hoch:
             svgx = S8["ek_hoch"]
-            if art == "iphone":
+            if art == "ipad":  # senkrecht, mittig unter dem Satz – bleibt beim Drehen im Mittelfeld
+                hoehe = .42 * h   # quer schneidet iPadOS oben/unten ab (iPad mini bis ca. 17 %) – alles zwischen 20 % und 80 %
+                extra = f'<div class="{kl}" style="position:absolute;left:{(w - hoehe * 340 / 622) / 2:.0f}px;top:{.375 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
+            elif art == "iphone":
                 hoehe = .33 * h
                 extra = f'<div class="{kl}" style="position:absolute;left:{.10 * w - 30 * hoehe / 622:.0f}px;top:{.52 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
             else:  # Teams: senkrechter Trichter rechts
@@ -121,14 +125,16 @@ def bild(gkey, w, h, art, var):
                 extra = f'<div class="{kl}" style="position:absolute;left:{.95 * w - hoehe * 340 / 622:.0f}px;top:{.08 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
         else:
             svgx = S8["ek_kopf"]
-            if art == "mac":
+            if art == "mac" and stil:  # kompakt rechts neben dem Satz
+                extra = f'<div class="{kl}" style="position:absolute;left:{.57 * w:.0f}px;top:{.47 * h - .35 * w * 320 / 1120 / 2:.0f}px;width:{.35 * w:.0f}px">{svgx}</div>'
+            elif art == "mac":
                 extra = f'<div class="{kl}" style="position:absolute;left:{.08 * w:.0f}px;top:{.46 * h:.0f}px;width:{.84 * w:.0f}px">{svgx}</div>'
             else:
                 extra = f'<div class="{kl}" style="position:absolute;left:{.07 * w:.0f}px;top:{.44 * h:.0f}px;width:{.86 * w:.0f}px">{svgx}</div>'
     css = (schriften() + f"*{{margin:0;box-sizing:border-box}}html,body{{width:{w}px;height:{h}px;overflow:hidden;background:{BG}}}"
            ".v{background:linear-gradient(100deg,#19b6d4,#a64fd0);-webkit-background-clip:text;background-clip:text;color:transparent}"
            + TRICHTER_CSS)
-    return f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{VERLAUF_DEFS}<div style="position:relative;width:{w}px;height:{h}px;background:{hintergrund};overflow:hidden">{extra}{blk}</div>{REDUZIERT_JS if var == "trichter-reduziert" else ""}</body></html>'
+    return f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{VERLAUF_DEFS}<div style="position:relative;width:{w}px;height:{h}px;background:{hintergrund};overflow:hidden">{extra}{blk}</div></body></html>'
 
 
 AUFNAHME = r"""
@@ -158,7 +164,14 @@ def main():
             open(html, "w").write(bild(gkey, w, h, art, vkey))
             datei = f"sofortsichtbar-hintergrund-{vkey}-{gkey}-{2 * w}x{2 * h}.png"
             liste.append({"html": html, "png": os.path.join(ZIEL, datei), "w": w, "h": h})
-            eintraege.append({"geraet": gname, "datei": datei, "vorschau": datei.replace(".png", ".webp"), "masse": f"{2 * w} × {2 * h}", "art": art})
+            eintraege.append({"geraet": gname, "datei": datei, "vorschau": datei.replace(".png", ".webp"), "masse": f"{2 * w} × {2 * h}", "art": art,
+                              "reihe": "telefon" if art == "iphone" else "gross", "cm": VORSCHAU[gkey][1],
+                              "hinweis": "Datei quadratisch, iPad zeigt die Mitte" if art == "ipad" else ""})
+        for reihe in ("gross", "telefon"):
+            summe = sum(e["cm"] for e in eintraege if e["reihe"] == reihe)
+            for e in eintraege:
+                if e["reihe"] == reihe:
+                    e["anteil"] = round(e["cm"] / summe * 100, 2)
         daten.append({"id": vkey, "name": vname, "text": vtext, "bilder": eintraege})
     js = os.path.join(tmp, "aufnahme.mjs")
     open(js, "w").write(AUFNAHME)
@@ -168,7 +181,12 @@ def main():
     from PIL import Image
     for x in liste:
         im = Image.open(x["png"]).convert("RGB")
-        im.thumbnail((900, 900))
+        if x["w"] == x["h"]:  # iPad: Vorschau quer wie der Bildschirm
+            verh = 1.52 if x["w"] < 2500 else 4 / 3
+            hh = int(im.width / verh)
+            oben = (im.height - hh) // 2
+            im = im.crop((0, oben, im.width, oben + hh))
+        im.thumbnail((1000, 1000))
         im.save(x["png"].replace(".png", ".webp"), quality=84)
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
