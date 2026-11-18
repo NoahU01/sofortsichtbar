@@ -1606,7 +1606,7 @@
         {
           "id": "akzent",
           "name": "Akzent",
-          "text": "„Die digitale Maschine“ klein in Grau, „vor deinem Vertrieb.“ groß im Verlauf – dahinter gedämpftes Licht.",
+          "text": "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan.",
           "bilder": [
             {
               "geraet": "MacBook Air 13″",
@@ -1660,56 +1660,112 @@
           ]
         },
         {
-          "id": "oberflaeche",
-          "name": "Oberfläche",
-          "text": "Ein Stück unserer Produktoberfläche läuft dunkel aus dem Bild: Strecken, fertige Postings, „Heute dran“.",
+          "id": "trichter",
+          "name": "Trichter",
+          "text": "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Darunter der Trichter mit Vertrieb und Betreuen.",
           "bilder": [
             {
               "geraet": "MacBook Air 13″",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-macbook-6048x3928.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-macbook-6048x3928.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-macbook-6048x3928.webp",
               "masse": "6048 × 3928",
               "art": "mac"
             },
             {
               "geraet": "iPad Air 13″",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-ipad13-5504x5504.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-ipad13-5504x5504.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-ipad13-5504x5504.webp",
               "masse": "5504 × 5504",
               "art": "ipad"
             },
             {
               "geraet": "iPad mini",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-ipadmini-4532x4532.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-ipadmini-4532x4532.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-ipadmini-4532x4532.webp",
               "masse": "4532 × 4532",
               "art": "ipad"
             },
             {
               "geraet": "iPhone 13 mini",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-iphone13mini-2160x4680.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-iphone13mini-2160x4680.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-iphone13mini-2160x4680.webp",
               "masse": "2160 × 4680",
               "art": "iphone"
             },
             {
               "geraet": "iPhone 13 Pro",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-iphone13pro-2340x5064.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-iphone13pro-2340x5064.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-iphone13pro-2340x5064.webp",
               "masse": "2340 × 5064",
               "art": "iphone"
             },
             {
               "geraet": "iPhone 16 Pro",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-iphone16pro-2412x5244.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-iphone16pro-2412x5244.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-iphone16pro-2412x5244.webp",
               "masse": "2412 × 5244",
               "art": "iphone"
             },
             {
               "geraet": "Teams und Zoom",
-              "datei": "sofortsichtbar-hintergrund-oberflaeche-teams-3840x2160.png",
-              "vorschau": "sofortsichtbar-hintergrund-oberflaeche-teams-3840x2160.webp",
+              "datei": "sofortsichtbar-hintergrund-trichter-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-teams-3840x2160.webp",
+              "masse": "3840 × 2160",
+              "art": "video"
+            }
+          ]
+        },
+        {
+          "id": "trichter-reduziert",
+          "name": "Trichter reduziert",
+          "text": "Derselbe Trichter, stilisiert: nur die Formen und die Namen der vier Stufen.",
+          "bilder": [
+            {
+              "geraet": "MacBook Air 13″",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-macbook-6048x3928.webp",
+              "masse": "6048 × 3928",
+              "art": "mac"
+            },
+            {
+              "geraet": "iPad Air 13″",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-ipad13-5504x5504.webp",
+              "masse": "5504 × 5504",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPhone 13 mini",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-iphone13mini-2160x4680.webp",
+              "masse": "2160 × 4680",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 13 Pro",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-iphone13pro-2340x5064.webp",
+              "masse": "2340 × 5064",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 16 Pro",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-iphone16pro-2412x5244.webp",
+              "masse": "2412 × 5244",
+              "art": "iphone"
+            },
+            {
+              "geraet": "Teams und Zoom",
+              "datei": "sofortsichtbar-hintergrund-trichter-reduziert-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-trichter-reduziert-teams-3840x2160.webp",
               "masse": "3840 × 2160",
               "art": "video"
             }
