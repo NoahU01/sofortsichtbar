@@ -1541,6 +1541,181 @@
           "Welche Pakete enthalten die Tools? (offen, Claude)"
         ]
       }
+    },
+    "hintergruende": {
+      "kicker": "Für deine Geräte",
+      "h2": "Hintergrundbilder.",
+      "lead": "Dunkel, damit nichts blendet – mit Logo und Grundaussage. Für MacBook, iPad, iPhone sowie Teams und Zoom; Uhr, Dock und die Person im Videocall bleiben frei.",
+      "varianten": [
+        {
+          "id": "klar",
+          "name": "Klar",
+          "text": "Nur Schwarz, Logo und Satz. Am ruhigsten, nichts lenkt von Fenstern und Symbolen ab.",
+          "bilder": [
+            {
+              "geraet": "MacBook Air 13″",
+              "datei": "sofortsichtbar-hintergrund-klar-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-macbook-6048x3928.webp",
+              "masse": "6048 × 3928",
+              "art": "mac"
+            },
+            {
+              "geraet": "iPad Air 13″",
+              "datei": "sofortsichtbar-hintergrund-klar-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-ipad13-5504x5504.webp",
+              "masse": "5504 × 5504",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-klar-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPhone 13 mini",
+              "datei": "sofortsichtbar-hintergrund-klar-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-iphone13mini-2160x4680.webp",
+              "masse": "2160 × 4680",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 13 Pro",
+              "datei": "sofortsichtbar-hintergrund-klar-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-iphone13pro-2340x5064.webp",
+              "masse": "2340 × 5064",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 16 Pro",
+              "datei": "sofortsichtbar-hintergrund-klar-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-iphone16pro-2412x5244.webp",
+              "masse": "2412 × 5244",
+              "art": "iphone"
+            },
+            {
+              "geraet": "Teams und Zoom",
+              "datei": "sofortsichtbar-hintergrund-klar-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-klar-teams-3840x2160.webp",
+              "masse": "3840 × 2160",
+              "art": "video"
+            }
+          ]
+        },
+        {
+          "id": "leuchten",
+          "name": "Leuchten",
+          "text": "Gedämpftes Licht in Cyan und Violett aus zwei Ecken – Tiefe, ohne zu blenden.",
+          "bilder": [
+            {
+              "geraet": "MacBook Air 13″",
+              "datei": "sofortsichtbar-hintergrund-leuchten-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-macbook-6048x3928.webp",
+              "masse": "6048 × 3928",
+              "art": "mac"
+            },
+            {
+              "geraet": "iPad Air 13″",
+              "datei": "sofortsichtbar-hintergrund-leuchten-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-ipad13-5504x5504.webp",
+              "masse": "5504 × 5504",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-leuchten-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPhone 13 mini",
+              "datei": "sofortsichtbar-hintergrund-leuchten-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-iphone13mini-2160x4680.webp",
+              "masse": "2160 × 4680",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 13 Pro",
+              "datei": "sofortsichtbar-hintergrund-leuchten-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-iphone13pro-2340x5064.webp",
+              "masse": "2340 × 5064",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 16 Pro",
+              "datei": "sofortsichtbar-hintergrund-leuchten-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-iphone16pro-2412x5244.webp",
+              "masse": "2412 × 5244",
+              "art": "iphone"
+            },
+            {
+              "geraet": "Teams und Zoom",
+              "datei": "sofortsichtbar-hintergrund-leuchten-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-leuchten-teams-3840x2160.webp",
+              "masse": "3840 × 2160",
+              "art": "video"
+            }
+          ]
+        },
+        {
+          "id": "faden",
+          "name": "Faden",
+          "text": "Eine feine Linie im Verlauf zieht durch das Bild und endet in einem leuchtenden Punkt – wie der Faden der Grundstory.",
+          "bilder": [
+            {
+              "geraet": "MacBook Air 13″",
+              "datei": "sofortsichtbar-hintergrund-faden-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-macbook-6048x3928.webp",
+              "masse": "6048 × 3928",
+              "art": "mac"
+            },
+            {
+              "geraet": "iPad Air 13″",
+              "datei": "sofortsichtbar-hintergrund-faden-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-ipad13-5504x5504.webp",
+              "masse": "5504 × 5504",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-faden-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad"
+            },
+            {
+              "geraet": "iPhone 13 mini",
+              "datei": "sofortsichtbar-hintergrund-faden-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-iphone13mini-2160x4680.webp",
+              "masse": "2160 × 4680",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 13 Pro",
+              "datei": "sofortsichtbar-hintergrund-faden-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-iphone13pro-2340x5064.webp",
+              "masse": "2340 × 5064",
+              "art": "iphone"
+            },
+            {
+              "geraet": "iPhone 16 Pro",
+              "datei": "sofortsichtbar-hintergrund-faden-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-iphone16pro-2412x5244.webp",
+              "masse": "2412 × 5244",
+              "art": "iphone"
+            },
+            {
+              "geraet": "Teams und Zoom",
+              "datei": "sofortsichtbar-hintergrund-faden-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-faden-teams-3840x2160.webp",
+              "masse": "3840 × 2160",
+              "art": "video"
+            }
+          ]
+        }
+      ]
     }
   }
 }

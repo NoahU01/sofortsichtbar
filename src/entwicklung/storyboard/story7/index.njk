@@ -1133,6 +1133,20 @@ body.s7-menue-offen { overflow: hidden; }
 @media (max-width: 600px) {
   .sp-massstab { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Hintergrundbilder (hg7-) */
+.hg7-variante { margin-top: 3.4rem; }
+.hg7-variante h3 { color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.hg7-variante > p { margin-top: .4rem; color: var(--s7-text); max-width: 46rem; }
+.hg7-reihe { display: grid; grid-template-columns: 1.54fr 1fr 1fr .46fr .46fr .46fr 1.78fr; align-items: end; gap: 1.4rem 1rem; margin-top: 1.4rem; }
+.hg7-bild { display: grid; gap: .5rem; text-decoration: none; }
+.hg7-bild { min-width: 0; }
+.hg7-bild img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 0 1px var(--s7-linie), 0 10px 24px rgba(0,0,0,.12); }
+.hg7-bild--iphone img { border-radius: 16px; }
+.hg7-bild span { color: var(--s7-grau); font-size: .8rem; line-height: 1.35; }
+.hg7-bild b { display: block; color: var(--s7-tinte); font-size: .88rem; }
+.hg7-bild:hover img { box-shadow: 0 0 0 2px var(--s7-tinte), 0 10px 24px rgba(0,0,0,.12); }
+@media (max-width: 900px) { .hg7-reihe { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 </style>
 </head>
 <body>
@@ -1630,6 +1644,25 @@ body.s7-menue-offen { overflow: hidden; }
         <p class="ig7-alt__links"><a class="s7-link" href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener">PDF · 100 × 200 cm {{ pfeil | safe }}</a></p>
       </div>
       <figure class="ig7-blatt"><a href="{{ B6 }}/assets/maas/infografik/rollup3.pdf" target="_blank" rel="noopener"><img src="{{ B6 }}/assets/maas/infografik/rollup3.png" alt="Roll-up Version 3, Blick in die Maschine" loading="lazy"></a></figure>
+    </div>
+  </section>
+  {#- Hintergrundbilder (Daniel, 18.11.2026): dunkel, Logo + Grundaussage, Formate und freie Bereiche wie empiria. Erzeugt mit hintergruende7.py -#}
+  {%- set HG = S.hintergruende %}
+  <section class="s7-band" id="hintergruende">
+    <div class="s7-wrap">
+      <p class="s7-kicker">{{ HG.kicker }}</p>
+      <h2 class="s7-h2">{{ HG.h2 }}</h2>
+      <p class="s7-lead">{{ HG.lead }}</p>
+      {%- for v in HG.varianten %}
+      <div class="hg7-variante">
+        <h3>{{ v.name }}</h3><p>{{ v.text }}</p>
+        <div class="hg7-reihe">
+          {%- for b in v.bilder %}
+          <a class="hg7-bild hg7-bild--{{ b.art }}" href="{{ A7 }}/hintergruende/{{ b.datei }}" download><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }} · PNG</span></a>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
     </div>
   </section>
 </main>
