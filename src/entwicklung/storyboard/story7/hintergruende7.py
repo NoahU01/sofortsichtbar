@@ -38,8 +38,9 @@ GERAETE = [  # Schlüssel, Name, Breite, Höhe (Punkte), Art
 VARIANTEN = [
     ("klar", "Klar", "Die Grundform: Logo und Satz als ein Block, ruhig gesetzt. Nichts lenkt von Fenstern und Symbolen ab."),
     ("akzent", "Akzent", "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan."),
-    ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Darunter der Trichter mit Vertrieb und Betreuen."),
-    ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort – nur die Formen. Je Gerät sinnvoll gesetzt: auf dem MacBook rechts neben dem Satz, auf iPad, iPhone und bei Teams senkrecht."),
+    ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Mit viel Rand, kein Bildschirm voll."),
+    ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort, Vertrieb und Betreuen als kleine Blöcke. Je Gerät sinnvoll gesetzt."),
+    ("nur-trichter", "Nur Trichter", "Nur der Trichter, ohne Blöcke. Quer mündet er direkt in den Satz – Maschine und Aussage auf einer Höhe."),
 ]
 
 
@@ -67,7 +68,8 @@ TRICHTER_CSS = (
     ".tr .ek2-kern{fill:url(#hg-q)}.tr .ek2-kern-h{fill:url(#hg-h)}"
     ".tr .ek2-kern-t{fill:#fff}.tr .ek2-kern-s{fill:rgba(255,255,255,.82)}"
     f".tr .ek2-fuge{{fill:none;stroke:{BG};stroke-width:6;stroke-linecap:round}}"
-    ".tr .ek2-band{fill:#3a3a3e}.tr .ek2-band-t{fill:#fff}.tr .ek2-band-s{fill:#a1a1a6}"
+    ".tr .ek2-band{fill:#3a3a3e}.tr .ek2-l2{fill:#46464b}.tr .ek2-l3{fill:#38383c}.tr .ek2-l4{fill:#2d2d31}"
+    ".tr .ek2-band-t{fill:#fff}.tr .ek2-band-s{fill:#a1a1a6}"
     ".tr .ek2-t{fill:#f5f5f7}.tr .ek2-grau{fill:#a1a1a6}"
     ".tr .ek2-linie{fill:none;stroke:#f5f5f7;stroke-width:2}.tr .ek2-linie--fein{stroke-width:1.4}"
     ".tr .ek2-pfeilkopf{fill:none;stroke:#f5f5f7}"
@@ -81,60 +83,131 @@ VERLAUF_DEFS = ('<svg width="0" height="0" style="position:absolute"><defs>'
                 '</defs></svg>')
 
 
-def bild(gkey, w, h, art, var):
-    """Logo und Satz bilden einen Block: Logo klein, linksbündig mit dem Satz, fester Abstand darüber. Eine Schriftgröße wie auf der Homepage."""
-    trichter = var.startswith("trichter")
-    stil = var == "trichter-stilisiert"
-    hoch = trichter and (art in ("iphone", "video") or (stil and art == "ipad"))
-    if art == "mac":
-        size = .046 * w if not trichter else (.036 * w if not stil else .042 * w)
-        block = dict(left=.08 * w, mitte_y=(.47 if not trichter or stil else .27) * h, align="left")
-    elif art == "ipad":
-        size = .06 * w if not trichter else (.046 * w if not stil else .042 * w)
-        block = dict(left=0, mitte_y=(.45 if not trichter else (.30 if not stil else .27)) * h, align="center", breite=w)
-    elif art == "iphone":
-        size = .11 * w if not trichter else .075 * w
-        block = dict(left=.10 * w, mitte_y=(.52 if not trichter else .405) * h, align="left")
-    else:  # Teams/Zoom: Block am linken Rand, vertikal mittig – die Person sitzt in der Mitte
-        size = .034 * w
-        block = dict(left=.05 * w, mitte_y=.5 * h, align="left")
+# Stilisierter Trichter: Geometrie wie Story 8 (Bogen-Fuge, Form B), ohne Worte; Blöcke für Vertrieb und Betreuen optional und klein
+MUND, HALS = [50, 74, 96, 118], [30, 38, 46, 54]
+XF, XK, XH, XT, C = 250, 450, 510, 262, 120
+
+
+def _lage(k):
+    hm, hh = MUND[k], HALS[k]
+    return (f"M0 {C - hm} H{XF} C{XF + 130} {C - hm} {XK - 100} {C - hh} {XK} {C - hh} H{XH} "
+            f"V{C + hh} H{XK} C{XK - 100} {C + hh} {XF + 130} {C + hm} {XF} {C + hm} H0 Z")
+
+
+def stil_svg(bloecke=False, senkrecht=False):
+    o = [f'<path d="{_lage(k)}" class="{("ek2-kern" if k == 0 else f"ek2-l{k + 1}")} ek2-lage"/>' for k in (3, 2, 1, 0)]
+    yo, yu = C - MUND[3] - 2, C + MUND[3] + 2
+    o.append(f'<path d="M{XT - 10} {yo} C{XT + 14} {C - 50} {XT + 14} {C + 50} {XT - 10} {yu}" class="ek2-fuge"/>')
+    breite = XH
+    if bloecke:  # klein: halbe Höhe des Halses, kurze Pfeile
+        bh, x0 = HALS[3] * .7, XH + 14
+        o.append(f'<path d="M{x0} {C - bh} H{x0 + 58} L{x0 + 72} {C} L{x0 + 58} {C + bh} H{x0} L{x0 + 14} {C} Z" class="ek2-band"/>')
+        x1 = x0 + 80
+        o.append(f'<path d="M{x1} {C - bh} H{x1 + 64} Q{x1 + 74} {C - bh} {x1 + 74} {C - bh + 10} V{C + bh - 10} Q{x1 + 74} {C + bh} {x1 + 64} {C + bh} H{x1} L{x1 + 14} {C} Z" class="ek2-band"/>')
+        breite = x1 + 74
+    inhalt = "".join(o)
+    if senkrecht:  # Öffnung oben, Hals unten
+        return f'<svg viewBox="0 0 240 {breite}" aria-hidden="true"><g transform="translate(240 0) rotate(90)">{inhalt}</g></svg>', 240 / breite
+    return f'<svg viewBox="0 0 {breite} 240" aria-hidden="true">{inhalt}</svg>', breite / 240
+
+
+def block(art, left, mitte_y, size, align="left", breite=None):
     logo_h = size * .72
-    ausr = "flex-start" if block["align"] == "left" else "center"
-    breite = f'width:{block["breite"]}px;' if block.get("breite") else ""
-    blk = (f'<div style="position:absolute;left:{block["left"]:.1f}px;top:{block["mitte_y"]:.1f}px;transform:translateY(-50%);{breite}'
-           f'display:flex;flex-direction:column;align-items:{ausr};gap:{size * .75:.1f}px">'
-           f'<img src="file://{LOGO}" style="height:{logo_h:.1f}px;display:block">'
-           f'<p style="margin:0;font:700 {size:.1f}px/1.03 \'Inter Tight\';letter-spacing:-.035em;color:#f5f5f7;text-align:{block["align"]}">{satz(art)}</p></div>')
+    ausr = "flex-start" if align == "left" else "center"
+    br = f"width:{breite}px;" if breite else ""
+    return (f'<div style="position:absolute;left:{left:.1f}px;top:{mitte_y:.1f}px;transform:translateY(-50%);{br}'
+            f'display:flex;flex-direction:column;align-items:{ausr};gap:{size * .75:.1f}px">'
+            f'<img src="file://{LOGO}" style="height:{logo_h:.1f}px;display:block">'
+            f'<p style="margin:0;font:700 {size:.1f}px/1.03 \'Inter Tight\';letter-spacing:-.035em;color:#f5f5f7;text-align:{align}">{satz(art)}</p></div>')
+
+
+def setze(kl, svgx, left, top, breite):
+    return f'<div class="{kl}" style="position:absolute;left:{left:.0f}px;top:{top:.0f}px;width:{breite:.0f}px">{svgx}</div>'
+
+
+def bild(gkey, w, h, art, var):
+    """Logo und Satz bilden einen Block (Logo klein, linksbündig, fester Abstand). Eine Schriftgröße wie auf der Homepage.
+    iPad: Inhalt nur im Mittelband – oben App-Reihen (13″ zwei, mini eine), unten Dock; quer schneidet iPadOS zusätzlich oben/unten ab."""
+    mini = gkey == "ipadmini"
+    band = (.53 if mini else .58) * h          # Mitte des freien Bands auf dem iPad
+    teile = []
     hintergrund = BG
-    if var == "akzent":
-        lage = {"mac": "26% 50%", "ipad": "50% 47%", "iphone": "34% 54%", "video": "18% 52%"}[art]
-        hintergrund = f"radial-gradient(40% 36% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 26% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
-    extra = ""
-    if trichter:
-        kl = "tr stil" if stil else "tr"
-        if hoch:
-            svgx = S8["ek_hoch"]
-            if art == "ipad":  # senkrecht, mittig unter dem Satz – bleibt beim Drehen im Mittelfeld
-                hoehe = .42 * h   # quer schneidet iPadOS oben/unten ab (iPad mini bis ca. 17 %) – alles zwischen 20 % und 80 %
-                extra = f'<div class="{kl}" style="position:absolute;left:{(w - hoehe * 340 / 622) / 2:.0f}px;top:{.375 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
-            elif art == "iphone":
-                hoehe = .33 * h
-                extra = f'<div class="{kl}" style="position:absolute;left:{.10 * w - 30 * hoehe / 622:.0f}px;top:{.52 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
-            else:  # Teams: senkrechter Trichter rechts
-                hoehe = .84 * h
-                extra = f'<div class="{kl}" style="position:absolute;left:{.95 * w - hoehe * 340 / 622:.0f}px;top:{.08 * h:.0f}px;width:{hoehe * 340 / 622:.0f}px">{svgx}</div>'
+    if var in ("klar", "akzent"):
+        if art == "mac":
+            teile.append(block(art, .08 * w, .47 * h, .046 * w))
+        elif art == "ipad":
+            teile.append(block(art, 0, band, .056 * w, "center", w))
+        elif art == "iphone":
+            teile.append(block(art, .10 * w, .52 * h, .11 * w))
         else:
-            svgx = S8["ek_kopf"]
-            if art == "mac" and stil:  # kompakt rechts neben dem Satz
-                extra = f'<div class="{kl}" style="position:absolute;left:{.57 * w:.0f}px;top:{.47 * h - .35 * w * 320 / 1120 / 2:.0f}px;width:{.35 * w:.0f}px">{svgx}</div>'
-            elif art == "mac":
-                extra = f'<div class="{kl}" style="position:absolute;left:{.08 * w:.0f}px;top:{.46 * h:.0f}px;width:{.84 * w:.0f}px">{svgx}</div>'
+            teile.append(block(art, .05 * w, .5 * h, .034 * w))
+        if var == "akzent":
+            lage = {"mac": "26% 47%", "ipad": f"50% {band / h * 100:.0f}%", "iphone": "34% 54%", "video": "18% 52%"}[art]
+            hintergrund = f"radial-gradient(40% 36% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 26% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
+    elif var == "trichter":  # Bild aus Story 8 mit Worten, viel Rand
+        if art == "mac":
+            teile.append(block(art, .19 * w, .30 * h, .032 * w))
+            teile.append(setze("tr", S8["ek_kopf"], .19 * w, .43 * h, .62 * w))
+        elif art == "ipad":
+            fb = .64 * w
+            teile.append(block(art, 0, band - .13 * h, .036 * w, "center", w))
+            teile.append(setze("tr", S8["ek_kopf"], (w - fb) / 2, band - .04 * h, fb))
+        elif art == "iphone":
+            hoehe = .33 * h
+            teile.append(block(art, .10 * w, .405 * h, .075 * w))
+            teile.append(setze("tr", S8["ek_hoch"], .10 * w - 30 * hoehe / 622, .52 * h, hoehe * 340 / 622))
+        else:
+            hoehe = .84 * h
+            teile.append(block(art, .05 * w, .5 * h, .034 * w))
+            teile.append(setze("tr", S8["ek_hoch"], .95 * w - hoehe * 340 / 622, .08 * h, hoehe * 340 / 622))
+    elif var == "trichter-stilisiert":
+        if art == "mac":
+            svgx, verh = stil_svg(True)
+            fb = .36 * w
+            teile.append(block(art, .10 * w, .5 * h, .042 * w))
+            teile.append(setze("tr", svgx, .54 * w, .5 * h - fb / verh / 2, fb))
+        elif art == "ipad":  # quer und kompakt im Mittelband – senkrecht wäre es dort zu dünn
+            svgx, verh = stil_svg(True)
+            fb = .36 * w
+            teile.append(block(art, .13 * w, band, .034 * w))
+            teile.append(setze("tr", svgx, .51 * w, band - fb / verh / 2, fb))
+        elif art == "iphone":
+            svgx, verh = stil_svg(True, True)
+            hoehe = .31 * h
+            teile.append(block(art, .10 * w, .40 * h, .075 * w))
+            teile.append(setze("tr", svgx, .10 * w, .52 * h, hoehe * verh))
+        else:
+            svgx, verh = stil_svg(True, True)
+            hoehe = .78 * h
+            teile.append(block(art, .05 * w, .5 * h, .034 * w))
+            teile.append(setze("tr", svgx, .93 * w - hoehe * verh, .11 * h, hoehe * verh))
+    else:  # nur-trichter: quer mündet der Trichter in den Satz – gleiche Höhe
+        if art in ("mac", "ipad"):
+            svgx, verh = stil_svg(False)
+            if art == "mac":
+                fb, x0, mitte, size = .34 * w, .13 * w, .48 * h, .040 * w
             else:
-                extra = f'<div class="{kl}" style="position:absolute;left:{.07 * w:.0f}px;top:{.44 * h:.0f}px;width:{.86 * w:.0f}px">{svgx}</div>'
+                fb, x0, mitte, size = .28 * w, .13 * w, band, .033 * w
+            teile.append(setze("tr", svgx, x0, mitte - fb / verh / 2, fb))
+            # Satz auf der Achse des Trichters, Logo darüber
+            xs = x0 + fb + .025 * w
+            hs = 2 * 1.03 * size
+            teile.append(f'<p style="position:absolute;left:{xs:.0f}px;top:{mitte - hs / 2:.0f}px;margin:0;font:700 {size:.1f}px/1.03 \'Inter Tight\';letter-spacing:-.035em;color:#f5f5f7">{satz("mac")}</p>')
+            teile.append(f'<img src="file://{LOGO}" style="position:absolute;left:{xs:.0f}px;top:{mitte - hs / 2 - size * .75 - size * .72:.0f}px;height:{size * .72:.1f}px">')
+        elif art == "iphone":
+            svgx, verh = stil_svg(False, True)
+            hoehe = .30 * h
+            teile.append(block(art, .10 * w, .40 * h, .075 * w))
+            teile.append(setze("tr", svgx, .10 * w, .53 * h, hoehe * verh))
+        else:
+            svgx, verh = stil_svg(False, True)
+            hoehe = .62 * h
+            teile.append(block(art, .05 * w, .5 * h, .034 * w))
+            teile.append(setze("tr", svgx, .92 * w - hoehe * verh, .19 * h, hoehe * verh))
     css = (schriften() + f"*{{margin:0;box-sizing:border-box}}html,body{{width:{w}px;height:{h}px;overflow:hidden;background:{BG}}}"
            ".v{background:linear-gradient(100deg,#19b6d4,#a64fd0);-webkit-background-clip:text;background-clip:text;color:transparent}"
            + TRICHTER_CSS)
-    return f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{VERLAUF_DEFS}<div style="position:relative;width:{w}px;height:{h}px;background:{hintergrund};overflow:hidden">{extra}{blk}</div></body></html>'
+    return f'<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{VERLAUF_DEFS}<div style="position:relative;width:{w}px;height:{h}px;background:{hintergrund};overflow:hidden">{"".join(teile)}</div></body></html>'
 
 
 AUFNAHME = r"""

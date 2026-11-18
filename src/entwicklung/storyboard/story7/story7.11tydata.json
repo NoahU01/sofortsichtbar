@@ -1718,7 +1718,7 @@
         {
           "id": "trichter",
           "name": "Trichter",
-          "text": "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Darunter der Trichter mit Vertrieb und Betreuen.",
+          "text": "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Mit viel Rand, kein Bildschirm voll.",
           "bilder": [
             {
               "geraet": "MacBook Air 13″",
@@ -1802,7 +1802,7 @@
         {
           "id": "trichter-stilisiert",
           "name": "Trichter stilisiert",
-          "text": "Der Trichter ohne ein Wort – nur die Formen. Je Gerät sinnvoll gesetzt: auf dem MacBook rechts neben dem Satz, auf iPad, iPhone und bei Teams senkrecht.",
+          "text": "Der Trichter ohne ein Wort, Vertrieb und Betreuen als kleine Blöcke. Je Gerät sinnvoll gesetzt.",
           "bilder": [
             {
               "geraet": "MacBook Air 13″",
@@ -1874,6 +1874,90 @@
               "geraet": "Teams und Zoom",
               "datei": "sofortsichtbar-hintergrund-trichter-stilisiert-teams-3840x2160.png",
               "vorschau": "sofortsichtbar-hintergrund-trichter-stilisiert-teams-3840x2160.webp",
+              "masse": "3840 × 2160",
+              "art": "video",
+              "reihe": "gross",
+              "cm": 30.2,
+              "hinweis": "",
+              "anteil": 27.96
+            }
+          ]
+        },
+        {
+          "id": "nur-trichter",
+          "name": "Nur Trichter",
+          "text": "Nur der Trichter, ohne Blöcke. Quer mündet er direkt in den Satz – Maschine und Aussage auf einer Höhe.",
+          "bilder": [
+            {
+              "geraet": "MacBook Air 13″",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-macbook-6048x3928.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-macbook-6048x3928.webp",
+              "masse": "6048 × 3928",
+              "art": "mac",
+              "reihe": "gross",
+              "cm": 30.2,
+              "hinweis": "",
+              "anteil": 27.96
+            },
+            {
+              "geraet": "iPad Air 13″",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-ipad13-5504x5504.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-ipad13-5504x5504.webp",
+              "masse": "5504 × 5504",
+              "art": "ipad",
+              "reihe": "gross",
+              "cm": 28.1,
+              "hinweis": "Datei quadratisch, iPad zeigt die Mitte",
+              "anteil": 26.02
+            },
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad",
+              "reihe": "gross",
+              "cm": 19.5,
+              "hinweis": "Datei quadratisch, iPad zeigt die Mitte",
+              "anteil": 18.06
+            },
+            {
+              "geraet": "iPhone 13 mini",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-iphone13mini-2160x4680.webp",
+              "masse": "2160 × 4680",
+              "art": "iphone",
+              "reihe": "telefon",
+              "cm": 5.4,
+              "hinweis": "",
+              "anteil": 29.35
+            },
+            {
+              "geraet": "iPhone 13 Pro",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-iphone13pro-2340x5064.webp",
+              "masse": "2340 × 5064",
+              "art": "iphone",
+              "reihe": "telefon",
+              "cm": 6.4,
+              "hinweis": "",
+              "anteil": 34.78
+            },
+            {
+              "geraet": "iPhone 16 Pro",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-iphone16pro-2412x5244.webp",
+              "masse": "2412 × 5244",
+              "art": "iphone",
+              "reihe": "telefon",
+              "cm": 6.6,
+              "hinweis": "",
+              "anteil": 35.87
+            },
+            {
+              "geraet": "Teams und Zoom",
+              "datei": "sofortsichtbar-hintergrund-nur-trichter-teams-3840x2160.png",
+              "vorschau": "sofortsichtbar-hintergrund-nur-trichter-teams-3840x2160.webp",
               "masse": "3840 × 2160",
               "art": "video",
               "reihe": "gross",
