@@ -11,8 +11,11 @@ Zwei Blätter, hell, ohne schwarzen Balken (zum Drucken); die Übersicht A3 hoch
   Arbeitsblatt B  A3 quer – drei Kästen wie im Strategiemodell: oben „Wofür stehen wir?“, links breit 1 + 3, rechts schmal 2
 
 SCHRIFTSYSTEM (fest):
-  Inter Tight 700 – Hauptüberschrift 32 pt (eine Größe, Akzentwort im Verlauf); alle übrigen Überschriften 15 pt
-  Inter 400/600   – Text 10 pt (Regular, Hervorhebung SemiBold); Nebeninfos 8 pt (Grau)
+  Kopf 1:1 wie das Arbeitsblatt „Vom ersten Kontakt zum Kunden“ (onepager7.py, kopf_hoch): links Subheadline, Überschrift,
+  ein Satz; rechts oben das Logo; Rand 20 mm; unten rechts sofortsichtbar.de
+  Inter Tight 700 – Hauptüberschrift 42 pt (eine Größe, Akzentwort im Verlauf); alle übrigen Überschriften 15 pt
+  Inter 400/600   – Text 10 pt (Regular, Hervorhebung SemiBold), Satz unter der Überschrift 10,6 pt wie im Vorbild;
+                    Nebeninfos 8 pt (Grau)
   Farben          – Tinte #1d1d1f, Grau #6e6e73, Linien #d2d2d7; Verlauf Cyan → Violett nur im Akzentwort der Hauptüberschrift
                     und in den Nummernkreisen
 
@@ -25,6 +28,8 @@ import json
 import os
 import subprocess
 import tempfile
+
+from maas_pdf7 import VERLAUF_JS  # Verlaufswort als SVG-Text wie im Vorbild (keine Randlinien im Druck)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
@@ -75,18 +80,23 @@ CSS = r"""
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{color:#1d1d1f;font:400 10pt/1.45 Inter,sans-serif}
 .blatt{position:relative;overflow:hidden;background:#fff}
-.kopf{display:flex;justify-content:space-between;align-items:flex-start}
-.kopf img{height:11mm}
+.blatt{display:flex;flex-direction:column;width:420mm;height:297mm;padding:20mm 20mm 0}
+.kopf{display:grid;grid-template-columns:1fr auto;column-gap:10mm;align-items:start;padding-bottom:9mm}
+.kopf img{display:block;height:9mm;margin-top:.7pt}
+.kopf .kicker{color:#6e6e73;font-size:8pt;font-weight:600;line-height:1}
+.kopf h1{margin-top:4mm}
+.kopf .lead{margin-top:5mm;color:#424245;font-size:10.6pt;line-height:1.45}
+.flaeche{flex:1;min-height:0}
 .art{color:#6e6e73;font-size:8pt;font-weight:600}
-h1{font:700 32pt/1.04 'Inter Tight';letter-spacing:-.03em}
-h1 .v{background:linear-gradient(100deg,#0b9fbd,#8613a1);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font:700 42pt/1 'Inter Tight';letter-spacing:-.025em}
+h1 .v{color:#0b9fbd}
 h2{font:700 15pt/1.15 'Inter Tight';letter-spacing:-.02em}
 .klein{color:#6e6e73;font-size:8pt;line-height:1.4}
 .grau{color:#6e6e73}
 b{font-weight:600}
 .nr{display:inline-grid;place-items:center;width:7mm;height:7mm;border-radius:50%;background:linear-gradient(135deg,#0b9fbd,#8613a1);color:#fff;font:700 10pt 'Inter Tight';flex:none}
 .zone{color:#6e6e73;font-size:8pt;font-weight:600}
-.fuss{position:absolute;right:18mm;bottom:12mm;color:#6e6e73;font-size:8pt;font-weight:600}
+.fuss{padding:7mm 0 12mm;text-align:right;color:#1d1d1f;font-size:10pt;font-weight:600;line-height:1}
 .kasten{border:0.35mm solid #d2d2d7;border-radius:4mm;padding:7.5mm}
 .kasten--kern{border:0.7mm solid #1d1d1f}
 .titel{display:flex;align-items:center;gap:3.2mm}
@@ -125,48 +135,47 @@ def kasten(frage, inhalt, stil=""):
             f'<p class="zone" style="text-align:center">{e(frage)}</p>{inhalt}</div>')
 
 
-def kopf_quer(art):
-    return (f'<div class="kopf" style="align-items:center">{logo()}<span style="display:flex;gap:10mm;align-items:center">'
-            f'<span class="art">Strategiemodell · {art}</span><span class="art">Agentur: ______________________</span>'
-            f'<span class="art">Datum: ____________</span></span></div>')
+def kopf(kicker, h1, akzent, lead):
+    return (f'<div class="kopf"><div><p class="kicker">{e(kicker)}</p><h1>{e(h1)} <span class="v">{e(akzent)}</span></h1>'
+            f'<p class="lead">{e(lead)}</p></div>{logo()}</div>')
+
+
+def blatt(kopf_, flaeche):
+    return f'<div class="blatt">{kopf_}<div class="flaeche">{flaeche}</div><p class="fuss">sofortsichtbar.de</p></div>', "420mm 297mm"
 
 
 def arbeitsblatt_a():
     """Ausschnitt des Strategiemodells: links 1 Ausgangssituation, in der Mitte 3 Strategie, rechts 2 Vision."""
     # Zonen wie im Modell: 1 und 3 gehören zu „Wie kommen wir dorthin?“, 2 zu „Wie wollen wir wahrgenommen werden?“
     feld = lambda x: f'<div class="kasten" style="display:flex;padding:5mm 6mm;min-height:0">{teil(x, "flex:1")}</div>'
-    inhalt = (kopf_quer("Arbeitsblatt A") +
-              f'<div style="position:absolute;left:18mm;right:18mm;top:36mm;bottom:20mm;display:grid;grid-template-columns:1fr 1fr 1fr;'
-              f'grid-template-rows:auto 1fr;gap:3mm 8mm">'
-              f'<p class="zone" style="grid-column:1/3">{e(Z_WEG)}</p><p class="zone">{e(Z_WAHR)}</p>'
-              + feld(AUSGANG) + feld(STRATEGIE) + feld(VISION)
-              + '</div><p class="fuss">sofortsichtbar.de</p>')
-    return f'<div class="blatt" style="width:420mm;height:297mm;padding:16mm 18mm">{inhalt}</div>', "420mm 297mm"
+    flaeche = (f'<div style="height:100%;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto 1fr;gap:3mm 8mm">'
+               f'<p class="zone" style="grid-column:1/3">{e(Z_WEG)}</p><p class="zone">{e(Z_WAHR)}</p>'
+               + feld(AUSGANG) + feld(STRATEGIE) + feld(VISION) + '</div>')
+    return blatt(kopf("Strategiemodell für deine Agentur", "Vom Heute", "zur Vision.",
+                      "Wo deine Agentur heute steht, wie sie in Zukunft wahrgenommen werden will und welche Strategie dorthin führt."), flaeche)
 
 
 def arbeitsblatt_b():
     """Drei Kästen wie im Strategiemodell: oben quer „Wofür stehen wir?“ (Selbstverständnis), darunter links der breite Kasten
     „Wie kommen wir dorthin?“ mit 1 Ausgangssituation und 3 Strategie, rechts der schmälere „Wie wollen wir wahrgenommen werden?“
     mit 2 Vision. Der Pfeil vom Selbstverständnis zur Vision wie im Modell."""
-    oben = (f'<div style="position:absolute;left:18mm;right:18mm;top:34mm;height:60mm;display:flex">'
-            + kasten(Z_WOFUER, teil(LEITBILD, "flex:1"), "flex:1") + '</div>')
+    oben = kasten(Z_WOFUER, teil(LEITBILD, "flex:1"), "height:46mm")
     links = kasten(Z_WEG, f'<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0">'
                    f'{teil(AUSGANG, "padding-right:6mm")}{teil(STRATEGIE, "padding-left:6mm;border-left:0.35mm solid #d2d2d7")}</div>')
     rechts = kasten(Z_WAHR, teil(VISION, "flex:1"))
-    unten = (f'<div style="position:absolute;left:18mm;right:18mm;top:104mm;bottom:20mm;display:grid;grid-template-columns:1.6fr 1fr;gap:8mm">'
-             f'{links}{rechts}</div>')
-    # rechte Säule: Start 18 + 376/2.6*1.6 + 8 = 257.4 mm, Mitte 329.7 mm
-    pfeil = ('<svg style="position:absolute;left:0;top:0" width="420mm" height="297mm" viewBox="0 0 420 297">'
-             '<defs><marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#1d1d1f" stroke-width="1.6"/></marker></defs>'
-             '<path d="M329.7 95.2 V102.6" stroke="#1d1d1f" stroke-width=".5" marker-end="url(#p)"/></svg>')
-    inhalt = kopf_quer("Arbeitsblatt B") + oben + unten + pfeil + '<p class="fuss">sofortsichtbar.de</p>'
-    return f'<div class="blatt" style="width:420mm;height:297mm;padding:16mm 18mm">{inhalt}</div>', "420mm 297mm"
+    pfeil = ('<svg width="3mm" height="7mm" viewBox="0 0 3 7" style="display:block;margin:0 auto">'
+             '<path d="M1.5 .6 V6.2 M.4 5 L1.5 6.3 L2.6 5" fill="none" stroke="#1d1d1f" stroke-width=".3"/></svg>')
+    flaeche = (f'<div style="height:100%;display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:auto 7mm 1fr;column-gap:8mm">'
+               f'<div style="grid-column:1/3;display:flex;flex-direction:column">{oben}</div>'
+               f'<div></div><div>{pfeil}</div>{links}{rechts}</div>')
+    return blatt(kopf("Strategiemodell für deine Agentur", "Das Strategiemodell", "auf einem Blatt.",
+                      "Wofür deine Agentur steht, wie sie wahrgenommen werden will und wie sie dorthin kommt."), flaeche)
 
 
 def drucken(name, blatt, groesse):
     tmp = tempfile.mkdtemp(prefix="sm7_")
     h = os.path.join(tmp, name + ".html")
-    open(h, "w").write(f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{schriften()}{CSS}@page{{size:{groesse};margin:0}}</style></head><body>{blatt}</body></html>')
+    open(h, "w").write(f'<!doctype html><html lang="de"><head><meta charset="utf-8"><style>{schriften()}{CSS}@page{{size:{groesse};margin:0}}</style></head><body>{blatt}{VERLAUF_JS}</body></html>')
     pdf = os.path.join(ZIEL, name + ".pdf")
     for _ in range(3):
         r = subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
