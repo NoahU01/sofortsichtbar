@@ -1968,6 +1968,31 @@
           ]
         }
       ]
+    },
+    "strategiemodell": {
+      "kicker": "Arbeitsblatt",
+      "h2": "Das Strategiemodell.",
+      "lead": "Für die Agentur, in dieser Reihenfolge: zukünftiges Geschäftsmodell mit Positionierung und Pitch, dann die Strategie, zuletzt das Leitbild. Hell und ohne Balken – zum Ausdrucken.",
+      "blaetter": [
+        {
+          "name": "Übersicht",
+          "text": "A3 hoch · alle Inhalte mit Erklärung",
+          "pdf": "strategiemodell-uebersicht-a3-hoch.pdf?v=2f2504ab",
+          "png": "strategiemodell-uebersicht-a3-hoch.png?v=2f2504ab"
+        },
+        {
+          "name": "Arbeitsblatt A",
+          "text": "A3 quer · nacheinander von links nach rechts",
+          "pdf": "strategiemodell-arbeitsblatt-a-a3-quer.pdf?v=00b59955",
+          "png": "strategiemodell-arbeitsblatt-a-a3-quer.png?v=00b59955"
+        },
+        {
+          "name": "Arbeitsblatt B",
+          "text": "A3 quer · im Bild des Strategiemodells",
+          "pdf": "strategiemodell-arbeitsblatt-b-a3-quer.pdf?v=586c60ba",
+          "png": "strategiemodell-arbeitsblatt-b-a3-quer.png?v=586c60ba"
+        }
+      ]
     }
   }
 }
