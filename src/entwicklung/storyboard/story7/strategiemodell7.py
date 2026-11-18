@@ -6,8 +6,7 @@ Unternehmen (die Agentur): 1 Ausgangssituation, 2 Vision mit dem zukünftigen Ge
 („Wie wollen wir wahrgenommen werden?“, das Zentrale), 3 Strategie („Wie kommen wir dorthin?“); darüber das
 Selbstverständnis („Wofür stehen wir?“).
 
-Drei Blätter, hell, ohne schwarzen Balken (zum Drucken):
-  Übersicht       A3 hoch – alle Inhalte mit Erklärung
+Zwei Blätter, hell, ohne schwarzen Balken (zum Drucken); die Übersicht A3 hoch ist gestrichen (Daniel, 18.11.2026):
   Arbeitsblatt A  A3 quer – Ausschnitt: links 1 Ausgangssituation, Mitte 3 Strategie, rechts 2 Vision
   Arbeitsblatt B  A3 quer – drei Kästen wie im Strategiemodell: oben „Wofür stehen wir?“, links breit 1 + 3, rechts schmal 2
 
@@ -111,28 +110,7 @@ def punkte(liste):
     return "".join(f'<p style="margin-top:3.2mm"><b>{e(a)}</b> – {e(b)}</p>' for a, b in liste)
 
 
-def uebersicht():
-    gm = (f'<div class="kasten kasten--kern">{titel(GM)}<p style="margin-top:3mm">{e(GM["kurz"])}</p>{punkte(GM["punkte"])}'
-          f'<p class="frage"><span class="klein">Ergebnisfrage</span><b>{e(GM["frage"])}</b></p></div>')
-    weg = (f'<div style="display:grid;grid-template-columns:1fr 1.35fr;gap:6mm">'
-           f'<div class="kasten" style="background:#f5f5f7;border-color:#f5f5f7">{titel(AUSGANG)}<p style="margin-top:3mm">{e(AUSGANG["kurz"])}</p>'
-           f'<p class="klein" style="margin-top:3mm">Ehrlich beschreiben, nicht schönreden – sie ist der Ausgangspunkt für alles Weitere.</p></div>'
-           f'<div class="kasten">{titel(STRATEGIE)}<p style="margin-top:3mm">{e(STRATEGIE["kurz"])}</p>'
-           + "".join(f'<p class="frage"><span class="klein">{e(a)}</span><b>{e(b)}</b></p>' for a, b in STRATEGIE["detail"]) + '</div></div>')
-    lb = (f'<div class="kasten">{titel(LEITBILD)}<p style="margin-top:3mm">{e(LEITBILD["kurz"])}</p>'
-          f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 8mm">{punkte(LEITBILD["punkte"])}</div></div>')
-    zone = lambda frage, inhalt, extra="": f'<section style="margin-top:16mm"><p class="zone">{e(frage)}{extra}</p><div style="margin-top:3.5mm">{inhalt}</div></section>'
-    inhalt = (f'<div class="kopf">{logo()}<span class="art">Strategiemodell · Übersicht</span></div>'
-              f'<p class="art" style="margin-top:20mm">Für Versicherungsagenturen und Maklerbüros</p>'
-              f'<h1 style="margin-top:3mm">Das Strategiemodell<br><span class="v">für deine Agentur.</span></h1>'
-              f'<p style="margin-top:5mm;max-width:190mm">Drei Fragen. {e(REIHENFOLGE)}</p>'
-              + zone(Z_WAHR, gm, f' · Vision') + f'<p class="klein" style="margin-top:2.4mm">{e(GM["vision"])}</p>'
-              + zone(Z_WEG, weg) + zone(Z_WOFUER, lb)
-              + '<p class="fuss">sofortsichtbar.de</p>')
-    return f'<div class="blatt" style="width:297mm;height:420mm;padding:18mm 18mm 20mm">{inhalt}</div>', "297mm 420mm"
-
-
-VISION = dict(GM, titel="Vision", unter="Zukünftiges Geschäftsmodell mit Positionierung und Pitch",
+VISION = dict(GM, titel="Vision", unter="Zukünftiges Geschäfts- und Organisationsmodell inklusive Positionierung",
               kurz="Das Zentrale: Zielgruppen und Sparten, das Problem, das wir lösen, was uns einzigartig macht – und der Pitch in einem Satz.")
 
 
@@ -201,8 +179,7 @@ def drucken(name, blatt, groesse):
 
 def main():
     os.makedirs(ZIEL, exist_ok=True)
-    blaetter = [("strategiemodell-uebersicht-a3-hoch", "Übersicht", "A3 hoch · alle Inhalte mit Erklärung", uebersicht),
-                ("strategiemodell-arbeitsblatt-a-a3-quer", "Arbeitsblatt A", "A3 quer · Ausschnitt des Strategiemodells", arbeitsblatt_a),
+    blaetter = [("strategiemodell-arbeitsblatt-a-a3-quer", "Arbeitsblatt A", "A3 quer · Ausschnitt des Strategiemodells", arbeitsblatt_a),
                 ("strategiemodell-arbeitsblatt-b-a3-quer", "Arbeitsblatt B", "A3 quer · drei Kästen wie im Strategiemodell", arbeitsblatt_b)]
     daten = []
     for name, titel_, text, fn in blaetter:
@@ -212,7 +189,7 @@ def main():
     p = os.path.join(HERE, "story7.11tydata.json")
     d = json.load(open(p, encoding="utf-8"))
     d["s7"]["strategiemodell"] = {"kicker": "Arbeitsblatt", "h2": "Das Strategiemodell.",
-                                  "lead": "Für die Agentur, nummeriert wie im Strategiemodell: 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäftsmodell, 3 Strategie – darüber das Selbstverständnis. Hell und ohne Balken – zum Ausdrucken.",
+                                  "lead": "Für die Agentur, nummeriert wie im Strategiemodell: 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäfts- und Organisationsmodell inklusive Positionierung, 3 Strategie – darüber das Selbstverständnis. Hell und ohne Balken – zum Ausdrucken.",
                                   "blaetter": daten}
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     open(p, "a").write("\n")

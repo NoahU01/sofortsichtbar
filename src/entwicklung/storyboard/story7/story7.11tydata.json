@@ -1972,25 +1972,19 @@
     "strategiemodell": {
       "kicker": "Arbeitsblatt",
       "h2": "Das Strategiemodell.",
-      "lead": "Für die Agentur, nummeriert wie im Strategiemodell: 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäftsmodell, 3 Strategie – darüber das Selbstverständnis. Hell und ohne Balken – zum Ausdrucken.",
+      "lead": "Für die Agentur, nummeriert wie im Strategiemodell: 1 Ausgangssituation, 2 Vision mit dem zukünftigen Geschäfts- und Organisationsmodell inklusive Positionierung, 3 Strategie – darüber das Selbstverständnis. Hell und ohne Balken – zum Ausdrucken.",
       "blaetter": [
-        {
-          "name": "Übersicht",
-          "text": "A3 hoch · alle Inhalte mit Erklärung",
-          "pdf": "strategiemodell-uebersicht-a3-hoch.pdf?v=f55f61f8",
-          "png": "strategiemodell-uebersicht-a3-hoch.png?v=f55f61f8"
-        },
         {
           "name": "Arbeitsblatt A",
           "text": "A3 quer · Ausschnitt des Strategiemodells",
-          "pdf": "strategiemodell-arbeitsblatt-a-a3-quer.pdf?v=04066100",
-          "png": "strategiemodell-arbeitsblatt-a-a3-quer.png?v=04066100"
+          "pdf": "strategiemodell-arbeitsblatt-a-a3-quer.pdf?v=3ee8920b",
+          "png": "strategiemodell-arbeitsblatt-a-a3-quer.png?v=3ee8920b"
         },
         {
           "name": "Arbeitsblatt B",
           "text": "A3 quer · drei Kästen wie im Strategiemodell",
-          "pdf": "strategiemodell-arbeitsblatt-b-a3-quer.pdf?v=ae7d0ab5",
-          "png": "strategiemodell-arbeitsblatt-b-a3-quer.png?v=ae7d0ab5"
+          "pdf": "strategiemodell-arbeitsblatt-b-a3-quer.pdf?v=e6fd8da0",
+          "png": "strategiemodell-arbeitsblatt-b-a3-quer.png?v=e6fd8da0"
         }
       ]
     }

@@ -1150,7 +1150,7 @@ body.s7-menue-offen { overflow: hidden; }
 @media (max-width: 900px) { .hg7-reihe--gross { flex-wrap: wrap; } .hg7-reihe--gross .hg7-bild { flex: 0 1 calc(50% - .6rem) !important; } }
 
 /* Strategiemodell-Blätter (sm7-) */
-.sm7-reihe { display: grid; grid-template-columns: .72fr 1fr 1fr; align-items: end; gap: 1.6rem; margin-top: 2.4rem; }
+.sm7-reihe { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 1.6rem; margin-top: 2.4rem; }
 .sm7-blatt { display: grid; gap: .6rem; text-decoration: none; min-width: 0; }
 .sm7-blatt img { display: block; width: 100%; height: auto; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie), 0 14px 30px rgba(0,0,0,.08); }
 .sm7-blatt span { color: var(--s7-grau); font-size: .85rem; line-height: 1.4; min-height: 2.8em; }
@@ -1665,7 +1665,7 @@ body.s7-menue-offen { overflow: hidden; }
       <p class="s7-lead">{{ SM.lead }}</p>
       <div class="sm7-reihe">
         {%- for b in SM.blaetter %}
-        <a class="sm7-blatt{% if loop.first %} sm7-blatt--hoch{% endif %}" href="{{ A7 }}/strategiemodell/{{ b.pdf }}" target="_blank" rel="noopener"><img src="{{ A7 }}/strategiemodell/{{ b.png }}" alt="{{ b.name }}" loading="lazy"><span><b>{{ b.name }}</b>{{ b.text }} · PDF</span></a>
+        <a class="sm7-blatt" href="{{ A7 }}/strategiemodell/{{ b.pdf }}" target="_blank" rel="noopener"><img src="{{ A7 }}/strategiemodell/{{ b.png }}" alt="{{ b.name }}" loading="lazy"><span><b>{{ b.name }}</b>{{ b.text }} · PDF</span></a>
         {%- endfor %}
       </div>
     </div>
