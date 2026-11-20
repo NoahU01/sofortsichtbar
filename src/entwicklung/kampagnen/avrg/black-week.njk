@@ -62,7 +62,7 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
 /* Stil 2: Satz auf Schwarz */
 .po--schwarz{background:#000;color:#fff}
 .po--schwarz .po__satz{position:absolute;left:8cqi;right:8cqi;top:50%;transform:translateY(-58%)}
-.po--schwarz h3{font-size:9.4cqi}
+.po--schwarz h3{font-size:8.2cqi}
 .po--schwarz .po__aktion{position:absolute;left:8cqi;bottom:7cqi;display:flex;align-items:baseline;gap:2.4cqi;font:600 3.1cqi/1 "BW Inter",sans-serif;color:#a1a1a6}
 .po--schwarz .po__aktion b{font:700 5.2cqi/1 "BW Tight",sans-serif;letter-spacing:-.02em;color:#fff}
 .po--schwarz .po__aktion s{color:#6e6e73}
@@ -73,12 +73,12 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
 .po--produkt{background:var(--hell)}
 .po--produkt .po__kopf{position:absolute;left:7cqi;right:7cqi;top:8cqi;z-index:2}
 .po--produkt h3{font-size:7.6cqi}
-.po--produkt .po__buehne{position:absolute;left:50%;top:38cqi;width:42cqi;transform:translateX(-50%) rotate(-6deg)}
+.po--produkt .po__buehne{position:absolute;left:50%;top:37cqi;width:54cqi;transform:translateX(-54%) rotate(-5deg)}
 .po--produkt .po__glow{position:absolute;inset:-18cqi -26cqi;background:radial-gradient(closest-side,rgba(11,159,189,.5),rgba(134,19,161,.32) 55%,transparent 78%);filter:blur(4cqi)}
-.po__phone{position:relative;border-radius:7.4cqi;padding:1.5cqi;background:#1d1d1f;box-shadow:0 4cqi 8cqi -2cqi rgba(29,29,31,.45),inset 0 0 0 .4cqi #3a3a3c}
-.po__phone img{display:block;width:100%;aspect-ratio:390/720;object-fit:cover;object-position:top;border-radius:6cqi;padding-top:6.4cqi;background:#fff}
-.po__phone::before{content:"";position:absolute;left:50%;top:3.2cqi;width:13cqi;height:3.6cqi;border-radius:2cqi;background:#000;transform:translateX(-50%);z-index:1}
-.po--produkt .po__stempel{position:absolute;right:7cqi;top:58cqi;width:24cqi;height:24cqi;border-radius:50%;background:var(--verlauf);color:#fff;display:grid;place-content:center;text-align:center;
+.po__phone{position:relative;border-radius:4.2cqi;padding:2.2cqi;background:#1d1d1f;box-shadow:0 4cqi 8cqi -2cqi rgba(29,29,31,.45),inset 0 0 0 .4cqi #3a3a3c}
+.po__phone img{display:block;width:100%;aspect-ratio:744/1133;object-fit:cover;object-position:top;border-radius:2.2cqi;background:#fff}
+.po__phone::before{content:"";position:absolute;left:50%;top:.75cqi;width:.8cqi;height:.8cqi;border-radius:50%;background:#3a3a3c;transform:translateX(-50%)}
+.po--produkt .po__stempel{position:absolute;right:6cqi;top:44cqi;width:24cqi;height:24cqi;border-radius:50%;background:var(--verlauf);color:#fff;display:grid;place-content:center;text-align:center;
   transform:rotate(10deg);box-shadow:0 2.4cqi 5cqi -1cqi rgba(134,19,161,.5)}
 .po--produkt .po__stempel b{display:block;font:700 7.4cqi/1 "BW Tight",sans-serif;letter-spacing:-.03em}
 .po--produkt .po__stempel span{font:600 2.4cqi/1.25 "BW Inter",sans-serif}
@@ -99,7 +99,7 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
         <div class="po po--wand" aria-label="Muster Posting-Wand">
           <div class="po__kopf">
             <p class="po__kicker">Neue Altersvorsorge 2027</p>
-            <h3>30 Postings und eine Landingpage<br><span class="bw__v">für dein Thema.</span></h3>
+            <h3>Nur wer gefunden wird, <span class="bw__v">mit dem wird gesprochen.</span></h3>
           </div>
           <div class="po__wand" aria-hidden="true">
             {%- set reihen = [[1,4,7,10,13,16,19],[2,5,8,11,14,17,20],[3,6,9,12,15,18,21],[22,24,26,28,30,23,25]] -%}
@@ -111,7 +111,6 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
           </div>
           <div class="po__fuss"></div>
           <span class="po__adresse">sofortsichtbar.de/zielgruppen/avrg</span>
-          <img class="po__logo" src="{{ L }}" alt="sofort sichtbar">
         </div>
         <h2>1 · Die Posting-Wand</h2>
         <p>Zeigt sofort, was man bekommt: die echten Postings aus dem Paket laufen schräg in vier Bahnen. Als Bild oder als kurzes Video.</p>
@@ -121,10 +120,9 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
         <div class="po po--schwarz" aria-label="Muster Satz auf Schwarz">
           <div class="po__glow"></div>
           <div class="po__satz">
-            <h3>Deine Kunden fragen nach der neuen Altersvorsorge. <span class="bw__v">Finden sie dich?</span></h3>
+            <h3>Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. <span class="bw__v">Finden sie dich?</span></h3>
           </div>
           <p class="po__aktion">Black Week <b>39 €</b> <s>89 €</s> im Monat</p>
-          <img class="po__logo" src="{{ L }}" alt="sofort sichtbar">
         </div>
         <h2>2 · Der Satz auf Schwarz</h2>
         <p>Eine Aussage aus Sicht der Agentur, groß auf Tiefschwarz wie die Hintergrundbilder. Unten der Aktionspreis, nach dem 04.12. ohne Preis.</p>
@@ -137,13 +135,12 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
           </div>
           <div class="po__buehne">
             <div class="po__glow"></div>
-            <div class="po__phone"><img src="{{ A }}/black-week/lp-iphone.webp" alt="AVRG-Landingpage auf dem iPhone"></div>
+            <div class="po__phone"><img src="{{ A }}/black-week/lp-ipad.webp" alt="AVRG-Landingpage auf dem iPad mini"></div>
           </div>
           <div class="po__stempel"><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
-          <img class="po__logo" src="{{ L }}" alt="sofort sichtbar">
         </div>
         <h2>3 · Das Produkt in der Hand</h2>
-        <p>Hell, die Landingpage auf dem iPhone mit Glow. Zeigt, was die Strecke löst: Interessenten und Bestandskunden kommen bis zum Termin.</p>
+        <p>Hell, die Landingpage auf dem iPad mini mit Glow. Zeigt, was die Strecke löst: Interessenten und Bestandskunden kommen bis zum Termin.</p>
       </div>
 
     </div>
