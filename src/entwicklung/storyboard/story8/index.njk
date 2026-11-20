@@ -2039,9 +2039,43 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-preis__rechts .s7-knopf { align-self: flex-start; background: #fff; border-color: #fff; color: #1d1d1f; }
 .av9-preis__rechts .s7-knopf .s7-pfeil { stroke: #1d1d1f; }
 .av9 .s9-knoepfe .s9-link, .av9-kopf .s9-link { white-space: nowrap; }
+/* Umbrüche (Daniel, 20.11.2026: auch am iPad mini sauber): bis 1100 Kopf 2 und Landingpage-Kachel untereinander,
+   bis 900 Tablet (iPad mini 744) mit mehrspaltigen Rastern, erst unter 640 alles einspaltig */
+@media (max-width: 1100px) {
+  .av9-held2__in { grid-template-columns: minmax(0, 1fr); }
+  .av9-held2__text { max-width: 40rem; }
+  .av9-collage { width: 100%; max-width: 42rem; margin: 1.2rem auto 0; }
+  .av9-kachel--lp { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .av9-kachel--lp .av9-kachel__text { padding-bottom: 0; max-width: 36rem; }
+  .av9-geraete { width: 100%; max-width: 46rem; margin-inline: auto; padding: 1.4rem 2.8rem 2.2rem 1.8rem; }
+}
 @media (max-width: 900px) {
-  .av9-kasten, .av9-lp, .av9-preis, .av9-drei, .av9-held2__in, .av9-reihe { grid-template-columns: minmax(0, 1fr); }
-  .av9-collage { margin-top: 2rem; aspect-ratio: 1.15 / 1; }
+  .av9-pl { grid-template-columns: minmax(0, 1fr); }
+  .av9-pl__pfeil { margin-inline: auto; transform: rotate(90deg); }
+  .av9-ticket { width: 100%; max-width: 26rem; margin-inline: auto; }
+  .av9-kachel--posts { min-height: 30rem; }
+  .av9-kachel--posts .av9-kachel__text { max-width: none; }
+  .av9-kachel--posts .av9-feed { inset: 46% -10% -24% -10%; }
+  .av9-wahl { justify-content: center; gap: .4rem; padding-inline: .6rem; }
+  .av9-wahl span { width: 31%; }
+  .av9-schritt__bild { height: 9.5rem; }
+  .av9 .av9-mini--note { padding: .7rem .8rem; max-width: calc(100% - 1.4rem); }
+  .av9 .av9-mini--note .s9-app { display: none; }
+  .av9-reihe__teil > div { height: auto; min-height: 8rem; }
+  .av9-reihe__mail .av9-mail__inhalt p { display: none; }
+  .av9-reihe__mail .av9-mail__kopf { font-size: .7rem; }
+  .av9 .av9-schritte li > b { font-size: 1.12rem; }
+  .av9 .av9-schritte li > b::before { width: 1.45rem; height: 1.45rem; font-size: .75rem; margin-right: .45rem; }
+  .av9 .av9-schritte li > p { padding-left: calc(clamp(1.6rem, 3vw, 2.2rem) + 1.9rem); font-size: .95rem; }
+  .av9-preis__rechts .av9-uhr { font-size: .82rem; }
+  .av9-stapel img { width: clamp(4.6rem, 11vw, 6.4rem); }
+  .av9-reihe figcaption b { font-size: 1.1rem; }
+  .av9-reihe figcaption { font-size: .85rem; }
+  .av9-preis__links, .av9-preis__rechts { padding: 1.8rem; }
+}
+@media (max-width: 640px) {
+  .av9-preis, .av9-drei, .av9-reihe, .av9-gegen, .av9-schritte { grid-template-columns: minmax(0, 1fr); }
+  .av9-collage { aspect-ratio: 1.15 / 1; }
   .av9-collage__mail { display: none; }
   .av9-collage__posts img { width: 6rem; }
   .av9-collage__posts img:nth-child(n+2) { margin-left: -1.6rem; }
@@ -2049,18 +2083,13 @@ body.s7-menue-offen { overflow: hidden; }
   .av9-mac--klein .av9-mac__fuss { margin: 0 -4%; }
   .av9-reihe__teil > div { height: auto; min-height: 10rem; }
   .av9-stapel { height: 12rem; }
-  .av9-kachel--lp { grid-row: auto; grid-template-columns: minmax(0, 1fr); min-height: 0; }
-  .av9-geraete { padding: 0 1.4rem 1.6rem; }
-  .av9-pl { grid-template-columns: minmax(0, 1fr); }
-  .av9-pl__pfeil { margin-inline: auto; transform: rotate(90deg); }
-  .av9-kachel--posts { min-height: 30rem; }
-  .av9-kachel--posts .av9-kachel__text { max-width: none; }
-  .av9-kachel--posts .av9-feed { inset: 44% -10% -20% -10%; }
+  .av9-stapel img { width: 6.4rem; }
+  .av9-reihe figcaption b { font-size: 1.3rem; }
+  .av9-geraete { padding: 1rem 1.6rem 1.6rem 1rem; }
   .av9-auftritt { flex-direction: column; text-align: center; }
-  .av9-feed { min-height: 26rem; height: 26rem; transform: rotate(-5deg) scale(1.08); margin-top: 1rem; }
-  .av9-kasten__text { position: relative; z-index: 1; background: #0e0e10; }
-  .av9-ipad { width: min(100%, 19rem); }
-  .av9-gegen, .av9-schritte { grid-template-columns: minmax(0, 1fr); }
+  .av9-wahl span { width: 6.4rem; }
+  .av9-schritt__bild { height: 11rem; }
+  .av9 .av9-mini--note .s9-app { display: block; }
 }
 @media (prefers-reduced-motion: reduce) { .av9-band { animation: none; } }
 
