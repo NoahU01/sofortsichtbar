@@ -39,6 +39,7 @@ GERAETE = [  # Schlüssel, Name, Breite, Höhe (Punkte), Art
 VARIANTEN = [
     ("klar", "Klar", "Die Grundform: Logo und Satz als ein Block, ruhig gesetzt. Nichts lenkt von Fenstern und Symbolen ab."),
     ("akzent", "Akzent", "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan."),
+    ("akzent-pill-satz", "Akzent · Pill statt Logo", "Wie Akzent mit demselben Satz, nur steht statt des ganzen Logos die Pill – das Key Visual. Fürs iPad mini.", ("ipadmini",)),
     ("akzent-pill", "Akzent · nur Pill", "Wie Akzent, aber statt Logo und Satz nur die Pill aus dem Logo – das Key Visual, mittig im freien Feld zwischen Uhr und Dock. Nur fürs iPhone.", ("iphone",)),
     ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Mit viel Rand, kein Bildschirm voll."),
     ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort, rechts neben dem Satz – beide als eine Gruppe mittig, der Trichter auf der Höhe des Satzes."),
@@ -113,13 +114,13 @@ def stil_svg(bloecke=False, senkrecht=False):
     return f'<svg viewBox="0 0 {breite} 240" aria-hidden="true">{inhalt}</svg>', breite / 240
 
 
-def block(art, left, mitte_y, size, align="left", breite=None):
-    logo_h = size * .72
+def block(art, left, mitte_y, size, align="left", breite=None, logo=None):
+    logo_h = size * (.56 if logo == PILL else .72)  # Pill etwa so breit wie das ganze Logo
     ausr = "flex-start" if align == "left" else "center"
     br = f"width:{breite}px;" if breite else ""
     return (f'<div style="position:absolute;left:{left:.1f}px;top:{mitte_y:.1f}px;transform:translateY(-50%);{br}'
             f'display:flex;flex-direction:column;align-items:{ausr};gap:{size * .75:.1f}px">'
-            f'<img src="file://{LOGO}" style="height:{logo_h:.1f}px;display:block">'
+            f'<img src="file://{logo or LOGO}" style="height:{logo_h:.1f}px;display:block">'
             f'<p style="margin:0;font:700 {size:.1f}px/1.03 \'Inter Tight\';letter-spacing:-.035em;color:#f5f5f7;text-align:{align}">{satz(art)}</p></div>')
 
 
@@ -134,16 +135,17 @@ def bild(gkey, w, h, art, var):
     band = (.53 if mini else .58) * h          # Mitte des freien Bands auf dem iPad
     teile = []
     hintergrund = BG
-    if var in ("klar", "akzent"):
-        if art == "mac":
+    if var in ("klar", "akzent", "akzent-pill-satz"):
+        logo = PILL if var == "akzent-pill-satz" else None
+        if art == "ipad":
+            teile.append(block(art, 0, band, .056 * w, "center", w, logo))
+        elif art == "mac":
             teile.append(block(art, .08 * w, .47 * h, .046 * w))
-        elif art == "ipad":
-            teile.append(block(art, 0, band, .056 * w, "center", w))
         elif art == "iphone":
             teile.append(block(art, .10 * w, .52 * h, .11 * w))
         else:
             teile.append(block(art, .05 * w, .5 * h, .034 * w))
-        if var == "akzent":
+        if var in ("akzent", "akzent-pill-satz"):
             lage = {"mac": "26% 47%", "ipad": f"50% {band / h * 100:.0f}%", "iphone": "34% 54%", "video": "18% 52%"}[art]
             hintergrund = f"radial-gradient(40% 36% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 26% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
     elif var == "akzent-pill":  # Daniel, 20.11.2026: nur die Pill (Key Visual), passende Größe, iPhone
@@ -240,7 +242,7 @@ def main():
     for vkey, vname, vtext, *nur in VARIANTEN:
         eintraege = []
         for gkey, gname, w, h, art in GERAETE:
-            if nur and art not in nur[0]:
+            if nur and art not in nur[0] and gkey not in nur[0]:
                 continue
             html = os.path.join(tmp, f"{vkey}-{gkey}.html")
             open(html, "w").write(bild(gkey, w, h, art, vkey))

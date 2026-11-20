@@ -1724,6 +1724,27 @@
           ]
         },
         {
+          "id": "akzent-pill-satz",
+          "name": "Akzent · Pill statt Logo",
+          "text": "Wie Akzent mit demselben Satz, nur steht statt des ganzen Logos die Pill – das Key Visual. Fürs iPad mini.",
+          "bilder": [
+            {
+              "geraet": "iPad mini",
+              "datei": "sofortsichtbar-hintergrund-akzent-pill-satz-ipadmini-4532x4532.png",
+              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-satz-ipadmini-4532x4532.webp",
+              "masse": "4532 × 4532",
+              "art": "ipad",
+              "reihe": "gross",
+              "cm": 19.5,
+              "hinweis": "Datei quadratisch, iPad zeigt die Mitte",
+              "anteil": 100.0
+            }
+          ],
+          "reihen": [
+            "gross"
+          ]
+        },
+        {
           "id": "akzent-pill",
           "name": "Akzent · nur Pill",
           "text": "Wie Akzent, aber statt Logo und Satz nur die Pill aus dem Logo – das Key Visual, mittig im freien Feld zwischen Uhr und Dock. Nur fürs iPhone.",
