@@ -1869,16 +1869,16 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-marke { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
 .av9-drei { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .av9-kachel--lp { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); align-items: center; gap: 1rem; min-height: 30rem;
-  background: radial-gradient(55% 70% at 75% 60%, rgba(134,19,161,.28), transparent 70%), radial-gradient(45% 60% at 55% 70%, rgba(11,159,189,.26), transparent 70%), var(--s7-flaeche); }
+  background: radial-gradient(55% 70% at 75% 60%, rgba(134,19,161,.13), transparent 70%), radial-gradient(45% 60% at 55% 70%, rgba(11,159,189,.12), transparent 70%), var(--s7-flaeche); }
 .av9-kachel--lp .av9-kachel__text { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
 .av9-geraete { position: relative; padding: clamp(1.6rem, 3vw, 2.6rem) clamp(2.4rem, 5vw, 4.4rem) clamp(1.6rem, 3vw, 2.6rem) 0; }
-.av9-mac__bild { padding: 2.2% 2.2% 2.6%; border-radius: 16px 16px 4px 4px; background: #1d1d1f; box-shadow: inset 0 0 0 2px #3a3a3c, 0 30px 60px -24px rgba(29,29,31,.5); }
+.av9-mac__bild { padding: 1.4% 1.4% 1.8%; border-radius: 16px 16px 4px 4px; background: #1d1d1f; box-shadow: inset 0 0 0 2px #3a3a3c, 0 30px 60px -24px rgba(29,29,31,.5); }
 .av9-mac__bild img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 4px; background: #fff; }
 .av9-mac__fuss { position: relative; height: 14px; margin: 0 -6%; border-radius: 0 0 14px 14px; background: linear-gradient(180deg, #d9d9de, #a9a9b0); box-shadow: 0 12px 24px -10px rgba(0,0,0,.35); }
 .av9-mac__fuss::before { content: ""; position: absolute; left: 50%; top: 0; width: 14%; height: 5px; border-radius: 0 0 6px 6px; background: #9a9aa2; transform: translateX(-50%); }
-.av9-phone { position: absolute; right: clamp(.6rem, 2vw, 1.6rem); bottom: clamp(.4rem, 1.4vw, 1rem); width: 22%; padding: 2.2%; border-radius: 22% / 10.5%; background: #1d1d1f; box-shadow: inset 0 0 0 2px #3a3a3c, 0 24px 48px -16px rgba(29,29,31,.55); }
-.av9-phone::before { content: ""; position: absolute; left: 50%; top: 3.6%; width: 30%; height: 3.4%; border-radius: 99px; background: #000; transform: translateX(-50%); z-index: 1; }
-.av9-phone img { display: block; width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 18% / 8.4%; background: #fff; }
+.av9-phone { position: absolute; right: clamp(.6rem, 2vw, 1.6rem); bottom: clamp(.4rem, 1.4vw, 1rem); width: 21%; padding: .9%; border-radius: 17% / 8%; background: #1d1d1f; box-shadow: inset 0 0 0 1px #4a4a4e, 0 24px 48px -16px rgba(29,29,31,.5); }
+.av9-phone::before { content: ""; position: absolute; left: 50%; top: 2.4%; width: 28%; height: 2.6%; border-radius: 99px; background: #000; transform: translateX(-50%); z-index: 1; }
+.av9-phone img { display: block; width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 15.5% / 7.2%; background: #fff; }
 .av9-kachel--posts { min-height: 26rem; background: #0e0e10; }
 .av9-kachel--posts h3 { color: #fff !important; }
 .av9-kachel--posts .av9-kachel__text p:last-child { color: #a1a1a6; }
@@ -1887,16 +1887,22 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-kachel--posts .av9-band { gap: 10px; }
 .av9-kachel--posts .av9-band img { border-radius: 9px; }
 .av9-kachel--posts .av9-kachel__text { max-width: 54%; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
-.av9-kachel--mail { justify-content: space-between; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); background: linear-gradient(140deg, #0b9fbd, #8613a1); }
-.av9-kachel--mail h3, .av9-kachel--mail .av9-marke { color: #fff !important; }
-.av9-kachel--mail .av9-kachel__text p:last-child { color: rgba(255,255,255,.88); }
-.av9-mail { margin: 0 clamp(1.6rem, 3vw, 2.4rem); transform: rotate(-2deg); padding: 1.1rem 1.2rem 1.2rem; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px -18px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.04); }
+.av9-kachel--mail { justify-content: space-between; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9-post { position: relative; margin: 0 clamp(1.6rem, 3vw, 2.4rem); padding-top: 1.2rem; }
+.av9-post__hinten { position: absolute; left: 6%; right: 6%; height: 3rem; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
+.av9-post__hinten--2 { top: 0; left: 12%; right: 12%; opacity: .55; }
+.av9-post__hinten--1 { top: .6rem; opacity: .8; }
+.av9-mail { position: relative; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 24px 50px -20px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.06); }
 .av9-mail p { margin: 0; }
-.av9-mail__kopf { display: grid; gap: .15rem; padding-bottom: .8rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .85rem; }
-.av9-mail__kopf b { color: var(--s7-tinte); font-weight: 600; }
-.av9-mail__betreff { margin-top: .8rem !important; color: var(--s7-tinte); font-weight: 700; }
-.av9-mail__text { margin-top: .35rem !important; color: var(--s7-text); font-size: .95rem; line-height: 1.5; }
-.av9-mail__knopf { display: inline-block; margin-top: .9rem; padding: .55rem 1rem; border-radius: 99px; background: #1d1d1f; color: #fff; font-size: .88rem; font-weight: 600; }
+.av9-mail__leiste { display: flex; align-items: center; gap: .35rem; padding: .55rem .8rem; background: #f0f0f2; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .78rem; }
+.av9-mail__leiste i { width: .62rem; height: .62rem; border-radius: 50%; background: #d1d1d6; }
+.av9-mail__leiste span { margin-left: .6rem; font-weight: 600; }
+.av9-mail__kopf { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .25rem .8rem; margin: 0; padding: .8rem 1rem; border-bottom: 1px solid var(--s7-linie); font-size: .85rem; }
+.av9-mail__kopf dt { color: var(--s7-grau); }
+.av9-mail__kopf dd { margin: 0; color: var(--s7-tinte); }
+.av9-mail__inhalt { display: grid; gap: .6rem; padding: 1rem 1rem 1.1rem; color: var(--s7-text); font-size: .9rem; line-height: 1.5; }
+.av9-mail__knopf { justify-self: start; padding: .5rem 1rem; border-radius: 8px; background: #7a1a95; color: #fff; font-size: .85rem; font-weight: 600; }
+.av9-mail__gruss { color: var(--s7-grau); font-size: .85rem; }
 .av9-auftritt { display: flex; align-items: center; gap: clamp(1.2rem, 3vw, 2.4rem); max-width: 52rem; margin: 2.4rem auto 0; }
 .av9-auftritt__bilder { flex: none; display: flex; align-items: center; gap: .6rem; }
 .av9-auftritt__bilder img { width: clamp(4.6rem, 9vw, 6.4rem); height: auto; border-radius: 8px; box-shadow: 0 10px 24px -10px rgba(0,0,0,.35); }
@@ -1927,6 +1933,11 @@ body.s7-menue-offen { overflow: hidden; }
 .av9 .av9-schritte li > b, .av9 .av9-schritte li > p { padding-inline: clamp(1.6rem, 3vw, 2.2rem); }
 .av9 .av9-schritte li > b { margin-top: 0 !important; }
 .av9-mini { padding: .9rem 1rem; border-radius: 16px; background: #fff; box-shadow: 0 16px 40px -16px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.04); }
+.av9-wahl { display: flex; gap: .6rem; padding-inline: 1rem; }
+.av9-wahl span { position: relative; width: 6.4rem; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 10px 24px -12px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.06); }
+.av9-wahl img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.av9-wahl span.an { box-shadow: 0 0 0 2px #7a1a95, 0 14px 30px -12px rgba(122,26,149,.5); transform: translateY(-4px); }
+.av9-wahl span.an::after { content: "✓"; position: absolute; right: .3rem; top: .3rem; display: grid; place-items: center; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #7a1a95; color: #fff; font-size: .7rem; font-weight: 700; }
 .av9-mini--kal p { color: var(--s7-tinte); font-size: .8rem; font-weight: 700; }
 .av9-mini--kal div { display: grid; grid-template-columns: repeat(7, 1.6rem); gap: .25rem; margin-top: .5rem; }
 .av9-mini--kal i { display: grid; place-items: center; height: 1.6rem; border-radius: 6px; color: var(--s7-text); font-size: .75rem; font-style: normal; }
@@ -1935,7 +1946,7 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-mini--marke img { width: 9rem; height: auto; }
 .av9-mini--marke p { display: flex; gap: .45rem; }
 .av9-mini--marke i { width: 1.4rem; height: 1.4rem; border-radius: 50%; }
-.av9-mini--marke i.an { background: linear-gradient(135deg, #0b9fbd, #8613a1); box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8613a1; }
+.av9-mini--marke i.an { background: #7a1a95; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #7a1a95; }
 .av9 .av9-mini--note { position: static; max-width: calc(100% - 2.4rem); }
 .av9 .av9-mini--note b { font-size: .95rem; }
 /* Problemlöser statt Detailberater */
@@ -2984,11 +2995,19 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             <h3>An deine Bestandskunden.</h3>
             <p>Jede Mail führt auf deine Landingpage.</p>
           </div>
-          <div class="av9-mail" aria-hidden="true">
-            <p class="av9-mail__kopf"><span>Von <b>Deine Agentur</b></span><span>An <b>Frau Müller</b></span></p>
-            <p class="av9-mail__betreff">Neue Altersvorsorge 2027: Betrifft Sie das?</p>
-            <p class="av9-mail__text">Liebe Frau Müller, ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
-            <span class="av9-mail__knopf">Termin wählen</span>
+          <div class="av9-post" aria-hidden="true">
+            <div class="av9-post__hinten av9-post__hinten--2"></div>
+            <div class="av9-post__hinten av9-post__hinten--1"></div>
+            <div class="av9-mail">
+              <p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p>
+              <dl class="av9-mail__kopf"><dt>Von</dt><dd>Deine Agentur</dd><dt>An</dt><dd>Frau Müller</dd><dt>Betreff</dt><dd><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b></dd></dl>
+              <div class="av9-mail__inhalt">
+                <p>Liebe Frau Müller,</p>
+                <p>ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
+                <span class="av9-mail__knopf">Termin wählen</span>
+                <p class="av9-mail__gruss">Viele Grüße<br>Max Mustermann</p>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -3029,7 +3048,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <div class="av9-kopf"><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
       <ol class="av9-schritte">
         <li>
-          <div class="av9-schritt__bild" aria-hidden="true"><div class="av9-mini av9-mini--kal"><p>Dezember</p><div>{% for t in range(1, 15) %}<i{% if t == 9 %} class="an"{% endif %}>{{ t }}</i>{% endfor %}</div></div></div>
+          <div class="av9-schritt__bild" aria-hidden="true"><div class="av9-wahl">{% for n in ["1", "2", ""] %}<span{% if loop.index == 3 %} class="an"{% endif %}><img src="{{ AV }}/black-week/lp{{ n }}-mac-sofort.webp" alt="" loading="lazy"></span>{% endfor %}</div></div>
           <b>Du buchst.</b><p>Gestaltung wählen, fertig.</p>
         </li>
         <li>

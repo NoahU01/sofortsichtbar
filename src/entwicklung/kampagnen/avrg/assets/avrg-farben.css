@@ -20,12 +20,9 @@ html[data-farbe="gelb"]{--rot-betont:#6B5A00;--rot-hell:#FEE354;
   --auf-rot:#111;--auf-rot-leise:rgba(17,17,17,.78);--auf-rot-rand:rgba(17,17,17,.4);--auf-rot-linie:rgba(17,17,17,.2);
 }
 
-/* „sofort“ (Daniel, 20.11.2026): Darstellung des Pakets in unserem Look – Tinte als Fläche, Violett und Cyan als Hervorhebung.
+/* „sofort“ (Daniel, 20.11.2026): Darstellung des Pakets in unserem Look – einfarbig Violett, ohne Verlauf (Verlauf wirkte zu bunt).
    Nur für Vorschauen auf der AVRG-Landingpage von sofort sichtbar (?farbe=sofort), keine Kundenfarbe in der Auswahl. */
-html[data-farbe="sofort"]{--rot-betont:#1d1d1f;--rot-hell:#5fd3ea;--rot:linear-gradient(120deg,#0b9fbd,#8613a1);--rot-dunkel:linear-gradient(120deg,#08869f,#6f0f86);--rot-text:#8613a1;--rot-glut:rgba(134,19,161,.32);--rot-schatten:rgba(60,10,80,.4)}
-/* Verlauf geht nur als Fläche; wo die Farbe als Schrift oder Rahmen dient, Violett */
-html[data-farbe="sofort"] .cr__haken i::after{border-color:#8613a1}
-html[data-farbe="sofort"] .ticket.ist-sichtbar .ticket__box{color:#8613a1}
+html[data-farbe="sofort"]{--rot-betont:#1d1d1f;--rot-hell:#c79be0;--rot:#7a1a95;--rot-dunkel:#64137b;--rot-text:#7a1a95;--rot-glut:rgba(122,26,149,.28);--rot-schatten:rgba(60,10,80,.38)}
 
 /* Platzhalter-Logo (Logoipsum) behält sein Seitenverhältnis */
 img[src*="logo-platzhalter"]{object-fit:contain;object-position:left center}
