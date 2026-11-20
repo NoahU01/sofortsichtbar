@@ -113,8 +113,12 @@ def stil_svg(bloecke=False, senkrecht=False):
     return f'<svg viewBox="0 0 {breite} 240" aria-hidden="true">{inhalt}</svg>', breite / 240
 
 
-def block(art, left, mitte_y, size, align="left", breite=None, logo=None):
-    logo_h = size * (.36 if logo == PILL else .72)  # Pill deutlich kleiner als das Logo (Daniel, 20.11.2026)
+PILL_H = .36            # Höhe der Pill im Verhältnis zur Schriftgröße (deutlich kleiner als das Logo, Daniel 20.11.2026)
+PILL_H_IPHONE = .36 * 1.2  # iPhone: 20 % größer, Abstand zum Text gleich (Daniel 21.11.2026)
+
+
+def block(art, left, mitte_y, size, align="left", breite=None, logo=None, logo_hf=None):
+    logo_h = size * (logo_hf or (PILL_H if logo == PILL else .72))
     ausr = "flex-start" if align == "left" else "center"
     br = f"width:{breite}px;" if breite else ""
     return (f'<div style="position:absolute;left:{left:.1f}px;top:{mitte_y:.1f}px;transform:translateY(-50%);{br}'
@@ -141,7 +145,11 @@ def bild(gkey, w, h, art, var):
         elif art == "mac":
             teile.append(block(art, .08 * w, .47 * h, .046 * w))
         elif art == "iphone":
-            teile.append(block(art, .10 * w, .52 * h, .11 * w, logo=logo))
+            size = .11 * w
+            if logo:  # Pill wächst nach rechts oben: Block um die halbe Mehrhöhe anheben, damit der Satz an seiner Stelle bleibt
+                teile.append(block(art, .10 * w, .52 * h - (PILL_H_IPHONE - PILL_H) * size / 2, size, logo=logo, logo_hf=PILL_H_IPHONE))
+            else:
+                teile.append(block(art, .10 * w, .52 * h, size))
         else:
             teile.append(block(art, .05 * w, .5 * h, .034 * w))
         if var in ("akzent", "akzent-pill-satz"):
