@@ -1726,7 +1726,7 @@
         {
           "id": "akzent-pill-satz",
           "name": "Akzent · Pill statt Logo",
-          "text": "Wie Akzent mit demselben Satz, nur steht statt des ganzen Logos die Pill – das Key Visual. Fürs iPad mini.",
+          "text": "Wie Akzent mit demselben Satz, nur steht an der Stelle des Logos die Pill – das Key Visual, kleiner als das Logo. Für iPad mini und iPhone.",
           "bilder": [
             {
               "geraet": "iPad mini",
@@ -1738,21 +1738,11 @@
               "cm": 19.5,
               "hinweis": "Datei quadratisch, iPad zeigt die Mitte",
               "anteil": 100.0
-            }
-          ],
-          "reihen": [
-            "gross"
-          ]
-        },
-        {
-          "id": "akzent-pill",
-          "name": "Akzent · nur Pill",
-          "text": "Wie Akzent, aber statt Logo und Satz nur die Pill aus dem Logo – das Key Visual, mittig im freien Feld zwischen Uhr und Dock. Nur fürs iPhone.",
-          "bilder": [
+            },
             {
               "geraet": "iPhone 13 mini",
-              "datei": "sofortsichtbar-hintergrund-akzent-pill-iphone13mini-2160x4680.png",
-              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-iphone13mini-2160x4680.webp",
+              "datei": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone13mini-2160x4680.png",
+              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone13mini-2160x4680.webp",
               "masse": "2160 × 4680",
               "art": "iphone",
               "reihe": "telefon",
@@ -1762,8 +1752,8 @@
             },
             {
               "geraet": "iPhone 13 Pro",
-              "datei": "sofortsichtbar-hintergrund-akzent-pill-iphone13pro-2340x5064.png",
-              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-iphone13pro-2340x5064.webp",
+              "datei": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone13pro-2340x5064.png",
+              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone13pro-2340x5064.webp",
               "masse": "2340 × 5064",
               "art": "iphone",
               "reihe": "telefon",
@@ -1773,8 +1763,8 @@
             },
             {
               "geraet": "iPhone 16 Pro",
-              "datei": "sofortsichtbar-hintergrund-akzent-pill-iphone16pro-2412x5244.png",
-              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-iphone16pro-2412x5244.webp",
+              "datei": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone16pro-2412x5244.png",
+              "vorschau": "sofortsichtbar-hintergrund-akzent-pill-satz-iphone16pro-2412x5244.webp",
               "masse": "2412 × 5244",
               "art": "iphone",
               "reihe": "telefon",
@@ -1784,6 +1774,7 @@
             }
           ],
           "reihen": [
+            "gross",
             "telefon"
           ]
         },
