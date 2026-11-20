@@ -1859,6 +1859,39 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-band img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; box-shadow: 0 12px 24px rgba(0,0,0,.35); }
 .av9-kasten:hover .av9-band { animation-play-state: paused; }
 @keyframes av9-hoch { from { transform: translateY(0); } to { transform: translateY(calc(-50% - 7px)); } }
+.av9 .s9-held .av9-einleitung { max-width: 54rem; }
+/* Dreiklang: Landingpage groß links, Postings und Mailings rechts */
+.av9-drei { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto auto; gap: 1rem; margin-top: 3.2rem; }
+.av9-kachel { position: relative; display: flex; flex-direction: column; gap: 1.6rem; overflow: hidden; border-radius: 28px; background: var(--s7-flaeche); }
+.av9-kachel__text { position: relative; z-index: 1; padding: clamp(1.6rem, 3vw, 2.4rem) clamp(1.6rem, 3vw, 2.4rem) 0; }
+.av9-kachel h3 { margin-top: .5rem !important; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.08; letter-spacing: -0.025em; }
+.av9-kachel__text p:last-child { margin-top: .7rem; max-width: 30rem; color: var(--s7-text); line-height: 1.5; }
+.av9-marke { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.av9-kachel--lp { grid-row: span 2; justify-content: space-between; background: radial-gradient(60% 50% at 50% 100%, rgba(134,19,161,.16), transparent 70%), radial-gradient(50% 45% at 30% 95%, rgba(11,159,189,.16), transparent 70%), var(--s7-flaeche); }
+.av9-kachel--lp .av9-ipad { width: min(78%, 24rem); margin: 0 auto -16%; transform: rotate(-4deg); }
+.av9-kachel--posts { min-height: 23rem; background: #0e0e10; }
+.av9-kachel--posts h3 { color: #fff !important; }
+.av9-kachel--posts .av9-kachel__text p:last-child { color: #a1a1a6; }
+.av9-kachel--posts .av9-marke { color: #a1a1a6; }
+.av9-kachel--posts .av9-feed { position: absolute; inset: 0 -12% -30% 46%; min-height: 0; height: auto; padding: 0; gap: 10px; transform: rotate(-6deg); }
+.av9-kachel--posts .av9-band { gap: 10px; }
+.av9-kachel--posts .av9-band img { border-radius: 9px; }
+.av9-kachel--posts .av9-kachel__text { max-width: 54%; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9-kachel--mail { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9-mail { margin: 0 clamp(1.6rem, 3vw, 2.4rem); padding: 1.1rem 1.2rem 1.2rem; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px -18px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.04); }
+.av9-mail p { margin: 0; }
+.av9-mail__kopf { display: flex; align-items: center; gap: .7rem; padding-bottom: .8rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .85rem; }
+.av9-mail__kopf i { flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: #1d1d1f; }
+.av9-mail__kopf b { display: block; color: var(--s7-tinte); font-size: .95rem; }
+.av9-mail__betreff { margin-top: .8rem !important; color: var(--s7-tinte); font-weight: 700; }
+.av9-mail__text { margin-top: .35rem !important; color: var(--s7-text); font-size: .95rem; line-height: 1.5; }
+.av9-mail__knopf { display: inline-block; margin-top: .9rem; padding: .55rem 1rem; border-radius: 99px; background: #1d1d1f; color: #fff; font-size: .88rem; font-weight: 600; }
+.av9-auftritt { display: flex; align-items: center; gap: clamp(1.2rem, 3vw, 2.4rem); max-width: 52rem; margin: 2.4rem auto 0; }
+.av9-auftritt__bilder { flex: none; display: flex; align-items: center; gap: .6rem; }
+.av9-auftritt__bilder img { width: clamp(4.6rem, 9vw, 6.4rem); height: auto; border-radius: 8px; box-shadow: 0 10px 24px -10px rgba(0,0,0,.35); }
+.av9-auftritt__bilder svg { width: 1.4rem; height: 1.4rem; fill: none; stroke: var(--s7-grau); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.av9-auftritt p { color: var(--s7-text); line-height: 1.55; }
+.av9-auftritt b { color: var(--s7-tinte); }
 /* Problemlöser statt Detailberater */
 .av9-kopf { max-width: 52rem; margin-inline: auto; text-align: center; }
 .av9-kopf .s9-lead { margin-inline: auto; }
@@ -1909,7 +1942,12 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-preis__rechts .s7-knopf .s7-pfeil { stroke: #1d1d1f; }
 .av9 .s9-knoepfe .s9-link, .av9-kopf .s9-link { white-space: nowrap; }
 @media (max-width: 900px) {
-  .av9-kasten, .av9-lp, .av9-preis { grid-template-columns: minmax(0, 1fr); }
+  .av9-kasten, .av9-lp, .av9-preis, .av9-drei { grid-template-columns: minmax(0, 1fr); }
+  .av9-kachel--lp { grid-row: auto; }
+  .av9-kachel--posts { min-height: 30rem; }
+  .av9-kachel--posts .av9-kachel__text { max-width: none; }
+  .av9-kachel--posts .av9-feed { inset: 44% -10% -20% -10%; }
+  .av9-auftritt { flex-direction: column; text-align: center; }
   .av9-feed { min-height: 26rem; height: 26rem; transform: rotate(-5deg) scale(1.08); margin-top: 1rem; }
   .av9-kasten__text { position: relative; z-index: 1; background: #0e0e10; }
   .av9-ipad { width: min(100%, 19rem); }
@@ -2852,36 +2890,63 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <p class="s9-kicker">Neue Altersvorsorge 2027 · für Agenturen und Maklerbüros</p>
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
-      <p class="s9-lead">Ab 2027 brauchen deine Kunden jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der AVRG-Vertriebsstrecke bist du das: Postings, Landingpage und Mailings an deine Bestandskunden, fertig und in deinem Auftritt.</p>
+      <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
       <div class="av9-aktion" data-av9-aktion>
         <span class="av9-aktion__marke" data-av9-marke>Black Week</span>
         <span class="av9-aktion__preis" data-av9-preis><b>39 €</b> statt <s>89 €</s> im Monat</span>
-        <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min</span>
+        <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min <span data-sek>–</span>Sek</span>
       </div>
     </div>
   </section>
 
   <section class="s9-band" id="paket">
     <div class="s7-wrap">
-      <div class="av9-kasten">
-        <div class="av9-kasten__text">
-          <h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2>
-          <p>Fertig getextet und gestaltet. Wir setzen dein Logo, deine Kontaktdaten und deine Farbe ein. Du gehst damit zu deinen Kunden.</p>
-          <ul class="av9-liste">
-            <li>30 Postings <span>für Instagram, Facebook und LinkedIn</span></li>
-            <li>Deine Landingpage <span>mit Terminwahl in 15 Minuten</span></li>
-            <li>3 Mailings <span>an deine Bestandskunden</span></li>
-            <li>Redaktionsplan <span>bis zum Start im Januar</span></li>
-          </ul>
+      <div class="av9-kopf"><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
+      <div class="av9-drei">
+        <article class="av9-kachel av9-kachel--lp">
+          <div class="av9-kachel__text">
+            <p class="av9-marke">Landingpage</p>
+            <h3>Deine Bestandskunden landen hier und buchen einen Termin.</h3>
+            <p>Eine Seite, ein Ziel: der Termin. Mit dem Klarheits-Ticket, häufigen Fragen und Terminwahl per Telefon, Video oder im Büro.</p>
+          </div>
+          <div class="av9-ipad" aria-hidden="true"><div class="av9-ipad__geraet"><img src="{{ AV }}/black-week/lp-ipad-sofort.webp" alt="" width="1488" height="2266" loading="lazy"></div></div>
+        </article>
+        <article class="av9-kachel av9-kachel--posts">
+          <div class="av9-kachel__text">
+            <p class="av9-marke">30 Postings</p>
+            <h3>Fertig für Instagram, Facebook und LinkedIn.</h3>
+            <p>Mit Bild und Text, als Redaktionsplan bis zum Start im Januar.</p>
+          </div>
+          <div class="av9-feed" aria-hidden="true">
+            {%- for r in [[1,4,7,10,13,16,19,22,25,28],[2,5,8,11,14,17,20,23,26,29],[3,6,9,12,15,18,21,24,27,30]] %}
+            <div class="av9-spalte"><div class="av9-band">
+              {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp" alt="" loading="lazy">{% endfor %}{% endfor -%}
+            </div></div>
+            {%- endfor %}
+          </div>
+        </article>
+        <article class="av9-kachel av9-kachel--mail">
+          <div class="av9-kachel__text">
+            <p class="av9-marke">3 Mailings</p>
+            <h3>An deine Bestandskunden.</h3>
+            <p>An alle, an Kunden mit Riester-Vertrag und eine Erinnerung im Januar. Jede Mail führt auf deine Landingpage.</p>
+          </div>
+          <div class="av9-mail" aria-hidden="true">
+            <p class="av9-mail__kopf"><i></i><span><b>Deine Agentur</b>an Frau Beispiel</span></p>
+            <p class="av9-mail__betreff">Neue Altersvorsorge 2027: Betrifft Sie das?</p>
+            <p class="av9-mail__text">Liebe Frau Beispiel, ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
+            <span class="av9-mail__knopf">Termin in 15 Minuten wählen</span>
+          </div>
+        </article>
+      </div>
+      <div class="av9-auftritt">
+        <div class="av9-auftritt__bilder" aria-hidden="true">
+          <img src="{{ AV }}/black-week/sofort/p03.webp" alt="" loading="lazy">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <img src="{{ AV }}/black-week/farbe/p03.webp" alt="" loading="lazy">
         </div>
-        <div class="av9-feed" aria-hidden="true">
-          {%- for r in [[1,4,7,10,13,16,19,22,25,28],[2,5,8,11,14,17,20,23,26,29],[3,6,9,12,15,18,21,24,27,30]] %}
-          <div class="av9-spalte"><div class="av9-band">
-            {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/wand/p{% if n < 10 %}0{% endif %}{{ n }}.webp" alt="" loading="lazy">{% endfor %}{% endfor -%}
-          </div></div>
-          {%- endfor %}
-        </div>
+        <p><b>In deinem Auftritt.</b> Wir setzen dein Logo, deine Kontaktdaten und deine Farbe ein, in die Landingpage, die Postings und die Mailings.</p>
       </div>
     </div>
   </section>
@@ -2901,21 +2966,6 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   </section>
 
   <section class="s9-band">
-    <div class="s7-wrap av9-lp">
-      <div>
-        <h2 class="s9-h2">Deine Bestandskunden landen hier <span class="s7-wort">und buchen einen Termin.</span></h2>
-        <p class="s9-lead">Eine Seite, ein Ziel: der Termin. Mit dem Klarheits-Ticket, häufigen Fragen und direkter Terminwahl per Telefon, Video oder im Büro. Drei Gestaltungen zur Wahl, in deiner Farbe.</p>
-        <div class="av9-styles">
-          <figure><img src="{{ AV }}/kampagne/vorschau-1-blau.webp" alt="Landingpage Variante 1" width="960" height="600" loading="lazy"><figcaption>Nah an der Vorlage</figcaption></figure>
-          <figure><img src="{{ AV }}/kampagne/vorschau-2-gruen.webp" alt="Landingpage Variante 2" width="960" height="600" loading="lazy"><figcaption>Was trifft auf dich zu?</figcaption></figure>
-          <figure><img src="{{ AV }}/kampagne/vorschau-3-gelb.webp" alt="Landingpage Variante 3" width="960" height="600" loading="lazy"><figcaption>Das Klarheits-Ticket</figcaption></figure>
-        </div>
-      </div>
-      <div class="av9-ipad" aria-hidden="true"><div class="av9-ipad__geraet"><img src="{{ AV }}/black-week/lp-ipad.webp" alt="" width="1488" height="2266" loading="lazy"></div></div>
-    </div>
-  </section>
-
-  <section class="s9-band s9-band--flaeche">
     <div class="s7-wrap">
       <div class="av9-kopf"><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
       <ol class="av9-schritte">
@@ -2941,7 +2991,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
           </ul>
         </div>
         <div class="av9-preis__rechts">
-          <span class="av9-uhr" data-av9-uhr><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min</span>
+          <span class="av9-uhr" data-av9-uhr><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min <span data-sek>–</span>Sek</span>
           <div><span class="av9-betrag" data-av9-betrag>39 €</span></div>
           <p class="av9-statt" data-av9-statt>statt <s>89 €</s> im Monat · Black Week</p>
           <p class="av9-fein">Preis inklusive Mehrwertsteuer. Mindestlaufzeit drei Monate, danach monatlich zum Monatsende kündbar. Der Aktionspreis gilt bei Buchung bis einschließlich 04.12.2026.</p>
@@ -2968,11 +3018,11 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       var st = document.querySelector('[data-av9-statt]'); if (st) st.textContent = 'im Monat';
       return;
     }
-    var t = Math.floor(rest / 864e5), s = Math.floor(rest % 864e5 / 36e5), mi = Math.floor(rest % 36e5 / 6e4);
+    var t = Math.floor(rest / 864e5), s = Math.floor(rest % 864e5 / 36e5), mi = Math.floor(rest % 36e5 / 6e4), se = Math.floor(rest % 6e4 / 1e3);
     document.querySelectorAll('[data-av9-uhr]').forEach(function (u) {
-      u.querySelector('[data-t]').textContent = t; u.querySelector('[data-s]').textContent = zwei(s); u.querySelector('[data-m]').textContent = zwei(mi);
+      u.querySelector('[data-t]').textContent = t; u.querySelector('[data-s]').textContent = zwei(s); u.querySelector('[data-m]').textContent = zwei(mi); u.querySelector('[data-sek]').textContent = zwei(se);
     });
-    setTimeout(tick, 15000);
+    setTimeout(tick, 1000 - Date.now() % 1000);
   }
   tick();
 })();

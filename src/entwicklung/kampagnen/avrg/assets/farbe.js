@@ -1,7 +1,7 @@
 /* Farbwahl für die AVRG-Landingpages: ?farbe=rot|blau|gruen|gelb, sonst die zuletzt gewählte.
    Läuft im <head>, damit die Seite gleich in der richtigen Farbe erscheint. */
 (function () {
-  var FARBEN = ['rot', 'blau', 'gruen', 'gelb'];
+  var FARBEN = ['rot', 'blau', 'gruen', 'gelb', 'sofort']; // sofort: nur Vorschau im Look von sofort sichtbar
   var wahl = new URLSearchParams(location.search).get('farbe');
   if (FARBEN.indexOf(wahl) < 0) { try { wahl = localStorage.getItem('avrg-farbe'); } catch (e) { wahl = null; } }
   if (FARBEN.indexOf(wahl) < 0) wahl = 'rot';
