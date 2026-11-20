@@ -1680,7 +1680,7 @@ body.s7-menue-offen { overflow: hidden; }
       {%- for v in HG.varianten %}
       <div class="hg7-variante">
         <h3>{{ v.name }}</h3><p>{{ v.text }}</p>
-        {%- for r in ["gross", "telefon"] %}
+        {%- for r in (v.reihen or ["gross", "telefon"]) %}
         <div class="hg7-reihe hg7-reihe--{{ r }}">
           {%- for b in v.bilder %}{% if b.reihe == r %}
           <a class="hg7-bild hg7-bild--{{ b.art }}" style="flex: 0 1 {{ b.anteil }}%" href="{{ A7 }}/hintergruende/{{ b.datei }}" target="_blank" rel="noopener"><img src="{{ A7 }}/hintergruende/{{ b.vorschau }}" alt="Hintergrundbild {{ v.name }} für {{ b.geraet }}" loading="lazy"><span><b>{{ b.geraet }}</b>{{ b.masse }}{% if b.hinweis %}<br>{{ b.hinweis }}{% endif %}</span></a>

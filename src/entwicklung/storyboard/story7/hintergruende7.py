@@ -21,6 +21,7 @@ SRC = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 ZIEL = os.path.join(HERE, "assets", "hintergruende")
 FONTS = os.path.join(HERE, "assets", "fonts")
 LOGO = os.path.join(SRC, "assets", "img", "logos", "logo-white.svg")
+PILL = os.path.join(SRC, "assets", "img", "logos", "logo-icon.svg")  # nur die Pill aus dem Logo (Key Visual), 55 × 22
 BG = "#000000"  # tiefschwarz (Daniel, 18.11.2026, auf dem iPad mini geprüft: Grau wirkt zu hell, als wäre am Bild etwas kaputt)
 
 # Vorschau so, wie es auf dem Gerät aussieht: iPad quer ausgeschnitten (Bildschirmseitenverhältnis), Größen maßstäblich nach Bildschirmbreite (cm)
@@ -38,6 +39,7 @@ GERAETE = [  # Schlüssel, Name, Breite, Höhe (Punkte), Art
 VARIANTEN = [
     ("klar", "Klar", "Die Grundform: Logo und Satz als ein Block, ruhig gesetzt. Nichts lenkt von Fenstern und Symbolen ab."),
     ("akzent", "Akzent", "Wie Klar, dahinter gedämpftes Licht in Violett und Cyan."),
+    ("akzent-pill", "Akzent · nur Pill", "Wie Akzent, aber statt Logo und Satz nur die Pill aus dem Logo – das Key Visual, mittig im freien Feld zwischen Uhr und Dock. Nur fürs iPhone.", ("iphone",)),
     ("trichter", "Trichter", "Das Bild aus Story 8: Marketing – wir gewinnen Interessenten, Vertrieb – du machst daraus Kunden. Mit viel Rand, kein Bildschirm voll."),
     ("trichter-stilisiert", "Trichter stilisiert", "Der Trichter ohne ein Wort, rechts neben dem Satz – beide als eine Gruppe mittig, der Trichter auf der Höhe des Satzes."),
     ("nur-trichter", "Nur Trichter", "Nur der Trichter, ohne Blöcke. Quer mündet er direkt in den Satz – Maschine und Aussage auf einer Höhe."),
@@ -144,6 +146,11 @@ def bild(gkey, w, h, art, var):
         if var == "akzent":
             lage = {"mac": "26% 47%", "ipad": f"50% {band / h * 100:.0f}%", "iphone": "34% 54%", "video": "18% 52%"}[art]
             hintergrund = f"radial-gradient(40% 36% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 26% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
+    elif var == "akzent-pill":  # Daniel, 20.11.2026: nur die Pill (Key Visual), passende Größe, iPhone
+        pb, my = .46 * w, .55 * h  # Breite der Pill, Mitte im freien Feld (oben bis 30 % Uhr, ab 85 % Dock)
+        teile.append(f'<img src="file://{PILL}" style="position:absolute;left:{(w - pb) / 2:.1f}px;top:{my - pb * 22 / 55 / 2:.1f}px;width:{pb:.1f}px;display:block">')
+        lage = "50% 55%"
+        hintergrund = f"radial-gradient(40% 30% at {lage}, rgba(134,19,161,.30), transparent 72%), radial-gradient(28% 20% at {lage}, rgba(11,159,189,.16), transparent 70%), {BG}"
     elif var == "trichter":  # Bild aus Story 8 mit Worten, viel Rand
         if art == "mac":
             teile.append(block(art, .19 * w, .30 * h, .032 * w))
@@ -230,9 +237,11 @@ def main():
         os.remove(os.path.join(ZIEL, f))
     tmp = tempfile.mkdtemp(prefix="hg7_")
     liste, daten = [], []
-    for vkey, vname, vtext in VARIANTEN:
+    for vkey, vname, vtext, *nur in VARIANTEN:
         eintraege = []
         for gkey, gname, w, h, art in GERAETE:
+            if nur and art not in nur[0]:
+                continue
             html = os.path.join(tmp, f"{vkey}-{gkey}.html")
             open(html, "w").write(bild(gkey, w, h, art, vkey))
             datei = f"sofortsichtbar-hintergrund-{vkey}-{gkey}-{2 * w}x{2 * h}.png"
@@ -245,7 +254,8 @@ def main():
             for e in eintraege:
                 if e["reihe"] == reihe:
                     e["anteil"] = round(e["cm"] / summe * 100, 2)
-        daten.append({"id": vkey, "name": vname, "text": vtext, "bilder": eintraege})
+        daten.append({"id": vkey, "name": vname, "text": vtext, "bilder": eintraege,
+                      "reihen": [r for r in ("gross", "telefon") if any(e["reihe"] == r for e in eintraege)]})
     js = os.path.join(tmp, "aufnahme.mjs")
     open(js, "w").write(AUFNAHME)
     lp = os.path.join(tmp, "liste.json")
