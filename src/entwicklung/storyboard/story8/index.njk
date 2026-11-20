@@ -28,6 +28,10 @@ seiten:
     titel: "Machen lassen"
     v9: "b"
     pfad: "story9/machen-lassen/"
+  - slug: "avrg"
+    titel: "AVRG · Black Week"
+    v9: "avrg"
+    voll: "/zielgruppen/avrg/"
   - slug: "mit-deinem-team-2"
     titel: "Selbst machen · Variante 2"
     basis: "mit-deinem-team"
@@ -104,7 +108,7 @@ seiten:
   - slug: "zielgruppen/werdende-eltern"
     titel: "Junge Familien"
     zg: "werdende-eltern"
-permalink: "/entwicklung/storyboard/{% if s.pfad %}{{ s.pfad }}{% else %}story8/{% if s.slug %}{{ s.slug }}/{% endif %}{% endif %}index.html"
+permalink: "{% if s.voll %}{{ s.voll }}{% else %}/entwicklung/storyboard/{% if s.pfad %}{{ s.pfad }}{% else %}story8/{% if s.slug %}{{ s.slug }}/{% endif %}{% endif %}{% endif %}index.html"
 ---
 {#- Homepage-Story 8 (Duplikat von Story 7, 16.11.2026: Startseite, Mit deinem Team und Marketing as a Service werden hier weiterentwickelt; Vertriebsstrecken, Kompass, Kontakt, Preise unverändert mitgenommen. Assets und Generatoren liegen weiter in story7) · Startseite mit der Grundstory „Die digitale Maschine vor deinem Vertrieb“ (A und B vereint)
     und die Stilproben (drei Richtungen auf denselben Bausteinen).
@@ -1826,6 +1830,93 @@ body.s7-menue-offen { overflow: hidden; }
 .sb9-bild { margin-top: .3rem; color: var(--s7-text); font-size: .95rem; line-height: 1.5; }
 @media (max-width: 900px) { .sb9 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 @media (max-width: 560px) { .sb9 { grid-template-columns: minmax(0, 1fr); } }
+/* ---------- AVRG · Black Week (Daniel, 20.11.2026): eigenständige Landingpage /zielgruppen/avrg im Look von Story 9 ---------- */
+.av9 { overflow-x: clip; }
+.av9 .s9-held { text-align: center; }
+.av9-aktion { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem 1rem; margin-top: 2.4rem; padding: .7rem .8rem .7rem 1.2rem; border-radius: 99px; background: #fff; box-shadow: 0 14px 40px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.05); }
+.av9-aktion__marke { color: var(--s7-tinte); font-weight: 700; }
+.av9-aktion__preis { color: var(--s7-text); }
+.av9-aktion__preis b { color: var(--s7-tinte); font-size: 1.15rem; }
+.av9-aktion__preis s { color: var(--s7-grau); }
+.av9-uhr { display: inline-flex; align-items: baseline; gap: .3rem; white-space: nowrap; padding: .45rem .8rem; border-radius: 99px; background: linear-gradient(100deg, #0b9fbd, #8613a1); color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.av9-uhr span { min-width: 1.6em; text-align: right; }
+.av9-uhr small { opacity: .8; margin-right: .35rem; font-size: .85em; }
+/* Postings-Kasten: dunkel, Text links, schräge Bahnen rechts (Vorbild: alte AVRG-Übersicht der SV Owen) */
+.av9-kasten { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-height: 36rem; border-radius: 28px; overflow: hidden; background: #0e0e10; color: #e9e9e9; }
+.av9-kasten__text { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 4.5vw, 3.6rem); }
+.av9-kasten__text .s9-h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 3rem); }
+.av9-kasten__text p { margin-top: 1.2rem; color: #a1a1a6; font-size: 1.08rem; line-height: 1.55; max-width: 30rem; }
+.av9-liste { display: grid; gap: .7rem; margin: 1.8rem 0 0; padding: 0; list-style: none; }
+.av9-liste li { position: relative; padding-left: 1.4rem; color: #fff; font-weight: 600; line-height: 1.45; }
+.av9-liste li span { color: #a1a1a6; font-weight: 400; }
+.av9-liste li::before { content: ""; position: absolute; left: 0; top: .5em; width: .55rem; height: .55rem; border-radius: 50%; background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.av9-feed { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 0 22px; height: 100%; min-height: 36rem; overflow: hidden; transform: rotate(-5deg) scale(1.16);
+  -webkit-mask: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%); mask: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
+.av9-spalte { position: relative; overflow: hidden; }
+.av9-band { position: absolute; inset: 0 0 auto; display: flex; flex-direction: column; gap: 14px; animation: av9-hoch 70s linear infinite; }
+.av9-spalte:nth-child(2) .av9-band { animation-direction: reverse; animation-duration: 82s; }
+.av9-spalte:nth-child(3) .av9-band { animation-duration: 62s; }
+.av9-band img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; box-shadow: 0 12px 24px rgba(0,0,0,.35); }
+.av9-kasten:hover .av9-band { animation-play-state: paused; }
+@keyframes av9-hoch { from { transform: translateY(0); } to { transform: translateY(calc(-50% - 7px)); } }
+/* Problemlöser statt Detailberater */
+.av9-kopf { max-width: 52rem; margin-inline: auto; text-align: center; }
+.av9-kopf .s9-lead { margin-inline: auto; }
+.av9-gegen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; max-width: 56rem; margin: 3.2rem auto 0; }
+.av9-gegen__karte { padding: clamp(1.6rem, 3vw, 2.4rem); border-radius: 24px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); }
+.av9-gegen__karte--neu { background: linear-gradient(140deg, #0b9fbd, #8613a1); box-shadow: 0 24px 60px -20px rgba(134,19,161,.5); }
+.av9-gegen__karte p:first-child { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
+.av9-gegen__karte h3 { margin-top: .6rem !important; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.08; letter-spacing: -0.025em; }
+.av9-gegen__karte p + h3 + p { margin-top: .8rem; color: var(--s7-text); line-height: 1.5; }
+.av9-gegen__karte--neu p:first-child, .av9-gegen__karte--neu h3, .av9-gegen__karte--neu p + h3 + p { color: #fff !important; }
+.av9-gegen__karte--neu p + h3 + p { color: rgba(255,255,255,.88) !important; }
+.av9-claim { margin-top: 2.6rem; text-align: center; color: var(--s7-grau); font-size: 1.05rem; }
+.av9-claim b { display: block; margin-top: .3rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.03em; }
+/* Landingpage: iPad mini + Varianten */
+.av9-lp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+.av9-lp .s9-h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
+.av9-lp .s9-lead { margin: 1.2rem 0 0; }
+.av9-ipad { position: relative; width: min(100%, 26rem); margin-inline: auto; transform: rotate(-4deg); }
+.av9-ipad::before { content: ""; position: absolute; inset: -14% -22%; background: radial-gradient(closest-side, rgba(11,159,189,.42), rgba(134,19,161,.28) 55%, transparent 78%); filter: blur(24px); }
+.av9-ipad__geraet { position: relative; padding: 14px; border-radius: 28px; background: #1d1d1f; box-shadow: 0 30px 60px -16px rgba(29,29,31,.45), inset 0 0 0 3px #3a3a3c; }
+.av9-ipad__geraet::before { content: ""; position: absolute; left: 50%; top: 5px; width: 5px; height: 5px; border-radius: 50%; background: #3a3a3c; transform: translateX(-50%); }
+.av9-ipad__geraet img { display: block; width: 100%; aspect-ratio: 744 / 1133; object-fit: cover; object-position: top; border-radius: 14px; background: #fff; }
+.av9-styles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 2rem; }
+.av9-styles figure { margin: 0; }
+.av9-styles img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 0 1px var(--s7-linie), 0 10px 24px -12px rgba(0,0,0,.25); }
+.av9-styles figcaption { margin-top: .5rem; color: var(--s7-grau); font-size: .85rem; font-weight: 600; }
+/* Ablauf */
+.av9-schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 3.2rem 0 0; padding: 0; list-style: none; counter-reset: av9; }
+.av9-schritte li { counter-increment: av9; padding: clamp(1.6rem, 3vw, 2.2rem); border-radius: 24px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); }
+.av9-schritte li::before { content: counter(av9); display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-weight: 700; }
+.av9-schritte b { display: block; margin-top: 1.2rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.45rem; letter-spacing: -0.02em; }
+.av9-schritte p { margin-top: .5rem; color: var(--s7-text); line-height: 1.5; }
+/* Preis */
+.av9-preis { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 0; max-width: 64rem; margin: 3.2rem auto 0; border-radius: 28px; overflow: hidden; background: #0e0e10; color: #e9e9e9; text-align: left; }
+.av9-preis__links { padding: clamp(2rem, 4vw, 3.2rem); }
+.av9-preis__links p:first-child { color: #a1a1a6; font-weight: 600; }
+.av9-preis__links h3 { margin-top: .5rem !important; color: #fff !important; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -0.03em; }
+.av9-preis__links ul { display: grid; gap: .6rem; margin: 1.6rem 0 0; padding: 0; list-style: none; }
+.av9-preis__links li { display: flex; gap: .7rem; color: #e9e9e9; }
+.av9-preis__links li::before { content: ""; flex: none; width: .55rem; height: .55rem; margin-top: .55rem; border-radius: 50%; background: linear-gradient(135deg, #0b9fbd, #8613a1); }
+.av9-preis__rechts { display: flex; flex-direction: column; justify-content: center; gap: 1rem; padding: clamp(2rem, 4vw, 3.2rem); background: linear-gradient(140deg, #0b9fbd, #8613a1); color: #fff; }
+.av9-preis__rechts .av9-betrag { font-family: var(--s7-schrift-titel); font-size: clamp(3.6rem, 7vw, 5.4rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+.av9-preis__rechts .av9-statt { font-size: 1.1rem; }
+.av9-preis__rechts .av9-statt s { opacity: .75; }
+.av9-preis__rechts .av9-fein { color: rgba(255,255,255,.85); font-size: .92rem; line-height: 1.45; }
+.av9-preis__rechts .av9-uhr { align-self: flex-start; background: rgba(0,0,0,.22); }
+.av9-preis__rechts .s7-knopf { align-self: flex-start; background: #fff; border-color: #fff; color: #1d1d1f; }
+.av9-preis__rechts .s7-knopf .s7-pfeil { stroke: #1d1d1f; }
+.av9 .s9-knoepfe .s9-link, .av9-kopf .s9-link { white-space: nowrap; }
+@media (max-width: 900px) {
+  .av9-kasten, .av9-lp, .av9-preis { grid-template-columns: minmax(0, 1fr); }
+  .av9-feed { min-height: 26rem; height: 26rem; transform: rotate(-5deg) scale(1.08); margin-top: 1rem; }
+  .av9-kasten__text { position: relative; z-index: 1; background: #0e0e10; }
+  .av9-ipad { width: min(100%, 19rem); }
+  .av9-gegen, .av9-schritte { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .av9-band { animation: none; } }
+
 </style>
 </head>
 <body>
@@ -1838,7 +1929,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>
+{%- if s.v9 != "avrg" %}<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>{% endif %}
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -2748,6 +2839,144 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 
   {{ kontaktBand() }}
 </main>
+{%- elif s.v9 == "avrg" %}
+{#- AVRG · Black Week (Daniel, 20.11.2026): eigenständige Landingpage www.sofortsichtbar.de/zielgruppen/avrg, im Look der neuen Homepage,
+    ohne Trichter. AVRG ist das „21. Paket“: ein Thema statt einer Zielgruppe. Ausrichtung: die Agentur positioniert sich als Problemlöser
+    und bekommt alles, um mit dem Thema sofort sichtbar zu werden – inkl. Landingpage, auf die sie Interessenten und Bestandskunden leitet.
+    Angebot: 39 € statt 89 € im Monat (brutto), 3 Monate Mindestlaufzeit, danach monatlich zum Monatsende kündbar; Aktion bis 04.12.2026,
+    danach 89 €. Inhalte aus der Kampagnen-Landingpage (entwicklung/kampagnen/avrg/kampagne.njk) und dem AVRG-Repo der SV Owen.
+    Liegt noch im Storyboard (Story 9); vor dem Livegang als eigene Live-Datei herauslösen (src/entwicklung darf nie auf main). -#}
+{%- set AV = "/entwicklung/kampagnen/avrg/assets" %}
+<main class="s9 av9">
+  <section class="s9-held">
+    <div class="s7-wrap">
+      <p class="s9-kicker">Neue Altersvorsorge 2027 · für Agenturen und Maklerbüros</p>
+      <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
+      <p class="s9-lead">Ab 2027 brauchen deine Kunden jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der AVRG-Vertriebsstrecke bist du das: Postings, Landingpage und Mailings an deine Bestandskunden, fertig und in deinem Auftritt.</p>
+      <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
+      <div class="av9-aktion" data-av9-aktion>
+        <span class="av9-aktion__marke" data-av9-marke>Black Week</span>
+        <span class="av9-aktion__preis" data-av9-preis><b>39 €</b> statt <s>89 €</s> im Monat</span>
+        <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band" id="paket">
+    <div class="s7-wrap">
+      <div class="av9-kasten">
+        <div class="av9-kasten__text">
+          <h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2>
+          <p>Fertig getextet und gestaltet. Wir setzen dein Logo, deine Kontaktdaten und deine Farbe ein. Du gehst damit zu deinen Kunden.</p>
+          <ul class="av9-liste">
+            <li>30 Postings <span>für Instagram, Facebook und LinkedIn</span></li>
+            <li>Deine Landingpage <span>mit Terminwahl in 15 Minuten</span></li>
+            <li>3 Mailings <span>an deine Bestandskunden</span></li>
+            <li>Redaktionsplan <span>bis zum Start im Januar</span></li>
+          </ul>
+        </div>
+        <div class="av9-feed" aria-hidden="true">
+          {%- for r in [[1,4,7,10,13,16,19,22,25,28],[2,5,8,11,14,17,20,23,26,29],[3,6,9,12,15,18,21,24,27,30]] %}
+          <div class="av9-spalte"><div class="av9-band">
+            {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/wand/p{% if n < 10 %}0{% endif %}{{ n }}.webp" alt="" loading="lazy">{% endfor %}{% endfor -%}
+          </div></div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap">
+      <div class="av9-kopf">
+        <h2 class="s9-h2">Problemlöser <span class="s7-wort">statt Detailberater.</span></h2>
+        <p class="s9-lead">Die meisten Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen. Wer Zulagen erklärt, wird zum Detailberater, und der Kunde vertagt die Entscheidung. Wer in 15 Minuten Klarheit schafft, bekommt den Termin.</p>
+      </div>
+      <div class="av9-gegen">
+        <div class="av9-gegen__karte"><p>Detailberater</p><h3>Erklärt die Reform.</h3><p>Paragrafen, Zulagen, Tabellen. Der Kunde nickt und meldet sich nicht mehr.</p></div>
+        <div class="av9-gegen__karte av9-gegen__karte--neu"><p>Problemlöser</p><h3>Klärt, ob es den Kunden betrifft.</h3><p>Drei Fragen in 15 Minuten: Betrifft mich das? Wenn ja, wie? Habe ich einen Vorteil?</p></div>
+      </div>
+      <p class="av9-claim">Der Satz, mit dem du deine Kunden ansprichst<b>Mitnehmen oder abhaken.</b></p>
+    </div>
+  </section>
+
+  <section class="s9-band">
+    <div class="s7-wrap av9-lp">
+      <div>
+        <h2 class="s9-h2">Deine Bestandskunden landen hier <span class="s7-wort">und buchen einen Termin.</span></h2>
+        <p class="s9-lead">Eine Seite, ein Ziel: der Termin. Mit dem Klarheits-Ticket, häufigen Fragen und direkter Terminwahl per Telefon, Video oder im Büro. Drei Gestaltungen zur Wahl, in deiner Farbe.</p>
+        <div class="av9-styles">
+          <figure><img src="{{ AV }}/kampagne/vorschau-1-blau.webp" alt="Landingpage Variante 1" width="960" height="600" loading="lazy"><figcaption>Nah an der Vorlage</figcaption></figure>
+          <figure><img src="{{ AV }}/kampagne/vorschau-2-gruen.webp" alt="Landingpage Variante 2" width="960" height="600" loading="lazy"><figcaption>Was trifft auf dich zu?</figcaption></figure>
+          <figure><img src="{{ AV }}/kampagne/vorschau-3-gelb.webp" alt="Landingpage Variante 3" width="960" height="600" loading="lazy"><figcaption>Das Klarheits-Ticket</figcaption></figure>
+        </div>
+      </div>
+      <div class="av9-ipad" aria-hidden="true"><div class="av9-ipad__geraet"><img src="{{ AV }}/black-week/lp-ipad.webp" alt="" width="1488" height="2266" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
+      <ol class="av9-schritte">
+        <li><b>Buchen</b><p>Du wählst die Gestaltung und die Farbe deiner Landingpage.</p></li>
+        <li><b>Wir richten ein</b><p>Dein Logo, deine Kontaktdaten, dein Foto und deine Terminwahl kommen auf die Landingpage, in die Postings und in die Mailings.</p></li>
+        <li><b>Du gehst raus</b><p>Das erste Mailing geht an deine Bestandskunden, die Postings laufen nach Plan, die Terminanfragen kommen bei dir an.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="s9-band" id="preis">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><h2 class="s9-h2">Die AVRG-Vertriebsstrecke.</h2></div>
+      <div class="av9-preis">
+        <div class="av9-preis__links">
+          <p>Sonderthema neue Altersvorsorge 2027</p>
+          <h3>Alles drin, fertig eingerichtet.</h3>
+          <ul>
+            <li>30 Postings mit Bild und Text, als Redaktionsplan</li>
+            <li>Landingpage in deinem Auftritt, mit Terminwahl</li>
+            <li>3 Mailings an deine Bestandskunden</li>
+            <li>Einrichtung mit Logo, Kontaktdaten, Foto und Farbe</li>
+          </ul>
+        </div>
+        <div class="av9-preis__rechts">
+          <span class="av9-uhr" data-av9-uhr><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min</span>
+          <div><span class="av9-betrag" data-av9-betrag>39 €</span></div>
+          <p class="av9-statt" data-av9-statt>statt <s>89 €</s> im Monat · Black Week</p>
+          <p class="av9-fein">Preis inklusive Mehrwertsteuer. Mindestlaufzeit drei Monate, danach monatlich zum Monatsende kündbar. Der Aktionspreis gilt bei Buchung bis einschließlich 04.12.2026.</p>
+          <a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ kontaktBand({ h2: "Sprechen wir über die neue", h2_akzent: "Altersvorsorge.", t: "Im Termin klären wir, welche Gestaltung zu dir passt und wann dein erstes Mailing rausgeht." }) }}
+</main>
+<script>
+/* Black-Week-Countdown bis 04.12.2026, 23:59:59 (deutsche Zeit); danach Normalpreis 89 € ohne Aktion */
+(function () {
+  var ende = new Date('2026-12-04T23:59:59+01:00').getTime();
+  function zwei(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var rest = ende - Date.now();
+    if (rest <= 0) {
+      document.querySelectorAll('[data-av9-uhr]').forEach(function (u) { u.hidden = true; });
+      var m = document.querySelector('[data-av9-marke]'); if (m) m.textContent = 'AVRG-Vertriebsstrecke';
+      var p = document.querySelector('[data-av9-preis]'); if (p) p.innerHTML = '<b>89 €</b> im Monat';
+      var b = document.querySelector('[data-av9-betrag]'); if (b) b.textContent = '89 €';
+      var st = document.querySelector('[data-av9-statt]'); if (st) st.textContent = 'im Monat';
+      return;
+    }
+    var t = Math.floor(rest / 864e5), s = Math.floor(rest % 864e5 / 36e5), mi = Math.floor(rest % 36e5 / 6e4);
+    document.querySelectorAll('[data-av9-uhr]').forEach(function (u) {
+      u.querySelector('[data-t]').textContent = t; u.querySelector('[data-s]').textContent = zwei(s); u.querySelector('[data-m]').textContent = zwei(mi);
+    });
+    setTimeout(tick, 15000);
+  }
+  tick();
+})();
+</script>
 {%- elif s.v9 %}
 {#- Homepage-Story 9 (Daniel, 17.11.2026): dieselben Inhalte wie Story 8, aber reduziert und visualisiert – Landingpage-Charakter.
     Je Abschnitt eine Aussage in wenigen Worten, das Bild führt; ein interaktiver Moment (Schalter Selbst machen / Machen lassen).
