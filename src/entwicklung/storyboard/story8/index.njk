@@ -1867,9 +1867,19 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-kachel h3 { margin-top: .5rem !important; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.08; letter-spacing: -0.025em; }
 .av9-kachel__text p:last-child { margin-top: .7rem; max-width: 30rem; color: var(--s7-text); line-height: 1.5; }
 .av9-marke { color: var(--s7-grau); font-size: .95rem; font-weight: 600; }
-.av9-kachel--lp { grid-row: span 2; justify-content: space-between; background: radial-gradient(60% 50% at 50% 100%, rgba(134,19,161,.16), transparent 70%), radial-gradient(50% 45% at 30% 95%, rgba(11,159,189,.16), transparent 70%), var(--s7-flaeche); }
-.av9-kachel--lp .av9-ipad { width: min(78%, 24rem); margin: 0 auto -16%; transform: rotate(-4deg); }
-.av9-kachel--posts { min-height: 23rem; background: #0e0e10; }
+.av9-drei { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.av9-kachel--lp { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); align-items: center; gap: 1rem; min-height: 30rem;
+  background: radial-gradient(55% 70% at 75% 60%, rgba(134,19,161,.28), transparent 70%), radial-gradient(45% 60% at 55% 70%, rgba(11,159,189,.26), transparent 70%), var(--s7-flaeche); }
+.av9-kachel--lp .av9-kachel__text { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9-geraete { position: relative; padding: clamp(1.6rem, 3vw, 2.6rem) clamp(2.4rem, 5vw, 4.4rem) clamp(1.6rem, 3vw, 2.6rem) 0; }
+.av9-mac__bild { padding: 2.2% 2.2% 2.6%; border-radius: 16px 16px 4px 4px; background: #1d1d1f; box-shadow: inset 0 0 0 2px #3a3a3c, 0 30px 60px -24px rgba(29,29,31,.5); }
+.av9-mac__bild img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 4px; background: #fff; }
+.av9-mac__fuss { position: relative; height: 14px; margin: 0 -6%; border-radius: 0 0 14px 14px; background: linear-gradient(180deg, #d9d9de, #a9a9b0); box-shadow: 0 12px 24px -10px rgba(0,0,0,.35); }
+.av9-mac__fuss::before { content: ""; position: absolute; left: 50%; top: 0; width: 14%; height: 5px; border-radius: 0 0 6px 6px; background: #9a9aa2; transform: translateX(-50%); }
+.av9-phone { position: absolute; right: clamp(.6rem, 2vw, 1.6rem); bottom: clamp(.4rem, 1.4vw, 1rem); width: 22%; padding: 2.2%; border-radius: 22% / 10.5%; background: #1d1d1f; box-shadow: inset 0 0 0 2px #3a3a3c, 0 24px 48px -16px rgba(29,29,31,.55); }
+.av9-phone::before { content: ""; position: absolute; left: 50%; top: 3.6%; width: 30%; height: 3.4%; border-radius: 99px; background: #000; transform: translateX(-50%); z-index: 1; }
+.av9-phone img { display: block; width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 18% / 8.4%; background: #fff; }
+.av9-kachel--posts { min-height: 26rem; background: #0e0e10; }
 .av9-kachel--posts h3 { color: #fff !important; }
 .av9-kachel--posts .av9-kachel__text p:last-child { color: #a1a1a6; }
 .av9-kachel--posts .av9-marke { color: #a1a1a6; }
@@ -1877,12 +1887,13 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-kachel--posts .av9-band { gap: 10px; }
 .av9-kachel--posts .av9-band img { border-radius: 9px; }
 .av9-kachel--posts .av9-kachel__text { max-width: 54%; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
-.av9-kachel--mail { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
-.av9-mail { margin: 0 clamp(1.6rem, 3vw, 2.4rem); padding: 1.1rem 1.2rem 1.2rem; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px -18px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.04); }
+.av9-kachel--mail { justify-content: space-between; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); background: linear-gradient(140deg, #0b9fbd, #8613a1); }
+.av9-kachel--mail h3, .av9-kachel--mail .av9-marke { color: #fff !important; }
+.av9-kachel--mail .av9-kachel__text p:last-child { color: rgba(255,255,255,.88); }
+.av9-mail { margin: 0 clamp(1.6rem, 3vw, 2.4rem); transform: rotate(-2deg); padding: 1.1rem 1.2rem 1.2rem; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px -18px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.04); }
 .av9-mail p { margin: 0; }
-.av9-mail__kopf { display: flex; align-items: center; gap: .7rem; padding-bottom: .8rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .85rem; }
-.av9-mail__kopf i { flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: #1d1d1f; }
-.av9-mail__kopf b { display: block; color: var(--s7-tinte); font-size: .95rem; }
+.av9-mail__kopf { display: grid; gap: .15rem; padding-bottom: .8rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .85rem; }
+.av9-mail__kopf b { color: var(--s7-tinte); font-weight: 600; }
 .av9-mail__betreff { margin-top: .8rem !important; color: var(--s7-tinte); font-weight: 700; }
 .av9-mail__text { margin-top: .35rem !important; color: var(--s7-text); font-size: .95rem; line-height: 1.5; }
 .av9-mail__knopf { display: inline-block; margin-top: .9rem; padding: .55rem 1rem; border-radius: 99px; background: #1d1d1f; color: #fff; font-size: .88rem; font-weight: 600; }
@@ -1892,6 +1903,41 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-auftritt__bilder svg { width: 1.4rem; height: 1.4rem; fill: none; stroke: var(--s7-grau); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .av9-auftritt p { color: var(--s7-text); line-height: 1.55; }
 .av9-auftritt b { color: var(--s7-tinte); }
+/* Problemlöser statt Detailberater: Begriffswust → Ticket */
+.av9-pl { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: clamp(1rem, 3vw, 2.6rem); max-width: 60rem; margin: 3.2rem auto 0; }
+.av9-pl__wust { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding: 1.4rem; -webkit-mask: radial-gradient(75% 75% at 50% 50%, #000 40%, transparent 100%); mask: radial-gradient(75% 75% at 50% 50%, #000 40%, transparent 100%); }
+.av9-pl__wust span { padding: .45rem .8rem; border-radius: 99px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-grau); font-size: .92rem; text-decoration: line-through; text-decoration-color: rgba(122,122,122,.5); }
+.av9-pl__wust span:nth-child(3n) { transform: rotate(-4deg); } .av9-pl__wust span:nth-child(4n) { transform: rotate(3deg); }
+.av9-pl__pfeil { width: 2.2rem; height: 2.2rem; fill: none; stroke: var(--s7-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.av9-ticket { position: relative; padding: clamp(1.6rem, 3vw, 2.2rem); border-radius: 22px; background: linear-gradient(130deg, #0b9fbd, #8613a1); color: #fff; transform: rotate(-3deg); box-shadow: 0 30px 60px -20px rgba(134,19,161,.55); }
+.av9-ticket::after { content: ""; position: absolute; right: 22%; top: 0; bottom: 0; border-right: 2px dashed rgba(255,255,255,.45); }
+.av9-ticket__marke { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+.av9-ticket__zeit { margin-top: .4rem; font-family: var(--s7-schrift-titel); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.av9-ticket ul { display: grid; gap: .45rem; margin: 1rem 0 0; padding: 0; list-style: none; max-width: 76%; }
+.av9-ticket li { display: flex; align-items: center; gap: .6rem; font-weight: 600; }
+.av9-ticket li::before { content: "✓"; display: grid; place-items: center; flex: none; width: 1.3rem; height: 1.3rem; border-radius: 6px; background: #fff; color: #8613a1; font-size: .8rem; font-weight: 700; }
+.av9-ticket__fuss { margin-top: 1.2rem; padding-top: .9rem; border-top: 1px solid rgba(255,255,255,.35); font-family: var(--s7-schrift-titel); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; max-width: 76%; }
+/* Drei Schritte mit Bildern */
+.av9 .av9-schritte li { display: flex; flex-direction: column; padding: 0 0 clamp(1.6rem, 3vw, 2.2rem); overflow: hidden; background: var(--s7-flaeche); box-shadow: none; }
+.av9 .av9-schritte li::before { display: none; }
+.av9 .av9-schritte li > b::before { content: counter(av9); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: .6rem; border-radius: 50%; background: var(--s7-tinte); color: #fff; font-family: var(--s7-schrift-text); font-size: .85rem; vertical-align: .15em; }
+.av9 .av9-schritte li > p { padding-left: calc(clamp(1.6rem, 3vw, 2.2rem) + 2.3rem); }
+.av9 .av9-schritte li { position: relative; }
+.av9-schritt__bild { display: grid; place-items: center; height: 11rem; margin-bottom: 1.2rem; background: radial-gradient(70% 80% at 50% 100%, rgba(134,19,161,.14), transparent 70%), radial-gradient(60% 70% at 30% 100%, rgba(11,159,189,.14), transparent 70%); }
+.av9 .av9-schritte li > b, .av9 .av9-schritte li > p { padding-inline: clamp(1.6rem, 3vw, 2.2rem); }
+.av9 .av9-schritte li > b { margin-top: 0 !important; }
+.av9-mini { padding: .9rem 1rem; border-radius: 16px; background: #fff; box-shadow: 0 16px 40px -16px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.04); }
+.av9-mini--kal p { color: var(--s7-tinte); font-size: .8rem; font-weight: 700; }
+.av9-mini--kal div { display: grid; grid-template-columns: repeat(7, 1.6rem); gap: .25rem; margin-top: .5rem; }
+.av9-mini--kal i { display: grid; place-items: center; height: 1.6rem; border-radius: 6px; color: var(--s7-text); font-size: .75rem; font-style: normal; }
+.av9-mini--kal i.an { background: linear-gradient(135deg, #0b9fbd, #8613a1); color: #fff; font-weight: 700; }
+.av9-mini--marke { display: grid; justify-items: center; gap: .7rem; }
+.av9-mini--marke img { width: 9rem; height: auto; }
+.av9-mini--marke p { display: flex; gap: .45rem; }
+.av9-mini--marke i { width: 1.4rem; height: 1.4rem; border-radius: 50%; }
+.av9-mini--marke i.an { background: linear-gradient(135deg, #0b9fbd, #8613a1); box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8613a1; }
+.av9 .av9-mini--note { position: static; max-width: calc(100% - 2.4rem); }
+.av9 .av9-mini--note b { font-size: .95rem; }
 /* Problemlöser statt Detailberater */
 .av9-kopf { max-width: 52rem; margin-inline: auto; text-align: center; }
 .av9-kopf .s9-lead { margin-inline: auto; }
@@ -1943,7 +1989,10 @@ body.s7-menue-offen { overflow: hidden; }
 .av9 .s9-knoepfe .s9-link, .av9-kopf .s9-link { white-space: nowrap; }
 @media (max-width: 900px) {
   .av9-kasten, .av9-lp, .av9-preis, .av9-drei { grid-template-columns: minmax(0, 1fr); }
-  .av9-kachel--lp { grid-row: auto; }
+  .av9-kachel--lp { grid-row: auto; grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .av9-geraete { padding: 0 1.4rem 1.6rem; }
+  .av9-pl { grid-template-columns: minmax(0, 1fr); }
+  .av9-pl__pfeil { margin-inline: auto; transform: rotate(90deg); }
   .av9-kachel--posts { min-height: 30rem; }
   .av9-kachel--posts .av9-kachel__text { max-width: none; }
   .av9-kachel--posts .av9-feed { inset: 44% -10% -20% -10%; }
@@ -2908,15 +2957,18 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
           <div class="av9-kachel__text">
             <p class="av9-marke">Landingpage</p>
             <h3>Deine Bestandskunden landen hier und buchen einen Termin.</h3>
-            <p>Eine Seite, ein Ziel: der Termin. Mit dem Klarheits-Ticket, häufigen Fragen und Terminwahl per Telefon, Video oder im Büro.</p>
+            <p>Eine Seite, ein Ziel: der Termin. Am Rechner wie am Handy.</p>
           </div>
-          <div class="av9-ipad" aria-hidden="true"><div class="av9-ipad__geraet"><img src="{{ AV }}/black-week/lp-ipad-sofort.webp" alt="" width="1488" height="2266" loading="lazy"></div></div>
+          <div class="av9-geraete" aria-hidden="true">
+            <div class="av9-mac"><div class="av9-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800" loading="lazy"></div><div class="av9-mac__fuss"></div></div>
+            <div class="av9-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div>
+          </div>
         </article>
         <article class="av9-kachel av9-kachel--posts">
           <div class="av9-kachel__text">
             <p class="av9-marke">30 Postings</p>
             <h3>Fertig für Instagram, Facebook und LinkedIn.</h3>
-            <p>Mit Bild und Text, als Redaktionsplan bis zum Start im Januar.</p>
+            <p>Mit Bild und Text, als Redaktionsplan.</p>
           </div>
           <div class="av9-feed" aria-hidden="true">
             {%- for r in [[1,4,7,10,13,16,19,22,25,28],[2,5,8,11,14,17,20,23,26,29],[3,6,9,12,15,18,21,24,27,30]] %}
@@ -2930,13 +2982,13 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
           <div class="av9-kachel__text">
             <p class="av9-marke">3 Mailings</p>
             <h3>An deine Bestandskunden.</h3>
-            <p>An alle, an Kunden mit Riester-Vertrag und eine Erinnerung im Januar. Jede Mail führt auf deine Landingpage.</p>
+            <p>Jede Mail führt auf deine Landingpage.</p>
           </div>
           <div class="av9-mail" aria-hidden="true">
-            <p class="av9-mail__kopf"><i></i><span><b>Deine Agentur</b>an Frau Beispiel</span></p>
+            <p class="av9-mail__kopf"><span>Von <b>Deine Agentur</b></span><span>An <b>Frau Müller</b></span></p>
             <p class="av9-mail__betreff">Neue Altersvorsorge 2027: Betrifft Sie das?</p>
-            <p class="av9-mail__text">Liebe Frau Beispiel, ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
-            <span class="av9-mail__knopf">Termin in 15 Minuten wählen</span>
+            <p class="av9-mail__text">Liebe Frau Müller, ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
+            <span class="av9-mail__knopf">Termin wählen</span>
           </div>
         </article>
       </div>
@@ -2955,13 +3007,20 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf">
         <h2 class="s9-h2">Problemlöser <span class="s7-wort">statt Detailberater.</span></h2>
-        <p class="s9-lead">Die meisten Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen. Wer Zulagen erklärt, wird zum Detailberater, und der Kunde vertagt die Entscheidung. Wer in 15 Minuten Klarheit schafft, bekommt den Termin.</p>
+        <p class="s9-lead">Deine Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen.</p>
       </div>
-      <div class="av9-gegen">
-        <div class="av9-gegen__karte"><p>Detailberater</p><h3>Erklärt die Reform.</h3><p>Paragrafen, Zulagen, Tabellen. Der Kunde nickt und meldet sich nicht mehr.</p></div>
-        <div class="av9-gegen__karte av9-gegen__karte--neu"><p>Problemlöser</p><h3>Klärt, ob es den Kunden betrifft.</h3><p>Drei Fragen in 15 Minuten: Betrifft mich das? Wenn ja, wie? Habe ich einen Vorteil?</p></div>
+      <div class="av9-pl" aria-label="Statt Paragrafen und Zulagen: ein Klarheits-Ticket mit drei Fragen in 30 Minuten">
+        <div class="av9-pl__wust" aria-hidden="true">
+          {%- for w in ["Grundzulage", "Kinderzulage", "Sonderausgabenabzug", "Mindesteigenbeitrag", "Altersvorsorgedepot", "Garantiequote", "Zulagenantrag", "Günstigerprüfung", "Förderquote", "Wechseloption", "Auszahlplan", "Riester-Bestand"] %}<span>{{ w }}</span>{% endfor -%}
+        </div>
+        <svg class="av9-pl__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="av9-ticket">
+          <p class="av9-ticket__marke">Klarheits-Ticket · Altersvorsorge 2027</p>
+          <p class="av9-ticket__zeit">30 Minuten</p>
+          <ul><li>Betrifft mich das?</li><li>Wenn ja: wie?</li><li>Habe ich einen Vorteil?</li></ul>
+          <p class="av9-ticket__fuss">Mitnehmen oder abhaken.</p>
+        </div>
       </div>
-      <p class="av9-claim">Der Satz, mit dem du deine Kunden ansprichst<b>Mitnehmen oder abhaken.</b></p>
     </div>
   </section>
 
@@ -2969,9 +3028,18 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
       <ol class="av9-schritte">
-        <li><b>Buchen</b><p>Du wählst die Gestaltung und die Farbe deiner Landingpage.</p></li>
-        <li><b>Wir richten ein</b><p>Dein Logo, deine Kontaktdaten, dein Foto und deine Terminwahl kommen auf die Landingpage, in die Postings und in die Mailings.</p></li>
-        <li><b>Du gehst raus</b><p>Das erste Mailing geht an deine Bestandskunden, die Postings laufen nach Plan, die Terminanfragen kommen bei dir an.</p></li>
+        <li>
+          <div class="av9-schritt__bild" aria-hidden="true"><div class="av9-mini av9-mini--kal"><p>Dezember</p><div>{% for t in range(1, 15) %}<i{% if t == 9 %} class="an"{% endif %}>{{ t }}</i>{% endfor %}</div></div></div>
+          <b>Du buchst.</b><p>Gestaltung wählen, fertig.</p>
+        </li>
+        <li>
+          <div class="av9-schritt__bild" aria-hidden="true"><div class="av9-mini av9-mini--marke"><img src="{{ AV }}/black-week/dein-logo.svg" alt=""><p><i style="background:#1d1d1f"></i><i style="background:#c51f5d"></i><i style="background:#028b34"></i><i class="an"></i></p></div></div>
+          <b>Wir richten ein.</b><p>Logo, Farbe, Kontakt und Terminwahl.</p>
+        </li>
+        <li>
+          <div class="av9-schritt__bild" aria-hidden="true"><div class="s9-note av9-mini--note"><span class="s9-app"></span><div><b>Neue Terminanfrage</b><small>Frau Müller · Donnerstag, 10:00</small></div></div></div>
+          <b>Du gehst raus.</b><p>Die Anfragen kommen bei dir an.</p>
+        </li>
       </ol>
     </div>
   </section>
