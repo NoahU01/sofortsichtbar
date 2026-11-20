@@ -51,8 +51,12 @@
         },
         {
           "label": "AVRG",
-          "href": "/entwicklung/kampagnen/avrg/black-week/",
+          "href": "/zielgruppen/avrg/",
           "children": [
+            {
+              "label": "Black Week · Landingpage /zielgruppen/avrg (neu)",
+              "href": "/zielgruppen/avrg/"
+            },
             {
               "label": "Black Week · Postings-Muster (neu)",
               "href": "/entwicklung/kampagnen/avrg/black-week/"
