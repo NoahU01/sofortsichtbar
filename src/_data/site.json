@@ -51,7 +51,17 @@
         },
         {
           "label": "AVRG",
-          "href": "/entwicklung/kampagnen/avrg"
+          "href": "/entwicklung/kampagnen/avrg/black-week/",
+          "children": [
+            {
+              "label": "Black Week · Postings-Muster (neu)",
+              "href": "/entwicklung/kampagnen/avrg/black-week/"
+            },
+            {
+              "label": "Übersicht bisher (Stand Oktober)",
+              "href": "/entwicklung/kampagnen/avrg"
+            }
+          ]
         },
         {
           "typ": "gruppe",
