@@ -1901,7 +1901,7 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-mail__kopf dt { color: var(--s7-grau); }
 .av9-mail__kopf dd { margin: 0; color: var(--s7-tinte); }
 .av9-mail__inhalt { display: grid; gap: .6rem; padding: 1rem 1rem 1.1rem; color: var(--s7-text); font-size: .9rem; line-height: 1.5; }
-.av9-mail__knopf { justify-self: start; padding: .5rem 1rem; border-radius: 8px; background: #7a1a95; color: #fff; font-size: .85rem; font-weight: 600; }
+.av9-mail__knopf { justify-self: start; padding: .5rem 1rem; border-radius: 8px; background: #11708a; color: #fff; font-size: .85rem; font-weight: 600; }
 .av9-mail__gruss { color: var(--s7-grau); font-size: .85rem; }
 .av9-auftritt { display: flex; align-items: center; gap: clamp(1.2rem, 3vw, 2.4rem); max-width: 52rem; margin: 2.4rem auto 0; }
 .av9-auftritt__bilder { flex: none; display: flex; align-items: center; gap: .6rem; }
@@ -1977,8 +1977,8 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-wahl { display: flex; gap: .6rem; padding-inline: 1rem; }
 .av9-wahl span { position: relative; width: 6.4rem; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 10px 24px -12px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.06); }
 .av9-wahl img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
-.av9-wahl span.an { box-shadow: 0 0 0 2px #7a1a95, 0 14px 30px -12px rgba(122,26,149,.5); transform: translateY(-4px); }
-.av9-wahl span.an::after { content: "✓"; position: absolute; right: .3rem; top: .3rem; display: grid; place-items: center; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #7a1a95; color: #fff; font-size: .7rem; font-weight: 700; }
+.av9-wahl span.an { box-shadow: 0 0 0 2px #11708a, 0 14px 30px -12px rgba(17,112,138,.45); transform: translateY(-4px); }
+.av9-wahl span.an::after { content: "✓"; position: absolute; right: .3rem; top: .3rem; display: grid; place-items: center; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #11708a; color: #fff; font-size: .7rem; font-weight: 700; }
 .av9-mini--kal p { color: var(--s7-tinte); font-size: .8rem; font-weight: 700; }
 .av9-mini--kal div { display: grid; grid-template-columns: repeat(7, 1.6rem); gap: .25rem; margin-top: .5rem; }
 .av9-mini--kal i { display: grid; place-items: center; height: 1.6rem; border-radius: 6px; color: var(--s7-text); font-size: .75rem; font-style: normal; }
@@ -1987,7 +1987,7 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-mini--marke img { width: 9rem; height: auto; }
 .av9-mini--marke p { display: flex; gap: .45rem; }
 .av9-mini--marke i { width: 1.4rem; height: 1.4rem; border-radius: 50%; }
-.av9-mini--marke i.an { background: #7a1a95; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #7a1a95; }
+.av9-mini--marke i.an { background: #11708a; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #11708a; }
 .av9 .av9-mini--note { position: static; max-width: calc(100% - 2.4rem); }
 .av9 .av9-mini--note b { font-size: .95rem; }
 /* Problemlöser statt Detailberater */
@@ -2092,6 +2092,128 @@ body.s7-menue-offen { overflow: hidden; }
   .av9 .av9-mini--note .s9-app { display: block; }
 }
 @media (prefers-reduced-motion: reduce) { .av9-band { animation: none; } }
+
+/* ---------- Runde 5 (Daniel, 21.11.2026): Köpfe neu, Angebot aufgeräumt, Petrol statt Lila ---------- */
+.av9 { --av9-petrol: #11708a; }
+/* MacBook und iPhone in echten Proportionen */
+.av9n-mac { position: relative; width: 100%; }
+.av9n-mac__bild { padding: 1.5% 1.5% 1.9%; border-radius: 14px 14px 4px 4px; background: #1d1d1f; box-shadow: inset 0 0 0 1px #4a4a4e, 0 24px 48px -24px rgba(29,29,31,.45); }
+.av9n-mac__bild img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 3px; background: #fff; }
+.av9n-mac__fuss { position: relative; height: 0; padding-top: 2.6%; margin: 0 -7%; border-radius: 0 0 50% 50% / 0 0 100% 100%; background: linear-gradient(180deg, #e4e4e8, #a9a9b0); box-shadow: 0 10px 20px -10px rgba(0,0,0,.3); }
+.av9n-mac__fuss::before { content: ""; position: absolute; left: 50%; top: 0; width: 13%; height: 40%; border-radius: 0 0 8px 8px; background: #b9b9c0; transform: translateX(-50%); }
+.av9n-phone { position: absolute; right: -5%; bottom: -3%; width: 19%; padding: .8%; border-radius: 17% / 8%; background: #1d1d1f; box-shadow: inset 0 0 0 1px #4a4a4e, 0 20px 40px -14px rgba(29,29,31,.5); }
+.av9n-phone::before { content: ""; position: absolute; left: 50%; top: 2.4%; width: 28%; height: 2.5%; border-radius: 99px; background: #000; transform: translateX(-50%); z-index: 1; }
+.av9n-phone img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 15.5% / 7.2%; background: #fff; }
+/* Countdown für sich, Preis als Störer */
+.av9n-uhr { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .15rem .4rem; margin: 2rem 0 0; padding: .55rem 1.1rem; border-radius: 99px; background: var(--s7-flaeche); color: var(--s7-text); font-size: .95rem; font-variant-numeric: tabular-nums; }
+.av9n-uhr span { margin-right: .3rem; color: var(--s7-grau); font-weight: 600; }
+.av9n-uhr b { color: var(--s7-tinte); font-weight: 700; }
+.av9n-stoerer { position: absolute; display: grid; place-content: center; justify-items: center; width: 9.5rem; height: 9.5rem; border-radius: 50%; background: #0e0e10; color: #fff; text-align: center; transform: rotate(9deg); box-shadow: 0 20px 40px -16px rgba(0,0,0,.45); }
+.av9n-stoerer small { color: #a1a1a6; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.av9n-stoerer b { margin-top: .2rem; font-family: var(--s7-schrift-titel); font-size: 2.6rem; line-height: 1; letter-spacing: -0.03em; }
+.av9n-stoerer span { margin-top: .3rem; color: #d2d2d7; font-size: .82rem; line-height: 1.25; }
+.av9n-stoerer s { color: #8e8e93; }
+.av9n-k1 { position: relative; }
+.av9n-k1 .av9n-stoerer { right: 4%; bottom: 0; }
+/* Kopf 2: geordnete Szene */
+.av9n-k2 { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(2.4rem, 5vw, 4.5rem); }
+.av9n-k2 .av9n-uhr { margin-top: 1.6rem; }
+.av9n-szene { position: relative; padding: 3% 7% 9% 9%; }
+.av9n-szene .av9n-mac { z-index: 1; }
+.av9n-szene .av9n-phone { z-index: 3; }
+.av9n-szene__posts { position: absolute; left: 1%; bottom: 1%; z-index: 2; display: flex; width: 27%; }
+.av9n-szene__posts img { width: 60%; border-radius: 8px; box-shadow: 0 16px 32px -12px rgba(0,0,0,.4); }
+.av9n-szene__posts img:first-child { transform: rotate(-6deg); }
+.av9n-szene__posts img + img { margin-left: -16%; transform: translateY(-6%) rotate(4deg); }
+.av9n-szene .av9n-stoerer { right: -1%; top: -6%; z-index: 4; width: 8rem; height: 8rem; }
+.av9n-szene .av9n-stoerer b { font-size: 2.1rem; }
+/* Kopf 3: drei gleich große Kacheln */
+.av9n-k3 { position: relative; }
+.av9n-box { position: relative; }
+.av9n-box > .av9n-stoerer { right: -3.4rem; top: -4.6rem; z-index: 2; width: 8.4rem; height: 8.4rem; }
+.av9n-box > .av9n-stoerer b { font-size: 2.2rem; }
+.av9n-box { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; max-width: 64rem; margin: clamp(2.6rem, 5vw, 3.6rem) auto 0; text-align: center; }
+.av9n-box figure { display: flex; flex-direction: column; margin: 0; padding: 1.4rem 1.4rem 1.6rem; border-radius: 24px; background: var(--s7-flaeche); }
+.av9n-box__bild { display: flex; align-items: center; justify-content: center; height: 12.5rem; }
+.av9n-box .av9n-mac { width: 86%; }
+.av9n-box .av9-stapel { position: relative; width: 100%; height: 100%; }
+.av9n-box .av9-stapel img { top: 50%; bottom: auto; width: 6.6rem; }
+.av9n-box .av9-stapel img:nth-child(1) { transform: translate(-95%, -50%) rotate(-9deg); }
+.av9n-box .av9-stapel img:nth-child(2) { transform: translate(-5%, -50%) rotate(8deg); }
+.av9n-box .av9-stapel img:nth-child(3) { transform: translate(-50%, -54%); }
+.av9n-box figcaption { margin-top: 1.2rem; color: var(--s7-grau); font-size: .92rem; line-height: 1.4; }
+.av9n-box figcaption b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.25rem; letter-spacing: -0.02em; }
+.av9n-k3 .s9-knoepfe { margin-top: 2.6rem; }
+/* E-Mail-Fenster mit Posteingang */
+.av9n-fenster { overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 24px 50px -22px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.06); text-align: left; }
+.av9n-fenster--klein { width: 100%; }
+.av9n-inbox { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--s7-linie); }
+.av9n-inbox li { display: flex; align-items: flex-start; gap: .6rem; padding: .6rem .9rem; border-top: 1px solid var(--s7-linie); }
+.av9n-inbox li:first-child { border-top: 0; }
+.av9n-inbox li.an { background: #eef6f8; }
+.av9n-inbox i { flex: none; width: .5rem; height: .5rem; margin-top: .4rem; border-radius: 50%; background: var(--av9-petrol); }
+.av9n-inbox div { min-width: 0; flex: 1; }
+.av9n-inbox b { display: block; overflow: hidden; color: var(--s7-tinte); font-size: .85rem; white-space: nowrap; text-overflow: ellipsis; }
+.av9n-inbox span { display: block; overflow: hidden; color: var(--s7-grau); font-size: .78rem; white-space: nowrap; text-overflow: ellipsis; }
+.av9n-inbox em { flex: none; color: var(--s7-grau); font-size: .75rem; font-style: normal; }
+.av9n-fenster--klein .av9n-inbox li { padding: .5rem .7rem; }
+.av9n-fenster--klein .av9n-inbox b { font-size: .76rem; }
+.av9n-fenster--klein .av9n-inbox span { font-size: .7rem; }
+.av9n-lesen .av9-mail__inhalt ul { margin: 0; padding-left: 1.1rem; }
+.av9n-lesen .av9-mail__inhalt li { margin: .15rem 0; }
+/* Angebot: Landingpage-Kachel mit Luft, Geräte mittig */
+.av9n-drei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 3.2rem; }
+.av9n-kachel--lp { grid-column: 1 / -1; background: var(--s7-flaeche); }
+.av9n-kachel--lp .av9-kachel__text { max-width: 40rem; }
+.av9n-geraete { width: 100%; max-width: 40rem; margin: 0 auto; padding: .4rem 3.4rem 3.6rem; }
+.av9n-kachel--mail { justify-content: flex-start; padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9n-kachel--mail .av9n-fenster { margin: 0 clamp(1.6rem, 3vw, 2.4rem); }
+@media (min-width: 641px) { .av9 .av9-kachel--posts { min-height: 0; } }
+@media (max-width: 640px) { .av9 .av9-kachel--posts { min-height: 31rem; } .av9 .av9-kachel--posts .av9-feed { inset: 52% -12% -26% -12%; } }
+/* Ticket bei „Problemlöser“: hell mit Petrol-Akzent */
+.av9 .av9-ticket { background: #fff; color: var(--s7-tinte); box-shadow: 0 0 0 1px var(--s7-linie), 0 30px 60px -26px rgba(0,0,0,.22); }
+.av9 .av9-ticket::after { border-right-color: var(--s7-linie); }
+.av9 .av9-ticket__marke { color: var(--s7-grau); opacity: 1; }
+.av9 .av9-ticket li::before { background: var(--av9-petrol); color: #fff; }
+.av9 .av9-ticket__fuss { border-top-color: var(--s7-linie); color: var(--av9-petrol); }
+@media (max-width: 1100px) {
+  .av9n-k2 { grid-template-columns: minmax(0, 1fr); }
+  .av9n-k2__text { max-width: 40rem; }
+  .av9n-szene { max-width: 40rem; width: 100%; margin: 0 auto; }
+  .av9n-k1 .av9n-stoerer { width: 8rem; height: 8rem; }
+  .av9n-box > .av9n-stoerer { right: -.8rem; top: -3.8rem; width: 7.4rem; height: 7.4rem; }
+  .av9n-box > .av9n-stoerer b { font-size: 1.9rem; }
+  .av9n-k1 .av9n-stoerer b { font-size: 2.1rem; }
+}
+@media (max-width: 900px) {
+  .av9n-k1 .av9n-stoerer { position: relative; right: auto; bottom: auto; margin: 2rem auto 0; width: 7.6rem; height: 7.6rem; }
+  .av9n-k1 .av9n-stoerer b { font-size: 2rem; }
+  .av9n-box > .av9n-stoerer { right: -.8rem; top: -2.8rem; width: 6.6rem; height: 6.6rem; }
+  .av9n-box > .av9n-stoerer b { font-size: 1.7rem; }
+  .av9n-box > .av9n-stoerer span { font-size: .68rem; }
+  .av9n-box { gap: .7rem; }
+  .av9n-box figure { padding: 1rem .9rem 1.2rem; }
+  .av9n-box__bild { height: 9rem; }
+  .av9n-box .av9-stapel img { width: 4.6rem; }
+  .av9n-box figcaption b { font-size: 1.05rem; }
+  .av9n-box figcaption { font-size: .82rem; }
+  .av9n-fenster--klein .av9n-inbox span, .av9n-fenster--klein .av9n-inbox em { display: none; }
+  .av9n-geraete { padding: .4rem 2.4rem 2.6rem; }
+}
+@media (max-width: 640px) {
+  .av9n-drei, .av9n-box { grid-template-columns: minmax(0, 1fr); }
+  .av9n-box__bild { height: 11rem; }
+  .av9n-box .av9-stapel img { width: 6rem; }
+  .av9n-fenster--klein .av9n-inbox span { display: block; }
+  .av9n-geraete { padding: .2rem 1.8rem 2.2rem 1.2rem; }
+  .av9n-szene { padding: 3% 8% 12% 8%; }
+  .av9n-szene .av9n-stoerer { width: 6.4rem; height: 6.4rem; top: -10%; }
+  .av9n-szene .av9n-stoerer b { font-size: 1.6rem; }
+  .av9n-szene .av9n-stoerer span { font-size: .7rem; }
+  .av9n-uhr { font-size: .82rem; padding: .5rem .9rem; }
+  .av9n-uhr span { display: none; }
+  .av9n-uhr::before { content: "Noch"; margin-right: .3rem; color: var(--s7-grau); font-weight: 600; }
+}
 
 </style>
 </head>
@@ -3026,82 +3148,69 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 <main class="s9 av9" data-av9-kopf="1">
   {#- Kopf-Varianten zum Durchklicken (Daniel, 20.11.2026) – Umschalter nur in der Entwicklung, vor dem Livegang entfernen -#}
   <div class="av9-schalter" role="group" aria-label="Kopf-Variante"><span>Kopf</span>{% for v in ["1", "2", "3"] %}<button type="button" data-av9-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
+
+  {#- Kopf 1: Text mittig, Countdown für sich, der Preis als Störer an der Seite -#}
   <section class="s9-held av9-kopf1">
-    <div class="s7-wrap">
+    <div class="s7-wrap av9n-k1">
       <p class="s9-kicker">Neue Altersvorsorge 2027 · für Agenturen und Maklerbüros</p>
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
       <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <div class="av9-aktion" data-av9-aktion>
-        <span class="av9-aktion__marke" data-av9-marke>Black Week</span>
-        <span class="av9-aktion__preis" data-av9-preis><b>39 €</b> statt <s>89 €</s> im Monat</span>
-        <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min <span data-sek>–</span>Sek</span>
-      </div>
+      <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
+      <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
     </div>
   </section>
 
+  {#- Kopf 2: Text links, rechts eine geordnete Szene: Landingpage am MacBook, iPhone davor, zwei Postings -#}
   <section class="av9-held2 av9-kopfv" data-v="2" hidden>
-    <div class="s7-wrap av9-held2__in">
-      <div class="av9-held2__text">
+    <div class="s7-wrap av9n-k2">
+      <div class="av9n-k2__text">
         <p class="s9-kicker">Neue Altersvorsorge 2027 · für Agenturen und Maklerbüros</p>
         <h1 class="av9-h1">Nur wer gefunden wird, <span class="s7-wort">mit dem wird gesprochen.</span></h1>
         <p class="av9-held2__lead">Landingpage, Postings und Mailings an deine Bestandskunden. Fertig, in deinem Auftritt.</p>
         <div class="s9-knoepfe av9-links"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-        <div class="av9-aktion" data-av9-aktion>
-          <span class="av9-aktion__marke" data-av9-marke>Black Week</span>
-          <span class="av9-aktion__preis" data-av9-preis><b>39 €</b> statt <s>89 €</s> im Monat</span>
-          <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min <span data-sek>–</span>Sek</span>
-        </div>
+        <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
       </div>
-      <div class="av9-collage" aria-hidden="true">
-        <div class="av9-collage__mac"><div class="av9-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9-mac__fuss"></div></div>
-        <div class="av9-collage__posts">{% for n in ["03", "02", "12"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div>
-        <div class="av9-collage__mail"><div class="av9-mail av9-mail--klein">
-              <p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p>
-              <dl class="av9-mail__kopf"><dt>Von</dt><dd>Deine Agentur</dd><dt>Betreff</dt><dd><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b></dd></dl>
-              <div class="av9-mail__inhalt"><p>Liebe Frau Müller, ob die neue Altersvorsorge Sie betrifft, klären wir in einem kurzen Gespräch.</p><span class="av9-mail__knopf">Termin wählen</span></div>
-            </div></div>
-        <div class="av9-phone av9-collage__phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div>
+      <div class="av9n-szene" aria-hidden="true">
+        <div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
+        <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp" alt=""></div>
+        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
       </div>
     </div>
   </section>
 
+  {#- Kopf 3: Überschrift mittig, darunter drei gleich große Kacheln: Landingpage, Postings, Mailings -#}
   <section class="s9-held av9-held3 av9-kopfv" data-v="3" hidden>
-    <div class="s7-wrap">
+    <div class="s7-wrap av9n-k3">
       <p class="s9-kicker">Neue Altersvorsorge 2027 · für Agenturen und Maklerbüros</p>
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
-      <div class="av9-reihe" aria-label="Das bekommst du: Landingpage, 30 Postings, 3 Mailings">
-        <figure class="av9-reihe__teil av9-reihe__teil--lp"><div class="av9-mac av9-mac--klein" aria-hidden="true"><div class="av9-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9-mac__fuss"></div></div><figcaption><b>Landingpage</b>mit Terminwahl</figcaption></figure>
-        <figure class="av9-reihe__teil"><div class="av9-stapel" aria-hidden="true">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div><figcaption><b>30 Postings</b>für Instagram, Facebook und LinkedIn</figcaption></figure>
-        <figure class="av9-reihe__teil"><div class="av9-reihe__mail" aria-hidden="true"><div class="av9-mail av9-mail--klein">
-              <p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p>
-              <dl class="av9-mail__kopf"><dt>Von</dt><dd>Deine Agentur</dd><dt>Betreff</dt><dd><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b></dd></dl>
-              <div class="av9-mail__inhalt"><p>Liebe Frau Müller, ob die neue Altersvorsorge Sie betrifft, klären wir in einem kurzen Gespräch.</p><span class="av9-mail__knopf">Termin wählen</span></div>
-            </div></div><figcaption><b>3 Mailings</b>an deine Bestandskunden</figcaption></figure>
+      
+      <div class="av9n-box" aria-label="Das bekommst du: Landingpage, 30 Postings, 3 Mailings">
+        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+        <figure><div class="av9n-box__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div></div></div><figcaption><b>Landingpage</b>mit Terminwahl</figcaption></figure>
+        <figure><div class="av9n-box__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div></div><figcaption><b>30 Postings</b>für Instagram, Facebook und LinkedIn</figcaption></figure>
+        <figure><div class="av9n-box__bild"><div class="av9n-fenster av9n-fenster--klein"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
+              <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
+              <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
+              <li><i></i><div><b>Mitnehmen oder abhaken?</b><span>Die neue Altersvorsorge startet im Januar. 30 Minuten genügen.</span></div><em>Jan.</em></li>
+            </ul></div></div><figcaption><b>3 Mailings</b>an deine Bestandskunden</figcaption></figure>
       </div>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <div class="av9-aktion" data-av9-aktion>
-        <span class="av9-aktion__marke" data-av9-marke>Black Week</span>
-        <span class="av9-aktion__preis" data-av9-preis><b>39 €</b> statt <s>89 €</s> im Monat</span>
-        <span class="av9-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><small>noch</small><span data-t>–</span>T <span data-s>–</span>Std <span data-m>–</span>Min <span data-sek>–</span>Sek</span>
-      </div>
+      <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
     </div>
   </section>
 
   <section class="s9-band" id="paket">
     <div class="s7-wrap">
       <div class="av9-kopf"><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
-      <div class="av9-drei">
-        <article class="av9-kachel av9-kachel--lp">
+      <div class="av9n-drei">
+        <article class="av9-kachel av9n-kachel--lp">
           <div class="av9-kachel__text">
             <p class="av9-marke">Landingpage</p>
             <h3>Deine Bestandskunden landen hier und buchen einen Termin.</h3>
             <p>Eine Seite, ein Ziel: der Termin. Am Rechner wie am Handy.</p>
           </div>
-          <div class="av9-geraete" aria-hidden="true">
-            <div class="av9-mac"><div class="av9-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800" loading="lazy"></div><div class="av9-mac__fuss"></div></div>
-            <div class="av9-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div>
-          </div>
+          <div class="av9n-geraete" aria-hidden="true"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div></div>
         </article>
         <article class="av9-kachel av9-kachel--posts">
           <div class="av9-kachel__text">
@@ -3117,23 +3226,28 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             {%- endfor %}
           </div>
         </article>
-        <article class="av9-kachel av9-kachel--mail">
+        <article class="av9-kachel av9n-kachel--mail">
           <div class="av9-kachel__text">
             <p class="av9-marke">3 Mailings</p>
             <h3>An deine Bestandskunden.</h3>
-            <p>Jede Mail führt auf deine Landingpage.</p>
+            <p>An alle, an Kunden mit Riester-Vertrag und eine Erinnerung im Januar. Jede Mail führt auf deine Landingpage.</p>
           </div>
-          <div class="av9-post" aria-hidden="true">
-            <div class="av9-post__hinten av9-post__hinten--2"></div>
-            <div class="av9-post__hinten av9-post__hinten--1"></div>
-            <div class="av9-mail">
-              <p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p>
+          <div class="av9n-fenster" aria-hidden="true">
+            <p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p>
+            <ul class="av9n-inbox">
+              <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
+              <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
+              <li><i></i><div><b>Mitnehmen oder abhaken?</b><span>Die neue Altersvorsorge startet im Januar. 30 Minuten genügen.</span></div><em>Jan.</em></li>
+            </ul>
+            <div class="av9n-lesen">
               <dl class="av9-mail__kopf"><dt>Von</dt><dd>Deine Agentur</dd><dt>An</dt><dd>Frau Müller</dd><dt>Betreff</dt><dd><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b></dd></dl>
               <div class="av9-mail__inhalt">
                 <p>Liebe Frau Müller,</p>
-                <p>ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Ob sie Sie betrifft, klären wir in einem kurzen Gespräch.</p>
-                <span class="av9-mail__knopf">Termin wählen</span>
-                <p class="av9-mail__gruss">Viele Grüße<br>Max Mustermann</p>
+                <p>vielleicht haben Sie es schon gehört oder gelesen: Ab 2027 gibt es eine neue staatlich geförderte Altersvorsorge. Überall wird darüber gesprochen – und meistens bleibt vor allem eine Frage offen: Betrifft mich das überhaupt?</p>
+                <p>Genau das klären wir gern mit Ihnen. Kein Fachvortrag, kein Verkaufsgespräch, sondern ein kurzes Gespräch zu drei Fragen:</p>
+                <ul><li>Betrifft Sie die neue Altersvorsorge?</li><li>Wenn ja: wie?</li><li>Haben Sie einen Vorteil davon?</li></ul>
+                <span class="av9-mail__knopf">30-Minuten-Termin wählen</span>
+                <p class="av9-mail__gruss">Herzliche Grüße<br>Max Mustermann · Deine Agentur</p>
               </div>
             </div>
           </div>
@@ -3240,7 +3354,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   function tick() {
     var rest = ende - Date.now();
     if (rest <= 0) {
-      document.querySelectorAll('[data-av9-uhr]').forEach(function (u) { u.hidden = true; });
+      document.querySelectorAll('[data-av9-uhr], [data-av9-stoerer]').forEach(function (u) { u.hidden = true; });
       var m = document.querySelector('[data-av9-marke]'); if (m) m.textContent = 'AVRG-Vertriebsstrecke';
       var p = document.querySelector('[data-av9-preis]'); if (p) p.innerHTML = '<b>89 €</b> im Monat';
       var b = document.querySelector('[data-av9-betrag]'); if (b) b.textContent = '89 €';

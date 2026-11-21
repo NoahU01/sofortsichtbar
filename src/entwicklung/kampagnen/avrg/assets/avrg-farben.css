@@ -20,9 +20,9 @@ html[data-farbe="gelb"]{--rot-betont:#6B5A00;--rot-hell:#FEE354;
   --auf-rot:#111;--auf-rot-leise:rgba(17,17,17,.78);--auf-rot-rand:rgba(17,17,17,.4);--auf-rot-linie:rgba(17,17,17,.2);
 }
 
-/* „sofort“ (Daniel, 20.11.2026): Darstellung des Pakets in unserem Look – einfarbig Violett, ohne Verlauf (Verlauf wirkte zu bunt).
+/* „sofort“ (Daniel, 20./21.11.2026): Darstellung des Pakets in ruhigem Petrol (dunkles Ende unseres Cyans), ohne Verlauf – Violett wirkte zu laut.
    Nur für Vorschauen auf der AVRG-Landingpage von sofort sichtbar (?farbe=sofort), keine Kundenfarbe in der Auswahl. */
-html[data-farbe="sofort"]{--rot-betont:#1d1d1f;--rot-hell:#c79be0;--rot:#7a1a95;--rot-dunkel:#64137b;--rot-text:#7a1a95;--rot-glut:rgba(122,26,149,.28);--rot-schatten:rgba(60,10,80,.38)}
+html[data-farbe="sofort"]{--rot-betont:#bfeef7;--rot-hell:#5fd3ea;--rot:#11708a;--rot-dunkel:#0c5a6f;--rot-text:#0f6a82;--rot-glut:rgba(17,112,138,.26);--rot-schatten:rgba(8,60,74,.36)}
 
 /* Platzhalter-Logo (Logoipsum) behält sein Seitenverhältnis */
 img[src*="logo-platzhalter"]{object-fit:contain;object-position:left center}
