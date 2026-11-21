@@ -88,6 +88,23 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
 .po--produkt .po__stempel span{font:600 2.1cqi/1.25 "BW Inter",sans-serif}
 .po--produkt .po__stempel s{opacity:.75}
 @media (prefers-reduced-motion:reduce){.po__band{animation:none}}
+/* Serie */
+.bw__serie-kopf{margin-top:clamp(80px,9vw,128px)}
+.bw__serie-kopf h2{margin:0;font:700 clamp(2rem,4vw,3.2rem)/1.05 "BW Tight",system-ui,sans-serif;letter-spacing:-.03em}
+.bw__serie-kopf p{margin:.9rem 0 0;color:var(--grau);font-size:1rem}
+.bw__serie{display:grid;gap:clamp(28px,3vw,44px);margin:clamp(32px,4vw,48px) 0 0;padding:0;list-style:none}
+.bw__eintrag{display:grid;grid-template-columns:minmax(0,22rem) minmax(0,1.2fr) minmax(0,1fr);gap:clamp(18px,2vw,28px);align-items:start;padding-top:clamp(28px,3vw,44px);border-top:1px solid #e2e2df}
+.bw__bild{position:relative}
+.bw__nr{position:absolute;left:-.6rem;top:-.6rem;z-index:3;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--tinte);color:#fff;font:700 .85rem/1 "BW Inter",sans-serif}
+.bw__text{min-width:0;padding:1.1rem 1.2rem 1.2rem;border-radius:16px;background:#fff;box-shadow:0 0 0 1px #e2e2df}
+.bw__text-kopf{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.7rem}
+.bw__text-kopf b{font:600 .8rem/1 "BW Inter",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
+.bw__text-kopf button{padding:.35rem .75rem;border:0;border-radius:99px;background:var(--hell);color:var(--tinte);font:600 .8rem "BW Inter",sans-serif;cursor:pointer}
+.bw__text-kopf button:hover{background:#e8e8ed}
+.bw__text-inhalt{white-space:pre-line;color:#2d2d30;font-size:.92rem;line-height:1.55}
+@media (max-width:1100px){.bw__eintrag{grid-template-columns:minmax(0,18rem) minmax(0,1fr)}.bw__eintrag .bw__text:last-child{grid-column:2}}
+@media (max-width:700px){.bw__eintrag{grid-template-columns:minmax(0,1fr)}.bw__eintrag .bw__text:last-child{grid-column:auto}.bw__bild{max-width:22rem}}
+
 </style>
 
 <section class="bw">
@@ -95,7 +112,7 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
     <a class="bw__zurueck" href="/entwicklung/kampagnen/avrg/">← AVRG</a>
     <p class="bw__kicker">AVRG · Black Week · eigene Postings von sofort sichtbar</p>
     <h1>Drei Stile. <span class="bw__v">Je ein Muster.</span></h1>
-    <p class="bw__lead">Erst wenn ein Stil sitzt, entsteht die Serie mit 20 und mehr Postings. Angebot in den Mustern: die digitale Vertriebsstrecke zur neuen Altersvorsorge für 39&nbsp;€ statt 89&nbsp;€ im Monat, bis 04.12.</p>
+    <p class="bw__lead">Oben die drei Stile, darunter die Serie mit {{ bw.postings | length }} Postings – jedes mit Text für LinkedIn und einem gemeinsamen Text für Facebook und Instagram. Angebot: die AVRG-Vertriebsstrecke für 39&nbsp;€ statt 89&nbsp;€ im Monat, bis 04.12.</p>
 
     <div class="bw__reihe">
 
@@ -149,5 +166,71 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
       </div>
 
     </div>
+
+    {#- Serie der eigenen Postings (Daniel, 21.11.2026): provozieren, Fachdetails als Sackgasse zeigen. Daten: black-week.11tydata.json -#}
+    <div class="bw__serie-kopf">
+      <h2>Die Serie. <span class="bw__v">{{ bw.postings | length }} Postings.</span></h2>
+      <p>Reihenfolge ist ein Vorschlag. Die Postings mit Preis laufen bis 04.12., alle anderen auch danach.</p>
+    </div>
+    <ol class="bw__serie">
+      {%- for x in bw.postings %}
+      {%- set H = x.h | replace("<v>", '<span class="bw__v">') | replace("</v>", "</span>") %}
+      <li class="bw__eintrag">
+        <div class="bw__bild">
+          <span class="bw__nr">{{ x.nr }}</span>
+          {%- if x.stil == "wand" %}
+          <div class="po po--wand" aria-label="Posting {{ x.nr }}">
+            <div class="po__kopf"><p class="po__kicker">{{ x.kicker }}</p><h3>{{ H | safe }}</h3></div>
+            <div class="po__wand" aria-hidden="true">
+              {%- for r in [[1,4,7,10,13,16,19],[2,5,8,11,14,17,20],[3,6,9,12,15,18,21],[22,24,26,28,30,23,25]] %}
+              <div class="po__spalte"><div class="po__band">
+                {%- for d in [1,2] %}{% for n in r %}<img src="{{ A }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp" alt="" loading="lazy">{% endfor %}{% endfor -%}
+              </div></div>
+              {%- endfor %}
+            </div>
+            <div class="po__fuss"></div>
+            <span class="po__adresse">sofortsichtbar.de/zielgruppen/avrg</span>
+          </div>
+          {%- elif x.stil == "schwarz" %}
+          <div class="po po--schwarz" aria-label="Posting {{ x.nr }}">
+            <div class="po__glow"></div>
+            <div class="po__satz"><h3>{{ H | safe }}</h3></div>
+            {%- if x.preis %}<p class="po__aktion">Black Week <b>39 €</b> <s>89 €</s> im Monat</p>
+            {%- else %}<p class="po__aktion">sofortsichtbar.de/zielgruppen/avrg</p>{% endif %}
+          </div>
+          {%- else %}
+          <div class="po po--produkt" aria-label="Posting {{ x.nr }}">
+            <div class="po__kopf"><h3>{{ H | safe }}</h3></div>
+            <div class="po__buehne">
+              <div class="po__glow"></div>
+              <div class="po__mac"><div class="po__mac-bild"><img src="{{ A }}/black-week/lp-mac-sofort.webp" alt="" loading="lazy"></div><div class="po__mac-fuss"></div></div>
+              <div class="po__iphone"><img src="{{ A }}/black-week/lp-iphone-sofort.webp" alt="" loading="lazy"></div>
+            </div>
+            {%- if x.preis %}<div class="po__stempel"><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>{% endif %}
+          </div>
+          {%- endif %}
+        </div>
+        <div class="bw__text">
+          <div class="bw__text-kopf"><b>LinkedIn</b><button type="button" data-kopie>Kopieren</button></div>
+          <div class="bw__text-inhalt" data-text>{{ x.li }}</div>
+        </div>
+        <div class="bw__text">
+          <div class="bw__text-kopf"><b>Facebook und Instagram</b><button type="button" data-kopie>Kopieren</button></div>
+          <div class="bw__text-inhalt" data-text>{{ x.fb }}</div>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
   </div>
 </section>
+<script>
+/* Texte kopieren (Fallback: Text markieren) */
+document.querySelectorAll('[data-kopie]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.closest('.bw__text').querySelector('[data-text]');
+    var fertig = function () { b.textContent = 'Kopiert'; setTimeout(function () { b.textContent = 'Kopieren'; }, 1600); };
+    var markieren = function () { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    if (navigator.clipboard) navigator.clipboard.writeText(t.innerText).then(fertig, markieren); else markieren();
+  });
+});
+</script>
