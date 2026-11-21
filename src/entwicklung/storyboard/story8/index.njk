@@ -2100,11 +2100,15 @@ body.s7-menue-offen { overflow: hidden; }
 /* ---------- Runde 5 (Daniel, 21.11.2026): Köpfe neu, Angebot aufgeräumt, Petrol statt Lila ---------- */
 .av9 { --av9-petrol: #11708a; }
 /* MacBook und iPhone in echten Proportionen */
-.av9n-mac { position: relative; width: 100%; }
-.av9n-mac__bild { padding: 1.5% 1.5% 1.9%; border-radius: 14px 14px 4px 4px; background: #1d1d1f; box-shadow: inset 0 0 0 1px #4a4a4e, 0 24px 48px -24px rgba(29,29,31,.45); }
-.av9n-mac__bild img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 3px; background: #fff; }
-.av9n-mac__fuss { position: relative; height: 0; padding-top: 2.6%; margin: 0 -7%; border-radius: 0 0 50% 50% / 0 0 100% 100%; background: linear-gradient(180deg, #e4e4e8, #a9a9b0); box-shadow: 0 10px 20px -10px rgba(0,0,0,.3); }
-.av9n-mac__fuss::before { content: ""; position: absolute; left: 50%; top: 0; width: 13%; height: 40%; border-radius: 0 0 8px 8px; background: #b9b9c0; transform: translateX(-50%); }
+.av9n-mac { position: relative; width: 100%; container-type: inline-size; }
+/* MacBook (Daniel, 21.11.2026): feste Proportionen in cqi, schmaler schwarzer Rand rundum, flacher Unterteil mit Daumenmulde */
+.av9n-mac__bild { position: relative; padding: 2.2cqi 2.2cqi 2.8cqi; border-radius: 3.4cqi 3.4cqi 1.1cqi 1.1cqi; background: #0c0c0d; box-shadow: inset 0 0 0 .22cqi #6e6e73, inset 0 0 0 .5cqi #1d1d1f, 0 3.2cqi 6.4cqi -3.4cqi rgba(29,29,31,.42); }
+.av9n-mac__bild::before { content: ""; position: absolute; left: 50%; top: .85cqi; width: .55cqi; height: .55cqi; margin-left: -.275cqi; border-radius: 50%; background: #2c2c30; }
+.av9n-mac__schirm { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: .9cqi .9cqi .2cqi .2cqi; background: #fff; }
+.av9n-mac__schirm img { display: block; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: top; border-radius: 0; }
+.av9n-mac__fuss { position: relative; height: 2.3cqi; margin: 0 -7.5cqi; border-radius: .25cqi .25cqi 1.8cqi 1.8cqi / .25cqi .25cqi 1.4cqi 1.4cqi; background: linear-gradient(180deg, #f4f4f6 0, #dcdce0 30%, #b9b9bf 72%, #9d9da4 100%); box-shadow: inset 0 .15cqi 0 rgba(255,255,255,.9); }
+.av9n-mac__fuss::before { content: ""; position: absolute; left: 50%; top: 0; width: 15cqi; height: .95cqi; margin-left: -7.5cqi; border-radius: 0 0 1.1cqi 1.1cqi; background: linear-gradient(180deg, #a9a9b0, #cacacf); }
+.av9n-mac__fuss::after { content: ""; position: absolute; z-index: -1; left: 3%; right: 3%; top: 55%; height: 2cqi; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.28), transparent); pointer-events: none; }
 .av9n-phone { position: absolute; right: -5%; bottom: -3%; width: 19%; padding: .8%; border-radius: 17% / 8%; background: #1d1d1f; box-shadow: inset 0 0 0 1px #4a4a4e, 0 20px 40px -14px rgba(29,29,31,.5); }
 .av9n-phone::before { content: ""; position: absolute; left: 50%; top: 2.4%; width: 28%; height: 2.5%; border-radius: 99px; background: #000; transform: translateX(-50%); z-index: 1; }
 .av9n-phone img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 15.5% / 7.2%; background: #fff; }
@@ -2409,7 +2413,7 @@ body.s7-menue-offen { overflow: hidden; }
 /* Live-Landingpage im MacBook */
 .b2-live { position: relative; overflow: hidden; }
 .b2-live img { position: relative; z-index: 0; }
-.b2-live iframe { position: absolute; left: 1.5%; top: 1.5%; z-index: 1; width: 1440px; height: 900px; border: 0; border-radius: 3px; background: #fff; transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity .25s; }
+.b2-live iframe { position: absolute; left: 0; top: 0; z-index: 1; width: 1440px; height: 900px; border: 0; border-radius: 0; background: #fff; transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity .25s; }
 .b2-live.ist-bereit iframe { opacity: 1; }
 /* Stufenlose Farbe: Farbton und Helligkeit */
 .b2-regler { display: grid; gap: .9rem; }
@@ -3382,7 +3386,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
         <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small data-av9-marke2>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div><div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div></div></div>
       </div>
       <div class="av9n-szene" aria-hidden="true">
-        <div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
+        <div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
         <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp" alt=""></div>
         
       </div>
@@ -3420,7 +3424,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">1 · Das bekommst du</p><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
       <div class="b2-drei">
-        <figure class="b2-teil b2-teil--lp"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
+        <figure class="b2-teil b2-teil--lp"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
           <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
         <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="" loading="lazy">{% endfor %}</div></div>
           <figcaption><b>30 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
@@ -3438,7 +3442,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">2 · Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Gestaltungen. <span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
       <div class="b2-konfig" data-b2-konfig>
-        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild b2-live" data-b2-live="haupt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
+        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm b2-live" data-b2-live="haupt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div></div><div class="av9n-mac__fuss"></div></div></div>
         <div class="b2-konfig__wahl">
           <p class="b2-konfig__l">Gestaltung</p>
           <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" loading="lazy" data-b2-vorschau="3"><span>Das Klarheits-Ticket</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-sofort.webp" alt="" loading="lazy" data-b2-vorschau="2"><span>Betrifft dich das?</span></button><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-sofort.webp" alt="" loading="lazy" data-b2-vorschau="1"><span>Mitten im Leben</span></button></div>
@@ -3461,7 +3465,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <ol class="b2-drei b2-schritte">
         <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["3", "2", "1"] %}<span data-b2-schritt-stil="{{ n }}"{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-sofort.webp" alt="" loading="lazy"></span>{% endfor %}<i class="b2-mini__farbe" data-b2-farbpunkt></i></div></div>
           <p><b>Du wählst.</b>Gestaltung und Farbe.</p></li>
-        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild b2-live" data-b2-live="schritt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy" data-b2-farbbild="wahl"></div><div class="av9n-mac__fuss"></div></div></div>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm b2-live" data-b2-live="schritt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy" data-b2-farbbild="wahl"></div></div><div class="av9n-mac__fuss"></div></div></div>
           <p><b>Wir richten ein.</b>Logo, Kontakt und Terminwahl.</p></li>
         <li class="b2-teil"><div class="b2-teil__bild"><div class="s9-note b2-note"><span class="s9-app"></span><div><b>Neue Terminanfrage</b><small>Frau Müller · Donnerstag, 10:00</small></div></div></div>
           <p><b>Du gehst raus.</b>Die Anfragen kommen bei dir an.</p></li>
@@ -3506,7 +3510,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             <h3>Deine Bestandskunden landen hier und buchen einen Termin.</h3>
             <p>Eine Seite, ein Ziel: der Termin. Am Rechner wie am Handy.</p>
           </div>
-          <div class="av9n-geraete" aria-hidden="true"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div></div>
+          <div class="av9n-geraete" aria-hidden="true"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div></div>
         </article>
         <article class="av9-kachel av9-kachel--posts">
           <div class="av9-kachel__text">
