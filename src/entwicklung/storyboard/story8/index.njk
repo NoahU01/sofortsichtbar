@@ -3387,7 +3387,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       </div>
       <div class="av9n-szene" aria-hidden="true">
         <div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
-        <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp?v=2" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp?v=2" alt=""></div>
+        <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp?v=3" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp?v=3" alt=""></div>
         
       </div>
     </div>
@@ -3426,8 +3426,8 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <div class="b2-drei">
         <figure class="b2-teil b2-teil--lp"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
           <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
-        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp?v=2" alt="" loading="lazy">{% endfor %}</div></div>
-          <figcaption><b>38 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp?v=3" alt="" loading="lazy">{% endfor %}</div></div>
+          <figcaption><b>40 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
         <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-fenster b2-post"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
               <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
               <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
@@ -3483,7 +3483,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             <p class="b2-preis__l">Alles drin, fertig eingerichtet</p>
             <ul>
               <li>Landingpage in deiner Gestaltung und Farbe, mit Terminwahl</li>
-              <li>38 Postings mit Bild und Text, als Redaktionsplan</li>
+              <li>40 Postings mit Bild und Text, als Redaktionsplan</li>
               <li>3 Mailings an deine Bestandskunden</li>
               <li>Einrichtung mit Logo, Kontaktdaten und Foto</li>
             </ul>
@@ -3514,14 +3514,14 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
         </article>
         <article class="av9-kachel av9-kachel--posts">
           <div class="av9-kachel__text">
-            <p class="av9-marke">38 Postings</p>
+            <p class="av9-marke">40 Postings</p>
             <h3>Fertig für Instagram, Facebook und LinkedIn.</h3>
             <p>Mit Bild und Text, als Redaktionsplan.</p>
           </div>
           <div class="av9-feed" aria-hidden="true">
-            {%- for r in [range(1,39,3), range(2,39,3), range(3,39,3)] %}
+            {%- for r in [range(1,41,3), range(2,41,3), range(3,41,3)] %}
             <div class="av9-spalte"><div class="av9-band">
-              {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp?v=2" alt="" loading="lazy">{% endfor %}{% endfor -%}
+              {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp?v=3" alt="" loading="lazy">{% endfor %}{% endfor -%}
             </div></div>
             {%- endfor %}
           </div>
@@ -3555,7 +3555,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       </div>
       <div class="av9-auftritt">
         <div class="av9-auftritt__bilder" aria-hidden="true">
-          <img src="{{ AV }}/black-week/sofort/p03.webp?v=2" alt="" loading="lazy">
+          <img src="{{ AV }}/black-week/sofort/p03.webp?v=3" alt="" loading="lazy">
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           <img src="{{ AV }}/black-week/farbe/p03.webp" alt="" loading="lazy">
         </div>
@@ -3613,7 +3613,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
           <p>Sonderthema neue Altersvorsorge 2027</p>
           <h3>Alles drin, fertig eingerichtet.</h3>
           <ul>
-            <li>38 Postings mit Bild und Text, als Redaktionsplan</li>
+            <li>40 Postings mit Bild und Text, als Redaktionsplan</li>
             <li>Landingpage in deinem Auftritt, mit Terminwahl</li>
             <li>3 Mailings an deine Bestandskunden</li>
             <li>Einrichtung mit Logo, Kontaktdaten, Foto und Farbe</li>
