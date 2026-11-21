@@ -2403,6 +2403,28 @@ body.s7-menue-offen { overflow: hidden; }
 .b2-preis__fein { color: rgba(255,255,255,.8); }
 @media (max-width: 900px) { .b2-preis__angebot { border-top-color: rgba(255,255,255,.28); } }
 
+/* ---------- Black Week 2.0, Runde 3 (Daniel, 21.11.2026) ---------- */
+.b2-teil--lp .av9n-mac { width: 76%; margin-right: 8%; }
+.b2-teil--lp .av9n-phone { right: -10%; width: 21%; }
+/* Live-Landingpage im MacBook */
+.b2-live { position: relative; overflow: hidden; }
+.b2-live img { position: relative; z-index: 0; }
+.b2-live iframe { position: absolute; left: 1.5%; top: 1.5%; z-index: 1; width: 1440px; height: 900px; border: 0; border-radius: 3px; background: #fff; transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity .25s; }
+.b2-live.ist-bereit iframe { opacity: 1; }
+/* Stufenlose Farbe: Farbton und Helligkeit */
+.b2-regler { display: grid; gap: .9rem; }
+.b2-regler__zeile { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); align-items: center; gap: .8rem; color: var(--s7-text); font-size: .9rem; font-weight: 600; }
+.b2-regler input { -webkit-appearance: none; appearance: none; width: 100%; height: 1.6rem; margin: 0; border-radius: 99px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); cursor: pointer; }
+.b2-regler [data-b2-ton] { background: linear-gradient(90deg, hsl(0 82% 45%), hsl(40 82% 50%), hsl(60 82% 48%), hsl(120 82% 32%), hsl(180 82% 32%), hsl(220 82% 45%), hsl(270 82% 45%), hsl(320 82% 45%), hsl(359 82% 45%)); }
+.b2-regler [data-b2-hell] { --ton: 193; background: linear-gradient(90deg, hsl(var(--ton) 82% 18%), hsl(var(--ton) 82% 40%), hsl(var(--ton) 82% 62%)); }
+.b2-regler input::-webkit-slider-thumb { -webkit-appearance: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 3px 10px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.08); }
+.b2-regler input::-moz-range-thumb { width: 2rem; height: 2rem; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 3px 10px rgba(0,0,0,.3); }
+.b2-regler input:focus-visible { outline: 2px solid #3d5bd1; outline-offset: 4px; }
+.b2-mini { position: relative; }
+.b2-mini__farbe { position: absolute; right: -.2rem; bottom: -1.2rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: #11708a; box-shadow: 0 0 0 3px #fff, 0 6px 14px rgba(0,0,0,.25); }
+@media (max-width: 900px) { .b2-ticket { width: 100%; max-width: 26rem; margin-inline: auto; } }
+@media (max-width: 640px) { .b2-regler__zeile { grid-template-columns: minmax(0, 1fr); gap: .45rem; } }
+
 </style>
 </head>
 <body>
@@ -3335,7 +3357,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 {%- set AV = "/entwicklung/kampagnen/avrg/assets" %}
 <main class="s9 av9" data-av9-kopf="1">
   {#- Kopf-Varianten zum Durchklicken (Daniel, 20.11.2026) – Umschalter nur in der Entwicklung, vor dem Livegang entfernen -#}
-  <div class="av9-schalter" role="group" aria-label="Kopf-Variante"><span>Kopf</span>{% for v in ["1", "2", "3"] %}<button type="button" data-av9-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
+  <div class="av9-schalter" role="group" aria-label="Kopf-Variante"><span>Kopf</span>{% for v in ["1", "2"] %}<button type="button" data-av9-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
 
   {#- Kopf 1: Text mittig, Countdown für sich, der Preis als Störer an der Seite -#}
   <section class="s9-held av9-kopf1">
@@ -3367,35 +3389,14 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
-  {#- Kopf 3: Überschrift mittig, darunter drei gleich große Kacheln: Landingpage, Postings, Mailings -#}
-  <section class="s9-held av9-held3 av9-kopfv" data-v="3" hidden>
-    <div class="s7-wrap av9n-k3">
-      <p class="s9-kicker">Altersvorsorgedepot 2027 · <span style="white-space:nowrap">für Versicherungsagenturen und Maklerbüros</span></p>
-      <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
-      
-      <div class="av9n-box" aria-label="Das bekommst du: Landingpage, 30 Postings, 3 Mailings">
-        
-        <figure><div class="av9n-box__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div></div></div><figcaption><b>Landingpage</b>mit Terminwahl</figcaption></figure>
-        <figure><div class="av9n-box__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div></div><figcaption><b>30 Postings</b>für Instagram, Facebook und LinkedIn</figcaption></figure>
-        <figure><div class="av9n-box__bild"><div class="av9n-fenster av9n-fenster--klein"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
-              <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
-              <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
-              <li><i></i><div><b>Mitnehmen oder abhaken?</b><span>Die neue Altersvorsorge startet im Januar. 30 Minuten genügen.</span></div><em>Jan.</em></li>
-            </ul></div></div><figcaption><b>3 Mailings</b>an deine Bestandskunden</figcaption></figure>
-      </div>
-      <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small data-av9-marke2>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div><div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div></div></div>
-    </div>
-  </section>
-
 {%- if s.v9 == "avrg2" %}
   {#- Black Week 2.0: erst die Idee, dann die drei Kernaussagen (Das bekommst du · Auf dich zugeschnitten · In drei Schritten startklar) ohne Unterbrechung, dann der Preis -#}
   <section class="s9-band s9-band--flaeche">
     <div class="s7-wrap">
       <div class="av9-kopf">
-        <p class="b2-kicker">Die Idee dahinter</p>
+        <p class="b2-kicker">Deine Positionierung</p>
         <h2 class="s9-h2">Problemlöser <span class="s7-wort">statt Detailberater.</span></h2>
-        <p class="s9-lead">Deine Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen.</p>
+        <p class="s9-lead">Deine Kunden wollen sich nicht mit den Details auseinandersetzen. Sie wollen wissen, ob sie einen Vorteil haben.</p>
       </div>
       <div class="av9-pl b2-pl" aria-label="Statt Paragrafen und Zulagen: ein Klarheits-Ticket mit drei Fragen in 30 Minuten">
         <div class="av9-pl__wust" aria-hidden="true">
@@ -3419,7 +3420,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">1 · Das bekommst du</p><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
       <div class="b2-drei">
-        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
+        <figure class="b2-teil b2-teil--lp"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
           <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
         <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="" loading="lazy">{% endfor %}</div></div>
           <figcaption><b>30 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
@@ -3437,12 +3438,16 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">2 · Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Gestaltungen. <span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
       <div class="b2-konfig" data-b2-konfig>
-        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
+        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild b2-live" data-b2-live="haupt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
         <div class="b2-konfig__wahl">
           <p class="b2-konfig__l">Gestaltung</p>
           <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" loading="lazy" data-b2-vorschau="3"><span>Das Klarheits-Ticket</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-sofort.webp" alt="" loading="lazy" data-b2-vorschau="2"><span>Betrifft dich das?</span></button><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-sofort.webp" alt="" loading="lazy" data-b2-vorschau="1"><span>Mitten im Leben</span></button></div>
           <p class="b2-konfig__l">Farbe</p>
-          <div class="b2-schieber"><input type="range" min="0" max="4" step="1" value="0" data-b2-schieber aria-label="Farbe der Landingpage" aria-valuetext="Petrol"><p class="b2-schieber__name"><i data-b2-farbpunkt></i><span data-b2-farbname>Petrol</span><small>oder deine eigene Farbe</small></p></div>
+          <div class="b2-regler">
+            <label class="b2-regler__zeile"><span>Farbton</span><input type="range" min="0" max="359" step="1" value="193" data-b2-ton aria-label="Farbton"></label>
+            <label class="b2-regler__zeile"><span>Helligkeit</span><input type="range" min="18" max="62" step="1" value="30" data-b2-hell aria-label="Helligkeit"></label>
+            <p class="b2-schieber__name"><i data-b2-farbpunkt></i><span data-b2-farbname>Deine Farbe</span><small>stufenlos, wie dein Auftritt</small></p>
+          </div>
           <p class="b2-konfig__l">Logo und Kontakt</p>
           <p class="b2-konfig__t">Dein Logo, dein Foto, deine Telefonnummer und deine Terminwahl – auf der Landingpage, in den Postings und in den Mailings.</p>
         </div>
@@ -3454,9 +3459,9 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">3 · So einfach geht’s</p><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
       <ol class="b2-drei b2-schritte">
-        <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["3", "2", "1"] %}<span data-b2-schritt-stil="{{ n }}"{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-sofort.webp" alt="" loading="lazy" data-b2-farbbild="{{ n }}"></span>{% endfor %}</div></div>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["3", "2", "1"] %}<span data-b2-schritt-stil="{{ n }}"{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-sofort.webp" alt="" loading="lazy"></span>{% endfor %}<i class="b2-mini__farbe" data-b2-farbpunkt></i></div></div>
           <p><b>Du wählst.</b>Gestaltung und Farbe.</p></li>
-        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy" data-b2-farbbild="wahl"></div><div class="av9n-mac__fuss"></div></div></div>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild b2-live" data-b2-live="schritt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy" data-b2-farbbild="wahl"></div><div class="av9n-mac__fuss"></div></div></div>
           <p><b>Wir richten ein.</b>Logo, Kontakt und Terminwahl.</p></li>
         <li class="b2-teil"><div class="b2-teil__bild"><div class="s9-note b2-note"><span class="s9-app"></span><div><b>Neue Terminanfrage</b><small>Frau Müller · Donnerstag, 10:00</small></div></div></div>
           <p><b>Du gehst raus.</b>Die Anfragen kommen bei dir an.</p></li>
@@ -3637,30 +3642,69 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   }
   document.querySelectorAll('[data-av9-v]').forEach(function (b) { b.addEventListener('click', function () { zeige(b.getAttribute('data-av9-v')); }); });
   var start = new URLSearchParams(location.search).get('kopf');
-  if (start === '2' || start === '3') zeige(start);
+  if (start === '2') zeige(start);
 })();
-/* Black Week 2.0: Konfigurator – Gestaltung und Farbschieber wechseln das Bild im MacBook; die drei Schritte ziehen mit */
+/* Black Week 2.0: Konfigurator – die echte Landingpage live im MacBook, Farbe stufenlos über Farbton und Helligkeit.
+   Die Seite wird über ihre Farbvariablen eingefärbt; Fotos bleiben unverändert. Schritt 2 zeigt dieselbe Seite. */
 (function () {
   var k = document.querySelector('[data-b2-konfig]'); if (!k) return;
-  var FARBEN = [['sofort', 'Petrol', '#11708a'], ['blau', 'Blau', '#2A00DC'], ['gruen', 'Grün', '#028B34'], ['gelb', 'Gelb', '#FEE354'], ['rot', 'Rot', '#EF0000']];
-  var bild = k.querySelector('[data-b2-bild]'), schieber = k.querySelector('[data-b2-schieber]'), stil = '3', fi = 0;
-  var basis = bild.getAttribute('src').replace(/lp\d-[a-z]+\.webp$/, '');
-  function datei(n) { return basis + 'lp' + n + '-' + FARBEN[fi][0] + '.webp'; }
-  function zeige() {
-    bild.src = datei(stil);
-    k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-stil') === stil ? 'true' : 'false'); });
-    k.querySelectorAll('[data-b2-vorschau]').forEach(function (i) { i.src = datei(i.getAttribute('data-b2-vorschau')); });
-    document.querySelectorAll('[data-b2-farbbild]').forEach(function (i) { var n = i.getAttribute('data-b2-farbbild'); i.src = datei(n === 'wahl' ? stil : n); });
-    document.querySelectorAll('[data-b2-schritt-stil]').forEach(function (sp) { sp.classList.toggle('an', sp.getAttribute('data-b2-schritt-stil') === stil); });
-    k.querySelector('[data-b2-farbname]').textContent = FARBEN[fi][1];
-    k.querySelector('[data-b2-farbpunkt]').style.background = FARBEN[fi][2];
-    schieber.style.setProperty('--wert', FARBEN[fi][2]);
-    schieber.setAttribute('aria-valuetext', FARBEN[fi][1]);
+  var ton = k.querySelector('[data-b2-ton]'), hell = k.querySelector('[data-b2-hell]'), stil = '3';
+  var LP = '/entwicklung/kampagnen/avrg/landingpage-';
+  function hsl(h, s, l) { return 'hsl(' + h + ' ' + s + '% ' + Math.max(0, Math.min(100, l)) + '%)'; }
+  function hex(h, s, l) { s /= 100; l /= 100; var f = function (n) { var k2 = (n + h / 30) % 12, a = s * Math.min(l, 1 - l); return l - a * Math.max(-1, Math.min(k2 - 3, 9 - k2, 1)); }; return [f(0), f(8), f(4)]; }
+  function lum(rgb) { var c = rgb.map(function (v) { return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; }
+  function vars() {
+    var h = Number(ton.value), l = Number(hell.value), s = 82, hellGrund = lum(hex(h, s, l)) > .42;
+    var auf = hellGrund ? '#111' : '#fff', rgb = hex(h, s, l).map(function (v) { return Math.round(v * 255); }).join(',');
+    return { '--rot': hsl(h, s, l), '--rot-dunkel': hsl(h, s, l - 8), '--rot-text': hellGrund ? hsl(h, s, Math.min(l, 34)) : hsl(h, s, l),
+      '--rot-hell': hsl(h, s, Math.max(l, 62)), '--rot-betont': hellGrund ? hsl(h, s, 20) : hsl(h, s, 86), '--rot-glut': 'rgba(' + rgb + ',.38)',
+      '--rot-schatten': 'rgba(' + rgb + ',.45)', '--auf-rot': auf, '--auf-rot-leise': hellGrund ? 'rgba(17,17,17,.78)' : 'rgba(255,255,255,.86)',
+      '--auf-rot-rand': hellGrund ? 'rgba(17,17,17,.4)' : 'rgba(255,255,255,.55)', '--auf-rot-linie': hellGrund ? 'rgba(17,17,17,.2)' : 'rgba(255,255,255,.3)', farbe: hsl(h, s, l) };
   }
-  k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); zeige(); }); });
-  schieber.addEventListener('input', function () { fi = Number(schieber.value); zeige(); });
-  zeige();
-  ['1', '2', '3'].forEach(function (n) { FARBEN.forEach(function (f) { var i = new Image(); i.src = basis + 'lp' + n + '-' + f[0] + '.webp'; }); });
+  function faerben(fr) {
+    try {
+      var d = fr.contentDocument; if (!d || !d.documentElement) return;
+      var v = vars(); Object.keys(v).forEach(function (n) { if (n.indexOf('--') === 0) d.documentElement.style.setProperty(n, v[n]); });
+    } catch (e) {}
+  }
+  function vorbereiten(fr) {
+    try {
+      var d = fr.contentDocument;
+      d.querySelectorAll('img[src*="logo-platzhalter"]').forEach(function (i) { i.src = '/entwicklung/kampagnen/avrg/assets/black-week/dein-logo.svg'; });
+      var w = d.createTreeWalker(d.body, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) n.nodeValue = n.nodeValue.replace(/15(\s| )Minuten/g, '30$1Minuten');
+      var st = d.createElement('style'); st.textContent = 'html,body{overflow:hidden!important}*{scroll-behavior:auto!important}'; d.head.appendChild(st);
+      // kein Anschnitt des nächsten Abschnitts unten im Bildschirm (Daniel: keine halluzinierten Balken)
+      var kappen = function () {
+        var nr = (fr.getAttribute('src').match(/landingpage-(\d)/) || [])[1];
+        if (nr !== '1') d.querySelectorAll('section').forEach(function (sec) { var t = sec.getBoundingClientRect().top; if (t > 120 && t < 900) sec.style.visibility = 'hidden'; });
+        d.querySelectorAll('body *').forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top > 830 && r.top < 900 && r.height > 40) el.style.visibility = 'hidden'; });
+      };
+      kappen(); setTimeout(kappen, 800);
+    } catch (e) {}
+    faerben(fr); fr.parentNode.classList.add('ist-bereit');
+  }
+  var rahmen = [];
+  document.querySelectorAll('[data-b2-live]').forEach(function (box) {
+    var fr = document.createElement('iframe');
+    fr.setAttribute('title', 'Vorschau der Landingpage'); fr.setAttribute('aria-hidden', 'true'); fr.setAttribute('tabindex', '-1');
+    fr.setAttribute('loading', box.getAttribute('data-b2-live') === 'haupt' ? 'eager' : 'lazy');
+    fr.addEventListener('load', function () { vorbereiten(fr); });
+    box.appendChild(fr); rahmen.push(fr);
+    var passen = function () { fr.style.transform = 'scale(' + (box.clientWidth / 1440) + ')'; };
+    if (window.ResizeObserver) new ResizeObserver(passen).observe(box); passen();
+  });
+  function laden() { rahmen.forEach(function (fr) { fr.parentNode.classList.remove('ist-bereit'); fr.src = LP + stil + '/?farbe=sofort&vorschau'; }); }
+  function zeige() {
+    var v = vars();
+    k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-stil') === stil ? 'true' : 'false'); });
+    document.querySelectorAll('[data-b2-schritt-stil]').forEach(function (sp) { sp.classList.toggle('an', sp.getAttribute('data-b2-schritt-stil') === stil); });
+    document.querySelectorAll('[data-b2-farbpunkt]').forEach(function (i) { i.style.background = v.farbe; });
+    hell.style.setProperty('--ton', ton.value);
+    rahmen.forEach(faerben);
+  }
+  k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); laden(); zeige(); }); });
+  ton.addEventListener('input', zeige); hell.addEventListener('input', zeige);
+  laden(); zeige();
 })();
 /* Black-Week-Countdown bis 04.12.2026, 23:59:59 (deutsche Zeit); danach Normalpreis 89 € ohne Aktion */
 (function () {
