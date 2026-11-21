@@ -54,7 +54,11 @@
           "href": "/zielgruppen/avrg/",
           "children": [
             {
-              "label": "Black Week · Landingpage /zielgruppen/avrg (neu)",
+              "label": "Black Week 2.0 · Landingpage /zielgruppen/avrg-2 (neu)",
+              "href": "/zielgruppen/avrg-2/"
+            },
+            {
+              "label": "Black Week · Landingpage /zielgruppen/avrg",
               "href": "/zielgruppen/avrg/"
             },
             {

@@ -32,6 +32,10 @@ seiten:
     titel: "AVRG · Black Week"
     v9: "avrg"
     voll: "/zielgruppen/avrg/"
+  - slug: "avrg-2"
+    titel: "AVRG · Black Week 2.0"
+    v9: "avrg2"
+    voll: "/zielgruppen/avrg-2/"
   - slug: "mit-deinem-team-2"
     titel: "Selbst machen · Variante 2"
     basis: "mit-deinem-team"
@@ -2281,6 +2285,101 @@ body.s7-menue-offen { overflow: hidden; }
   .av9n-angebot__uhr .av9n-uhr__l { text-align: center; }
 }
 
+/* ---------- Black Week 2.0 (b2-) ---------- */
+.b2-kicker { color: var(--s7-grau); font-size: 1rem; font-weight: 600; margin-bottom: .6rem; }
+.b2-band .av9-kopf { margin-bottom: clamp(2.2rem, 4vw, 3rem); }
+/* Ticket: Text nur links vom Abriss */
+.b2-pl { margin-top: 2.8rem; }
+.b2-ticket { display: grid; grid-template-columns: minmax(0, 1fr) 3.4rem; border-radius: 22px; background: #fff; color: var(--s7-tinte); transform: rotate(-3deg); box-shadow: 0 0 0 1px var(--s7-linie), 0 30px 60px -26px rgba(0,0,0,.22); }
+.b2-ticket__haupt { padding: clamp(1.4rem, 3vw, 2rem); }
+.b2-ticket__marke { color: var(--s7-grau); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.b2-ticket__zeit { margin-top: .35rem; font-family: var(--s7-schrift-titel); font-size: clamp(2.1rem, 3.6vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.b2-ticket ul { display: grid; gap: .45rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.b2-ticket li { display: flex; align-items: center; gap: .6rem; font-weight: 600; }
+.b2-ticket li::before { content: "✓"; display: grid; place-items: center; flex: none; width: 1.3rem; height: 1.3rem; border-radius: 6px; background: var(--av9-petrol); color: #fff; font-size: .8rem; font-weight: 700; }
+.b2-ticket__fuss { margin-top: 1.1rem; padding-top: .85rem; border-top: 1px solid var(--s7-linie); color: var(--av9-petrol); font-family: var(--s7-schrift-titel); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+.b2-ticket__abriss { position: relative; display: grid; place-items: center; border-left: 2px dashed var(--s7-linie); }
+.b2-ticket__abriss span { writing-mode: vertical-rl; transform: rotate(180deg); color: var(--s7-grau); font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+/* Drei gleiche Kacheln (Das bekommst du · Schritte) */
+.b2-drei { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.b2-teil { display: flex; flex-direction: column; margin: 0; padding: 1.4rem 1.4rem 1.6rem; border-radius: 26px; background: var(--s7-flaeche); }
+.s9-band--flaeche .b2-teil { background: #fff; }
+.b2-teil__bild { display: flex; align-items: center; justify-content: center; height: clamp(11rem, 16vw, 14rem); }
+.b2-teil figcaption, .b2-teil > p { margin-top: 1.2rem; color: var(--s7-grau); font-size: .95rem; line-height: 1.45; text-align: center; }
+.b2-teil figcaption b, .b2-teil > p b { display: block; margin-bottom: .2rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; letter-spacing: -0.02em; }
+.b2-teil .av9n-mac { width: 88%; }
+.b2-teil .av9-stapel { position: relative; width: 100%; height: 100%; }
+.b2-teil .av9-stapel img { top: 50%; bottom: auto; width: clamp(5.6rem, 8vw, 7rem); }
+.b2-teil .av9-stapel img:nth-child(1) { transform: translate(-95%, -50%) rotate(-9deg); }
+.b2-teil .av9-stapel img:nth-child(2) { transform: translate(-5%, -50%) rotate(8deg); }
+.b2-teil .av9-stapel img:nth-child(3) { transform: translate(-50%, -54%); }
+.b2-post { width: 100%; }
+.b2-post .av9n-inbox li { padding: .55rem .8rem; }
+.b2-post .av9n-inbox b { font-size: .78rem; }
+.b2-post .av9n-inbox span { font-size: .72rem; }
+/* Konfigurator */
+.b2-konfig { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 4.5rem); }
+.b2-konfig__buehne { position: relative; padding: 1rem 2rem 1.6rem; }
+.b2-konfig__buehne::before { content: ""; position: absolute; inset: 0 6% 4%; z-index: 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(11,159,189,.18), rgba(134,19,161,.12) 60%, transparent 80%); filter: blur(20px); }
+.b2-konfig__buehne .av9n-mac { z-index: 1; }
+.b2-konfig__buehne img { transition: opacity .2s; }
+.b2-konfig__l { margin: 1.8rem 0 .8rem; color: var(--s7-grau); font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.b2-konfig__l:first-child { margin-top: 0; }
+.b2-stile { display: grid; gap: .6rem; }
+.b2-stil { display: flex; align-items: center; gap: .9rem; padding: .55rem .9rem .55rem .55rem; border: 0; border-radius: 16px; background: #fff; color: var(--s7-tinte); font: inherit; font-weight: 600; text-align: left; cursor: pointer; box-shadow: 0 0 0 1px var(--s7-linie); transition: box-shadow .15s; }
+.b2-stil img { flex: none; width: 5.2rem; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 8px; box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
+.b2-stil[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--s7-tinte); }
+.b2-stil:focus-visible, .b2-farbe:focus-visible { outline: 2px solid #3d5bd1; outline-offset: 3px; }
+.b2-farben { display: flex; gap: .8rem; }
+.b2-farbe { width: 2.6rem; height: 2.6rem; border: 0; border-radius: 50%; background: var(--f); cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.b2-farbe[aria-pressed="true"] { box-shadow: inset 0 0 0 1px rgba(0,0,0,.12), 0 0 0 3px var(--s7-flaeche), 0 0 0 5px var(--s7-tinte); }
+.b2-konfig__t { color: var(--s7-text); line-height: 1.5; }
+/* Schritte */
+.b2-mini { display: flex; gap: .5rem; padding-inline: .4rem; }
+.b2-mini span { position: relative; width: 31%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 10px 24px -12px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.06); }
+.b2-mini img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.b2-mini span.an { box-shadow: 0 0 0 2px var(--s7-tinte), 0 14px 30px -12px rgba(0,0,0,.35); transform: translateY(-4px); }
+.b2-note { position: static; }
+/* Preis: eine Karte */
+.b2-preis { position: relative; isolation: isolate; max-width: 62rem; margin: 0 auto; }
+.b2-preis .av9n-angebot__glow { inset: -12% -6%; }
+.b2-preis__karte { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 3.4rem); padding: clamp(1.8rem, 4vw, 3rem); border-radius: 28px; background: #0e0e10; color: #e9e9e9; }
+.b2-preis__l { color: #a1a1a6; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.b2-preis__inhalt ul { display: grid; gap: .8rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+.b2-preis__inhalt li { position: relative; padding-left: 1.5rem; color: #fff; line-height: 1.45; }
+.b2-preis__inhalt li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #5fd3ea; font-weight: 700; }
+.b2-preis__angebot { display: grid; gap: 1.2rem; align-content: start; padding-left: clamp(2rem, 4vw, 3.4rem); border-left: 1px solid rgba(255,255,255,.14); }
+.b2-preis__angebot .av9n-angebot__preis { padding: 0; border: 0; }
+.b2-preis__angebot .av9n-angebot__preis b { font-size: 3.4rem; }
+.b2-preis__fein { color: #a1a1a6; font-size: .85rem; line-height: 1.45; }
+.av9 .b2-preis__knopf { justify-self: start; background: #fff; border-color: #fff; color: #1d1d1f; }
+.av9 .b2-preis__knopf .s7-pfeil { stroke: #1d1d1f; }
+@media (max-width: 900px) {
+  .b2-konfig { grid-template-columns: minmax(0, 1fr); }
+  .b2-konfig__buehne { max-width: 40rem; margin: 0 auto; }
+  .b2-stile { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .b2-stil { flex-direction: column; align-items: stretch; gap: .5rem; padding: .5rem; font-size: .85rem; text-align: center; }
+  .b2-stil img { width: 100%; }
+  .b2-teil { padding: 1rem .9rem 1.2rem; }
+  .b2-teil__bild { height: 9.5rem; }
+  .b2-teil figcaption b, .b2-teil > p b { font-size: 1.1rem; }
+  .b2-teil figcaption, .b2-teil > p { font-size: .85rem; }
+  .b2-teil .av9-stapel img { width: 4.6rem; }
+  .b2-post .av9n-inbox span, .b2-post .av9n-inbox em { display: none; }
+  .b2-note .s9-app { display: none; }
+  .b2-preis__karte { grid-template-columns: minmax(0, 1fr); }
+  .b2-preis__angebot { padding: 1.6rem 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.14); }
+}
+@media (max-width: 640px) {
+  .b2-drei { grid-template-columns: minmax(0, 1fr); }
+  .b2-teil__bild { height: 11rem; }
+  .b2-teil .av9-stapel img { width: 6rem; }
+  .b2-post .av9n-inbox span { display: block; }
+  .b2-note .s9-app { display: block; }
+  .b2-ticket { transform: rotate(-2deg); }
+  .b2-preis__angebot .av9n-angebot__felder { justify-content: flex-start; }
+}
+
 </style>
 </head>
 <body>
@@ -2293,7 +2392,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-{%- if s.v9 != "avrg" %}<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>{% endif %}
+{%- if s.v9 != "avrg" and s.v9 != "avrg2" %}<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>{% endif %}
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -3203,7 +3302,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 
   {{ kontaktBand() }}
 </main>
-{%- elif s.v9 == "avrg" %}
+{%- elif s.v9 == "avrg" or s.v9 == "avrg2" %}
 {#- AVRG · Black Week (Daniel, 20.11.2026): eigenständige Landingpage www.sofortsichtbar.de/zielgruppen/avrg, im Look der neuen Homepage,
     ohne Trichter. AVRG ist das „21. Paket“: ein Thema statt einer Zielgruppe. Ausrichtung: die Agentur positioniert sich als Problemlöser
     und bekommt alles, um mit dem Thema sofort sichtbar zu werden – inkl. Landingpage, auf die sie Interessenten und Bestandskunden leitet.
@@ -3266,6 +3365,109 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
+{%- if s.v9 == "avrg2" %}
+  {#- Black Week 2.0: erst die Idee, dann die drei Kernaussagen (Das bekommst du · Auf dich zugeschnitten · In drei Schritten startklar) ohne Unterbrechung, dann der Preis -#}
+  <section class="s9-band s9-band--flaeche">
+    <div class="s7-wrap">
+      <div class="av9-kopf">
+        <p class="b2-kicker">Die Idee dahinter</p>
+        <h2 class="s9-h2">Problemlöser <span class="s7-wort">statt Detailberater.</span></h2>
+        <p class="s9-lead">Deine Kunden wollen das Gesetz nicht verstehen. Sie wollen wissen, ob sie etwas tun müssen.</p>
+      </div>
+      <div class="av9-pl b2-pl" aria-label="Statt Paragrafen und Zulagen: ein Klarheits-Ticket mit drei Fragen in 30 Minuten">
+        <div class="av9-pl__wust" aria-hidden="true">
+          {%- for w in ["Grundzulage", "Kinderzulage", "Sonderausgabenabzug", "Mindesteigenbeitrag", "Altersvorsorgedepot", "Garantiequote", "Zulagenantrag", "Günstigerprüfung", "Förderquote", "Wechseloption", "Auszahlplan", "Riester-Bestand"] %}<span>{{ w }}</span>{% endfor -%}
+        </div>
+        <svg class="av9-pl__pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="b2-ticket">
+          <div class="b2-ticket__haupt">
+            <p class="b2-ticket__marke">Klarheits-Ticket · 2027</p>
+            <p class="b2-ticket__zeit">30 Minuten</p>
+            <ul><li>Betrifft mich das?</li><li>Wenn ja: wie?</li><li>Habe ich einen Vorteil?</li></ul>
+            <p class="b2-ticket__fuss">Mitnehmen oder abhaken.</p>
+          </div>
+          <div class="b2-ticket__abriss" aria-hidden="true"><span>Gültig ab sofort</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band b2-band" id="paket">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><p class="b2-kicker">1 · Das bekommst du</p><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
+      <div class="b2-drei">
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
+          <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="" loading="lazy">{% endfor %}</div></div>
+          <figcaption><b>30 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-fenster b2-post"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
+              <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
+              <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge – aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
+              <li><i></i><div><b>Mitnehmen oder abhaken?</b><span>Die neue Altersvorsorge startet im Januar. 30 Minuten genügen.</span></div><em>Jan.</em></li>
+            </ul></div></div>
+          <figcaption><b>3 Mailings</b>An deine Bestandskunden.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche b2-band" id="dein-auftritt">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><p class="b2-kicker">2 · Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Gestaltungen. <span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
+      <div class="b2-konfig" data-b2-konfig>
+        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
+        <div class="b2-konfig__wahl">
+          <p class="b2-konfig__l">Gestaltung</p>
+          <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-blau.webp" alt="" loading="lazy" data-b2-vorschau="1"><span>Nah an der Vorlage</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-blau.webp" alt="" loading="lazy" data-b2-vorschau="2"><span>Was trifft auf dich zu?</span></button><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="" loading="lazy" data-b2-vorschau="3"><span>Das Klarheits-Ticket</span></button></div>
+          <p class="b2-konfig__l">Farbe</p>
+          <div class="b2-farben"><button type="button" class="b2-farbe" data-b2-farbe="rot" style="--f:#EF0000" aria-label="Rot"></button><button type="button" class="b2-farbe" data-b2-farbe="blau" style="--f:#2A00DC" aria-label="Blau" aria-pressed="true"></button><button type="button" class="b2-farbe" data-b2-farbe="gruen" style="--f:#028B34" aria-label="Grün"></button><button type="button" class="b2-farbe" data-b2-farbe="gelb" style="--f:#FEE354" aria-label="Gelb"></button></div>
+          <p class="b2-konfig__l">Logo und Kontakt</p>
+          <p class="b2-konfig__t">Dein Logo, dein Foto, deine Telefonnummer und deine Terminwahl – auf der Landingpage, in den Postings und in den Mailings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s9-band b2-band">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><p class="b2-kicker">3 · So einfach geht’s</p><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
+      <ol class="b2-drei b2-schritte">
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["1", "2", "3"] %}<span{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-gruen.webp" alt="" loading="lazy"></span>{% endfor %}</div></div>
+          <p><b>Du wählst.</b>Gestaltung und Farbe.</p></li>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-gruen.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
+          <p><b>Wir richten ein.</b>Logo, Kontakt und Terminwahl.</p></li>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="s9-note b2-note"><span class="s9-app"></span><div><b>Neue Terminanfrage</b><small>Frau Müller · Donnerstag, 10:00</small></div></div></div>
+          <p><b>Du gehst raus.</b>Die Anfragen kommen bei dir an.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="s9-band s9-band--flaeche b2-band" id="preis">
+    <div class="s7-wrap">
+      <div class="av9-kopf"><h2 class="s9-h2">Deine AVRG-Vertriebsstrecke.</h2></div>
+      <div class="b2-preis">
+        <i class="av9n-angebot__glow" aria-hidden="true"></i>
+        <div class="b2-preis__karte">
+          <div class="b2-preis__inhalt">
+            <p class="b2-preis__l">Alles drin, fertig eingerichtet</p>
+            <ul>
+              <li>Landingpage in deiner Gestaltung und Farbe, mit Terminwahl</li>
+              <li>30 Postings mit Bild und Text, als Redaktionsplan</li>
+              <li>3 Mailings an deine Bestandskunden</li>
+              <li>Einrichtung mit Logo, Kontaktdaten und Foto</li>
+            </ul>
+          </div>
+          <div class="b2-preis__angebot">
+            <div class="av9n-angebot__preis" data-av9-preis2><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div>
+            <div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div>
+            <p class="b2-preis__fein">Inklusive Mehrwertsteuer. Mindestlaufzeit drei Monate, danach monatlich zum Monatsende kündbar. Der Aktionspreis gilt bei Buchung bis einschließlich 04.12.2026.</p>
+            <a class="s7-knopf b2-preis__knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{%- else %}
   <section class="s9-band" id="paket">
     <div class="s7-wrap">
       <div class="av9-kopf"><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
@@ -3396,6 +3598,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     </div>
   </section>
 
+{%- endif %}
   {{ kontaktBand({ h2: "Sprechen wir über die neue", h2_akzent: "Altersvorsorge.", t: "Im Termin klären wir, welche Gestaltung zu dir passt und wann dein erstes Mailing rausgeht." }) }}
 </main>
 <script>
@@ -3412,6 +3615,21 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   document.querySelectorAll('[data-av9-v]').forEach(function (b) { b.addEventListener('click', function () { zeige(b.getAttribute('data-av9-v')); }); });
   var start = new URLSearchParams(location.search).get('kopf');
   if (start === '2' || start === '3') zeige(start);
+})();
+/* Black Week 2.0: Konfigurator – Gestaltung und Farbe wechseln das Bild im MacBook */
+(function () {
+  var k = document.querySelector('[data-b2-konfig]'); if (!k) return;
+  var bild = k.querySelector('[data-b2-bild]'), stil = '3', farbe = 'blau', basis = bild.getAttribute('src').replace(/lp\d-[a-z]+\.webp$/, '');
+  function zeige() {
+    bild.src = basis + 'lp' + stil + '-' + farbe + '.webp';
+    k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-stil') === stil ? 'true' : 'false'); });
+    k.querySelectorAll('[data-b2-farbe]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-farbe') === farbe ? 'true' : 'false'); });
+    k.querySelectorAll('[data-b2-vorschau]').forEach(function (i) { i.src = basis + 'lp' + i.getAttribute('data-b2-vorschau') + '-' + farbe + '.webp'; });
+  }
+  k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); zeige(); }); });
+  k.querySelectorAll('[data-b2-farbe]').forEach(function (b) { b.addEventListener('click', function () { farbe = b.getAttribute('data-b2-farbe'); zeige(); }); });
+  // alle Bilder vorladen, damit der Wechsel sofort sitzt
+  ['1', '2', '3'].forEach(function (n) { ['rot', 'blau', 'gruen', 'gelb'].forEach(function (f) { var i = new Image(); i.src = basis + 'lp' + n + '-' + f + '.webp'; }); });
 })();
 /* Black-Week-Countdown bis 04.12.2026, 23:59:59 (deutsche Zeit); danach Normalpreis 89 € ohne Aktion */
 (function () {
