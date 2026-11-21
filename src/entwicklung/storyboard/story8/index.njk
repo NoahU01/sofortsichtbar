@@ -2380,6 +2380,29 @@ body.s7-menue-offen { overflow: hidden; }
   .b2-preis__angebot .av9n-angebot__felder { justify-content: flex-start; }
 }
 
+/* ---------- Black Week 2.0, Runde 2 (Daniel, 21.11.2026) ---------- */
+/* Farbschieber: rastet an fünf Farben ein, am iPhone mit dem Finger wischbar */
+.b2-schieber { display: grid; gap: .8rem; }
+.b2-schieber input { -webkit-appearance: none; appearance: none; width: 100%; height: 2.4rem; margin: 0; border-radius: 99px; background: linear-gradient(90deg, #11708a 0 20%, #2A00DC 20% 40%, #028B34 40% 60%, #FEE354 60% 80%, #EF0000 80% 100%); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); cursor: pointer; }
+.b2-schieber input::-webkit-slider-thumb { -webkit-appearance: none; width: 2.9rem; height: 2.9rem; border-radius: 50%; background: var(--wert, #11708a); border: 4px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.08); }
+.b2-schieber input::-moz-range-thumb { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--wert, #11708a); border: 4px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.b2-schieber input:focus-visible { outline: 2px solid #3d5bd1; outline-offset: 4px; }
+.b2-schieber__name { display: flex; align-items: center; gap: .55rem; color: var(--s7-tinte); font-weight: 600; }
+.b2-schieber__name i { width: .8rem; height: .8rem; border-radius: 50%; background: #11708a; }
+.b2-schieber__name small { margin-left: .3rem; color: var(--s7-grau); font-size: .85rem; font-weight: 400; }
+/* Preiskarte in unseren Farben */
+.b2-preis .av9n-angebot__glow { inset: -16% -8%; background: radial-gradient(closest-side, rgba(11,159,189,.45), rgba(134,19,161,.38) 55%, transparent 80%); }
+.b2-preis__karte { background: linear-gradient(125deg, #0b9fbd 0%, #3a5fc0 45%, #8613a1 100%); color: #fff; box-shadow: 0 30px 70px -30px rgba(134,19,161,.6); }
+.b2-preis__l, .b2-preis .av9n-angebot__preis small, .b2-preis .av9n-uhr__l { color: rgba(255,255,255,.78) !important; }
+.b2-preis__inhalt li::before { color: #fff; }
+.b2-preis__angebot { border-left-color: rgba(255,255,255,.28); }
+.b2-preis .av9n-angebot__preis span { color: rgba(255,255,255,.88); }
+.b2-preis .av9n-angebot__preis s { color: rgba(255,255,255,.6); }
+.b2-preis .av9n-uhr__f { background: rgba(255,255,255,.18); }
+.b2-preis .av9n-uhr__f small { color: rgba(255,255,255,.75); }
+.b2-preis__fein { color: rgba(255,255,255,.8); }
+@media (max-width: 900px) { .b2-preis__angebot { border-top-color: rgba(255,255,255,.28); } }
+
 </style>
 </head>
 <body>
@@ -3396,7 +3419,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">1 · Das bekommst du</p><h2 class="s9-h2">Alles, um mit der neuen Altersvorsorge <span class="s7-wort">sichtbar zu werden.</span></h2></div>
       <div class="b2-drei">
-        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
           <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
         <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="" loading="lazy">{% endfor %}</div></div>
           <figcaption><b>30 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
@@ -3414,12 +3437,12 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">2 · Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Gestaltungen. <span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
       <div class="b2-konfig" data-b2-konfig>
-        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
+        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350" data-b2-bild></div><div class="av9n-mac__fuss"></div></div></div>
         <div class="b2-konfig__wahl">
           <p class="b2-konfig__l">Gestaltung</p>
-          <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-blau.webp" alt="" loading="lazy" data-b2-vorschau="1"><span>Nah an der Vorlage</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-blau.webp" alt="" loading="lazy" data-b2-vorschau="2"><span>Was trifft auf dich zu?</span></button><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-blau.webp" alt="" loading="lazy" data-b2-vorschau="3"><span>Das Klarheits-Ticket</span></button></div>
+          <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" loading="lazy" data-b2-vorschau="3"><span>Das Klarheits-Ticket</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-sofort.webp" alt="" loading="lazy" data-b2-vorschau="2"><span>Betrifft dich das?</span></button><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-sofort.webp" alt="" loading="lazy" data-b2-vorschau="1"><span>Mitten im Leben</span></button></div>
           <p class="b2-konfig__l">Farbe</p>
-          <div class="b2-farben"><button type="button" class="b2-farbe" data-b2-farbe="rot" style="--f:#EF0000" aria-label="Rot"></button><button type="button" class="b2-farbe" data-b2-farbe="blau" style="--f:#2A00DC" aria-label="Blau" aria-pressed="true"></button><button type="button" class="b2-farbe" data-b2-farbe="gruen" style="--f:#028B34" aria-label="Grün"></button><button type="button" class="b2-farbe" data-b2-farbe="gelb" style="--f:#FEE354" aria-label="Gelb"></button></div>
+          <div class="b2-schieber"><input type="range" min="0" max="4" step="1" value="0" data-b2-schieber aria-label="Farbe der Landingpage" aria-valuetext="Petrol"><p class="b2-schieber__name"><i data-b2-farbpunkt></i><span data-b2-farbname>Petrol</span><small>oder deine eigene Farbe</small></p></div>
           <p class="b2-konfig__l">Logo und Kontakt</p>
           <p class="b2-konfig__t">Dein Logo, dein Foto, deine Telefonnummer und deine Terminwahl – auf der Landingpage, in den Postings und in den Mailings.</p>
         </div>
@@ -3431,9 +3454,9 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     <div class="s7-wrap">
       <div class="av9-kopf"><p class="b2-kicker">3 · So einfach geht’s</p><h2 class="s9-h2">In drei Schritten <span class="s7-wort">startklar.</span></h2></div>
       <ol class="b2-drei b2-schritte">
-        <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["1", "2", "3"] %}<span{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-gruen.webp" alt="" loading="lazy"></span>{% endfor %}</div></div>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="b2-mini">{% for n in ["3", "2", "1"] %}<span data-b2-schritt-stil="{{ n }}"{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-sofort.webp" alt="" loading="lazy" data-b2-farbbild="{{ n }}"></span>{% endfor %}</div></div>
           <p><b>Du wählst.</b>Gestaltung und Farbe.</p></li>
-        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-gruen.webp" alt="" width="2160" height="1350" loading="lazy"></div><div class="av9n-mac__fuss"></div></div></div>
+        <li class="b2-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy" data-b2-farbbild="wahl"></div><div class="av9n-mac__fuss"></div></div></div>
           <p><b>Wir richten ein.</b>Logo, Kontakt und Terminwahl.</p></li>
         <li class="b2-teil"><div class="b2-teil__bild"><div class="s9-note b2-note"><span class="s9-app"></span><div><b>Neue Terminanfrage</b><small>Frau Müller · Donnerstag, 10:00</small></div></div></div>
           <p><b>Du gehst raus.</b>Die Anfragen kommen bei dir an.</p></li>
@@ -3616,20 +3639,28 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
   var start = new URLSearchParams(location.search).get('kopf');
   if (start === '2' || start === '3') zeige(start);
 })();
-/* Black Week 2.0: Konfigurator – Gestaltung und Farbe wechseln das Bild im MacBook */
+/* Black Week 2.0: Konfigurator – Gestaltung und Farbschieber wechseln das Bild im MacBook; die drei Schritte ziehen mit */
 (function () {
   var k = document.querySelector('[data-b2-konfig]'); if (!k) return;
-  var bild = k.querySelector('[data-b2-bild]'), stil = '3', farbe = 'blau', basis = bild.getAttribute('src').replace(/lp\d-[a-z]+\.webp$/, '');
+  var FARBEN = [['sofort', 'Petrol', '#11708a'], ['blau', 'Blau', '#2A00DC'], ['gruen', 'Grün', '#028B34'], ['gelb', 'Gelb', '#FEE354'], ['rot', 'Rot', '#EF0000']];
+  var bild = k.querySelector('[data-b2-bild]'), schieber = k.querySelector('[data-b2-schieber]'), stil = '3', fi = 0;
+  var basis = bild.getAttribute('src').replace(/lp\d-[a-z]+\.webp$/, '');
+  function datei(n) { return basis + 'lp' + n + '-' + FARBEN[fi][0] + '.webp'; }
   function zeige() {
-    bild.src = basis + 'lp' + stil + '-' + farbe + '.webp';
+    bild.src = datei(stil);
     k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-stil') === stil ? 'true' : 'false'); });
-    k.querySelectorAll('[data-b2-farbe]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-farbe') === farbe ? 'true' : 'false'); });
-    k.querySelectorAll('[data-b2-vorschau]').forEach(function (i) { i.src = basis + 'lp' + i.getAttribute('data-b2-vorschau') + '-' + farbe + '.webp'; });
+    k.querySelectorAll('[data-b2-vorschau]').forEach(function (i) { i.src = datei(i.getAttribute('data-b2-vorschau')); });
+    document.querySelectorAll('[data-b2-farbbild]').forEach(function (i) { var n = i.getAttribute('data-b2-farbbild'); i.src = datei(n === 'wahl' ? stil : n); });
+    document.querySelectorAll('[data-b2-schritt-stil]').forEach(function (sp) { sp.classList.toggle('an', sp.getAttribute('data-b2-schritt-stil') === stil); });
+    k.querySelector('[data-b2-farbname]').textContent = FARBEN[fi][1];
+    k.querySelector('[data-b2-farbpunkt]').style.background = FARBEN[fi][2];
+    schieber.style.setProperty('--wert', FARBEN[fi][2]);
+    schieber.setAttribute('aria-valuetext', FARBEN[fi][1]);
   }
   k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); zeige(); }); });
-  k.querySelectorAll('[data-b2-farbe]').forEach(function (b) { b.addEventListener('click', function () { farbe = b.getAttribute('data-b2-farbe'); zeige(); }); });
-  // alle Bilder vorladen, damit der Wechsel sofort sitzt
-  ['1', '2', '3'].forEach(function (n) { ['rot', 'blau', 'gruen', 'gelb'].forEach(function (f) { var i = new Image(); i.src = basis + 'lp' + n + '-' + f + '.webp'; }); });
+  schieber.addEventListener('input', function () { fi = Number(schieber.value); zeige(); });
+  zeige();
+  ['1', '2', '3'].forEach(function (n) { FARBEN.forEach(function (f) { var i = new Image(); i.src = basis + 'lp' + n + '-' + f[0] + '.webp'; }); });
 })();
 /* Black-Week-Countdown bis 04.12.2026, 23:59:59 (deutsche Zeit); danach Normalpreis 89 € ohne Aktion */
 (function () {
