@@ -2211,8 +2211,53 @@ body.s7-menue-offen { overflow: hidden; }
   .av9n-szene .av9n-stoerer b { font-size: 1.6rem; }
   .av9n-szene .av9n-stoerer span { font-size: .7rem; }
   .av9n-uhr { font-size: .82rem; padding: .5rem .9rem; }
-  .av9n-uhr span { display: none; }
-  .av9n-uhr::before { content: "Noch"; margin-right: .3rem; color: var(--s7-grau); font-weight: 600; }
+}
+
+/* ---------- Runde 6 (Daniel, 21.11.2026) ---------- */
+/* Countdown hervorgehoben: vier Zahlenfelder */
+.av9 .av9n-uhr { display: inline-flex; flex-wrap: nowrap; align-items: center; gap: .5rem; margin: 2.2rem 0 0; padding: .55rem .6rem .55rem 1.2rem; border-radius: 20px; background: #0e0e10; color: #fff; font-size: 1rem; }
+.av9 .av9n-uhr::before { content: none; }
+.av9n-uhr__l { margin-right: .5rem; color: #d2d2d7; font-weight: 600; white-space: nowrap; }
+.av9n-uhr__f { display: grid; justify-items: center; min-width: 3.4rem; padding: .45rem .5rem .4rem; border-radius: 12px; background: rgba(255,255,255,.1); }
+.av9n-uhr__f b { color: #fff; font-family: var(--s7-schrift-titel); font-size: 1.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.av9n-uhr__f small { margin-top: .2rem; color: #a1a1a6; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+/* Störer mit Farbschein */
+.av9 .av9n-stoerer { overflow: visible; background: transparent; box-shadow: none; }
+.av9 .av9n-stoerer::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: 50%; background: #0e0e10; box-shadow: 0 20px 40px -16px rgba(0,0,0,.45); }
+.av9 .av9n-stoerer > small, .av9 .av9n-stoerer > b, .av9 .av9n-stoerer > span { position: relative; z-index: 1; }
+.av9 .av9n-stoerer__glow { position: absolute; inset: -55%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(11,159,189,.42), rgba(134,19,161,.30) 55%, transparent 78%); filter: blur(18px); pointer-events: none; }
+/* Landingpage-Kachel: Text schmal links, MacBook rechts oben, flacher */
+.av9n-kachel--lp { display: grid; grid-template-columns: minmax(0, 25rem) minmax(0, 1fr); align-items: start; gap: 1rem; }
+.av9n-kachel--lp .av9-kachel__text { padding-bottom: clamp(1.6rem, 3vw, 2.4rem); }
+.av9n-kachel--lp .av9n-geraete { max-width: 34rem; margin: 0 0 0 auto; padding: clamp(1.6rem, 3vw, 2.4rem) clamp(3rem, 5vw, 4.4rem) clamp(1.6rem, 3vw, 2.4rem) 0; }
+/* Posteingang kompakter */
+.av9n-kachel--mail .av9n-fenster { font-size: .9em; }
+.av9n-kachel--mail .av9n-inbox li { padding: .45rem .8rem; }
+.av9n-kachel--mail .av9n-inbox b { font-size: .76rem; }
+.av9n-kachel--mail .av9n-inbox span { font-size: .7rem; }
+.av9n-kachel--mail .av9n-inbox em { font-size: .68rem; }
+.av9n-kachel--mail .av9-mail__leiste { padding: .4rem .7rem; font-size: .7rem; }
+.av9n-kachel--mail .av9-mail__kopf { padding: .55rem .8rem; font-size: .72rem; gap: .15rem .7rem; }
+.av9n-kachel--mail .av9-mail__inhalt { position: relative; max-height: 7.6rem; overflow: hidden; padding: .7rem .8rem .8rem; font-size: .76rem; line-height: 1.45; gap: .45rem; }
+.av9n-kachel--mail .av9-mail__inhalt::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3.2rem; background: linear-gradient(180deg, rgba(255,255,255,0), #fff 85%); }
+.av9n-kachel--mail .av9-mail__knopf { padding: .35rem .75rem; font-size: .72rem; }
+.av9n-kachel--mail .av9-kachel__text p:last-child { max-width: 26rem; }
+/* „In deinem Auftritt“ größer */
+.av9-auftritt { max-width: 56rem; margin-top: 3rem; gap: clamp(1.6rem, 4vw, 3rem); }
+.av9-auftritt__bilder img { width: clamp(7rem, 13vw, 10rem); border-radius: 12px; }
+.av9-auftritt__bilder svg { width: 1.8rem; height: 1.8rem; }
+.av9-auftritt p { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.5; }
+@media (max-width: 1100px) {
+  .av9n-kachel--lp { grid-template-columns: minmax(0, 1fr); }
+  .av9n-kachel--lp .av9-kachel__text { padding-bottom: 0; }
+  .av9n-kachel--lp .av9n-geraete { margin: 0 auto; padding: 1.2rem 3rem 2.4rem 1.8rem; }
+}
+@media (max-width: 640px) {
+  .av9 .av9n-uhr { flex-wrap: wrap; justify-content: center; gap: .4rem; padding: .7rem; border-radius: 18px; }
+  .av9n-uhr__l { width: 100%; margin: 0 0 .1rem; text-align: center; font-size: .9rem; }
+  .av9n-uhr__f { min-width: 3.6rem; }
+  .av9n-uhr__f b { font-size: 1.4rem; }
+  .av9-auftritt__bilder img { width: 7rem; }
 }
 
 </style>
@@ -3156,8 +3201,8 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
       <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
-      <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+      <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
+      <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
     </div>
   </section>
 
@@ -3169,12 +3214,12 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
         <h1 class="av9-h1">Nur wer gefunden wird, <span class="s7-wort">mit dem wird gesprochen.</span></h1>
         <p class="av9-held2__lead">Landingpage, Postings und Mailings an deine Bestandskunden. Fertig, in deinem Auftritt.</p>
         <div class="s9-knoepfe av9-links"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-        <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
+        <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
       </div>
       <div class="av9n-szene" aria-hidden="true">
         <div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
         <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp" alt=""></div>
-        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
       </div>
     </div>
   </section>
@@ -3186,7 +3231,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
       
       <div class="av9n-box" aria-label="Das bekommst du: Landingpage, 30 Postings, 3 Mailings">
-        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
         <figure><div class="av9n-box__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div></div></div><figcaption><b>Landingpage</b>mit Terminwahl</figcaption></figure>
         <figure><div class="av9n-box__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div></div><figcaption><b>30 Postings</b>für Instagram, Facebook und LinkedIn</figcaption></figure>
         <figure><div class="av9n-box__bild"><div class="av9n-fenster av9n-fenster--klein"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
@@ -3196,7 +3241,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             </ul></div></div><figcaption><b>3 Mailings</b>an deine Bestandskunden</figcaption></figure>
       </div>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <p class="av9n-uhr" data-av9-uhr aria-label="Die Black Week endet am 04.12.2026"><span>Black Week endet in</span> <b data-t>–</b>&nbsp;T <b data-s>–</b>&nbsp;Std <b data-m>–</b>&nbsp;Min <b data-sek>–</b>&nbsp;Sek</p>
+      <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
     </div>
   </section>
 
