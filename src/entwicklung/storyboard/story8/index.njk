@@ -723,7 +723,7 @@ body.s7-menue-offen { overflow: hidden; }
 .s7-kontakt__team img { width: 2.9rem; height: 2.9rem; border: 2px solid var(--s7-tinte); border-radius: 50%; object-fit: cover; }
 .s7-kontakt__team img + img { margin-left: -.8rem; }
 .s7-kontakt__wege a:not(.s7-knopf) { color: #fff; text-decoration: none; }
-.s7-fuss { padding: 2rem 0; background: var(--s7-tinte); color: #888; font-size: .85rem; }
+.s7-fuss { position: relative; margin-top: -1px; padding: calc(2rem + 1px) 0 2rem; border: 0; background: var(--s7-tinte); color: #888; font-size: .85rem; box-shadow: 0 -1px 0 var(--s7-tinte); }  /* keine Linie zwischen dunklem Kontakt-Kasten und Fußzeile (Daniel 21.11.2026): 1 px Überlappung gegen die Subpixel-Naht in Safari */
 .s7-fuss .s7-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .s7-fuss a { color: #bbb; text-decoration: none; margin-left: 1.2rem; }
 
