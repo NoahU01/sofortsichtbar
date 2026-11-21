@@ -281,6 +281,109 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
 .m-frage__satz{position:absolute;left:5.5cqi;right:3cqi;top:9cqi;font-size:28cqi!important;line-height:.9!important;letter-spacing:-.06em!important}
 .m-frage__unter{position:absolute;left:7cqi;bottom:14cqi;margin:0;font:600 5.4cqi/1.15 "BW Inter",sans-serif;color:var(--grau)}
 
+/* ---------- Reels (21.11.2026): Vorschau 9:16, alles in cqi, Szenen schaltet ein kleines Skript ---------- */
+.rl{display:grid;gap:clamp(40px,5vw,72px);margin-top:clamp(32px,4vw,48px)}
+.rl__eintrag{display:grid;grid-template-columns:minmax(0,19rem) minmax(0,1fr);gap:clamp(24px,3.4vw,56px);align-items:start;padding-top:clamp(28px,3vw,44px);border-top:1px solid #e2e2df}
+.rl__info{min-width:0;display:grid;gap:1rem;align-content:start}
+.rl__stil{margin:0;color:var(--grau);font-size:.9rem;font-weight:600}
+.rl__info h3{margin:0;font:700 clamp(1.7rem,2.6vw,2.3rem)/1.05 "BW Tight",system-ui,sans-serif;letter-spacing:-.03em}
+.rl__kern{margin:0;max-width:40rem;font-size:1.08rem;line-height:1.5;color:#2d2d30}
+.rl__ablauf{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.45;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px #e2e2df}
+.rl__ablauf th,.rl__ablauf td{padding:.75rem 1rem;text-align:left;vertical-align:top;border-top:1px solid #ececea}
+.rl__ablauf tr:first-child th,.rl__ablauf tr:first-child td{border-top:0}
+.rl__ablauf th{width:5.2rem;font-weight:600;color:var(--grau);white-space:nowrap}
+.rl__ablauf td:last-child{width:30%;color:var(--grau)}
+.rl__varianten{display:grid;gap:.35rem}
+.rl__varianten b{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
+.rl__varianten p{margin:0;font-size:.98rem;line-height:1.45}
+.rl__machen{margin:0;font-size:.92rem;line-height:1.5;color:var(--grau)}
+@media (max-width:820px){.rl__eintrag{grid-template-columns:minmax(0,1fr)}.rl__eintrag .r{max-width:20rem}}
+@media (max-width:560px){.rl__ablauf,.rl__ablauf tbody,.rl__ablauf tr,.rl__ablauf th,.rl__ablauf td{display:block;width:auto!important}.rl__ablauf tr{padding:.7rem 1rem;border-top:1px solid #ececea}.rl__ablauf tr:first-child{border-top:0}.rl__ablauf th,.rl__ablauf td{padding:0;border:0}.rl__ablauf td:last-child:not(:empty){margin-top:.25rem}}
+
+.r{--petrol:#11708a;container-type:inline-size;position:relative;aspect-ratio:9/16;width:100%;overflow:hidden;border-radius:18px;background:#fff;color:var(--tinte);box-shadow:0 1px 0 rgba(0,0,0,.04),0 24px 48px -18px rgba(0,0,0,.32)}
+.r--schwarz{background:#000;color:#fff}
+.r--kamera{background:radial-gradient(120% 70% at 50% 30%,#4a4f5c,#1b1d22 70%);color:#fff}
+.r--kamera::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 26% at 50% 34%,rgba(255,226,200,.16),transparent 70%)}
+.r-kamera-hinweis{position:absolute;left:0;right:0;top:44cqi;margin:0;text-align:center;font:600 3.8cqi/1.2 "BW Inter",sans-serif;color:rgba(255,255,255,.45)}
+.r-balken{position:absolute;left:5cqi;right:5cqi;top:4cqi;z-index:9;height:1cqi;border-radius:1cqi;background:rgba(127,127,127,.3);overflow:hidden}
+.r-balken i{display:block;height:100%;width:0;background:#8e8e93}
+.r.laeuft .r-balken i{animation:r-balken var(--T,10s) linear both}
+@keyframes r-balken{to{width:100%}}
+.r-s{position:absolute;inset:0;visibility:hidden}
+.r-s.an{visibility:visible}
+.r-s--schwarz{background:#000;color:#fff}
+.r-s--verlauf{background:linear-gradient(160deg,#0b9fbd,#8613a1);color:#fff}
+.r--schwarz .bw__v,.r--kamera .bw__v,.r-s--schwarz .bw__v{background:linear-gradient(100deg,#7fe0f2,#dba8f0);-webkit-background-clip:text;background-clip:text}
+
+/* Bausteine */
+.r-ober{position:absolute;left:8cqi;right:8cqi;top:16cqi;margin:0;font:700 9cqi/1.05 "BW Tight",sans-serif;letter-spacing:-.035em}
+.r-such{position:absolute;left:7cqi;right:7cqi;top:74cqi;display:flex;align-items:center;gap:2.6cqi;padding:4.4cqi 5cqi;border-radius:99px;background:#fff;box-shadow:0 0 0 .4cqi #e2e2e6,0 3cqi 7cqi -2cqi rgba(0,0,0,.16);font:600 4cqi/1.15 "BW Inter",sans-serif}
+.r-such svg{flex:none;width:5cqi;height:5cqi;color:var(--grau)}
+.r-such span{min-width:0;white-space:nowrap}
+.r-such--oben{top:14cqi}
+.r-tipp{clip-path:inset(0 100% 0 0)}
+.an .r-tipp{animation:r-tipp 1.8s steps(27) .3s both}
+@keyframes r-tipp{to{clip-path:inset(0 0 0 0)}}
+.r-cursor{flex:none;width:.5cqi;height:5cqi;background:var(--petrol);animation:r-blink .8s steps(2) infinite}
+@keyframes r-blink{50%{opacity:0}}
+.r-treffer{position:absolute;left:9cqi;right:7cqi;top:40cqi;margin:0;padding:0;list-style:none;display:grid;gap:6cqi}
+.r-treffer li{display:grid;gap:1.4cqi;opacity:0}
+.r-treffer small{font:400 3.2cqi/1 "BW Inter",sans-serif;color:var(--grau)}
+.r-treffer b{font:600 4.8cqi/1.15 "BW Inter",sans-serif;color:#1d3f8f}
+.an .r-treffer li{animation:r-rein .35s ease-out both}
+.an .r-treffer li:nth-child(2){animation-delay:.45s}.an .r-treffer li:nth-child(3){animation-delay:.9s}
+.r-treffer .r-treffer__leer{margin:2cqi 0 0 -4cqi;padding:5cqi 4cqi;border:.6cqi dashed #c7c7cc;border-radius:3.4cqi}
+.r-treffer .r-treffer__leer b{color:#a1a1a6;font-size:7cqi}
+.an .r-treffer .r-treffer__leer{animation:r-rein .3s ease-out 1.6s both,r-wackeln .5s ease-in-out 1.95s both}
+@keyframes r-rein{from{opacity:0;transform:translateY(4cqi)}to{opacity:1;transform:none}}
+@keyframes r-wackeln{20%{transform:translateX(-2.4cqi)}40%{transform:translateX(2.4cqi)}60%{transform:translateX(-1.6cqi)}80%{transform:translateX(1.2cqi)}}
+.r-riesig{position:relative;margin:0;padding:0 7cqi;font:700 15cqi/.96 "BW Tight",sans-serif;letter-spacing:-.045em}
+.r-s--schwarz,.r--schwarz .r-s{display:flex;flex-direction:column;justify-content:center;gap:5cqi}
+.r-riesig--xl{font-size:17cqi}
+.r-pop{opacity:0}
+.an .r-pop{animation:r-pop .4s cubic-bezier(.2,.9,.3,1.2) both}
+.an .r-pop--2{animation-delay:1.1s}
+@keyframes r-pop{from{opacity:0;transform:scale(1.18)}to{opacity:1;transform:none}}
+.r-wort{position:relative;align-self:flex-start;margin:0 7cqi;font:700 min(14cqi,calc(86cqi / (var(--n) * .52)))/1 "BW Tight",sans-serif;letter-spacing:-.045em;white-space:nowrap}
+.r-wort::after{content:"";position:absolute;left:-2cqi;top:50%;height:1.8cqi;width:0;border-radius:2cqi;background:linear-gradient(100deg,#0b9fbd,#8613a1)}
+.an .r-wort{animation:r-pop .25s ease-out both}
+.an .r-wort::after{animation:r-strich .18s ease-out .3s both}
+@keyframes r-strich{to{width:calc(100% + 4cqi)}}
+.r-klein{position:relative;margin:0;padding:0 7cqi;font:600 6cqi/1.2 "BW Inter",sans-serif;color:#a1a1a6}
+.r-knoepfe{display:grid;gap:4cqi;margin:4cqi 7cqi 0}
+.r-knopf{display:block;padding:6cqi;border-radius:99px;text-align:center;font:700 8cqi/1 "BW Tight",sans-serif;letter-spacing:-.03em;box-shadow:inset 0 0 0 .6cqi rgba(255,255,255,.85);opacity:0}
+.r-knopf--voll{background:linear-gradient(100deg,#0b9fbd,#8613a1);box-shadow:0 3cqi 8cqi -2cqi rgba(134,19,161,.6)}
+.an .r-knopf{animation:r-rein .35s ease-out .5s both}.an .r-knopf+.r-knopf{animation-delay:.75s}
+.an .r-knopf--voll{animation:r-rein .35s ease-out .5s both,r-klick .3s ease-in-out 1.9s}
+@keyframes r-klick{50%{transform:scale(.94)}}
+.r-url{position:absolute;left:7cqi;bottom:9cqi;font:600 3.6cqi/1 "BW Inter",sans-serif;font-style:normal;color:#86868b}
+.r-glow{position:absolute;left:0;right:0;top:50cqi;height:100cqi;background:radial-gradient(closest-side,rgba(11,159,189,.4),rgba(134,19,161,.26) 55%,transparent 78%)}
+.r-iphone{position:absolute;left:20cqi;top:48cqi;width:60cqi;padding:1.3cqi;border-radius:9.4cqi;background:#1d1d1f;box-shadow:inset 0 0 0 .5cqi #3a3a3c,0 6cqi 12cqi -3cqi rgba(29,29,31,.5)}
+.r-iphone img{display:block;width:100%;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:8.2cqi;background:#fff}
+.an .r-iphone{animation:r-hoch .6s cubic-bezier(.2,.8,.3,1) both}
+@keyframes r-hoch{from{transform:translateY(70cqi)}to{transform:none}}
+.r-toast{position:absolute;left:7cqi;right:7cqi;top:62cqi;z-index:2;display:flex;align-items:center;gap:3.4cqi;padding:4cqi 4.6cqi;border-radius:4.6cqi;background:rgba(255,255,255,.96);box-shadow:0 3cqi 9cqi -2cqi rgba(0,0,0,.3);opacity:0}
+.r-toast>i{flex:none;width:10cqi;height:10cqi;border-radius:2.6cqi;background:linear-gradient(150deg,#0b9fbd,#8613a1)}
+.r-toast b{display:block;font:600 4.2cqi/1.15 "BW Inter",sans-serif}
+.r-toast span{display:block;margin-top:1cqi;font:400 3.4cqi/1.2 "BW Inter",sans-serif;color:var(--grau)}
+.an .r-toast{animation:r-runter .45s cubic-bezier(.2,.9,.3,1.15) 1.3s both}
+@keyframes r-runter{from{opacity:0;transform:translateY(-10cqi)}to{opacity:1;transform:none}}
+.r-ende{position:absolute;left:8cqi;right:8cqi;top:50%;transform:translateY(-50%);display:grid;gap:3cqi}
+.r-ende small{font:600 4.6cqi/1.2 "BW Inter",sans-serif;opacity:.85}
+.r-ende b{font:700 34cqi/.9 "BW Tight",sans-serif;letter-spacing:-.06em}
+.r-ende .r-ende__wort{font-size:14cqi;line-height:.98;letter-spacing:-.045em}
+.r-ende span{font:600 4.8cqi/1.25 "BW Inter",sans-serif}
+.r-ende s{opacity:.7}
+.r-ende em{margin-top:6cqi;font:600 3.8cqi/1 "BW Inter",sans-serif;font-style:normal;opacity:.8}
+.an .r-ende>*{animation:r-rein .4s ease-out both}
+.an .r-ende>*:nth-child(2){animation-delay:.15s}.an .r-ende>*:nth-child(3){animation-delay:.3s}.an .r-ende>*:nth-child(4){animation-delay:.45s}
+.r-sprech{position:absolute;left:7cqi;right:7cqi;top:96cqi;margin:0;font:700 10.4cqi/1.04 "BW Tight",sans-serif;letter-spacing:-.035em;text-shadow:0 .6cqi 3cqi rgba(0,0,0,.35)}
+.r-sprech span{display:inline-block;opacity:0}
+.r-sprech .bw__v{text-shadow:none}
+.an .r-sprech span{animation:r-wortweise .18s ease-out calc(var(--i) * .26s) both}
+@keyframes r-wortweise{from{opacity:0;transform:translateY(2cqi)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.r *{animation:none!important;opacity:1!important;clip-path:none!important}}
+
 .bw__serie-kopf{margin-top:clamp(80px,9vw,128px)}
 .bw__serie-kopf h2{margin:0;font:700 clamp(2rem,4vw,3.2rem)/1.05 "BW Tight",system-ui,sans-serif;letter-spacing:-.03em}
 .bw__serie-kopf p{margin:.9rem 0 0;color:var(--grau);font-size:1rem}
@@ -523,6 +626,133 @@ permalink: /entwicklung/kampagnen/avrg/black-week/index.html
       </li>
       {%- endfor %}
     </ol>
+
+    {#- Reels (Daniel, 21.11.2026): drei Ideen für kurze Videos (Instagram, Facebook, YouTube Shorts über Google Ads), je eigener Stil und eigene Aussage.
+        Maßstab: hält den Daumen in der ersten Sekunde an, funktioniert ohne Ton, eine Aussage pro Reel, endet auf der Landingpage. Vorschau läuft als Animation in 9:16. -#}
+    <div class="bw__serie-kopf" id="reels">
+      <h2>Reels. <span class="bw__v">Drei Ideen.</span></h2>
+      <p>Für Instagram, Facebook und YouTube Shorts über Google Ads. Jedes Reel hat einen eigenen Stil und eine eigene Aussage, die Vorschau läuft in 9:16. Darunter zwei andere Einstiege zum Testen.</p>
+    </div>
+    <div class="rl">
+
+      <article class="rl__eintrag">
+        <div class="r r--hell" data-reel data-standbild="2" aria-label="Vorschau Reel 1">
+          <i class="r-balken"><i></i></i>
+          <div class="r-s" data-d="3.2">
+            <p class="r-ober">Mache mal den Test.</p>
+            <div class="r-such"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="r-tipp">Altersvorsorgedepot Berater</span></div>
+          </div>
+          <div class="r-s" data-d="3.4">
+            <div class="r-such r-such--oben"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Altersvorsorgedepot Berater</span></div>
+            <ol class="r-treffer">
+              <li><small>Vergleichsportal</small><b>Altersvorsorgedepot im Test</b></li>
+              <li><small>Hausbank</small><b>Jetzt Depot eröffnen</b></li>
+              <li><small>Kollege nebenan</small><b>Beratung zur Reform</b></li>
+              <li class="r-treffer__leer"><small>Deine Agentur</small><b>Keine Treffer.</b></li>
+            </ol>
+          </div>
+          <div class="r-s r-s--schwarz" data-d="3">
+            <p class="r-riesig r-pop">Keiner findet dich?</p>
+            <p class="r-riesig r-pop r-pop--2"><span class="bw__v">Du bist ja auch nicht da.</span></p>
+          </div>
+          <div class="r-s" data-d="3.4">
+            <p class="r-ober">Mit deiner eigenen Seite.</p>
+            <div class="r-glow"></div>
+            <div class="r-iphone"><img src="{{ A }}/black-week/lp-iphone-sofort.webp" alt="" loading="lazy"></div>
+            <div class="r-toast"><i></i><div><b>Neuer Termin gebucht</b><span>Do., 08.01. · 10:30 Uhr</span></div></div>
+          </div>
+          <div class="r-s r-s--verlauf" data-d="3">
+            <div class="r-ende">
+              <small>Deine AVRG-Vertriebsstrecke</small>
+              <b>39&nbsp;€</b>
+              <span>statt <s>89&nbsp;€</s> im Monat · bis 04.12.</span>
+              <em>sofortsichtbar.de/zielgruppen/avrg</em>
+            </div>
+          </div>
+        </div>
+        <div class="rl__info">
+          <p class="rl__stil">Reel 1 · Bildschirm-Aufnahme · 16 Sekunden</p>
+          <h3>Der Google-Test</h3>
+          <p class="rl__kern">Dein Kunde sucht, findet alle anderen, nur dich nicht. Wir zeigen das, statt es zu behaupten.</p>
+          <table class="rl__ablauf">
+            <tr><th>0–3 s</th><td>Jemand tippt „Altersvorsorgedepot Berater“ ins Suchfeld. Oben steht „Mache mal den Test.“</td><td>Tastaturklicken</td></tr>
+            <tr><th>3–6 s</th><td>Treffer bauen sich auf: Portal, Hausbank, Kollege. Dann „Deine Agentur · Keine Treffer.“, das Feld wackelt.</td><td>Bei „Keine Treffer“ bricht der Ton ab.</td></tr>
+            <tr><th>6–9 s</th><td>Harter Schnitt auf Schwarz. „Keiner findet dich? Du bist ja auch nicht da.“</td><td>Stille, dann ein Schlag</td></tr>
+            <tr><th>9–13 s</th><td>Die Landingpage auf dem iPhone fährt hoch, oben kommt „Neuer Termin gebucht“.</td><td>Benachrichtigungston, Beat setzt ein</td></tr>
+            <tr><th>13–16 s</th><td>Schlussbild mit Preis und Adresse.</td><td>Beat läuft aus</td></tr>
+          </table>
+          <div class="rl__varianten"><b>Andere Einstiege</b><p>„Gib mal deinen Namen und Altersvorsorgedepot bei Google ein.“</p><p>„Wo bist du, wenn dein Kunde gerade sucht?“</p></div>
+          <p class="rl__machen">Entsteht komplett am Rechner, ohne Dreh. Läuft auch als Anzeige bei Google, dort zusätzlich in 16:9 und 1:1.</p>
+        </div>
+      </article>
+
+      <article class="rl__eintrag">
+        <div class="r r--schwarz" data-reel data-standbild="4" aria-label="Vorschau Reel 2">
+          <i class="r-balken"><i></i></i>
+          <div class="r-s" data-d=".9"><p class="r-wort" style="--n:12">Grundzulage.</p></div>
+          <div class="r-s" data-d=".9"><p class="r-wort" style="--n:17">Günstigerprüfung.</p></div>
+          <div class="r-s" data-d=".9"><p class="r-wort" style="--n:14">Zulagenantrag.</p></div>
+          <div class="r-s" data-d=".9"><p class="r-wort" style="--n:12">Förderquote.</p></div>
+          <div class="r-s" data-d="2"><p class="r-riesig r-riesig--xl r-pop">Interessiert <span class="bw__v">keinen.</span></p></div>
+          <div class="r-s" data-d="2.6">
+            <p class="r-klein r-pop">Dein Kunde will nur eins wissen.</p>
+            <p class="r-riesig r-riesig--xl r-pop r-pop--2">Betrifft <span class="bw__v">mich das?</span></p>
+          </div>
+          <div class="r-s" data-d="3">
+            <p class="r-klein r-pop">30&nbsp;Minuten, eine klare Antwort.</p>
+            <div class="r-knoepfe"><span class="r-knopf r-knopf--voll">Mitnehmen</span><span class="r-knopf">Abhaken</span></div>
+            <em class="r-url">sofortsichtbar.de/zielgruppen/avrg</em>
+          </div>
+        </div>
+        <div class="rl__info">
+          <p class="rl__stil">Reel 2 · Schrift auf den Beat · 11 Sekunden</p>
+          <h3>Interessiert keinen</h3>
+          <p class="rl__kern">Fachbegriffe im Takt, jeder wird durchgestrichen. Danach die eine Frage, um die es deinem Kunden geht.</p>
+          <table class="rl__ablauf">
+            <tr><th>0–4 s</th><td>Grundzulage, Günstigerprüfung, Zulagenantrag, Förderquote. Ein Wort pro Schlag, riesig, sofort durchgestrichen.</td><td>Harter Beat, Kratzen beim Durchstreichen</td></tr>
+            <tr><th>4–6 s</th><td>„Interessiert keinen.“</td><td>Beat setzt aus</td></tr>
+            <tr><th>6–8 s</th><td>„Dein Kunde will nur eins wissen. Betrifft mich das?“</td><td>Beat kommt zurück</td></tr>
+            <tr><th>8–11 s</th><td>Zwei Knöpfe, Mitnehmen und Abhaken, darunter die Adresse.</td><td>Klick auf Mitnehmen</td></tr>
+          </table>
+          <div class="rl__varianten"><b>Andere Einstiege</b><p>Mit „Garantiequote.“ starten, im Ton ein lautes Gähnen.</p><p>„Noch ein Fachbegriff, und dein Kunde ist weg.“</p></div>
+          <p class="rl__machen">Reine Schrift-Animation, in einem Tag gebaut. Funktioniert ohne Ton, mit Ton auf den Beat geschnitten.</p>
+        </div>
+      </article>
+
+      <article class="rl__eintrag">
+        <div class="r r--kamera" data-reel data-standbild="1" aria-label="Vorschau Reel 3">
+          <i class="r-balken"><i></i></i>
+          <p class="r-kamera-hinweis">Hier spricht Daniel in die Kamera</p>
+          <div class="r-s" data-d="2.4"><p class="r-sprech"><span style="--i:0">Sei</span> <span style="--i:1" class="bw__v">ehrlich.</span></p></div>
+          <div class="r-s" data-d="3.8"><p class="r-sprech"><span style="--i:0">Würdest</span> <span style="--i:1">du</span> <span style="--i:2" class="bw__v">mit</span> <span style="--i:3" class="bw__v">dir</span> <span style="--i:4">reden</span> <span style="--i:5">wollen,</span> <span style="--i:6">wenn</span> <span style="--i:7">du</span> <span style="--i:8">dein</span> <span style="--i:9">Kunde</span> <span style="--i:10">wärst?</span></p></div>
+          <div class="r-s" data-d="3.2"><p class="r-sprech"><span style="--i:0">Du</span> <span style="--i:1">schickst</span> <span style="--i:2" class="bw__v">zwölf</span> <span style="--i:3" class="bw__v">Seiten</span> <span style="--i:4">Förderquoten.</span></p></div>
+          <div class="r-s" data-d="3.6"><p class="r-sprech"><span style="--i:0">Dein</span> <span style="--i:1">Kunde</span> <span style="--i:2">will</span> <span style="--i:3">nur</span> <span style="--i:4">wissen,</span> <span style="--i:5">ob</span> <span style="--i:6">ihn</span> <span style="--i:7">das</span> <span style="--i:8" class="bw__v">betrifft.</span></p></div>
+          <div class="r-s" data-d="3"><p class="r-sprech"><span style="--i:0">Sage</span> <span style="--i:1">es</span> <span style="--i:2">ihm</span> <span style="--i:3">in</span> <span style="--i:4" class="bw__v">30</span> <span style="--i:5" class="bw__v">Minuten.</span></p></div>
+          <div class="r-s r-s--verlauf" data-d="3.4">
+            <div class="r-ende">
+              <small>Alles fertig für dich</small>
+              <b class="r-ende__wort">Postings, Mails, Landingpage.</b>
+              <em>sofortsichtbar.de/zielgruppen/avrg</em>
+            </div>
+          </div>
+        </div>
+        <div class="rl__info">
+          <p class="rl__stil">Reel 3 · Daniel spricht in die Kamera · 19 Sekunden</p>
+          <h3>Ins Gesicht gesagt</h3>
+          <p class="rl__kern">Ein Mensch, ein Satz, direkt in die Linse. So redet man mit der einen Person, die gerade zuschaut.</p>
+          <table class="rl__ablauf">
+            <tr><th>0–2 s</th><td>Daniel nah vor der Kamera: „Sei ehrlich.“</td><td>Originalton, keine Musik</td></tr>
+            <tr><th>2–6 s</th><td>„Würdest du mit dir reden wollen, wenn du dein Kunde wärst?“</td><td>Kurze Pause danach</td></tr>
+            <tr><th>6–9 s</th><td>„Du schickst zwölf Seiten Förderquoten.“ Daniel hält einen dicken Stapel Papier ins Bild.</td><td>Papier raschelt</td></tr>
+            <tr><th>9–13 s</th><td>„Dein Kunde will nur wissen, ob ihn das betrifft.“ Der Stapel fliegt aus dem Bild.</td><td></td></tr>
+            <tr><th>13–19 s</th><td>„Sage es ihm in 30 Minuten.“ Dann Schlussbild mit Adresse.</td><td>Leiser Beat zum Schluss</td></tr>
+          </table>
+          <div class="rl__varianten"><b>Andere Einstiege</b><p>„Die Flyer zum Altersvorsorgedepot liegen noch im Karton, oder?“</p><p>„Wann hast du deinen Kunden zuletzt geschrieben?“</p></div>
+          <p class="rl__machen">Daniel, Handy hochkant, Tageslicht, ein Take pro Satz. Untertitel groß und Wort für Wort, weil viele ohne Ton schauen.</p>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 <script>
@@ -535,4 +765,32 @@ document.querySelectorAll('[data-kopie]').forEach(function (b) {
     if (navigator.clipboard) navigator.clipboard.writeText(t.innerText).then(fertig, markieren); else markieren();
   });
 });
+
+/* Reels: Szenen nacheinander zeigen, in Schleife; nur laufen lassen, solange die Vorschau zu sehen ist. Vor dem Start und ohne Bewegung steht ein Standbild (data-standbild). */
+(function () {
+  var ruhig = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-reel]').forEach(function (r) {
+    var s = [].slice.call(r.querySelectorAll('.r-s'));
+    var T = s.reduce(function (a, x) { return a + (+x.dataset.d || 2); }, 0);
+    r.style.setProperty('--T', T + 's');
+    (s[+r.dataset.standbild || 0] || s[0]).classList.add('an');
+    if (ruhig) return;
+    var i = 0, uhr = null, sichtbar = false;
+    function zeige() {
+      if (i === 0) { r.classList.remove('laeuft'); void r.offsetWidth; r.classList.add('laeuft'); }
+      s.forEach(function (x) { x.classList.remove('an'); });
+      void r.offsetWidth;
+      s[i].classList.add('an');
+      var d = (+s[i].dataset.d || 2) * 1000;
+      i = (i + 1) % s.length;
+      uhr = setTimeout(function () { if (sichtbar) zeige(); else uhr = null; }, d);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) {
+        sichtbar = e[0].isIntersecting;
+        if (sichtbar && !uhr) { i = 0; zeige(); }
+      }, { threshold: .3 }).observe(r);
+    } else { sichtbar = true; zeige(); }
+  });
+})();
 </script>
