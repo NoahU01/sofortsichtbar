@@ -2260,6 +2260,27 @@ body.s7-menue-offen { overflow: hidden; }
   .av9-auftritt__bilder img { width: 7rem; }
 }
 
+/* ---------- Runde 7 (Daniel, 21.11.2026): Preis und Countdown in einer Angebotskarte ---------- */
+.av9n-angebot { position: relative; isolation: isolate; display: inline-block; margin-top: 2.4rem; text-align: left; }
+.av9n-angebot__glow { position: absolute; inset: -40% -14%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(11,159,189,.30), rgba(134,19,161,.24) 55%, transparent 80%); filter: blur(22px); pointer-events: none; }
+.av9n-angebot__karte { position: relative; display: flex; align-items: center; gap: 1.6rem; padding: 1rem 1rem 1rem 1.6rem; border-radius: 24px; background: #0e0e10; color: #fff; box-shadow: 0 24px 50px -24px rgba(0,0,0,.5); }
+.av9n-angebot__preis { display: grid; padding-right: 1.6rem; border-right: 1px solid rgba(255,255,255,.14); }
+.av9n-angebot__preis small { color: #a1a1a6; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.av9n-angebot__preis b { margin-top: .15rem; font-family: var(--s7-schrift-titel); font-size: 2.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
+.av9n-angebot__preis span { margin-top: .25rem; color: #d2d2d7; font-size: .85rem; white-space: nowrap; }
+.av9n-angebot__preis s { color: #8e8e93; }
+.av9n-angebot__uhr { display: grid; gap: .45rem; }
+.av9n-angebot__uhr .av9n-uhr__l { margin: 0; color: #a1a1a6; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.av9n-angebot__felder { display: flex; gap: .45rem; }
+.av9n-k2 .av9n-angebot { margin-top: 2rem; }
+@media (max-width: 640px) {
+  .av9n-angebot { display: block; }
+  .av9n-angebot__karte { flex-direction: column; align-items: stretch; gap: 1rem; padding: 1.2rem; text-align: center; }
+  .av9n-angebot__preis { padding: 0 0 1rem; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .av9n-angebot__felder { justify-content: center; }
+  .av9n-angebot__uhr .av9n-uhr__l { text-align: center; }
+}
+
 </style>
 </head>
 <body>
@@ -3201,8 +3222,8 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
       <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
-      <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+      <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small data-av9-marke2>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div><div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div></div></div>
+      
     </div>
   </section>
 
@@ -3214,12 +3235,12 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
         <h1 class="av9-h1">Nur wer gefunden wird, <span class="s7-wort">mit dem wird gesprochen.</span></h1>
         <p class="av9-held2__lead">Landingpage, Postings und Mailings an deine Bestandskunden. Fertig, in deinem Auftritt.</p>
         <div class="s9-knoepfe av9-links"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-        <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
+        <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small data-av9-marke2>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div><div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div></div></div>
       </div>
       <div class="av9n-szene" aria-hidden="true">
         <div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
         <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp" alt=""></div>
-        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+        
       </div>
     </div>
   </section>
@@ -3231,7 +3252,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <h1 class="s9-h1">Nur wer gefunden wird,<br><span class="s7-wort">mit dem wird gesprochen.</span></h1>
       
       <div class="av9n-box" aria-label="Das bekommst du: Landingpage, 30 Postings, 3 Mailings">
-        <div class="av9n-stoerer" data-av9-stoerer aria-label="Black Week: 39 Euro statt 89 Euro im Monat"><i class="av9n-stoerer__glow" aria-hidden="true"></i><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s><br>im Monat</span></div>
+        
         <figure><div class="av9n-box__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div><div class="av9n-mac__fuss"></div></div></div><figcaption><b>Landingpage</b>mit Terminwahl</figcaption></figure>
         <figure><div class="av9n-box__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="">{% endfor %}</div></div><figcaption><b>30 Postings</b>für Instagram, Facebook und LinkedIn</figcaption></figure>
         <figure><div class="av9n-box__bild"><div class="av9n-fenster av9n-fenster--klein"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
@@ -3241,7 +3262,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
             </ul></div></div><figcaption><b>3 Mailings</b>an deine Bestandskunden</figcaption></figure>
       </div>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
-      <div class="av9n-uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div>
+      <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small data-av9-marke2>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div><div class="av9n-angebot__uhr" data-av9-uhr aria-label="Das Angebot endet am 04.12.2026"><span class="av9n-uhr__l">Angebot endet in</span><div class="av9n-angebot__felder"><span class="av9n-uhr__f"><b data-t>–</b><small>Tage</small></span><span class="av9n-uhr__f"><b data-s>–</b><small>Std</small></span><span class="av9n-uhr__f"><b data-m>–</b><small>Min</small></span><span class="av9n-uhr__f"><b data-sek>–</b><small>Sek</small></span></div></div></div></div>
     </div>
   </section>
 
@@ -3400,6 +3421,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
     var rest = ende - Date.now();
     if (rest <= 0) {
       document.querySelectorAll('[data-av9-uhr], [data-av9-stoerer]').forEach(function (u) { u.hidden = true; });
+      document.querySelectorAll('[data-av9-preis2]').forEach(function (p) { p.innerHTML = '<small>AVRG-Vertriebsstrecke</small><b>89 €</b><span>im Monat</span>'; });
       var m = document.querySelector('[data-av9-marke]'); if (m) m.textContent = 'AVRG-Vertriebsstrecke';
       var p = document.querySelector('[data-av9-preis]'); if (p) p.innerHTML = '<b>89 €</b> im Monat';
       var b = document.querySelector('[data-av9-betrag]'); if (b) b.textContent = '89 €';
