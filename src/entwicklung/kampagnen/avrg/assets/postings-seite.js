@@ -15,9 +15,9 @@
     switch (p.t) {
       case 'weiss': case 'rot': case 'schwarz': return flaeche(p, p.t);
       case 'blase':
-        return '<div class="cr"><img class="cr__foto" src="' + FOTO + p.foto + '.jpg" alt="" loading="lazy"><p class="cr__blase">' + p.blase + '</p><span class="cr__tag">' + p.tag + '</span></div>';
+        return '<div class="cr"><img class="cr__foto" src="' + FOTO + p.foto + '.jpg" alt="" loading="lazy"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '><p class="cr__blase">' + p.blase + '</p><span class="cr__tag">' + p.tag + '</span></div>';
       case 'band':
-        return '<div class="cr cr--band"><img class="cr__foto" src="' + FOTO + p.foto + '.jpg" alt="" loading="lazy"><div class="cr__in"><p class="cr__h">' + p.h + '</p></div></div>';
+        return '<div class="cr cr--band"><img class="cr__foto" src="' + FOTO + p.foto + '.jpg" alt="" loading="lazy"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '><div class="cr__in"><p class="cr__h">' + p.h + '</p></div></div>';
       case 'fa':
         return '<div class="cr cr--fa"><div class="cr__frage"><p class="cr__fa-label">Frage</p><p class="cr__h">' + p.q + '</p></div><div class="cr__antwort"><p class="cr__fa-label">Antwort</p><p>' + p.a + '</p></div></div>';
       case 'durch':
@@ -37,7 +37,7 @@
       case 'notiz':
         return '<div class="cr cr--notiz"><div class="cr__zettel"><b>' + p.titel + '</b><ul>' + p.items.map(function (x) { return '<li class="' + (x[1] ? 'ok' : 'offen') + '"><i></i><span>' + x[0] + '</span></li>'; }).join('') + '</ul></div><div class="cr__in"><p class="cr__h">' + p.h + '</p></div></div>';
       case 'ticket':
-        return '<div class="cr cr--ticket"><div class="cr__in"><p class="cr__h">' + p.h + '</p></div><div class="cr__tk"><div class="cr__tk-haupt"><small>Neue Altersvorsorge 2027</small><b>15 Minuten Klarheit</b><ul><li>Betrifft mich das?</li><li>Wenn ja: wie?</li><li>Habe ich einen Vorteil?</li></ul></div><div class="cr__tk-ab"><span>Kostenlos</span></div></div></div>';
+        return '<div class="cr cr--ticket"><div class="cr__in"><p class="cr__h">' + p.h + '</p></div><div class="cr__tk"><div class="cr__tk-haupt"><small>Neue Altersvorsorge 2027</small><b>30 Minuten Klarheit</b><ul><li>Betrifft mich das?</li><li>Wenn ja: wie?</li><li>Habe ich einen Vorteil?</li></ul></div><div class="cr__tk-ab"><span>Kostenlos</span></div></div></div>';
     }
     return '';
   }
@@ -64,7 +64,7 @@
     });
   });
 
-  var jetzt = 0, kanal = 'ig';
+  var jetzt = 0, kanal = 'li';
   function zeigeText() {
     var p = P[jetzt], t = kanal === 'li' ? p.li : p.ig;
     $('#ps-m-text').innerHTML = t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(#[\wäöüÄÖÜß]+)/g, '<span class="ps-tags">$1</span>');
@@ -73,10 +73,11 @@
   }
   function sichtbar() { return $$('.ps-kachel', raster).filter(function (k) { return !k.hidden; }).map(function (k) { return +$('button', k).dataset.i; }); }
   function oeffne(i) {
+    if (!modal.open) kanal = 'li';   /* beim Öffnen immer zuerst der LinkedIn-Text */
     jetzt = i; var p = P[i];
     $('#ps-m-bild').innerHTML = creative(p);
     $('#ps-m-titel').textContent = 'Posting ' + nr(i) + ' · Woche ' + p.w + ' · ' + TH[p.th];
-    $('#ps-m-meta').innerHTML = '<dt>Bildidee</dt><dd>' + p.bild + '</dd><dt>Ziel</dt><dd>' + p.ziel + '</dd><dt>Format</dt><dd>Einzelbild 4:5, 1080 × 1350 px</dd>';
+    $('#ps-m-meta').innerHTML = (p.wann ? '<dt>Wann</dt><dd>' + p.wann + '</dd>' : '') + '<dt>Bildidee</dt><dd>' + p.bild + '</dd><dt>Ziel</dt><dd>' + p.ziel + '</dd><dt>Format</dt><dd>Einzelbild 4:5, 1080 × 1350 px</dd>';
     zeigeText();
     if (!modal.open) modal.showModal();
   }

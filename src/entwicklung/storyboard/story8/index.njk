@@ -2145,10 +2145,10 @@ body.s7-menue-offen { overflow: hidden; }
 .av9n-box__bild { display: flex; align-items: center; justify-content: center; height: 12.5rem; }
 .av9n-box .av9n-mac { width: 86%; }
 .av9n-box .av9-stapel { position: relative; width: 100%; height: 100%; }
-.av9n-box .av9-stapel img { top: 50%; bottom: auto; width: 6.6rem; }
-.av9n-box .av9-stapel img:nth-child(1) { transform: translate(-95%, -50%) rotate(-9deg); }
-.av9n-box .av9-stapel img:nth-child(2) { transform: translate(-5%, -50%) rotate(8deg); }
-.av9n-box .av9-stapel img:nth-child(3) { transform: translate(-50%, -54%); }
+.av9n-box .av9-stapel img { top: 50%; bottom: auto; width: 29%; }
+.av9n-box .av9-stapel img:nth-child(1) { transform: translate(-158%, -48%) rotate(-4deg); }
+.av9n-box .av9-stapel img:nth-child(2) { transform: translate(58%, -48%) rotate(4deg); }
+.av9n-box .av9-stapel img:nth-child(3) { z-index: 1; transform: translate(-50%, -54%); }
 .av9n-box figcaption { margin-top: 1.2rem; color: var(--s7-grau); font-size: .92rem; line-height: 1.4; }
 .av9n-box figcaption b { display: block; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.25rem; letter-spacing: -0.02em; }
 .av9n-k3 .s9-knoepfe { margin-top: 2.6rem; }
@@ -2202,7 +2202,7 @@ body.s7-menue-offen { overflow: hidden; }
   .av9n-box { gap: .7rem; }
   .av9n-box figure { padding: 1rem .9rem 1.2rem; }
   .av9n-box__bild { height: 9rem; }
-  .av9n-box .av9-stapel img { width: 4.6rem; }
+  .av9n-box .av9-stapel img { width: 29%; }
   .av9n-box figcaption b { font-size: 1.05rem; }
   .av9n-box figcaption { font-size: .82rem; }
   .av9n-fenster--klein .av9n-inbox span, .av9n-fenster--klein .av9n-inbox em { display: none; }
@@ -2211,7 +2211,7 @@ body.s7-menue-offen { overflow: hidden; }
 @media (max-width: 640px) {
   .av9n-drei, .av9n-box { grid-template-columns: minmax(0, 1fr); }
   .av9n-box__bild { height: 11rem; }
-  .av9n-box .av9-stapel img { width: 6rem; }
+  .av9n-box .av9-stapel img { width: 29%; }
   .av9n-fenster--klein .av9n-inbox span { display: block; }
   .av9n-geraete { padding: .2rem 1.8rem 2.2rem 1.2rem; }
   .av9n-szene { padding: 3% 8% 12% 8%; }
@@ -2313,10 +2313,10 @@ body.s7-menue-offen { overflow: hidden; }
 .b2-teil figcaption b, .b2-teil > p b { display: block; margin-bottom: .2rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.35rem; letter-spacing: -0.02em; }
 .b2-teil .av9n-mac { width: 88%; }
 .b2-teil .av9-stapel { position: relative; width: 100%; height: 100%; }
-.b2-teil .av9-stapel img { top: 50%; bottom: auto; width: clamp(5.6rem, 8vw, 7rem); }
-.b2-teil .av9-stapel img:nth-child(1) { transform: translate(-95%, -50%) rotate(-9deg); }
-.b2-teil .av9-stapel img:nth-child(2) { transform: translate(-5%, -50%) rotate(8deg); }
-.b2-teil .av9-stapel img:nth-child(3) { transform: translate(-50%, -54%); }
+.b2-teil .av9-stapel img { top: 50%; bottom: auto; width: 29%; max-width: 8.4rem; }
+.b2-teil .av9-stapel img:nth-child(1) { transform: translate(-158%, -48%) rotate(-4deg); }
+.b2-teil .av9-stapel img:nth-child(2) { transform: translate(58%, -48%) rotate(4deg); }
+.b2-teil .av9-stapel img:nth-child(3) { z-index: 1; transform: translate(-50%, -54%); }
 .b2-post { width: 100%; }
 .b2-post .av9n-inbox li { padding: .55rem .8rem; }
 .b2-post .av9n-inbox b { font-size: .78rem; }
@@ -2368,7 +2368,7 @@ body.s7-menue-offen { overflow: hidden; }
   .b2-teil__bild { height: 9.5rem; }
   .b2-teil figcaption b, .b2-teil > p b { font-size: 1.1rem; }
   .b2-teil figcaption, .b2-teil > p { font-size: .85rem; }
-  .b2-teil .av9-stapel img { width: 4.6rem; }
+  .b2-teil .av9-stapel img { width: 29%; }
   .b2-post .av9n-inbox span, .b2-post .av9n-inbox em { display: none; }
   .b2-note .s9-app { display: none; }
   .b2-preis__karte { grid-template-columns: minmax(0, 1fr); }
@@ -2377,7 +2377,7 @@ body.s7-menue-offen { overflow: hidden; }
 @media (max-width: 640px) {
   .b2-drei { grid-template-columns: minmax(0, 1fr); }
   .b2-teil__bild { height: 11rem; }
-  .b2-teil .av9-stapel img { width: 6rem; }
+  .b2-teil .av9-stapel img { width: 29%; }
   .b2-post .av9n-inbox span { display: block; }
   .b2-note .s9-app { display: block; }
   .b2-ticket { transform: rotate(-2deg); }
@@ -3387,7 +3387,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       </div>
       <div class="av9n-szene" aria-hidden="true">
         <div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/lp-mac-sofort.webp" alt="" width="2880" height="1800"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688"></div></div>
-        <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp" alt=""></div>
+        <div class="av9n-szene__posts"><img src="{{ AV }}/black-week/sofort/p01.webp?v=2" alt=""><img src="{{ AV }}/black-week/sofort/p04.webp?v=2" alt=""></div>
         
       </div>
     </div>
@@ -3426,7 +3426,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       <div class="b2-drei">
         <figure class="b2-teil b2-teil--lp"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
           <figcaption><b>Landingpage</b>Eine Seite, ein Ziel: der Termin.</figcaption></figure>
-        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp" alt="" loading="lazy">{% endfor %}</div></div>
+        <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp?v=2" alt="" loading="lazy">{% endfor %}</div></div>
           <figcaption><b>30 Postings</b>Mit Bild und Text, als Redaktionsplan.</figcaption></figure>
         <figure class="b2-teil"><div class="b2-teil__bild"><div class="av9n-fenster b2-post"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
               <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es – kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
@@ -3521,7 +3521,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
           <div class="av9-feed" aria-hidden="true">
             {%- for r in [[1,4,7,10,13,16,19,22,25,28],[2,5,8,11,14,17,20,23,26,29],[3,6,9,12,15,18,21,24,27,30]] %}
             <div class="av9-spalte"><div class="av9-band">
-              {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp" alt="" loading="lazy">{% endfor %}{% endfor -%}
+              {%- for d in [1,2] %}{% for n in r %}<img src="{{ AV }}/black-week/sofort/p{% if n < 10 %}0{% endif %}{{ n }}.webp?v=2" alt="" loading="lazy">{% endfor %}{% endfor -%}
             </div></div>
             {%- endfor %}
           </div>
@@ -3555,7 +3555,7 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
       </div>
       <div class="av9-auftritt">
         <div class="av9-auftritt__bilder" aria-hidden="true">
-          <img src="{{ AV }}/black-week/sofort/p03.webp" alt="" loading="lazy">
+          <img src="{{ AV }}/black-week/sofort/p03.webp?v=2" alt="" loading="lazy">
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           <img src="{{ AV }}/black-week/farbe/p03.webp" alt="" loading="lazy">
         </div>

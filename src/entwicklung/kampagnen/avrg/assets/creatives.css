@@ -70,7 +70,7 @@
 .cr--split{display:grid;grid-template-rows:1fr 1fr}
 .cr__teil{display:flex;flex-direction:column;justify-content:center;padding:0 8.5cqi}
 .cr__teil small{font-size:3.3cqi;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:2cqi}
-.cr__teil b{font-size:17cqi;font-weight:700;letter-spacing:-.05em;line-height:.95}
+.cr__teil b{font-size:15.5cqi;font-weight:700;letter-spacing:-.05em;line-height:.95}
 .cr__teil--o{background:var(--h)}
 .cr__teil--o small{color:var(--r-text)}
 .cr__teil--u{background:var(--k);color:#fff}
@@ -106,8 +106,8 @@
 
 /* Chat */
 .cr--chat{background:var(--h)}
-.cr__chat{display:grid;gap:4cqi;margin:auto 0!important}
-.cr__msg{max-width:78%;border-radius:6cqi;padding:5cqi 5.6cqi;font-size:6.2cqi;font-weight:500;line-height:1.18;letter-spacing:-.01em;position:relative}
+.cr__chat{display:grid;gap:3.4cqi;margin:auto 0!important}
+.cr__msg{max-width:80%;border-radius:6cqi;padding:4.4cqi 5.2cqi;font-size:5.7cqi;font-weight:500;line-height:1.18;letter-spacing:-.01em;position:relative}
 .cr__msg small{display:block;font-size:3cqi;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:1.6cqi}
 .cr__msg--ich{justify-self:end;background:var(--r);color:var(--auf-r);border-bottom-right-radius:1.4cqi}
 .cr__msg--wir{justify-self:start;background:#fff;color:var(--k);border-bottom-left-radius:1.4cqi;box-shadow:0 1.4cqi 5cqi rgba(0,0,0,.07)}
@@ -133,7 +133,7 @@
 
 /* Ticket */
 .cr--ticket{background:var(--h)}
-.cr__tk{position:absolute;left:8cqi;right:8cqi;top:40cqi;height:66cqi;transform:rotate(-6deg);display:grid;grid-template-columns:1fr 18cqi;isolation:isolate;}
+.cr__tk{position:absolute;left:8cqi;right:8cqi;top:33cqi;height:66cqi;transform:rotate(-6deg);display:grid;grid-template-columns:1fr 18cqi;isolation:isolate;}
 .cr__tk-haupt,.cr__tk-ab{background:var(--r);color:var(--auf-r)}
 .cr__tk-haupt{border-radius:4cqi 0 0 4cqi;padding:7cqi 6cqi;display:flex;flex-direction:column;justify-content:space-between;
   -webkit-mask:radial-gradient(circle 3cqi at 100% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 100% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
@@ -141,7 +141,7 @@
 .cr__tk-ab{border-radius:0 4cqi 4cqi 0;border-left:.7cqi dashed var(--auf-rot-rand);display:grid;place-items:center;
   -webkit-mask:radial-gradient(circle 3cqi at 0 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
   mask:radial-gradient(circle 3cqi at 0 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 3cqi at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
-.cr__tk-ab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:3cqi;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.cr__tk-ab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:3cqw;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
 .cr__tk small{font-size:2.8cqi;letter-spacing:.16em;text-transform:uppercase;opacity:.8;font-weight:500}
 .cr__tk b{font-size:9cqi;font-weight:700;letter-spacing:-.04em;line-height:.95}
 .cr__tk ul{list-style:none;padding:0;display:grid;gap:2cqi}
