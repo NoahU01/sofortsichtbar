@@ -36,6 +36,10 @@ seiten:
     titel: "AVRG · Black Week 2.0"
     v9: "avrg2"
     voll: "/zielgruppen/avrg-2/"
+  - slug: "avrg-3"
+    titel: "AVRG · Black Week 3.0 (Noah)"
+    v9: "avrg3"
+    voll: "/zielgruppen/avrg-3/"
   - slug: "mit-deinem-team-2"
     titel: "Selbst machen · Variante 2"
     basis: "mit-deinem-team"
@@ -2441,7 +2445,7 @@ body.s7-menue-offen { overflow: hidden; }
   <linearGradient id="s7v-magentaviolett" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c51f5d"/><stop offset="1" stop-color="#8613a1"/></linearGradient>
 </defs></svg>
 
-{%- if s.v9 != "avrg" and s.v9 != "avrg2" %}<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>{% endif %}
+{%- if s.v9 != "avrg" and s.v9 != "avrg2" and s.v9 != "avrg3" %}<div class="s7-dev"><div class="s7-wrap"><span><b>Storyboard · Homepage-Story {% if s.v9 %}9{% else %}8{% endif %}</b> · {% if s.v9 %}{% if s.v9 == "start" %}Startseite · reduziert und visualisiert{% elif s.v9 == "grund" %}Grundstory: Logik der Story, Arbeitsgrundlage{% else %}Unterseite {{ s.titel }} · reduziert und visualisiert{% endif %}{% elif s.slug == "stilproben" %}Stilproben: Apple-klar gewählt{% elif s.slug == "farbproben" %}Farbproben: drei Farbakzente für Apple-klar{% elif s.slug == "seitenplan" %}Seitenplan: alle Seiten, ihre Aufgabe und der Stand{% elif s.slug == "infografik" %}Infografik sofort sichtbar: One-Pager, Deckblätter, alter Stand{% elif s.slug == "mehrwerte" %}Mehrwerte: Ideensammlung, noch nicht eingebaut{% else %}{% if s.v2 %}Unterseite {{ s.titel }}: Story über das Team{% elif s.slug == "mit-deinem-team" %}Unterseite Selbst machen (nur Auswählen von uns){% elif s.slug == "marketing-as-a-service" %}Unterseite Machen lassen (Auswählen und Betreiben von uns){% elif s.slug == "vertriebsstrecken" %}Unterseite Vertriebsstrecken{% elif s.slug == "strategiekompass" %}Unterseite Strategiekompass{% elif s.slug == "kontakt" %}Unterseite Kontakt und Termin{% elif s.slug == "preise" %}Unterseite Preise{% elif s.slug == "vertriebsleiter" %}Unterseite Für Vertriebsleiter (Story A){% elif s.zg %}Zielgruppenseite {{ s.titel }} (Vorlage für alle 20){% else %}Grundstory „Die digitale Maschine“{% endif %} · Stil Apple-klar · Farbe Cyan → Violett{% endif %}</span><span>{% if s.slug %}<a href="/entwicklung/storyboard/story8/">Startseite (Arbeitslook)</a>{% endif %}<a href="/entwicklung/storyboard/story7/">Homepage-Story 7</a><a href="{{ B6 }}/story-varianten/">Story-Varianten</a></span></div></div>{% endif %}
 
 <div class="s7-stil{% if istSeite or s.slug == "seitenplan" or s.slug == "infografik" or s.slug == "mehrwerte" %} s7-stil--apple s7-farbe--cyanviolett{% endif %}" id="s7-seite">
 <header class="s7-kopf{% if not istSeite %} s7-kopf--nur-marke{% endif %}">
@@ -3351,6 +3355,9 @@ document.querySelectorAll("[data-vs7-reihe]").forEach(function (r) {
 
   {{ kontaktBand() }}
 </main>
+{%- elif s.v9 == "avrg3" %}
+{#- AVRG · Black Week 3.0 (Noah, 22.11.2026): Klon von /zielgruppen/avrg-2 mit Noahs Anpassungen. Markup in _includes/avrg3/seite.njk -#}
+{% include "avrg3/seite.njk" %}
 {%- elif s.v9 == "avrg" or s.v9 == "avrg2" %}
 {#- AVRG · Black Week (Daniel, 20.11.2026): eigenständige Landingpage www.sofortsichtbar.de/zielgruppen/avrg, im Look der neuen Homepage,
     ohne Trichter. AVRG ist das „21. Paket“: ein Thema statt einer Zielgruppe. Ausrichtung: die Agentur positioniert sich als Problemlöser
