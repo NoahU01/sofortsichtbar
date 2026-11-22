@@ -1,25 +1,5 @@
 /* AVRG · Black Week 3.0 (Noah, 22.11.2026) – Verhalten der Seite /zielgruppen/avrg-3 */
 
-/* Text-Umschalter (nur Entwicklung): Alternativen je Gruppe, Wahl steht in der Adresse (?hero=1…4) */
-(function () {
-  var box = document.querySelector('[data-n3-texte]'); if (!box) return;
-  var q = new URLSearchParams(location.search);
-  if (q.get('texte') === '0') { box.hidden = true; }
-  function zeige(gruppe, v, merken) {
-    document.querySelectorAll('[data-alt="' + gruppe + '"]').forEach(function (el) { el.hidden = el.getAttribute('data-v') !== v; });
-    box.querySelectorAll('[data-gruppe="' + gruppe + '"] button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === v ? 'true' : 'false'); });
-    if (merken) { var u = new URL(location.href); u.searchParams.set(gruppe, v); history.replaceState(null, '', u); }
-  }
-  box.querySelectorAll('[data-gruppe]').forEach(function (z) {
-    var g = z.getAttribute('data-gruppe');
-    z.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { zeige(g, b.getAttribute('data-v'), true); }); });
-    var start = q.get(g); if (start && /^[1-4]$/.test(start)) zeige(g, start, false);
-  });
-  var auf = box.querySelector('[data-n3-texte-auf]');
-  auf.addEventListener('click', function () { var zu = box.classList.toggle('ist-zu'); auf.setAttribute('aria-expanded', zu ? 'false' : 'true'); });
-  if (window.matchMedia('(max-width: 640px)').matches) { box.classList.add('ist-zu'); auf.setAttribute('aria-expanded', 'false'); }
-})();
-
 /* Sichtbarkeit: Abschnitte bekommen .ist-sichtbar, sobald sie ins Bild kommen (Animationen starten erst dann) */
 (function () {
   var ziele = document.querySelectorAll('[data-n3-pl], [data-n3-schritte]');
