@@ -1,6 +1,6 @@
 /* AVRG · Black Week 3.0 (Noah, 22.11.2026) – Verhalten der Seite /zielgruppen/avrg-3 */
 
-/* Text-Umschalter (nur Entwicklung): Alternativen je Gruppe, Wahl steht in der Adresse (?hero=2&pos=3&paket=1) */
+/* Text-Umschalter (nur Entwicklung): Alternativen je Gruppe, Wahl steht in der Adresse (?hero=1…4) */
 (function () {
   var box = document.querySelector('[data-n3-texte]'); if (!box) return;
   var q = new URLSearchParams(location.search);
@@ -13,7 +13,7 @@
   box.querySelectorAll('[data-gruppe]').forEach(function (z) {
     var g = z.getAttribute('data-gruppe');
     z.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { zeige(g, b.getAttribute('data-v'), true); }); });
-    var start = q.get(g); if (start && /^[123]$/.test(start)) zeige(g, start, false);
+    var start = q.get(g); if (start && /^[1-4]$/.test(start)) zeige(g, start, false);
   });
   var auf = box.querySelector('[data-n3-texte-auf]');
   auf.addEventListener('click', function () { var zu = box.classList.toggle('ist-zu'); auf.setAttribute('aria-expanded', zu ? 'false' : 'true'); });
@@ -28,7 +28,7 @@
   ziele.forEach(function (z) { io.observe(z); });
 })();
 
-/* Konfigurator: echte Landingpage live im MacBook. Farbe per Hex-Code, Farbfeld oder Schnellauswahl. */
+/* Konfigurator: echte Landingpage live im MacBook. Farbe per Hex-Code oder Farbfeld. */
 (function () {
   var k = document.querySelector('[data-n3-konfig]'); if (!k) return;
   var feld = k.querySelector('[data-n3-feld]'), punkt = k.querySelector('[data-n3-punkt]'), hexFeld = k.querySelector('[data-n3-hex]');
@@ -98,7 +98,6 @@
     punkt.style.left = (x * 100) + '%'; punkt.style.top = (y * 100) + '%'; punkt.style.background = v.farbe;
     feld.setAttribute('aria-valuetext', '#' + v.hex);
     if (quelle !== 'hex') { hexFeld.value = v.hex; hexFeld.classList.remove('ist-falsch'); }
-    k.querySelectorAll('[data-n3-muster]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-n3-muster').slice(1).toUpperCase() === v.hex ? 'true' : 'false'); });
     k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-b2-stil') === stil ? 'true' : 'false'); });
     document.querySelectorAll('#n3 [data-b2-schritt-stil]').forEach(function (sp) { sp.classList.toggle('an', sp.getAttribute('data-b2-schritt-stil') === stil); });
     rahmen.forEach(faerben);
@@ -131,7 +130,6 @@
   });
   hexFeld.addEventListener('blur', function () { hexFeld.value = vars().hex; hexFeld.classList.remove('ist-falsch'); });
 
-  k.querySelectorAll('[data-n3-muster]').forEach(function (b) { b.addEventListener('click', function () { farbe = hexZuHsl(b.getAttribute('data-n3-muster').slice(1)); zeige('muster'); }); });
   k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); laden(); zeige(); }); });
   laden(); zeige();
 })();

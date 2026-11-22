@@ -29,14 +29,6 @@
 .s9-band--flaeche .n3-teil__marke { background: var(--s7-flaeche); }
 .n3-teil__marke .n3-icon { color: #3a5fc0; }
 
-/* Black-Week-Leiste mit CTA */
-.n3-aktion { position: relative; display: flex; align-items: center; gap: 1.2rem 1.6rem; margin-top: 1.6rem; padding: 1rem 1rem 1rem 1.2rem; border-radius: 22px; background: #0e0e10; color: #d2d2d7; overflow: hidden; isolation: isolate; }
-.n3-aktion::before { content: ""; position: absolute; inset: -60% auto -60% -10%; width: 40%; z-index: -1; background: radial-gradient(closest-side, rgba(11,159,189,.45), transparent); filter: blur(20px); }
-.n3-aktion::after { content: ""; position: absolute; inset: -60% -10% -60% auto; width: 40%; z-index: -1; background: radial-gradient(closest-side, rgba(134,19,161,.5), transparent); filter: blur(20px); }
-.n3-aktion__marke { flex: none; padding: .45rem .8rem; border-radius: 12px; background: var(--n3-verlauf); color: #fff; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.n3-aktion__text { flex: 1; margin: 0; font-size: .95rem; line-height: 1.45; }
-.n3-aktion__text b { color: #fff; }
-.n3-aktion .n3-knopf { flex: none; }
 
 /* ============ Gestaltung ============ */
 .n3-konfig { align-items: start; }
@@ -55,52 +47,19 @@
 .n3-hex i { width: 1.7rem; height: 1.7rem; margin-right: .2rem; border-radius: 8px; background: var(--n3-farbe); box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
 .n3-hex input { width: 4.6rem; padding: 0; border: 0; background: none; color: var(--s7-tinte); font: inherit; font-weight: 600; text-transform: uppercase; outline: none; }
 .n3-hex input.ist-falsch { color: #c8102e; }
-.n3-muster { display: flex; gap: .45rem; }
-.n3-muster button { width: 1.75rem; height: 1.75rem; padding: 0; border: 0; border-radius: 50%; background: var(--f); cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); transition: transform .15s; }
-.n3-muster button:hover { transform: scale(1.12); }
-.n3-muster button[aria-pressed="true"] { box-shadow: inset 0 0 0 1px rgba(0,0,0,.12), 0 0 0 2px var(--s7-flaeche), 0 0 0 4px var(--s7-tinte); }
-.n3-muster button:focus-visible { outline: 2px solid #3d5bd1; outline-offset: 3px; }
-.n3-farbe__hinweis { color: var(--s7-grau); font-size: .85rem; line-height: 1.45; }
 
-/* Logo und Kontakt: Visitenkarte, die die gewählte Farbe übernimmt */
-.n3-ident { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: .9rem 1.2rem; align-items: center; }
-.n3-visitenkarte { position: relative; display: grid; gap: .7rem; padding: 1rem; border-radius: 18px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 24px 44px -26px rgba(29,29,31,.45); transform: rotate(-2deg); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
-.n3-ident:hover .n3-visitenkarte { transform: rotate(0) translateY(-3px); box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 30px 54px -26px rgba(29,29,31,.5); }
-.n3-visitenkarte::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; border-radius: 18px 18px 0 0; background: var(--n3-farbe); transition: background .2s; }
-.n3-visitenkarte__kopf { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
-.n3-visitenkarte__logo { height: 1.3rem; width: auto; }
-.n3-visitenkarte__stempel { padding: .15rem .45rem; border: 1px dashed var(--s7-linie); border-radius: 6px; color: var(--s7-grau); font-size: .62rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.n3-visitenkarte__person { display: flex; align-items: center; gap: .6rem; }
-.n3-visitenkarte__person img { width: 2.4rem; height: 2.4rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--n3-farbe); }
-.n3-visitenkarte__person b { display: block; color: var(--s7-tinte); font-size: .88rem; line-height: 1.2; }
-.n3-visitenkarte__person small { color: var(--s7-grau); font-size: .74rem; }
-.n3-visitenkarte__weg { display: flex; align-items: center; gap: .4rem; color: var(--s7-text); font-size: .78rem; }
-.n3-visitenkarte__weg .n3-icon { color: var(--n3-farbe); }
-.n3-visitenkarte__knopf { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; padding: .5rem .7rem; border-radius: 99px; background: var(--n3-farbe); color: var(--n3-auf-farbe); font-size: .78rem; font-weight: 600; transition: background .2s; }
-.n3-ident__liste { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
-.n3-ident__liste li { display: flex; align-items: center; gap: .6rem; color: var(--s7-tinte); font-size: .92rem; font-weight: 600; }
-.n3-ident__liste .n3-icon { width: 2rem; height: 2rem; padding: .42rem; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: #3a5fc0; }
-.n3-ident__text { grid-column: 1 / -1; color: var(--s7-text); font-size: .92rem; line-height: 1.5; }
 
 /* ============ Positionierung ============ */
 .n3-pl { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); align-items: center; gap: clamp(1rem, 2.4vw, 2rem); max-width: 64rem; margin: 3.2rem auto 0; }
-/* links: ein Infoblatt voller Fachbegriffe, die sich beim Einblenden durchstreichen */
+/* links: ein Merkblatt voller Fachbegriffe, die sich beim Einblenden durchstreichen */
 .n3-blatt { position: relative; padding: 1.2rem 1.3rem 1.4rem; border-radius: 20px; background: linear-gradient(180deg, #fff 0%, #fafafa 100%); box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 30px 60px -36px rgba(29,29,31,.4); transform: rotate(1.5deg); }
 .n3-blatt::before, .n3-blatt::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
 .n3-blatt::before { transform: rotate(-4deg) translate(-10px, 8px); opacity: .7; }
 .n3-blatt::after { transform: rotate(-8deg) translate(-18px, 18px); opacity: .4; }
 .n3-blatt__kopf { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: .8rem; margin-bottom: .9rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 .n3-blatt__kopf em { font-style: normal; letter-spacing: 0; text-transform: none; }
-.n3-blatt__text { display: grid; gap: .62rem; -webkit-mask: linear-gradient(180deg, #000 55%, transparent 100%); mask: linear-gradient(180deg, #000 55%, transparent 100%); }
-.n3-zeile { display: flex; align-items: center; gap: .45rem; margin: 0; white-space: nowrap; }
-.n3-zeile i { flex: none; height: .45rem; border-radius: 99px; background: #e6e6ea; }
-.n3-zeile i:last-of-type { flex: 1 1 auto; }
-.n3-zeile mark { position: relative; flex: none; padding: .12rem .45rem; border-radius: 6px; background: #eef0f6; color: #55585f; font-size: .8rem; font-weight: 600; }
-.n3-zeile mark::after { content: ""; position: absolute; left: .3rem; right: .3rem; top: 52%; height: 2px; border-radius: 2px; background: #c8102e; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.6,0,.3,1); transition-delay: calc(.25s + var(--i) * .12s); }
 .n3-pl.ist-sichtbar .n3-zeile mark::after { transform: scaleX(1); }
 .n3-pl.ist-sichtbar .n3-zeile mark { color: #9a9ca3; transition: color .3s calc(.4s + var(--i) * .12s); }
-.n3-blatt__zahl { position: absolute; right: -1rem; bottom: 1.4rem; display: inline-flex; align-items: baseline; gap: .3rem; padding: .45rem .8rem; border-radius: 99px; background: #0e0e10; color: #d2d2d7; font-size: .78rem; font-weight: 600; box-shadow: 0 12px 26px -10px rgba(0,0,0,.5); transform: rotate(4deg); }
-.n3-blatt__zahl b { color: #fff; font-size: 1rem; }
 /* Mitte: Lichtstrahl statt Pfeil */
 .n3-bruecke { display: flex; align-items: center; gap: .5rem; }
 .n3-bruecke__linie { position: relative; width: clamp(1.4rem, 3vw, 2.6rem); height: 2px; border-radius: 2px; background: linear-gradient(90deg, rgba(11,159,189,.25), rgba(134,19,161,.25)); overflow: hidden; }
@@ -147,19 +106,13 @@
 @keyframes n3-schweben { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 /* Schritt 3: Anfragen kommen nacheinander rein */
 .n3-anfragen { position: relative; width: 100%; height: 100%; }
-.n3-note { position: absolute; left: 50%; width: 92%; max-width: 19rem; transform: translate(-50%, 0); padding: .7rem .9rem .7rem .7rem; }
 .n3-note b { font-size: .9rem !important; }
 .n3-note small { font-size: .78rem !important; }
 .n3-note .s9-app { width: 2rem; height: 2rem; border-radius: 9px; }
-.n3-note--1 { top: 8%; z-index: 3; }
-.n3-note--2 { top: 37%; z-index: 2; }
-.n3-note--3 { top: 66%; z-index: 1; }
-.n3-schritte .n3-note { opacity: 0; transform: translate(-50%, 14px) scale(.96); }
 .n3-schritte.ist-sichtbar .n3-note { animation: n3-rein .55s cubic-bezier(.2,.9,.3,1.2) forwards; }
 .n3-schritte.ist-sichtbar .n3-note--1 { animation-delay: .9s; }
 .n3-schritte.ist-sichtbar .n3-note--2 { animation-delay: 1.5s; }
 .n3-schritte.ist-sichtbar .n3-note--3 { animation-delay: 2.1s; }
-@keyframes n3-rein { to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 
 /* ============ Preis ============ */
 .n3-preis { max-width: 64rem; }
@@ -174,7 +127,6 @@
 .n3-preis__angebot { position: relative; display: grid; gap: .9rem; align-content: start; padding: clamp(1.3rem, 2.4vw, 1.8rem); border-radius: 22px; background: #fff; color: var(--s7-tinte); box-shadow: 0 30px 60px -30px rgba(14,14,16,.55); }
 .n3-preis__kopf { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
 .n3-preis__marke { color: var(--s7-grau); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.n3-preis__rabatt { padding: .4rem .75rem; border-radius: 99px; background: #0e0e10; color: #fff; font-size: 1rem; font-weight: 800; letter-spacing: -.01em; transform: rotate(4deg); box-shadow: 0 10px 22px -10px rgba(0,0,0,.55); }
 .n3-preis__betrag { display: flex; align-items: flex-end; gap: .9rem; }
 .n3-preis__betrag b { font-family: var(--s7-schrift-titel); font-size: clamp(4rem, 7vw, 5.6rem); font-weight: 800; line-height: .9; letter-spacing: -0.05em; background: var(--n3-verlauf); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .n3-preis__betrag span { display: grid; gap: .1rem; padding-bottom: .45rem; color: var(--s7-grau); font-size: .95rem; line-height: 1.2; }
@@ -189,7 +141,7 @@
 .n3 .n3-preis__fein { color: var(--s7-grau); font-size: .74rem; line-height: 1.45; }
 
 /* ============ Kontakt ============ */
-.n3 .n3-kontakt .s7-lead { max-width: 36rem; text-wrap: pretty; }
+.n3 .n3-kontakt .s7-lead { max-width: 40rem; text-wrap: pretty; }
 .n3-weg { display: inline-flex; align-items: center; gap: .8rem; color: #fff; text-decoration: none; }
 .n3-weg span:last-child { display: grid; line-height: 1.25; }
 .n3-weg small { color: #a1a1a6; font-size: .75rem; }
@@ -209,16 +161,9 @@
 .n3-texte__zeile button[aria-pressed="true"] { background: #fff; color: #1d1d1f; }
 
 /* ============ Breakpoints ============ */
-@media (max-width: 1100px) {
-  .n3-ident { grid-template-columns: minmax(0, 1fr); }
-  .n3-ident__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (max-width: 900px) {
   .n3-konfig .b2-konfig__buehne { position: relative; top: 0; width: 100%; box-sizing: border-box; }
   .n3-schritt__bild { height: 12.5rem; }
-  .n3-note--1 { top: 2%; } .n3-note--2 { top: 35%; } .n3-note--3 { top: 68%; }
-  .n3-ident { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .n3-ident__liste { grid-template-columns: minmax(0, 1fr); }
   .n3-pl { grid-template-columns: minmax(0, 1fr); max-width: 28rem; }
   .n3-bruecke { flex-direction: column; }
   .n3-bruecke__linie { width: 2px; height: 1.6rem; background: linear-gradient(180deg, rgba(11,159,189,.25), rgba(134,19,161,.25)); }
@@ -227,23 +172,11 @@
   .n3-schritte::before { left: 2.25rem; right: auto; top: 2rem; bottom: 2rem; width: 2px; height: auto; background: linear-gradient(180deg, #0b9fbd, #3a5fc0, #8613a1); transform: scaleY(0); transform-origin: top; }
   .n3-schritte.ist-sichtbar::before { transform: scaleY(1); }
   .n3-preis__karte { grid-template-columns: minmax(0, 1fr); }
-  .n3-aktion { flex-wrap: wrap; }
-  .n3-aktion__text { flex-basis: calc(100% - 8rem); }
 }
 @keyframes n3-strahl-hoch { to { top: 100%; } }
 @media (max-width: 640px) {
   .n3 .n3-teil { padding: 1.1rem 1.1rem 1.4rem; }
   .n3 .n3-teil figcaption { font-size: .92rem; }
-  .n3-aktion { padding: 1rem; }
-  .n3-aktion__text { flex-basis: 100%; }
-  .n3-aktion .n3-knopf { width: 100%; justify-content: center; }
-  .n3-ident { grid-template-columns: minmax(0, 1fr); }
-  .n3-ident__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .n3-ident__liste li { font-size: .85rem; }
-  .n3-blatt { transform: none; padding: 1rem; }
-  .n3-blatt__zahl { right: .4rem; }
-  .n3-blatt__kopf em { display: none; }
-  .n3-zeile mark { font-size: .74rem; }
   .n3-preis__betrag b { font-size: 4.2rem; }
   .n3-preis__angebot .n3-knopf { justify-self: stretch; justify-content: center; }
   .n3-texte__zeile span { min-width: 6.4rem; }
@@ -251,6 +184,69 @@
 @media (prefers-reduced-motion: reduce) {
   .n3 *, .n3 *::before, .n3 *::after { animation: none !important; transition: none !important; }
   .n3-schritt, .n3-schritte .n3-note { opacity: 1 !important; transform: none !important; }
-  .n3-schritte .n3-note { transform: translate(-50%, 0) !important; }
   .n3-schritte::before { transform: none !important; }
+}
+
+/* ============ Runde 2 (Noah, 22.11.2026) ============ */
+/* Black Week: dezenter Hinweis statt breitem Balken */
+.n3-hinweis-bw { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem .7rem; width: fit-content; max-width: 100%; margin: 1.8rem auto 0; padding: .55rem 1rem .55rem .55rem; border-radius: 99px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-text); font-size: .9rem; line-height: 1.4; text-align: center; }
+.n3-hinweis-bw b { color: var(--s7-tinte); }
+.n3-hinweis-bw__marke { padding: .25rem .6rem; border-radius: 99px; background: var(--n3-verlauf); color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.n3-hinweis-bw a { color: var(--s7-tinte); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.n3-hinweis-bw a:hover { text-decoration: underline; }
+
+/* Gestaltung: Designs nebeneinander, kompakte rechte Spalte, bündig mit dem MacBook */
+.n3 .n3-konfig { align-items: center; }
+.n3 .n3-konfig .b2-konfig__buehne { position: relative; top: 0; }
+.n3 .n3-konfig .b2-konfig__l { margin: 1.4rem 0 .6rem; }
+.n3 .n3-konfig .b2-konfig__l:first-child { margin-top: 0; }
+.n3 .n3-konfig .b2-stile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.n3 .n3-konfig .b2-stil { flex-direction: column; align-items: stretch; gap: .45rem; padding: .45rem .45rem .55rem; font-size: .8rem; line-height: 1.25; text-align: center; }
+.n3 .n3-konfig .b2-stil img { width: 100%; }
+.n3 .n3-feld { height: 7rem; }
+.n3 .n3-farbe { gap: .6rem; }
+.n3-info { display: flex; align-items: flex-start; gap: .55rem; margin-top: 1.3rem; padding: .75rem .9rem; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-text); font-size: .85rem; line-height: 1.45; }
+.n3-info .n3-icon { width: 1.15rem; height: 1.15rem; margin-top: .05rem; color: #3a5fc0; }
+
+.n3-farbe__kopf { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.2rem 0 .6rem; }
+.n3 .n3-farbe__kopf .b2-konfig__l { margin: 0; }
+.n3-farbe__kopf .n3-hex { padding: .25rem .6rem .25rem .3rem; font-size: .88rem; }
+.n3-farbe__kopf .n3-hex i { width: 1.4rem; height: 1.4rem; border-radius: 6px; }
+.n3 .n3-feld { height: 6.6rem; }
+
+/* Positionierung: Merkblatt mit Fließtext */
+.n3-blatt { padding: 1.3rem 1.6rem 1.5rem 1.4rem; }
+.n3-blatt__kopf { justify-content: flex-start; gap: .9rem; }
+.n3-blatt__kopf em { color: #b0b0b5; }
+.n3-blatt__titel { margin: 0 0 .55rem; color: var(--s7-tinte); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; }
+.n3-blatt__text { margin: 0; color: #8a8c93; font-family: Georgia, "Times New Roman", serif; font-size: .86rem; line-height: 1.8; text-align: left; hyphens: manual; -webkit-mask: linear-gradient(180deg, #000 62%, transparent 100%); mask: linear-gradient(180deg, #000 62%, transparent 100%); }
+.n3-blatt__text mark { white-space: nowrap; padding: .05rem .2rem; border-radius: 4px; color: #3b3d44; font-weight: 600; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  background: linear-gradient(#c8102e, #c8102e) no-repeat 0 58% / 0% 2px, #eceef5;
+  transition: background-size .5s cubic-bezier(.6,0,.3,1) calc(.3s + var(--i) * .14s), color .3s calc(.5s + var(--i) * .14s); }
+.n3-pl.ist-sichtbar .n3-blatt__text mark { background-size: 100% 2px, auto; color: #a3a5ab; }
+.n3 .n3-cta { margin-top: clamp(3rem, 5vw, 4.2rem); }
+
+/* Schritt 3: Anfragen sauber untereinander */
+.n3-anfragen { display: flex; flex-direction: column; justify-content: center; gap: .5rem; }
+.n3 .n3-note { position: relative; left: auto; top: auto; width: 100%; max-width: 17rem; margin-inline: auto; padding: .5rem .75rem .5rem .55rem; gap: .6rem; border-radius: 14px; transform: none; }
+.n3 .n3-note b { font-size: .8rem !important; }
+.n3 .n3-note small { font-size: .7rem !important; }
+.n3 .n3-note .s9-app { width: 1.6rem; height: 1.6rem; border-radius: 7px; }
+.n3-schritte .n3-note { opacity: 0; transform: translateY(10px) scale(.97); }
+@keyframes n3-rein { to { opacity: 1; transform: none; } }
+
+/* Preis: linke Spalte vertikal zentriert */
+.n3 .n3-preis__inhalt { display: flex; flex-direction: column; justify-content: center; }
+.n3 .n3-preis__titel { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .n3 .n3-feld { height: 8rem; }
+}
+@media (max-width: 640px) {
+  .n3-hinweis-bw { border-radius: 18px; padding: .8rem 1rem; }
+  .n3-blatt__kopf em { display: none; }
+  .n3 .n3-konfig .b2-stil { font-size: .74rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .n3-schritte .n3-note { transform: none !important; }
 }

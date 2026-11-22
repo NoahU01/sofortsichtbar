@@ -2,7 +2,7 @@
     Klon von /zielgruppen/avrg-2 (Daniel) mit Noahs Feedback:
     - Kopf 1 fest, Kopf 2 und Umschalter raus
     - Reihenfolge: Kopf · Das bekommst du · Gestaltung · Positionierung · Schritte · Preis · Kontakt
-    - Textalternativen für Kopf, Positionierung und „Das bekommst du“ über den Text-Umschalter unten links (?hero=2&pos=3&paket=1)
+    - Textalternativen für den Kopf über den Text-Umschalter unten links (?hero=1…4)
     Stil: n3- (avrg3.css), Verhalten: avrg3.js. Liegt im Storyboard (src/entwicklung darf nie auf main). -#}
 {%- set AV = "/entwicklung/kampagnen/avrg/assets" %}
 {%- set ic = {
@@ -13,6 +13,7 @@
   tel: '<path d="M6.5 3.5h3l1.6 4.4-2 1.3a11.5 11.5 0 0 0 5.7 5.7l1.3-2 4.4 1.6v3A2 2 0 0 1 18.3 20 15.8 15.8 0 0 1 4 5.7a2 2 0 0 1 2.5-2.2Z"/>',
   kalender: '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/>',
   person: '<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/>',
   marke: '<path d="M12 3.2 19.6 7.6v8.8L12 20.8l-7.6-4.4V7.6Z"/><path d="M12 12v8.6M12 12l7.4-4.3M12 12 4.6 7.7"/>'
 } %}
 {%- macro icon(n) %}<svg class="n3-icon" viewBox="0 0 24 24" aria-hidden="true">{{ ic[n] | safe }}</svg>{% endmacro %}
@@ -22,15 +23,14 @@
 <link rel="stylesheet" href="{{ AV }}/avrg3.css?v=1">
 <main class="s9 av9 n3" id="n3">
 
-  {#- ============ Kopf (Variante 1 aus Daniels Entwurf) ============ -#}
+  {#- ============ Kopf (Variante 1 aus Daniels Entwurf, Text in Richtung „Das Depot kommt“) ============ -#}
   <section class="s9-held av9-kopf1 n3-held">
     <div class="s7-wrap av9n-k1">
-      <p class="s9-kicker n3-kicker" data-alt="hero" data-v="1">Black Week bis 04.12. · <span class="n3-nw">Für Versicherungsagenturen und Maklerbüros</span></p>
-      <p class="s9-kicker n3-kicker" data-alt="hero" data-v="2" hidden>Altersvorsorgedepot ab Januar 2027 · <span class="n3-nw">Fertige Vertriebsstrecke für Agenturen und Makler</span></p>
-      <p class="s9-kicker n3-kicker" data-alt="hero" data-v="3" hidden>Landingpage, 40 Postings, 3 Mailings · <span class="n3-nw">Für dein Geschäft mit dem Depot</span></p>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="1">Deine Kunden fragen nach dem Depot.<br><span class="s7-wort">Sorg dafür, dass sie dich fragen.</span></h1>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="2" hidden>Das Altersvorsorgedepot kommt.<br><span class="s7-wort">Deine Termine kommen mit.</span></h1>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="3" hidden>Bank und Portale schreiben schon.<br><span class="s7-wort">Nur du noch nicht.</span></h1>
+      <p class="s9-kicker n3-kicker">Altersvorsorgedepot ab Januar 2027 · <span class="n3-nw">Fertige Vertriebsstrecke für Agenturen und Makler</span></p>
+      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="1">Das Altersvorsorgedepot kommt.<br><span class="s7-wort">Deine Termine kommen mit.</span></h1>
+      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="2" hidden>Das Altersvorsorgedepot startet.<br><span class="s7-wort">Deine Beratungstermine auch.</span></h1>
+      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="3" hidden>Ab Januar kommt das Depot.<br><span class="s7-wort">Und deine Kunden kommen zu dir.</span></h1>
+      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="4" hidden>Die Fragen zum Depot kommen.<br><span class="s7-wort">Die Antworten kommen von dir.</span></h1>
       <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
       <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div>{{ uhr() }}</div></div>
@@ -42,66 +42,36 @@
     <div class="s7-wrap">
       <div class="av9-kopf">
         <p class="b2-kicker n3-kicker">Das bekommst du</p>
-        <h2 class="s9-h2" data-alt="paket" data-v="1">Alles fürs Altersvorsorgedepot. <span class="s7-wort">Fertig in deinem Auftritt.</span></h2>
-        <h2 class="s9-h2" data-alt="paket" data-v="2" hidden>Landingpage, Postings, Mailings. <span class="s7-wort">Startklar für 2027.</span></h2>
-        <h2 class="s9-h2" data-alt="paket" data-v="3" hidden>Im Feed, im Postfach, auf deiner Seite. <span class="s7-wort">Deine Kunden sehen dich.</span></h2>
+        <h2 class="s9-h2">Alles fürs Altersvorsorgedepot. <span class="s7-wort">Fertig in deinem Auftritt.</span></h2>
       </div>
       <div class="b2-drei n3-drei">
         <figure class="b2-teil b2-teil--lp n3-teil"><div class="b2-teil__bild"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" width="2160" height="1350" loading="lazy"></div></div><div class="av9n-mac__fuss"></div><div class="av9n-phone"><img src="{{ AV }}/black-week/lp-iphone-sofort.webp" alt="" width="780" height="1688" loading="lazy"></div></div></div>
           <figcaption><span class="n3-teil__marke">{{ icon("seite") }}Landingpage</span><b>Deine eigene Seite zum Depot.</b>Mit deinem Logo, deinem Foto und deiner Terminwahl. Deine Kunden sehen in zwei Minuten, ob sie das Thema betrifft, und buchen direkt 30 Minuten bei dir.</figcaption></figure>
         <figure class="b2-teil n3-teil"><div class="b2-teil__bild"><div class="av9-stapel">{% for n in ["12", "02", "03"] %}<img src="{{ AV }}/black-week/sofort/p{{ n }}.webp?v=3" alt="" loading="lazy">{% endfor %}</div></div>
-          <figcaption><span class="n3-teil__marke">{{ icon("raster") }}40 Postings</span><b>Zehn Wochen sichtbar.</b>Vier Postings pro Woche für Instagram, Facebook und LinkedIn, mit Bild und Text. Der Redaktionsplan sagt dir, was wann rausgeht, und jedes Posting führt auf deine Seite.</figcaption></figure>
+          <figcaption><span class="n3-teil__marke">{{ icon("raster") }}40 Postings</span><b>Sichtbar auf Social Media.</b>Deine Zielgruppe sieht dich genau dann, wenn alle über das Depot reden. Du zeigst auf Instagram, Facebook und LinkedIn Expertise und wirst zum Ansprechpartner für das Thema.</figcaption></figure>
         <figure class="b2-teil n3-teil"><div class="b2-teil__bild"><div class="av9n-fenster b2-post"><p class="av9-mail__leiste"><i></i><i></i><i></i><span>Posteingang</span></p><ul class="av9n-inbox">
               <li class="an"><i></i><div><b>Neue Altersvorsorge 2027: Betrifft Sie das?</b><span>In 30 Minuten wissen Sie es, kostenlos und unverbindlich.</span></div><em>Nov.</em></li>
               <li><i></i><div><b>Ihr Riester-Vertrag und die Reform 2027</b><span>Kein Grund zur Sorge, aber ein guter Moment, kurz draufzuschauen.</span></div><em>Dez.</em></li>
               <li><i></i><div><b>Mitnehmen oder abhaken?</b><span>Die neue Altersvorsorge startet im Januar. 30 Minuten genügen.</span></div><em>Jan.</em></li>
             </ul></div></div>
-          <figcaption><span class="n3-teil__marke">{{ icon("mail") }}3 Mailings</span><b>Fertig zum Abschicken.</b>Eine Mail an alle Bestandskunden, eine an deine Riester-Kunden und eine Erinnerung im Januar. Persönlich geschrieben, mit Knopf zum Termin auf deiner Seite.</figcaption></figure>
+          <figcaption><span class="n3-teil__marke">{{ icon("mail") }}3 Mailings</span><b>Bestandskunden aktivieren.</b>Du meldest dich, bevor es Bank oder Portal tun. Mit einer Mail an alle, einer an deine Riester-Kunden und einem Follow-up bist du der, der sich kümmert, und holst sie zum Termin.</figcaption></figure>
       </div>
-      <div class="n3-aktion" data-n3-aktion>
-        <span class="n3-aktion__marke">Black Week</span>
-        <p class="n3-aktion__text"><b>Alle drei Bausteine für 39 € statt 89 € im Monat.</b> Der Preis gilt bei Buchung bis einschließlich 04.12.2026.</p>
-        <a class="s7-knopf n3-knopf n3-knopf--hell" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
-      </div>
+      <p class="n3-hinweis-bw" data-n3-aktion><span class="n3-hinweis-bw__marke">Black Week</span>Alle drei Bausteine für <b>39 € statt 89 €</b> im Monat, bei Buchung bis 04.12.2026. <a href="{{ H7 }}/kontakt/">Termin auswählen ›</a></p>
     </div>
   </section>
 
   {#- ============ Gestaltung ============ -#}
   <section class="s9-band s9-band--flaeche b2-band n3-band" id="dein-auftritt">
     <div class="s7-wrap">
-      <div class="av9-kopf"><p class="b2-kicker n3-kicker">Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Gestaltungen. <span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
+      <div class="av9-kopf"><p class="b2-kicker n3-kicker">Auf dich zugeschnitten</p><h2 class="s9-h2">Drei Designs.<br><span class="s7-wort">Deine Farbe, dein Logo.</span></h2></div>
       <div class="b2-konfig n3-konfig" data-n3-konfig>
-        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm b2-live" data-b2-live="haupt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage in der gewählten Gestaltung und Farbe" width="2160" height="1350"></div></div><div class="av9n-mac__fuss"></div></div></div>
+        <div class="b2-konfig__buehne"><div class="av9n-mac"><div class="av9n-mac__bild"><div class="av9n-mac__schirm b2-live" data-b2-live="haupt"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="Die AVRG-Landingpage im gewählten Design und in der gewählten Farbe" width="2160" height="1350"></div></div><div class="av9n-mac__fuss"></div></div></div>
         <div class="b2-konfig__wahl">
-          <p class="b2-konfig__l">Gestaltung</p>
+          <p class="b2-konfig__l">Design</p>
           <div class="b2-stile"><button type="button" class="b2-stil" data-b2-stil="3" aria-pressed="true"><img src="{{ AV }}/black-week/konfig/lp3-sofort.webp" alt="" loading="lazy"><span>Das Klarheits-Ticket</span></button><button type="button" class="b2-stil" data-b2-stil="2"><img src="{{ AV }}/black-week/konfig/lp2-sofort.webp" alt="" loading="lazy"><span>Betrifft dich das?</span></button><button type="button" class="b2-stil" data-b2-stil="1"><img src="{{ AV }}/black-week/konfig/lp1-sofort.webp" alt="" loading="lazy"><span>Mitten im Leben</span></button></div>
-          <p class="b2-konfig__l">Deine Farbe</p>
-          <div class="n3-farbe">
-            <div class="n3-feld" data-n3-feld role="slider" tabindex="0" aria-label="Farbe im Farbfeld wählen" aria-valuetext="#11708A"><i class="n3-feld__punkt" data-n3-punkt></i></div>
-            <div class="n3-farbe__zeile">
-              <label class="n3-hex"><i data-n3-farbpunkt></i><span>#</span><input type="text" inputmode="text" maxlength="7" spellcheck="false" autocomplete="off" value="11708A" data-n3-hex aria-label="Hex-Code deiner Farbe"></label>
-              <div class="n3-muster" role="group" aria-label="Schnellauswahl">
-                {%- for f in [["#11708A", "Petrol"], ["#1D4ED8", "Blau"], ["#0B2E59", "Marine"], ["#C8102E", "Rot"], ["#028B34", "Grün"], ["#E36414", "Orange"]] %}<button type="button" style="--f:{{ f[0] }}" data-n3-muster="{{ f[0] }}" aria-label="{{ f[1] }}"></button>{% endfor -%}
-              </div>
-            </div>
-            <p class="n3-farbe__hinweis">Hex-Code deiner Hausfarbe eingeben oder direkt im Feld wählen. Die Landingpage färbt sich sofort mit.</p>
-          </div>
-          <p class="b2-konfig__l">Logo und Kontakt</p>
-          <div class="n3-ident">
-            <div class="n3-visitenkarte" aria-hidden="true">
-              <div class="n3-visitenkarte__kopf"><img src="{{ AV }}/black-week/dein-logo.svg" alt="" class="n3-visitenkarte__logo"><span class="n3-visitenkarte__stempel">Versicherungen</span></div>
-              <div class="n3-visitenkarte__person"><img src="{{ AV }}/max-mustermann.jpg" alt="" width="96" height="96"><div><b>Max Mustermann</b><small>Deine Agentur · Köln</small></div></div>
-              <p class="n3-visitenkarte__weg">{{ icon("tel") }}0221 123 456 78</p>
-              <span class="n3-visitenkarte__knopf">{{ icon("kalender") }}Termin wählen</span>
-            </div>
-            <ul class="n3-ident__liste">
-              <li>{{ icon("marke") }}Dein Logo</li>
-              <li>{{ icon("person") }}Dein Foto</li>
-              <li>{{ icon("tel") }}Deine Nummer</li>
-              <li>{{ icon("kalender") }}Deine Terminwahl</li>
-            </ul>
-            <p class="n3-ident__text">Setzen wir für dich ein: auf der Landingpage, in allen 40 Postings und in den 3 Mailings.</p>
-          </div>
+          <div class="n3-farbe__kopf"><p class="b2-konfig__l">Deine Farbe</p><label class="n3-hex"><i data-n3-farbpunkt></i><span>#</span><input type="text" inputmode="text" maxlength="7" spellcheck="false" autocomplete="off" value="11708A" data-n3-hex aria-label="Hex-Code deiner Farbe"></label></div>
+          <div class="n3-feld" data-n3-feld role="slider" tabindex="0" aria-label="Farbe im Farbfeld wählen" aria-valuetext="#11708A"><i class="n3-feld__punkt" data-n3-punkt></i></div>
+          <p class="n3-info">{{ icon("info") }}<span>Dein Logo, dein Foto, deine Kontaktdaten und deine Terminwahl setzen wir für dich ein: auf der Landingpage, in den Postings und in den Mailings.</span></p>
         </div>
       </div>
     </div>
@@ -112,38 +82,14 @@
     <div class="s7-wrap">
       <div class="av9-kopf">
         <p class="b2-kicker n3-kicker">Deine Positionierung</p>
-        <div data-alt="pos" data-v="1">
-          <h2 class="s9-h2">Zwölf Fachbegriffe. <span class="s7-wort">Drei Fragen, die zählen.</span></h2>
-          <p class="s9-lead n3-lead">Grundzulage, Günstigerprüfung, Garantiequote: Das will dein Kunde gar nicht verstehen. Er will wissen, ob ihn das Depot betrifft und ob er einen Vorteil hat.</p>
-        </div>
-        <div data-alt="pos" data-v="2" hidden>
-          <h2 class="s9-h2">Weniger Paragrafen. <span class="s7-wort">Mehr Termine.</span></h2>
-          <p class="s9-lead n3-lead">Du lädst deine Kunden nicht zum Fachvortrag ein, sondern zu 30 Minuten mit drei klaren Fragen. Das senkt die Hürde, und du bist der, der Klarheit bringt.</p>
-        </div>
-        <div data-alt="pos" data-v="3" hidden>
-          <h2 class="s9-h2">Du verkaufst kein Gesetz. <span class="s7-wort">Du verkaufst Klarheit.</span></h2>
-          <p class="s9-lead n3-lead">Deine Kunden wollen keine Förderquoten vergleichen, sondern eine Antwort: mitnehmen oder abhaken. Darum dreht sich jede Seite, jedes Posting und jede Mail.</p>
-        </div>
+        <h2 class="s9-h2">Du verkaufst kein Gesetz. <span class="s7-wort">Du verkaufst Klarheit.</span></h2>
+        <p class="s9-lead n3-lead">Deine Kunden wollen keine Förderquoten vergleichen, sondern eine Antwort: mitnehmen oder abhaken. Darum dreht sich jede Seite, jedes Posting und jede Mail.</p>
       </div>
       <div class="n3-pl" data-n3-pl aria-label="Aus einem Infoblatt voller Fachbegriffe wird ein Klarheits-Ticket mit drei Fragen in 30 Minuten">
         <div class="n3-blatt" aria-hidden="true">
-          <div class="n3-blatt__kopf"><span>Infoblatt Altersvorsorgereform</span><em>Seite 1 von 12</em></div>
-          {%- set zeilen = [
-            [38, "Grundzulage", 22],
-            [14, "Sonderausgabenabzug", 30],
-            [46, "Günstigerprüfung", 12],
-            [20, "Mindesteigenbeitrag", 26],
-            [30, "Garantiequote", 34],
-            [10, "Förderquote", 18, "Zulagenantrag"],
-            [42, "Wechseloption", 20],
-            [24, "Auszahlplan", 28, "Riester-Bestand"]
-          ] %}
-          <div class="n3-blatt__text">
-            {%- for z in zeilen %}
-            <p class="n3-zeile" style="--i:{{ loop.index0 }}"><i style="width:{{ z[0] }}%"></i><mark>{{ z[1] }}</mark><i style="width:{{ z[2] }}%"></i>{% if z[3] %}<mark>{{ z[3] }}</mark>{% endif %}</p>
-            {%- endfor %}
-          </div>
-          <span class="n3-blatt__zahl"><b>12</b> Fachbegriffe</span>
+          <div class="n3-blatt__kopf"><span>Merkblatt Altersvorsorgereform</span><em>Seite 1 von 12</em></div>
+          <p class="n3-blatt__titel">§ 3 Förderung und Zulagen</p>
+          <p class="n3-blatt__text">Die <mark style="--i:0">Grundzulage</mark> wird nur gewährt, wenn der <mark style="--i:1">Mindesteigenbeitrag</mark> geleistet wurde. Im Rahmen der <mark style="--i:2">Günstigerprüfung</mark> wird ermittelt, ob der <mark style="--i:3">Sonderausgabenabzug</mark> vorteilhafter ist als die Zulage. Für Verträge mit <mark style="--i:4">Garantiequote</mark> gelten abweichende Regeln zur <mark style="--i:5">Förderquote</mark>. Eine <mark style="--i:6">Wechseloption</mark> aus dem <mark style="--i:7">Riester-Bestand</mark> besteht unter bestimmten Voraussetzungen. Der <mark style="--i:8">Zulagenantrag</mark> ist fristgerecht zu stellen, die Leistung erfolgt über einen <mark style="--i:9">Auszahlplan</mark> nach Maßgabe der</p>
         </div>
         <div class="n3-bruecke" aria-hidden="true"><span class="n3-bruecke__linie"><i></i></span><span class="n3-bruecke__marke">30 Min.</span><span class="n3-bruecke__linie"><i></i></span></div>
         <div class="b2-ticket n3-ticket">
@@ -156,7 +102,7 @@
           <div class="b2-ticket__abriss" aria-hidden="true"><span>Gültig ab sofort</span></div>
         </div>
       </div>
-      <div class="s9-knoepfe n3-cta"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#preis">39 € statt 89 € ansehen ›</a></div>
+      <div class="s9-knoepfe n3-cta"><a class="s7-knopf n3-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a></div>
     </div>
   </section>
 
@@ -172,7 +118,7 @@
         <li class="n3-schritt">
           <span class="n3-schritt__nr">01</span>
           <div class="n3-schritt__bild"><div class="b2-mini">{% for n in ["3", "2", "1"] %}<span data-b2-schritt-stil="{{ n }}"{% if n == "3" %} class="an"{% endif %}><img src="{{ AV }}/black-week/konfig/lp{{ n }}-sofort.webp" alt="" loading="lazy"></span>{% endfor %}<i class="b2-mini__farbe" data-n3-farbpunkt></i></div></div>
-          <p><b>Du wählst.</b>Im Termin suchst du dir eine der drei Gestaltungen und deine Hausfarbe aus. Mehr musst du an dieser Stelle nicht entscheiden.</p>
+          <p><b>Du wählst.</b>Im Termin suchst du dir eines der drei Designs und deine Hausfarbe aus. Mehr musst du an dieser Stelle nicht entscheiden.</p>
         </li>
         <li class="n3-schritt">
           <span class="n3-schritt__nr">02</span>
@@ -198,22 +144,22 @@
     <div class="s7-wrap">
       <div class="av9-kopf">
         <h2 class="s9-h2">Deine AVRG-Vertriebsstrecke.</h2>
-        <p class="s9-lead n3-lead">Landingpage, 40 Postings und 3 Mailings, fertig eingerichtet in deinem Auftritt. Wer bis 04.12.2026 bucht, zahlt 39 € statt 89 € im Monat.</p>
+        <p class="s9-lead n3-lead">Landingpage, 40 Postings und 3 Mailings, fertig eingerichtet für deinen Auftritt. Buche bis zum 04.12.2026 und zahle 39 € statt 89 € im Monat.</p>
       </div>
       <div class="b2-preis n3-preis">
         <i class="av9n-angebot__glow" aria-hidden="true"></i>
         <div class="b2-preis__karte n3-preis__karte">
           <div class="n3-preis__inhalt">
-            <p class="n3-preis__titel">Alles drin. Du musst nur noch starten.</p>
+            <p class="n3-preis__titel">Das steckt in deiner Vertriebsstrecke.</p>
             <ul class="n3-preis__liste">
               <li><span class="n3-preis__icon">{{ icon("seite") }}</span><div><b>Deine Landingpage</b>Kunden verstehen in zwei Minuten, worum es geht, und buchen direkt bei dir.</div></li>
-              <li><span class="n3-preis__icon">{{ icon("raster") }}</span><div><b>40 Postings</b>Zehn Wochen präsent auf Instagram, Facebook und LinkedIn.</div></li>
+              <li><span class="n3-preis__icon">{{ icon("raster") }}</span><div><b>40 Postings</b>Präsent auf Instagram, Facebook und LinkedIn, genau zu deinem Thema.</div></li>
               <li><span class="n3-preis__icon">{{ icon("mail") }}</span><div><b>3 Mailings</b>Holen deine Bestandskunden genau dann ab, wenn das Thema hochkocht.</div></li>
               <li><span class="n3-preis__icon">{{ icon("haken") }}</span><div><b>Fertig eingerichtet</b>Mit deinem Logo, Foto, Kontakt und deiner Farbe. Du startest sofort.</div></li>
             </ul>
           </div>
           <div class="n3-preis__angebot">
-            <div class="n3-preis__kopf"><span class="n3-preis__marke">Black Week</span><span class="n3-preis__rabatt" data-n3-aktion>−56 %</span></div>
+            <div class="n3-preis__kopf"><span class="n3-preis__marke">Black Week</span></div>
             <div class="n3-preis__betrag" data-n3-betrag><b>39 €</b><span><s>89 €</s>pro Monat</span></div>
             {{ uhr(true) }}
             <a class="s7-knopf n3-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a>
@@ -229,7 +175,7 @@
     <div class="s7-wrap s7-kontakt">
       <div>
         <h2 class="s7-h2">Sprechen wir über die neue <span class="s7-wort s7-nowrap">Altersvorsorge.</span></h2>
-        <p class="s7-lead">Buch dir jetzt einen Termin. Du siehst deine Landingpage mit deinem Logo und deiner Farbe und weißt danach, wann dein erstes Mailing rausgeht. Bis 04.12. zahlst du 39 € statt 89 € im Monat.</p>
+        <p class="s7-lead">Buche dir deinen Beratungstermin. Wir zeigen dir ganz unverbindlich, was in unserem Angebot für dich steckt und wie alles funktioniert. Danach steht dir völlig frei, ob du mit uns arbeiten willst oder nicht. Bis zum 04.12. zahlst du 39 € statt 89 € im Monat.</p>
       </div>
       <div class="s7-kontakt__wege n3-kontakt__wege">
         <p class="s7-kontakt__team"><span aria-hidden="true">{% for n in ["kerstin", "daniel", "noah"] %}<img src="{{ B6 }}/assets/img/ansprechpartner-{{ n }}.webp" alt="" width="480" height="480" loading="lazy">{% endfor %}</span>{{ S.kontakt.team_satz }}</p>
@@ -244,8 +190,8 @@
   <aside class="n3-texte" data-n3-texte aria-label="Textalternativen">
     <button type="button" class="n3-texte__auf" data-n3-texte-auf aria-expanded="true">Texte</button>
     <div class="n3-texte__liste">
-      {%- for g in [["hero", "Kopf"], ["paket", "Das bekommst du"], ["pos", "Positionierung"]] %}
-      <div class="n3-texte__zeile" data-gruppe="{{ g[0] }}"><span>{{ g[1] }}</span>{% for v in ["1", "2", "3"] %}<button type="button" data-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
+      {%- for g in [["hero", "Kopf"]] %}
+      <div class="n3-texte__zeile" data-gruppe="{{ g[0] }}"><span>{{ g[1] }}</span>{% for v in ["1", "2", "3", "4"] %}<button type="button" data-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
       {%- endfor %}
     </div>
   </aside>
