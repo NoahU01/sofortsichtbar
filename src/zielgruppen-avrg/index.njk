@@ -3,7 +3,7 @@ permalink: /zielgruppen/avrg/index.html
 layout: false
 eleventyExcludeFromCollections: true
 ---
-{#- Erzeugt von werkzeuge/avrg_live.py – nicht von Hand ändern. -#}
+{#- Erzeugt von werkzeuge/avrg_live.py (Branch daniel). Von Hand ergänzt auf main: Logo verlinkt auf die Startseite, Ankerpunkte in der Leiste plus Menü für schmale Bildschirme, id="ablauf" – beim nächsten Erzeugen mit übernehmen. -#}
 <!doctype html>
 <html lang="de">
 <head>
@@ -2019,6 +2019,19 @@ body.s7-menue-offen { overflow: hidden; }
 .av9-live-kopf .s7-wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .av9-live-kopf .s7-kopf__termin{display:inline-flex}
 @media (max-width:600px){.av9-live-kopf .s7-kopf__termin{padding:.6rem 1.05rem;font-size:.9rem}}
+
+/* Live-Kopf mit Ankerpunkten: Logo führt zur Startseite, Anker springen in die Abschnitte dieser Seite */
+html{scroll-padding-top:72px}
+.av9-live-kopf .s7-marke a{display:flex}
+.av9-live-kopf .s7-nav{display:flex;margin-left:auto;margin-right:.6rem}
+.av9-live-kopf .s7-burger{display:none}
+@media (max-width:1279px){.av9-live-kopf .s7-nav{gap:1rem}.av9-live-kopf .s7-nav a{font-size:.88rem}.av9-live-kopf .s7-kopf__termin{margin-left:0}}
+@media (max-width:1099px){
+  .av9-live-kopf .s7-nav{display:none}
+  .av9-live-kopf .s7-burger{display:block;margin-left:0}
+  .av9-live-kopf .s7-kopf__termin{margin-left:auto}
+}
+@media (max-width:420px){.av9-live-kopf .s7-wrap{gap:.6rem}.av9-live-kopf .s7-kopf__termin{padding:.55rem .9rem;font-size:.85rem}}
 </style>
 </head>
 <body><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -2032,8 +2045,15 @@ body.s7-menue-offen { overflow: hidden; }
 <div class="s7-stil s7-stil--apple s7-farbe--cyanviolett" id="s7-seite">
 <header class="s7-kopf av9-live-kopf">
 <div class="s7-wrap">
-<div class="s7-marke"><img src="/zielgruppen/avrg/assets/storyboard-story6/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></div>
+<div class="s7-marke"><a href="/" aria-label="sofort sichtbar – Startseite"><img src="/zielgruppen/avrg/assets/storyboard-story6/img/logo-dunkel.svg" alt="sofort sichtbar" width="78" height="40"></a></div>
+<nav class="s7-nav" aria-label="Abschnitte dieser Seite"><a href="#paket">Das bekommst du</a><a href="#dein-auftritt">Designs</a><a href="#positionierung">Positionierung</a><a href="#ablauf">So geht’s</a><a href="#preis">Preis</a><a href="#kontakt">Kontakt</a></nav>
 <a class="s7-knopf s7-kopf__termin" href="https://cal.eu/sofortsichtbar/beratungstermin" target="_blank" rel="noopener">Termin auswählen</a>
+<button type="button" class="s7-burger" aria-expanded="false" aria-controls="s7-menue" aria-label="Menü öffnen"><span></span><span></span></button>
+</div>
+<div class="s7-menue" id="s7-menue" hidden>
+<nav class="s7-menue__liste" aria-label="Abschnitte dieser Seite"><a href="#paket">Das bekommst du</a><a href="#dein-auftritt">Designs</a><a href="#positionierung">Positionierung</a><a href="#ablauf">So geht’s</a><a href="#preis">Preis</a><a href="#kontakt">Kontakt</a>
+<a class="s7-knopf" href="https://cal.eu/sofortsichtbar/beratungstermin" target="_blank" rel="noopener">Termin auswählen <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</nav>
 </div>
 </header>
 <link rel="stylesheet" href="/zielgruppen/avrg/assets/kampagnen-avrg/avrg3.css?v=1">
@@ -2105,7 +2125,7 @@ body.s7-menue-offen { overflow: hidden; }
       </div>
       <div class="s9-knoepfe n3-cta"><a class="s7-knopf n3-knopf" href="https://cal.eu/sofortsichtbar/beratungstermin" target="_blank" rel="noopener">Termin auswählen <svg class="s7-pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
-  </section><section class="s9-band s9-band--flaeche b2-band n3-band">
+  </section><section class="s9-band s9-band--flaeche b2-band n3-band" id="ablauf">
     <div class="s7-wrap">
       <div class="av9-kopf">
         <p class="b2-kicker n3-kicker">So einfach geht’s</p>
@@ -2185,6 +2205,17 @@ body.s7-menue-offen { overflow: hidden; }
 <footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung/">Datenschutz</a><a href="/impressum/">Impressum</a></span></div></footer>
 </div>
 
+<script>
+/* Menü für schmale Bildschirme: Knopf öffnet/schließt, Escape und Wahl eines Ankers schließen */
+(function () {
+  var k = document.querySelector(".s7-burger"), m = document.getElementById("s7-menue"); if (!k || !m) return;
+  function setze(auf) { m.hidden = !auf; k.setAttribute("aria-expanded", auf ? "true" : "false"); k.setAttribute("aria-label", auf ? "Menü schließen" : "Menü öffnen"); document.body.classList.toggle("s7-menue-offen", auf); }
+  k.addEventListener("click", function () { setze(m.hidden); });
+  m.addEventListener("click", function (e) { if (e.target.closest("a")) setze(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) { setze(false); k.focus(); } });
+  window.addEventListener("resize", function () { if (window.innerWidth > 1099 && !m.hidden) setze(false); });
+})();
+</script>
 {% endraw %}{% include "partials/body-scripts.njk" %}
 </body>
 </html>
