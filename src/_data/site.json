@@ -54,6 +54,10 @@
           "href": "/zielgruppen/avrg/",
           "children": [
             {
+              "label": "LIVE · Landingpage /zielgruppen/avrg (aus Black Week 3.0)",
+              "href": "/zielgruppen/avrg/"
+            },
+            {
               "label": "Black Week 3.0 (Noah) · Landingpage /zielgruppen/avrg-3",
               "href": "/zielgruppen/avrg-3/"
             },
@@ -62,8 +66,8 @@
               "href": "/zielgruppen/avrg-2/"
             },
             {
-              "label": "Black Week · Landingpage /zielgruppen/avrg",
-              "href": "/zielgruppen/avrg/"
+              "label": "Black Week · Landingpage /zielgruppen/avrg-1",
+              "href": "/zielgruppen/avrg-1/"
             },
             {
               "label": "Produkt-Landingpage · Das Klarheits-Ticket",

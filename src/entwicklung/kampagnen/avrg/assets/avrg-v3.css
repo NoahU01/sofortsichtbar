@@ -3,7 +3,7 @@
    eine starke Bildidee (das Klarheits-Ticket), große Lora-Überschriften,
    klare Flächenwechsel Weiß · Rot · Schwarz · Warmgrau. Agenturfarben bleiben:
    Rot als Signal, Schwarz, Weiß. Bausteine (Rechner, Termin, FAQ) aus avrg.css. */
-@import url('/assets/fonts/fonts.css');
+@import url('fonts-v3/fonts.local.css');
 
 :root{
   --font:'Poppins',system-ui,sans-serif;
