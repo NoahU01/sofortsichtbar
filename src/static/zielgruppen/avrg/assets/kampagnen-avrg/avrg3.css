@@ -1,0 +1,246 @@
+/* AVRG · Black Week 3.0 (Noah, 22.11.2026) – Ergänzungen zu Daniels av9-/b2-Stil für /zielgruppen/avrg-3 */
+.n3 { --n3-farbe: #11708a; --n3-auf-farbe: #fff; --n3-verlauf: linear-gradient(110deg, #0b9fbd 0%, #3a5fc0 48%, #8613a1 100%); }
+.n3-icon { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.n3-nw { white-space: nowrap; }
+
+/* Preheader: eine Nummer kleiner, ohne Zahlen */
+.n3 .n3-kicker { font-size: .875rem; letter-spacing: .01em; }
+.n3 .b2-kicker.n3-kicker { margin-bottom: .7rem; }
+
+/* Kopf: längere H1, deshalb etwas kleiner gesetzt, damit sie auf 1440 in zwei Zeilen bleibt */
+.n3 .n3-held .n3-h1 { font-size: clamp(2.2rem, 4.7vw, 4.25rem); line-height: 1.04; }
+.n3 .av9-kopf { max-width: 64rem; }
+
+/* Untertitel unter H2: eine Nummer kleiner */
+.n3 .n3-lead { max-width: 46rem; margin-top: 1.2rem; font-size: clamp(1rem, 1.25vw, 1.125rem); line-height: 1.55; text-wrap: pretty; }
+
+/* Knöpfe: schlanker */
+.n3 .n3-knopf { padding: .72rem 1.25rem; font-size: .95rem; }
+.n3 .n3-knopf--hell { background: #fff; border-color: #fff; color: #1d1d1f; }
+.n3 .n3-knopf--hell .s7-pfeil { stroke: #1d1d1f; }
+
+/* ============ Das bekommst du ============ */
+.n3-drei { align-items: stretch; }
+.n3-teil { padding: 1.4rem 1.4rem 1.8rem; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+.n3-teil:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -34px rgba(29,29,31,.35); }
+.n3 .n3-teil figcaption { margin-top: 1.4rem; color: var(--s7-text); font-size: .95rem; line-height: 1.55; text-align: left; }
+.n3 .n3-teil figcaption b { margin: .55rem 0 .4rem; font-size: 1.3rem; line-height: 1.2; }
+.n3-teil__marke { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .7rem .3rem .55rem; border-radius: 99px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-tinte); font-size: .78rem; font-weight: 600; }
+.s9-band--flaeche .n3-teil__marke { background: var(--s7-flaeche); }
+.n3-teil__marke .n3-icon { color: #3a5fc0; }
+
+
+/* ============ Gestaltung ============ */
+.n3-konfig { align-items: start; }
+.n3-konfig .b2-konfig__buehne { position: sticky; top: 6rem; }
+.n3-farbe { display: grid; gap: .8rem; }
+.n3-feld { position: relative; height: 8.5rem; border-radius: 16px; cursor: crosshair; touch-action: none; outline: none;
+  background: linear-gradient(to bottom, hsl(0 0% 100% / .55) 0%, hsl(0 0% 100% / 0) 42%, hsl(0 0% 0% / 0) 58%, hsl(0 0% 0% / .7) 100%),
+              linear-gradient(to right, hsl(0 78% 48%), hsl(30 78% 48%), hsl(60 78% 48%), hsl(90 78% 42%), hsl(120 78% 38%), hsl(150 78% 38%), hsl(180 78% 38%), hsl(210 78% 45%), hsl(240 78% 52%), hsl(270 78% 50%), hsl(300 78% 46%), hsl(330 78% 48%), hsl(359 78% 48%));
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.n3-feld:focus-visible { box-shadow: inset 0 0 0 1px rgba(0,0,0,.08), 0 0 0 3px #fff, 0 0 0 5px #3d5bd1; }
+.n3-feld__punkt { position: absolute; left: 53.8%; top: 76%; width: 1.6rem; height: 1.6rem; margin: -.8rem 0 0 -.8rem; border-radius: 50%; background: var(--n3-farbe); box-shadow: 0 0 0 3px #fff, 0 4px 14px rgba(0,0,0,.35); pointer-events: none; transition: transform .15s; }
+.n3-feld.ist-aktiv .n3-feld__punkt { transform: scale(1.18); }
+.n3-farbe__zeile { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem; }
+.n3-hex { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .7rem .35rem .4rem; border-radius: 12px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-grau); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95rem; }
+.n3-hex:focus-within { box-shadow: 0 0 0 2px var(--s7-tinte); }
+.n3-hex i { width: 1.7rem; height: 1.7rem; margin-right: .2rem; border-radius: 8px; background: var(--n3-farbe); box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.n3-hex input { width: 4.6rem; padding: 0; border: 0; background: none; color: var(--s7-tinte); font: inherit; font-weight: 600; text-transform: uppercase; outline: none; }
+.n3-hex input.ist-falsch { color: #c8102e; }
+
+
+/* ============ Positionierung ============ */
+.n3-pl { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); align-items: center; gap: clamp(1rem, 2.4vw, 2rem); max-width: 64rem; margin: 3.2rem auto 0; }
+/* links: ein Merkblatt voller Fachbegriffe, die sich beim Einblenden durchstreichen */
+.n3-blatt { position: relative; padding: 1.2rem 1.3rem 1.4rem; border-radius: 20px; background: linear-gradient(180deg, #fff 0%, #fafafa 100%); box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 30px 60px -36px rgba(29,29,31,.4); transform: rotate(1.5deg); }
+.n3-blatt::before, .n3-blatt::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
+.n3-blatt::before { transform: rotate(-4deg) translate(-10px, 8px); opacity: .7; }
+.n3-blatt::after { transform: rotate(-8deg) translate(-18px, 18px); opacity: .4; }
+.n3-blatt__kopf { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: .8rem; margin-bottom: .9rem; border-bottom: 1px solid var(--s7-linie); color: var(--s7-grau); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.n3-blatt__kopf em { font-style: normal; letter-spacing: 0; text-transform: none; }
+.n3-pl.ist-sichtbar .n3-zeile mark::after { transform: scaleX(1); }
+.n3-pl.ist-sichtbar .n3-zeile mark { color: #9a9ca3; transition: color .3s calc(.4s + var(--i) * .12s); }
+/* Mitte: Lichtstrahl statt Pfeil */
+.n3-bruecke { display: flex; align-items: center; gap: .5rem; }
+.n3-bruecke__linie { position: relative; width: clamp(1.4rem, 3vw, 2.6rem); height: 2px; border-radius: 2px; background: linear-gradient(90deg, rgba(11,159,189,.25), rgba(134,19,161,.25)); overflow: hidden; }
+.n3-bruecke__linie i { position: absolute; top: 0; left: -40%; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, #0b9fbd, #8613a1, transparent); animation: n3-strahl 1.8s linear infinite; }
+.n3-bruecke__linie + .n3-bruecke__marke + .n3-bruecke__linie i { animation-delay: .9s; }
+.n3-bruecke__marke { position: relative; display: grid; place-items: center; width: 4.4rem; height: 4.4rem; border-radius: 50%; background: var(--n3-verlauf); color: #fff; font-size: .82rem; font-weight: 700; letter-spacing: -.01em; box-shadow: 0 14px 30px -12px rgba(58,95,192,.7); }
+.n3-bruecke__marke::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1.5px solid rgba(58,95,192,.35); animation: n3-puls 2.4s ease-out infinite; }
+@keyframes n3-strahl { to { left: 100%; } }
+@keyframes n3-puls { 0% { transform: scale(.9); opacity: 1; } 100% { transform: scale(1.35); opacity: 0; } }
+/* rechts: Ticket mit Hover */
+.n3-ticket { transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s; cursor: default; }
+.n3-ticket:hover { transform: rotate(0) translateY(-8px) scale(1.02); box-shadow: 0 0 0 1px var(--s7-linie), 0 44px 80px -30px rgba(58,95,192,.45); }
+.n3-ticket li::before { transition: transform .3s cubic-bezier(.3,1.6,.5,1), background .3s; }
+.n3-ticket:hover li::before { transform: scale(1.15); background: #3a5fc0; }
+.n3-ticket:hover li:nth-child(2)::before { transition-delay: .06s; }
+.n3-ticket:hover li:nth-child(3)::before { transition-delay: .12s; }
+.n3-ticket .b2-ticket__fuss { transition: letter-spacing .3s; }
+.n3-ticket:hover .b2-ticket__fuss { background: var(--n3-verlauf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.n3-cta { margin-top: clamp(2.4rem, 4vw, 3.2rem); }
+
+/* ============ Schritte ============ */
+.n3-schritte { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; counter-reset: none; }
+.n3-schritte::before { content: ""; position: absolute; z-index: 0; left: 16%; right: 16%; top: 2.05rem; height: 2px; background: linear-gradient(90deg, #0b9fbd, #3a5fc0, #8613a1); transform: scaleX(0); transform-origin: left; transition: transform 1.2s cubic-bezier(.6,0,.2,1) .2s; }
+.n3-schritte.ist-sichtbar::before { transform: scaleX(1); }
+.n3-schritt { position: relative; z-index: 1; display: flex; flex-direction: column; padding: 1.2rem 1.4rem 1.8rem; border-radius: 26px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.03); opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+.n3-schritte.ist-sichtbar .n3-schritt { opacity: 1; transform: none; }
+.n3-schritte.ist-sichtbar .n3-schritt:nth-child(2) { transition-delay: .15s, .15s, 0s; }
+.n3-schritte.ist-sichtbar .n3-schritt:nth-child(3) { transition-delay: .3s, .3s, 0s; }
+.n3-schritte.ist-sichtbar .n3-schritt:hover { transform: translateY(-5px); box-shadow: 0 0 0 1px rgba(0,0,0,.03), 0 32px 60px -34px rgba(29,29,31,.38); transition-delay: 0s; }
+.n3-schritt__nr { display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--n3-verlauf); color: #fff; font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums; box-shadow: 0 0 0 5px #fff; }
+.n3-schritt__bild { display: flex; align-items: center; justify-content: center; height: clamp(10rem, 14vw, 12.5rem); margin-top: .6rem; }
+.n3-schritt .b2-mini { width: 100%; }
+.n3-schritt .b2-mini span { transition: transform .3s, box-shadow .3s; }
+.n3-schritt:hover .b2-mini span:not(.an) { transform: translateY(2px) scale(.97); }
+.n3-schritt > p { margin-top: 1rem; color: var(--s7-text); font-size: .95rem; line-height: 1.55; }
+.n3-schritt > p b { display: block; margin-bottom: .3rem; color: var(--s7-tinte); font-family: var(--s7-schrift-titel); font-size: 1.3rem; letter-spacing: -0.02em; }
+/* Schritt 2: Bausteine fliegen ins MacBook */
+.n3-einrichten { position: relative; width: 78%; }
+.n3-chip { position: absolute; display: inline-flex; align-items: center; gap: .3rem; padding: .32rem .6rem .32rem .45rem; border-radius: 99px; background: #fff; color: var(--s7-tinte); font-size: .72rem; font-weight: 600; white-space: nowrap; box-shadow: 0 10px 22px -10px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.05); animation: n3-schweben 4.5s ease-in-out infinite; }
+.n3-chip .n3-icon { color: #3a5fc0; }
+.n3-chip--1 { left: -12%; top: 8%; }
+.n3-chip--2 { right: -14%; top: 34%; animation-delay: -1.5s; }
+.n3-chip--3 { left: -6%; bottom: 4%; animation-delay: -3s; }
+@keyframes n3-schweben { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+/* Schritt 3: Anfragen kommen nacheinander rein */
+.n3-anfragen { position: relative; width: 100%; height: 100%; }
+.n3-note b { font-size: .9rem !important; }
+.n3-note small { font-size: .78rem !important; }
+.n3-note .s9-app { width: 2rem; height: 2rem; border-radius: 9px; }
+.n3-schritte.ist-sichtbar .n3-note { animation: n3-rein .55s cubic-bezier(.2,.9,.3,1.2) forwards; }
+.n3-schritte.ist-sichtbar .n3-note--1 { animation-delay: .9s; }
+.n3-schritte.ist-sichtbar .n3-note--2 { animation-delay: 1.5s; }
+.n3-schritte.ist-sichtbar .n3-note--3 { animation-delay: 2.1s; }
+
+/* ============ Preis ============ */
+.n3-preis { max-width: 64rem; }
+.n3-preis__karte { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; gap: clamp(1.4rem, 3vw, 2.4rem); padding: clamp(1.4rem, 3vw, 2.2rem); }
+.n3-preis__titel { margin: .4rem 0 1.4rem; color: #fff; font-family: var(--s7-schrift-titel); font-size: clamp(1.35rem, 2vw, 1.7rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.n3-preis__liste { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.n3-preis__liste li { display: flex; align-items: flex-start; gap: .9rem; color: rgba(255,255,255,.86); font-size: .92rem; line-height: 1.45; }
+.n3-preis__liste li b { display: block; color: #fff; font-size: 1.02rem; }
+.n3-preis__icon { display: grid; place-items: center; flex: none; width: 2.6rem; height: 2.6rem; border-radius: 12px; background: rgba(255,255,255,.16); box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); color: #fff; backdrop-filter: blur(6px); }
+.n3-preis__icon .n3-icon { width: 1.3rem; height: 1.3rem; }
+/* rechts: weiße Preiskarte, damit der Preis heraussticht */
+.n3-preis__angebot { position: relative; display: grid; gap: .9rem; align-content: start; padding: clamp(1.3rem, 2.4vw, 1.8rem); border-radius: 22px; background: #fff; color: var(--s7-tinte); box-shadow: 0 30px 60px -30px rgba(14,14,16,.55); }
+.n3-preis__kopf { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.n3-preis__marke { color: var(--s7-grau); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.n3-preis__betrag { display: flex; align-items: flex-end; gap: .9rem; }
+.n3-preis__betrag b { font-family: var(--s7-schrift-titel); font-size: clamp(4rem, 7vw, 5.6rem); font-weight: 800; line-height: .9; letter-spacing: -0.05em; background: var(--n3-verlauf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.n3-preis__betrag span { display: grid; gap: .1rem; padding-bottom: .45rem; color: var(--s7-grau); font-size: .95rem; line-height: 1.2; }
+.n3-preis__betrag s { color: var(--s7-tinte); font-size: 1.5rem; font-weight: 700; text-decoration-color: #c8102e; text-decoration-thickness: 3px; }
+.n3-uhr--klein { gap: .35rem; }
+.n3-uhr--klein .av9n-uhr__l { color: var(--s7-grau) !important; font-size: .68rem !important; }
+.n3-uhr--klein .av9n-angebot__felder { gap: .35rem; }
+.n3-uhr--klein .av9n-uhr__f { min-width: 2.9rem; padding: .35rem .4rem .3rem; border-radius: 10px; background: #f2f2f4 !important; }
+.n3-uhr--klein .av9n-uhr__f b { color: var(--s7-tinte); font-size: 1.15rem; }
+.n3-uhr--klein .av9n-uhr__f small { color: var(--s7-grau) !important; font-size: .6rem; }
+.n3-preis__angebot .n3-knopf { justify-self: start; margin-top: .2rem; }
+.n3 .n3-preis__fein { color: var(--s7-grau); font-size: .74rem; line-height: 1.45; }
+
+/* ============ Kontakt ============ */
+.n3 .n3-kontakt .s7-lead { max-width: 40rem; text-wrap: pretty; }
+.n3-weg { display: inline-flex; align-items: center; gap: .8rem; color: #fff; text-decoration: none; }
+.n3-weg span:last-child { display: grid; line-height: 1.25; }
+.n3-weg small { color: #a1a1a6; font-size: .75rem; }
+.n3-weg__icon { display: grid; place-items: center; flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); transition: background .2s; }
+.n3-weg__icon .n3-icon { width: 1.15rem; height: 1.15rem; }
+.n3-weg:hover .n3-weg__icon { background: var(--n3-verlauf); }
+.n3-kontakt__wege { gap: 1rem; }
+
+
+/* ============ Breakpoints ============ */
+@media (max-width: 900px) {
+  .n3-konfig .b2-konfig__buehne { position: relative; top: 0; width: 100%; box-sizing: border-box; }
+  .n3-schritt__bild { height: 12.5rem; }
+  .n3-pl { grid-template-columns: minmax(0, 1fr); max-width: 28rem; }
+  .n3-bruecke { flex-direction: column; }
+  .n3-bruecke__linie { width: 2px; height: 1.6rem; background: linear-gradient(180deg, rgba(11,159,189,.25), rgba(134,19,161,.25)); }
+  .n3-bruecke__linie i { left: 0; top: -40%; width: 100%; height: 40%; background: linear-gradient(180deg, transparent, #0b9fbd, #8613a1, transparent); animation-name: n3-strahl-hoch; }
+  .n3-schritte { grid-template-columns: minmax(0, 1fr); max-width: 30rem; margin-inline: auto; }
+  .n3-schritte::before { left: 2.25rem; right: auto; top: 2rem; bottom: 2rem; width: 2px; height: auto; background: linear-gradient(180deg, #0b9fbd, #3a5fc0, #8613a1); transform: scaleY(0); transform-origin: top; }
+  .n3-schritte.ist-sichtbar::before { transform: scaleY(1); }
+  .n3-preis__karte { grid-template-columns: minmax(0, 1fr); }
+}
+@keyframes n3-strahl-hoch { to { top: 100%; } }
+@media (max-width: 640px) {
+  .n3 .n3-teil { padding: 1.1rem 1.1rem 1.4rem; }
+  .n3 .n3-teil figcaption { font-size: .92rem; }
+  .n3-preis__betrag b { font-size: 4.2rem; }
+  .n3-preis__angebot .n3-knopf { justify-self: stretch; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .n3 *, .n3 *::before, .n3 *::after { animation: none !important; transition: none !important; }
+  .n3-schritt, .n3-schritte .n3-note { opacity: 1 !important; transform: none !important; }
+  .n3-schritte::before { transform: none !important; }
+}
+
+/* ============ Runde 2 (Noah, 22.11.2026) ============ */
+/* Black Week: Knopf wie „Termin auswählen“, Inhalt ist der Countdown */
+.n3-bw { display: flex; justify-content: center; margin-top: 2rem; }
+.n3 .n3-bw-knopf { gap: .8rem; padding: .5rem 1.2rem .5rem .5rem; font-variant-numeric: tabular-nums; }
+.n3-bw-knopf__marke { padding: .45rem .75rem; border-radius: 99px; background: var(--n3-verlauf); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.n3-bw-knopf__uhr { display: inline-flex; align-items: baseline; gap: .2rem; white-space: nowrap; }
+.n3-bw-knopf__uhr b { min-width: 1.35em; font-size: 1.05rem; font-weight: 700; text-align: right; }
+.n3-bw-knopf__uhr small { margin-right: .45rem; color: rgba(255,255,255,.62); font-size: .78rem; font-weight: 500; }
+.n3-bw-knopf__uhr small:last-child { margin-right: 0; }
+
+/* Gestaltung: Designs nebeneinander, kompakte rechte Spalte, bündig mit dem MacBook */
+.n3 .n3-konfig { align-items: center; }
+.n3 .n3-konfig .b2-konfig__buehne { position: relative; top: 0; }
+.n3 .n3-konfig .b2-konfig__l { margin: 1.4rem 0 .6rem; }
+.n3 .n3-konfig .b2-konfig__l:first-child { margin-top: 0; }
+.n3 .n3-konfig .b2-stile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.n3 .n3-konfig .b2-stil { flex-direction: column; align-items: stretch; gap: .45rem; padding: .45rem .45rem .55rem; font-size: .8rem; line-height: 1.25; text-align: center; }
+.n3 .n3-konfig .b2-stil img { width: 100%; }
+.n3 .n3-feld { height: 7rem; }
+.n3 .n3-farbe { gap: .6rem; }
+.n3-info { display: flex; align-items: flex-start; gap: .55rem; margin-top: 1.3rem; padding: .75rem .9rem; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-text); font-size: .85rem; line-height: 1.45; }
+.n3-info .n3-icon { width: 1.15rem; height: 1.15rem; margin-top: .05rem; color: #3a5fc0; }
+
+.n3-farbe__kopf { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.2rem 0 .6rem; }
+.n3 .n3-farbe__kopf .b2-konfig__l { margin: 0; }
+.n3-farbe__kopf .n3-hex { padding: .25rem .6rem .25rem .3rem; font-size: .88rem; }
+.n3-farbe__kopf .n3-hex i { width: 1.4rem; height: 1.4rem; border-radius: 6px; }
+.n3 .n3-feld { height: 6.6rem; }
+
+/* Positionierung: Merkblatt mit Fließtext */
+.n3-blatt { padding: 1.3rem 1.6rem 1.5rem 1.4rem; }
+.n3-blatt__kopf { justify-content: flex-start; gap: .9rem; }
+.n3-blatt__kopf em { color: #b0b0b5; }
+.n3-blatt__titel { margin: 0 0 .55rem; color: var(--s7-tinte); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; }
+.n3-blatt__text { margin: 0; color: #8a8c93; font-family: Georgia, "Times New Roman", serif; font-size: .86rem; line-height: 1.8; text-align: left; hyphens: manual; -webkit-mask: linear-gradient(180deg, #000 62%, transparent 100%); mask: linear-gradient(180deg, #000 62%, transparent 100%); }
+.n3-blatt__text mark { white-space: nowrap; padding: .05rem .2rem; border-radius: 4px; color: #3b3d44; font-weight: 600; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  background: linear-gradient(#c8102e, #c8102e) no-repeat 0 58% / 0% 2px, #eceef5;
+  transition: background-size .5s cubic-bezier(.6,0,.3,1) calc(.3s + var(--i) * .14s), color .3s calc(.5s + var(--i) * .14s); }
+.n3-pl.ist-sichtbar .n3-blatt__text mark { background-size: 100% 2px, auto; color: #a3a5ab; }
+.n3 .n3-cta { margin-top: clamp(3rem, 5vw, 4.2rem); }
+
+/* Schritt 3: Anfragen sauber untereinander */
+.n3-anfragen { display: flex; flex-direction: column; justify-content: center; gap: .5rem; }
+.n3 .n3-note { position: relative; left: auto; top: auto; width: 100%; max-width: 17rem; margin-inline: auto; padding: .5rem .75rem .5rem .55rem; gap: .6rem; border-radius: 14px; transform: none; }
+.n3 .n3-note b { font-size: .8rem !important; }
+.n3 .n3-note small { font-size: .7rem !important; }
+.n3 .n3-note .s9-app { width: 1.6rem; height: 1.6rem; border-radius: 7px; }
+.n3-schritte .n3-note { opacity: 0; transform: translateY(10px) scale(.97); }
+@keyframes n3-rein { to { opacity: 1; transform: none; } }
+
+/* Preis: linke Spalte vertikal zentriert */
+.n3 .n3-preis__inhalt { display: flex; flex-direction: column; justify-content: center; }
+.n3 .n3-preis__titel { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .n3 .n3-feld { height: 8rem; }
+}
+@media (max-width: 640px) {
+  .n3 .n3-bw-knopf { gap: .55rem; padding-right: .9rem; }
+  .n3-bw-knopf__marke { padding: .4rem .55rem; font-size: .64rem; }
+  .n3-bw-knopf__uhr small { margin-right: .3rem; }
+  .n3-blatt__kopf em { display: none; }
+  .n3 .n3-konfig .b2-stil { font-size: .74rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .n3-schritte .n3-note { transform: none !important; }
+}
