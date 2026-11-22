@@ -163,6 +163,11 @@
   window.ssTrack = function (name, props) {
     einreihen(name, props);
   };
+  // Eigene Sitzungs-ID – nur mit Einwilligung, sonst null. tracking.js gibt sie
+  // bei direkten Cal.com-Links als Buchungs-Metadatum mit (Zuordnung der Buchung).
+  window.ssSitzung = function () {
+    return einwilligung && sitzung ? sitzung : null;
+  };
 
   // Vor der Einwilligungsabfrage einreihen, damit er im ersten Paket mitgeht.
   einreihen("page_view", {}, { referrer: document.referrer });

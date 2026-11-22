@@ -17,7 +17,10 @@
     terminGeoeffnet: "termin_geoeffnet",  // Kalender wurde sichtbar (nach Einwilligung)
     terminGebucht: "termin_gebucht",      // die eigentliche Conversion
     pricingWechsel: "pricing_wechsel",    // monatlich <-> jährlich
-    themaKlick:    "vertriebsstrecke_klick"
+    themaKlick:    "vertriebsstrecke_klick",
+    terminCta:     "termin_cta_klick",    // Klick auf einen direkten Cal.com-Link (Landingpages ohne eingebetteten Kalender)
+    konfigDesign:  "konfigurator_design", // Konfigurator: Design gewählt
+    konfigFarbe:   "konfigurator_farbe"   // Konfigurator: Farbe gewählt
   };
 
   /** Sendet direkt über gtag; ohne gtag als dataLayer-Push, damit ein
@@ -39,6 +42,62 @@
     }
   }
 
+  /* --- Einwilligung und Kennungen ---------------------------------------
+     Ohne Cookie-Banner (Vorschau, lokal) gilt wie in firstparty.js alles als erlaubt. */
+  function erlaubt(kategorie) {
+    if (!document.getElementById("Cookiebot")) return true;
+    var c = window.Cookiebot && window.Cookiebot.consent;
+    return !!(c && c[kategorie]);
+  }
+
+  /** GA4-Kennungen aus den eigenen Cookies (_ga, _ga_<Stream>). Gibt es nur mit Einwilligung. */
+  function gaKennungen() {
+    var out = {};
+    (document.cookie || "").split(";").forEach(function (teil) {
+      var i = teil.indexOf("=");
+      if (i < 0) return;
+      var k = teil.slice(0, i).trim(), v = teil.slice(i + 1).trim();
+      if (k === "_ga") {
+        var t = v.split(".");                       // GA1.1.<zahl>.<zahl>
+        if (t.length >= 4) out.cid = t.slice(-2).join(".");
+      } else if (k.indexOf("_ga_") === 0 && !out.sid) {
+        var m = v.match(/^GS\d\.\d\.s?(\d+)/);     // GS1.1.<sid>… oder GS2.1.s<sid>$…
+        if (m) out.sid = m[1];
+      }
+    });
+    return out;
+  }
+
+  function istCalLink(a) {
+    return /(^|\.)cal\.(eu|com)$/i.test(a.hostname || "");
+  }
+
+  /** Hängt Kennungen als Buchungs-Metadaten an den Cal.com-Link (nur mit Einwilligung "Statistik").
+      Cal.com speichert metadata[…] an der Buchung und schickt es im Webhook mit:
+      ss_sid → Buchung wird in unserer Datenbank dem Website-Besuch zugeordnet,
+      ga_cid/ga_sid → der Server meldet termin_gebucht an GA4 (Measurement Protocol).
+      Kampagnenparameter der aktuellen Adresse gehen ebenfalls mit. */
+  function calLinkAnreichern(a) {
+    try {
+      var u = new URL(a.href);
+      ["ss_sid", "ga_cid", "ga_sid", "ga_ads", "ss_int"].forEach(function (k) { u.searchParams.delete("metadata[" + k + "]"); });
+      if (erlaubt("statistics")) {
+        var sid = typeof window.ssSitzung === "function" ? window.ssSitzung() : null;
+        if (sid) u.searchParams.set("metadata[ss_sid]", sid);
+        var ga = gaKennungen();
+        if (ga.cid) u.searchParams.set("metadata[ga_cid]", ga.cid);
+        if (ga.sid) u.searchParams.set("metadata[ga_sid]", ga.sid);
+        if (erlaubt("marketing")) u.searchParams.set("metadata[ga_ads]", "1");
+        try { if (localStorage.getItem("ss_internal") === "1") u.searchParams.set("metadata[ss_int]", "1"); } catch (e) {}
+      }
+      var hier = new URLSearchParams(location.search);
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (k) {
+        if (hier.has(k) && !u.searchParams.has(k)) u.searchParams.set(k, hier.get(k).slice(0, 200));
+      });
+      a.href = u.toString();
+    } catch (e) {}
+  }
+
   /* --- Klicks ---------------------------------------------------------- */
   function initKlicks() {
     document.addEventListener("click", function (e) {
@@ -46,7 +105,15 @@
       if (!a) return;
       var href = a.getAttribute("href") || "";
 
-      if (href.indexOf("mailto:") === 0) {
+      if (istCalLink(a)) {
+        // Vor der Navigation: der Browser folgt dem href erst nach diesem Handler.
+        calLinkAnreichern(a);
+        var text = (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60);
+        var bereich = a.closest("section[id]");
+        var abschnitt = bereich ? bereich.id : (a.closest("header") ? "kopf" : "");
+        track(EVENTS.terminCta, { quelle: location.pathname, text: text, abschnitt: abschnitt },
+          { name: "cta_click", props: { ziel: "termin", text: text, section: abschnitt } });
+      } else if (href.indexOf("mailto:") === 0) {
         track(EVENTS.mail, { ziel: href.replace("mailto:", "") },
           { name: "cta_click", props: { ziel: "mail" } });
       } else if (href.indexOf("tel:") === 0) {
@@ -227,10 +294,51 @@
     window.addEventListener("pagehide", senden);
   }
 
+  /* --- Konfigurator (Landingpages mit [data-n3-konfig]) ----------------
+     Design-Wahl sofort; Farbe erst, wenn sie feststeht: Ende des Ziehens im
+     Farbfeld, Pfeiltasten nach kurzer Pause, Hex-Code beim Verlassen. */
+  function initKonfigurator() {
+    var k = document.querySelector("[data-n3-konfig]");
+    if (!k) return;
+    var hex = k.querySelector("[data-n3-hex]");
+    var letzte = null, pause = null;
+    function designName(b) { return (b.textContent || "").replace(/\s+/g, " ").trim().slice(0, 40); }
+    var aktiv = k.querySelector("[data-b2-stil][aria-pressed='true']");
+    var letztesDesign = aktiv ? designName(aktiv) : null;   // Ausgangsdesign nicht melden
+
+    k.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-b2-stil]");
+      if (!b) return;
+      var design = designName(b);
+      if (design === letztesDesign) return;           // erneuter Klick aufs gewählte Design
+      letztesDesign = design;
+      track(EVENTS.konfigDesign, { design: design },
+        { name: "configurator_change", props: { feld: "design", wert: design } });
+    });
+
+    function farbe() {
+      if (!hex || !hex.value) return;
+      var wert = "#" + hex.value.toUpperCase();
+      if (letzte === null) letzte = wert;           // Ausgangsfarbe nicht melden
+      if (wert === letzte) return;
+      letzte = wert;
+      track(EVENTS.konfigFarbe, { farbe: wert },
+        { name: "configurator_change", props: { feld: "farbe", wert: wert } });
+    }
+    if (hex && hex.value) letzte = "#" + hex.value.toUpperCase();
+    k.addEventListener("pointerup", function (e) { if (e.target.closest("[data-n3-feld]")) setTimeout(farbe, 0); });
+    k.addEventListener("keyup", function (e) {
+      if (!e.target.closest("[data-n3-feld]")) return;
+      clearTimeout(pause); pause = setTimeout(farbe, 1200);
+    });
+    k.addEventListener("change", function (e) { if (e.target === hex) setTimeout(farbe, 0); });
+  }
+
   function init() {
     initKlicks();
     initTermin();
     initSektionen();
+    initKonfigurator();
   }
 
   document.readyState === "loading"

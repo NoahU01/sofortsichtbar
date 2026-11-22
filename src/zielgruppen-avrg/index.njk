@@ -3,7 +3,7 @@ permalink: /zielgruppen/avrg/index.html
 layout: false
 eleventyExcludeFromCollections: true
 ---
-{#- Erzeugt von werkzeuge/avrg_live.py (Branch daniel). Von Hand ergänzt auf main: Logo verlinkt auf den Seitenanfang (#n3), scroll-padding für die feste Leiste, id="ablauf" – beim nächsten Erzeugen mit übernehmen. -#}
+{#- Erzeugt von werkzeuge/avrg_live.py (Branch daniel). Von Hand ergänzt auf main: Logo verlinkt auf den Seitenanfang (#n3), scroll-padding für die feste Leiste, id="ablauf", id="start" am Hero, firstparty.js + tracking.js – beim nächsten Erzeugen mit übernehmen. -#}
 <!doctype html>
 <html lang="de">
 <head>
@@ -2041,7 +2041,7 @@ html{scroll-padding-top:72px}
 </div>
 </header>
 <link rel="stylesheet" href="/zielgruppen/avrg/assets/kampagnen-avrg/avrg3.css?v=2">
-<main class="s9 av9 n3" id="n3"><section class="s9-held av9-kopf1 n3-held">
+<main class="s9 av9 n3" id="n3"><section class="s9-held av9-kopf1 n3-held" id="start">
     <div class="s7-wrap av9n-k1">
       <p class="s9-kicker n3-kicker">Altersvorsorgedepot ab Januar 2027 · <span class="n3-nw">Fertige Vertriebsstrecke für Agenturen und Makler</span></p>
       <h1 class="s9-h1 n3-h1">Das Altersvorsorgedepot startet.<br><span class="s7-wort">Deine Beratungstermine auch.</span></h1>
@@ -2184,6 +2184,9 @@ html{scroll-padding-top:72px}
 
 </main>
 <script src="/zielgruppen/avrg/assets/kampagnen-avrg/avrg3.js?v=2" defer></script>
+<!-- Tracking wie auf allen Seiten: firstparty.js (eigene Datenbank, serverseitig über /api/track) VOR tracking.js (GA4-Events) -->
+<script src="/assets/js/firstparty.js" data-cookieconsent="ignore" defer></script>
+<script src="/assets/js/tracking.js" defer></script>
 
 
 <footer class="s7-fuss"><div class="s7-wrap"><span>© sofort sichtbar 2026</span><span><a href="/datenschutzerklarung/">Datenschutz</a><a href="/impressum/">Impressum</a></span></div></footer>
