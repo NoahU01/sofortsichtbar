@@ -363,28 +363,6 @@ eleventyExcludeFromCollections: true
   });
 })();
 </script>
-<!-- ENTWICKLUNG:START (nur Daniels Branch – nie auf main) -->
-<!-- Header-Ticket: Inhalt wie das rote Ticket, Layout im Look des Flyers (540-€-Schein). Varianten 1 · 2 · 3 zum Durchklicken -->
-<style>
-.ticket-buehne [hidden]{display:none!important}
-.ticket--schein,.ticket--violett{--vio:#6a2d6e}
-.ticket--schein::before,.ticket--violett::before{background:rgba(80,30,90,.34)}
-.ticket--schein .ticket__abriss,.ticket--violett .ticket__abriss{background:#fff;border-left-color:#b9b4ad}
-/* Variante 2: heller Schein als Grund, violettes Band unten */
-.ticket--schein .ticket__haupt{color:var(--ink);background:linear-gradient(rgba(247,243,247,.8),rgba(247,243,247,.8)),#f3eef3 url(/assets/projekte/avrg/flyer/geldschein-540.svg) 72% 30%/auto 150% no-repeat;overflow:hidden}
-.ticket--schein .ticket__art{color:var(--vio)}
-.ticket--schein .ticket__box{border-color:var(--vio)}
-.ticket--schein.ist-sichtbar .ticket__box{background:var(--vio);border-color:var(--vio);color:#fff}
-.ticket--schein .ticket__fuss{margin:1.5rem -28px -28px;padding:16px 28px 18px;background:var(--vio);color:#fff;border-top:0}
-/* Variante 3: das violette Band wird zum Ticket, der Schein liegt als Struktur darunter */
-.ticket--violett .ticket__haupt{background:linear-gradient(rgba(106,45,110,.88),rgba(106,45,110,.88)),#6a2d6e url(/assets/projekte/avrg/flyer/geldschein-540.svg) 72% 30%/auto 150% no-repeat}
-.ticket--violett.ist-sichtbar .ticket__box{color:var(--vio)}
-@media (max-width:700px){.ticket--schein .ticket__fuss{margin:1.3rem -20px -22px;padding:14px 20px 16px}}
-.tk-wahl{position:fixed;left:16px;bottom:16px;z-index:9999;display:flex;align-items:center;gap:6px;padding:6px 8px 6px 12px;background:#1a1817;color:#fff;border-radius:999px;font:600 12px/1 var(--font);box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.tk-wahl button{width:30px;height:30px;border-radius:50%;border:0;background:#3a3633;color:#fff;font:700 13px/1 var(--font);cursor:pointer}
-.tk-wahl button[aria-pressed="true"]{background:#fff;color:#1a1817}
-</style>
-
 </body>
 </html>
 {% endraw %}

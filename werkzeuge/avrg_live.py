@@ -123,6 +123,7 @@ def hauptseite():
     html = html.replace('href="/datenschutzerklarung"', 'href="/datenschutzerklarung/"').replace('href="/impressum"', 'href="/impressum/"')
     # Live-Kopf: im Entwicklungsstand ist der Terminknopf erst ab Desktop sichtbar – live auch mobil, dort ohne Menü daneben
     html = html.replace("</style>", "\n/* Live-Kopf ohne Menü (avrg_live.py) */\n.av9-live-kopf .s7-wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}\n.av9-live-kopf .s7-kopf__termin{display:inline-flex}\n@media (max-width:600px){.av9-live-kopf .s7-kopf__termin{padding:.6rem 1.05rem;font-size:.9rem}}\n</style>", 1)
+    html = re.sub(r"<!-- ENTWICKLUNG:START.*?(?:ENTWICKLUNG:END[^>]*-->|(?=</body>))", "", html, flags=re.S)
     html = umschreiben(html)
     reste = sorted(set(re.findall(r'(?:href|src)="(/(?!zielgruppen/avrg/|assets/img/logos/|datenschutzerklarung/|impressum/)[^"]*)"', html)))
     if reste:
@@ -139,6 +140,8 @@ def hauptseite():
 def vorschau(nr):
     html = open(f"{DIST}/entwicklung/kampagnen/avrg/landingpage-{nr}/index.html", encoding="utf-8").read()
     html = div_entfernen(html, '<div class="lp-leiste"')
+    # Entwicklungsblöcke (Variantenumschalter) gehören nicht auf die Live-Seite
+    html = re.sub(r"<!-- ENTWICKLUNG:START.*?(?:ENTWICKLUNG:END[^>]*-->|(?=</body>))", "", html, flags=re.S)
     html = re.sub(r'href="/entwicklung/kampagnen/avrg/"', 'href="#"', html)
     html = umschreiben(html)
     reste = sorted(set(re.findall(r'(?:href|src)="(/(?!zielgruppen/avrg/|assets/img/logos/)[^"]*)"', html)))
@@ -146,6 +149,9 @@ def vorschau(nr):
         raise SystemExit(f"Landingpage {nr}: noch Verweise: " + ", ".join(reste))
     if "/entwicklung/" in html:
         raise SystemExit(f"Landingpage {nr}: Entwicklungsverweise übrig")
+    for muster in ("data-dev-dd", "ENTWICKLUNG:START", "Nur in der Entwicklungsumgebung sichtbar", "/ Entwicklung /"):
+        if muster in html:
+            raise SystemExit(f"Landingpage {nr}: Entwicklungsinhalt übrig ({muster})")
     i = html.index("<head>") + len("<head>")
     html = html[:i] + '\n<meta name="robots" content="noindex,nofollow">' + html[i:]
     seite = ("---\n" f"permalink: {URL}/vorschau/landingpage-{nr}/index.html\n" "layout: false\neleventyExcludeFromCollections: true\n---\n"
