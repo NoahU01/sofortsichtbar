@@ -35,6 +35,7 @@ const ERLAUBT = new Set([
   "page_view", "session_start", "section_view", "section_time", "scroll_depth",
   "cta_click", "form_start", "form_submit", "file_download",
   "booking_widget_view", "pricing_toggle", "meeting_booked",
+  "configurator_change",
 ]);
 
 const BOT = /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|gtmetrix|preview|facebookexternalhit|embedly|curl|wget|python|axios|node-fetch|go-http|java\/|monitor|uptime|pingdom/i;
