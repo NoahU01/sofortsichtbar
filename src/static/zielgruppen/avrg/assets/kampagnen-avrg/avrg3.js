@@ -55,18 +55,40 @@
       };
       kappen(); setTimeout(kappen, 800);
     } catch (e) {}
-    faerben(fr); fr.parentNode.classList.add('ist-bereit');
+    faerben(fr); fr.classList.add('ist-geladen'); sichtbar();
   }
-  var rahmen = [];
+  /* Alle drei Designs werden einmal geladen und liegen übereinander im MacBook.
+     Ein Klick schaltet nur noch um – sofort, ohne Nachladen. Bis eine Seite geladen ist,
+     steht das passende Standbild (lpN-sofort.webp) im Bildschirm. */
+  var rahmen = [], boxen = [], NR = ['1', '2', '3'];
   document.querySelectorAll('#n3 [data-b2-live]').forEach(function (box) {
-    var fr = document.createElement('iframe');
-    fr.setAttribute('title', 'Vorschau der Landingpage'); fr.setAttribute('aria-hidden', 'true'); fr.setAttribute('tabindex', '-1');
-    fr.addEventListener('load', function () { vorbereiten(fr); });
-    box.appendChild(fr); rahmen.push(fr);
-    var passen = function () { fr.style.transform = 'scale(' + (box.clientWidth / 1440) + ')'; };
+    var b = { box: box, img: box.querySelector('img'), frames: {} };
+    NR.forEach(function (nr) {
+      var fr = document.createElement('iframe');
+      fr.setAttribute('title', 'Vorschau der Landingpage'); fr.setAttribute('aria-hidden', 'true'); fr.setAttribute('tabindex', '-1');
+      fr.addEventListener('load', function () { if (fr.getAttribute('src')) vorbereiten(fr); });
+      box.appendChild(fr); rahmen.push(fr); b.frames[nr] = fr;
+    });
+    var passen = function () { var sk = 'scale(' + (box.clientWidth / 1440) + ')'; NR.forEach(function (nr) { b.frames[nr].style.transform = sk; }); };
     if (window.ResizeObserver) new ResizeObserver(passen).observe(box); passen();
+    boxen.push(b);
   });
-  function laden() { rahmen.forEach(function (fr) { fr.parentNode.classList.remove('ist-bereit'); fr.src = LP + stil + '/?farbe=sofort&vorschau'; }); }
+  function sichtbar() {
+    boxen.forEach(function (b) {
+      if (b.img) { var bild = b.img.getAttribute('src').replace(/lp\d-sofort/, 'lp' + stil + '-sofort'); if (b.img.getAttribute('src') !== bild) b.img.setAttribute('src', bild); }
+      NR.forEach(function (nr) { var fr = b.frames[nr]; fr.classList.toggle('ist-an', nr === stil && fr.classList.contains('ist-geladen')); });
+    });
+  }
+  /* Gewähltes Design zuerst laden, die anderen beiden direkt danach */
+  function laden() {
+    var reihe = [stil].concat(NR.filter(function (nr) { return nr !== stil; }));
+    boxen.forEach(function (b) { reihe.forEach(function (nr, i) {
+      var fr = b.frames[nr]; if (fr.getAttribute('src')) return;
+      var los = function () { fr.src = LP + nr + '?farbe=sofort&vorschau'; };
+      if (i === 0) los(); else b.frames[reihe[0]].addEventListener('load', los, { once: true });
+    }); });
+    sichtbar();
+  }
 
   function zeige(quelle) {
     var v = vars();
@@ -110,7 +132,7 @@
   });
   hexFeld.addEventListener('blur', function () { hexFeld.value = vars().hex; hexFeld.classList.remove('ist-falsch'); });
 
-  k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); laden(); zeige(); }); });
+  k.querySelectorAll('[data-b2-stil]').forEach(function (b) { b.addEventListener('click', function () { stil = b.getAttribute('data-b2-stil'); sichtbar(); zeige(); }); });
   laden(); zeige();
 })();
 

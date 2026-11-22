@@ -244,3 +244,7 @@
 @media (prefers-reduced-motion: reduce) {
   .n3-schritte .n3-note { transform: none !important; }
 }
+
+/* Konfigurator: drei Vorschau-Iframes übereinander, nur das gewählte ist sichtbar (sofortiger Wechsel) */
+#n3 .b2-live iframe{opacity:0;visibility:hidden;transition:none}
+#n3 .b2-live iframe.ist-an{opacity:1;visibility:visible}
