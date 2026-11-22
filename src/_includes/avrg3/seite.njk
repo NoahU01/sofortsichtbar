@@ -2,7 +2,6 @@
     Klon von /zielgruppen/avrg-2 (Daniel) mit Noahs Feedback:
     - Kopf 1 fest, Kopf 2 und Umschalter raus
     - Reihenfolge: Kopf · Das bekommst du · Gestaltung · Positionierung · Schritte · Preis · Kontakt
-    - Textalternativen für den Kopf über den Text-Umschalter unten links (?hero=1…4)
     Stil: n3- (avrg3.css), Verhalten: avrg3.js. Liegt im Storyboard (src/entwicklung darf nie auf main). -#}
 {%- set AV = "/entwicklung/kampagnen/avrg/assets" %}
 {%- set ic = {
@@ -27,10 +26,7 @@
   <section class="s9-held av9-kopf1 n3-held">
     <div class="s7-wrap av9n-k1">
       <p class="s9-kicker n3-kicker">Altersvorsorgedepot ab Januar 2027 · <span class="n3-nw">Fertige Vertriebsstrecke für Agenturen und Makler</span></p>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="1">Das Altersvorsorgedepot kommt.<br><span class="s7-wort">Deine Termine kommen mit.</span></h1>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="2" hidden>Das Altersvorsorgedepot startet.<br><span class="s7-wort">Deine Beratungstermine auch.</span></h1>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="3" hidden>Ab Januar kommt das Depot.<br><span class="s7-wort">Und deine Kunden kommen zu dir.</span></h1>
-      <h1 class="s9-h1 n3-h1" data-alt="hero" data-v="4" hidden>Die Fragen zum Depot kommen.<br><span class="s7-wort">Die Antworten kommen von dir.</span></h1>
+      <h1 class="s9-h1 n3-h1">Das Altersvorsorgedepot startet.<br><span class="s7-wort">Deine Beratungstermine auch.</span></h1>
       <p class="s9-lead av9-einleitung">Deine Kunden brauchen jemanden, der Klarheit in die neue Altersvorsorge bringt. Mit der digitalen AVRG-Vertriebsstrecke bist du das: Landingpage, Postings und Mailings an deine Bestandskunden, sofort einsetzbar.</p>
       <div class="s9-knoepfe"><a class="s7-knopf" href="{{ H7 }}/kontakt/">Termin auswählen {{ pfeil | safe }}</a><a class="s9-link" href="#paket">Was du bekommst ›</a></div>
       <div class="av9n-angebot" data-av9-angebot><i class="av9n-angebot__glow" aria-hidden="true"></i><div class="av9n-angebot__karte"><div class="av9n-angebot__preis" data-av9-preis2><small>Black Week</small><b>39 €</b><span>statt <s>89 €</s> im Monat</span></div>{{ uhr() }}</div></div>
@@ -56,7 +52,7 @@
             </ul></div></div>
           <figcaption><span class="n3-teil__marke">{{ icon("mail") }}3 Mailings</span><b>Bestandskunden aktivieren.</b>Du meldest dich, bevor es Bank oder Portal tun. Mit einer Mail an alle, einer an deine Riester-Kunden und einem Follow-up bist du der, der sich kümmert, und holst sie zum Termin.</figcaption></figure>
       </div>
-      <p class="n3-hinweis-bw" data-n3-aktion><span class="n3-hinweis-bw__marke">Black Week</span>Alle drei Bausteine für <b>39 € statt 89 €</b> im Monat, bei Buchung bis 04.12.2026. <a href="{{ H7 }}/kontakt/">Termin auswählen ›</a></p>
+      <div class="n3-bw"><a class="s7-knopf n3-bw-knopf" href="{{ H7 }}/kontakt/" data-n3-aktion aria-label="Black Week: 39 € statt 89 € im Monat, Angebot endet am 04.12.2026. Termin auswählen"><span class="n3-bw-knopf__marke">Black Week</span><span class="n3-bw-knopf__uhr" data-av9-uhr aria-hidden="true"><b data-t>–</b><small>T</small><b data-s>–</b><small>Std</small><b data-m>–</b><small>Min</small><b data-sek>–</b><small>Sek</small></span>{{ pfeil | safe }}</a></div>
     </div>
   </section>
 
@@ -186,14 +182,5 @@
     </div>
   </section>
 
-  {#- Text-Umschalter (nur Entwicklung, vor dem Livegang entfernen) -#}
-  <aside class="n3-texte" data-n3-texte aria-label="Textalternativen">
-    <button type="button" class="n3-texte__auf" data-n3-texte-auf aria-expanded="true">Texte</button>
-    <div class="n3-texte__liste">
-      {%- for g in [["hero", "Kopf"]] %}
-      <div class="n3-texte__zeile" data-gruppe="{{ g[0] }}"><span>{{ g[1] }}</span>{% for v in ["1", "2", "3", "4"] %}<button type="button" data-v="{{ v }}"{% if v == "1" %} aria-pressed="true"{% endif %}>{{ v }}</button>{% endfor %}</div>
-      {%- endfor %}
-    </div>
-  </aside>
 </main>
 <script src="{{ AV }}/avrg3.js?v=1" defer></script>

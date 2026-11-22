@@ -150,15 +150,6 @@
 .n3-weg:hover .n3-weg__icon { background: var(--n3-verlauf); }
 .n3-kontakt__wege { gap: 1rem; }
 
-/* ============ Text-Umschalter (Entwicklung) ============ */
-.n3-texte { position: fixed; left: 1rem; bottom: 1rem; z-index: 60; display: grid; gap: .35rem; padding: .55rem; border-radius: 18px; background: rgba(29,29,31,.92); color: #fff; font-size: .78rem; box-shadow: 0 18px 40px -12px rgba(0,0,0,.5); backdrop-filter: blur(10px); }
-.n3-texte__auf { justify-self: start; padding: .3rem .6rem; border: 0; border-radius: 99px; background: rgba(255,255,255,.12); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
-.n3-texte.ist-zu .n3-texte__liste { display: none; }
-.n3-texte__liste { display: grid; gap: .25rem; }
-.n3-texte__zeile { display: flex; align-items: center; gap: .25rem; }
-.n3-texte__zeile span { min-width: 7.6rem; padding: 0 .4rem; color: #c7c7cc; }
-.n3-texte__zeile button { width: 1.8rem; height: 1.8rem; border: 0; border-radius: 50%; background: transparent; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
-.n3-texte__zeile button[aria-pressed="true"] { background: #fff; color: #1d1d1f; }
 
 /* ============ Breakpoints ============ */
 @media (max-width: 900px) {
@@ -179,7 +170,6 @@
   .n3 .n3-teil figcaption { font-size: .92rem; }
   .n3-preis__betrag b { font-size: 4.2rem; }
   .n3-preis__angebot .n3-knopf { justify-self: stretch; justify-content: center; }
-  .n3-texte__zeile span { min-width: 6.4rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .n3 *, .n3 *::before, .n3 *::after { animation: none !important; transition: none !important; }
@@ -188,12 +178,14 @@
 }
 
 /* ============ Runde 2 (Noah, 22.11.2026) ============ */
-/* Black Week: dezenter Hinweis statt breitem Balken */
-.n3-hinweis-bw { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem .7rem; width: fit-content; max-width: 100%; margin: 1.8rem auto 0; padding: .55rem 1rem .55rem .55rem; border-radius: 99px; background: #fff; box-shadow: 0 0 0 1px var(--s7-linie); color: var(--s7-text); font-size: .9rem; line-height: 1.4; text-align: center; }
-.n3-hinweis-bw b { color: var(--s7-tinte); }
-.n3-hinweis-bw__marke { padding: .25rem .6rem; border-radius: 99px; background: var(--n3-verlauf); color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.n3-hinweis-bw a { color: var(--s7-tinte); font-weight: 600; text-decoration: none; white-space: nowrap; }
-.n3-hinweis-bw a:hover { text-decoration: underline; }
+/* Black Week: Knopf wie „Termin auswählen“, Inhalt ist der Countdown */
+.n3-bw { display: flex; justify-content: center; margin-top: 2rem; }
+.n3 .n3-bw-knopf { gap: .8rem; padding: .5rem 1.2rem .5rem .5rem; font-variant-numeric: tabular-nums; }
+.n3-bw-knopf__marke { padding: .45rem .75rem; border-radius: 99px; background: var(--n3-verlauf); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.n3-bw-knopf__uhr { display: inline-flex; align-items: baseline; gap: .2rem; white-space: nowrap; }
+.n3-bw-knopf__uhr b { min-width: 1.35em; font-size: 1.05rem; font-weight: 700; text-align: right; }
+.n3-bw-knopf__uhr small { margin-right: .45rem; color: rgba(255,255,255,.62); font-size: .78rem; font-weight: 500; }
+.n3-bw-knopf__uhr small:last-child { margin-right: 0; }
 
 /* Gestaltung: Designs nebeneinander, kompakte rechte Spalte, bündig mit dem MacBook */
 .n3 .n3-konfig { align-items: center; }
@@ -243,7 +235,9 @@
   .n3 .n3-feld { height: 8rem; }
 }
 @media (max-width: 640px) {
-  .n3-hinweis-bw { border-radius: 18px; padding: .8rem 1rem; }
+  .n3 .n3-bw-knopf { gap: .55rem; padding-right: .9rem; }
+  .n3-bw-knopf__marke { padding: .4rem .55rem; font-size: .64rem; }
+  .n3-bw-knopf__uhr small { margin-right: .3rem; }
   .n3-blatt__kopf em { display: none; }
   .n3 .n3-konfig .b2-stil { font-size: .74rem; }
 }
